@@ -1,0 +1,64 @@
+name: lifestream-cf-analytics-daily
+
+# Daily cron — fetches Cloudflare Web Analytics daily summary for every
+# configured site and appends one JSONL line per (date, site) to the oriz-me
+# lifestream canonical store.
+#
+# 0 1 * * * UTC matches the literal text of the
+# `lifestream-auto-event-sources` decision. Per the decision the intent is
+# 01:00 IST (= 19:30 UTC previous day).
+
+on:
+  schedule:
+    - cron: '0 1 * * *'
+  workflow_dispatch:
+    inputs:
+      date:
+        description: 'Force a specific YYYY-MM-DD (default: yesterday UTC)'
+        required: false
+        type: string
+
+permissions:
+  contents: read
+
+concurrency:
+  group: lifestream-cf-analytics-daily
+  cancel-in-progress: false
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 10
+          run_install: false
+
+      - name: Install oriz-lifestream package only
+        working-directory: packages/oriz-lifestream
+        run: pnpm install --ignore-workspace --no-frozen-lockfile
+
+      - name: Build oriz-lifestream
+        working-directory: packages/oriz-lifestream
+        run: pnpm build
+
+      - name: Run CF Analytics daily cron
+        env:
+          CF_API_TOKEN: ${{ secrets.CF_API_TOKEN }}
+          CF_ACCOUNT_TAG: ${{ secrets.CF_ACCOUNT_TAG }}
+          CF_SITES_JSON: ${{ vars.CF_SITES_JSON }}
+          LIFESTREAM_INGEST_SECRET: ${{ secrets.LIFESTREAM_INGEST_SECRET }}
+          LIFESTREAM_INGEST_URL: ${{ vars.LIFESTREAM_INGEST_URL }}
+          CF_ANALYTICS_DATE: ${{ inputs.date }}
+          HEALTHCHECK_URL: ${{ secrets.HEALTHCHECK_CF_ANALYTICS_URL }}
+        run: node packages/oriz-lifestream/dist/cf-analytics-daily.js

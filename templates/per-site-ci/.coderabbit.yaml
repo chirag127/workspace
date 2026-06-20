@@ -1,0 +1,68 @@
+# CodeRabbit config for chirag127/oriz-<sitename>.
+# https://docs.coderabbit.ai/guides/configure-coderabbit
+#
+# Auto-review every PR; concise summaries; respect the family rule
+# set documented in knowledge/rules/.
+
+language: en-US
+early_access: false
+tone_instructions: |
+  Match the family's plain, direct, no-emoji voice. Cite files by
+  absolute path. Flag rule violations against knowledge/rules/* by
+  name (e.g. "violates rules/no-hardcoded-secrets").
+
+reviews:
+  profile: chill
+  request_changes_workflow: false
+  high_level_summary: true
+  poem: false
+  review_status: true
+  collapse_walkthrough: true
+  changed_files_summary: true
+  sequence_diagrams: false
+
+  auto_review:
+    enabled: true
+    drafts: false
+    base_branches:
+      - main
+
+  path_filters:
+    - "!**/dist/**"
+    - "!**/build/**"
+    - "!**/.output/**"
+    - "!**/out/**"
+    - "!**/node_modules/**"
+    - "!**/*.lock"
+    - "!**/pnpm-lock.yaml"
+    - "!**/package-lock.json"
+    - "!**/.next/**"
+    - "!**/coverage/**"
+
+  path_instructions:
+    - path: "src/**/*.{ts,tsx,js,jsx,astro}"
+      instructions: |
+        Enforce: no hardcoded secrets, no `firebase-admin` in worker
+        code, no Web3Forms server-side calls, no inline emoji in
+        Chrome-targeted strings. Suggest pnpm idioms over npm/yarn.
+    - path: "**/*.md"
+      instructions: |
+        Markdown changes inside knowledge/ must follow OKF v0.1
+        frontmatter. Don't suggest emoji additions.
+
+  tools:
+    biome:
+      enabled: true
+    eslint:
+      enabled: false
+    actionlint:
+      enabled: true
+    gitleaks:
+      enabled: true
+    markdownlint:
+      enabled: true
+    yamllint:
+      enabled: true
+
+chat:
+  auto_reply: true

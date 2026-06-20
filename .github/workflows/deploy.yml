@@ -1,0 +1,140 @@
+name: Deploy
+
+# Master matrix-deploy workflow for the entire oriz family.
+#
+# Single source of truth for deploying every sub-site to its hosting target.
+# Triggered by:
+#   - push to main on chirag127/oriz (when a submodule pointer is bumped)
+#   - manual workflow_dispatch (pick a single site or "all")
+#   - daily schedule (deploys current pinned SHAs at 03:00 UTC for drift safety)
+#
+# Sub-repos do NOT contain their own deploy workflows. Cloning the master
+# with --recurse-submodules and pushing here is the only path to production.
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'sites/**'
+      - 'packages/**'
+      - '.github/workflows/deploy.yml'
+  workflow_dispatch:
+    inputs:
+      site:
+        description: 'Site to deploy (or "all")'
+        required: true
+        default: 'all'
+        type: choice
+        options:
+          - all
+          - oriz-home
+          - oriz-blog
+          - oriz-book-lore
+          - oriz-books
+          - oriz-cards
+          - oriz-finance
+          - oriz-image-tools
+          - oriz-journal
+          - oriz-pdf-tools
+          - oriz-urls-to-md
+  schedule:
+    # 03:00 UTC daily — redeploys currently-pinned SHAs against any provider drift.
+    - cron: '7 3 * * *'
+
+concurrency:
+  group: deploy-${{ github.ref }}-${{ github.event.inputs.site || 'all' }}
+  cancel-in-progress: false
+
+jobs:
+  matrix:
+    name: Plan deploys
+    runs-on: ubuntu-latest
+    outputs:
+      sites: ${{ steps.plan.outputs.sites }}
+    steps:
+      - id: plan
+        run: |
+          if [ "${{ github.event.inputs.site }}" != "" ] && [ "${{ github.event.inputs.site }}" != "all" ]; then
+            echo "sites=[\"${{ github.event.inputs.site }}\"]" >> "$GITHUB_OUTPUT"
+          else
+            cat <<EOF >> "$GITHUB_OUTPUT"
+          sites=["oriz-home","oriz-blog","oriz-book-lore","oriz-books","oriz-cards","oriz-finance","oriz-image-tools","oriz-journal","oriz-pdf-tools","oriz-urls-to-md"]
+          EOF
+          fi
+
+  deploy:
+    needs: matrix
+    name: Deploy ${{ matrix.site }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    permissions:
+      contents: read
+      deployments: write
+    strategy:
+      fail-fast: false
+      max-parallel: 4
+      matrix:
+        site: ${{ fromJson(needs.matrix.outputs.sites) }}
+    steps:
+      - name: Checkout master with submodules
+        uses: actions/checkout@v4
+        with:
+          submodules: recursive
+          fetch-depth: 1
+
+      - name: Detect host (cloudflare or firebase)
+        id: host
+        run: |
+          if [ "${{ matrix.site }}" = "oriz-journal" ]; then
+            echo "host=firebase" >> "$GITHUB_OUTPUT"
+          else
+            echo "host=cloudflare" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Hydrate env from envpact vault
+        uses: chirag127/envpact-action@v0
+        with:
+          project: ${{ matrix.site }}
+        env:
+          ENVPACT_VAULT_TOKEN: ${{ secrets.ENVPACT_VAULT_TOKEN }}
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 10.34.3
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+          cache-dependency-path: sites/${{ matrix.site }}/pnpm-lock.yaml
+
+      - name: Install
+        working-directory: sites/${{ matrix.site }}
+        run: pnpm install --frozen-lockfile=false
+
+      - name: Build
+        working-directory: sites/${{ matrix.site }}
+        env:
+          UV_THREADPOOL_SIZE: '64'
+        run: pnpm build
+
+      - name: Deploy to Cloudflare Pages
+        if: steps.host.outputs.host == 'cloudflare'
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          workingDirectory: sites/${{ matrix.site }}
+          command: pages deploy dist --project-name=${{ matrix.site }} --branch=main --commit-dirty=true
+
+      - name: Deploy to Firebase Hosting
+        if: steps.host.outputs.host == 'firebase'
+        uses: FirebaseExtended/action-hosting-deploy@v0
+        with:
+          repoToken: ${{ secrets.GITHUB_TOKEN }}
+          firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_ORIZ_APP }}
+          projectId: oriz-app
+          channelId: live
+          entryPoint: sites/${{ matrix.site }}

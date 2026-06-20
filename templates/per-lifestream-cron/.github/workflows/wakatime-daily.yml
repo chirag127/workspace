@@ -1,0 +1,62 @@
+name: lifestream-wakatime-daily
+
+# Daily cron — fetches Wakatime "yesterday" summary and appends one JSONL
+# line to the oriz-me lifestream canonical store.
+#
+# 0 1 * * * UTC matches the literal text of the
+# `lifestream-auto-event-sources` decision. Per the decision the intent is
+# 01:00 IST (= 19:30 UTC previous day) — re-tighten later without touching
+# the @chirag127/oriz-lifestream package.
+
+on:
+  schedule:
+    - cron: '0 1 * * *'
+  workflow_dispatch:
+    inputs:
+      date:
+        description: 'Force a specific YYYY-MM-DD (default: yesterday)'
+        required: false
+        type: string
+
+permissions:
+  contents: read
+
+concurrency:
+  group: lifestream-wakatime-daily
+  cancel-in-progress: false
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 10
+          run_install: false
+
+      - name: Install oriz-lifestream package only
+        working-directory: packages/oriz-lifestream
+        run: pnpm install --ignore-workspace --no-frozen-lockfile
+
+      - name: Build oriz-lifestream
+        working-directory: packages/oriz-lifestream
+        run: pnpm build
+
+      - name: Run Wakatime daily cron
+        env:
+          WAKATIME_API_KEY: ${{ secrets.WAKATIME_API_KEY }}
+          LIFESTREAM_INGEST_SECRET: ${{ secrets.LIFESTREAM_INGEST_SECRET }}
+          LIFESTREAM_INGEST_URL: ${{ vars.LIFESTREAM_INGEST_URL }}
+          WAKATIME_DATE: ${{ inputs.date }}
+          HEALTHCHECK_URL: ${{ secrets.HEALTHCHECK_WAKATIME_URL }}
+        run: node packages/oriz-lifestream/dist/wakatime-daily.js

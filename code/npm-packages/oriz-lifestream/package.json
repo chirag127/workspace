@@ -1,0 +1,93 @@
+{
+  "name": "@chirag127/oriz-lifestream",
+  "version": "0.1.0",
+  "description": "Auto-event source pipelines for the oriz-me JSONL canonical store — GitHub webhooks (Hookdeck → CF Worker) + Wakatime daily-summary cron + Cloudflare Web Analytics daily-summary cron. No manual entry. Day-grain (or per-event for git). Append-only.",
+  "license": "MIT",
+  "author": "Chirag Singhal",
+  "type": "module",
+  "private": false,
+  "publishConfig": {
+    "access": "public"
+  },
+  "files": [
+    "src",
+    "README.md",
+    "CHANGELOG.md",
+    "LICENSE"
+  ],
+  "exports": {
+    ".": {
+      "types": "./src/index.ts",
+      "import": "./src/index.ts",
+      "default": "./src/index.ts"
+    },
+    "./github-webhook": {
+      "types": "./src/github-webhook.ts",
+      "import": "./src/github-webhook.ts",
+      "default": "./src/github-webhook.ts"
+    },
+    "./wakatime-daily": {
+      "types": "./src/wakatime-daily.ts",
+      "import": "./src/wakatime-daily.ts",
+      "default": "./src/wakatime-daily.ts"
+    },
+    "./cf-analytics-daily": {
+      "types": "./src/cf-analytics-daily.ts",
+      "import": "./src/cf-analytics-daily.ts",
+      "default": "./src/cf-analytics-daily.ts"
+    },
+    "./jsonl-append": {
+      "types": "./src/jsonl-append.ts",
+      "import": "./src/jsonl-append.ts",
+      "default": "./src/jsonl-append.ts"
+    },
+    "./types": {
+      "types": "./src/types.ts",
+      "import": "./src/types.ts",
+      "default": "./src/types.ts"
+    },
+    "./package.json": "./package.json"
+  },
+  "main": "./src/index.ts",
+  "module": "./src/index.ts",
+  "types": "./src/index.ts",
+  "scripts": {
+    "lint": "biome check .",
+    "format": "biome format --write .",
+    "typecheck": "tsc --noEmit",
+    "build": "tsc"
+  },
+  "dependencies": {
+    "hono": "latest",
+    "octokit": "latest",
+    "zod": "latest"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "^2.4.8",
+    "@types/node": "^22.10.0",
+    "typescript": "^5.7.2"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "packageManager": "pnpm@10.34.3",
+  "keywords": [
+    "lifestream",
+    "jsonl",
+    "auto-tracking",
+    "github-webhooks",
+    "wakatime",
+    "cloudflare-analytics",
+    "hookdeck",
+    "oriz",
+    "oriz-me"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chirag127/oriz-lifestream.git"
+  },
+  "bugs": {
+    "url": "https://github.com/chirag127/oriz-lifestream/issues"
+  },
+  "homepage": "https://github.com/chirag127/oriz-lifestream#readme"
+}
