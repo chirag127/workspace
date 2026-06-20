@@ -16,66 +16,88 @@ related:
   - glossary/o-r/oriz-kit
 ---
 
-# Repo naming — hybrid suffix policy (sites + npm packages drop, others keep)
+# Repo naming — universal suffix policy (every repo carries a role suffix)
 
-## Decision (revised 2026-06-20)
+## Decision (revised 2026-06-20 evening, second pass)
 
-Suffixes are kept ONLY where the brand alone doesn't make the repo's
-runtime category obvious. Sites and scoped npm packages drop suffixes
-because their identity is unambiguous from context (subdomain or
-`@chirag127/` scope). Everything else keeps the suffix because the
-type is invisible from the brand alone.
+Every chirag127 repo carries a suffix that names its runtime category.
+Sites get `-site`, npm packages stay bare scoped (`@chirag127/<name>`),
+extensions get `-ext` / `-vsc-ext`, CLIs get `-cli`, MCP servers get
+`-mcp`, Cloudflare Workers get `-worker`, Cloudflare/Firebase Functions
+get `-fn`, static-data repos get `-data`, agent skills get `-skill`,
+agent rule bundles get `-rules`. **No exceptions for sites this time** —
+the prior hybrid carve-out (sites bare) is dropped.
 
 | Role | Suffix | Examples |
 |---|---|---|
-| Static site | _(none)_ | `pages`, `lore`, `tabs`, `oriz` |
-| Astro / JS / TypeScript npm package | _(none)_ | `astro-shell`, `astro-icons`, `firebase-init` |
-| Browser extension (Chrome / Firefox / Edge / Safari) | `-ext` | `kagi-summarizer-ext`, `bookmarks-ext` |
+| Static site | `-site` | `pages-site`, `lore-site`, `pdf-tools-site` |
+| Astro / JS / TS npm package | _(none — scoped only)_ | `@chirag127/astro-shell`, `@chirag127/astro-chrome` |
+| Browser extension | `-ext` | `kagi-summarizer-ext`, `bookmarks-ext` |
 | VS Code extension | `-vsc-ext` | `snippets-vsc-ext` |
 | CLI tool | `-cli` | `deploy-cli`, `echo-cli` |
 | Cloudflare Worker | `-worker` | `api-worker` |
-| Cloudflare Function (or Firebase Function) | `-fn` | `og-image-fn` |
+| Cloudflare / Firebase Function | `-fn` | `og-image-fn` |
 | Model Context Protocol server | `-mcp` | `knowledge-mcp` |
 | Static data repo | `-data` | `redirects-data` |
+| Agent skill (Claude Code, etc.) | `-skill` | `grill-me-skill`, `agents-md-sync-skill` |
+| Agent rule bundle | `-rules` | `family-rules` |
 
 **No brand prefix.** The `chirag127/` org slug is already the prefix.
-`oriz-` survives only on legacy repos until next rename.
+**Same name across GitHub repo and npm package** when both exist
+(modulo `@chirag127/` scope on npm).
+**Subdomains stay descriptive and shortest** (`pdf.oriz.in` not
+`pdf-tools-site.oriz.in`). The suffix is a repo-only identifier.
 
-**Same name across GitHub and npm** (when both exist). Subdomains are
-independent and stay descriptive (`pdf.oriz.in` not `slice.oriz.in`)
-even when the repo brand is something different.
+## Why universal suffix (this pass)
 
-**Apex hub exception.** The hub at `oriz.in` is published from
-`chirag127/oriz` (no suffix, brand IS the family name).
+- **Recruiter scanning**: every repo at-a-glance reveals its runtime
+  category from the slug alone. No need to open the repo to learn what
+  it is.
+- **Organization listing readability**: repos sort + group by suffix in
+  `gh repo list` output and on the GitHub user page.
+- **Stamp wordmark**: the family-wide rubber-stamp signature on every
+  site reads `ORIZ · pages-site` / `ORIZ · pdf-tools-site` — the suffix
+  becomes part of the visible brand (per user MCQ this session).
+- **Skill discovery**: `chirag127/*-skill` is grep-able for the agent
+  skills CLI; `chirag127/skill-*` was the old npm-skills convention but
+  inconsistent with the rest of the family.
 
-## Why hybrid
+## Skill repo prefix flip (added 2026-06-20 evening)
 
-Suffixes pay off where the brand is ambiguous:
+Old: `chirag127/skill-<name>` (npm skills CLI install target).
+New: `chirag127/<name>-skill` (consistent with universal suffix).
 
-- **Browser extensions** — `kagi-summarizer-ext` is unambiguously a
-  Chrome/Firefox extension. `kagi-summarizer` could be a CLI, web app,
-  or script.
-- **CLI tools** — `deploy-cli` clearly publishes a binary. `deploy`
-  could be 10 things.
-- **MCP servers / Workers / Functions / data repos** — distinctive
-  runtime categories, recruiter-readable signal, and the brand alone
-  doesn't tell you the runtime.
+Renamed this session:
+- `skill-agents-md-sync` → `agents-md-sync-skill`
+- `skill-claude-code-mcq-notes` → `claude-code-mcq-notes-skill`
 
-Suffixes are noise where context already disambiguates:
+GitHub auto-redirects keep old `npx skills add chirag127/skill-<name>`
+URLs working until the next `gh repo rename` round.
 
-- **Sites** — the subdomain (`blog.oriz.in`, `pages.oriz.in`) and the
-  homepage URL in the description tell you it's a site. `pages-site`
-  adds nothing over `pages`.
-- **Scoped npm packages** — `@chirag127/firebase-init` — the scope
-  already disambiguates from the public unscoped registry. No
-  additional suffix needed.
-- **Apex** — `chirag127/oriz` reads better than `chirag127/oriz-site`.
+## Site rename (this session, third pass)
 
-The earlier all-suffix policy (decided 2026-06-19, see git log) was
-re-evaluated 2026-06-20 against [`naming/policy/family-naming-policy.md`](../naming/policy/family-naming-policy.md)
-and the user's brand-rename pivot. The hybrid policy keeps the
-readability win on extensions/CLIs/MCP/workers/data while letting
-sites and packages have clean brand-only names.
+The earlier brand-only push (`pages`, `lore`, `tabs`, etc.) was reverted.
+All 9 sites carry `-site` suffix now:
+
+| Brand | Repo | Subdomain |
+|---|---|---|
+| pages | `chirag127/pages-site` | blog.oriz.in |
+| lore | `chirag127/lore-site` | (TBD) |
+| ncert | `chirag127/ncert-site` | ncert.oriz.in |
+| tabs | `chirag127/tabs-site` | cards.oriz.in |
+| home | `chirag127/home-site` | oriz.in |
+| roam | `chirag127/roam-site` | journal.oriz.in |
+| me | `chirag127/me-site` | me.oriz.in |
+| echo | `chirag127/echo-site` | post.oriz.in (planned) |
+| janaushdhi | `chirag127/janaushdhi-site` | (TBD) |
+
+## Rejected this session
+
+- Brand-only sites (`pages`, `lore`, `tabs`) — third-pass reversal.
+- Hybrid (sites bare + others suffixed) — replaced by universal suffix
+  for consistency.
+- `chirag127/skill-*` prefix convention — inconsistent with the rest of
+  the family slug pattern.
 
 ## Why
 
