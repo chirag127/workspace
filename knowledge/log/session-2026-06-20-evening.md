@@ -18,14 +18,14 @@ before doing any further work in the family.
 
 | Old | New | Subdomain | Has code |
 |---|---|---|---|
-| chirag127/oriz-blog-site | **chirag127/pages** | blog.oriz.in | yes |
-| chirag127/oriz-book-lore-site | **chirag127/lore** | _(TBD)_ | yes (18MB) |
-| chirag127/oriz-books-site | **chirag127/ncert** | ncert.oriz.in | small |
-| chirag127/oriz-cards-site | **chirag127/tabs** | cards.oriz.in | yes |
-| chirag127/oriz-home-site | **chirag127/home** | oriz.in | yes |
-| chirag127/oriz-journal-site | **chirag127/roam** | journal.oriz.in | yes |
-| chirag127/oriz-me-site | **chirag127/me** | me.oriz.in | yes (renamed from `cs` to `me` last) |
-| chirag127/oriz-omnipost | **chirag127/echo** | post.oriz.in (planned) | yes |
+| chirag127/pages | **chirag127/pages** | blog.oriz.in | yes |
+| chirag127/lore | **chirag127/lore** | _(TBD)_ | yes (18MB) |
+| chirag127/ncert | **chirag127/ncert** | ncert.oriz.in | small |
+| chirag127/tabs | **chirag127/tabs** | cards.oriz.in | yes |
+| chirag127/home | **chirag127/home** | oriz.in | yes |
+| chirag127/roam | **chirag127/roam** | journal.oriz.in | yes |
+| chirag127/me | **chirag127/me** | me.oriz.in | yes (renamed from `cs` to `me` last) |
+| chirag127/echo | **chirag127/echo** | post.oriz.in (planned) | yes |
 | chirag127/oriz-janaushdhi | **chirag127/janaushdhi** | _(TBD)_ | empty stub |
 
 ### 15 tool repos already created earlier in session

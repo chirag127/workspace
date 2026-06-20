@@ -36,13 +36,13 @@ placeholder, commits, and bumps the master pointer.
 
 | Submodule path | Repo |
 |---|---|
-| `sites/oriz-home` | `chirag127/oriz-home` |
-| `sites/oriz-blog` | `chirag127/oriz-blog` |
-| `sites/oriz-books` | `chirag127/oriz-books` |
-| `sites/oriz-book-lore` | `chirag127/oriz-book-lore` |
-| `sites/oriz-cards` | `chirag127/oriz-cards` |
+| `sites/oriz-home` | `chirag127/home` |
+| `sites/oriz-blog` | `chirag127/pages` |
+| `sites/oriz-books` | `chirag127/ncert` |
+| `sites/oriz-book-lore` | `chirag127/lore` |
+| `sites/oriz-cards` | `chirag127/tabs` |
 | `sites/oriz-finance` | `chirag127/oriz-finance` |
-| `sites/oriz-journal` | `chirag127/oriz-journal` |
+| `sites/oriz-journal` | `chirag127/roam` |
 | `sites/oriz-urls-to-md` | `chirag127/oriz-urls-to-md` |
 | `sites/oriz-image-tools` | `chirag127/oriz-image-tools` |
 | `sites/oriz-pdf-tools` | `chirag127/oriz-pdf-tools` |

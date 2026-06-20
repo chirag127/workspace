@@ -28,7 +28,7 @@ and `oriz-book-lore-site`. App sites
 `oriz-home-site` / `oriz-me-site`) do **NOT** carry comments.
 
 Giscus stores every thread as a **GitHub Discussion** in the same
-per-site repo (e.g. `chirag127/oriz-blog-site`'s `Discussions` tab),
+per-site repo (e.g. `chirag127/pages`'s `Discussions` tab),
 mapped 1:1 to the post's URL/path/title via Giscus's `mapping`
 config. There is no separate comment database, no separate moderation
 console — the GitHub Discussions tab is the storage and the moderation
@@ -90,9 +90,9 @@ changes flow through without a reload.
 
 ## Used on
 
-- [`chirag127/oriz-blog-site`](../../decisions/branding/repo-naming-suffixes.md)
+- [`chirag127/pages`](../../decisions/branding/repo-naming-suffixes.md)
   — blog post discussions, mapped by `pathname`
-- [`chirag127/oriz-book-lore-site`](../../decisions/branding/repo-naming-suffixes.md)
+- [`chirag127/lore`](../../decisions/branding/repo-naming-suffixes.md)
   — per-book review discussions, mapped by `title`
 
 NOT on app sites — utility apps don't carry a comments surface (see

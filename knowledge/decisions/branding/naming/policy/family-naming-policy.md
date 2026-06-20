@@ -63,7 +63,7 @@ where it deploys. The **slug body** names the function — what it does.
 ## Brand prefix posture
 
 - **New repos**: no `oriz-` prefix in the slug. The org slug `chirag127/`
-  is already the prefix. `chirag127/oriz-pdf-tools-site` is redundant.
+  is already the prefix. `chirag127/pdf-tools-site` is redundant.
 - **Legacy repos**: `oriz-*` survives until next deliberate rename. Don't
   rename just for cosmetics.
 - **Exception**: when the slug body is a generic English word that would

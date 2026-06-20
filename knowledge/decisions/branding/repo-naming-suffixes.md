@@ -95,17 +95,17 @@ table to consult before any `gh repo create`.
 
   | Current | Target |
   |---|---|
-  | `chirag127/oriz-home` | `chirag127/oriz-home-site` |
-  | `chirag127/oriz-blog` | `chirag127/oriz-blog-site` |
-  | `chirag127/oriz-books` | `chirag127/oriz-books-site` |
-  | `chirag127/oriz-book-lore` | `chirag127/oriz-book-lore-site` |
-  | `chirag127/oriz-cards` | `chirag127/oriz-cards-site` |
-  | `chirag127/oriz-finance` | `chirag127/oriz-finance-site` |
-  | `chirag127/oriz-journal` | `chirag127/oriz-journal-site` |
-  | `chirag127/oriz-urls-to-md` | `chirag127/oriz-urls-to-md-site` |
-  | `chirag127/oriz-image-tools` | `chirag127/oriz-image-tools-site` |
-  | `chirag127/oriz-pdf-tools` | `chirag127/oriz-pdf-tools-site` |
-  | `chirag127/oriz-me` | `chirag127/oriz-me-site` |
+  | `chirag127/home` | `chirag127/home` |
+  | `chirag127/pages` | `chirag127/pages` |
+  | `chirag127/ncert` | `chirag127/ncert` |
+  | `chirag127/lore` | `chirag127/lore` |
+  | `chirag127/tabs` | `chirag127/tabs` |
+  | `chirag127/oriz-finance` | `chirag127/finance-tools-site` |
+  | `chirag127/roam` | `chirag127/roam` |
+  | `chirag127/oriz-urls-to-md` | `chirag127/dev-tools-site` |
+  | `chirag127/oriz-image-tools` | `chirag127/image-tools-site` |
+  | `chirag127/oriz-pdf-tools` | `chirag127/pdf-tools-site` |
+  | `chirag127/oriz-me` | `chirag127/me` |
 
   Submodule **paths** stay `sites/oriz-<name>` for ergonomics — only
   the remote URL flips. Run renames per

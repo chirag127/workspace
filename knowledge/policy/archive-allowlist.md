@@ -43,17 +43,17 @@ real even if recoverable.
 
 ### 11 site submodules (all `oriz-<name>-site`)
 
-- `chirag127/oriz-home-site`
-- `chirag127/oriz-blog-site`
-- `chirag127/oriz-books-site`
-- `chirag127/oriz-book-lore-site`
-- `chirag127/oriz-cards-site`
-- `chirag127/oriz-finance-site`
-- `chirag127/oriz-journal-site`
-- `chirag127/oriz-urls-to-md-site`
-- `chirag127/oriz-image-tools-site`
-- `chirag127/oriz-pdf-tools-site`
-- `chirag127/oriz-me-site`
+- `chirag127/home`
+- `chirag127/pages`
+- `chirag127/ncert`
+- `chirag127/lore`
+- `chirag127/tabs`
+- `chirag127/finance-tools-site`
+- `chirag127/roam`
+- `chirag127/dev-tools-site`
+- `chirag127/image-tools-site`
+- `chirag127/pdf-tools-site`
+- `chirag127/me`
 
 `oriz-urls-to-md-site` is currently an empty slug reservation — see
 [`decisions/branding/oriz-urls-to-md-site-empty-placeholder.md`](../decisions/branding/oriz-urls-to-md-site-empty-placeholder.md).
@@ -70,7 +70,7 @@ Empty does not mean abandoned.
 
 ### Active future submodules
 
-- `chirag127/oriz-omnipost` (active submodule at `packages/oriz-omnipost`)
+- `chirag127/echo` (active submodule at `packages/oriz-omnipost`)
 - `chirag127/oriz-lifestream` (planned; will become a submodule when
   the lifestream service is wired)
 
