@@ -19,9 +19,6 @@
 [submodule "sites/oriz-journal"]
 	path = projects/websites/oriz-journal
 	url = https://github.com/chirag127/roam.git
-[submodule "sites/oriz-urls-to-md"]
-	path = projects/websites/tools/oriz-urls-to-md
-	url = https://github.com/chirag127/oriz-urls-to-md-site.git
 [submodule "sites/oriz-image-tools"]
 	path = projects/websites/tools/oriz-image-tools
 	url = https://github.com/chirag127/image-tools-site.git
