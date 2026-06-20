@@ -5,11 +5,10 @@ description: "The shared conventions every concept file in this knowledge/ bundl
 tags: [okf, convention, meta]
 timestamp: 2026-06-20
 format_version: okf-v0.1
-# 2026-06-20 update: 5-level hierarchy for minimum-context agent reads.
-# Earlier 3-then-4-level guidance is superseded. Every concept file now
-# lives at exactly knowledge/<L1>/<L2>/<L3>/<L4>/<file>.md so any one
-# agent read is the smallest leaf possible. See
-# decisions/architecture/5-level-hierarchy.md.
+# 2026-06-20 update: depth scales with folder size, ceiling 5.
+# Tiny dirs stay at 2-3 levels; big dirs (>50 files) deepen to 5 so any
+# one read is the smallest possible leaf. See
+# decisions/architecture/knowledge-bundle/depth/5-level-hierarchy.md.
 ---
 
 # How the oriz family uses the Open Knowledge Format
@@ -79,28 +78,27 @@ one genuinely doesn't fit, and update this section in the same edit.
 Every concept file is `kebab-case.md`. The path IS the identity:
 `knowledge/rules/never-enable-blaze.md` is a stable reference.
 
-### Hierarchy depth — 5 levels, every leaf
+### Hierarchy depth — scales with folder size, ceiling 5
 
-Every concept file lives at exactly **5 levels**:
-`knowledge/<L1>/<L2>/<L3>/<L4>/<file>.md`.
+Depth follows the size of the L1 folder. Goal: any single agent read
+pulls the smallest possible leaf.
 
-Why: an agent grep / glob / read pulls the **smallest possible leaf** —
-no sibling files to bleed in as context, no 30-file directory dumps
-when one file would do. Minimum context = minimum tokens = sharper
-agent attention.
+| L1 file count | Depth | Path shape |
+|---|---|---|
+| ≤15 | 2 | `knowledge/<L1>/<file>.md` |
+| 16–50 | 3 | `knowledge/<L1>/<L2>/<file>.md` |
+| 51–150 | 4 | `knowledge/<L1>/<L2>/<L3>/<file>.md` |
+| 151+ | **5** | `knowledge/<L1>/<L2>/<L3>/<L4>/<file>.md` |
 
-L1 is the top-level area (`rules`, `decisions`, `services`, `runbooks`,
-etc.). L2/L3/L4 categorise progressively. The leaf file at L5 is the
-atomic concept. Indexes (`index.md`) live at every level and only list
-direct children.
+Apply the deepest tier the folder qualifies for; never go past 5 — the
+path stops being a stable, memorable identity. When an L_n grows past
+~15 siblings, split into multiple L_n peers, not a deeper L_{n+1}.
 
-When a category has fewer files than the depth requires, fold in
-single-file pass-through subdirs named after the role
-(e.g. `runbooks/auth/setup/google/oauth/setup-google-oauth.md`) rather
-than flattening — the depth is the contract.
+`index.md` lives at every directory level and only lists its direct
+children.
 
-When a leaf grows past ~15 siblings, split L4 into multiple L4s; never
-add a 6th level — the path stops being a stable, memorable identity.
+Migration: touch-and-deepen, not big-bang. When a file is edited, move
+it to the depth its parent now warrants.
 
 The master `oriz/knowledge/` is structured as:
 

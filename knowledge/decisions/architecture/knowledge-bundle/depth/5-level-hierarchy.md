@@ -1,53 +1,44 @@
 ---
 type: decision
-title: "Knowledge bundle hierarchy: every leaf at 5 levels"
-description: "Lock the OKF directory depth at 5. Every concept file lives at knowledge/<L1>/<L2>/<L3>/<L4>/<file>.md so an agent's read pulls the smallest possible leaf. Supersedes the 3-then-4-level rule."
+title: "Knowledge bundle depth scales with folder size, ceiling 5"
+description: "Depth is sized to the L1 folder so any single agent read pulls the smallest possible leaf. Tiny folders stay flat; big folders deepen to 5. Supersedes the static 3-then-4-level rule."
 tags: [architecture, knowledge, okf, agent-context]
 timestamp: 2026-06-20
 related: [knowledge-okf-spec]
 supersedes: 4-level-hierarchy-for-big-dirs
 ---
 
-# 5-level hierarchy, every leaf
+# Depth scales with folder size, ceiling 5
 
 ## Decision
 
-Every concept file in `knowledge/` lives at exactly 5 path levels:
+Depth tracks the L1 folder's file count. Apply the deepest tier the
+folder qualifies for; never exceed 5.
 
-```
-knowledge/<L1>/<L2>/<L3>/<L4>/<file>.md
-```
+| L1 file count | Depth | Example |
+|---|---|---|
+| ≤15 | 2 | `knowledge/glossary/api.md` |
+| 16–50 | 3 | `knowledge/rules/security/no-hardcoded-secrets.md` |
+| 51–150 | 4 | `knowledge/services/auth/firebase/firebase-auth.md` |
+| 151+ | **5** | `knowledge/decisions/architecture/knowledge-bundle/depth/5-level-hierarchy.md` |
 
-L1 = top-level area (`rules`, `decisions`, `services`, `runbooks`, …).
-L2–L4 = progressive categorisation.
-L5 = the atomic concept file.
-
-`index.md` files exist at every level and list only their direct children.
-
-This file is itself the demonstration:
-`knowledge/decisions/architecture/knowledge-bundle/depth/5-level-hierarchy.md`.
+`index.md` exists at every level and lists only direct children.
 
 ## Why
 
-Agent context budgets are spent on directory dumps. A glob like
-`knowledge/services/**/*.md` pulls dozens of unrelated files when the
-agent only needs one. Forcing depth means:
+A grep / glob / read should pull one concept, not a 30-file category
+dump. Minimum context = minimum tokens = sharper agent attention.
 
-- A grep that hits one path returns one concept, not a category dump.
-- An `ls` of a parent dir shows ≤15 leafs, never 40+.
-- The path itself is the breadcrumb — `services/data/database/postgres/neon-postgres.md` reads as a sentence.
+Forcing 5 levels everywhere (the rejected earlier rule) bloats tiny
+folders with empty pass-through subdirs. Letting depth float with
+size keeps the bottom of the tree tight in big areas and flat in
+small ones. Same property — minimum leaf — without the make-work.
 
-## Implementation rule
+## Implementation
 
-When a category has fewer files than the depth requires, use single-file
-pass-through subdirs named after the role rather than flattening. The
-depth is the contract.
-
-When a leaf set grows past ~15 siblings, split L4 into multiple L4s.
-Never go to 6 — the path stops being memorable.
-
-## Migration
-
-Existing files at L3 or L4 get moved as they're touched, not in one
-big-bang rewrite. Touch-and-deepen. The OKF spec at `knowledge/_okf.md`
-points to this file as the source of truth.
+- When an L_n grows past ~15 siblings, split into multiple L_n peers.
+  Don't add a deeper L_{n+1} unless the whole L1 has crossed its next
+  threshold.
+- Touch-and-deepen migration: when editing a file, move it to the
+  depth its parent now warrants. No big-bang rewrites.
+- The `_okf.md` table is the source of truth; this file explains why.
