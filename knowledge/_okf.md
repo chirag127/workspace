@@ -5,9 +5,11 @@ description: "The shared conventions every concept file in this knowledge/ bundl
 tags: [okf, convention, meta]
 timestamp: 2026-06-20
 format_version: okf-v0.1
-# 2026-06-20 update: relaxed max-3-level guidance to max-4-level for big dirs
-# (services/, decisions/, glossary/). Other dirs stay at 3-level until they
-# outgrow ~15 files. See decisions/4-level-hierarchy-for-big-dirs.md.
+# 2026-06-20 update: 5-level hierarchy for minimum-context agent reads.
+# Earlier 3-then-4-level guidance is superseded. Every concept file now
+# lives at exactly knowledge/<L1>/<L2>/<L3>/<L4>/<file>.md so any one
+# agent read is the smallest leaf possible. See
+# decisions/architecture/5-level-hierarchy.md.
 ---
 
 # How the oriz family uses the Open Knowledge Format
@@ -77,27 +79,28 @@ one genuinely doesn't fit, and update this section in the same edit.
 Every concept file is `kebab-case.md`. The path IS the identity:
 `knowledge/rules/never-enable-blaze.md` is a stable reference.
 
-### Hierarchy depth — 3 levels by default, 4 levels for big dirs
+### Hierarchy depth — 5 levels, every leaf
 
-Default to **3 levels** (`knowledge/<dir>/<file>.md`). Use **4 levels**
-(`knowledge/<dir>/<sub>/<file>.md`) ONLY when:
+Every concept file lives at exactly **5 levels**:
+`knowledge/<L1>/<L2>/<L3>/<L4>/<file>.md`.
 
-- (a) the flat list exceeds **~15 files** AND
-- (b) categorisation genuinely helps navigation (a reader can guess the subdir from the concept name).
+Why: an agent grep / glob / read pulls the **smallest possible leaf** —
+no sibling files to bleed in as context, no 30-file directory dumps
+when one file would do. Minimum context = minimum tokens = sharper
+agent attention.
 
-Never go beyond 4 levels — the path stops being a stable, memorable
-identity. If a 4-level subdir grows past ~15 files, look for a
-sibling subdir to split into rather than nesting deeper.
+L1 is the top-level area (`rules`, `decisions`, `services`, `runbooks`,
+etc.). L2/L3/L4 categorise progressively. The leaf file at L5 is the
+atomic concept. Indexes (`index.md`) live at every level and only list
+direct children.
 
-As of 2026-06-20, three directories run at 4 levels:
+When a category has fewer files than the depth requires, fold in
+single-file pass-through subdirs named after the role
+(e.g. `runbooks/auth/setup/google/oauth/setup-google-oauth.md`) rather
+than flattening — the depth is the contract.
 
-- `services/` — 41+ files, grouped by role (hosting, auth, database, compute, email, forms, monitoring, analytics, ai, domain, ads, payment, search, tooling, code-quality)
-- `decisions/` — 32+ files, grouped by topic (architecture, branding, content, infrastructure, monetisation, process, tooling)
-- `glossary/` — 28+ files, grouped alphabetically (a-c, d-h, i-n, o-r, s-z)
-
-The other directories (`rules/`, `architecture/`, `policy/`,
-`runbooks/`, `design/`) stay flat at 3 levels until they each cross
-the ~15-file threshold.
+When a leaf grows past ~15 siblings, split L4 into multiple L4s; never
+add a 6th level — the path stops being a stable, memorable identity.
 
 The master `oriz/knowledge/` is structured as:
 
