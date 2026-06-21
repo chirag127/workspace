@@ -54,6 +54,33 @@ notices.
 
 The Cloudflare Registrar exception above. No others.
 
+## One-time fees exception (added 2026-06-21)
+
+The rule covers **recurring** card-on-file billing (monthly, quarterly,
+yearly subscriptions, pay-as-you-go with stored payment method).
+**One-time fees** are allowed when:
+
+- Payment is single-charge with no stored payment method retained
+- Cost < $100 USD lifetime
+- Charge is for a one-time enrollment / signing / publishing fee
+  (not ongoing consumption)
+- Decision logged in this file's "One-time fees paid" table below
+
+### One-time fees paid
+
+| Fee | Cost | Date | Why | Card kept on file? |
+|---|---|---|---|---|
+| (none yet) | — | — | — | — |
+
+### One-time fees approved (not yet paid)
+
+| Fee | Cost | Approved | Why |
+|---|---|---|---|
+| Google Play Developer enrollment | $25 USD | 2026-06-21 | Publish family `-app` repos to Play Store alongside F-Droid + direct download. Approved via MCQ Q25. |
+
+The card is REMOVED from the payment method on file immediately after
+each one-time charge clears. Never leave a card stored anywhere.
+
 ## See also
 
 - [`no-subscriptions.md`](./no-subscriptions.md) — the stricter cousin
