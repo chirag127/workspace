@@ -1,7 +1,7 @@
 ---
 type: architecture
-title: The fourteen packages — the locked oriz family package set
-description: The chirag127/oriz family ships 14 packages — 10 Astro (shell, chrome, tools, content, data, forms, billing, pwa, distribute, widgets) + 4 cross-surface auth (auth-core, auth-wxt, auth-vsc, auth-cli). Threshold for being a package — ≥25 lines duplicated across ≥3 consumers AND no community library covers it. Anything below the threshold is inlined.
+title: The fifteen packages — the locked oriz family package set
+description: The chirag127/oriz family ships 15 packages — 11 Astro (shell, chrome, tools, content, data, forms, billing, pwa, distribute, widgets, test-utils) + 4 cross-surface auth (auth-core, auth-wxt, auth-vsc, auth-cli). Threshold for being a package — ≥25 lines duplicated across ≥3 consumers AND no community library covers it. Anything below the threshold is inlined.
 tags: [architecture, packages, astro, npm, locked]
 timestamp: 2026-06-21
 format_version: okf-v0.1
@@ -17,7 +17,7 @@ related:
   - decisions/architecture/per-runtime-framework
 ---
 
-# The fourteen packages — locked
+# The fifteen packages — locked
 
 ## Concept
 
@@ -32,7 +32,7 @@ If only (1) and (2) hold but (3) doesn't — use the community package directly.
 
 ## The set
 
-### Layered Astro packages (10)
+### Layered Astro packages (11)
 
 | # | Package | Peer-dep | What it owns |
 |---|---|---|---|
@@ -46,6 +46,7 @@ If only (1) and (2) hold but (3) doesn't — use the community package directly.
 | 8 | `@chirag127/astro-pwa` | — | `@vite-pwa/astro` wrapper with locked defaults (manifest from astro-chrome brand, offline shell, `<InstallPrompt>`, `<UpdateToast>`). |
 | 9 | `@chirag127/astro-distribute` | — | Thin CLI wrapping PWABuilder (primary — AAB / MSIX / iOS-project) + optional Tauri for desktop EXE/dmg/AppImage. |
 | 10 | `@chirag127/astro-widgets` | astro-chrome | Shared cross-app islands — `<MultiSearch>` popover + `<StatusBanner>` + `<ConsentBanner>` (Klaro). |
+| 11 | `@chirag127/astro-test-utils` | — | Common Vitest + Playwright + MSW + Firebase test fixtures. Thin wrapper over `@firebase/rules-unit-testing`, `msw`, `@playwright/test`. |
 
 ### Cross-surface auth (4)
 
@@ -58,7 +59,7 @@ If only (1) and (2) hold but (3) doesn't — use the community package directly.
 
 ## Hierarchy
 
-```
+```text
 astro-shell        (base)
 └── astro-chrome   (peer-dep on shell)
     ├── astro-tools     (peer-dep on chrome)

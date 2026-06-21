@@ -124,3 +124,6 @@
 [submodule "projects_npm-packages_astro-widgets-npm-pkg"]
 	path = projects/npm-packages/astro-widgets-npm-pkg
 	url = https://github.com/chirag127/astro-widgets-npm-pkg.git
+[submodule "projects_npm-packages_astro-test-utils-npm-pkg"]
+	path = projects/npm-packages/astro-test-utils-npm-pkg
+	url = https://github.com/chirag127/astro-test-utils-npm-pkg.git

@@ -10,13 +10,16 @@ the rule-book lives in [`knowledge/`](./knowledge/) as an
 bundle — 167 small concept files organised across 8 directories with
 clean cross-links.
 
-## The 5 hard rules (full versions in `knowledge/rules/`)
+## The 8 hard rules (full versions in `knowledge/rules/`)
 
 1. **Never hit a free-tier quota** — architect for headroom, not survival
 2. **No card-on-file** — every service must work without billing data linked
 3. **Self-update on every decision** — chat decisions land in `knowledge/` in the same conversation
 4. **Future overrides past** — if `knowledge/` and recent chat contradict, chat wins; update `knowledge/` immediately
 5. **Parallel by default** — fan out subagents for any parallelisable work
+6. **Grill-to-knowledge** — every locked answer from a `grill-me` session (question, chosen option, rejected options, "why") MUST land in `knowledge/` in the same conversation
+7. **Knowledge-first + no README ↔ knowledge duplication** — durable info goes in `knowledge/` first. README is entry-point only. If info is in `knowledge/` it's NOT also in README, and vice versa. Per-app knowledge lives in each submodule's own `knowledge/` (OKF-light: `index.md` + `decisions/` + `runbooks/` + `services/`); cross-cutting knowledge stays at master `knowledge/`. Master `knowledge/sites/<app>/` is NOT used for app-specifics
+8. **Tests in parallel, master `pnpm install -r` is THE install command** — Vitest + Playwright + Storybook per app and per package; master CI matrix-fans all suites in parallel. Always work from `c:/D/oriz/` (the umbrella). Fresh clone: `git clone --recurse-submodules https://github.com/chirag127/workspace c:/D/oriz && cd c:/D/oriz && pnpm install -r`. Update existing: `cd c:/D/oriz && git submodule update --init --recursive --remote && pnpm install -r`
 
 ## Where to look in `knowledge/`
 

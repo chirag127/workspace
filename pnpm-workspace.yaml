@@ -1,5 +1,11 @@
 packages:
   - 'projects/npm-packages/*'
-  - 'projects/websites/*'
-  - 'projects/websites/tools/*'
+  - 'projects/apps/hub/*'
+  - 'projects/apps/personal/*'
+  - 'projects/apps/content/*'
+  - 'projects/apps/tools/*'
+  - 'projects/apis/*'
+  - 'projects/browser-extensions/*'
+  - 'projects/ide-extensions/*'
+  - 'projects/mcp-servers/*'
   - 'projects/skills/*'
