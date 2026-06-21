@@ -76,16 +76,39 @@ Per [[cross-post-engine]] the existing decision already named the family pattern
 ## Versioning
 
 - v0.1.0 — stub published 2026-06-21 (exports type + stub `publish()` function)
-- v0.1.1 — first per-platform adapter (dev.to first, simplest API)
-- v0.2.0 — add Hashnode + X + Bluesky (4 platforms total)
-- v0.3.0 — add Mastodon + Reddit + LinkedIn (7 platforms)
-- v1.0.0 — all 8 platforms working in production for ≥1 month
+- v0.1.1 — **5 working adapters + Telegram drafts queue + reusable workflow** (2026-06-21)
+- v0.2.0 — retry queue / rate-limit cache (fs-based, per-repo per-day)
+- v1.0.0 — all 5 auto + 4 drafts running in production for ≥1 month
 
-Cross-platform retry + scheduling deferred to v1.1+. v0.x is fire-and-forget per platform.
+Cross-platform retry + scheduling deferred to v0.2+. v0.x is fire-and-forget per platform.
 
-## Known limitation
+## v0.1.1 shipped (2026-06-21)
 
-The published v0.1.0 had a `bin` entry pointing at `./src/index.ts` which npm auto-stripped because bin scripts must be `.js` (or extensionless with shebang). v0.1.1 will fix by compiling to JS or adding a `.mjs` wrapper. Until then, only library usage (`import { publish } from '@chirag127/omni-publish'`) works; `npx @chirag127/omni-publish` doesn't.
+### 5 auto-publish adapters (each env-gated)
+
+| Platform | Required env vars |
+|---|---|
+| **dev.to** | `DEVTO_API_KEY` |
+| **Hashnode** | `HASHNODE_API_KEY` + `HASHNODE_PUBLICATION_ID` |
+| **Bluesky** | `BLUESKY_HANDLE` + `BLUESKY_APP_PASSWORD` (uses `@atproto/api`) |
+| **Mastodon** | `MASTODON_INSTANCE` + `MASTODON_ACCESS_TOKEN` |
+| **Threads (Meta)** | `THREADS_ACCESS_TOKEN` (2-step create + publish) |
+
+### 4 manual-platform drafts via Telegram
+
+For X, Reddit, LinkedIn, Medium — `omni-publish` generates per-platform AI-rewritten drafts and posts them to a Telegram channel for the user to review + post by hand.
+
+- **AI**: NVIDIA NIM (`meta/llama-3.3-70b-instruct`) primary, OpenRouter (`meta-llama/llama-3.3-70b-instruct:free`) fallback on 429/5xx.
+- **Required env vars**: `TELEGRAM_DRAFTS_BOT_TOKEN` + `TELEGRAM_DRAFTS_CHAT_ID` + (`NVIDIA_NIM_API_KEY` or `OPENROUTER_API_KEY`).
+- Per-platform prompts in `src/adapters/ai-draft.ts` (X = 280 char, Reddit = full body w/ TL;DR, LinkedIn = professional, Medium = 1-paragraph blurb).
+
+### Reusable workflow
+
+`chirag127/omni-publish-npm-pkg/.github/workflows/cross-post.yml@main` — any repo can call it with `secrets: inherit`.
+
+### Bin entry
+
+v0.1.1 fixes the v0.1.0 bin bug by shipping a plain ESM `bin/omni-publish.mjs` (no TypeScript at runtime). Requires Node 22+ for native `fetch`. `npx @chirag127/omni-publish` now works.
 
 ## Cross-refs
 

@@ -177,3 +177,50 @@ Doppler (source of truth)  ──▶  set-org-secrets-from-doppler.sh  ──▶
 - [`../../runbooks/set-github-org-level-secrets.md`](../../runbooks/set-github-org-level-secrets.md) — Track B runbook
 - [`../../runbooks/rotate-leaked-secret.md`](../../runbooks/rotate-leaked-secret.md) — rotation flow uses Track B sync
 - [`../../../templates/.env.example`](../../../templates/.env.example) — the master superset
+
+## Naming conventions
+
+When per-app `.env.example` files drifted historically, the same logical key
+appeared under multiple names. This is the canonical-name policy enforced by
+the master template (`templates/.env.example`). Drift variants in the right
+column must NEVER be re-introduced; CI greps for them.
+
+| Canonical (use this) | Banned drift variant |
+| --- | --- |
+| `CLOUDFLARE_ACCOUNT_ID` | `CF_ACCOUNT_ID` |
+| `CLOUDFLARE_API_TOKEN` | `CF_API_TOKEN` |
+| `CLOUDFLARE_ZONE_ID` | `CF_ZONE_ID` |
+| `CF_TURNSTILE_SECRET` | `CF_TURNSTILE_SECRET_KEY` |
+| `PUBLIC_CF_TURNSTILE_SITE_KEY` | `CF_TURNSTILE_SITE_KEY` |
+| `HCAPTCHA_SECRET` | `HCAPTCHA_SECRET_KEY` |
+| `PUBLIC_HCAPTCHA_SITE_KEY` | `HCAPTCHA_SITE_KEY` |
+| `LEMONSQUEEZY_API_KEY` | `LEMON_SQUEEZY_API_KEY` |
+| `EMAILOCTOPUS_API_KEY` | `EMAIL_OCTOPUS_API_KEY` |
+| `DEVTO_API_KEY` | `DEV_TO_API_KEY` |
+| `PUBLIC_GA4_MEASUREMENT_ID` | `PUBLIC_GA4_ID` |
+| `POSTHOG_API_KEY` / `PUBLIC_POSTHOG_KEY` | `POSTHOG_KEY` |
+| `PUBLIC_WEB3FORMS_KEY` | `WEB3FORMS_KEY` |
+| `DOPPLER_SERVICE_TOKEN` | `DOPPLER_TOKEN` |
+| `WORDPRESS_APP_PASSWORD` | `WORDPRESS_API_TOKEN` |
+
+### Rules of thumb
+
+- **Prefix Cloudflare service keys with `CLOUDFLARE_`** for account/zone/API
+  resources. The exception is `CF_TURNSTILE_*` — Turnstile is a discrete
+  product surface and its keys have always shipped under the `CF_` short
+  form upstream (matches Cloudflare's own dashboard/SDK conventions).
+- **No underscores inside vendor names** that ship as a single word in
+  their own docs: `LEMONSQUEEZY_`, `EMAILOCTOPUS_`, `DEVTO_`,
+  `WEB3FORMS_` — match the vendor's branding, not English spacing.
+- **`PUBLIC_` prefix is reserved for browser-shipped keys** read via
+  `import.meta.env` / Vite/Astro/Next public env. Server-only secrets
+  never carry it. When both a browser-side and a server-side variant
+  legitimately exist (e.g. Firebase, GA4 Measurement ID, Algolia index
+  name), ship both as separate keys — never overload one name.
+- **Distinguish API-key vs ingestion-token** for services that ship both
+  (e.g. `BETTER_STACK_TOKEN` ingests logs; `BETTER_STACK_API_KEY` drives
+  the management API). They hit different endpoints; one name is wrong.
+- **App-specific keys do not belong in the master.** Per-app proxy URLs,
+  app-local toggles, and aliases that duplicate a master key (e.g.
+  `B2_KEY_ID` for `B2_APPLICATION_KEY_ID`) stay out. The master is the
+  family superset, not a kitchen sink.
