@@ -148,6 +148,33 @@ Is the repo a tool app where users search for "X tools"?
         NO  → oriz-<role-or-function>-<suffix>
 ```
 
+### API + website combo repos (added 2026-06-21 mid-audit)
+
+Some repos ship BOTH a server-side API (Cloudflare Worker / Function /
+scheduled job) AND a public-facing website. Examples discovered in the
+audit: `tickertape-mmi`, `fii-dii-tracker` — both scrape Indian
+financial data, expose a REST endpoint, AND host a small dashboard
+site showing the same data.
+
+These repos take **dual suffixes** via a slash separator:
+`oriz-<name>-worker/-site` reads as "Worker + Site combo." But this
+breaks the one-suffix rule. Cleaner option: pick the PRIMARY artifact
+suffix and document the secondary in the description.
+
+Pattern adopted: **primary = the artifact that drives revenue / users.**
+For a scraper-with-dashboard:
+- If the API is what gets consumed (other services call it): primary is `-worker`.
+- If the dashboard is what users see (humans visit it): primary is `-app`.
+- Both shipped from one repo.
+
+Examples (locked 2026-06-21 audit):
+- `oriz-mmi-tracker-py-cli` — primary CLI; produces JSON dataset; dashboard separate
+- `oriz-fii-dii-tracker-worker` — primary Worker (scraper); /dashboard route is the site
+
+Final pattern for API+site combos:
+- **One artifact only**: pick the dominant role's suffix.
+- **Dataset shipped to oriz-*-data repo** if the data is also reused elsewhere (separate repo).
+
 ## Vendor-convention exceptions (carried)
 
 Some repo names match a vendor or community convention better than `oriz-*` would. These keep their bare slugs:
