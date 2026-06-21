@@ -1,0 +1,5 @@
+packages:
+  - 'projects/npm-packages/*'
+  - 'projects/websites/*'
+  - 'projects/websites/tools/*'
+  - 'projects/skills/*'
