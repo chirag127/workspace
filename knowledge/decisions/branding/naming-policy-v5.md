@@ -5,9 +5,19 @@ description: "Fifth-pass naming. Every repo carries a suffix that names: (1) run
 tags: [naming, repo, suffix, family, branding, v5, cross-platform, pwa]
 timestamp: 2026-06-21
 format_version: okf-v0.1
-status: active
+status: superseded
+superseded_by: decisions/branding/naming-policy-v6
 supersedes: [decisions/branding/repo-naming-suffixes, decisions/branding/keep-oriz-add-site-suffix, decisions/branding/naming/policy/family-naming-policy]
 related: [decisions/architecture/multi-target-build, decisions/architecture/family-deploy-architecture]
+---
+
+> **SUPERSEDED 2026-06-21 evening** by [`naming-policy-v6.md`](./naming-policy-v6.md).
+>
+> v5 said "no brand prefix in slug, the chirag127/ org is the prefix."
+> v6 reverses this: slugs are now `<brand>-<category>-<suffix>` (with 3 exceptions: apex `workspace`, the 8 `astro-*-npm-pkg` packages, and forks). The suffix matrix below is otherwise unchanged and carried forward.
+>
+> Audit trail preserved. Below content is the v5 lock at the time of supersession.
+
 ---
 
 # Naming policy v5
