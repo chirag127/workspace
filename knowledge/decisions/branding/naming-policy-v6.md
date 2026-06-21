@@ -62,27 +62,31 @@ All 10 family `-app` repos renamed on 2026-06-21 late session with product brand
 
 Product brand picks locked for the 12 tool-app slugs still to be created:
 
-| Category | v6.2 slug |
-|---|---|
-| dev-tools | `oriz-forge-dev-tools-app` |
-| text-tools | `oriz-scribe-text-tools-app` |
-| convert-tools | `oriz-shift-convert-tools-app` |
-| qr-tools | `oriz-grid-qr-tools-app` |
-| data-tools | `oriz-pivot-data-tools-app` |
-| audio-tools | `oriz-echo-audio-tools-app` |
-| video-tools | `oriz-reel-video-tools-app` |
-| seo-tools | `oriz-rank-seo-tools-app` |
-| crypto-tools | `oriz-cipher-crypto-tools-app` |
-| health-tools | `oriz-vitals-health-tools-app` |
-| random-tools | `oriz-dice-random-tools-app` |
-| print-tools | `oriz-paper-print-tools-app` |
+| Category | v6.2 slug | Status |
+|---|---|---|
+| dev-tools | `oriz-forge-dev-tools-app` | CREATED 2026-06-21 |
+| text-tools | `oriz-scribe-text-tools-app` | CREATED 2026-06-21 |
+| convert-tools | `oriz-shift-convert-tools-app` | CREATED 2026-06-21 |
+| qr-tools | `oriz-grid-qr-tools-app` | CREATED 2026-06-21 |
+| data-tools | `oriz-pivot-data-tools-app` | CREATED 2026-06-21 |
+| audio-tools | `oriz-echo-audio-tools-app` | CREATED 2026-06-21 |
+| video-tools | `oriz-reel-video-tools-app` | CREATED 2026-06-21 |
+| seo-tools | `oriz-rank-seo-tools-app` | CREATED 2026-06-21 |
+| crypto-tools | `oriz-cipher-crypto-tools-app` | CREATED 2026-06-21 |
+| health-tools | `oriz-vitals-health-tools-app` | CREATED 2026-06-21 |
+| random-tools | `oriz-dice-random-tools-app` | CREATED 2026-06-21 |
+| print-tools | `oriz-paper-print-tools-app` | CREATED 2026-06-21 |
 
-API repos (already at correct names per v6.2 — APIs use brand inline):
+All 12 new tool-app repos seeded with README + LICENSE + .gitignore via 12 parallel subagents. Registered as workspace submodules under `projects/apps/tools/`.
 
-| Repo | v6.2 form (locked) |
+API repos (renames executed 2026-06-21 after cooling-off):
+
+| Previous slug | v6.2 form (LIVE) |
 |---|---|
-| `oriz-mmi-tracker-api` (current) | `oriz-mmi-tickertape-mmi-api` (user-specified) |
-| `oriz-fii-dii-activity-api` (current) | `oriz-flow-fii-dii-activity-api` (user-specified) |
+| `oriz-mmi-tracker-api` | `oriz-mmi-tickertape-mmi-api` ✓ |
+| `oriz-fii-dii-activity-api` | `oriz-flow-fii-dii-activity-api` ✓ |
+
+Both registered as workspace submodules under new `projects/apis/` subdir.
 
 Repos that stay WITHOUT a product brand (category IS the brand):
 

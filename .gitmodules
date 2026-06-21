@@ -61,3 +61,45 @@
 [submodule "projects_apps_content_lore-app"]
 	path = projects/apps/content/lore-app
 	url = https://github.com/chirag127/oriz-lore-book-summaries-app.git
+[submodule "projects_apps_tools_dev-tools-app"]
+	path = projects/apps/tools/dev-tools-app
+	url = https://github.com/chirag127/oriz-forge-dev-tools-app.git
+[submodule "projects_apps_tools_text-tools-app"]
+	path = projects/apps/tools/text-tools-app
+	url = https://github.com/chirag127/oriz-scribe-text-tools-app.git
+[submodule "projects_apps_tools_convert-tools-app"]
+	path = projects/apps/tools/convert-tools-app
+	url = https://github.com/chirag127/oriz-shift-convert-tools-app.git
+[submodule "projects_apps_tools_qr-tools-app"]
+	path = projects/apps/tools/qr-tools-app
+	url = https://github.com/chirag127/oriz-grid-qr-tools-app.git
+[submodule "projects_apps_tools_data-tools-app"]
+	path = projects/apps/tools/data-tools-app
+	url = https://github.com/chirag127/oriz-pivot-data-tools-app.git
+[submodule "projects_apps_tools_audio-tools-app"]
+	path = projects/apps/tools/audio-tools-app
+	url = https://github.com/chirag127/oriz-echo-audio-tools-app.git
+[submodule "projects_apps_tools_video-tools-app"]
+	path = projects/apps/tools/video-tools-app
+	url = https://github.com/chirag127/oriz-reel-video-tools-app.git
+[submodule "projects_apps_tools_seo-tools-app"]
+	path = projects/apps/tools/seo-tools-app
+	url = https://github.com/chirag127/oriz-rank-seo-tools-app.git
+[submodule "projects_apps_tools_crypto-tools-app"]
+	path = projects/apps/tools/crypto-tools-app
+	url = https://github.com/chirag127/oriz-cipher-crypto-tools-app.git
+[submodule "projects_apps_tools_health-tools-app"]
+	path = projects/apps/tools/health-tools-app
+	url = https://github.com/chirag127/oriz-vitals-health-tools-app.git
+[submodule "projects_apps_tools_random-tools-app"]
+	path = projects/apps/tools/random-tools-app
+	url = https://github.com/chirag127/oriz-dice-random-tools-app.git
+[submodule "projects_apps_tools_print-tools-app"]
+	path = projects/apps/tools/print-tools-app
+	url = https://github.com/chirag127/oriz-paper-print-tools-app.git
+[submodule "projects_apis_mmi-tickertape-mmi-api"]
+	path = projects/apis/mmi-tickertape-mmi-api
+	url = https://github.com/chirag127/oriz-mmi-tickertape-mmi-api.git
+[submodule "projects_apis_flow-fii-dii-activity-api"]
+	path = projects/apis/flow-fii-dii-activity-api
+	url = https://github.com/chirag127/oriz-flow-fii-dii-activity-api.git
