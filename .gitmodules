@@ -1,20 +1,20 @@
 [submodule "projects_apps_personal_me-app"]
-	path = projects/apps/personal/me-app
+	path = projects/apps/personal/oriz-cs-me-app
 	url = https://github.com/chirag127/oriz-cs-me-app.git
 [submodule "projects_apps_content_blog-app"]
-	path = projects/apps/content/blog-app
+	path = projects/apps/content/oriz-pages-blog-app
 	url = https://github.com/chirag127/oriz-pages-blog-app.git
 [submodule "projects_apps_content_journal-app"]
-	path = projects/apps/content/journal-app
+	path = projects/apps/content/oriz-roam-journal-app
 	url = https://github.com/chirag127/oriz-roam-journal-app.git
 [submodule "projects_apps_content_cards-app"]
-	path = projects/apps/content/cards-app
+	path = projects/apps/content/oriz-tabs-cards-app
 	url = https://github.com/chirag127/oriz-tabs-cards-app.git
 [submodule "projects_apps_tools_image-tools-app"]
-	path = projects/apps/tools/image-tools-app
+	path = projects/apps/tools/oriz-pixie-image-tools-app
 	url = https://github.com/chirag127/oriz-pixie-image-tools-app.git
 [submodule "projects_apps_tools_finance-tools-app"]
-	path = projects/apps/tools/finance-tools-app
+	path = projects/apps/tools/oriz-paisa-finance-tools-app
 	url = https://github.com/chirag127/oriz-paisa-finance-tools-app.git
 [submodule "projects_npm-packages_astro-config-npm-pkg"]
 	path = projects/npm-packages/astro-config-npm-pkg
@@ -41,10 +41,10 @@
 	path = projects/apps/content/ncert-app
 	url = https://github.com/chirag127/oriz-ncert-app.git
 [submodule "projects_apps_content_post-app"]
-	path = projects/apps/content/post-app
+	path = projects/apps/content/oriz-omni-post-app
 	url = https://github.com/chirag127/oriz-omni-post-app.git
 [submodule "projects_apps_tools_pdf-tools-app"]
-	path = projects/apps/tools/pdf-tools-app
+	path = projects/apps/tools/oriz-slice-pdf-tools-app
 	url = https://github.com/chirag127/oriz-slice-pdf-tools-app.git
 [submodule "projects_npm-packages_astro-shell-npm-pkg"]
 	path = projects/npm-packages/astro-shell-npm-pkg
@@ -59,47 +59,47 @@
 	path = projects/npm-packages/astro-ai-npm-pkg
 	url = https://github.com/chirag127/astro-ai-npm-pkg.git
 [submodule "projects_apps_content_lore-app"]
-	path = projects/apps/content/lore-app
+	path = projects/apps/content/oriz-lore-book-summaries-app
 	url = https://github.com/chirag127/oriz-lore-book-summaries-app.git
 [submodule "projects_apps_tools_dev-tools-app"]
-	path = projects/apps/tools/dev-tools-app
+	path = projects/apps/tools/oriz-forge-dev-tools-app
 	url = https://github.com/chirag127/oriz-forge-dev-tools-app.git
 [submodule "projects_apps_tools_text-tools-app"]
-	path = projects/apps/tools/text-tools-app
+	path = projects/apps/tools/oriz-scribe-text-tools-app
 	url = https://github.com/chirag127/oriz-scribe-text-tools-app.git
 [submodule "projects_apps_tools_convert-tools-app"]
-	path = projects/apps/tools/convert-tools-app
+	path = projects/apps/tools/oriz-shift-convert-tools-app
 	url = https://github.com/chirag127/oriz-shift-convert-tools-app.git
 [submodule "projects_apps_tools_qr-tools-app"]
-	path = projects/apps/tools/qr-tools-app
+	path = projects/apps/tools/oriz-grid-qr-tools-app
 	url = https://github.com/chirag127/oriz-grid-qr-tools-app.git
 [submodule "projects_apps_tools_data-tools-app"]
-	path = projects/apps/tools/data-tools-app
+	path = projects/apps/tools/oriz-pivot-data-tools-app
 	url = https://github.com/chirag127/oriz-pivot-data-tools-app.git
 [submodule "projects_apps_tools_audio-tools-app"]
-	path = projects/apps/tools/audio-tools-app
+	path = projects/apps/tools/oriz-echo-audio-tools-app
 	url = https://github.com/chirag127/oriz-echo-audio-tools-app.git
 [submodule "projects_apps_tools_video-tools-app"]
-	path = projects/apps/tools/video-tools-app
+	path = projects/apps/tools/oriz-reel-video-tools-app
 	url = https://github.com/chirag127/oriz-reel-video-tools-app.git
 [submodule "projects_apps_tools_seo-tools-app"]
-	path = projects/apps/tools/seo-tools-app
+	path = projects/apps/tools/oriz-rank-seo-tools-app
 	url = https://github.com/chirag127/oriz-rank-seo-tools-app.git
 [submodule "projects_apps_tools_crypto-tools-app"]
-	path = projects/apps/tools/crypto-tools-app
+	path = projects/apps/tools/oriz-cipher-crypto-tools-app
 	url = https://github.com/chirag127/oriz-cipher-crypto-tools-app.git
 [submodule "projects_apps_tools_health-tools-app"]
-	path = projects/apps/tools/health-tools-app
+	path = projects/apps/tools/oriz-vitals-health-tools-app
 	url = https://github.com/chirag127/oriz-vitals-health-tools-app.git
 [submodule "projects_apps_tools_random-tools-app"]
-	path = projects/apps/tools/random-tools-app
+	path = projects/apps/tools/oriz-dice-random-tools-app
 	url = https://github.com/chirag127/oriz-dice-random-tools-app.git
 [submodule "projects_apps_tools_print-tools-app"]
-	path = projects/apps/tools/print-tools-app
+	path = projects/apps/tools/oriz-paper-print-tools-app
 	url = https://github.com/chirag127/oriz-paper-print-tools-app.git
 [submodule "projects_apis_mmi-tickertape-mmi-api"]
-	path = projects/apis/mmi-tickertape-mmi-api
+	path = projects/apis/oriz-mmi-tickertape-mmi-api
 	url = https://github.com/chirag127/oriz-mmi-tickertape-mmi-api.git
 [submodule "projects_apis_flow-fii-dii-activity-api"]
-	path = projects/apis/flow-fii-dii-activity-api
+	path = projects/apis/oriz-flow-fii-dii-activity-api
 	url = https://github.com/chirag127/oriz-flow-fii-dii-activity-api.git
