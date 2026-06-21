@@ -17,6 +17,24 @@ related:
 
 # oriz-me-site stays a single site with sections — not split into now/uses/gear/cv subdomains
 
+> **2026-06-21 — home/me role split sharpened (Q60-Q63).** This decision
+> still stands: `me.oriz.in` remains a single site with internal
+> sections. What changed in the second grill pass is the boundary with
+> `home.oriz.in` / `oriz.in`:
+>
+> - **Q60.** `home-app` leads with personal bio FIRST + apps/tools grid
+>   second. Overrides the older 12-section portfolio expansion.
+> - **Q62.** Two sites, role split locked: `home` = brand + bio + grid;
+>   `me` = lifelog (now / uses / gear / reading / coding / lifestream /
+>   cv / contact, per the sections below).
+> - **Q63.** Home hero carries an explicit "See my full work" CV button
+>   linking to `me.oriz.in/cv`. The CV stays at `/cv` on `me` — Q63
+>   just adds the cross-site entry point.
+>
+> Net effect: short bio + apps grid at apex, long-form lifelog + CV at
+> `me`. No subdomain split on the `me` side; the apex side now leads
+> with bio. See [multi-target-build § Q47-Q77 additions](./multi-target-build.md#q47-q77-additions-2026-06-21-grill-round-2).
+
 ## Decision
 
 `oriz-me-site` stays a single Astro site at `me.oriz.in` with multiple

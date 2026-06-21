@@ -130,11 +130,134 @@ owner can view). Reads from all 5 analytics tools' APIs + shows
 per-app and family-wide cards. Built once in astro-chrome, available
 on every app's `/admin` route as a small embedded widget.
 
+## Q47-Q77 additions (2026-06-21 grill round 2)
+
+Thirty further locks landed in a second grill pass. Grouped by topic:
+
+### Forks (Q47)
+
+- **Q47.** Forks always keep the upstream slug — both locally and on the
+  remote. Local submodule path mirrors upstream slug. No `-fork` suffix.
+  Upstream attribution stays unambiguous; rename only happens if the
+  fork diverges hard enough to become a distinct product (rare).
+  See [naming-policy-v5 § Fork exception](../branding/naming-policy-v5.md).
+
+### Tool UX + history + cross-app sync (Q48-Q51)
+
+- **Q48.** Tool sites lazy-load WASM only when the island mounts. Per-tool
+  dynamic `import()`; no top-level WASM in the page bundle. WASM payload
+  doesn't ship until the user actually engages the tool.
+- **Q49.** Tool `/history` is a metadata-only operation log. No file
+  storage; only the recipe of "tool X, params Y, at time Z." Firestore
+  for signed-in users, `localStorage` for guests. `/history` page on
+  every tool app shows the last 50 ops as cards; click a card to
+  re-run with the same params.
+- **Q50.** Cross-app Firestore sync via the single Firebase project
+  (already locked elsewhere). Family-wide sync — sign in on one app,
+  preferences + history available on all apps.
+- **Q51.** Firestore layout: single project, subcollections per data
+  type — `users/<uid>/operations/`, `users/<uid>/preferences/`,
+  `users/<uid>/profile/`. Operations are the Q49 op-log entries;
+  preferences are theme / units / locale; profile is the optional Q53
+  public profile payload.
+
+### Sign-in monetization + public profiles + content (Q52-Q57)
+
+- **Q52.** Sign-in removes ads (donations expected instead). Logged-out
+  visitors are monetized by AdSense Auto Ads (per Q42); logged-in users
+  are monetized by donations only. No ad slots render when an auth
+  session is present.
+- **Q53.** Public profile at `oriz.in/u/<username>`, opt-in. Drives
+  organic growth via shareable profile cards (tool usage badges,
+  donation-supporter badges, custom bio). Profile payload lives at
+  `users/<uid>/profile/` per Q51.
+- **Q54.** English-only v1 — existing knowledge lock reaffirmed. i18n
+  via Weblate stays deferred per `decisions/branding/i18n-weblate-when-ready.md`.
+- **Q55.** Hand-written SEO content per tool page (300-500 words each).
+  ~80 tools × ~400 words = **~32K words**. NOT AI-generated. Search
+  ranking + user trust both reward original copy.
+- **Q56.** Per-tool OG image via Satori at build time, edge-cached.
+  ~80 OG images, generated once per release, cached at the CF edge per
+  the existing OG-card decision.
+- **Q57.** Full offline after first visit. Service worker caches the
+  tool + its WASM. `<meta name="offline-capable" content="true">` for
+  crawlers / browser hints. Composes with the PWA-only decision —
+  every tool is install-and-go.
+
+### Registrar + domain posture (Q58-Q59)
+
+- **Q58.** Spaceship registrar — existing lock reaffirmed. No registrar
+  swap; oriz.in stays on Spaceship.
+- **Q59.** Stick with `oriz.in` only — don't buy `oriz.app`. One apex,
+  many subdomains. Refines [`subdomains-under-oriz-in`](../infrastructure/subdomains-under-oriz-in.md).
+
+### Home vs me role split + CV link + support modal (Q60-Q64)
+
+- **Q60.** `home-app` (oriz.in) = personal bio FIRST + tools/apps grid
+  SECOND. **Overrides** the older `oriz-home-content-expansion`
+  direction (12-section portfolio + family directory). Bio leads;
+  apps grid follows.
+- **Q61.** GitHub Sponsors enrolled as one of N donation rails alongside
+  Buy Me a Coffee, Liberapay, Open Collective, Polar, Razorpay,
+  Lemon Squeezy. Extends the 12-rail count from earlier batches.
+- **Q62.** Two sites, role split locked: `home` = brand + bio + grid;
+  `me` = lifelog. The earlier
+  [`oriz-me-single-site-not-split`](./oriz-me-single-site-not-split.md)
+  decision stays — `me` is still one site with internal sections — but
+  the home/me boundary is now sharper.
+- **Q63.** Home hero gets an explicit "See my full work" CV button
+  linking to `me.oriz.in/cv`. One click from apex to long-form CV.
+- **Q64.** Subtle BottomBar "support" link opens a modal listing all
+  donation rails (per Q61). No standalone `/support` page on every
+  site — the modal is the surface.
+
+### Email + observability + artifact hosting (Q65-Q68)
+
+- **Q65.** Cloudflare Email Routing + Gmail — existing lock reaffirmed.
+  `chirag@oriz.in` / `security@oriz.in` / `abuse@oriz.in` all route to
+  the personal Gmail inbox.
+- **Q66.** Single Sentry DSN env-var with `site_name` tag — Q37
+  reconfirmed. One project, family-wide, tagged by site for filtering.
+- **Q67.** GH Releases as artifact host: `.apk` + `.exe` + `dist.zip` +
+  sourcemaps. Per-app, per-tag. No separate artifact CDN; releases are
+  the canonical archive.
+- **Q68.** GH Actions free tier (2000 min/mo on public repos). All
+  family repos are public per the OSS posture, so CI minutes are free.
+
+### Release cadence + hot-fix + versioning + changelog (Q69-Q73)
+
+Captured in full at [`release-cadence`](./release-cadence.md).
+
+- **Q69.** Weekly release train cadence — **Wednesday** picked.
+- **Q70.** Wednesday 9 AM IST cron triggers tag + release of changed
+  apps (skip unchanged).
+- **Q71.** Hot-fix via `[hotfix]` in commit message — bypasses the
+  weekly train, immediate deploy.
+- **Q72.** CalVer per app (`v2026.06.21`). Year.month.day from the tag
+  date; multiple releases on the same day get a `.N` suffix.
+- **Q73.** git-cliff auto-changelog from conventional commits. Runs in
+  the release workflow; no hand-written changelogs.
+
+### Design surface + browser support + a11y/perf gates (Q74-Q77)
+
+- **Q74.** `body[data-app]` CSS hook for future per-app differentiation.
+  Default: family looks identical (per the Oriz Datasheet Dark design
+  system). The hook is reserved for the day an app needs to deviate
+  (e.g. a finance app with green/red semantic colours).
+- **Q75.** Browser support = last 2 versions of Chrome / Firefox /
+  Safari / Edge. Build target derives from this support matrix.
+- **Q76.** Mobile-first responsive design (375px+ first). Desktop
+  treatments are progressive enhancements.
+- **Q77.** Lighthouse CI on every PR, fails below WCAG 2.2 AA + LH ≥ 95
+  a11y + LH ≥ 80 perf. PR cannot merge if any threshold fails.
+
 ## Cross-refs
 
 - [decisions/architecture/multi-target-build](./multi-target-build.md)
+- [decisions/architecture/release-cadence](./release-cadence.md)
 - [decisions/branding/naming-policy-v5](../branding/naming-policy-v5.md)
 - [decisions/architecture/analytics-five-tier-stack](./analytics-five-tier-stack.md)
+- [decisions/architecture/oriz-me-single-site-not-split](./oriz-me-single-site-not-split.md)
 - [decisions/monetisation/adsense-apex-application](../monetisation/adsense-apex-application.md)
 - [decisions/architecture/notifications-fcm-plus-knock](./notifications-fcm-plus-knock.md)
 - [rules/keep-knowledge-fresh](../../rules/keep-knowledge-fresh.md)

@@ -157,6 +157,31 @@ the npm package name itself STAYS bare (`@chirag127/astro-shell`, etc.)
 - Per-browser ext repos (`-chrome-ext` / `-firefox-ext` / `-edge-ext`
   / `-safari-ext`) — single cross-browser repo via WXT preferred.
 
+## Fork exception (Q47)
+
+Forks of upstream repos **keep the upstream slug verbatim** — both
+locally (submodule path) and on the remote (`chirag127/<upstream-slug>`).
+No `-fork` suffix is appended; no rename to family-style suffixes is
+performed.
+
+Rationale:
+
+- **Upstream attribution stays unambiguous.** A `gh repo view` on the
+  fork shows the same slug as the upstream, so the "forked from"
+  pointer reads naturally.
+- **Rebases stay clean.** No path-rename churn in `git remote add
+  upstream` workflows.
+- **Local submodule path mirrors upstream slug** so `projects/forks/<slug>`
+  matches `github.com/chirag127/<slug>` matches
+  `github.com/<upstream-owner>/<slug>`.
+
+When a fork diverges hard enough to become a **distinct product** (new
+brand, new direction, no plan to track upstream), only then it gets
+renamed into the family suffix matrix per the table above. Rare.
+
+The five-axis suffix matrix applies to **first-party repos in the
+family**; forks are explicitly exempt.
+
 ## Cross-refs
 
 - [decisions/architecture/multi-target-build](../architecture/multi-target-build.md)
