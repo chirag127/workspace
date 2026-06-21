@@ -1,21 +1,21 @@
 [submodule "projects_apps_personal_me-app"]
 	path = projects/apps/personal/me-app
-	url = https://github.com/chirag127/oriz-me-app.git
+	url = https://github.com/chirag127/oriz-cs-me-app.git
 [submodule "projects_apps_content_blog-app"]
 	path = projects/apps/content/blog-app
-	url = https://github.com/chirag127/oriz-blog-app.git
+	url = https://github.com/chirag127/oriz-pages-blog-app.git
 [submodule "projects_apps_content_journal-app"]
 	path = projects/apps/content/journal-app
-	url = https://github.com/chirag127/oriz-journal-app.git
+	url = https://github.com/chirag127/oriz-roam-journal-app.git
 [submodule "projects_apps_content_cards-app"]
 	path = projects/apps/content/cards-app
-	url = https://github.com/chirag127/oriz-cards-app.git
+	url = https://github.com/chirag127/oriz-tabs-cards-app.git
 [submodule "projects_apps_tools_image-tools-app"]
 	path = projects/apps/tools/image-tools-app
-	url = https://github.com/chirag127/oriz-image-tools-app.git
+	url = https://github.com/chirag127/oriz-pixie-image-tools-app.git
 [submodule "projects_apps_tools_finance-tools-app"]
 	path = projects/apps/tools/finance-tools-app
-	url = https://github.com/chirag127/oriz-finance-tools-app.git
+	url = https://github.com/chirag127/oriz-paisa-finance-tools-app.git
 [submodule "projects_npm-packages_astro-config-npm-pkg"]
 	path = projects/npm-packages/astro-config-npm-pkg
 	url = https://github.com/chirag127/astro-config-npm-pkg.git
@@ -42,10 +42,10 @@
 	url = https://github.com/chirag127/oriz-ncert-app.git
 [submodule "projects_apps_content_post-app"]
 	path = projects/apps/content/post-app
-	url = https://github.com/chirag127/oriz-post-app.git
+	url = https://github.com/chirag127/oriz-omni-post-app.git
 [submodule "projects_apps_tools_pdf-tools-app"]
 	path = projects/apps/tools/pdf-tools-app
-	url = https://github.com/chirag127/oriz-pdf-tools-app.git
+	url = https://github.com/chirag127/oriz-slice-pdf-tools-app.git
 [submodule "projects_npm-packages_astro-shell-npm-pkg"]
 	path = projects/npm-packages/astro-shell-npm-pkg
 	url = https://github.com/chirag127/astro-shell-npm-pkg.git
@@ -60,4 +60,4 @@
 	url = https://github.com/chirag127/astro-ai-npm-pkg.git
 [submodule "projects_apps_content_lore-app"]
 	path = projects/apps/content/lore-app
-	url = https://github.com/chirag127/oriz-lore-app.git
+	url = https://github.com/chirag127/oriz-lore-book-summaries-app.git

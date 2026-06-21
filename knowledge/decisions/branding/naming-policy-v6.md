@@ -45,13 +45,52 @@ The earlier "Google-style single brand" rationale from v6.1 was a simplification
 
 ### Existing renames to revise under v6.2
 
-| Repo (v6.1) | v6.2 form (brand TBD per repo) |
-|---|---|
-| `oriz-finance-tools-app` | `oriz-paisa-finance-tools-app` (LOCKED) |
-| `oriz-pdf-tools-app` | `oriz-<brand>-pdf-tools-app` |
-| `oriz-image-tools-app` | `oriz-<brand>-image-tools-app` |
+All 10 family `-app` repos renamed on 2026-06-21 late session with product brands:
 
-Audit table updates next turn after brand picks land.
+| Previous (v6.1) | Locked v6.2 form |
+|---|---|
+| `oriz-me-app` | `oriz-cs-me-app` |
+| `oriz-blog-app` | `oriz-pages-blog-app` |
+| `oriz-journal-app` | `oriz-roam-journal-app` |
+| `oriz-lore-app` | `oriz-lore-book-summaries-app` |
+| `oriz-cards-app` | `oriz-tabs-cards-app` |
+| `oriz-post-app` | `oriz-omni-post-app` |
+| `oriz-pdf-tools-app` | `oriz-slice-pdf-tools-app` |
+| `oriz-image-tools-app` | `oriz-pixie-image-tools-app` |
+| `oriz-finance-tools-app` | `oriz-paisa-finance-tools-app` |
+| `oriz-portfolio-engine-py-pkg` | `oriz-portfolio-engine-app` (suffix corrected — not py-pkg, it's an app with automation) |
+
+Product brand picks locked for the 12 tool-app slugs still to be created:
+
+| Category | v6.2 slug |
+|---|---|
+| dev-tools | `oriz-forge-dev-tools-app` |
+| text-tools | `oriz-scribe-text-tools-app` |
+| convert-tools | `oriz-shift-convert-tools-app` |
+| qr-tools | `oriz-grid-qr-tools-app` |
+| data-tools | `oriz-pivot-data-tools-app` |
+| audio-tools | `oriz-echo-audio-tools-app` |
+| video-tools | `oriz-reel-video-tools-app` |
+| seo-tools | `oriz-rank-seo-tools-app` |
+| crypto-tools | `oriz-cipher-crypto-tools-app` |
+| health-tools | `oriz-vitals-health-tools-app` |
+| random-tools | `oriz-dice-random-tools-app` |
+| print-tools | `oriz-paper-print-tools-app` |
+
+API repos (already at correct names per v6.2 — APIs use brand inline):
+
+| Repo | v6.2 form (locked) |
+|---|---|
+| `oriz-mmi-tracker-api` (current) | `oriz-mmi-tickertape-mmi-api` (user-specified) |
+| `oriz-fii-dii-activity-api` (current) | `oriz-flow-fii-dii-activity-api` (user-specified) |
+
+Repos that stay WITHOUT a product brand (category IS the brand):
+
+| Slug | Reason |
+|---|---|
+| `oriz-app` (apex) | apex hub, brand IS oriz |
+| `oriz-ncert-app` | ncert IS the SEO target |
+| `oriz-janaushdhi-app` | janaushdhi IS the brand |
 
 ---
 
