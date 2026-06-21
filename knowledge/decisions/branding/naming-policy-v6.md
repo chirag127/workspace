@@ -17,7 +17,7 @@ related: [decisions/architecture/multi-target-build, decisions/architecture/per-
 Repo slugs are `oriz-<category>-<suffix>` where:
 - **`oriz`** = single family-wide brand prefix on every repo. Google-style: Google Maps, Google Journal, Google Photos — same brand, different products.
 - **category** = the function or domain (e.g. `pdf-tools`, `image-tools`, `chrome`, `forms`, `blog`, `journal`)
-- **suffix** = the runtime / role / language category (per the v5 suffix matrix: `-app`, `-game`, `-kids-game`, `-npm-pkg`, `-py-pkg`, `-rs-crate`, `-go-mod`, `-npm-cli`, `-py-cli`, `-rs-cli`, `-browser-ext`, `-vsc-ext`, `-mcp-server`, `-worker`, `-fn`, `-data`, `-skill`, `-rules`)
+- **suffix** = the runtime / role / language category (per the v5 suffix matrix + v6 additions: `-app`, `-game`, `-kids-game`, `-api`, `-npm-pkg`, `-py-pkg`, `-rs-crate`, `-go-mod`, `-npm-cli`, `-py-cli`, `-rs-cli`, `-browser-ext`, `-vsc-ext`, `-mcp-server`, `-worker`, `-fn`, `-data`, `-skill`, `-rules`, `-dotfiles`, `-gh-action`)
 
 Examples:
 - `oriz-pdf-tools-app` (Oriz PDF Tools)
