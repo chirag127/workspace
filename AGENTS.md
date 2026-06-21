@@ -10,7 +10,7 @@ the rule-book lives in [`knowledge/`](./knowledge/) as an
 bundle — 167 small concept files organised across 8 directories with
 clean cross-links.
 
-## The 8 hard rules (full versions in `knowledge/rules/`)
+## The 11 hard rules (full versions in `knowledge/rules/`)
 
 1. **Never hit a free-tier quota** — architect for headroom, not survival
 2. **No card-on-file** — every service must work without billing data linked
@@ -20,6 +20,9 @@ clean cross-links.
 6. **Grill-to-knowledge** — every locked answer from a `grill-me` session (question, chosen option, rejected options, "why") MUST land in `knowledge/` in the same conversation
 7. **Knowledge-first + no README ↔ knowledge duplication** — durable info goes in `knowledge/` first. README is entry-point only. If info is in `knowledge/` it's NOT also in README, and vice versa. Per-app knowledge lives in each submodule's own `knowledge/` (OKF-light: `index.md` + `decisions/` + `runbooks/` + `services/`); cross-cutting knowledge stays at master `knowledge/`. Master `knowledge/sites/<app>/` is NOT used for app-specifics
 8. **Tests in parallel, master `pnpm install -r` is THE install command** — Vitest + Playwright + Storybook per app and per package; master CI matrix-fans all suites in parallel. Always work from `c:/D/oriz/` (the umbrella). Fresh clone: `git clone --recurse-submodules https://github.com/chirag127/workspace c:/D/oriz && cd c:/D/oriz && pnpm install -r`. Update existing: `cd c:/D/oriz && git submodule update --init --recursive --remote && pnpm install -r`
+9. **Linux/Ubuntu only on CI runners** — `runs-on: ubuntu-latest` on every workflow. macOS/Windows runners forbidden (10×/2× cost, no native build in scope per [[pwabuilder-as-primary-converter]]). Full rule in [`knowledge/rules/linux-ci-only.md`](./knowledge/rules/linux-ci-only.md)
+10. **MIT license on all 41+ repos** — locked 2026-06-21. Source-available was vanity; commercial use is orthogonal to source license. Unlocks every free-for-OSS perk. Full decision in [`knowledge/decisions/architecture/mit-license-all-repos.md`](./knowledge/decisions/architecture/mit-license-all-repos.md)
+11. **Mirror everything to 4 git hosts weekly** — master cron pushes every submodule + master to GitLab.com + Codeberg.org + Bitbucket + GitFlic.ru every Friday 03:30 IST. Insurance against GitHub becoming unusable. Full decision in [`knowledge/decisions/architecture/mirror-to-4-git-hosts.md`](./knowledge/decisions/architecture/mirror-to-4-git-hosts.md). Migration runbook if GitHub Actions ever becomes unusable: [`knowledge/runbooks/migrate-ci-platform.md`](./knowledge/runbooks/migrate-ci-platform.md)
 
 ## Where to look in `knowledge/`
 

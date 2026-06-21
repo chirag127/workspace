@@ -127,3 +127,6 @@
 [submodule "projects_npm-packages_astro-test-utils-npm-pkg"]
 	path = projects/npm-packages/astro-test-utils-npm-pkg
 	url = https://github.com/chirag127/astro-test-utils-npm-pkg.git
+[submodule "projects_npm-packages_omni-publish-npm-pkg"]
+	path = projects/npm-packages/omni-publish-npm-pkg
+	url = https://github.com/chirag127/omni-publish-npm-pkg.git

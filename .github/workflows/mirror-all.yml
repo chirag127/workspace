@@ -1,0 +1,113 @@
+name: Mirror to 4 git hosts
+# Master cron — every Friday 03:30 IST (Thursday 22:00 UTC).
+# Pushes every submodule's HEAD to GitLab.com + Codeberg.org + Bitbucket + GitFlic.ru.
+# Insurance against GitHub becoming unusable.
+# See knowledge/decisions/architecture/mirror-to-4-git-hosts.md
+
+on:
+  schedule:
+    - cron: '0 22 * * 4'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  mirror:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - host: gitlab
+            url_base: https://oauth2:${{ secrets.GITLAB_TOKEN }}@gitlab.com/chirag127
+          - host: codeberg
+            url_base: https://chirag127:${{ secrets.CODEBERG_TOKEN }}@codeberg.org/chirag127
+          - host: bitbucket
+            url_base: https://chirag127:${{ secrets.BITBUCKET_APP_PASSWORD }}@bitbucket.org/chirag127
+          - host: gitflic
+            url_base: https://chirag127:${{ secrets.GITFLIC_TOKEN }}@gitflic.ru/project/chirag127
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          submodules: recursive
+          fetch-depth: 0
+
+      - name: Mirror to ${{ matrix.host }}
+        id: mirror
+        continue-on-error: true
+        run: |
+          set -e
+          STATUS_FILE=/tmp/mirror-${{ matrix.host }}-status.txt
+          : > "$STATUS_FILE"
+
+          # Enumerate every submodule via .gitmodules
+          while read -r path; do
+            [[ -z "$path" ]] && continue
+            slug=$(basename "$path")
+            url="${{ matrix.url_base }}/${slug}.git"
+            echo "→ ${{ matrix.host }}/${slug}"
+
+            (
+              cd "$path"
+              if git remote | grep -q "^${{ matrix.host }}$"; then
+                git remote set-url "${{ matrix.host }}" "$url"
+              else
+                git remote add "${{ matrix.host }}" "$url"
+              fi
+              if git push "${{ matrix.host }}" --mirror --force-with-lease 2>&1 | tail -3; then
+                echo "✓ $slug" >> "$STATUS_FILE"
+              else
+                echo "✗ $slug" >> "$STATUS_FILE"
+              fi
+            ) || echo "✗ $slug (subshell failure)" >> "$STATUS_FILE"
+          done < <(git config --file .gitmodules --get-regexp 'submodule\..*\.path' | awk '{print $2}')
+
+          # Master repo itself
+          echo "→ ${{ matrix.host }}/workspace"
+          if git remote | grep -q "^${{ matrix.host }}$"; then
+            git remote set-url "${{ matrix.host }}" "${{ matrix.url_base }}/workspace.git"
+          else
+            git remote add "${{ matrix.host }}" "${{ matrix.url_base }}/workspace.git"
+          fi
+          if git push "${{ matrix.host }}" --mirror --force-with-lease 2>&1 | tail -3; then
+            echo "✓ workspace" >> "$STATUS_FILE"
+          else
+            echo "✗ workspace" >> "$STATUS_FILE"
+          fi
+
+          echo ""
+          echo "=== ${{ matrix.host }} summary ==="
+          cat "$STATUS_FILE"
+          OK=$(grep -c '^✓' "$STATUS_FILE" || true)
+          FAIL=$(grep -c '^✗' "$STATUS_FILE" || true)
+          echo "ok=$OK fail=$FAIL"
+          echo "ok=$OK" >> "$GITHUB_OUTPUT"
+          echo "fail=$FAIL" >> "$GITHUB_OUTPUT"
+
+      - name: Notify Telegram on completion
+        if: always()
+        env:
+          BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: |
+          curl -s -X POST "https://api.telegram.org/bot${BOT_TOKEN}/sendMessage" \
+            -d "chat_id=${CHAT_ID}" \
+            -d "text=Mirror to ${{ matrix.host }}: ok=${{ steps.mirror.outputs.ok }} fail=${{ steps.mirror.outputs.fail }}" \
+            -d "disable_notification=true" || true
+
+  weekly-digest:
+    needs: mirror
+    runs-on: ubuntu-latest
+    if: always()
+    steps:
+      - name: Post weekly digest
+        env:
+          BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: |
+          curl -s -X POST "https://api.telegram.org/bot${BOT_TOKEN}/sendMessage" \
+            -d "chat_id=${CHAT_ID}" \
+            -d "text=📦 chirag127/oriz weekly mirror digest: $(date -u '+%Y-%m-%d')" \
+            -d "disable_notification=false" || true

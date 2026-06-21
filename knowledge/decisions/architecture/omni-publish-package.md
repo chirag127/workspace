@@ -1,0 +1,95 @@
+---
+type: decision
+title: "@chirag127/omni-publish package — auto-blog releases to 8+ platforms"
+description: "New npm package @chirag127/omni-publish handles auto-publishing release notes / blog posts to dev.to + hashnode + medium + X + LinkedIn + Bluesky + Mastodon + Reddit on tag push or release create. Triggered by GitHub Actions reusable workflow per repo. Platforms are env-gated — if DEVTO_API_KEY isn't set globally, dev.to is skipped automatically. Lives alongside the existing oriz-omni-post-app (the orchestrator UI / catalog of cross-posts)."
+tags: [decision, package, omni-publish, automation, blogging, cross-posting]
+timestamp: 2026-06-21
+format_version: okf-v0.1
+status: active
+related:
+  - architecture/the-six-packages
+  - decisions/architecture/cross-post-engine
+  - decisions/architecture/mit-license-all-repos
+---
+
+# @chirag127/omni-publish — auto-blog package
+
+## Decision
+
+A new npm package `@chirag127/omni-publish` (v0.1.0 published 2026-06-21) handles auto-publishing release notes, blog posts, or changelog entries to multiple platforms on tag push or release create. Lives at:
+
+- npm: <https://www.npmjs.com/package/@chirag127/omni-publish>
+- GitHub: <https://github.com/chirag127/omni-publish-npm-pkg>
+- Disk: `c:/D/oriz/projects/npm-packages/omni-publish-npm-pkg/`
+
+The existing `oriz-omni-post-app` (`projects/apps/content/oriz-omni-post-app/`) stays — it's the orchestrator + UI + catalog of past cross-posts. The new package is the **engine** that the app (and any GitHub Actions workflow) calls.
+
+## Platforms supported
+
+In priority order:
+
+1. **dev.to** — `DEVTO_API_KEY` env var; uses dev.to REST API (`/api/articles`)
+2. **Hashnode** — `HASHNODE_API_KEY` + `HASHNODE_PUBLICATION_ID`
+3. **X / Twitter** — `X_API_KEY` + `X_API_SECRET` + `X_ACCESS_TOKEN` + `X_ACCESS_SECRET`
+4. **LinkedIn** — `LINKEDIN_ACCESS_TOKEN`
+5. **Bluesky** — `BLUESKY_HANDLE` + `BLUESKY_APP_PASSWORD` (AT Protocol)
+6. **Mastodon** — `MASTODON_INSTANCE` + `MASTODON_ACCESS_TOKEN`
+7. **Reddit** — `REDDIT_CLIENT_ID` + `REDDIT_CLIENT_SECRET` + `REDDIT_USERNAME` + `REDDIT_PASSWORD`
+8. **Medium** — `MEDIUM_INTEGRATION_TOKEN` (Medium deprecated integration tokens but the API still works for some accounts)
+
+Platforms are env-gated: if a platform's env vars are not set, that platform is silently skipped. So adding a platform is just adding env vars at the chirag127 org level.
+
+## How it triggers per repo
+
+Each repo's `.github/workflows/release.yml` calls:
+
+```yaml
+- name: Cross-post release
+  if: github.event_name == 'release'
+  uses: chirag127/omni-publish-npm-pkg/.github/workflows/cross-post.yml@main
+  with:
+    title: "${{ github.event.release.name }}"
+    body: "${{ github.event.release.body }}"
+    canonical_url: "${{ github.event.release.html_url }}"
+  secrets: inherit
+```
+
+Or directly via npm bin in a workflow step:
+
+```yaml
+- run: npx @chirag127/omni-publish --title "$TITLE" --body "$BODY" --canonical "$URL"
+  env:
+    DEVTO_API_KEY: ${{ secrets.DEVTO_API_KEY }}
+    HASHNODE_API_KEY: ${{ secrets.HASHNODE_API_KEY }}
+    # ... rest of platform tokens
+```
+
+## Why this shape (package + app)
+
+Two artefacts because they do different things:
+
+- **The package (`@chirag127/omni-publish`)** is a reusable engine. Any oriz repo, any chirag127 project, or any non-chirag user can install it from npm and call it. MIT licensed.
+- **The app (`oriz-omni-post-app` at omni-post.oriz.in)** is the family-internal orchestrator: catalog of every cross-post, scheduled drafts, retry queue for failed posts, manual override UI. Has admin auth, isn't useful outside the family.
+
+Per [[cross-post-engine]] the existing decision already named the family pattern. This decision adds the **package boundary** so the engine becomes reusable while the orchestrator stays family-internal.
+
+## Versioning
+
+- v0.1.0 — stub published 2026-06-21 (exports type + stub `publish()` function)
+- v0.1.1 — first per-platform adapter (dev.to first, simplest API)
+- v0.2.0 — add Hashnode + X + Bluesky (4 platforms total)
+- v0.3.0 — add Mastodon + Reddit + LinkedIn (7 platforms)
+- v1.0.0 — all 8 platforms working in production for ≥1 month
+
+Cross-platform retry + scheduling deferred to v1.1+. v0.x is fire-and-forget per platform.
+
+## Known limitation
+
+The published v0.1.0 had a `bin` entry pointing at `./src/index.ts` which npm auto-stripped because bin scripts must be `.js` (or extensionless with shebang). v0.1.1 will fix by compiling to JS or adding a `.mjs` wrapper. Until then, only library usage (`import { publish } from '@chirag127/omni-publish'`) works; `npx @chirag127/omni-publish` doesn't.
+
+## Cross-refs
+
+- The original cross-post decision → [[decisions/architecture/cross-post-engine]]
+- The MIT license decision that makes this freely usable → [[decisions/architecture/mit-license-all-repos]]
+- The catalog of which env vars set which platforms → [[templates/.env.example]] + [[services/easy-free-tier]]
+- The oriz-omni-post-app submodule → `projects/apps/content/oriz-omni-post-app/`
