@@ -31,6 +31,8 @@ The org slug `chirag127/` is the prefix; no brand prefix in the slug.
 |---|---|---|
 | Web-only site (marketing, status) | `-site` | (no current uses — apex hub `home-app` ships as PWA too) |
 | Multi-target app (PWA → site + APK + EXE) | `-app` | `pdf-tools-app`, `journal-app`, `me-app`, `home-app` |
+| Game (adult / general audience, multi-target via Phaser 3) | `-game` | `tic-tac-toe-game`, `2048-game`, `sudoku-game` |
+| Kids game (COPPA + DPDP-Children + Play Families compliant) | `-kids-game` | `counting-1-10-kids-game`, `memory-match-kids-game` |
 | npm package | `-npm-pkg` | `astro-shell-npm-pkg`, `firebase-init-npm-pkg`, `auth-ui-npm-pkg` |
 | Python package (PyPI) | `-py-pkg` | future |
 | Rust crate (crates.io) | `-rs-crate` | future |

@@ -70,13 +70,13 @@ yearly subscriptions, pay-as-you-go with stored payment method).
 
 | Fee | Cost | Date | Why | Card kept on file? |
 |---|---|---|---|---|
-| (none yet) | — | — | — | — |
+| Google Play Developer enrollment | $25 USD | 2026-06-21 | Publish family `-app` + `-game` + `-kids-game` repos to Play Store alongside F-Droid + direct download. Currently in verification. | No — card removed immediately after charge cleared. |
 
 ### One-time fees approved (not yet paid)
 
 | Fee | Cost | Approved | Why |
 |---|---|---|---|
-| Google Play Developer enrollment | $25 USD | 2026-06-21 | Publish family `-app` repos to Play Store alongside F-Droid + direct download. Approved via MCQ Q25. |
+| (none pending — Play Store paid above) | — | — | — |
 
 The card is REMOVED from the payment method on file immediately after
 each one-time charge clears. Never leave a card stored anywhere.

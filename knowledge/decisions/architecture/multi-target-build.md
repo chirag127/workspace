@@ -251,6 +251,64 @@ Captured in full at [`release-cadence`](./release-cadence.md).
 - **Q77.** Lighthouse CI on every PR, fails below WCAG 2.2 AA + LH ≥ 95
   a11y + LH ≥ 80 perf. PR cannot merge if any threshold fails.
 
+## Knowledge corrections (2026-06-21 grill round 3)
+
+Two corrections to prior claims that turned out to be wrong on a fact check:
+
+### CF Worker quota is account-wide, NOT per-Worker
+
+Earlier comparison claimed "isolated quota burn" as a smaller-apps win
+("if video-tools-app blows through Cloudflare Worker quota, pdf-tools-app
+keeps running"). **This is false.** Cloudflare Workers' free-tier 100K
+requests/day quota is **shared account-wide across all Workers**, not
+per-Worker. Adding more `-worker` repos does not multiply the quota
+ceiling. They all draw from the same 100K/day pool.
+
+What IS isolated on the free tier:
+- **CF Pages builds**: 500/month **per project** → 15 projects = 7,500
+  builds/month effective ceiling (real isolation).
+- **CF Pages file count**: 20,000 files **per project**.
+- **CF Pages bandwidth + requests**: unlimited account-wide.
+
+What is NOT isolated:
+- **CF Worker requests**: 100K/day account-wide.
+- **CF Worker CPU time**: 10ms/request, account-wide CPU pool.
+- **CF Pages concurrent builds**: 1 at a time across the whole account.
+
+**Implication**: stay with a single family Worker at `api.oriz.in` per
+`hono-worker-api-umbrella.md`. Per-app Workers buy nothing on the
+quota axis; they only add operational complexity.
+
+### "No subscriptions" rule applies to developer side only
+
+The earlier rule `monetisation/no-subscriptions-anywhere.md` was
+ambiguous about who the constraint binds. Clarified 2026-06-21:
+
+- **Developer → service provider** subscription: forbidden (the rule).
+- **App → end user** subscription: allowed and encouraged (revenue).
+
+Apps can ship Google-style Free / Pro / Ultra / Max subscription tiers
+to their users via Razorpay / Lemon Squeezy. See
+[`monetisation/no-subscriptions-anywhere.md`](../monetisation/no-subscriptions-anywhere.md)
+§ Scope clarification for details.
+
+### Games + kids-games suffixes added
+
+Two new suffix categories landed alongside the family:
+
+- **`-game`** — adult / general-audience games. Multi-target (web + PWA + APK + EXE via Phaser 3). AdMob standard ads on free tier; one-time-unlock paid tier.
+- **`-kids-game`** — COPPA + DPDP-Children + Play Families compliant. AdMob Kids-Approved ads only; no PII analytics (Sentry errors only, no PostHog / Clarity / GA4). No auth required (anonymous play). One-time unlock paid tier (no subscriptions per Play Families).
+
+See [`branding/naming-policy-v5.md`](../branding/naming-policy-v5.md)
+§ Games suffixes for the matrix update.
+
+### Play Store enrollment paid
+
+The $25 Google Play Developer fee was approved as a one-time exception
+and **paid on 2026-06-21**. Currently in Play Store verification. See
+[`rules/no-card-on-file.md`](../../rules/no-card-on-file.md) § One-time
+fees paid for the table entry.
+
 ## Cross-refs
 
 - [decisions/architecture/multi-target-build](./multi-target-build.md)
