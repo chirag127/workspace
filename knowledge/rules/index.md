@@ -68,6 +68,7 @@ wins, and the rule file is updated in the same conversation.
 
 - [`no-emoji-in-chrome.md`](./no-emoji-in-chrome.md) — per family design rules.
 - [`match-surrounding-style.md`](./match-surrounding-style.md) — semicolons, indent, quotes match the file you're in.
+- [`design-divergence-vs-dedup.md`](./design-divergence-vs-dedup.md) — per-app design-brief variants (Header / Footer / Wordmark, blog's MultiSearch, blog's astro.config) are intentionally divergent and must NOT be forced into generic slot-based components. The 25-lines × 3-apps dedup threshold applies to TRUE duplicates only.
 
 ## Agent-harness rules
 
