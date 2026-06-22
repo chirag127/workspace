@@ -2,7 +2,7 @@
 
 > **Read [`knowledge/index.md`](./knowledge/index.md) first.** The bundle is the canonical source of truth for every rule, decision, service pick, design brief, runbook, and policy in the chirag127/oriz family. The "where to look" table + per-site knowledge convention live in [`knowledge/_navigation.md`](./knowledge/_navigation.md).
 
-## The 15 hard rules (full versions in `knowledge/rules/`)
+## The 16 hard rules (full versions in `knowledge/rules/`)
 
 1. **Never hit a free-tier quota** — architect for headroom. [`rules/never-hit-quotas.md`](./knowledge/rules/never-hit-quotas.md)
 2. **No card-on-file** — every service must work without billing data linked. [`rules/no-card-on-file.md`](./knowledge/rules/no-card-on-file.md)
@@ -19,6 +19,7 @@
 13. **Frontend-design skill is baked-in agent philosophy** — every UI task approached as design lead at a small studio. Avoid AI-cluster defaults. [`rules/frontend-design-skill-baked-in.md`](./knowledge/rules/frontend-design-skill-baked-in.md)
 14. **Env vars ORG-level only — per-repo secrets FORBIDDEN** — push to GitHub ORG `oriz-co` with `--visibility all`. NEVER per-repo (3,770 calls/sync hits 5K/hr limit). Migration: [`runbooks/migrate-to-oriz-org.md`](./knowledge/runbooks/migrate-to-oriz-org.md). Rule: [`rules/org-level-secrets-only-no-per-repo.md`](./knowledge/rules/org-level-secrets-only-no-per-repo.md)
 15. **Shared-tenant-by-default for every 3rd-party service** — ONE Sentry + ONE GA4 + ONE Clarity + ONE Algolia + ONE Razorpay merchant family-wide. Apps separate via tags/labels/custom-dimensions, NEVER per-app accounts. Prevents 260-signup hell. [`rules/shared-tenant-by-default.md`](./knowledge/rules/shared-tenant-by-default.md)
+16. **One-level subdomains only on `oriz.in`** — subdomains live AT MOST one level deep (`<name>.oriz.in`). Two-level shapes like `<name>.api.oriz.in` are FORBIDDEN for new work because CF free-tier Universal SSL covers only `*.oriz.in`. Use `<name>-api.oriz.in` instead. 19 grandfathered `*.api.oriz.in` records stay DNS-only (grey-cloud); GH Pages handles their SSL via Let's Encrypt. Locked 2026-06-22 evening. [`rules/one-level-subdomain-only.md`](./knowledge/rules/one-level-subdomain-only.md)
 
 ## Update protocol
 

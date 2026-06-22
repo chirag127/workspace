@@ -1,0 +1,21 @@
+{
+  "fii-dii": "oriz-flow-fii-dii-activity-api",
+  "mmi": "oriz-mmi-tickertape-mmi-api",
+  "mf-nav": "oriz-mf-nav-api",
+  "pincode": "oriz-pincode-api",
+  "ifsc": "oriz-ifsc-api",
+  "holidays": "oriz-india-holidays-api",
+  "currency": "oriz-currency-rates-api",
+  "tickers": "oriz-nse-bse-tickers-api",
+  "rbi-rates": "oriz-rbi-rates-api",
+  "gold-silver": "oriz-gold-silver-rates-api",
+  "irctc": "oriz-irctc-train-pnr-api",
+  "aqi-india": "oriz-air-quality-india-api",
+  "aqi": "oriz-aqi-cities-api",
+  "fuel": "oriz-india-petrol-diesel-api",
+  "exams": "oriz-india-exam-portal-status-api",
+  "rti": "oriz-india-rti-api",
+  "judgments": "oriz-india-court-judgments-api",
+  "budget": "oriz-india-budget-numbers-api",
+  "so-trending": "oriz-stackoverflow-trending-api"
+}

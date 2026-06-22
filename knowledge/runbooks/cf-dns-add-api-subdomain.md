@@ -6,7 +6,7 @@
 
 **Zone:** `oriz.in` → zone id `fe8da3c9dd0cb1f1d964e3a94d6098b3`
 **Target:** `chirag127.github.io` (single APEX-style CNAME — GH Pages routes by `Host:` header + per-repo `CNAME` file)
-**Cloud:** **orange (proxied=true) as of 2026-06-22** — flipped to gain CDN, DDoS, Analytics, Always-Online, Cache Rules, Universal SSL. GH Pages cert is bypassed; CF Universal SSL terminates at edge (Flexible/Full SSL setting on zone, takes 15-90min to provision after flip).
+**Cloud:** **grey (proxied=false) as of 2026-06-22 evening** — reverted after the orange-cloud flip. Cloudflare's free Universal SSL covers only one wildcard level (`*.oriz.in`), so `*.api.oriz.in` (two levels) was failing TLS handshake at the proxied edge. GH Pages handles SSL itself at the 2-level depth via Let's Encrypt — but only when CF is in DNS-only mode (no proxy). See Section 12 for the full reversal log.
 
 ---
 
@@ -172,3 +172,40 @@ Until SSL is sorted, the rules sit unused; once cert is valid the very first `.j
 **Curl test:** blocked locally by Git Bash `schannel: SEC_E_ILLEGAL_MESSAGE` and Node `fetch` `SSL alert 40` — both confirm the cert-coverage gap above, not a tool bug.
 
 **Idempotency:** the script uses `PUT /rulesets/phases/<phase>/entrypoint` which replaces the entire phase entrypoint ruleset. Safe to re-run; each run produces a fresh ruleset version.
+
+---
+
+## 12. REVERSAL 2026-06-22 evening — back to grey-cloud, GH Pages handles 2-level SSL
+
+**Decision:** un-proxy all 19 `*.api.oriz.in` CNAMEs back to grey cloud (DNS-only). Universal SSL's 1-level-wildcard limit was non-negotiable on free tier, and `*.api.oriz.in` is 2 levels deep. GH Pages itself can provision Let's Encrypt certs at arbitrary depth — but only when CF is **not** in the request path (otherwise GH Pages can't complete the ACME HTTP-01 challenge that requires hitting its own edge).
+
+**Action taken:**
+
+```bash
+node scripts/cf-dns-flip-proxy.mjs --env=.env --proxy=off   # 19/19 flipped, 0 errors
+```
+
+All 19 records now `proxied=false`. CF still serves DNS resolution; nothing else touches the request.
+
+**Then:** [`scripts/gh-pages-cname-and-https.mjs`](../../scripts/gh-pages-cname-and-https.mjs) verifies CNAME files in each repo and toggles `https_enforced=true` once GH Pages reports a cert exists. Idempotent — re-run periodically until `httpsEnforced + alreadyEnforced == 19`.
+
+```bash
+node scripts/gh-pages-cname-and-https.mjs --env=.env
+```
+
+Repo map: [`scripts/.api-repo-map.json`](../../scripts/.api-repo-map.json).
+
+**Cert provisioning lag:** GH Pages issues Let's Encrypt certs ~10-30 min after DNS propagates + custom domain is set. First post-reversal sweep (2026-06-22 evening): 4/19 enforced, 15/19 pending cert (`404 The certificate does not exist yet`). Re-run the sweep in 30-60 min until all 19 are enforced.
+
+**Sample verification:**
+
+```bash
+curl -sI https://fii-dii.api.oriz.in/   # HTTP/1.1 404 Server: GitHub.com  -> TLS works
+curl -sI https://mmi.api.oriz.in/       # exit 35                          -> cert still provisioning
+```
+
+**Zone rules from section 11 are now dormant for `*.api.oriz.in`** — Cache Rule, CORS Transform Rule, and Always-Online still exist at zone level but no longer fire because CF isn't in the request path. They remain active for any future proxied subdomain. Do **not** delete them; they're free-tier-cheap and ready if a 1-level subdomain ever needs CDN.
+
+**Web Analytics:** likewise dormant for `*.api.oriz.in` (the auto-beacon needs the proxied edge). Site registration in `.env` (`CF_WEB_ANALYTICS_SITE_TAG`) remains valid for any future proxied hostname on `oriz.in`.
+
+**Forward rule for new APIs:** see [`knowledge/rules/one-level-subdomain-only.md`](../rules/one-level-subdomain-only.md). New APIs use `<name>-api.oriz.in` (one level, Universal-SSL-covered, proxiable). The 19 `*.api.oriz.in` are grandfathered as a known violation.
