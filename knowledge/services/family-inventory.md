@@ -107,14 +107,19 @@ Note: earlier docs reference *Oriz Me* as the first-to-draft full book; that was
 
 The umbrella `api.oriz.in` Hono Worker is the inline (non-submodule) API and is not counted here.
 
-## Submodules — 53 total
+## Browser extensions — 1 total
 
-`git submodule status | wc -l` from `c:/D/oriz/` should return 53. Composition:
+- `Ai-rewrite` — Chrome extension, AI-powered text rewriting. Submodule under `projects/browser-extensions/Ai-rewrite/`. Repo: `chirag127/Ai-rewrite`. (Added 2026-06-22; previously the extensions count was 0.)
+
+## Submodules — 54 total
+
+`git submodule status | wc -l` from `c:/D/oriz/` should return 54. Composition:
 
 - 26 app submodules (under `projects/apps/`)
 - 18 npm-package submodules (under `projects/npm-packages/`)
 - 2 API submodules (under `projects/apis/`)
 - 1 data submodule (under `projects/data/` — `oriz-ai-providers-data`)
+- 1 browser-extension submodule (under `projects/browser-extensions/` — `Ai-rewrite`)
 - 6 other / book / skill submodules
 
 Re-verify on each count change with: `cd /c/D/oriz && git submodule status | wc -l`.

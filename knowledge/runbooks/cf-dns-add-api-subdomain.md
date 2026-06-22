@@ -86,7 +86,7 @@ node scripts/cf-dns-flip-proxy.mjs --env=.env --proxy=off  # back to grey cloud
 
 ## 7. Zone-level rules (manual via dashboard)
 
-The DNS-edit-scoped API token can create records but **cannot create Rulesets, Page Rules, Zone Settings, or RUM sites** (all return `403 Authentication error` / `9109 Unauthorized`). Token rotation to a broader scope is deferred. Apply these via the Cloudflare dashboard (zone: `oriz.in`):
+The DNS-edit-scoped API token can create records but **cannot create Rulesets, Page Rules, Zone Settings, or RUM sites** (all return `403 Authentication error` / `9109 Unauthorized`). Last verified halt: 2026-06-22 — `node scripts/cf-zone-rules-api.mjs --env=.env` exits with `/zones/{id}/rulesets/phases/http_request_cache_settings/entrypoint: 403 [{"code":10000,"message":"Authentication error"}]` on first call. Token rotation to a broader scope is pending user action (new token must include Zone.Cache Rules + Zone.Transform Rules + Zone.Zone Settings + Account.Account Analytics, beyond the current DNS:Edit scope). Until then, apply these via the Cloudflare dashboard (zone: `oriz.in`):
 
 **Cache Rule — Cache JSON for 1h** (Rules → Cache Rules → Create)
 

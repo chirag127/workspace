@@ -129,4 +129,24 @@ try {
   console.log(`  error   always_online: ${e.message}`);
 }
 
+// Web Analytics — register oriz.in (and all subdomains) as a RUM site.
+const accountId = process.env.CLOUDFLARE_ACCOUNT_ID;
+if (accountId) {
+  console.log('\nPhase 3: Web Analytics RUM site_info');
+  try {
+    await cf(`/accounts/${accountId}/rum/site_info`, {
+      method: 'POST',
+      body: JSON.stringify({
+        host: ZONE,
+        auto_install: true,
+      }),
+    });
+    console.log(`  ok      web-analytics site registered for ${ZONE} (auto_install=true)`);
+  } catch (e) {
+    console.log(`  error   web-analytics: ${e.message}`);
+  }
+} else {
+  console.log('\nSkipping Web Analytics — set CLOUDFLARE_ACCOUNT_ID to enable.');
+}
+
 console.log('\nDone.');
