@@ -78,3 +78,8 @@ wins, and the rule file is updated in the same conversation.
 
 - [`user-prefers-atomic-split.md`](./user-prefers-atomic-split.md) — when offered fewer-larger-units vs. more-smaller-units, default to more-smaller (repos, packages, files). Mined from override patterns.
 - [`user-prefers-wider-coverage.md`](./user-prefers-wider-coverage.md) — for content / brand surfaces, default to wider scope over narrower; for tools, default to narrower-and-deeper. Mined from override patterns.
+
+## Geo + communication constraints
+
+- [`no-telegram-india-banned.md`](./no-telegram-india-banned.md) — Telegram is banned in India; user cannot access reliably. Drafts queue → GH Issues; notifications → GH + email. Do NOT propose Telegram bots for India-resident users.
+- [`communication-stt-friendly.md`](./communication-stt-friendly.md) — user uses STT heavily; accept transcription noise. When ambiguous, pick most-likely interpretation, state it explicitly, proceed. Never ask user to re-transcribe.
