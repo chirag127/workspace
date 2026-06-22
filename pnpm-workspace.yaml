@@ -12,3 +12,12 @@ packages:
   - 'projects/skills/*'
   # data repos (JSON-only, not npm packages) — explicitly excluded from pnpm workspace
   - '!projects/data/*'
+allowBuilds:
+  '@firebase/util': set this to true or false
+  canvas: set this to true or false
+  core-js: set this to true or false
+  esbuild: set this to true or false
+  protobufjs: set this to true or false
+  sharp: set this to true or false
+  tesseract.js: set this to true or false
+  workerd: set this to true or false
