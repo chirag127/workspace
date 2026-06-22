@@ -10,6 +10,16 @@ the rule-book lives in [`knowledge/`](./knowledge/) as an
 bundle — 167 small concept files organised across 8 directories with
 clean cross-links.
 
+## The 12 hard rules (full versions in `knowledge/rules/`)
+
+**NEW (2026-06-22):**
+
+**Rule 12: Grill on LOC removal >= 1000 lines per sweep** — when a dedup/refactor sweep removes ≥1000 lines of code, the agent MUST surface this as a delta, ask the user 20+ questions about what was removed + why, offer restoration paths, and confirm before deleting. Reason: sweeps that remove content-specific code (finance options in paisa-finance sidebar, PDF tools in slice-pdf, etc.) break per-app identity. Design patterns CAN consolidate (Header / Footer / Sidebar / BottomBar structure is the same); content CANNOT (every app's nav tree is different). Before the agent assumes slot-based props will wire per-app content, GRILL.
+
+**Full rule** in [`knowledge/rules/grill-on-loc-removal.md`](./knowledge/rules/grill-on-loc-removal.md).
+
+---
+
 ## The 11 hard rules (full versions in `knowledge/rules/`)
 
 1. **Never hit a free-tier quota** — architect for headroom, not survival
