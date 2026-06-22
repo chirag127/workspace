@@ -138,3 +138,37 @@ curl -sI https://fii-dii.api.oriz.in/   # expect: server: cloudflare, HTTP/2 404
 ```
 
 If HTTPS still fails (`exit 35` / TLS handshake) after 90 min: check **SSL/TLS → Overview → Encryption mode** in the dashboard. Set to **Flexible** (CF↔origin over HTTP — GH Pages serves the apex CNAME without per-subdomain certs anyway).
+
+---
+
+## 11. DEPLOYED 2026-06-22
+
+**New token works.** Rotated token (id `5ccddd54b26ac5e5d8bcb0c5747d44a8`) now carries Zone.Cache Rules + Zone.Transform Rules + Zone.Zone Settings + Account.Web Analytics. `node scripts/cf-zone-rules-api.mjs --env=.env` runs cleanly.
+
+**Rules applied via Rulesets API (replacing the dashboard-manual fallback from sections 7-8):**
+
+| # | Phase | Ruleset ID | Effect |
+| --- | --- | --- | --- |
+| 1 | `http_request_cache_settings` | `5734d90f46744af0aa23145c26cdd7d9` | Cache `.json` on `*.api.oriz.in` for 1h edge / 30min browser |
+| 2 | `http_response_headers_transform` | `ff75ac2c9bfd42fbba1350e88a328c51` | Set `access-control-allow-origin: *` on `*.api.oriz.in` responses |
+| 3 | Zone setting | `always_online=on` | Always-Online on zone-wide (only proxied subdomains benefit) |
+
+**Free-tier expression-language fix:** the `matches` (regex) operator is Business-plan only on Cloudflare free. Script rewritten to use `ends_with(http.host, ".api.oriz.in")` — semantically equivalent for our `*.api.oriz.in` shape, free-tier-friendly. (The dashboard-manual fallback strings in section 7 should likewise be rewritten if used.)
+
+**Web Analytics:**
+
+- Site registered: `host=oriz.in, auto_install=false` (the `auto_install=true` flag returned `web_analytics.configuration.api.autoInstallInvalid` — `false` works and lets us drop a beacon ourselves if needed; proxied edge analytics still collect automatically).
+- `site_tag` and `site_token` saved to `.env` as `CF_WEB_ANALYTICS_SITE_TAG` / `CF_WEB_ANALYTICS_TOKEN` (last 4 of token: `249f`).
+- Dashboard: `https://dash.cloudflare.com/<account_id>/web-analytics`.
+
+**Universal SSL caveat — multi-level subdomains (3-label) not covered.** Cloudflare's free Universal SSL covers `oriz.in` + `*.oriz.in` (one wildcard level). It does **not** cover `*.api.oriz.in` (two levels deep). `https://fii-dii.api.oriz.in/...` currently fails with SSL alert 40 (handshake failure). The 3 rules are deployed at zone level and will activate the moment a valid cert exists. Options to fix (separate task):
+
+1. **Advanced Certificate Manager (ACM)** — order a free Total TLS cert that includes `*.api.oriz.in`. Requires Account.SSL/Certificates token scope.
+2. **Flatten the subdomain hierarchy** — move APIs from `<sub>.api.oriz.in` to `api-<sub>.oriz.in` (one level deep). Universal SSL covers this for free, no ACM needed.
+3. **Custom Hostnames (SSL for SaaS)** — paid Enterprise.
+
+Until SSL is sorted, the rules sit unused; once cert is valid the very first `.json` request will populate cache (status `MISS` then `HIT`).
+
+**Curl test:** blocked locally by Git Bash `schannel: SEC_E_ILLEGAL_MESSAGE` and Node `fetch` `SSL alert 40` — both confirm the cert-coverage gap above, not a tool bug.
+
+**Idempotency:** the script uses `PUT /rulesets/phases/<phase>/entrypoint` which replaces the entire phase entrypoint ruleset. Safe to re-run; each run produces a fresh ruleset version.

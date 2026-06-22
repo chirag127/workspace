@@ -10,7 +10,8 @@
 import { readFileSync, existsSync } from 'node:fs';
 
 const ZONE = 'oriz.in';
-const HOST_RE = '^.+\\.api\\.oriz\\.in$';
+// Free tier: regex 'matches' operator is Business-plan only; use 'ends_with'.
+const HOST_SUFFIX = '.api.oriz.in';
 
 const envArg = process.argv.find(a => a.startsWith('--env='));
 if (envArg) {
@@ -63,7 +64,7 @@ async function setEntrypointRule(phase, rule, label) {
 // Rule 1: Cache .json for 1h
 const cacheRule = {
   action: 'set_cache_settings',
-  expression: `(http.host matches "${HOST_RE}") and (http.request.uri.path.extension eq "json")`,
+  expression: `(ends_with(http.host, "${HOST_SUFFIX}")) and (http.request.uri.path.extension eq "json")`,
   description: 'cache .json on *.api.oriz.in for 1h edge / 30min browser',
   enabled: true,
   action_parameters: {
@@ -77,7 +78,7 @@ const cacheRule = {
 // (always_online lives in http_config_settings phase via 'set_config' action)
 const alwaysOnlineRule = {
   action: 'set_config',
-  expression: `(http.host matches "${HOST_RE}")`,
+  expression: `(ends_with(http.host, "${HOST_SUFFIX}"))`,
   description: 'enable always-online for *.api.oriz.in',
   enabled: true,
   action_parameters: {
@@ -101,7 +102,7 @@ const alwaysOnlineRule = {
 // Rule 3: CORS allow-all on response
 const corsRule = {
   action: 'rewrite',
-  expression: `(http.host matches "${HOST_RE}")`,
+  expression: `(ends_with(http.host, "${HOST_SUFFIX}"))`,
   description: 'CORS allow-all on *.api.oriz.in responses',
   enabled: true,
   action_parameters: {
@@ -134,14 +135,17 @@ const accountId = process.env.CLOUDFLARE_ACCOUNT_ID;
 if (accountId) {
   console.log('\nPhase 3: Web Analytics RUM site_info');
   try {
-    await cf(`/accounts/${accountId}/rum/site_info`, {
+    const { result } = await cf(`/accounts/${accountId}/rum/site_info`, {
       method: 'POST',
       body: JSON.stringify({
         host: ZONE,
-        auto_install: true,
+        auto_install: false,
       }),
     });
+    const tag = result.site_tag || result.site_token || '(no token in response)';
     console.log(`  ok      web-analytics site registered for ${ZONE} (auto_install=true)`);
+    console.log(`  site_tag=${tag}`);
+    console.log(`  CF_WEB_ANALYTICS_TOKEN=${tag}`);
   } catch (e) {
     console.log(`  error   web-analytics: ${e.message}`);
   }
