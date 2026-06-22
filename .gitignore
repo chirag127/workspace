@@ -16,3 +16,4 @@ dist/
 firebase-debug.log
 projects/npm-packages/astro-test-utils-npm-pkg
 pnpm-lock.yaml
+.tmp-*
