@@ -226,3 +226,6 @@
 [submodule "projects/forks/Ai-rewrite"]
 	path = projects/forks/Ai-rewrite
 	url = https://github.com/oriz-co/Ai-rewrite.git
+[submodule "projects/apps/hub/oriz-status-app"]
+	path = projects/apps/hub/oriz-status-app
+	url = https://github.com/oriz-co/oriz-status-app.git
