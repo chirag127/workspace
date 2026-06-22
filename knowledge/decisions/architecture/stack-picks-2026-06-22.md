@@ -1,7 +1,7 @@
 ---
 type: decision
 title: "Observability, AI, search, auth, DB stack (Q3 2026 lock)"
-description: "Cross-cutting service picks locked on 2026-06-22. AI: NVIDIA NIM primary + OpenRouter fallback (both free, no card). Search: Pagefind for static + Algolia free hybrid. Errors: Sentry free + OSS tier apply. Uptime: UptimeRobot free 50 monitors. Auth: Firebase Auth (Spark). DB: Firestore only. I18n: English-only v0 + Crowdin OSS community translations. Privacy: single family-wide /privacy page. Cookie consent: Klaro EU + DPDP India geo-route."
+description: "Cross-cutting service picks locked on 2026-06-22. AI: `@chirag127/oriz-ai-providers` (20-provider fallback chain — OVHcloud / LLM7 / Pollinations anonymous first, then Cerebras / Groq / NIM / OpenRouter / etc keyed) — see decisions/architecture/oriz-ai-providers-package. Search: Pagefind for static + Algolia free hybrid. Errors: Sentry free + OSS tier apply. Uptime: UptimeRobot free 50 monitors. Auth: Firebase Auth (Spark). DB: Firestore only. I18n: English-only v0 + Crowdin OSS community translations. Privacy: single family-wide /privacy page. Cookie consent: Klaro EU + DPDP India geo-route."
 tags: [decision, stack, observability, ai, search, auth, db, privacy, i18n]
 timestamp: 2026-06-22
 format_version: okf-v0.1
@@ -17,11 +17,13 @@ related:
 
 ## AI inference
 
-**Primary:** NVIDIA NIM (`meta/llama-3.3-70b-instruct`, 5K req/mo free, build.nvidia.com).
-**Fallback:** OpenRouter free models (`meta-llama/llama-3.3-70b-instruct:free`).
-**Use cases:** blog draft rewrites (omni-publish), janaushdhi substitute-finder, ncert subject summaries, general content rewrites.
-**Routing:** primary → on 429/5xx → fallback. No third tier.
-**Env vars:** `NVIDIA_NIM_API_KEY` + `OPENROUTER_API_KEY`.
+**Superseded by [[decisions/architecture/oriz-ai-providers-package]] (2026-06-22).**
+
+The original NIM-primary + OpenRouter-fallback two-tier picked here is now subsumed by the new `@chirag127/oriz-ai-providers` aggregator package, which fans out across **20** free LLM APIs with a richer priority chain (anonymous OVHcloud / LLM7 / Pollinations first, then Cerebras / Groq / NIM / OpenRouter / Google AI Studio / etc keyed).
+
+**Use cases (unchanged):** blog draft rewrites (omni-publish), janaushdhi substitute-finder, ncert subject summaries, general content rewrites.
+
+**Migration:** consumers should `pnpm add @chirag127/oriz-ai-providers` and call `ai.complete({ prompt })` instead of hand-rolling NIM/OpenRouter fetch calls. Env vars are listed in the package's README + the data repo's `env-vars.json`.
 
 ## Search
 

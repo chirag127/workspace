@@ -1,7 +1,7 @@
 ---
 type: architecture
-title: The seventeen packages — the locked oriz family package set
-description: The chirag127/oriz family ships 17 npm packages — 10 Astro (shell, chrome, tools, content, data, forms, billing, pwa, distribute, widgets) + 1 shared test fixtures (astro-test-utils) + 4 cross-surface auth (auth-core, auth-wxt, auth-vsc, auth-cli) + 1 cross-post engine (omni-publish) + 1 book-build pipeline (oriz-book-build). Threshold for being a package — ≥25 lines duplicated across ≥3 consumers AND no community library covers it. Anything below the threshold is inlined.
+title: The eighteen packages — the locked oriz family package set
+description: The chirag127/oriz family ships 18 npm packages — 10 Astro (shell, chrome, tools, content, data, forms, billing, pwa, distribute, widgets) + 1 shared test fixtures (astro-test-utils) + 4 cross-surface auth (auth-core, auth-wxt, auth-vsc, auth-cli) + 1 cross-post engine (omni-publish) + 1 book-build pipeline (oriz-book-build) + 1 AI-providers aggregator (oriz-ai-providers). Threshold for being a package — ≥25 lines duplicated across ≥3 consumers AND no community library covers it. Anything below the threshold is inlined.
 tags: [architecture, packages, astro, npm, locked]
 timestamp: 2026-06-22
 format_version: okf-v0.1
@@ -9,6 +9,7 @@ status: active
 supersedes:
   - decisions/architecture/zero-chirag127-packages
   - decisions/architecture/cross-surface-package-set
+  - architecture/the-17-packages
 related:
   - architecture/package-isolation-rule
   - architecture/repo-layout
@@ -17,14 +18,15 @@ related:
   - decisions/architecture/per-runtime-framework
   - decisions/architecture/omni-publish-package
   - decisions/architecture/book-publish-pipeline
+  - decisions/architecture/oriz-ai-providers-package
   - services/family-inventory
 ---
 
-# The seventeen packages — locked
+# The eighteen packages — locked
 
 ## Concept
 
-17 npm packages under `@chirag127/*` are the shared surface for the family.
+18 npm packages under `@chirag127/*` are the shared surface for the family.
 
 A package exists only when:
 1. **≥25 lines** of identical code would otherwise duplicate across
@@ -33,7 +35,7 @@ A package exists only when:
 
 If only (1) and (2) hold but (3) doesn't — use the community package directly. If only (2) holds and the duplication is <25 lines — inline.
 
-## The set (17 total)
+## The set (18 total)
 
 ### Layered Astro packages (10)
 
@@ -72,6 +74,12 @@ If only (1) and (2) hold but (3) doesn't — use the community package directly.
 | 16 | `@chirag127/omni-publish` | — | RSS → every-platform cross-poster. Watches `blog.oriz.in/rss.xml`; adapter-per-platform (dev.to / Hashnode / Medium / X / LinkedIn / Bluesky / Mastodon / Reddit / Threads). Idempotent, canonical URL preserved. See [[decisions/architecture/omni-publish-package]]. |
 | 17 | `@chirag127/oriz-book-build` | — | Markua-flavoured `.md` → Pandoc → EPUB3 + PDF + MOBI build pipeline. Powers the 5-book publish channel set (Leanpub / Gumroad / LemonSqueezy / D2D / KDP). See [[decisions/architecture/book-publish-pipeline]]. |
 
+### AI providers aggregator (1)
+
+| # | Package | Peer-dep | What it owns |
+|---|---|---|---|
+| 18 | `@chirag127/oriz-ai-providers` | — | Thin wrapper around 20 free LLM APIs (OVHcloud, LLM7, Pollinations, Cerebras, Groq, NVIDIA NIM, OpenRouter, Google AI Studio, Cohere, GitHub Models, Cloudflare Workers AI, HuggingFace, Mistral, SambaNova, Z.AI, SiliconFlow, Aion Labs, Ollama Cloud, ModelScope, Kilo Code). Priority-based fallback chain; OpenAI SDK-compatible. Provider / model / rate-limit / priority data lives in the SEPARATE `chirag127/oriz-ai-providers-data` repo (CC0). See [[decisions/architecture/oriz-ai-providers-package]]. |
+
 ## Hierarchy
 
 ```text
@@ -95,6 +103,7 @@ auth-core   (base)
 
 omni-publish     (standalone)
 oriz-book-build  (standalone)
+oriz-ai-providers (standalone — fetches data from chirag127/oriz-ai-providers-data)
 ```
 
 ## Dropped from the set (use community library directly)

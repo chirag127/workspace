@@ -6,9 +6,9 @@ tags: [decision, packages, superseded]
 timestamp: 2026-06-20
 format_version: okf-v0.1
 status: superseded
-superseded_by: architecture/the-17-packages
+superseded_by: architecture/the-18-packages
 ---
 
 # [SUPERSEDED] Cross-surface package set
 
-Replaced by [[architecture/the-17-packages]] on 2026-06-20.
+Replaced by [[architecture/the-18-packages]] on 2026-06-20.

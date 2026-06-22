@@ -10,3 +10,5 @@ packages:
   - 'projects/ide-extensions/*'
   - 'projects/mcp-servers/*'
   - 'projects/skills/*'
+  # data repos (JSON-only, not npm packages) — explicitly excluded from pnpm workspace
+  - '!projects/data/*'

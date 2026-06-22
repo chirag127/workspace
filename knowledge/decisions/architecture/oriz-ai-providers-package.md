@@ -9,7 +9,7 @@ status: active
 supersedes_in_part: decisions/architecture/stack-picks-2026-06-22 (the "AI inference" section that named NIM primary + OpenRouter fallback only)
 related:
   - decisions/architecture/stack-picks-2026-06-22
-  - architecture/the-17-packages
+  - architecture/the-18-packages
   - rules/never-hit-quotas
   - rules/no-card-on-file
 ---
@@ -116,8 +116,8 @@ The wrapper:
 
 ## Master pointer
 
-Adding this package brings the family count to **18 packages** (was 17 per `the-17-packages.md`). Rename + update count in:
-- `knowledge/architecture/the-17-packages.md` → `the-18-packages.md` (rename via `git mv` to keep history)
+Adding this package brings the family count to **18 packages** (was 17 per `the-18-packages.md`). Rename + update count in:
+- `knowledge/architecture/the-18-packages.md` → `the-18-packages.md` (rename via `git mv` to keep history)
 - `knowledge/services/family-inventory.md` — bump count
 - AGENTS.md "Where to look" if referenced
 

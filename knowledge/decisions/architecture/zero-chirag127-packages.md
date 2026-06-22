@@ -6,9 +6,9 @@ tags: [decision, packages, superseded]
 timestamp: 2026-06-20
 format_version: okf-v0.1
 status: superseded
-superseded_by: architecture/the-17-packages
+superseded_by: architecture/the-18-packages
 ---
 
 # [SUPERSEDED] Zero chirag127/* packages
 
-Replaced by [[architecture/the-17-packages]] on 2026-06-20. The family now ships 17 packages.
+Replaced by [[architecture/the-18-packages]] on 2026-06-20. The family now ships 17 packages.

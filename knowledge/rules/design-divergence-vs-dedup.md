@@ -7,7 +7,7 @@ timestamp: 2026-06-21
 format_version: okf-v0.1
 status: active
 related:
-  - decisions/architecture/the-17-packages
+  - decisions/architecture/the-18-packages
   - decisions/architecture/four-nav-surfaces-every-app
   - decisions/design/datasheet-dark
   - rules/match-surrounding-style
@@ -30,7 +30,7 @@ related:
 The dedup-sweep threshold for extracting shared code into an
 `@chirag127/*` package is **≥25 lines duplicated across ≥3 consumers
 AND no community library covers it** (see
-[`the-17-packages`](../decisions/architecture/the-17-packages.md)).
+[`the-18-packages`](../decisions/architecture/the-18-packages.md)).
 
 That threshold applies to **TRUE duplicates** — byte-identical or
 trivially-parameterisable code. It does NOT apply to components that
@@ -77,6 +77,6 @@ the variants.
 
 ## See also
 
-- [`the-17-packages`](../decisions/architecture/the-17-packages.md) — the 25 × 3 threshold for true duplicates
+- [`the-18-packages`](../decisions/architecture/the-18-packages.md) — the 25 × 3 threshold for true duplicates
 - [`datasheet-dark`](../decisions/design/datasheet-dark.md) — family-wide tokens stay shared; per-app chrome stays per-app
 - [`match-surrounding-style`](./match-surrounding-style.md) — sibling rule for style discipline per file

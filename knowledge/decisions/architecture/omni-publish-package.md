@@ -7,7 +7,7 @@ timestamp: 2026-06-21
 format_version: okf-v0.1
 status: active
 related:
-  - architecture/the-17-packages
+  - architecture/the-18-packages
   - decisions/architecture/cross-post-engine
   - decisions/architecture/mit-license-all-repos
 ---
@@ -99,8 +99,8 @@ Cross-platform retry + scheduling deferred to v0.2+. v0.x is fire-and-forget per
 
 For X, Reddit, LinkedIn, Medium — `omni-publish` generates per-platform AI-rewritten drafts and posts them to a Telegram channel for the user to review + post by hand.
 
-- **AI**: NVIDIA NIM (`meta/llama-3.3-70b-instruct`) primary, OpenRouter (`meta-llama/llama-3.3-70b-instruct:free`) fallback on 429/5xx.
-- **Required env vars**: `TELEGRAM_DRAFTS_BOT_TOKEN` + `TELEGRAM_DRAFTS_CHAT_ID` + (`NVIDIA_NIM_API_KEY` or `OPENROUTER_API_KEY`).
+- **AI**: routed through `@chirag127/oriz-ai-providers` v0.1.0+ — 20-provider fallback chain (OVHcloud / LLM7 / Pollinations anonymous first, then Cerebras / Groq / NIM / OpenRouter / etc). See [[decisions/architecture/oriz-ai-providers-package]]. Replaces the v0.1.2-era NIM-primary + OpenRouter-fallback two-tier.
+- **Required env vars**: `TELEGRAM_DRAFTS_BOT_TOKEN` + `TELEGRAM_DRAFTS_CHAT_ID` + any subset of the env vars listed in the `oriz-ai-providers` data repo (`env-vars.json`); the chain skips providers without a configured key.
 - Per-platform prompts in `src/adapters/ai-draft.ts` (X = 280 char, Reddit = full body w/ TL;DR, LinkedIn = professional, Medium = 1-paragraph blurb).
 
 ### Reusable workflow
