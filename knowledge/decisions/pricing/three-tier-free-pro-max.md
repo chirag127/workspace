@@ -34,18 +34,26 @@ related:
 | **Early access to new tools** | — | — | ✓ (30 days before Free) |
 | **API access to oriz services** (REST) | — | — | ✓ |
 | **Pro badge in community** (Giscus comments) | — | ✓ | ✓ (Max badge) |
-| **Free books bundle** | — | — | ✓ (5 books on Lifetime; 1 book/yr on Yearly) |
+| **Free books bundle** | — | — | ✓ (1 book/year for Yearly Pro/Max) |
 | **Support** | community (Giscus/Discord) | community + GH issue priority | community + GH issue priority + direct DM |
 
-## Pricing
+## Pricing — NO LIFETIME (monthly + yearly only, per 2026-06-22 grill update)
 
-| Tier | Monthly INR | Yearly INR | Lifetime INR |
+| Tier | Monthly INR | Yearly INR |
+|---|---|---|
+| **Free** | ₹0 | ₹0 |
+| **Pro** | ₹99 | ₹799 |
+| **Max** | ₹299 | ₹2,499 |
+
+USD via Paddle (auto-converted): Pro ~$1.19/mo · $9.59/yr · Max ~$3.59/mo · $30/yr.
+
+**Lifetime tier DROPPED 2026-06-22.** Reason: subscription is the standard for SaaS; lifetime locks predictable revenue. Reintroducible later if user demand emerges.
 |---|---|---|---|
-| **Free** | ₹0 | ₹0 | ₹0 |
-| **Pro** | ₹99 | ₹799 | ₹1,999 |
-| **Max** | ₹299 | ₹2,499 | ₹5,999 |
+| **Free** | ₹0 | ₹0 |
+| **Pro** | ₹99 | ₹799 |
+| **Max** | ₹299 | ₹2,499 |
 
-USD via Paddle (auto-converted): Pro ~$1.19 / $9.59 / $24 · Max ~$3.59 / $30 / $72.
+USD via Paddle (auto-converted): Pro ~$1.19/mo · $9.59/yr · Max ~$3.59/mo · $30/yr.
 
 ## Cross-refs
 
