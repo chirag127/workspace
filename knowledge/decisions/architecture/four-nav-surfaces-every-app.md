@@ -48,7 +48,7 @@ The per-app content for each app (from sweep #5):
 | home-app | broadsheet meta-row + FAMILY_SITES nav | apps (by group) + books + packages | Home / Apps / Books / Me / Menu |
 | oriz-pages-blog-app | HeaderControls + active-series spine | post categories + recent posts | Home / Latest / Series / Search / Menu |
 | oriz-ncert-app | class/subject filter rail | Pre-K + 1-5 + 6-10 + 11-12 + subjects | Home / Classes / Search / Downloads / Menu |
-| oriz-lore-book-summaries-app | book search bar | by-genre / by-rating / by-year / by-author | Home / Browse / Latest / Search / Menu |
+| oriz-lore-app | book search bar | by-genre / by-rating / by-year / by-author | Home / Browse / Latest / Search / Menu |
 | oriz-paisa-finance-tools-app | tool category tabs | Calculators / Markets / Guides / Account | Home / Tools / News / Saved / Menu |
 | oriz-slice-pdf-tools-app | tool tabs | Slice / Merge / Compress / Convert / Sign + Workspace | Home / Tools / Recent / Saved / Menu |
 | oriz-pixie-image-tools-app | tool tabs | Resize / Convert / Compress / Bg-remove + Workspace | Home / Tools / Recent / Saved / Menu |

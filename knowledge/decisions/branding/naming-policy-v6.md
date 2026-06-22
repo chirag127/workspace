@@ -73,7 +73,7 @@ Suffixes name the runtime/role of the repo:
 | `oriz-cs-me-app` | `projects/apps/personal/oriz-cs-me-app` |
 | `oriz-pages-blog-app` | `projects/apps/content/oriz-pages-blog-app` |
 | `oriz-roam-journal-app` | `projects/apps/content/oriz-roam-journal-app` |
-| `oriz-lore-book-summaries-app` | `projects/apps/content/oriz-lore-book-summaries-app` |
+| `oriz-lore-app` | `projects/apps/content/oriz-lore-app` |
 | `oriz-tabs-cards-app` | `projects/apps/content/oriz-tabs-cards-app` |
 | `oriz-omni-post-app` | `projects/apps/content/oriz-omni-post-app` |
 | `oriz-ncert-app` | `projects/apps/content/oriz-ncert-app` |
@@ -172,7 +172,7 @@ Content apps where the function name carries the brand:
 | `oriz-pages-blog-app` | "blog" IS the function |
 | `oriz-roam-journal-app` | "journal" IS the function |
 | `oriz-cs-me-app` | "me" IS the role (personal portfolio) |
-| `oriz-lore-book-summaries-app` | "lore" is the product brand for book summaries |
+| `oriz-lore-app` | "lore" is the product brand for book summaries |
 | `oriz-tabs-cards-app` | "cards" IS the function (India financial cards) |
 | `oriz-omni-post-app` | "post" IS the function (cross-poster) |
 

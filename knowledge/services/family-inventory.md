@@ -36,7 +36,7 @@ Run `git submodule status | wc -l` from `c:/D/oriz/` to verify the submodule tot
 ### Content (8)
 
 - `oriz-janaushdhi-app` — `janaushdhi.oriz.in` daily price scrape + substitute finder
-- `oriz-lore-book-summaries-app` — `lore.oriz.in` book / movie / show summaries
+- `oriz-lore-app` — `lore.oriz.in` book / movie / show summaries
 - `oriz-ncert-app` — `ncert.oriz.in` merged-PDF NCERT catalog
 - `oriz-omni-post-app` — `omni-post.oriz.in` admin dashboard wrapping `omni-publish`
 - `oriz-packages-catalog-app` — `packages.oriz.in` auto-discovery Starlight catalog

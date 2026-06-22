@@ -35,8 +35,8 @@
 	path = projects/apps/tools/oriz-slice-pdf-tools-app
 	url = https://github.com/chirag127/oriz-slice-pdf-tools-app.git
 [submodule "projects_apps_content_lore-app"]
-	path = projects/apps/content/oriz-lore-book-summaries-app
-	url = https://github.com/chirag127/oriz-lore-book-summaries-app.git
+	path = projects/apps/content/oriz-lore-app
+	url = https://github.com/chirag127/oriz-lore-app.git
 [submodule "projects_apps_tools_dev-tools-app"]
 	path = projects/apps/tools/oriz-forge-dev-tools-app
 	url = https://github.com/chirag127/oriz-forge-dev-tools-app.git
@@ -157,3 +157,15 @@
 [submodule "projects/data/oriz-ai-providers-data"]
 	path = projects/data/oriz-ai-providers-data
 	url = https://github.com/chirag127/oriz-ai-providers-data.git
+[submodule "projects/npm-packages/oriz-analytics-npm-pkg"]
+	path = projects/npm-packages/oriz-analytics-npm-pkg
+	url = https://github.com/chirag127/oriz-analytics-npm-pkg.git
+[submodule "projects/npm-packages/oriz-seo-npm-pkg"]
+	path = projects/npm-packages/oriz-seo-npm-pkg
+	url = https://github.com/chirag127/oriz-seo-npm-pkg.git
+[submodule "projects/npm-packages/oriz-rate-limit-npm-pkg"]
+	path = projects/npm-packages/oriz-rate-limit-npm-pkg
+	url = https://github.com/chirag127/oriz-rate-limit-npm-pkg.git
+[submodule "projects/npm-packages/oriz-consent-npm-pkg"]
+	path = projects/npm-packages/oriz-consent-npm-pkg
+	url = https://github.com/chirag127/oriz-consent-npm-pkg.git

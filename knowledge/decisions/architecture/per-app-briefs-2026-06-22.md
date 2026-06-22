@@ -1,7 +1,7 @@
 ---
 type: decision
 title: "Per-app website briefs (2026-06-22 grill lock)"
-description: "Single source of truth for what each of the 26 apps does + sections + features. Locked via grill 2026-06-22 (Q-APP-* + Q-NCERT-* + Q-TOOLS-*). Supersedes per-app scope files where they conflict. Renames: oriz-lore-book-summaries-app → oriz-lore-app (broader scope: book/course/documentary summaries, not just books)."
+description: "Single source of truth for what each of the 26 apps does + sections + features. Locked via grill 2026-06-22 (Q-APP-* + Q-NCERT-* + Q-TOOLS-*). Supersedes per-app scope files where they conflict. Renames: oriz-lore-app → oriz-lore-app (broader scope: book/course/documentary summaries, not just books)."
 tags: [decision, apps, briefs, scope, family-inventory, supersedes]
 timestamp: 2026-06-22
 format_version: okf-v0.1
@@ -55,7 +55,7 @@ related:
 - RSS + Atom + JSON Feed
 - v0 priority: SHIP FIRST
 
-## 5. oriz-lore-app — lore.oriz.in (RENAMED from oriz-lore-book-summaries-app)
+## 5. oriz-lore-app — lore.oriz.in (RENAMED from oriz-lore-app)
 
 - **Renamed 2026-06-22.** User mandate: "change the name of the app to lore — it should contain the content only for this which are knowledgeable like documentary and all"
 - **Broader scope:** book summaries + course summaries + documentary summaries + lecture series notes + podcast summaries + research-paper digests
@@ -145,11 +145,11 @@ Per `tools-shape-and-priority.md`: 16 separate subdomains, each is its own repo 
 
 ## Renames + slug changes
 
-Rename `oriz-lore-book-summaries-app` → `oriz-lore-app`:
-1. `gh repo rename chirag127/oriz-lore-book-summaries-app oriz-lore-app`
+Rename `oriz-lore-app` → `oriz-lore-app`:
+1. `gh repo rename chirag127/oriz-lore-app oriz-lore-app`
 2. Update submodule URL in `.gitmodules`
-3. Update submodule path: `git mv projects/apps/content/oriz-lore-book-summaries-app projects/apps/content/oriz-lore-app`
-4. Update CNAME from lore-book-summaries.oriz.in → lore.oriz.in (if any DNS exists)
+3. Update submodule path: `git mv projects/apps/content/oriz-lore-app projects/apps/content/oriz-lore-app`
+4. Update CNAME from lore.oriz.in → lore.oriz.in (if any DNS exists)
 5. Update knowledge cross-refs (10+ files)
 6. Update FAMILY_APPS list in astro-shell
 
