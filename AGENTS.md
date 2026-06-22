@@ -10,11 +10,13 @@ the rule-book lives in [`knowledge/`](./knowledge/) as an
 bundle — 167 small concept files organised across 8 directories with
 clean cross-links.
 
-## The 12 hard rules (full versions in `knowledge/rules/`)
+## The 13 hard rules (full versions in `knowledge/rules/`)
 
-**NEW (2026-06-22):**
+**NEW (2026-06-22 evening):**
 
-**Rule 12: Grill on LOC removal >= 1000 lines per sweep** — when a dedup/refactor sweep removes ≥1000 lines of code, the agent MUST surface this as a delta, ask the user 20+ questions about what was removed + why, offer restoration paths, and confirm before deleting. Reason: sweeps that remove content-specific code (finance options in paisa-finance sidebar, PDF tools in slice-pdf, etc.) break per-app identity. Design patterns CAN consolidate (Header / Footer / Sidebar / BottomBar structure is the same); content CANNOT (every app's nav tree is different). Before the agent assumes slot-based props will wire per-app content, GRILL.
+**Rule 13: Frontend-design skill is baked-in agent philosophy** — every UI task approached as design lead at a small studio. Ground in subject. Hero is thesis. Typography carries personality. Structure is information. Motion deliberate. Match complexity to vision. AVOID AI-cluster defaults (cream+serif+terracotta / near-black+acid / broadsheet-hairlines) unless brief calls for them. Process: brainstorm → explore → plan → critique → build → critique again. Restraint: spend boldness in one place; Chanel's mirror — remove one accessory before publishing. Writing IS design material: active voice, end-user side, name by what people control. Full body in [`knowledge/rules/frontend-design-skill-baked-in.md`](./knowledge/rules/frontend-design-skill-baked-in.md).
+
+**Rule 12: Grill on LOC removal >= 50 lines per sweep** (TIGHTENED from 1000 → 50) — when a dedup/refactor/cleanup sweep removes ≥50 lines of code in a single agent action, the agent MUST surface this as a delta, ask the user MCQs about what was removed + why, offer restoration paths, and confirm before deleting. Reason: 50-LOC sweeps can hide substantive functional removal (an entire component, a route, a feature). Design pattern consolidation safe ONLY after grill; content/feature deletion NEVER safe without grill.
 
 **Full rule** in [`knowledge/rules/grill-on-loc-removal.md`](./knowledge/rules/grill-on-loc-removal.md).
 
