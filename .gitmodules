@@ -172,3 +172,54 @@
 [submodule "projects/apis/oriz-mmi-tickertape-mmi-api"]
 	path = projects/apis/oriz-mmi-tickertape-mmi-api
 	url = https://github.com/chirag127/oriz-mmi-tickertape-mmi-api.git
+[submodule "projects/apis/oriz-mf-nav-api"]
+	path = projects/apis/oriz-mf-nav-api
+	url = https://github.com/chirag127/oriz-mf-nav-api.git
+[submodule "projects/apis/oriz-pincode-api"]
+	path = projects/apis/oriz-pincode-api
+	url = https://github.com/chirag127/oriz-pincode-api.git
+[submodule "projects/apis/oriz-ifsc-api"]
+	path = projects/apis/oriz-ifsc-api
+	url = https://github.com/chirag127/oriz-ifsc-api.git
+[submodule "projects/apis/oriz-india-holidays-api"]
+	path = projects/apis/oriz-india-holidays-api
+	url = https://github.com/chirag127/oriz-india-holidays-api.git
+[submodule "projects/apis/oriz-currency-rates-api"]
+	path = projects/apis/oriz-currency-rates-api
+	url = https://github.com/chirag127/oriz-currency-rates-api.git
+[submodule "projects/apis/oriz-nse-bse-tickers-api"]
+	path = projects/apis/oriz-nse-bse-tickers-api
+	url = https://github.com/chirag127/oriz-nse-bse-tickers-api.git
+[submodule "projects/apis/oriz-rbi-rates-api"]
+	path = projects/apis/oriz-rbi-rates-api
+	url = https://github.com/chirag127/oriz-rbi-rates-api.git
+[submodule "projects/apis/oriz-gold-silver-rates-api"]
+	path = projects/apis/oriz-gold-silver-rates-api
+	url = https://github.com/chirag127/oriz-gold-silver-rates-api.git
+[submodule "projects/apis/oriz-irctc-train-pnr-api"]
+	path = projects/apis/oriz-irctc-train-pnr-api
+	url = https://github.com/chirag127/oriz-irctc-train-pnr-api.git
+[submodule "projects/apis/oriz-air-quality-india-api"]
+	path = projects/apis/oriz-air-quality-india-api
+	url = https://github.com/chirag127/oriz-air-quality-india-api.git
+[submodule "projects/apis/oriz-aqi-cities-api"]
+	path = projects/apis/oriz-aqi-cities-api
+	url = https://github.com/chirag127/oriz-aqi-cities-api.git
+[submodule "projects/apis/oriz-india-petrol-diesel-api"]
+	path = projects/apis/oriz-india-petrol-diesel-api
+	url = https://github.com/chirag127/oriz-india-petrol-diesel-api.git
+[submodule "projects/apis/oriz-india-exam-portal-status-api"]
+	path = projects/apis/oriz-india-exam-portal-status-api
+	url = https://github.com/chirag127/oriz-india-exam-portal-status-api.git
+[submodule "projects/apis/oriz-india-rti-api"]
+	path = projects/apis/oriz-india-rti-api
+	url = https://github.com/chirag127/oriz-india-rti-api.git
+[submodule "projects/apis/oriz-india-court-judgments-api"]
+	path = projects/apis/oriz-india-court-judgments-api
+	url = https://github.com/chirag127/oriz-india-court-judgments-api.git
+[submodule "projects/apis/oriz-india-budget-numbers-api"]
+	path = projects/apis/oriz-india-budget-numbers-api
+	url = https://github.com/chirag127/oriz-india-budget-numbers-api.git
+[submodule "projects/apis/oriz-stackoverflow-trending-api"]
+	path = projects/apis/oriz-stackoverflow-trending-api
+	url = https://github.com/chirag127/oriz-stackoverflow-trending-api.git

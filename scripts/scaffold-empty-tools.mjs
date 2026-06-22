@@ -159,6 +159,8 @@ footer.site a:hover { color: var(--ink); text-decoration: underline; }
 }
 
 function baseLayout(app) {
+  const safeTitle = `${app.title} — ${app.tagline}`.replace(/'/g, "\\'")
+  const safeDesc = app.description.replace(/'/g, "\\'")
   return `---
 import '~/styles/global.css'
 
@@ -167,7 +169,7 @@ interface Props {
   description?: string
 }
 
-const { title = '${app.title} — ${app.tagline}', description = '${app.description}' } = Astro.props
+const { title = '${safeTitle}', description = '${safeDesc}' } = Astro.props
 const canonical = new URL(Astro.url.pathname, '${app.site}').toString()
 ---
 <!doctype html>
@@ -213,7 +215,7 @@ const canonical = new URL(Astro.url.pathname, '${app.site}').toString()
 
 function indexPage(app) {
   const featuresList = app.features
-    .map((f) => `    { slug: '${f.slug}', label: '${f.label}' },`)
+    .map((f) => `    { slug: '${f.slug}', label: ${JSON.stringify(f.label)} },`)
     .join('\n')
   return `---
 /*

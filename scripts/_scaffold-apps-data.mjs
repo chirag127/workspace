@@ -77,7 +77,7 @@ export const APPS = [
     palette: { ink: '#e2e8f0', paper: '#0f172a', accent: '#38bdf8', rule: '#1e293b', muted: '#64748b' },
     typeStack: { display: 'JetBrains Mono, monospace', mono: 'JetBrains Mono, monospace' },
     googleFonts: 'family=JetBrains+Mono:wght@400;500;700&family=Inter:wght@400;500;600&display=swap',
-    eyebrow: '/* dev tools · v0 */',
+    eyebrow: 'dev tools · v0',
     darkMode: true,
   },
   {
