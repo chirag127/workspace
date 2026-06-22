@@ -25,7 +25,7 @@ You set 2 bootstrap secrets ONCE. Everything else flows from `.env`.
 
 - **sops + age** = no service, no card, single bootstrap key, GitHub-Actions integration, diff-readable `.env.enc`. Best free no-card option.
 - **Doppler** = free 5 users but 3rd-party trust + outage risk; deferred.
-- **HashiCorp Vault** = heavy self-host; violates `no-self-hosting-outside-cf`.
+- **HashiCorp Vault** = heavy self-host; violates `no-paid-self-hosting-only`.
 - **AWS KMS / GCP KMS** = requires AWS/GCP account with card; violates `no-card-on-file`.
 
 If a better no-card option emerges, this runbook is the file to update first.
@@ -277,10 +277,34 @@ Master's `.gitignore` doesn't propagate into submodules. A sweep script ensures 
 
 Every commit to `.env.enc` is a secret-rotation event. `git log .env.enc` shows the rotation history. The actual values rotate; the encrypted blob's diff is opaque but timestamps + commit messages tell the story.
 
+## Windows-specific: sops not on PATH
+
+On this machine, `winget install --id=getsops.sops -e` installs the sops binary to:
+
+```
+C:\Users\C5420321\AppData\Local\Microsoft\WinGet\Packages\SecretsOPerationS.SOPS_Microsoft.Winget.Source_8wekyb3d8bbwe\sops.exe
+```
+
+The WinGet shim does NOT add this to `PATH` automatically. Two options:
+
+1. **Add to PATH (preferred):** open System Settings → Environment Variables → User PATH, add the directory above. Re-open terminals. Then `pnpm run env:encrypt` works directly.
+2. **Use the pnpm scripts in `package.json`** (defined at repo root): they invoke `sops` by name. If sops is not on PATH the script will fail with `sops: command not found` — fall back to the full path inline:
+
+   ```bash
+   SOPS="/c/Users/C5420321/AppData/Local/Microsoft/WinGet/Packages/SecretsOPerationS.SOPS_Microsoft.Winget.Source_8wekyb3d8bbwe/sops.exe"
+   "$SOPS" --encrypt --input-type dotenv --output-type dotenv .env > .env.enc
+   ```
+
+The pnpm aliases at `c:/D/oriz/package.json` are:
+
+- `pnpm run env:encrypt` — `.env` → `.env.enc`
+- `pnpm run env:decrypt` — `.env.enc` → `.env`
+- `pnpm run env:edit` — open `.env.enc` in `$EDITOR` (auto-encrypts on save)
+
 ## Cross-refs
 
 - The decision driving this → [[decisions/security/env-single-source-auto-push]]
 - Two-track delivery context → [[decisions/security/env-and-secrets-single-source]]
 - GH org-level secrets rule → [[rules/github-org-level-secrets]]
 - No card on file → [[rules/no-card-on-file]]
-- No self-hosting outside CF → [[rules/no-self-hosting-outside-cf]]
+- No PAID self-hosting (free is fine) → [[rules/no-paid-self-hosting-only]]

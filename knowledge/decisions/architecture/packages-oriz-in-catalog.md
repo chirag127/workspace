@@ -7,7 +7,7 @@ timestamp: 2026-06-21
 format_version: okf-v0.1
 status: active
 related:
-  - architecture/the-18-packages
+  - architecture/the-23-packages
   - decisions/architecture/mit-license-all-repos
   - decisions/architecture/pwabuilder-as-primary-converter
   - rules/cloudflare-pages-only
@@ -89,7 +89,7 @@ Tried earlier to do path-only under `oriz.in/packages` (no separate subdomain). 
 
 ## Cross-refs
 
-- The 18-package set both surfaces catalog → [[architecture/the-18-packages]]
+- The 18-package set both surfaces catalog → [[architecture/the-23-packages]]
 - The MIT relicense that enables free-for-OSS perks both surfaces tout → [[decisions/architecture/mit-license-all-repos]]
 - PWABuilder is the native-publish path the 'Coming soon' badges reference → [[decisions/architecture/pwabuilder-as-primary-converter]]
 - iOS PWA-only context (no Mac App Store) → memory [[ios-pwa-only-no-mac]]

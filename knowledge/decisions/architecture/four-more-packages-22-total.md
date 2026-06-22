@@ -6,9 +6,9 @@ tags: [decision, packages, expansion, 22-packages, rate-limit, analytics, seo, c
 timestamp: 2026-06-22
 format_version: okf-v0.1
 status: active
-supersedes: architecture/the-18-packages (count update only)
+supersedes: architecture/the-23-packages (count update only)
 related:
-  - architecture/the-18-packages
+  - architecture/the-23-packages
   - services/family-inventory
   - decisions/pricing/three-tier-free-pro-max
   - decisions/architecture/seo-a11y-cdn-ssl
@@ -119,7 +119,7 @@ For each new package:
 
 ## Cross-refs
 
-- Now `the-22-packages.md` (rename from `the-18-packages.md` after migration completes)
+- Now `the-22-packages.md` (rename from `the-23-packages.md` after migration completes)
 - Three-tier pricing (rate-limit enforces tiers) → [[decisions/pricing/three-tier-free-pro-max]]
 - SEO decision → [[decisions/architecture/seo-a11y-cdn-ssl]]
 - Consent management → [[decisions/security/consent-management-multi-category]]

@@ -10,7 +10,7 @@ related:
   - architecture/submodule-pattern
   - architecture/master-pointer-as-production-sha
   - architecture/api-umbrella-hono-worker
-  - architecture/the-18-packages
+  - architecture/the-23-packages
 ---
 
 # Repository layout — sites, packages, apps, extensions, knowledge
@@ -33,7 +33,7 @@ chirag127/oriz/
 │   └── ...
 ├── packages/
 │   ├── astro-shell/            ← submodule per shared @chirag127/astro-* npm package
-│   ├── astro-chrome/           ← (18 packages total — see the-18-packages.md)
+│   ├── astro-chrome/           ← (18 packages total — see the-23-packages.md)
 │   ├── astro-config/
 │   └── ...
 ├── apps/
@@ -80,4 +80,4 @@ lockstep with the master pointer, not lag behind in its own repo.
 - How submodule SHAs become production state → [master-pointer-as-production-sha.md](master-pointer-as-production-sha.md)
 - Day-to-day submodule mechanics → [submodule-pattern.md](submodule-pattern.md)
 - Why apps/api/ is inline → [api-umbrella-hono-worker.md](api-umbrella-hono-worker.md)
-- The packages list → [the-18-packages.md](the-18-packages.md) (18 packages locked)
+- The packages list → [the-23-packages.md](the-23-packages.md) (18 packages locked)

@@ -1,7 +1,7 @@
 ---
 type: rule
 title: "Env vars live at GitHub ORG level only — per-repo secrets FORBIDDEN"
-description: "User mandate 2026-06-22 evening: 'Don't hit the GitHub API so many times. Requests have to be made only on the organization level, not to the individual repositories. The CI/CD pipelines will use the global environment variables only.' Per-repo secret writes are forbidden (cause 2,730+ API calls per sync; hit 5K/hr rate limit). Path forward: migrate chirag127/* repos to a real GH Org (`oriz`) so org-level secrets become available. Until migration, env-sync cron is PAUSED."
+description: "User mandate 2026-06-22 evening: 'Don't hit the GitHub API so many times. Requests have to be made only on the organization level, not to the individual repositories. The CI/CD pipelines will use the global environment variables only.' Per-repo secret writes are forbidden (cause 2,730+ API calls per sync; hit 5K/hr rate limit). Path forward: migrate chirag127/* repos to GH Org `oriz-co` (both `oriz` and `oriz-in` were taken; `oriz-co` locked) so org-level secrets become available. Until migration, env-sync cron is PAUSED. Repository transfer destination: github.com/oriz-co/<slug>."
 tags: [rule, env, secrets, org-level, rate-limit, no-per-repo, github]
 timestamp: 2026-06-22
 format_version: okf-v0.1
@@ -33,14 +33,16 @@ CI/CD pipelines in any chirag127 repo MUST inherit from org-level secrets, not l
 
 `chirag127` is currently a **User account**, not a GH Organization. User accounts can't have org-level secrets. The env-sync workflow was fanning out per-repo (3,068 calls/run, 88% success rate, 363 transient failures from rate limit).
 
+**Repository transfer destination:** `github.com/oriz-co/<slug>` — both `oriz` and `oriz-in` org names were taken; `oriz-co` was locked on 2026-06-22 evening.
+
 **Cron is PAUSED** as of 2026-06-22 evening (see `.github/workflows/sync-env-to-org-secrets.yml` — `schedule:` block commented out).
 
 ## Path forward: org migration
 
-1. Create new GH Organization `oriz` (free tier, no card)
-2. Transfer all 58 `chirag127/*` repos under `oriz/` namespace
-   - Each `gh repo transfer chirag127/<slug> oriz/<slug>` (~58 calls; one-time)
-3. Set 65 secrets at `oriz` org level (`gh secret set <KEY> --org oriz --visibility all`) — 65 calls total
+1. Create new GH Organization `oriz-co` (free tier, no card) — `oriz` + `oriz-in` were taken
+2. Transfer all 58 `chirag127/*` repos under `oriz-co/` namespace
+   - Each `gh repo transfer chirag127/<slug> oriz-co/<slug>` (~58 calls; one-time)
+3. Set 65 secrets at `oriz-co` org level (`gh secret set <KEY> --org oriz-co --visibility all`) — 65 calls total
 4. Workflows automatically inherit
 5. Delete per-repo secrets via cleanup script (one-time, ~2,705 calls; can be paused/resumed)
 
@@ -52,7 +54,7 @@ See `c:/D/oriz/knowledge/runbooks/migrate-to-oriz-org.md` (TO BE WRITTEN — com
 
 | Before | After |
 |---|---|
-| `gh secret set <KEY> --repo chirag127/<slug>` | `gh secret set <KEY> --org oriz --visibility all` |
+| `gh secret set <KEY> --repo chirag127/<slug>` | `gh secret set <KEY> --org oriz-co --visibility all` |
 | 3,770 API calls per sync | 65 calls per sync |
 | Hits 5K/hr rate limit | Well under limit |
 | Per-repo cleanup needed on key rotation | One-shot org update |
@@ -63,7 +65,7 @@ User accounts work for ~10 repos. At 58 repos, the per-repo model is fundamental
 
 ## Org name decision
 
-Picked `oriz` (matches family brand). NOT `chirag127-org` (would create branding split). The user's PERSONAL profile stays at `chirag127`; only the project repos move.
+Picked `oriz-co` after `oriz` and `oriz-in` were both taken on 2026-06-22 evening. NOT `chirag127-org` (would create branding split). The user's PERSONAL profile stays at `chirag127`; only the project repos move. Repository transfer destination: `github.com/oriz-co/<slug>`.
 
 ## Cross-refs
 

@@ -1,13 +1,13 @@
 ---
 type: service
 title: "Family inventory — canonical counts of apps, packages, books, APIs, submodules"
-description: "Single source of truth for the chirag127/oriz family count totals as of 2026-06-22. 26 apps (1 hub + 1 personal + 8 content + 16 tools), 18 npm packages, 5 books (Oriz Learnings first), 2 APIs scaffolded, 53 submodules total (51 + ai-providers code repo + ai-providers data repo). Every other knowledge file pointing at counts MUST cite this file to avoid drift."
+description: "Single source of truth for the chirag127/oriz family count totals as of 2026-06-22. 26 apps (1 hub + 1 personal + 8 content + 16 tools), 23 npm packages, 5 books (Oriz Learnings first), 2 APIs scaffolded, 54 submodules total. Every other knowledge file pointing at counts MUST cite this file to avoid drift."
 tags: [service, inventory, counts, family, canonical-source-of-truth]
 timestamp: 2026-06-22
 format_version: okf-v0.1
 status: active
 related:
-  - architecture/the-18-packages
+  - architecture/the-23-packages
   - decisions/architecture/ship-order-2026q3
   - decisions/architecture/tools-shape-and-priority
   - decisions/architecture/first-book-oriz-learnings
@@ -65,9 +65,9 @@ Locked Wave-2 ship order — see [[decisions/architecture/tools-shape-and-priori
 15. `oriz-pivot-data-tools-app` — `pivot.oriz.in` data tools
 16. `oriz-<remainder>-tools-app` — the 16th slot (confirm slug on first ship)
 
-## NPM packages — 18 total
+## NPM packages — 23 total
 
-Full enumeration + peer-dep hierarchy lives in [[architecture/the-18-packages]]:
+Full enumeration + peer-dep hierarchy lives in [[architecture/the-23-packages]]:
 
 1. `@chirag127/astro-shell`
 2. `@chirag127/astro-chrome`
@@ -86,7 +86,12 @@ Full enumeration + peer-dep hierarchy lives in [[architecture/the-18-packages]]:
 15. `@chirag127/auth-cli`
 16. `@chirag127/omni-publish`
 17. `@chirag127/oriz-book-build`
-18. `@chirag127/oriz-ai-providers` *(NEW 2026-06-22 — paired with [[decisions/architecture/oriz-ai-providers-package]] data repo `chirag127/oriz-ai-providers-data`)*
+18. `@chirag127/oriz-ai-providers`
+19. `@chirag127/oriz-rate-limit` *(NEW 2026-06-22)*
+20. `@chirag127/oriz-analytics` *(NEW 2026-06-22)*
+21. `@chirag127/oriz-seo` *(NEW 2026-06-22)*
+22. `@chirag127/oriz-consent` *(NEW 2026-06-22)*
+23. `@chirag127/oriz-kit` *(NEW 2026-06-22 — family barrel; `<SponsorButton />` Razorpay donation `pl_T4iEPIDcALKLPk`, `<MultiSearch />`, brand tokens)*
 
 ## Books — 5 total (Oriz Learnings first)
 
@@ -109,17 +114,17 @@ The umbrella `api.oriz.in` Hono Worker is the inline (non-submodule) API and is 
 
 ## Browser extensions — 1 total
 
-- `Ai-rewrite` — Chrome extension, AI-powered text rewriting. Submodule under `projects/browser-extensions/Ai-rewrite/`. Repo: `chirag127/Ai-rewrite`. (Added 2026-06-22; previously the extensions count was 0.)
+- `Ai-rewrite` — Chrome extension, AI-powered text rewriting. **Fork** of `SupratimRK/Ai-rewrite` (verified 2026-06-22 via `gh api`). Submodule under `projects/forks/Ai-rewrite/` (moved 2026-06-22 from `projects/browser-extensions/`). Repo: `chirag127/Ai-rewrite`.
 
 ## Submodules — 54 total
 
 `git submodule status | wc -l` from `c:/D/oriz/` should return 54. Composition:
 
 - 26 app submodules (under `projects/apps/`)
-- 18 npm-package submodules (under `projects/npm-packages/`)
+- 23 npm-package submodules (under `projects/npm-packages/`)
 - 2 API submodules (under `projects/apis/`)
 - 1 data submodule (under `projects/data/` — `oriz-ai-providers-data`)
-- 1 browser-extension submodule (under `projects/browser-extensions/` — `Ai-rewrite`)
+- 1 fork submodule (under `projects/forks/` — `Ai-rewrite`, fork of `SupratimRK/Ai-rewrite`)
 - 6 other / book / skill submodules
 
 Re-verify on each count change with: `cd /c/D/oriz && git submodule status | wc -l`.
@@ -130,12 +135,12 @@ When any count changes on disk:
 
 1. Update THIS file first.
 2. Sweep cross-references (`grep -rn '<old-count>' c:/D/oriz/knowledge c:/D/oriz/AGENTS.md c:/D/oriz/README.md`).
-3. Update `architecture/the-18-packages.md` if package count changed (and rename the file if the integer rolls).
+3. Update `architecture/the-23-packages.md` if package count changed (and rename the file if the integer rolls).
 4. Commit with `docs(knowledge): bump family inventory counts`.
 
 ## Cross-refs
 
-- The 18 packages enumerated → [[architecture/the-18-packages]]
+- The 23 packages enumerated → [[architecture/the-23-packages]]
 - 16 tools order → [[decisions/architecture/tools-shape-and-priority]]
 - 26 apps ship order → [[decisions/architecture/ship-order-2026q3]]
 - First book → [[decisions/architecture/first-book-oriz-learnings]]

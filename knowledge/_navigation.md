@@ -1,0 +1,59 @@
+---
+type: navigation
+title: "Knowledge navigation — where to look in knowledge/"
+description: "Extracted from AGENTS.md 2026-06-22 to keep AGENTS.md tight. This file maps user-intent ('looking for X') to the right knowledge/ path. Includes the per-site knowledge convention."
+tags: [navigation, index, meta]
+timestamp: 2026-06-22
+format_version: okf-v0.1
+status: active
+---
+
+# Knowledge navigation
+
+## Where to look in `knowledge/`
+
+| Looking for | Read |
+|---|---|
+| Why we do (or don't do) something | [`rules/`](./rules/) |
+| When + why a specific decision was locked | [`decisions/`](./decisions/) |
+| Which external services we use + free-tier limits + alternatives | [`services/`](./services/) |
+| The 5-layer stack + API umbrella + canonical store | [`architecture/`](./architecture/) |
+| Age-gating, monetisation, ingester contract, secrets handling | [`policy/`](./policy/) |
+| Step-by-step actions (auth setup, add a site, rotate secrets) | [`runbooks/`](./runbooks/) |
+| Per-site v2 design briefs + family design rules | [`design/`](./design/) |
+| Family-specific term definitions | [`glossary/`](./glossary/) |
+| Multi-engine "Search the web" button — every site ships one (in `@chirag127/oriz-kit` as `<MultiSearch />`) | [`decisions/architecture/multi-engine-search-button.md`](./decisions/architecture/multi-engine-search-button.md) |
+| Repo naming — sites are `<subdomain-prefix>-site`; extensions `-ext`, VS Code extensions `-vsc-ext`, CLIs `-cli`, MCP servers `-mcp`, Workers `-worker`, Cloud Functions `-fn`, data repos `-data`, agent skills `-skill`, rule bundles `-rules`. NPM packages stay clean (no suffix). | [`decisions/branding/repo-naming-suffixes.md`](./decisions/branding/repo-naming-suffixes.md) |
+| Geo-routed payment matrix — Razorpay (India) + Lemon Squeezy (international, MoR) + keygen.sh (licenses) + six donation rails | [`decisions/monetisation/max-payment-methods.md`](./decisions/monetisation/max-payment-methods.md) |
+| Razorpay donation button (one-time) — pl_T4iEPIDcALKLPk, mounted on every app's `/sponsors` route + oriz-cs-me-app footer | [`decisions/architecture/razorpay-donation-button.md`](./decisions/architecture/razorpay-donation-button.md) |
+| RSS → every-platform cross-poster — `@chirag127/oriz-omnipost` watches `blog.oriz.in/rss.xml` | [`decisions/architecture/cross-post-engine.md`](./decisions/architecture/cross-post-engine.md) |
+| Secrets management — Doppler upstream; GitHub Secrets / CF Worker secrets / Firebase config are runtime mirrors | [`decisions/security/secrets-management-doppler.md`](./decisions/security/secrets-management-doppler.md) |
+| Three-env file split — `.env` (shared) + `.env.development` (TEST) + `.env.production` (LIVE), all SOPS-encrypted | [`decisions/security/env-three-file-split.md`](./decisions/security/env-three-file-split.md) |
+| Consent management — 5-category Klaro; geo-routed defaults | [`decisions/security/consent-management-multi-category.md`](./decisions/security/consent-management-multi-category.md) |
+| Auto-only tracking — every metric auto-captured | [`rules/auto-only-tracking.md`](./rules/auto-only-tracking.md) |
+| Env keys + GH Actions secrets — single source of truth, two delivery tracks | [`decisions/security/env-and-secrets-single-source.md`](./decisions/security/env-and-secrets-single-source.md) |
+| packages.oriz.in catalog hub — auto-discovery catalog of every `@chirag127/*-npm-pkg` repo | [`decisions/architecture/packages-oriz-in-catalog.md`](./decisions/architecture/packages-oriz-in-catalog.md) |
+| Brand capitalisation — Title-Case "Oriz" in user-facing copy; lowercase in identifiers | [`decisions/branding/title-case-oriz.md`](./decisions/branding/title-case-oriz.md) |
+| Revenue channels 2026 — every product auto-publishes to as many channels as 2026 APIs allow | [`decisions/architecture/revenue-channels-2026.md`](./decisions/architecture/revenue-channels-2026.md) |
+| Book publish pipeline — 5 books, Markua → Pandoc → EPUB+PDF+MOBI via `@chirag127/oriz-book-build` | [`decisions/architecture/book-publish-pipeline.md`](./decisions/architecture/book-publish-pipeline.md) |
+| Design divergence is NOT duplication — per-app Header/Footer/Wordmark intentional | [`rules/design-divergence-vs-dedup.md`](./rules/design-divergence-vs-dedup.md) |
+| Monetisation channel matrix — per-channel + per-app | [`decisions/policy/monetisation-channel-matrix.md`](./decisions/policy/monetisation-channel-matrix.md) |
+| Drafts queue host — private GH repo `chirag127/oriz-drafts` with Issues (Telegram banned in India) | [`decisions/architecture/drafts-queue-host.md`](./decisions/architecture/drafts-queue-host.md) |
+| Telegram is banned in India — drafts via GH Issues; no Telegram bots | [`rules/no-telegram-india-banned.md`](./rules/no-telegram-india-banned.md) |
+| No PAID self-hosting — free providers (Supabase / Render / Fly / Oracle Always-Free / etc.) are FINE | [`rules/no-paid-self-hosting-only.md`](./rules/no-paid-self-hosting-only.md) |
+| No Firebase Cloud Functions (Blaze required, card on file banned) | [`rules/no-firebase-functions-blaze.md`](./rules/no-firebase-functions-blaze.md) |
+| Fork discipline — minimum-diff, rebase-friendly, `projects/forks/<upstream-name>/` | [`rules/fork-discipline.md`](./rules/fork-discipline.md) |
+| CF Pages branch-deploys (100-project mitigation) | [`runbooks/cf-pages-branch-deploys.md`](./runbooks/cf-pages-branch-deploys.md) |
+| Family inventory (canonical counts SSoT) — 26 apps + 23 npm packages + 5 books + 2 APIs + 53 submodules | [`services/family-inventory.md`](./services/family-inventory.md) |
+
+## Per-site knowledge
+
+Per-app knowledge lives INSIDE each app submodule under its own
+`knowledge/` folder (OKF-light: `index.md` + `decisions/` + `runbooks/` +
+`services/`). The richest example is
+[`projects/apps/personal/oriz-cs-me-app/knowledge/`](../projects/apps/personal/oriz-cs-me-app/knowledge/)
+— lifestream architecture, age-gating, ingester contract, 100-year
+strategy. Each per-app bundle follows the same OKF contract
+([`_okf.md`](./_okf.md)). Master `knowledge/` holds family-wide rules /
+decisions / architecture only; the deprecated `knowledge/sites/<app>/`
+location is NOT used.

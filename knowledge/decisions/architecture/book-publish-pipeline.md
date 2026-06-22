@@ -9,7 +9,7 @@ status: active
 related:
   - decisions/architecture/revenue-channels-2026
   - decisions/architecture/omni-publish-package
-  - architecture/the-18-packages
+  - architecture/the-23-packages
   - decisions/architecture/mit-license-all-repos
 ---
 
@@ -205,7 +205,7 @@ omni-publish reads `book.json` from repo root, then dispatches each channel's ad
 
 - The fan-out matrix this pipeline plugs into → [[decisions/architecture/revenue-channels-2026]]
 - The npm package that orchestrates publish → [[decisions/architecture/omni-publish-package]]
-- The 18-package set (oriz-book-build is the 17th of 18) → [[architecture/the-18-packages]]
+- The 18-package set (oriz-book-build is the 17th of 18) → [[architecture/the-23-packages]]
 - The MIT relicense that allows code samples to ship MIT inside prose books → [[decisions/architecture/mit-license-all-repos]]
 - Repo slug convention (`-book` suffix) → [[branding/repo-naming-suffixes]]
 - Linux-only CI rule (Pandoc + tectonic stack) → [[rules/linux-ci-only]]

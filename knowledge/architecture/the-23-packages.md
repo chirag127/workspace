@@ -1,7 +1,7 @@
 ---
 type: architecture
-title: The eighteen packages — the locked oriz family package set
-description: The chirag127/oriz family ships 18 npm packages — 10 Astro (shell, chrome, tools, content, data, forms, billing, pwa, distribute, widgets) + 1 shared test fixtures (astro-test-utils) + 4 cross-surface auth (auth-core, auth-wxt, auth-vsc, auth-cli) + 1 cross-post engine (omni-publish) + 1 book-build pipeline (oriz-book-build) + 1 AI-providers aggregator (oriz-ai-providers). Threshold for being a package — ≥25 lines duplicated across ≥3 consumers AND no community library covers it. Anything below the threshold is inlined.
+title: The twenty-three packages — the locked oriz family package set
+description: The chirag127/oriz family ships 23 npm packages — 10 Astro (shell, chrome, tools, content, data, forms, billing, pwa, distribute, widgets) + 1 shared test fixtures (astro-test-utils) + 4 cross-surface auth (auth-core, auth-wxt, auth-vsc, auth-cli) + 1 cross-post engine (omni-publish) + 1 book-build pipeline (oriz-book-build) + 1 AI-providers aggregator (oriz-ai-providers) + 5 cross-cutting concerns (oriz-rate-limit, oriz-analytics, oriz-seo, oriz-consent, oriz-kit). Threshold for being a package — ≥25 lines duplicated across ≥3 consumers AND no community library covers it. Anything below the threshold is inlined.
 tags: [architecture, packages, astro, npm, locked]
 timestamp: 2026-06-22
 format_version: okf-v0.1
@@ -10,6 +10,8 @@ supersedes:
   - decisions/architecture/zero-chirag127-packages
   - decisions/architecture/cross-surface-package-set
   - architecture/the-17-packages
+  - architecture/the-18-packages
+  - decisions/architecture/four-more-packages-22-total
 related:
   - architecture/package-isolation-rule
   - architecture/repo-layout
@@ -19,14 +21,15 @@ related:
   - decisions/architecture/omni-publish-package
   - decisions/architecture/book-publish-pipeline
   - decisions/architecture/oriz-ai-providers-package
+  - decisions/architecture/four-more-packages-22-total
   - services/family-inventory
 ---
 
-# The eighteen packages — locked
+# The twenty-three packages — locked
 
 ## Concept
 
-18 npm packages under `@chirag127/*` are the shared surface for the family.
+23 npm packages under `@chirag127/*` are the shared surface for the family.
 
 A package exists only when:
 1. **≥25 lines** of identical code would otherwise duplicate across
@@ -35,7 +38,7 @@ A package exists only when:
 
 If only (1) and (2) hold but (3) doesn't — use the community package directly. If only (2) holds and the duplication is <25 lines — inline.
 
-## The set (18 total)
+## The set (23 total)
 
 ### Layered Astro packages (10)
 
@@ -80,6 +83,16 @@ If only (1) and (2) hold but (3) doesn't — use the community package directly.
 |---|---|---|---|
 | 18 | `@chirag127/oriz-ai-providers` | — | Thin wrapper around 20 free LLM APIs (OVHcloud, LLM7, Pollinations, Cerebras, Groq, NVIDIA NIM, OpenRouter, Google AI Studio, Cohere, GitHub Models, Cloudflare Workers AI, HuggingFace, Mistral, SambaNova, Z.AI, SiliconFlow, Aion Labs, Ollama Cloud, ModelScope, Kilo Code). Priority-based fallback chain; OpenAI SDK-compatible. Provider / model / rate-limit / priority data lives in the SEPARATE `chirag127/oriz-ai-providers-data` repo (CC0). See [[decisions/architecture/oriz-ai-providers-package]]. |
 
+### Cross-cutting concerns (5) — added 2026-06-22
+
+| # | Package | Peer-dep | What it owns |
+|---|---|---|---|
+| 19 | `@chirag127/oriz-rate-limit` | — | Per-user usage caps enforcing Free / Pro / Max tier limits (10/100/unlimited). Firestore-backed daily counters. See [[decisions/architecture/four-more-packages-22-total]]. |
+| 20 | `@chirag127/oriz-analytics` | — | Single wrapper around CF Web Analytics + GA4 + Microsoft Clarity + Sentry. One init call per app. Klaro consent-gated. |
+| 21 | `@chirag127/oriz-seo` | — | Sitemap + IndexNow + JSON-LD + OG image generator (satori). |
+| 22 | `@chirag127/oriz-consent` | — | Klaro pre-configured for EU/UK (default-DENIED) + India DPDP + US GPC + ROW (no banner). Geo-routed via CF. |
+| 23 | `@chirag127/oriz-kit` | astro-chrome | Family-wide kit barrel — `<MultiSearch />`, `<SponsorButton />` (Razorpay donation button pl_T4iEPIDcALKLPk per [[decisions/architecture/razorpay-donation-button]]), `<Wordmark />`, brand tokens. |
+
 ## Hierarchy
 
 ```text
@@ -104,6 +117,12 @@ auth-core   (base)
 omni-publish     (standalone)
 oriz-book-build  (standalone)
 oriz-ai-providers (standalone — fetches data from chirag127/oriz-ai-providers-data)
+
+oriz-rate-limit  (standalone)
+oriz-analytics   (standalone)
+oriz-seo         (standalone)
+oriz-consent     (standalone)
+oriz-kit         (peer-dep on astro-chrome — family-wide barrel)
 ```
 
 ## Dropped from the set (use community library directly)

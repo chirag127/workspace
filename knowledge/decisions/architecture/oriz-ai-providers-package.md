@@ -9,7 +9,7 @@ status: active
 supersedes_in_part: decisions/architecture/stack-picks-2026-06-22 (the "AI inference" section that named NIM primary + OpenRouter fallback only)
 related:
   - decisions/architecture/stack-picks-2026-06-22
-  - architecture/the-18-packages
+  - architecture/the-23-packages
   - rules/never-hit-quotas
   - rules/no-card-on-file
 ---
@@ -116,8 +116,8 @@ The wrapper:
 
 ## Master pointer
 
-Adding this package brings the family count to **18 packages** (was 17 per `the-18-packages.md`). Rename + update count in:
-- `knowledge/architecture/the-18-packages.md` → `the-18-packages.md` (rename via `git mv` to keep history)
+Adding this package brings the family count to **18 packages** (was 17 per `the-23-packages.md`). Rename + update count in:
+- `knowledge/architecture/the-23-packages.md` → `the-23-packages.md` (rename via `git mv` to keep history)
 - `knowledge/services/family-inventory.md` — bump count
 - AGENTS.md "Where to look" if referenced
 
@@ -127,7 +127,7 @@ Adding this package brings the family count to **18 packages** (was 17 per `the-
 
 ## Cross-refs
 
-- The 18-package family → [[architecture/the-18-packages]]
+- The 18-package family → [[architecture/the-23-packages]]
 - Stack picks (superseded-in-part) → [[decisions/architecture/stack-picks-2026-06-22]]
 - Never hit quotas → [[rules/never-hit-quotas]]
 - No card on file → [[rules/no-card-on-file]]

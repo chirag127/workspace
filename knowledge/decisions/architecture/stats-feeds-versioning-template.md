@@ -9,7 +9,7 @@ status: active
 related:
   - decisions/architecture/backup-everywhere-weekly
   - decisions/architecture/stack-picks-2026-06-22
-  - rules/no-self-hosting-outside-cf
+  - rules/no-paid-self-hosting-only
 ---
 
 # Family ops: stats + feeds + versioning + template
@@ -108,4 +108,4 @@ Update on each new app/book/package. Astro-shell version bump triggers all apps 
 
 - Backup everywhere → [[decisions/architecture/backup-everywhere-weekly]]
 - Stack picks → [[decisions/architecture/stack-picks-2026-06-22]]
-- No self-hosting outside CF → [[rules/no-self-hosting-outside-cf]]
+- No PAID self-hosting (free is fine) → [[rules/no-paid-self-hosting-only]]

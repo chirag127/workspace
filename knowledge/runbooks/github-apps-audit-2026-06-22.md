@@ -52,7 +52,7 @@ gh api "repos/chirag127/<repo>/commits/<sha>/check-suites" \
 | 18 | `check-run-reporter` | Test aggregator | 0/7 completed | NO | **REMOVE** | Inert; replaced by GH Actions native test summary |
 | 19 | `nx-cloud` | Nx remote cache | 0/7 completed | NO | **REMOVE** | Not using Nx — Turborepo's catalog mode handles caching |
 | 20 | `mintlify` | Docs hosting | 0/5 completed | NO | **REMOVE** | Using Astro Starlight (`packages.oriz.in`); Mintlify needs card-on-file |
-| 21 | `vercel` | Hosting | 0/7 completed | NO | **REMOVE** | Rule: CF Pages only (`no-self-hosting-outside-cf.md`) |
+| 21 | `vercel` | Hosting | 0/7 completed | NO | **REMOVE** | Rule: CF Pages preferred (`no-paid-self-hosting-only.md`) |
 | 22 | `netlify` | Hosting | 0/7 completed | NO | **REMOVE** | Same — CF Pages only |
 | 23 | `render` | Hosting | 0/7 completed | NO | **REMOVE** | Same — CF Pages only |
 | 24 | `fly-io` | Hosting | 0/7 completed | NO | **REMOVE** | Same — CF Pages only |
@@ -111,4 +111,4 @@ GitHub deliberately requires human consent to install AND uninstall apps. There 
 - [`install-github-apps.md`](./install-github-apps.md) — what we WANTED installed (7 apps); reality is 33 (this audit reveals the 26 we never planned)
 - [`rotate-leaked-secret.md`](./rotate-leaked-secret.md) — adjacent security runbook
 - Rule [`no-card-on-file.md`](../rules/no-card-on-file.md) — disqualifies Mintlify/Snyk-private/etc.
-- Rule [`no-self-hosting-outside-cf.md`](../rules/no-self-hosting-outside-cf.md) — disqualifies Vercel/Netlify/Render/Fly/Railway
+- Rule [`no-paid-self-hosting-only.md`](../rules/no-paid-self-hosting-only.md) — Vercel Hobby/Netlify free/Render free/Fly free now ALLOWED (post-2026-06-22 reversal); paid tiers still banned
