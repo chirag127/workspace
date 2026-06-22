@@ -1,0 +1,152 @@
+projects/apps/content/oriz-pages-blog-app ::  M src/pages/blog/[...slug].astro
+?? src/components/blog/BlogPostLeftSidebar.astro
+?? src/components/blog/SeriesJumpList.astro
+projects/apps/hub/home-app ::  M package.json
+ M src/layouts/BaseLayout.astro
+ M src/pages/about.astro
+ M src/pages/account.astro
+ M src/pages/contact.astro
+ M src/pages/disclaimer.astro
+ M src/pages/index.astro
+ M src/pages/pricing.astro
+ M src/pages/privacy.astro
+ M src/pages/refunds.astro
+ M src/pages/sign-in.astro
+ M src/pages/sign-out.astro
+ M src/pages/terms.astro
+?? src/components/FeaturePanel.astro
+?? src/components/feature/
+projects/apps/content/oriz-ncert-app ::  M package.json
+projects/apps/tools/oriz-slice-pdf-tools-app ::  D src/pages/account.ts
+ D src/pages/account/finish-sign-in.ts
+?? src/pages/account/finish-sign-in.astro
+?? src/pages/account/index.astro
+projects/apps/content/oriz-lore-app :: ?? mdx/07-money-markets-and-wealth/03-value-investing-and-portfolio-theory/04-managers-are-stewards-of-shareholder-capital-not-agents-of-their-own-enrichment/08-essays-of-warren-buffett-lawrence-cunningham/
+projects/apps/tools/oriz-forge-dev-tools-app ::  M package.json
+ M src/__tests__/smoke.test.ts
+?? astro.config.mjs
+?? biome.json
+?? public/
+?? src/env.d.ts
+?? src/layouts/
+?? src/pages/
+?? src/styles/
+?? tsconfig.json
+projects/apps/tools/oriz-scribe-text-tools-app ::  M package.json
+ M src/__tests__/smoke.test.ts
+?? astro.config.mjs
+?? biome.json
+?? public/
+?? src/env.d.ts
+?? src/layouts/
+?? src/pages/
+?? src/styles/
+?? tsconfig.json
+projects/apps/tools/oriz-shift-convert-tools-app ::  M package.json
+ M src/__tests__/smoke.test.ts
+?? astro.config.mjs
+?? biome.json
+?? public/
+?? src/env.d.ts
+?? src/layouts/
+?? src/pages/
+?? src/styles/
+?? tsconfig.json
+projects/apps/tools/oriz-grid-qr-tools-app ::  M package.json
+ M src/__tests__/smoke.test.ts
+?? astro.config.mjs
+?? biome.json
+?? public/
+?? src/env.d.ts
+?? src/layouts/
+?? src/pages/
+?? src/styles/
+?? tsconfig.json
+projects/apps/tools/oriz-pivot-data-tools-app ::  M package.json
+ M src/__tests__/smoke.test.ts
+?? astro.config.mjs
+?? biome.json
+?? public/
+?? src/env.d.ts
+?? src/layouts/
+?? src/pages/
+?? src/styles/
+?? tsconfig.json
+projects/apps/tools/oriz-echo-audio-tools-app ::  M package.json
+ M src/__tests__/smoke.test.ts
+?? astro.config.mjs
+?? biome.json
+?? public/
+?? src/env.d.ts
+?? src/layouts/
+?? src/pages/
+?? src/styles/
+?? tsconfig.json
+projects/apps/tools/oriz-reel-video-tools-app ::  M package.json
+ M src/__tests__/smoke.test.ts
+?? astro.config.mjs
+?? biome.json
+?? public/
+?? src/env.d.ts
+?? src/layouts/
+?? src/pages/
+?? src/styles/
+?? tsconfig.json
+projects/apps/tools/oriz-rank-seo-tools-app ::  M package.json
+ M src/__tests__/smoke.test.ts
+?? astro.config.mjs
+?? biome.json
+?? public/
+?? src/env.d.ts
+?? src/layouts/
+?? src/pages/
+?? src/styles/
+?? tsconfig.json
+projects/apps/tools/oriz-cipher-crypto-tools-app ::  M package.json
+ M src/__tests__/smoke.test.ts
+?? astro.config.mjs
+?? biome.json
+?? public/
+?? src/env.d.ts
+?? src/layouts/
+?? src/pages/
+?? src/styles/
+?? tsconfig.json
+projects/apps/tools/oriz-vitals-health-tools-app ::  M package.json
+ M src/__tests__/smoke.test.ts
+?? astro.config.mjs
+?? biome.json
+?? public/
+?? src/env.d.ts
+?? src/layouts/
+?? src/pages/
+?? src/styles/
+?? tsconfig.json
+projects/apps/tools/oriz-dice-random-tools-app ::  M package.json
+ M src/__tests__/smoke.test.ts
+?? astro.config.mjs
+?? biome.json
+?? public/
+?? src/env.d.ts
+?? src/layouts/
+?? src/pages/
+?? src/styles/
+?? tsconfig.json
+projects/apps/tools/oriz-paper-print-tools-app ::  M package.json
+ M src/__tests__/smoke.test.ts
+?? astro.config.mjs
+?? biome.json
+?? public/
+?? src/env.d.ts
+?? src/layouts/
+?? src/pages/
+?? src/styles/
+?? tsconfig.json
+projects/apps/content/oriz-janaushdhi-app ::  M package.json
+projects/npm-packages/astro-data-npm-pkg ::  M src/index.ts
+?? .gitignore
+projects/npm-packages/auth-core-npm-pkg :: ?? .gitignore
+projects/npm-packages/astro-distribute-npm-pkg :: ?? .gitignore
+projects/npm-packages/astro-test-utils-npm-pkg :: ?? .gitignore
+projects/apps/content/oriz-packages-catalog-app ::  M package.json
+ M src/components/Footer.astro
