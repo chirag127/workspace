@@ -3,9 +3,9 @@
  * delete-per-repo-secrets.mjs
  *
  * Cleanup: removes per-repo Actions secrets that are now duplicated at the
- * `oriz-co` org level (visibility=all). Idempotent — safe to re-run.
+ * `oriz-org` org level (visibility=all). Idempotent — safe to re-run.
  *
- * Why: the migration to oriz-co (2026-06-22) pushed 61 secrets to the org
+ * Why: the migration to oriz-org (2026-06-22) pushed 61 secrets to the org
  * level once. Each transferred repo still has the per-repo copies from the
  * old chirag127-era sync. Per-repo copies SHADOW the org value, so we want
  * them gone for true single-source-of-truth.
@@ -23,7 +23,7 @@ import { resolve, join } from "node:path";
 
 const ROOT = resolve(new URL("..", import.meta.url).pathname.replace(/^\/([a-zA-Z]):/, "$1:"));
 const LOCAL_ENV_PATH = join(ROOT, ".env");
-const ORG = "oriz-co";
+const ORG = "oriz-org";
 const SLEEP_MS = 1000;
 
 const args = process.argv.slice(2);
@@ -61,7 +61,7 @@ async function main() {
   const orgSecrets = new Set(orgList.stdout.split(/\r?\n/).filter(Boolean));
   console.log(`[cleanup] org has ${orgSecrets.size} secrets`);
 
-  // 2. List all oriz-co repos
+  // 2. List all oriz-org repos
   const repoList = gh(["repo", "list", ORG, "--limit", "500", "--json", "name,isArchived"], token);
   if (!repoList.ok) { console.error("FATAL: cannot list org repos:", repoList.stderr); process.exit(1); }
   const repos = JSON.parse(repoList.stdout)

@@ -1,222 +1,222 @@
 [submodule "projects_apps_personal_me-app"]
 	path = projects/apps/personal/oriz-cs-me-app
-	url = https://github.com/oriz-co/oriz-cs-me-app.git
+	url = https://github.com/chirag127/cs-me-app.git
 [submodule "projects_apps_content_blog-app"]
 	path = projects/apps/content/oriz-pages-blog-app
-	url = https://github.com/oriz-co/oriz-pages-blog-app.git
+	url = https://github.com/oriz-org/oriz-pages-blog-app.git
 [submodule "projects_apps_content_journal-app"]
 	path = projects/apps/content/oriz-roam-journal-app
-	url = https://github.com/oriz-co/oriz-roam-journal-app.git
+	url = https://github.com/oriz-org/oriz-roam-journal-app.git
 [submodule "projects_apps_content_cards-app"]
 	path = projects/apps/content/oriz-financial-cards-app
-	url = https://github.com/oriz-co/oriz-financial-cards-app.git
+	url = https://github.com/oriz-org/oriz-financial-cards-app.git
 [submodule "projects_apps_tools_image-tools-app"]
 	path = projects/apps/tools/oriz-pixie-image-tools-app
-	url = https://github.com/oriz-co/oriz-pixie-image-tools-app.git
+	url = https://github.com/oriz-org/oriz-pixie-image-tools-app.git
 [submodule "projects_apps_tools_finance-tools-app"]
 	path = projects/apps/tools/oriz-paisa-finance-tools-app
-	url = https://github.com/oriz-co/oriz-paisa-finance-tools-app.git
+	url = https://github.com/oriz-org/oriz-paisa-finance-tools-app.git
 [submodule "projects_skills_agents-md-sync-skill"]
 	path = projects/skills/agents-md-sync-skill
-	url = https://github.com/oriz-co/agents-md-sync-skill.git
+	url = https://github.com/oriz-org/agents-md-sync-skill.git
 [submodule "projects_skills_claude-code-mcq-notes-skill"]
 	path = projects/skills/claude-code-mcq-notes-skill
-	url = https://github.com/oriz-co/claude-code-mcq-notes-skill.git
+	url = https://github.com/oriz-org/claude-code-mcq-notes-skill.git
 [submodule "projects_apps_hub_home-app"]
 	path = projects/apps/hub/home-app
-	url = https://github.com/oriz-co/oriz-app.git
+	url = https://github.com/oriz-org/oriz-app.git
 [submodule "projects_apps_content_ncert-app"]
 	path = projects/apps/content/oriz-ncert-app
-	url = https://github.com/oriz-co/oriz-ncert-app.git
+	url = https://github.com/oriz-org/oriz-ncert-app.git
 [submodule "projects_apps_content_post-app"]
 	path = projects/apps/content/oriz-omni-post-app
-	url = https://github.com/oriz-co/oriz-omni-post-app.git
+	url = https://github.com/oriz-org/oriz-omni-post-app.git
 [submodule "projects_apps_tools_pdf-tools-app"]
 	path = projects/apps/tools/oriz-slice-pdf-tools-app
-	url = https://github.com/oriz-co/oriz-slice-pdf-tools-app.git
+	url = https://github.com/oriz-org/oriz-slice-pdf-tools-app.git
 [submodule "projects_apps_content_lore-app"]
 	path = projects/apps/content/oriz-lore-app
-	url = https://github.com/oriz-co/oriz-lore-app.git
+	url = https://github.com/oriz-org/oriz-lore-app.git
 [submodule "projects_apps_tools_dev-tools-app"]
 	path = projects/apps/tools/oriz-forge-dev-tools-app
-	url = https://github.com/oriz-co/oriz-forge-dev-tools-app.git
+	url = https://github.com/oriz-org/oriz-forge-dev-tools-app.git
 [submodule "projects_apps_tools_text-tools-app"]
 	path = projects/apps/tools/oriz-scribe-text-tools-app
-	url = https://github.com/oriz-co/oriz-scribe-text-tools-app.git
+	url = https://github.com/oriz-org/oriz-scribe-text-tools-app.git
 [submodule "projects_apps_tools_convert-tools-app"]
 	path = projects/apps/tools/oriz-shift-convert-tools-app
-	url = https://github.com/oriz-co/oriz-shift-convert-tools-app.git
+	url = https://github.com/oriz-org/oriz-shift-convert-tools-app.git
 [submodule "projects_apps_tools_qr-tools-app"]
 	path = projects/apps/tools/oriz-grid-qr-tools-app
-	url = https://github.com/oriz-co/oriz-grid-qr-tools-app.git
+	url = https://github.com/oriz-org/oriz-grid-qr-tools-app.git
 [submodule "projects_apps_tools_data-tools-app"]
 	path = projects/apps/tools/oriz-pivot-data-tools-app
-	url = https://github.com/oriz-co/oriz-pivot-data-tools-app.git
+	url = https://github.com/oriz-org/oriz-pivot-data-tools-app.git
 [submodule "projects_apps_tools_audio-tools-app"]
 	path = projects/apps/tools/oriz-echo-audio-tools-app
-	url = https://github.com/oriz-co/oriz-echo-audio-tools-app.git
+	url = https://github.com/oriz-org/oriz-echo-audio-tools-app.git
 [submodule "projects_apps_tools_video-tools-app"]
 	path = projects/apps/tools/oriz-reel-video-tools-app
-	url = https://github.com/oriz-co/oriz-reel-video-tools-app.git
+	url = https://github.com/oriz-org/oriz-reel-video-tools-app.git
 [submodule "projects_apps_tools_seo-tools-app"]
 	path = projects/apps/tools/oriz-rank-seo-tools-app
-	url = https://github.com/oriz-co/oriz-rank-seo-tools-app.git
+	url = https://github.com/oriz-org/oriz-rank-seo-tools-app.git
 [submodule "projects_apps_tools_crypto-tools-app"]
 	path = projects/apps/tools/oriz-cipher-crypto-tools-app
-	url = https://github.com/oriz-co/oriz-cipher-crypto-tools-app.git
+	url = https://github.com/oriz-org/oriz-cipher-crypto-tools-app.git
 [submodule "projects_apps_tools_health-tools-app"]
 	path = projects/apps/tools/oriz-vitals-health-tools-app
-	url = https://github.com/oriz-co/oriz-vitals-health-tools-app.git
+	url = https://github.com/oriz-org/oriz-vitals-health-tools-app.git
 [submodule "projects_apps_tools_random-tools-app"]
 	path = projects/apps/tools/oriz-dice-random-tools-app
-	url = https://github.com/oriz-co/oriz-dice-random-tools-app.git
+	url = https://github.com/oriz-org/oriz-dice-random-tools-app.git
 [submodule "projects_apps_tools_print-tools-app"]
 	path = projects/apps/tools/oriz-paper-print-tools-app
-	url = https://github.com/oriz-co/oriz-paper-print-tools-app.git
+	url = https://github.com/oriz-org/oriz-paper-print-tools-app.git
 [submodule "projects_apps_content_oriz-janaushdhi-app"]
 	path = projects/apps/content/oriz-janaushdhi-app
-	url = https://github.com/oriz-co/oriz-janaushdhi-app.git
+	url = https://github.com/oriz-org/oriz-janaushdhi-app.git
 [submodule "projects_npm-packages_astro-shell-npm-pkg"]
 	path = projects/npm-packages/astro-shell-npm-pkg
-	url = https://github.com/oriz-co/astro-shell-npm-pkg.git
+	url = https://github.com/oriz-org/astro-shell-npm-pkg.git
 [submodule "projects_npm-packages_astro-chrome-npm-pkg"]
 	path = projects/npm-packages/astro-chrome-npm-pkg
-	url = https://github.com/oriz-co/astro-chrome-npm-pkg.git
+	url = https://github.com/oriz-org/astro-chrome-npm-pkg.git
 [submodule "projects_npm-packages_astro-data-npm-pkg"]
 	path = projects/npm-packages/astro-data-npm-pkg
-	url = https://github.com/oriz-co/astro-data-npm-pkg.git
+	url = https://github.com/oriz-org/astro-data-npm-pkg.git
 [submodule "projects_npm-packages_astro-forms-npm-pkg"]
 	path = projects/npm-packages/astro-forms-npm-pkg
-	url = https://github.com/oriz-co/astro-forms-npm-pkg.git
+	url = https://github.com/oriz-org/astro-forms-npm-pkg.git
 [submodule "projects_npm-packages_astro-tools-npm-pkg"]
 	path = projects/npm-packages/astro-tools-npm-pkg
-	url = https://github.com/oriz-co/astro-tools-npm-pkg.git
+	url = https://github.com/oriz-org/astro-tools-npm-pkg.git
 [submodule "projects_npm-packages_astro-content-npm-pkg"]
 	path = projects/npm-packages/astro-content-npm-pkg
-	url = https://github.com/oriz-co/astro-content-npm-pkg.git
+	url = https://github.com/oriz-org/astro-content-npm-pkg.git
 [submodule "projects_npm-packages_astro-billing-npm-pkg"]
 	path = projects/npm-packages/astro-billing-npm-pkg
-	url = https://github.com/oriz-co/astro-billing-npm-pkg.git
+	url = https://github.com/oriz-org/astro-billing-npm-pkg.git
 [submodule "projects_npm-packages_auth-core-npm-pkg"]
 	path = projects/npm-packages/auth-core-npm-pkg
-	url = https://github.com/oriz-co/auth-core-npm-pkg.git
+	url = https://github.com/oriz-org/auth-core-npm-pkg.git
 [submodule "projects_npm-packages_auth-wxt-npm-pkg"]
 	path = projects/npm-packages/auth-wxt-npm-pkg
-	url = https://github.com/oriz-co/auth-wxt-npm-pkg.git
+	url = https://github.com/oriz-org/auth-wxt-npm-pkg.git
 [submodule "projects_npm-packages_auth-vsc-npm-pkg"]
 	path = projects/npm-packages/auth-vsc-npm-pkg
-	url = https://github.com/oriz-co/auth-vsc-npm-pkg.git
+	url = https://github.com/oriz-org/auth-vsc-npm-pkg.git
 [submodule "projects_npm-packages_auth-cli-npm-pkg"]
 	path = projects/npm-packages/auth-cli-npm-pkg
-	url = https://github.com/oriz-co/auth-cli-npm-pkg.git
+	url = https://github.com/oriz-org/auth-cli-npm-pkg.git
 [submodule "projects_npm-packages_astro-pwa-npm-pkg"]
 	path = projects/npm-packages/astro-pwa-npm-pkg
-	url = https://github.com/oriz-co/astro-pwa-npm-pkg.git
+	url = https://github.com/oriz-org/astro-pwa-npm-pkg.git
 [submodule "projects_npm-packages_astro-distribute-npm-pkg"]
 	path = projects/npm-packages/astro-distribute-npm-pkg
-	url = https://github.com/oriz-co/astro-distribute-npm-pkg.git
+	url = https://github.com/oriz-org/astro-distribute-npm-pkg.git
 [submodule "projects_npm-packages_astro-widgets-npm-pkg"]
 	path = projects/npm-packages/astro-widgets-npm-pkg
-	url = https://github.com/oriz-co/astro-widgets-npm-pkg.git
+	url = https://github.com/oriz-org/astro-widgets-npm-pkg.git
 [submodule "projects_npm-packages_astro-test-utils-npm-pkg"]
 	path = projects/npm-packages/astro-test-utils-npm-pkg
-	url = https://github.com/oriz-co/astro-test-utils-npm-pkg.git
+	url = https://github.com/oriz-org/astro-test-utils-npm-pkg.git
 [submodule "projects_npm-packages_omni-publish-npm-pkg"]
 	path = projects/npm-packages/omni-publish-npm-pkg
-	url = https://github.com/oriz-co/omni-publish-npm-pkg.git
+	url = https://github.com/oriz-org/omni-publish-npm-pkg.git
 [submodule "projects_apps_content_oriz-packages-catalog-app"]
 	path = projects/apps/content/oriz-packages-catalog-app
-	url = https://github.com/oriz-co/oriz-packages-catalog-app.git
+	url = https://github.com/oriz-org/oriz-packages-catalog-app.git
 [submodule "projects_npm-packages_oriz-book-build-npm-pkg"]
 	path = projects/npm-packages/oriz-book-build-npm-pkg
-	url = https://github.com/oriz-co/oriz-book-build-npm-pkg.git
+	url = https://github.com/oriz-org/oriz-book-build-npm-pkg.git
 [submodule "projects_books_oriz-stack-book"]
 	path = projects/books/oriz-stack-book
-	url = https://github.com/oriz-co/oriz-stack-book.git
+	url = https://github.com/oriz-org/oriz-stack-book.git
 [submodule "projects_books_oriz-paisa-book"]
 	path = projects/books/oriz-paisa-book
-	url = https://github.com/oriz-co/oriz-paisa-book.git
+	url = https://github.com/oriz-org/oriz-paisa-book.git
 [submodule "projects_books_oriz-pdf-book"]
 	path = projects/books/oriz-pdf-book
-	url = https://github.com/oriz-co/oriz-pdf-book.git
+	url = https://github.com/oriz-org/oriz-pdf-book.git
 [submodule "projects_books_oriz-janaushdhi-book"]
 	path = projects/books/oriz-janaushdhi-book
-	url = https://github.com/oriz-co/oriz-janaushdhi-book.git
+	url = https://github.com/oriz-org/oriz-janaushdhi-book.git
 [submodule "projects_books_oriz-me-book"]
 	path = projects/books/oriz-me-book
-	url = https://github.com/oriz-co/oriz-me-book.git
+	url = https://github.com/oriz-org/oriz-me-book.git
 [submodule "projects/npm-packages/oriz-ai-providers-npm-pkg"]
 	path = projects/npm-packages/oriz-ai-providers-npm-pkg
-	url = https://github.com/oriz-co/oriz-ai-providers-npm-pkg.git
+	url = https://github.com/oriz-org/oriz-ai-providers-npm-pkg.git
 [submodule "projects/data/oriz-ai-providers-data"]
 	path = projects/data/oriz-ai-providers-data
-	url = https://github.com/oriz-co/oriz-ai-providers-data.git
+	url = https://github.com/oriz-org/oriz-ai-providers-data.git
 [submodule "projects/npm-packages/oriz-analytics-npm-pkg"]
 	path = projects/npm-packages/oriz-analytics-npm-pkg
-	url = https://github.com/oriz-co/oriz-analytics-npm-pkg.git
+	url = https://github.com/oriz-org/oriz-analytics-npm-pkg.git
 [submodule "projects/npm-packages/oriz-seo-npm-pkg"]
 	path = projects/npm-packages/oriz-seo-npm-pkg
-	url = https://github.com/oriz-co/oriz-seo-npm-pkg.git
+	url = https://github.com/oriz-org/oriz-seo-npm-pkg.git
 [submodule "projects/npm-packages/oriz-rate-limit-npm-pkg"]
 	path = projects/npm-packages/oriz-rate-limit-npm-pkg
-	url = https://github.com/oriz-co/oriz-rate-limit-npm-pkg.git
+	url = https://github.com/oriz-org/oriz-rate-limit-npm-pkg.git
 [submodule "projects/npm-packages/oriz-consent-npm-pkg"]
 	path = projects/npm-packages/oriz-consent-npm-pkg
-	url = https://github.com/oriz-co/oriz-consent-npm-pkg.git
+	url = https://github.com/oriz-org/oriz-consent-npm-pkg.git
 [submodule "projects/npm-packages/oriz-ui-npm-pkg"]
 	path = projects/npm-packages/oriz-ui-npm-pkg
-	url = https://github.com/oriz-co/oriz-ui-npm-pkg.git
+	url = https://github.com/oriz-org/oriz-ui-npm-pkg.git
 [submodule "projects/apis/oriz-flow-fii-dii-activity-api"]
 	path = projects/apis/oriz-flow-fii-dii-activity-api
-	url = https://github.com/oriz-co/oriz-flow-fii-dii-activity-api.git
+	url = https://github.com/oriz-org/oriz-flow-fii-dii-activity-api.git
 [submodule "projects/apis/oriz-mmi-tickertape-mmi-api"]
 	path = projects/apis/oriz-mmi-tickertape-mmi-api
-	url = https://github.com/oriz-co/oriz-mmi-tickertape-mmi-api.git
+	url = https://github.com/oriz-org/oriz-mmi-tickertape-mmi-api.git
 [submodule "projects/apis/oriz-mf-nav-api"]
 	path = projects/apis/oriz-mf-nav-api
-	url = https://github.com/oriz-co/oriz-mf-nav-api.git
+	url = https://github.com/oriz-org/oriz-mf-nav-api.git
 [submodule "projects/apis/oriz-pincode-api"]
 	path = projects/apis/oriz-pincode-api
-	url = https://github.com/oriz-co/oriz-pincode-api.git
+	url = https://github.com/oriz-org/oriz-pincode-api.git
 [submodule "projects/apis/oriz-ifsc-api"]
 	path = projects/apis/oriz-ifsc-api
-	url = https://github.com/oriz-co/oriz-ifsc-api.git
+	url = https://github.com/oriz-org/oriz-ifsc-api.git
 [submodule "projects/apis/oriz-india-holidays-api"]
 	path = projects/apis/oriz-india-holidays-api
-	url = https://github.com/oriz-co/oriz-india-holidays-api.git
+	url = https://github.com/oriz-org/oriz-india-holidays-api.git
 [submodule "projects/apis/oriz-currency-rates-api"]
 	path = projects/apis/oriz-currency-rates-api
-	url = https://github.com/oriz-co/oriz-currency-rates-api.git
+	url = https://github.com/oriz-org/oriz-currency-rates-api.git
 [submodule "projects/apis/oriz-nse-bse-tickers-api"]
 	path = projects/apis/oriz-nse-bse-tickers-api
-	url = https://github.com/oriz-co/oriz-nse-bse-tickers-api.git
+	url = https://github.com/oriz-org/oriz-nse-bse-tickers-api.git
 [submodule "projects/apis/oriz-rbi-rates-api"]
 	path = projects/apis/oriz-rbi-rates-api
-	url = https://github.com/oriz-co/oriz-rbi-rates-api.git
+	url = https://github.com/oriz-org/oriz-rbi-rates-api.git
 [submodule "projects/apis/oriz-gold-silver-rates-api"]
 	path = projects/apis/oriz-gold-silver-rates-api
-	url = https://github.com/oriz-co/oriz-gold-silver-rates-api.git
+	url = https://github.com/oriz-org/oriz-gold-silver-rates-api.git
 [submodule "projects/apis/oriz-air-quality-india-api"]
 	path = projects/apis/oriz-air-quality-india-api
-	url = https://github.com/oriz-co/oriz-air-quality-india-api.git
+	url = https://github.com/oriz-org/oriz-air-quality-india-api.git
 [submodule "projects/apis/oriz-india-petrol-diesel-api"]
 	path = projects/apis/oriz-india-petrol-diesel-api
-	url = https://github.com/oriz-co/oriz-india-petrol-diesel-api.git
+	url = https://github.com/oriz-org/oriz-india-petrol-diesel-api.git
 [submodule "projects/apis/oriz-india-budget-numbers-api"]
 	path = projects/apis/oriz-india-budget-numbers-api
-	url = https://github.com/oriz-co/oriz-india-budget-numbers-api.git
+	url = https://github.com/oriz-org/oriz-india-budget-numbers-api.git
 [submodule "projects/forks/Ai-rewrite"]
 	path = projects/forks/Ai-rewrite
-	url = https://github.com/oriz-co/Ai-rewrite.git
+	url = https://github.com/oriz-org/Ai-rewrite.git
 [submodule "projects/apps/hub/oriz-status-app"]
 	path = projects/apps/hub/oriz-status-app
-	url = https://github.com/oriz-co/oriz-status-app.git
+	url = https://github.com/oriz-org/oriz-status-app.git
 [submodule "projects_apps_hub_auth-app"]
 	path = projects/apps/hub/oriz-auth-app
-	url = https://github.com/oriz-co/oriz-auth-app.git
+	url = https://github.com/oriz-org/oriz-auth-app.git
 [submodule "projects/apis/oriz-india-train-schedules-api"]
 	path = projects/apis/oriz-india-train-schedules-api
-	url = https://github.com/oriz-co/oriz-india-train-schedules-api.git
+	url = https://github.com/oriz-org/oriz-india-train-schedules-api.git
 [submodule "projects/apis/oriz-india-weather-api"]
 	path = projects/apis/oriz-india-weather-api
-	url = https://github.com/oriz-co/oriz-india-weather-api.git
+	url = https://github.com/oriz-org/oriz-india-weather-api.git

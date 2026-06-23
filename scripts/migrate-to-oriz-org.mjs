@@ -1,11 +1,11 @@
 #!/usr/bin/env node
 /**
- * migrate-to-oriz-co.mjs
+ * migrate-to-oriz-org.mjs
  *
  * One-shot script: transfers every chirag127/<slug> in the oriz family
- * (listed in .gitmodules) + `workspace` itself → oriz-co GH organization.
+ * (listed in .gitmodules) + `workspace` itself → oriz-org GH organization.
  *
- * Idempotent: if a transfer fails because the repo is already at oriz-co,
+ * Idempotent: if a transfer fails because the repo is already at oriz-org,
  * we log + skip. Safe to re-run after partial failure.
  *
  * Flags:
@@ -23,7 +23,7 @@ const DRY = args.includes("--dry-run");
 const YES = args.includes("--yes");
 const SLEEP_MS = 1000;
 
-const NEW_OWNER = "oriz-co";
+const NEW_OWNER = "oriz-org";
 const OLD_OWNER = "chirag127";
 const MAX_TRANSFERS = 100;
 
@@ -60,7 +60,7 @@ async function main() {
   console.log(`[migrate] target org=${NEW_OWNER}`);
   console.log(`[migrate] dry-run=${DRY}`);
 
-  // Verify oriz-co exists
+  // Verify oriz-org exists
   const orgCheck = gh(["api", `orgs/${NEW_OWNER}`, "--jq", ".type"]);
   if (!orgCheck.ok) {
     console.error(`[migrate] FATAL: cannot reach ${NEW_OWNER}: ${orgCheck.stderr.trim()}`);
@@ -95,7 +95,7 @@ async function main() {
     const slug = slugs[i];
     process.stdout.write(`[${i + 1}/${slugs.length}] ${OLD_OWNER}/${slug} → ${NEW_OWNER}/${slug}: `);
 
-    // First check if it's already at oriz-co
+    // First check if it's already at oriz-org
     const check = gh(["api", `repos/${NEW_OWNER}/${slug}`, "--jq", ".full_name"]);
     if (check.ok && check.stdout.trim() === `${NEW_OWNER}/${slug}`) {
       console.log("ALREADY-AT-DEST");

@@ -15,14 +15,14 @@ related:
 
 ## Why
 
-Single point of failure on GitHub. If `oriz-co` org gets locked (mass-PR spam, automated false-positive, ToS misread, you-name-it), CF Pages builds break because GitHub is the source. 60+ submodules become inaccessible.
+Single point of failure on GitHub. If `oriz-org` org gets locked (mass-PR spam, automated false-positive, ToS misread, you-name-it), CF Pages builds break because GitHub is the source. 60+ submodules become inaccessible.
 
-Mitigation: nightly mirror to https://codeberg.org/oriz-co. Free, no payment, no card. Codeberg is a non-profit Gitea instance maintained by community.
+Mitigation: nightly mirror to https://codeberg.org/oriz-org. Free, no payment, no card. Codeberg is a non-profit Gitea instance maintained by community.
 
 ## Setup (one-time, manual — 15 min)
 
 1. Create Codeberg account at https://codeberg.org/user/sign_up (email + password; no card).
-2. Create organization `oriz-co` at https://codeberg.org/org/create (free for FOSS).
+2. Create organization `oriz-org` at https://codeberg.org/org/create (free for FOSS).
 3. Generate access token at https://codeberg.org/user/settings/applications:
    - Name: `oriz-mirror-bot`
    - Scopes: `write:repository`, `write:organization`
@@ -33,7 +33,7 @@ Mitigation: nightly mirror to https://codeberg.org/oriz-co. Free, no payment, no
    GH=$(grep "^GH_ADMIN_PAT=" /c/D/oriz/.env | cut -d= -f2)
    CODEBERG=$(grep "^CODEBERG_TOKEN=" /c/D/oriz/.env | cut -d= -f2)
    # Use gh CLI:
-   gh secret set CODEBERG_TOKEN --org oriz-co --body "$CODEBERG"
+   gh secret set CODEBERG_TOKEN --org oriz-org --body "$CODEBERG"
    ```
 
 ## Recurring (automated, nightly cron via GH Action)
@@ -56,18 +56,18 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           CODEBERG_TOKEN: ${{ secrets.CODEBERG_TOKEN }}
         run: |
-          # List all repos under oriz-co
-          gh api -X GET orgs/oriz-co/repos --paginate -q '.[].name' > repos.txt
+          # List all repos under oriz-org
+          gh api -X GET orgs/oriz-org/repos --paginate -q '.[].name' > repos.txt
           while read repo; do
             echo "--- mirroring $repo ---"
-            git clone --mirror "https://x-access-token:${GH_TOKEN}@github.com/oriz-co/${repo}.git" /tmp/${repo}
+            git clone --mirror "https://x-access-token:${GH_TOKEN}@github.com/oriz-org/${repo}.git" /tmp/${repo}
             # Create on Codeberg if missing (idempotent)
             curl -s -X POST -H "Authorization: token ${CODEBERG_TOKEN}" \
               -H "Content-Type: application/json" \
-              "https://codeberg.org/api/v1/orgs/oriz-co/repos" \
+              "https://codeberg.org/api/v1/orgs/oriz-org/repos" \
               -d "{\"name\":\"${repo}\",\"private\":false,\"auto_init\":false}" || true
             cd /tmp/${repo}
-            git push --mirror "https://oriz-co:${CODEBERG_TOKEN}@codeberg.org/oriz-co/${repo}.git" || echo "FAILED ${repo}"
+            git push --mirror "https://oriz-org:${CODEBERG_TOKEN}@codeberg.org/oriz-org/${repo}.git" || echo "FAILED ${repo}"
             cd -
             rm -rf /tmp/${repo}
           done < repos.txt

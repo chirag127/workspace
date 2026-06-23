@@ -60,7 +60,7 @@ A submodule gets a CF Pages project **if and only if** it lives under `projects/
 ## What does NOT get a CF Pages project
 
 - 23 npm packages under `projects/npm-packages/` — npm itself + GH repo's GitHub Pages site for docs
-- 19 APIs under `projects/apis/` — GH Pages with `<subdomain>.api.oriz.in` CNAME → `oriz-co.github.io` (already wired)
+- 19 APIs under `projects/apis/` — GH Pages with `<subdomain>.api.oriz.in` CNAME → `oriz-org.github.io` (already wired)
 - Books under `projects/books/` — GH Pages
 - Forks under `projects/forks/` — no public surface, just code
 - Skills under `projects/skills/` — GitHub repo + npm publish only
@@ -71,7 +71,7 @@ For each of these, if a public landing page is desired, host on GH Pages and add
 ## Why
 
 1. **CF Pages 100-project soft cap** — staying under it. With 26 apps + 5-10 unrelated projects we have ~30, plenty of headroom.
-2. **GH Pages for static JSON is correct** — APIs already serve JSON from `oriz-co.github.io`, no Worker/Pages indirection adds value.
+2. **GH Pages for static JSON is correct** — APIs already serve JSON from `oriz-org.github.io`, no Worker/Pages indirection adds value.
 3. **CF Pages auto-deploy needs OAuth handshake** — every new CF Pages project requires interactive GitHub authorization once. Limiting to 26 apps means 26 one-time clicks, not 80.
 4. **Mental model:** if it's a Pro/Max app you'd monetize, it's on CF Pages. If it's a public catalog/JSON/docs, it's on GH Pages.
 

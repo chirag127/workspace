@@ -4,10 +4,10 @@
  *
  * Single source of truth for env vars: `c:/D/oriz/.env` (gitignored) →
  * encrypted as `.env.enc` via sops+age → decrypted here → pushed to the
- * `oriz-co` GitHub Organization as ORG-LEVEL Actions secrets (visibility=all).
+ * `oriz-org` GitHub Organization as ORG-LEVEL Actions secrets (visibility=all).
  *
  * 2026-06-22: migrated from per-repo fan-out (~3,770 API calls) to org-level
- * (~65 API calls). chirag127 was a USER account; oriz-co is the new Org.
+ * (~65 API calls). chirag127 was a USER account; oriz-org is the new Org.
  *
  * Inputs:
  *   - .env.enc            (committed, sops-encrypted)
@@ -41,8 +41,8 @@ const SOPS_CONFIG = join(ROOT, ".sops.yaml");
 const LOCAL_KEY_PATH = join(ROOT, ".sops-age-key.txt");
 const LOCAL_ENV_PATH = join(ROOT, ".env");
 
-// Target: org-level secrets on the `oriz-co` GH Organization with visibility=all.
-const ORG = "oriz-co";
+// Target: org-level secrets on the `oriz-org` GH Organization with visibility=all.
+const ORG = "oriz-org";
 
 const args = process.argv.slice(2);
 const flag = (name) => args.includes(name);
