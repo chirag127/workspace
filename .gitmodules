@@ -229,3 +229,6 @@
 [submodule "projects/apps/hub/oriz-status-app"]
 	path = projects/apps/hub/oriz-status-app
 	url = https://github.com/oriz-co/oriz-status-app.git
+[submodule "projects_apps_hub_auth-app"]
+	path = projects/apps/hub/oriz-auth-app
+	url = https://github.com/oriz-co/oriz-auth-app.git
