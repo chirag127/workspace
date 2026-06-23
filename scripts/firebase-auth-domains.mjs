@@ -90,6 +90,7 @@ const required = [
   'localhost',
   'oriz-app.firebaseapp.com',
   'oriz-app.web.app',
+  'account.oriz.in',
   'auth.oriz.in',
   'oriz-auth-app.pages.dev',
   'oriz.in',
