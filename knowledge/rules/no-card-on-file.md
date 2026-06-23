@@ -1,3 +1,5 @@
+> **SUPERSEDED 2026-06-23.** Card-on-file is now ALLOWED with cost controls. See [free-tier-with-cost-controls.md](./free-tier-with-cost-controls.md).
+
 ---
 type: rule
 title: "No card-on-file with any pay-as-you-go provider"
@@ -5,7 +7,8 @@ description: "Cloudflare Free / Firebase Spark / GitHub Free only. Never put a c
 tags: [rules, billing, security, free-tier]
 timestamp: 2026-06-20
 format_version: okf-v0.1
-status: active
+status: superseded
+supersededBy: rules/free-tier-with-cost-controls
 related:
   - rules/never-hit-quotas
   - rules/no-subscriptions
