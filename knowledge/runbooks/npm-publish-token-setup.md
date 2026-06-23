@@ -80,7 +80,7 @@ The `--force` is required to delete a package that has multiple versions. Withou
 
 ```bash
 # Publish test (dry-run is enough)
-cd projects/npm-packages/<name>-npm-pkg
+cd projects/oriz-org/own/libraries/npm-packages/<name>-npm-pkg
 npm publish --access public --dry-run
 
 # Real publish test (creates a real 0.1.x)

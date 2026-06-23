@@ -24,11 +24,11 @@ journal.oriz.in          →  oriz-roam-journal-app (flagship Pro/Max app)
 
 | Layer | Count | Lives at |
 |---|---|---|
-| **Apps** (CF Pages) | 27 | `projects/apps/{hub,content,personal,tools}/` |
-| **APIs** (GH Pages JSON + Path D Astro page) | 15 | `projects/apis/` |
-| **npm packages** | 23 | `projects/npm-packages/` (published as `@chirag127/*`) |
-| **Books** | 5 | `projects/books/` |
-| **Forks** (upstreams we patched) | 2 | `projects/forks/` |
+| **Apps** (CF Pages) | 27 | `projects/oriz-org/own/products/apps/{hub,content,personal,tools}/` |
+| **APIs** (GH Pages JSON + Path D Astro page) | 15 | `projects/oriz-org/own/services/apis/` |
+| **npm packages** | 23 | `projects/oriz-org/own/libraries/npm-packages/` (published as `@chirag127/*`) |
+| **Books** | 5 | `projects/oriz-org/own/content/books/` |
+| **Forks** (upstreams we patched) | 2 | `projects/oriz-org/forks/` |
 | **Knowledge** | 58 rules + 181 decisions + 43 runbooks | `knowledge/` |
 
 ---

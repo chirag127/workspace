@@ -18,7 +18,7 @@ related:
 
 ## Decision
 
-Every website and every app in the family deploys to Cloudflare Pages free. No exceptions. This covers content sites (`projects/apps/content/*`), tool apps (`projects/apps/tools/*`), hub apps (`projects/apps/hub/*`), personal apps (`projects/apps/personal/*`), the extensions catalog, and every per-extension subdomain. Firebase Hosting, Vercel, Netlify, Render, Fly, and GitHub Pages-as-primary are all REJECTED. GitHub Pages remains only as the per-site survival mirror per [github-pages-mirror-per-site](./github-pages-mirror-per-site.md).
+Every website and every app in the family deploys to Cloudflare Pages free. No exceptions. This covers content sites (`projects/oriz-org/own/products/apps/content/*`), tool apps (`projects/oriz-org/own/products/apps/tools/*`), hub apps (`projects/oriz-org/own/products/apps/hub/*`), personal apps (`projects/oriz-org/own/products/apps/personal/*`), the extensions catalog, and every per-extension subdomain. Firebase Hosting, Vercel, Netlify, Render, Fly, and GitHub Pages-as-primary are all REJECTED. GitHub Pages remains only as the per-site survival mirror per [github-pages-mirror-per-site](./github-pages-mirror-per-site.md).
 
 ## Why
 

@@ -42,7 +42,7 @@ status: active
 | Telegram is banned in India — drafts via GH Issues; no Telegram bots | [`rules/no-telegram-india-banned.md`](./rules/no-telegram-india-banned.md) |
 | No PAID self-hosting — free providers (Supabase / Render / Fly / Oracle Always-Free / etc.) are FINE | [`rules/no-paid-self-hosting-only.md`](./rules/no-paid-self-hosting-only.md) |
 | No Firebase Cloud Functions (Blaze required, card on file banned) | [`rules/no-firebase-functions-blaze.md`](./rules/no-firebase-functions-blaze.md) |
-| Fork discipline — minimum-diff, rebase-friendly, `projects/forks/<upstream-name>/` | [`rules/fork-discipline.md`](./rules/fork-discipline.md) |
+| Fork discipline — minimum-diff, rebase-friendly, `projects/oriz-org/forks/<upstream-name>/` | [`rules/fork-discipline.md`](./rules/fork-discipline.md) |
 | CF Pages branch-deploys (100-project mitigation) | [`runbooks/cf-pages-branch-deploys.md`](./runbooks/cf-pages-branch-deploys.md) |
 | Family inventory (canonical counts SSoT) — 26 apps + 23 npm packages + 5 books + 2 APIs + 53 submodules | [`services/family-inventory.md`](./services/family-inventory.md) |
 
@@ -51,7 +51,7 @@ status: active
 Per-app knowledge lives INSIDE each app submodule under its own
 `knowledge/` folder (OKF-light: `index.md` + `decisions/` + `runbooks/` +
 `services/`). The richest example is
-[`projects/apps/personal/oriz-cs-me-app/knowledge/`](../projects/apps/personal/oriz-cs-me-app/knowledge/)
+[`projects/oriz-org/own/products/apps/personal/oriz-cs-me-app/knowledge/`](../projects/oriz-org/own/products/apps/personal/oriz-cs-me-app/knowledge/)
 — lifestream architecture, age-gating, ingester contract, 100-year
 strategy. Each per-app bundle follows the same OKF contract
 ([`_okf.md`](./_okf.md)). Master `knowledge/` holds family-wide rules /

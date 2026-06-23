@@ -114,17 +114,17 @@ The umbrella `api.oriz.in` Hono Worker is the inline (non-submodule) API and is 
 
 ## Browser extensions — 1 total
 
-- `Ai-rewrite` — Chrome extension, AI-powered text rewriting. **Fork** of `SupratimRK/Ai-rewrite` (verified 2026-06-22 via `gh api`). Submodule under `projects/forks/Ai-rewrite/` (moved 2026-06-22 from `projects/browser-extensions/`). Repo: `oriz-org/Ai-rewrite` (moved from `chirag127/Ai-rewrite` 2026-06-22).
+- `Ai-rewrite` — Chrome extension, AI-powered text rewriting. **Fork** of `SupratimRK/Ai-rewrite` (verified 2026-06-22 via `gh api`). Submodule under `projects/oriz-org/forks/Ai-rewrite/` (moved 2026-06-22 from `projects/oriz-org/own/products/browser-extensions/`). Repo: `oriz-org/Ai-rewrite` (moved from `chirag127/Ai-rewrite` 2026-06-22).
 
 ## Submodules — 54 total
 
 `git submodule status | wc -l` from `c:/D/oriz/` should return 54. Composition:
 
-- 26 app submodules (under `projects/apps/`)
-- 23 npm-package submodules (under `projects/npm-packages/`)
-- 2 API submodules (under `projects/apis/`)
-- 1 data submodule (under `projects/data/` — `oriz-ai-providers-data`)
-- 1 fork submodule (under `projects/forks/` — `Ai-rewrite`, fork of `SupratimRK/Ai-rewrite`)
+- 26 app submodules (under `projects/oriz-org/own/products/apps/`)
+- 23 npm-package submodules (under `projects/oriz-org/own/libraries/npm-packages/`)
+- 2 API submodules (under `projects/oriz-org/own/services/apis/`)
+- 1 data submodule (under `projects/oriz-org/own/content/data/` — `oriz-ai-providers-data`)
+- 1 fork submodule (under `projects/oriz-org/forks/` — `Ai-rewrite`, fork of `SupratimRK/Ai-rewrite`)
 - 6 other / book / skill submodules
 
 Re-verify on each count change with: `cd /c/D/oriz && git submodule status | wc -l`.

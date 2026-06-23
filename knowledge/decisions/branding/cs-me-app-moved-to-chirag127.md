@@ -51,7 +51,7 @@ no brand claim.
 2. `gh repo rename chirag127/oriz-cs-me-app cs-me-app` (after transfer)
 3. `.gitmodules` URL: `https://github.com/oriz-org/oriz-cs-me-app.git`
    → `https://github.com/chirag127/cs-me-app.git`
-4. `.gitmodules` path: `projects/apps/personal/oriz-cs-me-app` →
+4. `.gitmodules` path: `projects/oriz-org/own/products/apps/personal/oriz-cs-me-app` →
    `projects/chirag127/own/products/apps/personal/cs-me-app`
 5. The `me.oriz.in` and `cs.oriz.in` DNS records stay on Cloudflare
    Pages; the Pages project re-binds to the chirag127-owned repo

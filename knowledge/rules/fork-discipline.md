@@ -1,7 +1,7 @@
 ---
 type: rule
 title: "Fork discipline — minimum diff, rebase-friendly, upstream-aligned"
-description: "Forks live under projects/forks/<original-upstream-name>/. Repo slug on GitHub is NOT renamed (matches upstream for easier rebase). Submodule path on disk = upstream name. All changes must be minimum-diff with upstream so git rebase upstream/main applies cleanly."
+description: "Forks live under projects/oriz-org/forks/<original-upstream-name>/. Repo slug on GitHub is NOT renamed (matches upstream for easier rebase). Submodule path on disk = upstream name. All changes must be minimum-diff with upstream so git rebase upstream/main applies cleanly."
 tags: [rule, forks, git, rebase, submodule]
 timestamp: 2026-06-22
 format_version: okf-v0.1
@@ -20,7 +20,7 @@ updates rebase cleanly. **NEVER apply this rule to non-fork repos.**
 
 ## Layout
 
-- **Disk path:** `projects/forks/<original-upstream-name>/`
+- **Disk path:** `projects/oriz-org/forks/<original-upstream-name>/`
 - **GitHub slug:** NOT renamed — matches upstream slug (`<our-org>/<upstream-name>`)
 - **Submodule path on disk:** matches upstream name (which matches GH slug)
 - **Internal `package.json` `name`:** MAY be customized via additive override (e.g. `@chirag127/oriz-<upstream-name>-fork`) but only as a thin patch
@@ -38,7 +38,7 @@ ALL changes must be minimum-diff with upstream:
 
 ## Per-fork knowledge folder
 
-Every fork has `projects/forks/<name>/knowledge/`:
+Every fork has `projects/oriz-org/forks/<name>/knowledge/`:
 
 - `index.md` — what we changed + why
 - `rebase.md` — how to pull upstream updates (commands + conflict-resolution notes)
@@ -62,7 +62,7 @@ a rebase PR if anything new lands.
 
 GH API `GET /repos/<owner>/<name>` returns `fork: true` + `parent.full_name`.
 A monthly audit job sweeps every repo in the family, flags mis-categorized
-forks (e.g. a repo marked `fork: true` but not under `projects/forks/`),
+forks (e.g. a repo marked `fork: true` but not under `projects/oriz-org/forks/`),
 and opens an issue.
 
 ## Cross-refs
