@@ -12,11 +12,11 @@
  * Inputs:
  *   - .env.enc            (committed, sops-encrypted)
  *   - .sops-age-key.txt   (LOCAL only) OR env var SOPS_AGE_KEY (CI)
- *   - .env.example  (canonical key list — only push keys listed there)
  *
  * Behavior:
  *   1. Decrypt .env.enc → in-memory key/value map
- *   2. Read .env.example for canonical keys
+ *   2. Use every key in .env.enc as the canonical key list
+ *      (single source of truth — .env.example has been removed)
  *   3. For each canonical key with a non-empty value, push ONCE to org-level
  *      with visibility=all
  *   4. Skip empty values (placeholders) and reserved GH_/ACTIONS_ prefixed names
@@ -37,7 +37,6 @@ import { resolve, join } from "node:path";
 
 const ROOT = resolve(new URL("..", import.meta.url).pathname.replace(/^\/([a-zA-Z]):/, "$1:"));
 const ENC_PATH = join(ROOT, ".env.enc");
-const EXAMPLE_PATH = join(ROOT, ".env.example");
 const SOPS_CONFIG = join(ROOT, ".sops.yaml");
 const LOCAL_KEY_PATH = join(ROOT, ".sops-age-key.txt");
 const LOCAL_ENV_PATH = join(ROOT, ".env");
@@ -99,16 +98,8 @@ function parseDotenv(text) {
   return out;
 }
 
-function canonicalKeys() {
-  const text = readFileSync(EXAMPLE_PATH, "utf8");
-  const keys = [];
-  for (const raw of text.split(/\r?\n/)) {
-    const line = raw.replace(/^﻿/, "");
-    if (!line || /^\s*#/.test(line)) continue;
-    const m = line.match(/^\s*([A-Za-z_][A-Za-z0-9_]*)\s*=/);
-    if (m) keys.push(m[1]);
-  }
-  return [...new Set(keys)];
+function canonicalKeysFromValues(values) {
+  return [...values.keys()];
 }
 
 function loadAdminPatFromEnv() {
@@ -158,8 +149,8 @@ async function main() {
   const values = parseDotenv(decrypted);
   console.log(`[env-sync] decrypted: ${values.size} key=value pairs in .env.enc`);
 
-  const canonical = canonicalKeys();
-  console.log(`[env-sync] canonical: ${canonical.length} keys in .env.example`);
+  const canonical = canonicalKeysFromValues(values);
+  console.log(`[env-sync] canonical: ${canonical.length} keys in .env.enc`);
 
   const RESERVED = new Set(["GITHUB_TOKEN"]);
   const RESERVED_PREFIXES = ["GITHUB_", "ACTIONS_"];
@@ -176,10 +167,7 @@ async function main() {
 
   console.log(`[env-sync] pushable: ${toPush.length} keys (skipped ${skipped.length} empty/missing/reserved)`);
 
-  const orphans = [...values.keys()].filter((k) => !canonical.includes(k));
-  if (orphans.length) {
-    console.log(`[env-sync] WARN: ${orphans.length} keys in .env.enc not listed in .env.example (not pushed): ${orphans.slice(0, 10).join(", ")}${orphans.length > 10 ? "..." : ""}`);
-  }
+  const orphans = [];
 
   let ok = 0, fail = 0;
   const failures = [];
