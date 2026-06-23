@@ -1,8 +1,8 @@
 ---
 type: rule
 title: "Fork discipline — minimum diff, rebase-friendly, upstream-aligned"
-description: "Forks live under projects/<owner>/forks/<original-upstream-name>/. <owner> is oriz-org for forks maintained for oriz.in brand work (kept on the brand org), chirag127 for drive-by forks (personal account). Repo slug on GitHub is NOT renamed (matches upstream for easier rebase). Submodule path on disk = upstream name. All changes must be minimum-diff with upstream so git rebase upstream/main applies cleanly."
-tags: [rule, forks, git, rebase, submodule]
+description: "Forks live under projects/<owner>/forks/<original-upstream-name>/. <owner> is oriz-org for forks maintained for oriz.in brand work (kept on the brand org), chirag127 for drive-by + personal forks (personal account). Repo slug on GitHub is NOT renamed (matches upstream for easier rebase). All changes must be minimum-diff with upstream, marked with a per-fork comment slug (e.g. `oriz-fork:`), and documented in the per-fork knowledge/divergence.md so the rebase target is predictable."
+tags: [rule, forks, git, rebase, submodule, minimum-diff]
 timestamp: 2026-06-24
 format_version: okf-v0.1
 status: active
@@ -51,6 +51,38 @@ ALL changes must be minimum-diff with upstream:
 - **Patches applied as small isolated commits** with clear `fork:` prefix so cherry-pick is trivial
 - **Pin to upstream tags**, not arbitrary commits — rebase target is `upstream/v1.2.3`, not `upstream/main` HEAD
 - **Read upstream HEAD before any fork edit** to understand what's there; aim for changes that survive `git rebase upstream/<tag>` cleanly
+
+## Minimize future merge conflicts
+
+When you DO need to edit upstream files (because an additive overlay
+isn't practical — e.g. you're adding a UI toggle that has to live in
+upstream's settings UI files), write the patch to survive future
+upstream evolution:
+
+- **Mark every inserted line with a `<fork-slug>:` comment** (e.g.
+  `// oriz-fork:`, `<!-- oriz-fork: -->`) so `git grep oriz-fork`
+  locates every divergence point during rebase.
+- **Insert lines adjacent to stable anchors** (a long-lived nearby
+  symbol / element). Conflicts trigger when upstream changes the
+  anchor; pick an anchor that's stable across releases.
+- **Insert, don't modify**, where possible. If you must touch an
+  upstream line, prefer to add a new local variable that wraps the
+  old behavior rather than rewriting the call site:
+  ```ts
+  // upstream:
+  setCustomTitle(formattedTitle, ...);
+  // fork:
+  const displayTitle = flag ? `${formattedTitle} (...)` : formattedTitle;
+  setCustomTitle(displayTitle, ...);
+  ```
+  This keeps the call site signature identical; future upstream edits
+  to the call arguments don't always conflict.
+- **No drive-by reformatting** of the touched file. Leave indentation,
+  spacing, and line breaks of unmodified upstream lines exactly as
+  they were.
+- **Document the divergence** in `knowledge/divergence.md` (per-fork
+  knowledge folder, see below). List every file + the conflict-risk
+  level so the next rebase has a roadmap.
 
 ## Per-fork knowledge folder
 

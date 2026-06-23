@@ -49,7 +49,7 @@ status: active
 | No Firebase Cloud Functions (Blaze required, card on file banned) | [`rules/no-firebase-functions-blaze.md`](./rules/no-firebase-functions-blaze.md) |
 | Fork discipline — minimum-diff, rebase-friendly, `projects/<owner>/forks/<upstream-name>/` (owner = `oriz/` for brand-maintained, `c127/` for drive-by) | [`rules/fork-discipline.md`](./rules/fork-discipline.md) |
 | CF Pages branch-deploys (100-project mitigation) | [`runbooks/cf-pages-branch-deploys.md`](./runbooks/cf-pages-branch-deploys.md) |
-| Family inventory (canonical counts SSoT) — 27 apps + 23 npm packages + 5 books + 15 APIs + 74 submodules | [`services/family-inventory.md`](./services/family-inventory.md) |
+| Family inventory (canonical counts SSoT) — 27 apps + 23 npm packages + 5 books + 15 APIs + 2 browser-extension forks + 75 submodules | [`services/family-inventory.md`](./services/family-inventory.md) |
 
 ## Per-site knowledge
 
