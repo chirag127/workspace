@@ -241,3 +241,6 @@
 [submodule "repos/oriz/own/content/templates/oriz-api-docs-template"]
 	path = repos/oriz/own/content/templates/oriz-api-docs-template
 	url = https://github.com/oriz-org/oriz-api-docs-template.git
+[submodule "repos/oriz/own/svc/api/openmodel-shim-api"]
+	path = repos/oriz/own/svc/api/openmodel-shim-api
+	url = https://github.com/oriz-org/openmodel-shim-api.git
