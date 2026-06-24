@@ -40,7 +40,7 @@ the code; this runbook holds the wiring.
 | CF Worker | `api.oriz.in/lifestream/git` (umbrella worker route) | `GITHUB_WEBHOOK_SECRET`, `LIFESTREAM_INGEST_SECRET` |
 | GH Actions cron — Wakatime | `chirag127/oriz/.github/workflows/wakatime-daily.yml` | `WAKATIME_API_KEY`, `LIFESTREAM_INGEST_SECRET`, `HEALTHCHECK_WAKATIME_URL` |
 | GH Actions cron — CF Analytics | `chirag127/oriz/.github/workflows/cf-analytics-daily.yml` | `CF_API_TOKEN`, `CF_ACCOUNT_TAG`, `CF_SITES_JSON`, `LIFESTREAM_INGEST_SECRET`, `HEALTHCHECK_CF_ANALYTICS_URL` |
-| healthchecks.io monitors | `https://healthchecks.io/projects/` | one ping URL per cron |
+| healthchecks.io monitors | `https://healthchecks.io/repos/` | one ping URL per cron |
 
 ---
 

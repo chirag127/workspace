@@ -45,13 +45,13 @@ cd C:/D/oriz
 git submodule add --name "projects_websites_<brand>-site" \
   --force \
   "https://github.com/chirag127/<brand>-site.git" \
-  "projects/websites/<brand>-site"
+  "repos/websites/<brand>-site"
 ```
 
 ### 3. Clone the starter template
 
 ```bash
-cd projects/websites/<brand>-site
+cd repos/websites/<brand>-site
 git clone --depth=1 https://github.com/chirag127/me-site.git starter
 cp -r starter/{astro.config.ts,tsconfig.json,biome.json,package.json,.gitignore,src,.github} .
 rm -rf starter
@@ -130,7 +130,7 @@ export default defineConfig(shell({
 ```bash
 cd C:/D/oriz
 pnpm install               # hoists shared deps across workspace
-cd projects/websites/<brand>-site
+cd repos/websites/<brand>-site
 pnpm dev                   # http://localhost:4321
 ```
 
@@ -161,7 +161,7 @@ wrangler pages project create <brand>-site \
 ### 10. Push
 
 ```bash
-cd projects/websites/<brand>-site
+cd repos/websites/<brand>-site
 git -c user.name="Chirag Singhal" -c user.email=chirag@oriz.in add .
 git -c user.name="Chirag Singhal" -c user.email=chirag@oriz.in \
   commit -m "feat: initial scaffold via @chirag127/astro-shell + astro-chrome"
@@ -172,7 +172,7 @@ Then in the workspace umbrella:
 
 ```bash
 cd C:/D/oriz
-git add .gitmodules projects/websites/<brand>-site
+git add .gitmodules repos/websites/<brand>-site
 git commit -m "feat: add <brand>-site as submodule"
 git push origin main
 ```

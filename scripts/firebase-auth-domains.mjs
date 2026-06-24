@@ -56,7 +56,7 @@ async function getAccessToken() {
 
 async function getConfig(token) {
   const r = await fetch(
-    `https://identitytoolkit.googleapis.com/admin/v2/projects/${projectId}/config`,
+    `https://identitytoolkit.googleapis.com/admin/v2/repos/${projectId}/config`,
     { headers: { Authorization: `Bearer ${token}` } }
   )
   if (!r.ok) {
@@ -67,7 +67,7 @@ async function getConfig(token) {
 }
 
 async function patchAuthorizedDomains(token, domains) {
-  const url = `https://identitytoolkit.googleapis.com/admin/v2/projects/${projectId}/config?updateMask=authorizedDomains`
+  const url = `https://identitytoolkit.googleapis.com/admin/v2/repos/${projectId}/config?updateMask=authorizedDomains`
   const r = await fetch(url, {
     method: 'PATCH',
     headers: { Authorization: `Bearer ${token}`, 'Content-Type': 'application/json' },

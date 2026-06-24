@@ -67,29 +67,29 @@ pnpm -r --parallel typecheck    # typecheck everything in parallel
 cd c:/D/oriz
 git submodule add --name "projects_<category>_<slug>" \
   "https://github.com/chirag127/<slug>.git" \
-  "projects/<category>/<slug>"
+  "repos/<category>/<slug>"
 git commit -m "feat: add <slug> as submodule"
 pnpm install -r
 ```
 
 `pnpm-workspace.yaml` already includes glob patterns for every category dir, so a new submodule auto-joins the workspace if it sits in one of these:
 
-- `projects/oriz/own/lib/npm/*`
-- `projects/oriz/own/prod/apps/hub/*`, `apps/personal/*`, `apps/content/*`, `apps/tools/*`
-- `projects/oriz/own/svc/api/*`
-- `projects/oriz/own/prod/bs-ext/*`, `ide-extensions/*`, `mcp-servers/*`, `skills/*`
+- `repos/oriz/own/lib/npm/*`
+- `repos/oriz/own/prod/apps/hub/*`, `apps/personal/*`, `apps/content/*`, `apps/tools/*`
+- `repos/oriz/own/svc/api/*`
+- `repos/oriz/own/prod/bs-ext/*`, `ide-extensions/*`, `mcp-servers/*`, `skills/*`
 
 If you add a new category, also update [`pnpm-workspace.yaml`](../../pnpm-workspace.yaml).
 
 ## After landing changes inside a submodule
 
 ```bash
-cd c:/D/oriz/projects/<category>/<slug>
+cd c:/D/oriz/repos/<category>/<slug>
 # ... make changes, commit, push to its own repo's main ...
 
 # Back at master, bump the submodule pointer
 cd c:/D/oriz
-git add projects/<category>/<slug>
+git add repos/<category>/<slug>
 git commit -m "chore: bump <slug> submodule pointer"
 git push
 ```

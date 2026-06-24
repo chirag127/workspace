@@ -6,7 +6,7 @@ ROOT="C:/D/oriz"
 NAMES=(astro-distribute astro-pwa astro-content astro-billing astro-search astro-mdx astro-toc astro-comments astro-share astro-newsletter astro-affiliate astro-keyboard astro-feedback astro-test-utils)
 
 for name in "${NAMES[@]}"; do
-  f="$ROOT/projects/oriz/own/lib/npm/${name}-npm-pkg/package.json"
+  f="$ROOT/repos/oriz/own/lib/npm/${name}-npm-pkg/package.json"
   node -e "
     const fs = require('fs');
     const p = JSON.parse(fs.readFileSync('$f', 'utf8'));

@@ -172,9 +172,9 @@ require a chrome version bump + family-wide `pnpm update --recursive`.
 
 `pnpm-workspace.yaml` lives at the existing `chirag127/workspace`
 umbrella root. Workspace members:
-- `projects/oriz/own/lib/npm/*` (8 astro-* packages)
-- `projects/websites/*` (9 single-name sites)
-- `projects/websites/tools/*` (15 tool sites)
+- `repos/oriz/own/lib/npm/*` (8 astro-* packages)
+- `repos/websites/*` (9 single-name sites)
+- `repos/websites/tools/*` (15 tool sites)
 
 `pnpm install` from workspace root installs everything with hoisted
 deps. Edit a shared package → changes hot-reload in every consumer

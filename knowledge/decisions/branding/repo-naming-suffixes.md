@@ -141,7 +141,7 @@ table to consult before any `gh repo create`.
   `tabs-site` → `cards-site`, `roam-site` → `journal-site`, `echo-site`
   → `post-site`. All four renames ran through
   [`runbooks/rename-repo.md`](../../runbooks/rename-repo.md) and the
-  local submodule paths under `projects/websites/` flipped to match.
+  local submodule paths under `repos/websites/` flipped to match.
   GitHub auto-redirects keep old `chirag127/<old>-site` clone URLs
   working.
 - New sites: pick the public subdomain first, then the repo slug is

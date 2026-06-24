@@ -178,7 +178,7 @@ So local dev still demands one brief `wrangler deploy` sanity check per cron-fir
 
 Verdict from a 6-prong adversarial-verified research fan-out (2026-06-22 / 2026-06-23). Highlights:
 
-- Firebase docs: [general-best-practices](https://firebase.google.com/docs/projects/dev-workflows/general-best-practices), [overview-environments](https://firebase.google.com/docs/projects/dev-workflows/overview-environments), [config-env](https://firebase.google.com/docs/functions/config-env), [pricing](https://firebase.google.com/pricing)
+- Firebase docs: [general-best-practices](https://firebase.google.com/docs/repos/dev-workflows/general-best-practices), [overview-environments](https://firebase.google.com/docs/repos/dev-workflows/overview-environments), [config-env](https://firebase.google.com/docs/functions/config-env), [pricing](https://firebase.google.com/pricing)
 - Cloudflare docs: [Pages preview-deployments](https://developers.cloudflare.com/pages/configuration/preview-deployments/), [Pages wrangler-configuration](https://developers.cloudflare.com/pages/functions/wrangler-configuration/), [Workers environments](https://developers.cloudflare.com/workers/wrangler/environments/), [Remote bindings blog (Mar 2026)](https://blog.cloudflare.com/connecting-to-production-the-architecture-of-remote-bindings/)
 - Razorpay docs: [test-live-modes](https://razorpay.com/docs/payments/dashboard/test-live-modes/), [webhooks](https://razorpay.com/docs/webhooks/)
 - Founder data: Plausible repo + Uku HN posts (25456673, 30166188), Cal.com repo, Pragmatic Engineer / Linear

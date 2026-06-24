@@ -61,7 +61,7 @@ at their discretion.
 
 - Republishing the fork **source** on our GitHub — GPL already
   grants this.
-- Putting the fork in our `projects/<owner>/frk/` tree as a
+- Putting the fork in our `repos/<owner>/frk/` tree as a
   submodule — internal only, no redistribution.
 
 ## Decision context

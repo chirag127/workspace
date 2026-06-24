@@ -5,7 +5,7 @@
 
 set -euo pipefail
 ROOT="C:/D/oriz"
-PKGS="$ROOT/projects/npm-packages"
+PKGS="$ROOT/repos/npm-packages"
 NAMES=(
   astro-shell astro-chrome astro-config astro-data astro-forms astro-icons astro-tools astro-ai
   astro-distribute astro-pwa astro-content astro-billing astro-search

@@ -19,7 +19,7 @@ related:
 
 For every 3rd-party SaaS service (Sentry, GA4, Microsoft Clarity, PostHog, UptimeRobot, Algolia, Substack, Stripe, Razorpay, Paddle, Cloudinary, ImageKit, etc.) the family uses **ONE tenant**. Apps separate by **tag / label / custom-dimension / project-property**, NOT by per-app account.
 
-NEVER create per-app accounts/projects/properties when a tag-based shared tenant achieves the same separation.
+NEVER create per-app accounts/repos/properties when a tag-based shared tenant achieves the same separation.
 
 ## Why
 

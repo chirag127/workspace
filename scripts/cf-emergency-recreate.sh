@@ -50,7 +50,7 @@ except: print(f'  ✗ $proj: parse error')
 bind_domain() {
   local proj=$1
   local domain=$2
-  curl -s -X POST "https://api.cloudflare.com/client/v4/accounts/$ACCOUNT/pages/projects/$proj/domains" \
+  curl -s -X POST "https://api.cloudflare.com/client/v4/accounts/$ACCOUNT/pages/repos/$proj/domains" \
     -H "Authorization: Bearer $TOKEN" \
     -H "Content-Type: application/json" \
     -d "{\"name\": \"$domain\"}" | python3 -c "

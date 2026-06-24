@@ -42,7 +42,7 @@ declare -A TOPICS=(
 )
 
 for name in "${NAMES[@]}"; do
-  dir="$ROOT/projects/oriz/own/lib/npm/${name}-npm-pkg"
+  dir="$ROOT/repos/oriz/own/lib/npm/${name}-npm-pkg"
   slug="${name}-npm-pkg"
 
   if [[ ! -f "$dir/package.json" ]]; then

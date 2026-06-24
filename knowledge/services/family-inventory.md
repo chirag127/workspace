@@ -109,7 +109,7 @@ Note: earlier docs reference *Oriz Me* as the first-to-draft full book; that was
 
 ## APIs — 15 deployed (free, on Cloudflare Workers + Pages)
 
-Indian-data APIs. Each is a submodule under `projects/oriz/own/svc/api/`:
+Indian-data APIs. Each is a submodule under `repos/oriz/own/svc/api/`:
 
 - `oriz-air-quality-india-api`
 - `oriz-currency-rates-api`
@@ -131,8 +131,8 @@ The umbrella `api.oriz.in` Hono Worker is the inline (non-submodule) API and is 
 
 ## Browser extensions — 2 total
 
-- `Ai-rewrite` — Chrome extension, AI-powered text rewriting. **Fork** of `SupratimRK/Ai-rewrite` (verified 2026-06-22 via `gh api`). Submodule under `projects/oriz/frk/Ai-rewrite/` (moved 2026-06-22 from `projects/oriz/own/prod/bs-ext/`; further moved 2026-06-24 from `projects/forks/` to `projects/oriz/frk/` per [`projects-owner-own-forks-layout`](../decisions/architecture/projects-owner-own-forks-layout.md)). Repo: `oriz-org/Ai-rewrite` (renamed from `oriz-co/Ai-rewrite` 2026-06-24).
-- `DeArrow` — Chrome extension that replaces YouTube titles + thumbnails with crowdsourced alternatives. **Personal fork** of `ajayyy/DeArrow` (GPL-3.0). Submodule under `projects/c127/frk/prod/bs-ext/DeArrow/`. Repo: `chirag127/DeArrow`. Single divergence: a new toggle `showOriginalAlongsideTitle` that renders the original YouTube title in parentheses after the API-replaced title. See [the per-fork knowledge bundle](../../projects/c127/frk/prod/bs-ext/DeArrow/knowledge/index.md).
+- `Ai-rewrite` — Chrome extension, AI-powered text rewriting. **Fork** of `SupratimRK/Ai-rewrite` (verified 2026-06-22 via `gh api`). Submodule under `repos/oriz/frk/Ai-rewrite/` (moved 2026-06-22 from `repos/oriz/own/prod/bs-ext/`; further moved 2026-06-24 from `repos/forks/` to `repos/oriz/frk/` per [`projects-owner-own-forks-layout`](../decisions/architecture/projects-owner-own-forks-layout.md)). Repo: `oriz-org/Ai-rewrite` (renamed from `oriz-co/Ai-rewrite` 2026-06-24).
+- `DeArrow` — Chrome extension that replaces YouTube titles + thumbnails with crowdsourced alternatives. **Personal fork** of `ajayyy/DeArrow` (GPL-3.0). Submodule under `repos/c127/frk/prod/bs-ext/DeArrow/`. Repo: `chirag127/DeArrow`. Single divergence: a new toggle `showOriginalAlongsideTitle` that renders the original YouTube title in parentheses after the API-replaced title. See [the per-fork knowledge bundle](../../repos/c127/frk/prod/bs-ext/DeArrow/knowledge/index.md).
 
 ## Submodules — 75 declared, 74 active
 
@@ -142,16 +142,16 @@ which is gitignored at the umbrella level (pre-existing carve-out) so
 its gitlink is absent from the index but its `.gitmodules` entry
 remains. Composition of the 75 declared:
 
-- 26 app submodules under `projects/oriz/own/prod/apps/{content,hub,personal,tools}/`
-- 1 personal app under `projects/c127/own/prod/apps/personal/cs-me-app/` (moved from oriz-org 2026-06-24)
-- 23 npm-package submodules under `projects/oriz/own/lib/npm/`
-- 15 API submodules under `projects/oriz/own/svc/api/`
-- 1 worker submodule under `projects/oriz/own/svc/workers/` (oriz-flags-worker; folder exists but no GitHub repo yet, so NOT actually in `.gitmodules`)
-- 5 book submodules under `projects/oriz/own/content/books/`
-- 2 skill submodules under `projects/oriz/own/content/skills/`
-- 1 data submodule under `projects/oriz/own/content/data/` — `oriz-ai-providers-data`
-- 1 fork submodule under `projects/oriz/frk/` — `Ai-rewrite` (brand-maintained)
-- 1 fork submodule under `projects/c127/frk/prod/bs-ext/` — `DeArrow` (personal fork, added 2026-06-24)
+- 26 app submodules under `repos/oriz/own/prod/apps/{content,hub,personal,tools}/`
+- 1 personal app under `repos/c127/own/prod/apps/personal/cs-me-app/` (moved from oriz-org 2026-06-24)
+- 23 npm-package submodules under `repos/oriz/own/lib/npm/`
+- 15 API submodules under `repos/oriz/own/svc/api/`
+- 1 worker submodule under `repos/oriz/own/svc/workers/` (oriz-flags-worker; folder exists but no GitHub repo yet, so NOT actually in `.gitmodules`)
+- 5 book submodules under `repos/oriz/own/content/books/`
+- 2 skill submodules under `repos/oriz/own/content/skills/`
+- 1 data submodule under `repos/oriz/own/content/data/` — `oriz-ai-providers-data`
+- 1 fork submodule under `repos/oriz/frk/` — `Ai-rewrite` (brand-maintained)
+- 1 fork submodule under `repos/c127/frk/prod/bs-ext/` — `DeArrow` (personal fork, added 2026-06-24)
 
 Re-verify on each count change with: `cd /c/D/oriz && git submodule status | wc -l`.
 

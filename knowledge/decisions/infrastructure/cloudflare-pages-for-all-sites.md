@@ -18,12 +18,12 @@ related:
 
 ## Decision
 
-Every website and every app in the family deploys to Cloudflare Pages free. No exceptions. This covers content sites (`projects/oriz/own/prod/apps/content/*`), tool apps (`projects/oriz/own/prod/apps/tools/*`), hub apps (`projects/oriz/own/prod/apps/hub/*`), personal apps (`projects/oriz/own/prod/apps/personal/*`), the extensions catalog, and every per-extension subdomain. Firebase Hosting, Vercel, Netlify, Render, Fly, and GitHub Pages-as-primary are all REJECTED. GitHub Pages remains only as the per-site survival mirror per [github-pages-mirror-per-site](./github-pages-mirror-per-site.md).
+Every website and every app in the family deploys to Cloudflare Pages free. No exceptions. This covers content sites (`repos/oriz/own/prod/apps/content/*`), tool apps (`repos/oriz/own/prod/apps/tools/*`), hub apps (`repos/oriz/own/prod/apps/hub/*`), personal apps (`repos/oriz/own/prod/apps/personal/*`), the extensions catalog, and every per-extension subdomain. Firebase Hosting, Vercel, Netlify, Render, Fly, and GitHub Pages-as-primary are all REJECTED. GitHub Pages remains only as the per-site survival mirror per [github-pages-mirror-per-site](./github-pages-mirror-per-site.md).
 
 ## Why
 
 Cloudflare Pages free has unlimited bandwidth, unlimited
-static-asset requests, 100 projects/account (soft cap), 100 custom
+static-asset requests, 100 repos/account (soft cap), 100 custom
 domains/project, 500 builds/month — well above the family's needs
 indefinitely. It fails closed with HTTP 1027 at quota, no card
 required ever. Firebase Hosting offered no advantage over this and

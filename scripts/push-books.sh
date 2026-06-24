@@ -2,7 +2,7 @@
 # git init + GH repo create + push for each of the 5 book repos.
 set -euo pipefail
 
-ROOT="/c/D/oriz/projects/books"
+ROOT="/c/D/oriz/repos/books"
 
 declare -A SUBS=(
   [oriz-stack]="Astro 6 + Cloudflare Pages + Firebase Spark Family Architecture"

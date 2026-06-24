@@ -20,7 +20,7 @@ Family primary: **Cloudflare Pages** (every site + app). Family mirror: **GitHub
 
 | # | Provider | Projects/Sites | Bandwidth/mo | Builds/mo | Custom domain (free) | HTTPS auto | Card at signup | Card to use free | KYC | Commercial OK | Verdict |
 |---|---|---|---|---|---|---|---|---|---|---|---|
-| 1 | **Cloudflare Pages** ⭐ | Unlimited sites, soft 100 projects/account (raise on request) | **Unlimited** | 500/mo account-wide, 1 concurrent, 20-min timeout | 100 per project | Yes | NO | NO | NO | YES | **KEEP (primary)** |
+| 1 | **Cloudflare Pages** ⭐ | Unlimited sites, soft 100 repos/account (raise on request) | **Unlimited** | 500/mo account-wide, 1 concurrent, 20-min timeout | 100 per project | Yes | NO | NO | NO | YES | **KEEP (primary)** |
 | 2 | **GitHub Pages** ⭐ | Unlimited (1 per repo, public repos free) | 100 GB/mo (soft) | 10/hour (soft); 1 GB repo size soft | Yes | Yes | NO | NO | NO | YES (no commerce backend) | **KEEP (mirror)** |
 | 3 | Netlify Free | Unlimited sites | Credit-pooled (~15 GB / 300 credits/mo), hard cap, no overages | 300 build min/mo (legacy) → credit pool | Yes | Yes | NO | NO | NO | YES | **EVALUATE** — credit model unpredictable across 50+ apps |
 | 4 | Vercel Hobby | 200 projects hard cap | 100 GB Fast Data Transfer | 45-min cap, 100 deploys/day, 1 concurrent | 50 per project | Yes | NO | NO | NO | **NO** (commercial, AdSense, donations, affiliate-primary banned) | **DROP** — commercial-use ban |

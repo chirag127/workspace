@@ -1,6 +1,6 @@
 ---
 type: decision
-title: "Workspace layout: projects/<owner>/<own|forks>/<bucket>/<category>/<repo>"
+title: "Workspace layout: repos/<owner>/<own|forks>/<bucket>/<category>/<repo>"
 description: "The workspace umbrella organizes submodules in a 5-level hierarchy: GitHub owner (oriz/ for oriz-org or c127/ for chirag127) → own/ vs forks/ → 4 artifact-type buckets (prod, svc, lib, content) → category folder → repo. Shape B grouping (4 buckets) chosen over flat. Forks live under their owner. Folder names shortened 2026-06-24 (prod/svc/lib/api/npm/mcp/bs-ext/ide-ext) for shorter paths."
 tags: [layout, monorepo, submodules, workspace, hierarchy, branding]
 timestamp: 2026-06-24
@@ -45,7 +45,7 @@ typeable):
 | `content/`, `apps/`, `books/`, `data/`, `rules/`, `skills/`, `clis/`, `workers/`, `forks/`, `own/`, `hub/`, `tools/`, `personal/` | unchanged | Already short enough |
 
 ```
-projects/
+repos/
 ├── oriz/                              ← owner (oriz-org on GitHub)
 │   ├── own/                           ← we authored
 │   │   ├── prod/                      ← products: user-facing artifacts
@@ -78,7 +78,7 @@ projects/
 ```
 
 Concrete example: the `cs-me-app` submodule lives at
-`projects/c127/own/prod/apps/personal/cs-me-app/`.
+`repos/c127/own/prod/apps/personal/cs-me-app/`.
 
 ## Why two top-level owner folders
 
@@ -117,19 +117,19 @@ of `forks/`.
 
 ## Renames in this migration
 
-- `projects/py-pkg-cli/` → `projects/oriz/own/prod/clis/`
+- `repos/py-pkg-cli/` → `repos/oriz/own/prod/clis/`
   (`py-pkg-cli/` was empty; the name conflated language + format +
   role; pluralised to match other category folders)
-- `projects/forks/` → `projects/oriz/frk/` (existing forks
-  under oriz-org) and `projects/c127/frk/` (drive-bys go here
+- `repos/forks/` → `repos/oriz/frk/` (existing forks
+  under oriz-org) and `repos/c127/frk/` (drive-bys go here
   going forward)
 
 ## What this replaces
 
-- The single-level `projects/<category>/` layout from before
+- The single-level `repos/<category>/` layout from before
   2026-06-24
 - The implicit "everything is mine, except forks/" assumption
-- The empty `projects/own/` directory created accidentally on
+- The empty `repos/own/` directory created accidentally on
   2026-06-23 (cleaned up)
 
 ## What this does NOT change
@@ -143,7 +143,7 @@ of `forks/`.
 
 - ~74 `.gitmodules` `path =` entries rewritten
 - `git submodule sync` to propagate new paths to `.git/config`
-- ~243 hardcoded `projects/<cat>/` refs in `scripts/`, `knowledge/`,
+- ~243 hardcoded `repos/<cat>/` refs in `scripts/`, `knowledge/`,
   root `*.md` files — sed-rewritten in one pass
 - Windows file locks on `apis/`, `apps/`, `npm-packages/` from VS
   Code watchers and dev servers — close watchers before migration

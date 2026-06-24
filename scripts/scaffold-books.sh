@@ -4,7 +4,7 @@
 # Tech books additionally get samples/ with MIT LICENSE.
 set -euo pipefail
 
-ROOT="/c/D/oriz/projects/books"
+ROOT="/c/D/oriz/repos/books"
 mkdir -p "$ROOT"
 
 # slug | title | subtitle | category | base | pro | currency | pwyw | channels-comma | has_samples

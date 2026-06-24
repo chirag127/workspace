@@ -80,7 +80,7 @@ decision file only."
 
 ### Board structure
 
-**Single board** at `https://github.com/users/chirag127/projects/<n>`
+**Single board** at `https://github.com/users/chirag127/repos/<n>`
 (user-scoped so it spans every repo in the org). Item sources:
 
 - Issues from any `chirag127/oriz*` repo (auto-add via workflow).

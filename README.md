@@ -7,7 +7,7 @@
 [![billing Razorpay](https://img.shields.io/badge/billing-Razorpay%20INR-blue)](https://razorpay.com/)
 [![license MIT](https://img.shields.io/badge/license-MIT-green)](./LICENSE)
 
-This is the **master umbrella repo** (`oriz-org/workspace`). It is a meta-repo whose `projects/` tree submodules every app, API, package, book, extension, and skill in the family. The user always works from here (`c:/D/oriz/`); per-submodule `pnpm install` is wrong — always `pnpm install -r` from the workspace root.
+This is the **master umbrella repo** (`oriz-org/workspace`). It is a meta-repo whose `repos/` tree submodules every app, API, package, book, extension, and skill in the family. The user always works from here (`c:/D/oriz/`); per-submodule `pnpm install` is wrong — always `pnpm install -r` from the workspace root.
 
 ---
 
@@ -24,11 +24,11 @@ journal.oriz.in          →  oriz-roam-journal-app (flagship Pro/Max app)
 
 | Layer | Count | Lives at |
 |---|---|---|
-| **Apps** (CF Pages) | 27 | `projects/oriz/own/prod/apps/{hub,content,personal,tools}/` |
-| **APIs** (GH Pages JSON + Path D Astro page) | 15 | `projects/oriz/own/svc/api/` |
-| **npm packages** | 23 | `projects/oriz/own/lib/npm/` (published as `@chirag127/*`) |
-| **Books** | 5 | `projects/oriz/own/content/books/` |
-| **Forks** (upstreams we patched) | 2 | `projects/oriz/frk/` |
+| **Apps** (CF Pages) | 27 | `repos/oriz/own/prod/apps/{hub,content,personal,tools}/` |
+| **APIs** (GH Pages JSON + Path D Astro page) | 15 | `repos/oriz/own/svc/api/` |
+| **npm packages** | 23 | `repos/oriz/own/lib/npm/` (published as `@chirag127/*`) |
+| **Books** | 5 | `repos/oriz/own/content/books/` |
+| **Forks** (upstreams we patched) | 2 | `repos/oriz/frk/` |
 | **Knowledge** | 58 rules + 181 decisions + 43 runbooks | `knowledge/` |
 
 ---
@@ -37,7 +37,7 @@ journal.oriz.in          →  oriz-roam-journal-app (flagship Pro/Max app)
 
 ```
 c:/D/oriz/
-├── projects/                              # submodules — 74 total
+├── repos/                              # submodules — 74 total
 │   ├── c127/                              # chirag127 personal-account repos
 │   │   └── own/prod/apps/personal/cs-me-app/   # me.oriz.in / cs.oriz.in (puter.js auth)
 │   └── oriz/                              # oriz-org brand-org repos (the family)

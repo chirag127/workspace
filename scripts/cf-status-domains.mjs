@@ -44,7 +44,7 @@ for (const { host, kind, target } of SUBS) {
   if (kind === 'pages') {
     // Attach custom domain to Pages project — CF auto-creates the CNAME.
     try {
-      const r = await cf(`/accounts/${ACCT}/pages/projects/${target}/domains`, {
+      const r = await cf(`/accounts/${ACCT}/pages/repos/${target}/domains`, {
         method: 'POST',
         body: JSON.stringify({ name: fqdn }),
       });

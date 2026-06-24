@@ -9,7 +9,7 @@ DOM2="${4:-}"
 
 ACC="6a6349fe1568743539433bf10f23ffeb"
 ZONE="fe8da3c9dd0cb1f1d964e3a94d6098b3"
-APP_DIR="c:/D/oriz/projects/$LOCAL"
+APP_DIR="c:/D/oriz/repos/$LOCAL"
 LOG_DIR="c:/D/oriz/logs/cf-recreate"
 mkdir -p "$LOG_DIR"
 LOG="$LOG_DIR/$PROJ.log"
@@ -85,7 +85,7 @@ bind_domain() {
     R=$(curl -s -X POST \
       -H "Authorization: Bearer $CLOUDFLARE_API_TOKEN" \
       -H "Content-Type: application/json" \
-      "https://api.cloudflare.com/client/v4/accounts/$ACC/pages/projects/$PROJ/domains" \
+      "https://api.cloudflare.com/client/v4/accounts/$ACC/pages/repos/$PROJ/domains" \
       -d "{\"name\":\"$DOM\"}")
     echo "bind a=$a $R" >> "$LOG"
     if echo "$R" | grep -qE '"success":[[:space:]]*true'; then echo "ok"; return; fi

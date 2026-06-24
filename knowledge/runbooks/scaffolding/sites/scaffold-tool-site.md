@@ -20,8 +20,8 @@ print) with its first deployable Astro app.
 
 - Tokens rotated and org secrets set per
   [`../security/credentials/rotate-cf-and-npm-tokens.md`](../security/credentials/rotate-cf-and-npm-tokens.md).
-- Local clone: `git submodule update --init projects/websites/tools/<r>-tools-site`.
-- Working dir: `projects/websites/tools/<r>-tools-site`.
+- Local clone: `git submodule update --init repos/websites/tools/<r>-tools-site`.
+- Working dir: `repos/websites/tools/<r>-tools-site`.
 
 ## Files to create
 
@@ -180,7 +180,7 @@ Push to main → CI deploys → confirm at `https://<r>.oriz.in`.
 Update workspace pointer:
 ```bash
 cd /path/to/workspace
-git add projects/websites/tools/<r>-tools-site
+git add repos/websites/tools/<r>-tools-site
 git commit -m "feat(<r>-tools-site): bump pointer — initial Astro scaffold"
 git push origin main
 ```

@@ -1,7 +1,7 @@
 ---
 type: rule
 title: "Fork discipline — minimum diff, rebase-friendly, upstream-aligned"
-description: "Forks live under projects/<owner>/forks/<original-upstream-name>/. <owner> is oriz-org for forks maintained for oriz.in brand work (kept on the brand org), chirag127 for drive-by + personal forks (personal account). Repo slug on GitHub is NOT renamed (matches upstream for easier rebase). All changes must be minimum-diff with upstream, marked with a per-fork comment slug (e.g. `oriz-fork:`), and documented in the per-fork knowledge/divergence.md so the rebase target is predictable."
+description: "Forks live under repos/<owner>/forks/<original-upstream-name>/. <owner> is oriz-org for forks maintained for oriz.in brand work (kept on the brand org), chirag127 for drive-by + personal forks (personal account). Repo slug on GitHub is NOT renamed (matches upstream for easier rebase). All changes must be minimum-diff with upstream, marked with a per-fork comment slug (e.g. `oriz-fork:`), and documented in the per-fork knowledge/divergence.md so the rebase target is predictable."
 tags: [rule, forks, git, rebase, submodule, minimum-diff]
 timestamp: 2026-06-24
 format_version: okf-v0.1
@@ -31,12 +31,12 @@ Drive-by forks (one-line PR forks, personal experiments, archived
 exploration) → **`chirag127/<upstream-name>`**.
 
 The on-disk submodule path mirrors the owner:
-- Brand: `projects/oriz/frk/<upstream-name>/`
-- Personal: `projects/c127/frk/<upstream-name>/`
+- Brand: `repos/oriz/frk/<upstream-name>/`
+- Personal: `repos/c127/frk/<upstream-name>/`
 
 ## Layout
 
-- **Disk path:** `projects/<owner>/forks/<original-upstream-name>/`
+- **Disk path:** `repos/<owner>/forks/<original-upstream-name>/`
 - **GitHub slug:** NOT renamed — matches upstream slug (`<owner>/<upstream-name>`)
 - **Submodule path on disk:** matches upstream name (which matches GH slug)
 - **Internal `package.json` `name`:** MAY be customized via additive override (e.g. `@chirag127/oriz-<upstream-name>-fork`) but only as a thin patch
@@ -86,7 +86,7 @@ upstream evolution:
 
 ## Per-fork knowledge folder
 
-Every fork has `projects/oriz/frk/<name>/knowledge/`:
+Every fork has `repos/oriz/frk/<name>/knowledge/`:
 
 - `index.md` — what we changed + why
 - `rebase.md` — how to pull upstream updates (commands + conflict-resolution notes)
@@ -110,7 +110,7 @@ a rebase PR if anything new lands.
 
 GH API `GET /repos/<owner>/<name>` returns `fork: true` + `parent.full_name`.
 A monthly audit job sweeps every repo in the family, flags mis-categorized
-forks (e.g. a repo marked `fork: true` but not under `projects/oriz/frk/`),
+forks (e.g. a repo marked `fork: true` but not under `repos/oriz/frk/`),
 and opens an issue.
 
 ## Cross-refs

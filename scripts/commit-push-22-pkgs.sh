@@ -5,7 +5,7 @@
 # The 8 existing are submodules of master and have their own repos already.
 set -euo pipefail
 
-ROOT="C:/D/oriz/projects/npm-packages"
+ROOT="C:/D/oriz/repos/npm-packages"
 NAMES=(
   astro-shell astro-chrome astro-config astro-data astro-forms astro-icons astro-tools astro-ai
   astro-distribute astro-pwa astro-content astro-billing astro-search

@@ -11,7 +11,7 @@
 
 set -euo pipefail
 ROOT="C:/D/oriz"
-PKGS="$ROOT/projects/npm-packages"
+PKGS="$ROOT/repos/npm-packages"
 
 # Final 8 — Astro layered + 3 auth standalone
 RECOVER=(astro-shell astro-chrome astro-tools astro-content astro-billing)

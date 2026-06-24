@@ -1,11 +1,11 @@
 #!/usr/bin/env bash
 # recover-22-from-npm.sh — pull each of 22 @chirag127/astro-* tarballs from
-# npm, unpack into projects/oriz/own/lib/npm/<name>-npm-pkg/. Pre-existing .gitignore
+# npm, unpack into repos/oriz/own/lib/npm/<name>-npm-pkg/. Pre-existing .gitignore
 # may resurrect — we'll prune. Restores stub source from npm authoritatively.
 
 set -euo pipefail
 ROOT="C:/D/oriz"
-PKGS="$ROOT/projects/npm-packages"
+PKGS="$ROOT/repos/npm-packages"
 NAMES=(
   astro-shell astro-chrome astro-config astro-data astro-forms astro-icons astro-tools astro-ai
   astro-distribute astro-pwa astro-content astro-billing astro-search

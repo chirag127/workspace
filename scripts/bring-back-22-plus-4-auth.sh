@@ -6,7 +6,7 @@
 
 set -euo pipefail
 ROOT="C:/D/oriz"
-PKGS="$ROOT/projects/npm-packages"
+PKGS="$ROOT/repos/npm-packages"
 
 # 22 published on npm — recover via npm pack (astro-shell is 404, fresh scaffold)
 RECOVER=(

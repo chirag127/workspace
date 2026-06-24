@@ -7,48 +7,48 @@ set -euo pipefail
 ROOT="C:/D/oriz"
 
 APPS=(
-  projects/oriz/own/prod/apps/hub/home-app
-  projects/oriz/own/prod/apps/personal/oriz-cs-me-app
-  projects/oriz/own/prod/apps/content/oriz-pages-blog-app
-  projects/oriz/own/prod/apps/content/oriz-roam-journal-app
-  projects/oriz/own/prod/apps/content/oriz-financial-cards-app
-  projects/oriz/own/prod/apps/content/oriz-ncert-app
-  projects/oriz/own/prod/apps/content/oriz-omni-post-app
-  projects/oriz/own/prod/apps/content/oriz-lore-book-summaries-app
-  projects/oriz/own/prod/apps/content/oriz-janaushdhi-app
-  projects/oriz/own/prod/apps/tools/oriz-slice-pdf-tools-app
-  projects/oriz/own/prod/apps/tools/oriz-paisa-finance-tools-app
-  projects/oriz/own/prod/apps/tools/oriz-pixie-image-tools-app
-  projects/oriz/own/prod/apps/tools/oriz-grid-qr-tools-app
-  projects/oriz/own/prod/apps/tools/oriz-forge-dev-tools-app
-  projects/oriz/own/prod/apps/tools/oriz-scribe-text-tools-app
-  projects/oriz/own/prod/apps/tools/oriz-shift-convert-tools-app
-  projects/oriz/own/prod/apps/tools/oriz-pivot-data-tools-app
-  projects/oriz/own/prod/apps/tools/oriz-echo-audio-tools-app
-  projects/oriz/own/prod/apps/tools/oriz-reel-video-tools-app
-  projects/oriz/own/prod/apps/tools/oriz-rank-seo-tools-app
-  projects/oriz/own/prod/apps/tools/oriz-cipher-crypto-tools-app
-  projects/oriz/own/prod/apps/tools/oriz-vitals-health-tools-app
-  projects/oriz/own/prod/apps/tools/oriz-dice-random-tools-app
-  projects/oriz/own/prod/apps/tools/oriz-paper-print-tools-app
+  repos/oriz/own/prod/apps/hub/home-app
+  repos/oriz/own/prod/apps/personal/oriz-cs-me-app
+  repos/oriz/own/prod/apps/content/oriz-pages-blog-app
+  repos/oriz/own/prod/apps/content/oriz-roam-journal-app
+  repos/oriz/own/prod/apps/content/oriz-financial-cards-app
+  repos/oriz/own/prod/apps/content/oriz-ncert-app
+  repos/oriz/own/prod/apps/content/oriz-omni-post-app
+  repos/oriz/own/prod/apps/content/oriz-lore-book-summaries-app
+  repos/oriz/own/prod/apps/content/oriz-janaushdhi-app
+  repos/oriz/own/prod/apps/tools/oriz-slice-pdf-tools-app
+  repos/oriz/own/prod/apps/tools/oriz-paisa-finance-tools-app
+  repos/oriz/own/prod/apps/tools/oriz-pixie-image-tools-app
+  repos/oriz/own/prod/apps/tools/oriz-grid-qr-tools-app
+  repos/oriz/own/prod/apps/tools/oriz-forge-dev-tools-app
+  repos/oriz/own/prod/apps/tools/oriz-scribe-text-tools-app
+  repos/oriz/own/prod/apps/tools/oriz-shift-convert-tools-app
+  repos/oriz/own/prod/apps/tools/oriz-pivot-data-tools-app
+  repos/oriz/own/prod/apps/tools/oriz-echo-audio-tools-app
+  repos/oriz/own/prod/apps/tools/oriz-reel-video-tools-app
+  repos/oriz/own/prod/apps/tools/oriz-rank-seo-tools-app
+  repos/oriz/own/prod/apps/tools/oriz-cipher-crypto-tools-app
+  repos/oriz/own/prod/apps/tools/oriz-vitals-health-tools-app
+  repos/oriz/own/prod/apps/tools/oriz-dice-random-tools-app
+  repos/oriz/own/prod/apps/tools/oriz-paper-print-tools-app
 )
 
 PKGS=(
-  projects/oriz/own/lib/npm/astro-shell-npm-pkg
-  projects/oriz/own/lib/npm/astro-chrome-npm-pkg
-  projects/oriz/own/lib/npm/astro-tools-npm-pkg
-  projects/oriz/own/lib/npm/astro-content-npm-pkg
-  projects/oriz/own/lib/npm/astro-data-npm-pkg
-  projects/oriz/own/lib/npm/astro-forms-npm-pkg
-  projects/oriz/own/lib/npm/astro-billing-npm-pkg
-  projects/oriz/own/lib/npm/astro-pwa-npm-pkg
-  projects/oriz/own/lib/npm/astro-distribute-npm-pkg
-  projects/oriz/own/lib/npm/astro-widgets-npm-pkg
-  projects/oriz/own/lib/npm/astro-test-utils-npm-pkg
-  projects/oriz/own/lib/npm/auth-core-npm-pkg
-  projects/oriz/own/lib/npm/auth-wxt-npm-pkg
-  projects/oriz/own/lib/npm/auth-vsc-npm-pkg
-  projects/oriz/own/lib/npm/auth-cli-npm-pkg
+  repos/oriz/own/lib/npm/astro-shell-npm-pkg
+  repos/oriz/own/lib/npm/astro-chrome-npm-pkg
+  repos/oriz/own/lib/npm/astro-tools-npm-pkg
+  repos/oriz/own/lib/npm/astro-content-npm-pkg
+  repos/oriz/own/lib/npm/astro-data-npm-pkg
+  repos/oriz/own/lib/npm/astro-forms-npm-pkg
+  repos/oriz/own/lib/npm/astro-billing-npm-pkg
+  repos/oriz/own/lib/npm/astro-pwa-npm-pkg
+  repos/oriz/own/lib/npm/astro-distribute-npm-pkg
+  repos/oriz/own/lib/npm/astro-widgets-npm-pkg
+  repos/oriz/own/lib/npm/astro-test-utils-npm-pkg
+  repos/oriz/own/lib/npm/auth-core-npm-pkg
+  repos/oriz/own/lib/npm/auth-wxt-npm-pkg
+  repos/oriz/own/lib/npm/auth-vsc-npm-pkg
+  repos/oriz/own/lib/npm/auth-cli-npm-pkg
 )
 
 commit_one() {

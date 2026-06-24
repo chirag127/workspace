@@ -8,7 +8,7 @@
 set -euo pipefail
 
 cd "$(dirname "$0")/.." || exit 1
-ROOT="$PWD/projects/npm-packages"
+ROOT="$PWD/repos/npm-packages"
 
 declare -A DESC=(
   [astro-distribute]="Build PWA + Android APK (Bubblewrap TWA) + desktop EXE/dmg/AppImage (Tauri) from one Astro build. CLI: astro-distribute build."
