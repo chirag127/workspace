@@ -25,10 +25,15 @@ CI on every PR + cron-triggered ingesters that produce JSONL into
 - **Private repos:** 2,000 minutes/month
 - 500 MB Actions storage
 
+### Organization Quotas & Pools
+
+- **Pool Separation:** Free-tier limits are tied to the specific owning account (personal vs. organization). A personal account and an organization do not share or pool their Actions minutes; they have separate billing and independent 2,000-minute quotas.
+- **Combined Limit:** The 2,000 free minutes quota is a combined total across all private repositories in that organization, not per repository. Public repositories remain free and unlimited.
+
 ## Card / subscription required?
 
-**NO.** Free for personal accounts on public repos with no payment
-method on file.
+**NO.** Free for personal and organization accounts on public repos with no payment method on file.
+
 
 ## Alternatives
 

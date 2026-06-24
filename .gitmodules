@@ -1,6 +1,6 @@
 [submodule "projects_apps_personal_me-app"]
-	path = repos/c127/own/prod/apps/personal/cs-me-app
-	url = https://github.com/chirag127/cs-me-app.git
+	path = repos/oriz/own/prod/apps/personal/cs-me-app
+	url = https://github.com/oriz-org/cs-me-app.git
 [submodule "projects_apps_content_blog-app"]
 	path = repos/oriz/own/prod/apps/content/oriz-pages-blog-app
 	url = https://github.com/oriz-org/oriz-pages-blog-app.git
@@ -205,9 +205,9 @@
 [submodule "repos/oriz/own/svc/api/oriz-india-budget-numbers-api"]
 	path = repos/oriz/own/svc/api/oriz-india-budget-numbers-api
 	url = https://github.com/oriz-org/oriz-india-budget-numbers-api.git
-[submodule "repos/c127/frk/prod/bs-ext/ai-rewrite-bs-ext"]
-	path = repos/c127/frk/prod/bs-ext/ai-rewrite-bs-ext
-	url = https://github.com/chirag127/ai-rewrite-bs-ext.git
+[submodule "repos/oriz/frk/prod/bs-ext/ai-rewrite-bs-ext"]
+	path = repos/oriz/frk/prod/bs-ext/ai-rewrite-bs-ext
+	url = https://github.com/oriz-org/ai-rewrite-bs-ext.git
 [submodule "repos/oriz/own/prod/apps/hub/oriz-status-app"]
 	path = repos/oriz/own/prod/apps/hub/oriz-status-app
 	url = https://github.com/oriz-org/oriz-status-app.git
@@ -220,12 +220,12 @@
 [submodule "repos/oriz/own/svc/api/oriz-india-weather-api"]
 	path = repos/oriz/own/svc/api/oriz-india-weather-api
 	url = https://github.com/oriz-org/oriz-india-weather-api.git
-[submodule "repos/c127/frk/prod/bs-ext/dearrow-plus-bs-ext"]
-	path = repos/c127/frk/prod/bs-ext/dearrow-plus-bs-ext
-	url = https://github.com/chirag127/dearrow-plus-bs-ext.git
-[submodule "repos/c127/frk/prod/bs-ext/chathub-bs-ext"]
-	path = repos/c127/frk/prod/bs-ext/chathub-bs-ext
-	url = https://github.com/chirag127/chathub-bs-ext.git
-[submodule "repos/c127/own/prod/userscripts"]
-	path = repos/c127/own/prod/userscripts
-	url = https://github.com/chirag127/userscripts.git
+[submodule "repos/oriz/frk/prod/bs-ext/dearrow-plus-bs-ext"]
+	path = repos/oriz/frk/prod/bs-ext/dearrow-plus-bs-ext
+	url = https://github.com/oriz-org/dearrow-plus-bs-ext.git
+[submodule "repos/oriz/frk/prod/bs-ext/chathub-bs-ext"]
+	path = repos/oriz/frk/prod/bs-ext/chathub-bs-ext
+	url = https://github.com/oriz-org/chathub-bs-ext.git
+[submodule "repos/oriz/own/prod/userscripts"]
+	path = repos/oriz/own/prod/userscripts
+	url = https://github.com/oriz-org/userscripts.git
