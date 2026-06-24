@@ -244,3 +244,6 @@
 [submodule "repos/oriz/own/svc/api/openmodel-shim-api"]
 	path = repos/oriz/own/svc/api/openmodel-shim-api
 	url = https://github.com/oriz-org/openmodel-shim-api.git
+[submodule "repos/oriz/own/svc/secrets/secrets"]
+	path = repos/oriz/own/svc/secrets/secrets
+	url = https://github.com/oriz-org/secrets.git
