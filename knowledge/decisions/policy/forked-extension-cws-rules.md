@@ -67,6 +67,6 @@ at their discretion.
 ## Decision context
 
 This rule was extracted on 2026-06-24 while planning the
-chirag127/DeArrow CWS upload. Applies to any future fork we might
+chirag127/DeArrow-plus CWS upload. Applies to any future fork we might
 ship to CWS, App Store (different rules — see Apple Developer
 program separately), Firefox Add-ons, or VS Code Marketplace.

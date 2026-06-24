@@ -1,7 +1,7 @@
 ---
 type: service
 title: "Family inventory — canonical counts of apps, packages, books, APIs, submodules"
-description: "Single source of truth for the oriz-org family count totals as of 2026-06-24. 27 apps, 23 npm packages, 5 books, 15 APIs, 2 browser-extension forks (Ai-rewrite, DeArrow), 75 submodules total. Every other knowledge file pointing at counts MUST cite this file to avoid drift. Repos migrated from chirag127/* → oriz-co/* on 2026-06-22; org renamed oriz-co → oriz-org on 2026-06-24 (GitHub auto-redirects)."
+description: "Single source of truth for the oriz-org family count totals as of 2026-06-24. 27 apps, 23 npm packages, 5 books, 15 APIs, 2 browser-extension forks (Ai-rewrite, DeArrow-plus), 75 declared submodules. Every other knowledge file pointing at counts MUST cite this file to avoid drift."
 tags: [service, inventory, counts, family, canonical-source-of-truth]
 timestamp: 2026-06-24
 format_version: okf-v0.1
@@ -132,7 +132,7 @@ The umbrella `api.oriz.in` Hono Worker is the inline (non-submodule) API and is 
 ## Browser extensions — 2 total
 
 - `Ai-rewrite` — Chrome extension, AI-powered text rewriting. **Fork** of `SupratimRK/Ai-rewrite` (verified 2026-06-22 via `gh api`). Submodule under `repos/oriz/frk/Ai-rewrite/` (moved 2026-06-22 from `repos/oriz/own/prod/bs-ext/`; further moved 2026-06-24 from `repos/forks/` to `repos/oriz/frk/` per [`projects-owner-own-forks-layout`](../decisions/architecture/projects-owner-own-forks-layout.md)). Repo: `oriz-org/Ai-rewrite` (renamed from `oriz-co/Ai-rewrite` 2026-06-24).
-- `DeArrow` — Chrome extension that replaces YouTube titles + thumbnails with crowdsourced alternatives. **Personal fork** of `ajayyy/DeArrow` (GPL-3.0). Submodule under `repos/c127/frk/prod/bs-ext/DeArrow/`. Repo: `chirag127/DeArrow`. Single divergence: a new toggle `showOriginalAlongsideTitle` that renders the original YouTube title in parentheses after the API-replaced title. See [the per-fork knowledge bundle](../../repos/c127/frk/prod/bs-ext/DeArrow/knowledge/index.md).
+- `DeArrow-plus` — Chrome extension that replaces YouTube titles + thumbnails with crowdsourced alternatives. **Personal fork** of `ajayyy/DeArrow` (GPL-3.0), renamed for distinct CWS listing. Submodule under `repos/c127/frk/prod/bs-ext/DeArrow-plus/`. Repo: `chirag127/DeArrow-plus`. Single divergence: a new toggle `showOriginalAlongsideTitle` that renders the original YouTube title in parentheses after the API-replaced title. See [the per-fork knowledge bundle](../../repos/c127/frk/prod/bs-ext/DeArrow-plus/knowledge/index.md).
 
 ## Submodules — 75 declared, 74 active
 
@@ -146,12 +146,12 @@ remains. Composition of the 75 declared:
 - 1 personal app under `repos/c127/own/prod/apps/personal/cs-me-app/` (moved from oriz-org 2026-06-24)
 - 23 npm-package submodules under `repos/oriz/own/lib/npm/`
 - 15 API submodules under `repos/oriz/own/svc/api/`
-- 1 worker submodule under `repos/oriz/own/svc/workers/` (oriz-flags-worker; folder exists but no GitHub repo yet, so NOT actually in `.gitmodules`)
+- 0 worker submodules under `repos/oriz/own/svc/workers/` (placeholder; oriz-flags-worker deleted 2026-06-24 per `[[feature-flags-deferred]]`)
 - 5 book submodules under `repos/oriz/own/content/books/`
 - 2 skill submodules under `repos/oriz/own/content/skills/`
 - 1 data submodule under `repos/oriz/own/content/data/` — `oriz-ai-providers-data`
 - 1 fork submodule under `repos/oriz/frk/` — `Ai-rewrite` (brand-maintained)
-- 1 fork submodule under `repos/c127/frk/prod/bs-ext/` — `DeArrow` (personal fork, added 2026-06-24)
+- 1 fork submodule under `repos/c127/frk/prod/bs-ext/` — `DeArrow-plus` (personal fork of ajayyy/DeArrow, renamed for CWS, added 2026-06-24)
 
 Re-verify on each count change with: `cd /c/D/oriz && git submodule status | wc -l`.
 

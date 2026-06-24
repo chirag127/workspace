@@ -5,7 +5,7 @@ description: "The CF API token currently scoped to Workers+KV+Pages can't create
 tags: [runbook, cloudflare, d1, token-scope, flags, manual-step]
 timestamp: 2026-06-23
 format_version: okf-v0.1
-status: pending-manual-action
+status: SUPERSEDED 2026-06-24 — the flag worker this runbook unblocks was deleted along with `oriz-flags-worker`. The feature-flags system is deferred per `[[feature-flags-deferred]]`; if/when revisited, re-derive D1 scoping fresh. Keeping this file as a historical CF-token diagnostic reference.
 related:
   - runbooks/feature-flags-storage-2026-06-23
   - rules/free-tier-with-cost-controls

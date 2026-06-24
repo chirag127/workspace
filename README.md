@@ -53,7 +53,7 @@ c:/D/oriz/
 │       │   │   └── clis/                  # CLIs (renamed from py-pkg-cli; placeholder)
 │       │   ├── svc/                       # services: server-side runtimes
 │       │   │   ├── api/                   # 15 free India-data APIs (CF Workers + Pages)
-│       │   │   ├── workers/               # oriz-flags-worker (no repo yet)
+│       │   │   ├── workers/               # (placeholder — no workers yet)
 │       │   │   └── mcp/                   # MCP servers (placeholder)
 │       │   ├── lib/                       # libraries: reusable published code
 │       │   │   └── npm/                   # 23 packages published as @chirag127/*

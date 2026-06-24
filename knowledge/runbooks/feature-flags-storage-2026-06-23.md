@@ -5,7 +5,7 @@ description: "Audit of database choice for the family's feature-flag system. Loc
 tags: [runbook, feature-flags, storage, database, cloudflare, firestore, d1, kv, redundancy, free-tier]
 timestamp: 2026-06-23
 format_version: okf-v0.1
-status: active
+status: SUPERSEDED 2026-06-24 — feature-flag system deleted (oriz-flags-worker folder + CF resources to be cleaned up separately). Final decision is `[[feature-flags-deferred]]`. This runbook is kept as a historical record of the storage-choice analysis in case feature flags are revisited.
 related:
   - decisions/architecture/feature-flags-deferred
   - rules/free-tier-with-cost-controls

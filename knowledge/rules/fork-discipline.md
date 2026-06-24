@@ -1,7 +1,7 @@
 ---
 type: rule
 title: "Fork discipline — minimum diff, rebase-friendly, upstream-aligned"
-description: "Forks live under repos/<owner>/forks/<original-upstream-name>/. <owner> is oriz-org for forks maintained for oriz.in brand work (kept on the brand org), chirag127 for drive-by + personal forks (personal account). Repo slug on GitHub is NOT renamed (matches upstream for easier rebase). All changes must be minimum-diff with upstream, marked with a per-fork comment slug (e.g. `oriz-fork:`), and documented in the per-fork knowledge/divergence.md so the rebase target is predictable."
+description: "Forks live under repos/<owner>/frk/<upstream-name>/. <owner> is oriz for brand-maintained, c127 for drive-by + personal. Default: GitHub slug + disk folder match upstream slug for rebase compatibility. Exception: when shipping the fork as a distinct product (CWS / store / npm package), rename slug + folder + listing together. All code changes minimum-diff with upstream, marked with per-fork `<slug>:` comments, documented in per-fork knowledge/divergence.md."
 tags: [rule, forks, git, rebase, submodule, minimum-diff]
 timestamp: 2026-06-24
 format_version: okf-v0.1
@@ -40,6 +40,24 @@ The on-disk submodule path mirrors the owner:
 - **GitHub slug:** NOT renamed — matches upstream slug (`<owner>/<upstream-name>`)
 - **Submodule path on disk:** matches upstream name (which matches GH slug)
 - **Internal `package.json` `name`:** MAY be customized via additive override (e.g. `@chirag127/oriz-<upstream-name>-fork`) but only as a thin patch
+
+### Exception: shipping the fork as a distinct product
+
+If the fork is published as its own product (Chrome Web Store listing,
+App Store entry, separate npm package), the GitHub slug + disk folder
+SHOULD be renamed to a distinct name (e.g. `DeArrow-plus`, not
+`DeArrow`). Reasons:
+
+- Store listings reject duplicate names anyway.
+- A distinct slug communicates "this is our shipped variant" to anyone
+  landing on the GitHub repo or store page.
+- Upstream rebase still works — set `upstream` to the original repo
+  and rebase as usual; the slug doesn't affect `git rebase`.
+
+When you rename, keep the on-disk folder, GitHub slug, and CWS/store
+name aligned to one another. The internal `package.json` `name` can
+match the new slug. Document the rename in the per-fork
+`knowledge/divergence.md`.
 
 ## Minimum-diff principle
 

@@ -220,6 +220,6 @@
 [submodule "repos/oriz/own/svc/api/oriz-india-weather-api"]
 	path = repos/oriz/own/svc/api/oriz-india-weather-api
 	url = https://github.com/oriz-org/oriz-india-weather-api.git
-[submodule "repos/c127/frk/prod/bs-ext/DeArrow"]
-	path = repos/c127/frk/prod/bs-ext/DeArrow
-	url = https://github.com/chirag127/DeArrow.git
+[submodule "repos/c127/frk/prod/bs-ext/DeArrow-plus"]
+	path = repos/c127/frk/prod/bs-ext/DeArrow-plus
+	url = https://github.com/chirag127/DeArrow-plus.git
