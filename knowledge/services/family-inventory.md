@@ -161,8 +161,11 @@ remains. Composition of the 75 declared:
 - 5 book submodules under `repos/oriz/own/content/books/`
 - 2 skill submodules under `repos/oriz/own/content/skills/`
 - 1 data submodule under `repos/oriz/own/content/data/` — `oriz-ai-providers-data`
-- 1 fork submodule under `repos/oriz/frk/` — `Ai-rewrite` (brand-maintained)
-- 1 fork submodule under `repos/oriz/frk/prod/bs-ext/` — `DeArrow-plus` (personal fork of ajayyy/DeArrow, renamed for CWS, added 2026-06-24)
+- 1 template submodule under `repos/oriz/own/content/templates/` — `oriz-api-docs-template` (original, not a fork)
+- 3 bs-ext forks under `repos/oriz/frk/prod/bs-ext/` — `ai-rewrite-bs-ext`, `dearrow-plus-bs-ext`, `chathub-bs-ext`
+- 1 CLI fork under `repos/oriz/frk/prod/clis/` — `claude-notifications-cli`
+- 2 API forks under `repos/oriz/frk/svc/api/` — `freellmapi`, `omniroute`
+- 1 userscript monorepo under `repos/oriz/own/prod/userscripts/`
 
 Re-verify on each count change with: `cd /c/D/oriz && git submodule status | wc -l`.
 

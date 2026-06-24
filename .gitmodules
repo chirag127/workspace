@@ -238,3 +238,6 @@
 [submodule "repos/oriz/frk/svc/api/omniroute"]
 	path = repos/oriz/frk/svc/api/omniroute
 	url = https://github.com/oriz-org/omniroute.git
+[submodule "repos/oriz/own/content/templates/oriz-api-docs-template"]
+	path = repos/oriz/own/content/templates/oriz-api-docs-template
+	url = https://github.com/oriz-org/oriz-api-docs-template.git
