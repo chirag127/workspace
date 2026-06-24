@@ -250,3 +250,6 @@
 [submodule "repos/oriz/own/prod/ide-ext/sops-lens-vsc-ext"]
 	path = repos/oriz/own/prod/ide-ext/sops-lens-vsc-ext
 	url = https://github.com/oriz-org/sops-lens-vsc-ext.git
+[submodule "repos/oriz/own/prod/bs-ext/bookmark-mind-bs-ext"]
+	path = repos/oriz/own/prod/bs-ext/bookmark-mind-bs-ext
+	url = https://github.com/oriz-org/bookmark-mind-bs-ext.git

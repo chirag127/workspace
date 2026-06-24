@@ -2,7 +2,7 @@
 type: service
 title: "Family inventory \u2014 canonical counts of apps, packages, books, APIs, submodules"
 description: Single source of truth for the oriz-org family count totals. 27 apps,
-  23 npm packages, 5 books, 15 APIs, 3 browser-extension forks (all on oriz-org),
+  23 npm packages, 5 books, 15 APIs, 4 browser-extension repos (3 forks + 1 original on oriz-org),
   75 declared submodules. Every other knowledge file pointing at counts MUST cite
   this file to avoid drift.
 tags:
@@ -138,13 +138,14 @@ Indian-data APIs. Each is a submodule under `repos/oriz/own/svc/api/`:
 
 The umbrella `api.oriz.in` Hono Worker is the inline (non-submodule) API and is not counted here.
 
-## Browser extensions — 3 total
+## Browser extensions — 4 total
 
 All browser-extension repo slugs follow the `-bs-ext` suffix per [`repo-naming-suffixes`](../decisions/branding/repo-naming-suffixes.md) (revised 2026-06-24).
 
 - `ai-rewrite-bs-ext` — Chrome extension, AI-powered text rewriting via Gemini. **Personal fork** of `SupratimRK/Ai-rewrite` (GPL-3.0). Submodule under `repos/oriz/frk/prod/bs-ext/ai-rewrite-bs-ext/`. Repo: `oriz-org/ai-rewrite-bs-ext`.
 - `dearrow-plus-bs-ext` — Chrome extension replacing YouTube titles + thumbnails with crowdsourced alternatives. **Personal fork** of `ajayyy/DeArrow` (GPL-3.0), renamed for distinct CWS listing. Submodule under `repos/oriz/frk/prod/bs-ext/dearrow-plus-bs-ext/`. Repo: `oriz-org/dearrow-plus-bs-ext`. Divergence: `showOriginalAlongsideTitle` toggle.
 - `chathub-bs-ext` — Multi-LLM chat browser extension. **Personal fork** of `chathub-dev/chathub` (GPL-3.0). Submodule under `repos/oriz/frk/prod/bs-ext/chathub-bs-ext/`. Repo: `oriz-org/chathub-bs-ext`. Divergence: `ALWAYS_PREMIUM=true` (personal-use only — NOT distributed to CWS).
+- `bookmark-mind-bs-ext` — Browser extension that auto-categorizes bookmarks via Gemini / Groq / other LLMs; snapshot/undo + model-performance dashboard. **Original** (not a fork). CC BY-NC 4.0. Submodule under `repos/oriz/own/prod/bs-ext/bookmark-mind-bs-ext/`. Repo: `oriz-org/bookmark-mind-bs-ext` (transferred from `chirag127` + renamed from `BookmarkMind-AI-Bookmark-Categorizer-Browser-Extension` on 2026-06-25).
 
 ## VS Code / IDE extensions — 1 total
 
@@ -175,7 +176,8 @@ remains. Composition of the 75 declared:
 - 2 skill submodules under `repos/oriz/own/content/skills/`
 - 1 data submodule under `repos/oriz/own/content/data/` — `oriz-ai-providers-data`
 - 1 template submodule under `repos/oriz/own/content/templates/` — `oriz-api-docs-template` (original, not a fork)
-- 3 bs-ext forks under `repos/oriz/frk/prod/bs-ext/` — `ai-rewrite-bs-ext`, `dearrow-plus-bs-ext`, `chathub-bs-ext`
+- 3 bs-ext repos under `repos/oriz/frk/prod/bs-ext/` (forks) — `ai-rewrite-bs-ext`, `dearrow-plus-bs-ext`, `chathub-bs-ext`
+- 1 bs-ext repo under `repos/oriz/own/prod/bs-ext/` (original) — `bookmark-mind-bs-ext`
 - 1 CLI fork under `repos/oriz/frk/prod/clis/` — `claude-notifications-cli`
 - 2 API forks under `repos/oriz/frk/svc/api/` — `freellmapi`, `omniroute`
 - 1 userscript monorepo under `repos/oriz/own/prod/userscripts/`
