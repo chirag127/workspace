@@ -1,23 +1,32 @@
 ---
 type: service
-title: "Family inventory — canonical counts of apps, packages, books, APIs, submodules"
-description: "Single source of truth for the oriz-org family count totals. 27 apps, 23 npm packages, 5 books, 15 APIs, 3 browser-extension forks (all on oriz-org), 75 declared submodules. Every other knowledge file pointing at counts MUST cite this file to avoid drift."
-tags: [service, inventory, counts, family, canonical-source-of-truth]
+title: "Family inventory \u2014 canonical counts of apps, packages, books, APIs, submodules"
+description: Single source of truth for the oriz-org family count totals. 27 apps,
+  23 npm packages, 5 books, 15 APIs, 3 browser-extension forks (all on oriz-org),
+  75 declared submodules. Every other knowledge file pointing at counts MUST cite
+  this file to avoid drift.
+tags:
+- service
+- inventory
+- counts
+- family
+- canonical-source-of-truth
 timestamp: 2026-06-24
 format_version: okf-v0.1
 status: active
 related:
-  - architecture/the-23-packages
-  - decisions/architecture/ship-order-2026q3
-  - decisions/architecture/tools-shape-and-priority
-  - decisions/architecture/first-book-oriz-learnings
-  - decisions/architecture/book-publish-pipeline
-  - decisions/architecture/market-data-apis
-  - decisions/architecture/oriz-ai-providers-package
-  - decisions/architecture/projects-owner-own-forks-layout
-  - decisions/branding/oriz-org-rename-from-co
-  - architecture/repo-layout
+- architecture/packages/the-23-packages
+- decisions/architecture/general/ship-order-2026q3
+- decisions/architecture/stack/tools-shape-and-priority
+- decisions/architecture/content/first-book-oriz-learnings
+- decisions/architecture/content/book-publish-pipeline
+- decisions/architecture/compute/market-data-apis
+- decisions/architecture/packages/oriz-ai-providers-package
+- decisions/architecture/general/projects-owner-own-forks-layout
+- decisions/branding/oriz-org-rename-from-co
+- architecture/ops/repo-layout
 ---
+
 
 # Family inventory — canonical counts
 
@@ -136,6 +145,10 @@ All browser-extension repo slugs follow the `-bs-ext` suffix per [`repo-naming-s
 - `ai-rewrite-bs-ext` — Chrome extension, AI-powered text rewriting via Gemini. **Personal fork** of `SupratimRK/Ai-rewrite` (GPL-3.0). Submodule under `repos/oriz/frk/prod/bs-ext/ai-rewrite-bs-ext/`. Repo: `oriz-org/ai-rewrite-bs-ext`.
 - `dearrow-plus-bs-ext` — Chrome extension replacing YouTube titles + thumbnails with crowdsourced alternatives. **Personal fork** of `ajayyy/DeArrow` (GPL-3.0), renamed for distinct CWS listing. Submodule under `repos/oriz/frk/prod/bs-ext/dearrow-plus-bs-ext/`. Repo: `oriz-org/dearrow-plus-bs-ext`. Divergence: `showOriginalAlongsideTitle` toggle.
 - `chathub-bs-ext` — Multi-LLM chat browser extension. **Personal fork** of `chathub-dev/chathub` (GPL-3.0). Submodule under `repos/oriz/frk/prod/bs-ext/chathub-bs-ext/`. Repo: `oriz-org/chathub-bs-ext`. Divergence: `ALWAYS_PREMIUM=true` (personal-use only — NOT distributed to CWS).
+
+## VS Code / IDE extensions — 1 total
+
+- `sops-lens-vsc-ext` — VS Code extension that renders SOPS-encrypted file values in-editor (CodeLens / hover / ghost-text). Decrypts via the `sops` CLI in-memory, never writes plaintext to disk. **Original (not a fork)**, MIT. Submodule under `repos/oriz/own/prod/ide-ext/sops-lens-vsc-ext/`. Repo: `oriz-org/sops-lens-vsc-ext`.
 
 ## Other forks — 3 total
 

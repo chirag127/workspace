@@ -247,3 +247,6 @@
 [submodule "repos/oriz/own/svc/secrets/secrets"]
 	path = repos/oriz/own/svc/secrets/secrets
 	url = https://github.com/oriz-org/secrets.git
+[submodule "repos/oriz/own/prod/ide-ext/sops-lens-vsc-ext"]
+	path = repos/oriz/own/prod/ide-ext/sops-lens-vsc-ext
+	url = https://github.com/oriz-org/sops-lens-vsc-ext.git
