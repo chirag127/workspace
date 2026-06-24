@@ -61,3 +61,4 @@ One line per file, newest at top. Format: `YYYY-MM-DD — path — summary`
 - 2026-06-24 — `runbooks/index.md` — UPDATED: mirror-cron-prep marked superseded; mirror-all-hosts-setup added
 - 2026-06-25 — `rules/development/readme-star-badge-required.md` — NEW: family-wide rule, every repo README must carry `[⭐ Star this Repo ⭐]` near the top
 - 2026-06-25 — `services/family-inventory.md` — UPDATED: bs-ext count 3→4, added `bookmark-mind-bs-ext` (original, transferred 2026-06-25 from chirag127 to oriz-org)
+- 2026-06-25 — `rules/development/userscript-author-handle.md` — NEW: family rule, userscript `@author` metadata = `chirag127` (GitHub handle), not `Chirag Singhal`. Swept 4 userscripts to match.
