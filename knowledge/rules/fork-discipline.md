@@ -1,7 +1,7 @@
 ---
 type: rule
 title: "Fork discipline — minimum diff, rebase-friendly, upstream-aligned"
-description: "Forks live under repos/<owner>/frk/<upstream-name>/. <owner> is oriz for brand-maintained, c127 for drive-by + personal. Default: GitHub slug + disk folder match upstream slug for rebase compatibility. Exception: when shipping the fork as a distinct product (CWS / store / npm package), rename slug + folder + listing together. All code changes minimum-diff with upstream, marked with per-fork `<slug>:` comments, documented in per-fork knowledge/divergence.md."
+description: "All forks live under oriz-org/<upstream-name> on GitHub and repos/oriz/frk/<bucket>/<category>/<upstream-name>/ on disk. Reason: org-level secrets only propagate within the org; forks on personal accounts can't inherit them. Slug + disk folder = upstream name by default, unless the fork ships as a distinct product (CWS / store / npm) — then rename to a `<purpose>-bs-ext` / `-cli` / etc. compliant slug. All code changes minimum-diff, marked with per-fork `<slug>:` comments, documented in per-fork knowledge/divergence.md."
 tags: [rule, forks, git, rebase, submodule, minimum-diff]
 timestamp: 2026-06-24
 format_version: okf-v0.1
@@ -21,23 +21,16 @@ updates rebase cleanly. **NEVER apply this rule to non-fork repos.**
 
 ## Owner — which org / account holds the fork
 
-A fork is **brand-maintained** if any of these apply:
-- It's used by one or more `oriz-org/*` repos as a dependency / template
-- We actively patch it (per the minimum-diff rule below)
-- It hosts a customized version of upstream that the brand ships
+**All forks live on `oriz-org`** by default. Reason: GitHub org-level secrets only propagate within the org. A fork on a personal account can't inherit oriz-org's 61 shared secrets, which means any CI in the fork must duplicate-manage credentials. Solo dev = same person, so the "brand vs personal" distinction was about recruiter signal — pinned-repo placement covers that without splitting the secrets pool.
 
-Brand-maintained forks → **`oriz-org/<upstream-name>`**.
+The on-disk submodule path is `repos/oriz/frk/<bucket>/<category>/<upstream-name>/`. Personal experiments that never see CI can live on `chirag127` if they aren't planned as oriz-family work (the `c127/` disk tree is reserved for that case; today it's empty).
 Drive-by forks (one-line PR forks, personal experiments, archived
 exploration) → **`chirag127/<upstream-name>`**.
 
-The on-disk submodule path mirrors the owner:
-- Brand: `repos/oriz/frk/<upstream-name>/`
-- Personal: `repos/c127/frk/<upstream-name>/`
-
 ## Layout
 
-- **Disk path:** `repos/<owner>/forks/<original-upstream-name>/`
-- **GitHub slug:** NOT renamed — matches upstream slug (`<owner>/<upstream-name>`)
+- **Disk path:** `repos/oriz/frk/<bucket>/<category>/<upstream-name>/` (default; everything lives in oriz-org)
+- **GitHub slug:** NOT renamed — matches upstream slug (`oriz-org/<upstream-name>`)
 - **Submodule path on disk:** matches upstream name (which matches GH slug)
 - **Internal `package.json` `name`:** MAY be customized via additive override (e.g. `@chirag127/oriz-<upstream-name>-fork`) but only as a thin patch
 

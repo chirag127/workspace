@@ -1,7 +1,7 @@
 ---
 type: service
 title: "Family inventory — canonical counts of apps, packages, books, APIs, submodules"
-description: "Single source of truth for the oriz-org family count totals. 27 apps, 23 npm packages, 5 books, 15 APIs, 3 browser-extension forks (all on c127), 75 declared submodules. Every other knowledge file pointing at counts MUST cite this file to avoid drift."
+description: "Single source of truth for the oriz-org family count totals. 27 apps, 23 npm packages, 5 books, 15 APIs, 3 browser-extension forks (all on oriz-org), 75 declared submodules. Every other knowledge file pointing at counts MUST cite this file to avoid drift."
 tags: [service, inventory, counts, family, canonical-source-of-truth]
 timestamp: 2026-06-24
 format_version: okf-v0.1
@@ -133,9 +133,9 @@ The umbrella `api.oriz.in` Hono Worker is the inline (non-submodule) API and is 
 
 All browser-extension repo slugs follow the `-bs-ext` suffix per [`repo-naming-suffixes`](../decisions/branding/repo-naming-suffixes.md) (revised 2026-06-24).
 
-- `ai-rewrite-bs-ext` — Chrome extension, AI-powered text rewriting via Gemini. **Personal fork** of `SupratimRK/Ai-rewrite` (GPL-3.0). Submodule under `repos/c127/frk/prod/bs-ext/ai-rewrite-bs-ext/`. Repo: `chirag127/ai-rewrite-bs-ext`.
-- `dearrow-plus-bs-ext` — Chrome extension replacing YouTube titles + thumbnails with crowdsourced alternatives. **Personal fork** of `ajayyy/DeArrow` (GPL-3.0), renamed for distinct CWS listing. Submodule under `repos/c127/frk/prod/bs-ext/dearrow-plus-bs-ext/`. Repo: `chirag127/dearrow-plus-bs-ext`. Divergence: `showOriginalAlongsideTitle` toggle.
-- `chathub-bs-ext` — Multi-LLM chat browser extension. **Personal fork** of `chathub-dev/chathub` (GPL-3.0). Submodule under `repos/c127/frk/prod/bs-ext/chathub-bs-ext/`. Repo: `chirag127/chathub-bs-ext`. Divergence: `ALWAYS_PREMIUM=true` (personal-use only — NOT distributed to CWS).
+- `ai-rewrite-bs-ext` — Chrome extension, AI-powered text rewriting via Gemini. **Personal fork** of `SupratimRK/Ai-rewrite` (GPL-3.0). Submodule under `repos/oriz/frk/prod/bs-ext/ai-rewrite-bs-ext/`. Repo: `oriz-org/ai-rewrite-bs-ext`.
+- `dearrow-plus-bs-ext` — Chrome extension replacing YouTube titles + thumbnails with crowdsourced alternatives. **Personal fork** of `ajayyy/DeArrow` (GPL-3.0), renamed for distinct CWS listing. Submodule under `repos/oriz/frk/prod/bs-ext/dearrow-plus-bs-ext/`. Repo: `oriz-org/dearrow-plus-bs-ext`. Divergence: `showOriginalAlongsideTitle` toggle.
+- `chathub-bs-ext` — Multi-LLM chat browser extension. **Personal fork** of `chathub-dev/chathub` (GPL-3.0). Submodule under `repos/oriz/frk/prod/bs-ext/chathub-bs-ext/`. Repo: `oriz-org/chathub-bs-ext`. Divergence: `ALWAYS_PREMIUM=true` (personal-use only — NOT distributed to CWS).
 
 ## Submodules — 75 declared, 74 active
 
@@ -146,7 +146,7 @@ its gitlink is absent from the index but its `.gitmodules` entry
 remains. Composition of the 75 declared:
 
 - 26 app submodules under `repos/oriz/own/prod/apps/{content,hub,personal,tools}/`
-- 1 personal app under `repos/c127/own/prod/apps/personal/cs-me-app/` (moved from oriz-org 2026-06-24)
+- 1 personal app under `repos/oriz/own/prod/apps/personal/cs-me-app/`
 - 23 npm-package submodules under `repos/oriz/own/lib/npm/`
 - 15 API submodules under `repos/oriz/own/svc/api/`
 - 0 worker submodules under `repos/oriz/own/svc/workers/` (placeholder; oriz-flags-worker deleted 2026-06-24 per `[[feature-flags-deferred]]`)
@@ -154,7 +154,7 @@ remains. Composition of the 75 declared:
 - 2 skill submodules under `repos/oriz/own/content/skills/`
 - 1 data submodule under `repos/oriz/own/content/data/` — `oriz-ai-providers-data`
 - 1 fork submodule under `repos/oriz/frk/` — `Ai-rewrite` (brand-maintained)
-- 1 fork submodule under `repos/c127/frk/prod/bs-ext/` — `DeArrow-plus` (personal fork of ajayyy/DeArrow, renamed for CWS, added 2026-06-24)
+- 1 fork submodule under `repos/oriz/frk/prod/bs-ext/` — `DeArrow-plus` (personal fork of ajayyy/DeArrow, renamed for CWS, added 2026-06-24)
 
 Re-verify on each count change with: `cd /c/D/oriz && git submodule status | wc -l`.
 

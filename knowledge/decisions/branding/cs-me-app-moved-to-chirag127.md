@@ -1,15 +1,17 @@
 ---
 type: decision
 title: "oriz-cs-me-app moved from oriz-org → chirag127, renamed cs-me-app"
-description: "The personal-site app cs-me-app is moved out of the brand org to chirag127/* because it doesn't use the brand's central auth (only puter.js, not auth.oriz.in). Slug drops the oriz- prefix to clearly read as a personal repo. On-disk path becomes repos/c127/own/prod/apps/personal/cs-me-app/."
+description: "Originally moved 2026-06-24 morning to chirag127/cs-me-app because the app doesn't use brand auth (only puter.js). REVERSED 2026-06-24 evening: moved back to oriz-org/cs-me-app because all forks + personal apps now live under oriz-org to inherit org-level GitHub Actions secrets. The personal-vs-brand distinction was about recruiter signal; pinned-repo placement covers that without splitting the secrets pool. The slug `cs-me-app` (without the oriz- prefix) is preserved."
 tags: [branding, github, transfer, personal, cs-me-app, identity]
 timestamp: 2026-06-24
 format_version: okf-v0.1
-status: active
+status: SUPERSEDED 2026-06-24 — cs-me-app is back on oriz-org. See [[rules/fork-discipline]] for the unified "all forks + personal apps on oriz-org" policy. Kept as historical record of the brief move-out-and-back.
 related:
   - decisions/architecture/projects-owner-own-forks-layout
   - decisions/architecture/cs-me-app-scope
   - decisions/branding/oriz-org-rename-from-co
+  - rules/fork-discipline
+  - decisions/security/sops-plus-doppler-hybrid
   - rules/recruiter-strategy
 ---
 
