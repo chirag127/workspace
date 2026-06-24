@@ -1,11 +1,16 @@
 ---
 type: log
-title: "Knowledge bundle change log"
-description: "Chronological append-only log of every new or updated concept file in this knowledge bundle."
-tags: [log, okf, meta]
+title: Knowledge bundle change log
+description: Chronological append-only log of every new or updated concept file in
+  this knowledge bundle.
+tags:
+- log
+- okf
+- meta
 timestamp: 2026-06-24
 format_version: okf-v0.1
 ---
+
 
 # Knowledge bundle change log
 
@@ -15,6 +20,16 @@ One line per file, newest at top. Format: `YYYY-MM-DD — path — summary`
 
 ## 2026-06-24
 
+- 2026-06-24 — `architecture/stack/python.md` — UPDATED: expanded Python stack documentation with comparisons, FastAPI, Pydantic, SQLAlchemy, pytest, and Ruff
+- 2026-06-24 — `architecture/stack/go.md` — UPDATED: expanded Go stack documentation with comparisons, Chi, sqlc, testify, and golangci-lint
+- 2026-06-24 — `architecture/stack/index.md` — NEW: index file for the new Minimalist & Modern stack hierarchy
+- 2026-06-24 — `architecture/stack/javascript-typescript.md` — NEW: documents the minimalist stack for JS/TS
+- 2026-06-24 — `architecture/stack/python.md` — NEW: documents the minimalist stack for Python
+- 2026-06-24 — `architecture/stack/rust.md` — NEW: documents the minimalist stack for Rust
+- 2026-06-24 — `architecture/stack/go.md` — NEW: documents the minimalist stack for Go
+- 2026-06-24 — `architecture/stack/java.md` — NEW: documents the minimalist stack for Java
+- 2026-06-24 — `architecture/stack/csharp.md` — NEW: documents the minimalist stack for C#
+- 2026-06-24 — `architecture/stack/cpp.md` — NEW: documents the minimalist stack for C++
 - 2026-06-24 — `runbooks/git-upstream-merge-private-fork.md` — NEW: documents how to host, sync, and merge a private organization copy of a public upstream Chrome extension, plus organization visibility and billing rules.
 - 2026-06-24 — `services/compute/github-actions.md` — UPDATED: documents details on organization Actions minute quotas, pool sharing, and account isolation.
 - 2026-06-24 — `runbooks/index.md` — UPDATED: listed new `git-upstream-merge-private-fork.md` runbook.
