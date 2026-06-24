@@ -229,3 +229,12 @@
 [submodule "repos/oriz/own/prod/userscripts"]
 	path = repos/oriz/own/prod/userscripts
 	url = https://github.com/oriz-org/userscripts.git
+[submodule "repos/oriz/frk/prod/clis/claude-notifications-cli"]
+	path = repos/oriz/frk/prod/clis/claude-notifications-cli
+	url = https://github.com/oriz-org/claude-notifications-cli.git
+[submodule "repos/oriz/frk/svc/api/freellmapi"]
+	path = repos/oriz/frk/svc/api/freellmapi
+	url = https://github.com/oriz-org/freellmapi.git
+[submodule "repos/oriz/frk/svc/api/omniroute"]
+	path = repos/oriz/frk/svc/api/omniroute
+	url = https://github.com/oriz-org/omniroute.git

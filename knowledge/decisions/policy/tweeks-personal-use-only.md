@@ -1,7 +1,7 @@
 ---
 type: decision
-title: "Tweeks (NextByte) modification — personal use only, never redistribute"
-description: "Tweeks (chromewebstore.google.com/detail/fmkancpjcacjodknfjcpmgkccbhedkhc) is a closed-source proprietary commercial Chrome extension by NextByte (YC-backed, tweeks.io). It has NO open-source license. Any modification is permissible under fair-use for personal study + personal-machine use only. NEVER publish a modified Tweeks fork to GitHub (public or private), Chrome Web Store, or any other distribution channel — that would violate Chrome Web Store ToS §2 + NextByte's copyright. CRX extraction via scripts/download-cws-extension.mjs is for study/personal modification only."
+title: "Tweeks (NextByte) modification — personal mods OK, no public redistribution"
+description: "Tweeks (chromewebstore.google.com/detail/fmkancpjcacjodknfjcpmgkccbhedkhc) is a closed-source proprietary commercial Chrome extension by NextByte (YC-backed, tweeks.io). It has NO open-source license. Personal modification + loading as an unpacked extension on YOUR machine is permissible under fair-use. PUBLIC redistribution is forbidden: no Chrome Web Store publish, no public GitHub repo, no Greasefork, no shared download links. PRIVATE oriz-org repos (and the umbrella workspace if private branches are used) are an acceptable personal-storage location since they're not 'redistribution' in the legal sense — but the umbrella mirror cron pushes to 6 public mirror hosts, so storing in the umbrella WOULD constitute redistribution. Recommend storing on local disk or a PRIVATE single-repo (no mirror cron) only."
 tags: [decision, tweeks, closed-source, license, cws-tos, personal-use-only]
 timestamp: 2026-06-24
 format_version: okf-v0.1
@@ -9,6 +9,7 @@ status: active
 related:
   - decisions/policy/forked-extension-cws-rules
   - decisions/architecture/userscript-prototype-via-tweeks
+  - decisions/architecture/mirror-to-6-git-hosts
   - rules/fork-discipline
 ---
 
@@ -21,16 +22,15 @@ related:
 ## What IS allowed
 
 - **Download the .crx via `scripts/download-cws-extension.mjs`** for personal study + reverse engineering on YOUR machine.
-- **Modify the extracted bundle locally** at `C:/D/Tweeks-Customize-Any-Website-Chrome-Web-Store/` and load it as an unpacked extension in YOUR browser.
+- **Modify the extracted bundle locally** at `C:/D/Tweeks-Customize-Any-Website-Chrome-Web-Store/` (or anywhere on YOUR disk) and load it as an unpacked extension in YOUR browser.
+- **Store the modified bundle in a PRIVATE single-repo** under chirag127 or oriz-org IF that repo is NOT part of the umbrella's submodule tree (the umbrella mirrors to 6 public hosts every Friday, which would publish proprietary code). Set the repo to private + NOT a submodule + name it something like `chirag127/tweeks-personal-mods` (not a public-facing slug).
 - **Use Tweeks unmodified** for prototyping userscript ideas (per [[decisions/architecture/userscript-prototype-via-tweeks]]).
 - **Replicate functionality from scratch** — observation of behavior is fine; the API surface and ideas are not protected.
 
 ## What is NOT allowed
 
-- **Pushing modified Tweeks to ANY GitHub repo** (public or private). Chrome Web Store ToS §2 + copyright law forbid redistribution without permission.
-- **Publishing to Chrome Web Store** under any name (yours or anonymous). Account ban risk.
-- **Sharing the modified extension via Discord / DM / direct download** with anyone else. Same redistribution problem.
-- **Committing the extracted source to ANY repo** in the `oriz-org/*` or `chirag127/*` family (or anywhere on `c:/D/oriz/`). The repo would expose proprietary code to the public mirror cron and put oriz-org's reputation at risk.
+- **Public redistribution in any form**: Chrome Web Store publish, public GitHub repo, Greasefork, Discord / DM / direct download links shared with anyone else, npm publish, file uploads to public hosting. Chrome Web Store ToS §2 + copyright law forbid this without NextByte's permission.
+- **Storing in the umbrella workspace** (`c:/D/oriz/repos/**` or any submodule under it) — the mirror cron at `.github/workflows/mirror-all.yml` pushes the entire umbrella to 6 public mirror hosts (GitLab, Codeberg, Bitbucket, GitFlic, Azure DevOps, AWS CodeCommit) every Friday. Even though oriz-org/workspace itself is public, those mirrors create additional public copies — clearly redistribution.
 - **Forking Tweeks "as a starting point" for a competing open-source product.** The boundary between "inspired by" (legal) and "derivative work" (copyright infringement) is contested; safest path is clean-room reimplementation if a competing product is the goal.
 
 ## The right path if you want a customizable Tweeks-like tool

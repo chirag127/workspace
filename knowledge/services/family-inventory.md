@@ -137,6 +137,14 @@ All browser-extension repo slugs follow the `-bs-ext` suffix per [`repo-naming-s
 - `dearrow-plus-bs-ext` — Chrome extension replacing YouTube titles + thumbnails with crowdsourced alternatives. **Personal fork** of `ajayyy/DeArrow` (GPL-3.0), renamed for distinct CWS listing. Submodule under `repos/oriz/frk/prod/bs-ext/dearrow-plus-bs-ext/`. Repo: `oriz-org/dearrow-plus-bs-ext`. Divergence: `showOriginalAlongsideTitle` toggle.
 - `chathub-bs-ext` — Multi-LLM chat browser extension. **Personal fork** of `chathub-dev/chathub` (GPL-3.0). Submodule under `repos/oriz/frk/prod/bs-ext/chathub-bs-ext/`. Repo: `oriz-org/chathub-bs-ext`. Divergence: `ALWAYS_PREMIUM=true` (personal-use only — NOT distributed to CWS).
 
+## Other forks — 3 total
+
+CLI + service-API forks (not browser extensions):
+
+- `claude-notifications-cli` — Go CLI for Claude Code notifications. **Personal fork** of `777genius/claude-notifications-go` (GPL-3.0). Submodule under `repos/oriz/frk/prod/clis/claude-notifications-cli/`. Repo: `oriz-org/claude-notifications-cli`. Renamed from `-go` (language) to `-cli` (role) per [[decisions/branding/repo-naming-suffixes]].
+- `freellmapi` — OpenAI-compatible aggregator of 16 free LLM provider tiers. **Personal fork** of `tashfeenahmed/freellmapi` (MIT). Submodule under `repos/oriz/frk/svc/api/freellmapi/`. Repo: `oriz-org/freellmapi`. Slug unchanged (MIT product brand).
+- `omniroute` — AI gateway / router across 231 providers, 50+ free. **Personal fork** of `diegosouzapw/OmniRoute` (MIT). Submodule under `repos/oriz/frk/svc/api/omniroute/`. Repo: `oriz-org/omniroute` (renamed lowercase per family convention).
+
 ## Submodules — 75 declared, 74 active
 
 `.gitmodules` declares 75 entries; `git submodule status | wc -l` from
