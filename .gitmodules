@@ -256,3 +256,6 @@
 [submodule "repos/oriz/own/svc/mcp/clear-thought-mcp-server"]
 	path = repos/oriz/own/svc/mcp/clear-thought-mcp-server
 	url = https://github.com/oriz-org/clear-thought-mcp-server.git
+[submodule "repos/oriz/own/content/skills/agent-skills"]
+	path = repos/oriz/own/content/skills/agent-skills
+	url = https://github.com/oriz-org/agent-skills.git

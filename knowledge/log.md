@@ -18,6 +18,8 @@ One line per file, newest at top. Format: `YYYY-MM-DD — path — summary`
 
 ---
 
+2026-06-25 — architecture/general/agent-skills-monorepo.md — NEW. oriz-org/agent-skills as the single source of truth for agent skills; mounted as a submodule and symlinked into both ~/.claude/skills/ and ~/.agents/skills/.
+
 ## 2026-06-24
 
 - 2026-06-24 — `decisions/architecture/general/chromium-hardware-scaling-profiles.md` — NEW: documents browser engine scaling profiles across server VMs, hybrid CPU cores, thin clients, and mobile operating systems
