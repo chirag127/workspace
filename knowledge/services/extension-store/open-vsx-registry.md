@@ -103,4 +103,4 @@ and a one-time namespace PR.
 - [VS Code Marketplace](./vs-code-marketplace.md)
 - [Repo naming suffixes (`-vsc-ext`)](../../decisions/branding/repo-naming-suffixes.md)
 - [Extension-store bucket index](./index.md)
-- [No card-on-file rule](../../rules/no-card-on-file.md)
+- [No card-on-file rule](../../rules/interaction/no-card-on-file.md)

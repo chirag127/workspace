@@ -110,4 +110,4 @@ real-user picture once shipped.
 - [Vercel Speed Insights — RUM, complementary perf signal](../perf/vercel-speed-insights.md)
 - [a11y three-tools decision](../../decisions/architecture/a11y-three-tools.md)
 - [Perf monitoring decision](../../decisions/architecture/perf-monitoring-vercel-speed-insights.md)
-- [No card-on-file rule](../../rules/no-card-on-file.md)
+- [No card-on-file rule](../../rules/interaction/no-card-on-file.md)

@@ -17,7 +17,7 @@ swap_cost: low
 ## Role
 
 Second image CDN behind [ImageKit](./imagekit.md). The
-[never-hit-quotas rule](../../rules/never-hit-quotas.md) requires a
+[never-hit-quotas rule](../../rules/interaction/never-hit-quotas.md) requires a
 documented swap target the moment the primary's free tier looks
 likely to tip — Cloudinary is that target for images. ImageKit's 20
 GB/month bandwidth covers the family at current scale; if a viral
@@ -50,7 +50,7 @@ no trial expiry.
 
 Low — both Cloudinary and ImageKit speak `<img src=...>` URLs with
 inline transform parameters. Switching means changing the rewrite
-rule in the [`@chirag127/oriz-kit`](../../glossary/o-r/oriz-kit.md)
+rule in the <!-- TODO: broken link, was [`@chirag127/oriz-kit`](../../glossary/o-r/oriz-kit.md) -->
 image helper. No origin migration: both can pull from
 [Cloudflare R2](../compute/cloudflare-r2.md).
 
@@ -65,5 +65,5 @@ preference for swap-cost-low alternatives.
 
 - [ImageKit](./imagekit.md) — primary image CDN
 - [Cloudflare R2](../compute/cloudflare-r2.md) — origin
-- [Never hit quotas rule](../../rules/never-hit-quotas.md)
-- [No card-on-file rule](../../rules/no-card-on-file.md)
+- [Never hit quotas rule](../../rules/interaction/never-hit-quotas.md)
+- [No card-on-file rule](../../rules/interaction/no-card-on-file.md)

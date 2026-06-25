@@ -31,5 +31,5 @@ column "Low" or "Medium" forever.
 
 ## See also
 
-- [oriz-kit](./oriz-kit.md)
-- [hono-rpc](./hono-rpc.md)
+- <!-- TODO: broken link, was [oriz-kit](./oriz-kit.md) -->
+- [hono-rpc](../d-h/hono-rpc.md)

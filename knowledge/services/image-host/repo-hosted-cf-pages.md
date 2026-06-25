@@ -87,5 +87,5 @@ images would still resolve from their committed paths.
 - [Markdown-in-repo only CMS decision](../../decisions/architecture/cms-markdown-in-repo-only.md)
 - [Cloudflare Pages for all sites](../../decisions/infrastructure/cloudflare-pages-for-all-sites.md)
 - [Image CDN — primary (CF Images)](../image-cdn/cloudflare-images.md)
-- [oriz-kit glossary](../../glossary/o-r/oriz-kit.md)
-- [No card-on-file rule](../../rules/no-card-on-file.md)
+- <!-- TODO: broken link, was [oriz-kit glossary](../../glossary/o-r/oriz-kit.md) -->
+- [No card-on-file rule](../../rules/interaction/no-card-on-file.md)

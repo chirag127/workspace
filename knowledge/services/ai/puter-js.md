@@ -82,4 +82,4 @@ Split locked at
 - [Cloudflare Workers AI](./cloudflare-workers-ai.md) — server-side sibling
 - [AI split decision](../../decisions/architecture/ai-puter-plus-cf-workers-ai.md)
 - [OpenRouter](./openrouter.md)
-- [oriz-me design brief](../design/oriz-me.md)
+- [oriz-me design brief](../../decisions/design/oriz-me.md)

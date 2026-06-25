@@ -54,7 +54,7 @@ curl 'https://tinyurl.com/api-create.php?url=https%3A%2F%2Fblog.oriz.in%2Fa-post
 The `https://tinyurl.com/app/dashboard` paid product (custom slugs,
 analytics, branded domains) is **not used by the family** — that
 tier requires a subscription, which violates
-[`rules/no-subscriptions.md`](../../rules/no-subscriptions.md).
+[`rules/infrastructure/no-subscriptions.md`](../../rules/infrastructure/no-subscriptions.md).
 
 ## Card / subscription required?
 
@@ -115,5 +115,5 @@ Worker. Swapping to `is.gd` or `v.gd` is a URL change.
 - [Tier 1 — s.oriz.in CF Worker](./cloudflare-worker.md)
 - [Tier 3 — GitHub Gist redirect](./github-gist-redirect.md)
 - [URL shortener quota mitigation (Tier 1 detail)](../../decisions/architecture/url-shortener-quota-mitigation.md)
-- [No card-on-file rule](../../rules/no-card-on-file.md)
-- [No subscriptions rule](../../rules/no-subscriptions.md)
+- [No card-on-file rule](../../rules/interaction/no-card-on-file.md)
+- [No subscriptions rule](../../rules/infrastructure/no-subscriptions.md)

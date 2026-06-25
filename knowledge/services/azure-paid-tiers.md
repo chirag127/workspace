@@ -17,11 +17,11 @@ rejection_reason: "Standard Azure account creation requires a credit/debit card 
 
 ## Status
 
-**REJECTED.** Violates the [no-card-on-file rule](../rules/no-card-on-file.md).
+**REJECTED.** Violates the [no-card-on-file rule](../rules/interaction/no-card-on-file.md).
 
 This entry covers the standard / commercial / pay-as-you-go Azure
 sign-up. The student program is separate — see
-[azure-for-students.md](./azure-for-students.md).
+[azure-for-students.md](tooling/azure-for-students.md).
 
 ## Why rejected
 
@@ -35,11 +35,11 @@ default for any usage above the free tier.
 
 ## Replacement
 
-- Compute: [Cloudflare Workers](./cloudflare-workers.md)
-- Storage: [Cloudflare R2](./cloudflare-r2.md)
-- For specific student-eligible workloads: [Azure for Students](./azure-for-students.md)
+- Compute: [Cloudflare Workers](compute/cloudflare-workers.md)
+- Storage: [Cloudflare R2](compute/cloudflare-r2.md)
+- For specific student-eligible workloads: [Azure for Students](tooling/azure-for-students.md)
 
 ## Cross-refs
 
-- [Azure for Students](./azure-for-students.md) — the card-free student variant
-- [No card-on-file rule](../rules/no-card-on-file.md)
+- [Azure for Students](tooling/azure-for-students.md) — the card-free student variant
+- [No card-on-file rule](../rules/interaction/no-card-on-file.md)

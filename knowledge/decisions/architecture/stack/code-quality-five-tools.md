@@ -97,7 +97,7 @@ needed.
   - `.codeclimate.yml` — engines config (eslint / duplication /
     structure)
   - `.deepsource.toml` — analyser + transformer config
-- **Apply via [`runbooks/apply-per-site-ci.md`](../../../runbooks/operations/apply-per-site-ci.md)**
+- **Apply via [`runbooks/operations/apply-per-site-ci.md`](../../../runbooks/operations/apply-per-site-ci.md)**
   to every site + package submodule (11 sites + 6 packages).
 - **GitHub App installs** are one-time, account-wide:
   - Codecov GitHub App
@@ -109,7 +109,7 @@ needed.
   Climate maintainability gate / DeepSource issue gate fails.
   CodeRabbit posts comments only — no failing check (LLM review is
   advisory).
-- **Quota safeguard** ([`rules/never-hit-quotas.md`](../../../rules/interaction/never-hit-quotas.md)):
+- **Quota safeguard** ([`rules/interaction/never-hit-quotas.md`](../../../rules/interaction/never-hit-quotas.md)):
   every tool runs on free OSS tier with no metering. If the family
   ever flips a repo private, that single repo drops the four
   paid-for-private tools (Codecov, Code Climate, DeepSource,
@@ -121,7 +121,7 @@ needed.
 - [Code quality services index](../../../services/code-quality/index.md) — per-tool detail
 - [Earlier 4-tool stack decision](../../process/code-quality-stack.md) — supersedes-by-extension; that decision stays the source for biome + Dependabot rationale
 - [Per-site CI runbook](../../../runbooks/operations/apply-per-site-ci.md)
-- [`templates/per-site-ci/.github/workflows/ci.yml`](../../../templates/per-site-ci/.github/workflows/ci.yml)
+- <!-- TODO: broken link, was [`templates/per-site-ci/.github/workflows/ci.yml`](../../../templates/per-site-ci/.github/workflows/ci.yml) -->
 - [Repos work independently rule](../../../rules/development/repos-work-independently.md)
 - [No card-on-file rule](../../../rules/interaction/no-card-on-file.md)
 - [Never hit quotas rule](../../../rules/interaction/never-hit-quotas.md)

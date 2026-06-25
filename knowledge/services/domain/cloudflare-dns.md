@@ -48,4 +48,4 @@ protection bundled.
 ## Cross-refs
 
 - [Cloudflare Registrar](./cloudflare-registrar.md)
-- [Cloudflare Pages](./cloudflare-pages.md)
+- [Cloudflare Pages](../hosting/cloudflare-pages.md)

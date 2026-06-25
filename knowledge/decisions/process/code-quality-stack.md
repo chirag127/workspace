@@ -35,12 +35,12 @@ Each layer catches a class of issues the others miss:
 - CodeRabbit = logic + design + security smells (LLM-grade review of intent)
 - Sonarcloud = data-flow + cyclomatic complexity + duplication (whole-codebase static analysis)
 
-All four are free forever for the family's public OSS repos, fitting the [no-paid-tier](../../policy/no-paid-tier.md) rule.
+All four are free forever for the family's public OSS repos, fitting the [no-paid-tier](../policy/no-paid-tier.md) rule.
 
 ## Implications
 
 - Each repo's `.github/dependabot.yml` enables weekly version updates for `npm` (security updates are on by default GitHub-wide).
-- Each repo's `.github/workflows/ci.yml` continues to run biome locally; this rule keeps repos working independently per [repos-work-independently](../../rules/repos-work-independently.md).
+- Each repo's `.github/workflows/ci.yml` continues to run biome locally; this rule keeps repos working independently per [repos-work-independently](../../rules/development/repos-work-independently.md).
 - The CodeRabbit GitHub App is installed at the org level, no per-repo setup needed.
 - Sonarcloud is wired through a `.github/workflows/sonar.yml` per repo plus a Sonarcloud project per repo. Adds one more PR check.
 - PR flow: open → biome runs → CodeRabbit comments → reviewer merges → Sonarcloud analyses → quality gate visible on dashboard.
@@ -52,7 +52,7 @@ All four are free forever for the family's public OSS repos, fitting the [no-pai
 - [services/code-quality/dependabot](../../services/code-quality/dependabot.md)
 - [services/code-quality/coderabbit](../../services/code-quality/coderabbit.md)
 - [services/code-quality/sonarcloud](../../services/code-quality/sonarcloud.md)
-- [rules/match-surrounding-style](../../rules/match-surrounding-style.md)
-- [rules/always-latest-deps](../../rules/always-latest-deps.md)
-- [rules/repos-work-independently](../../rules/repos-work-independently.md)
+- [rules/match-surrounding-style](../../rules/interaction/match-surrounding-style.md)
+- [rules/always-latest-deps](../../rules/development/always-latest-deps.md)
+- [rules/repos-work-independently](../../rules/development/repos-work-independently.md)
 - [decisions/per-repo-ci-workflows](./per-repo-ci-workflows.md)

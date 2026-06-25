@@ -128,7 +128,7 @@ subdomain is decided.
 ## Why
 
 The earlier `-site` / `-ext` decision (see
-[keep-oriz-add-site-suffix](./keep-oriz-add-site-suffix.md)) covered
+<!-- TODO: broken link, was [keep-oriz-add-site-suffix](./keep-oriz-add-site-suffix.md) -->) covered
 two roles. As the family grew (CLIs, Workers, VS Code extensions on
 the roadmap, Cloud Functions migrating off Firebase Spark) two-suffix
 coverage became insufficient. Locking the full suffix matrix now
@@ -141,7 +141,7 @@ table to consult before any `gh repo create`.
 - Site repos completed in the fourth pass: `pages-site` → `blog-site`,
   `tabs-site` → `cards-site`, `roam-site` → `journal-site`, `echo-site`
   → `post-site`. All four renames ran through
-  [`runbooks/rename-repo.md`](../../runbooks/rename-repo.md) and the
+  [`runbooks/operations/rename-repo.md`](../../runbooks/operations/rename-repo.md) and the
   local submodule paths under `repos/websites/` flipped to match.
   GitHub auto-redirects keep old `chirag127/<old>-site` clone URLs
   working.
@@ -159,20 +159,20 @@ table to consult before any `gh repo create`.
 - Data repos already use `-data` — that suffix is now formalised in
   the table above.
 - GitHub repo redirects on rename keep old clones working — all
-  rename steps go through [`runbooks/rename-repo.md`](../../runbooks/rename-repo.md)
+  rename steps go through [`runbooks/operations/rename-repo.md`](../../runbooks/operations/rename-repo.md)
   which sets them up automatically.
 - Audit gate: every `git push` to a *new* repo URL must verify the
   slug ends in one of the seven suffixes (or is a clean npm-package
-  name) — see [`rules/repo-naming.md`](../../rules/repo-naming.md).
+  name) — see [`rules/development/repo-naming.md`](../../rules/development/repo-naming.md).
 
 ## Cross-refs
 
-- [keep-oriz-add-site-suffix](./keep-oriz-add-site-suffix.md) — the
+- <!-- TODO: broken link, was [keep-oriz-add-site-suffix](./keep-oriz-add-site-suffix.md) --> — the
   earlier two-suffix decision this one supersedes-by-extension
 - [oriz-me added to the family](./oriz-me-added-to-family.md)
-- [@chirag127/oriz-kit package name](./oriz-kit-package-name.md)
+- <!-- TODO: broken link, was [@chirag127/oriz-kit package name](./oriz-kit-package-name.md) -->
 - [Chrome extensions as submodules](../infrastructure/chrome-extensions-as-submodules.md)
-- [`rules/repo-naming.md`](../../rules/repo-naming.md) — the audit-before-publish rule
-- [`runbooks/rename-repo.md`](../../runbooks/rename-repo.md) — the rename procedure
-- [oriz-kit glossary entry](../../glossary/o-r/oriz-kit.md)
+- [`rules/development/repo-naming.md`](../../rules/development/repo-naming.md) — the audit-before-publish rule
+- [`runbooks/operations/rename-repo.md`](../../runbooks/operations/rename-repo.md) — the rename procedure
+- <!-- TODO: broken link, was [oriz-kit glossary entry](../../glossary/o-r/oriz-kit.md) -->
 - [AGENTS.md](../../../AGENTS.md)

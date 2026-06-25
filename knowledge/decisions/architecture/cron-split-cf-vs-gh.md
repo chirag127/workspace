@@ -34,7 +34,7 @@ shape, not by convenience:
 ## Why
 
 - They aren't substitutes — they're different substrates. CF Cron has no `pnpm`; GH Actions has 5–15 min jitter and runner cold starts that disqualify it for sub-minute jobs.
-- Both are **free** at our scale on the [Spark / Free / public-repo](../../rules/no-card-on-file.md) tier — no card, no quota cliff for the volumes the family actually runs.
+- Both are **free** at our scale on the [Spark / Free / public-repo](../../rules/interaction/no-card-on-file.md) tier — no card, no quota cliff for the volumes the family actually runs.
 - Splitting by job shape makes the answer to "where does this cron live" mechanical: read the job description, pick the substrate. No ambiguity, no per-team taste.
 - Concretely: oriz-omnipost's RSS cross-post **commits `state.json` back to the repo** — that's a GH Actions job. The Worker's idempotency-table sweep **only touches Worker KV** — that's a CF Cron Triggers job. Same family, two substrates, zero overlap.
 
@@ -44,7 +44,7 @@ shape, not by convenience:
 - Every cron job in the family declares **which substrate it lives on** in its file header (workflow YAML or `wrangler.toml`).
 - Latency-sensitive jobs (RSS poll, idempotency sweeps, cache rebuilds) move to CF Cron when introduced. Build / publish / commit-back jobs stay on GH Actions.
 - Heartbeat to [healthchecks.io](../../services/monitoring/healthchecks-io.md) is fired from **both** substrates — one heartbeat URL per substrate, so a substrate outage shows up as a missed heartbeat for that substrate alone.
-- Worker quota math (100K req/day) treats CF Cron invocations as Worker requests; this is fine — every cadence we run sums to <1K invocations/day per Worker, well clear of the cap. Documented in [`never-hit-quotas.md`](../../rules/never-hit-quotas.md) headroom math.
+- Worker quota math (100K req/day) treats CF Cron invocations as Worker requests; this is fine — every cadence we run sums to <1K invocations/day per Worker, well clear of the cap. Documented in [`never-hit-quotas.md`](../../rules/interaction/never-hit-quotas.md) headroom math.
 - No third cron substrate. Adding one (Vercel Cron, Deno Deploy cron, self-hosted) is rejected — it doesn't unlock a job shape these two can't cover, and it adds another quota to never hit.
 
 ## Decision matrix (the on-ramp question for new jobs)
@@ -64,5 +64,5 @@ Does the job need pnpm / wrangler / gh / repo checkout / npm publish?
 - [Cloudflare Workers](../../services/compute/cloudflare-workers.md)
 - [GitHub Actions](../../services/compute/github-actions.md)
 - [Cross-post engine — uses GH Actions schedule today, may move to CF Cron later](./cross-post-engine.md)
-- [Never hit free-tier quotas](../../rules/never-hit-quotas.md)
+- [Never hit free-tier quotas](../../rules/interaction/never-hit-quotas.md)
 - [Per-repo CI workflows](../process/per-repo-ci-workflows.md)

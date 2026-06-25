@@ -96,4 +96,4 @@ Low — single button on `/support`; deep-link is `https://liberapay.com/<handle
 - [Buy Me a Coffee (5% fee, similar UX)](./buymeacoffee.md)
 - [Polar.sh (OSS-friendly checkout)](./polar-sh.md)
 - [Open Collective (transparent fund accounting)](./opencollective.md)
-- [No card-on-file rule](../../rules/no-card-on-file.md)
+- [No card-on-file rule](../../rules/interaction/no-card-on-file.md)

@@ -121,5 +121,5 @@ tool does).
 - [PostHog](./posthog.md) — primary capture
 - [Cloudflare Web Analytics](./cloudflare-web-analytics.md) — secondary capture
 - [Analytics services index](./index.md)
-- [oriz-kit glossary](../../glossary/o-r/oriz-kit.md) — `<UtmLink>` helper lives here
+- <!-- TODO: broken link, was [oriz-kit glossary](../../glossary/o-r/oriz-kit.md) --> — `<UtmLink>` helper lives here
 - [Cross-post engine](../../decisions/architecture/cross-post-engine.md) — omnipost adapters auto-tag cross-posts with `utm_source=<platform>&utm_medium=cross-post`

@@ -53,7 +53,7 @@ Reserving empty rectangles in markup hurts on every axis:
 
 - Write the page as if there were no ads.
 - Let the ad-network script (loaded via the family monetisation pattern
-  — see [policy/monetisation](../../policy/monetisation.md)) choose
+  — see [policy/monetisation](../../decisions/policy/monetisation.md)) choose
   insertion points.
 - If a specific section must never carry ads (legal pages, billing
   flows), mark it via the network's documented opt-out attribute
@@ -67,4 +67,4 @@ verifying script behaviour.
 
 ## See also
 
-- [`monetisation.md`](../../policy/monetisation.md)
+- [`monetisation.md`](../../decisions/policy/monetisation.md)

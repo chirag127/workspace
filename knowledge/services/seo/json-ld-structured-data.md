@@ -34,7 +34,7 @@ five schema.org types:
 - **Person** — the author entity for `me.oriz.in`, plus author bylines on every post
 
 Markup is rendered via a single `<JsonLd type="..." data={{...}} />`
-component in [`@chirag127/oriz-kit`](../../glossary/o-r/oriz-kit.md)
+component in <!-- TODO: broken link, was [`@chirag127/oriz-kit`](../../glossary/o-r/oriz-kit.md) -->
 — a forward reference today; the component lands when oriz-kit's
 next release adds it (per
 [`decisions/architecture/seo-three-pillars.md`](../../decisions/architecture/seo-three-pillars.md)).
@@ -101,5 +101,5 @@ implementation is one kit PR, sites unchanged.
 - [@astrojs/sitemap](./astrojs-sitemap.md) — pillar 1
 - [IndexNow](./indexnow.md) — pillar 2
 - [Google Search Console](./google-search-console.md) — Rich Results report reads JSON-LD
-- [oriz-kit glossary](../../glossary/o-r/oriz-kit.md) — the `<JsonLd>` component lives here (forward reference)
+- <!-- TODO: broken link, was [oriz-kit glossary](../../glossary/o-r/oriz-kit.md) --> — the `<JsonLd>` component lives here (forward reference)
 - [decisions/architecture/og-card-generation-satori.md](../../decisions/architecture/og-card-generation-satori.md) — Article.image URL ties to OG card

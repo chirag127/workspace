@@ -58,7 +58,7 @@ per the
   cron-driven warm-cache for top tickers. Beats Twelve Data
   (card past free), Finnhub (card past trial), IEX Cloud (no
   free tier), Polygon.io (US-only + card).
-- **Both no-card** — fits [no-card-on-file](../../rules/no-card-on-file.md).
+- **Both no-card** — fits [no-card-on-file](../../rules/interaction/no-card-on-file.md).
 - **Both fronted by the umbrella Worker** — keeps the API key
   (Alpha Vantage) on the server, lets KV caching amortise
   burns, lets per-route quota alarms fire via
@@ -131,5 +131,5 @@ covers every current geo-routing need.
 - [Cron split decision — drives the warm-cache job](./cron-split-cf-vs-gh.md)
 - [Secrets management — Alpha Vantage key in Doppler](../security/secrets-management-doppler.md)
 - [Geocoding deferred decision](./geocoding-deferred.md)
-- [No card-on-file rule](../../rules/no-card-on-file.md)
-- [Never hit quotas rule](../../rules/never-hit-quotas.md)
+- [No card-on-file rule](../../rules/interaction/no-card-on-file.md)
+- [Never hit quotas rule](../../rules/interaction/never-hit-quotas.md)

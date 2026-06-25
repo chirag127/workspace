@@ -91,7 +91,7 @@ Add a 2× safety margin for cold-cache spread across CF's ~300+
 edge POPs (each POP misses cache once per slug per year): worst
 case ~1-2K Worker requests/day. The free tier is 100,000/day. We
 sit at **1-2% of headroom**, comfortably inside
-[`rules/never-hit-quotas.md`](../../../rules/interaction/never-hit-quotas.md).
+[`rules/interaction/never-hit-quotas.md`](../../../rules/interaction/never-hit-quotas.md).
 
 ## Implications
 

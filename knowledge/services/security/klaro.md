@@ -124,4 +124,4 @@ config-shape change.
 - [PostHog — cookie-issuing in identified mode](../analytics/posthog.md)
 - [jsDelivr — bundle CDN](../cdn/jsdelivr.md)
 - [Cloudflare `_headers` — CSP coupling](./cloudflare-headers.md)
-- [No card-on-file rule](../../rules/no-card-on-file.md)
+- [No card-on-file rule](../../rules/interaction/no-card-on-file.md)

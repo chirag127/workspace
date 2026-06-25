@@ -56,7 +56,7 @@ without a code change.
   safe in the client by Firebase design — they identify, they don't
   authorize. Still pulled via envpact for consistency.
 - Worker secrets in Cloudflare Secrets Store (per
-  [`apps/api`](../../architecture/compute/api-umbrella-hono-worker.md)) — the
+  [`apps/api`](../../decisions/architecture/compute/api-umbrella-hono-worker.md)) — the
   Worker reads from the binding at runtime; envpact populates the
   binding at deploy time.
 
@@ -67,7 +67,7 @@ Treat it as compromised. The runbook:
 1. Revoke + rotate at the relevant dashboard.
 2. Re-store in envpact.
 3. Update any consumer.
-4. Full procedure at [`../runbooks/auth-setup.md`](../../runbooks/security/auth-setup.md).
+4. Full procedure at [`../runbooks/security/auth-setup.md`](../../runbooks/security/auth-setup.md).
 
 ## Exceptions
 
@@ -77,4 +77,4 @@ None.
 
 - AGENTS.md "Secrets" section
 - [`../services/tooling/envpact.md`](../../services/tooling/envpact.md)
-- [`../runbooks/auth-setup.md`](../../runbooks/security/auth-setup.md)
+- [`../runbooks/security/auth-setup.md`](../../runbooks/security/auth-setup.md)

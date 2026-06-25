@@ -53,4 +53,4 @@ Wholesale pricing, no markup, integrates with the same dashboard.
 ## Cross-refs
 
 - [Cloudflare DNS](./cloudflare-dns.md)
-- [No card-on-file rule](../../rules/no-card-on-file.md) — domain-renewal exception
+- [No card-on-file rule](../../rules/interaction/no-card-on-file.md) — domain-renewal exception

@@ -147,7 +147,7 @@ monthlies to 6) before the next prune cycle.
 ## Don'ts
 
 - **Don't put `RESTIC_PASSWORD` in a `.env`** — only Doppler. Per
-  [`rules/no-hardcoded-secrets.md`](../../rules/security/no-hardcoded-secrets.md).
+  [`rules/security/no-hardcoded-secrets.md`](../../rules/security/no-hardcoded-secrets.md).
 - **Don't share the password across repos** — one bucket, one
   password; rotation of one repo's password is a re-encrypt of that
   repo only.

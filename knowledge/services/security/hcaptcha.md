@@ -91,7 +91,7 @@ hCaptcha may load on any visit.
 ## Swap cost
 
 Low — same `<Captcha>` component in
-[`@chirag127/oriz-kit`](../../glossary/o-r/oriz-kit.md). If hCaptcha
+<!-- TODO: broken link, was [`@chirag127/oriz-kit`](../../glossary/o-r/oriz-kit.md) -->. If hCaptcha
 ever loses the no-card stance, the slot can be filled by Friendly
 Captcha (paid) or by routing 100% of traffic through Turnstile and
 accepting the failure rate in blocked regions.
@@ -111,5 +111,5 @@ down. No card.
 - [Cloudflare _headers — CSP that allows hCaptcha](./cloudflare-headers.md)
 - [Captcha decision — Turnstile primary + hCaptcha fallback](../../decisions/security/captcha-turnstile-plus-hcaptcha.md)
 - [Doppler — secrets sync](../secrets/doppler.md)
-- [oriz-kit glossary](../../glossary/o-r/oriz-kit.md)
-- [No card-on-file rule](../../rules/no-card-on-file.md)
+- <!-- TODO: broken link, was [oriz-kit glossary](../../glossary/o-r/oriz-kit.md) -->
+- [No card-on-file rule](../../rules/interaction/no-card-on-file.md)

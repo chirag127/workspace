@@ -105,7 +105,7 @@ LinkedIn, Mastodon, Bluesky, Telegram, Reddit etc. are evaluated then.
 ### What we don't do
 
 - **No scraping or browser automation** — if a platform has no API, it's skipped. No Playwright, no agent-browser.
-- **No card-on-file** for any cross-post platform — per [no-card-on-file](../../rules/no-card-on-file.md). Free tiers only.
+- **No card-on-file** for any cross-post platform — per [no-card-on-file](../../rules/interaction/no-card-on-file.md). Free tiers only.
 - **No content rewrite** — the engine doesn't paraphrase, summarise, or use AI to rephrase. The MDX → adapter-native conversion is purely structural (e.g. MDX → GFM strip-jsx).
 
 ## Cross-refs
@@ -114,7 +114,7 @@ LinkedIn, Mastodon, Bluesky, Telegram, Reddit etc. are evaluated then.
 - [Cloudflare Worker short-link service](../../services/short-link/cloudflare-worker.md)
 - [omnipost glossary](../../glossary/o-r/omnipost.md)
 - [Hono Worker API umbrella](./hono-worker-api-umbrella.md)
-- [No card-on-file rule](../../rules/no-card-on-file.md)
-- [Never hit quotas rule](../../rules/never-hit-quotas.md)
+- [No card-on-file rule](../../rules/interaction/no-card-on-file.md)
+- [Never hit quotas rule](../../rules/interaction/never-hit-quotas.md)
 - [Sentry monitoring](../../services/monitoring/sentry.md)
 - [Axiom log management](../../services/tooling/axiom.md)

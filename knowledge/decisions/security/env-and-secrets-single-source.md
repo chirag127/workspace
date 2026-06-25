@@ -30,14 +30,14 @@ hand-edits are forbidden on both tracks; CI catches drift.
 
 - **Track A — `.env.example` files (public key surface, no values).**
   The canonical file is
-  [`templates/.env.example`](../../../templates/.env.example) at the
+  <!-- TODO: broken link, was [`templates/.env.example`](../../../templates/.env.example) --> at the
   master `chirag127/oriz` repo. Every other repo's `.env.example`
   (sites, packages, extensions, `oriz-omnipost`, `oriz-lifestream`,
   workers, CLIs) is a verbatim copy synced from master via
-  [`scripts/sync-env-example.sh`](../../../scripts/sync-env-example.sh).
+  <!-- TODO: broken link, was [`scripts/sync-env-example.sh`](../../../scripts/sync-env-example.sh) -->.
   Local dev runs `cp .env.example .env` then fills in values from
   [Doppler](../../services/secrets/doppler.md). Locked by
-  [`rules/env-example-synced-from-master.md`](../../rules/env-example-synced-from-master.md).
+  [`rules/security/env-example-synced-from-master.md`](../../rules/security/env-example-synced-from-master.md).
 - **Track B — GitHub Actions runtime secrets (private, real values).**
   Set ONCE at the `chirag127` ORG level with
   `gh secret set <NAME> --org chirag127 --visibility all`. Every
@@ -45,7 +45,7 @@ hand-edits are forbidden on both tracks; CI catches drift.
   upstream source per
   [`decisions/security/secrets-management-doppler.md`](./secrets-management-doppler.md);
   org-level GH secrets are the runtime mirror for CI. Locked by
-  [`rules/github-org-level-secrets.md`](../../rules/github-org-level-secrets.md).
+  [`rules/security/github-org-level-secrets.md`](../../rules/security/github-org-level-secrets.md).
 
 ## Why
 
@@ -55,7 +55,7 @@ one project and we set the github action secret on org chirag127
 level."* Two locks land in the same conversation:
 
 - **Per-repo `.env.example` drift was inevitable** under the prior
-  rule ([`rules/single-env-example-per-repo.md`](../../rules/single-env-example-per-repo.md)).
+  rule (<!-- TODO: broken link, was [`rules/single-env-example-per-repo.md`](../../rules/single-env-example-per-repo.md) -->).
   Hand-editing 20+ children every time a new key (e.g.
   `WAKATIME_API_KEY` for the lifestream pipeline,
   `LIFESTREAM_INGEST_SECRET` for HMAC, `LIBERAPAY_USERNAME`,
@@ -107,7 +107,7 @@ Doppler (source of truth)  ──▶  set-org-secrets-from-doppler.sh  ──▶
 ### Drift safeguards
 
 - **Track A drift (repo-level).** Every PR runs
-  [`scripts/verify-env-example-sync.sh`](../../../scripts/verify-env-example-sync.sh)
+  <!-- TODO: broken link, was [`scripts/verify-env-example-sync.sh`](../../../scripts/verify-env-example-sync.sh) -->
   (or its CI workflow equivalent) which `diff`s the repo's
   `.env.example` against `templates/.env.example` from master. Any
   non-empty diff fails the PR. The same script runs on master CI,
@@ -118,7 +118,7 @@ Doppler (source of truth)  ──▶  set-org-secrets-from-doppler.sh  ──▶
   written) diffs Doppler's secret list against `gh secret list
   --org chirag127 --json name,visibility,updatedAt`, reports
   mismatches. Drift modes:
-    - Key in `templates/.env.example` but missing from org secrets → CI will fail next time the key is referenced. Fix: run [`runbooks/set-github-org-level-secrets.md`](../../runbooks/set-github-org-level-secrets.md) for that key.
+    - Key in `templates/.env.example` but missing from org secrets → CI will fail next time the key is referenced. Fix: run [`runbooks/security/set-github-org-level-secrets.md`](../../runbooks/security/set-github-org-level-secrets.md) for that key.
     - Key in org secrets but missing from `templates/.env.example` → orphan, possibly stale; audit who set it, remove if unused.
     - Key in both but values differ between Doppler and org secret → re-run the sync script.
 
@@ -134,7 +134,7 @@ Doppler (source of truth)  ──▶  set-org-secrets-from-doppler.sh  ──▶
   `gh secret delete <NAME> --org chirag127` (with care — make sure
   no in-flight CI run still references it).
 - **Rotation.** Per
-  [`runbooks/rotate-leaked-secret.md`](../../runbooks/rotate-leaked-secret.md),
+  [`runbooks/security/rotate-leaked-secret.md`](../../runbooks/security/rotate-leaked-secret.md),
   augmented: revoke at provider → reissue → write at Doppler →
   `set-org-secrets-from-doppler.sh <NAME>` (or full run) → verify
   with one CI run per affected repo. Direct writes to per-repo
@@ -156,27 +156,27 @@ Doppler (source of truth)  ──▶  set-org-secrets-from-doppler.sh  ──▶
   `gh secret set --env`. If a `staging` vs `prod` need ever lands,
   it's a new decision.
 - **Doesn't make any secret visible in source.** Per
-  [`rules/no-hardcoded-secrets.md`](../../rules/no-hardcoded-secrets.md),
+  [`rules/security/no-hardcoded-secrets.md`](../../rules/security/no-hardcoded-secrets.md),
   unchanged.
-- **Doesn't supersede [`rules/single-env-example-per-repo.md`](../../rules/single-env-example-per-repo.md)
+- **Doesn't supersede <!-- TODO: broken link, was [`rules/single-env-example-per-repo.md`](../../rules/single-env-example-per-repo.md) -->
   in spirit** — every repo still ships its own `.env.example` with
   the full family superset. It supersedes the **mechanism**: hand
   edits per repo → sync from master.
 
 ## Cross-refs
 
-- [`../../rules/env-example-synced-from-master.md`](../../rules/env-example-synced-from-master.md) — Track A rule
-- [`../../rules/github-org-level-secrets.md`](../../rules/github-org-level-secrets.md) — Track B rule
-- [`../../rules/single-env-example-per-repo.md`](../../rules/single-env-example-per-repo.md) — superseded prior rule (kept, status flipped)
-- [`../../rules/no-hardcoded-secrets.md`](../../rules/no-hardcoded-secrets.md) — values never in source
-- [`../../rules/never-hit-quotas.md`](../../rules/never-hit-quotas.md) — drift = silent CI failure class we refuse to ship into
+- [`../../rules/security/env-example-synced-from-master.md`](../../rules/security/env-example-synced-from-master.md) — Track A rule
+- [`../../rules/security/github-org-level-secrets.md`](../../rules/security/github-org-level-secrets.md) — Track B rule
+- <!-- TODO: broken link, was [`../../rules/single-env-example-per-repo.md`](../../rules/single-env-example-per-repo.md) --> — superseded prior rule (kept, status flipped)
+- [`../../rules/security/no-hardcoded-secrets.md`](../../rules/security/no-hardcoded-secrets.md) — values never in source
+- [`../../rules/interaction/never-hit-quotas.md`](../../rules/interaction/never-hit-quotas.md) — drift = silent CI failure class we refuse to ship into
 - [`../../services/secrets/doppler.md`](../../services/secrets/doppler.md) — upstream source of truth for values
 - [`../../services/secrets/github-secrets.md`](../../services/secrets/github-secrets.md) — runtime mirror service entry
 - [`./secrets-management-doppler.md`](./secrets-management-doppler.md) — earlier decision this builds on
-- [`../../runbooks/sync-env-example-to-all-repos.md`](../../runbooks/sync-env-example-to-all-repos.md) — Track A runbook
-- [`../../runbooks/set-github-org-level-secrets.md`](../../runbooks/set-github-org-level-secrets.md) — Track B runbook
-- [`../../runbooks/rotate-leaked-secret.md`](../../runbooks/rotate-leaked-secret.md) — rotation flow uses Track B sync
-- [`../../../templates/.env.example`](../../../templates/.env.example) — the master superset
+- [`../../runbooks/operations/sync-env-example-to-all-repos.md`](../../runbooks/operations/sync-env-example-to-all-repos.md) — Track A runbook
+- [`../../runbooks/security/set-github-org-level-secrets.md`](../../runbooks/security/set-github-org-level-secrets.md) — Track B runbook
+- [`../../runbooks/security/rotate-leaked-secret.md`](../../runbooks/security/rotate-leaked-secret.md) — rotation flow uses Track B sync
+- <!-- TODO: broken link, was [`../../../templates/.env.example`](../../../templates/.env.example) --> — the master superset
 
 ## Naming conventions
 

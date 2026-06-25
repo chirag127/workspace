@@ -237,4 +237,4 @@ Kept short (vendor-convention or category-IS-brand):
 - [per-runtime-framework](./per-runtime-framework.md) — Astro stack locked
 - [multi-target-build](./multi-target-build.md) — deploy gating, CI shape, PWA build
 - [naming-policy-v6](../branding/naming-policy-v6.md) — full brand slugs
-- [scaffold-a-new-site](../../runbooks/scaffold-a-new-site.md) — runbook (predates v6.2; needs refresh)
+- [scaffold-a-new-site](../../runbooks/operations/scaffold-a-new-site.md) — runbook (predates v6.2; needs refresh)

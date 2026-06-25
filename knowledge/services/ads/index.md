@@ -9,7 +9,7 @@ format_version: okf-v0.1
 
 # Ad network services
 
-Primary is Google AdSense applied for at the `oriz.in` apex (see [decisions/adsense-apex-application.md](../../decisions/adsense-apex-application.md)) — there's no AdSense file in services/ because AdSense is the apex case, not a swappable per-site decision. These two are fallback choices if AdSense doesn't approve or stops paying.
+Primary is Google AdSense applied for at the `oriz.in` apex (see [decisions/adsense-apex-application.md](../../decisions/monetisation/adsense-apex-application.md)) — there's no AdSense file in services/ because AdSense is the apex case, not a swappable per-site decision. These two are fallback choices if AdSense doesn't approve or stops paying.
 
 | Service | Status | One-line role |
 |---|---|---|
@@ -18,5 +18,5 @@ Primary is Google AdSense applied for at the `oriz.in` apex (see [decisions/adse
 
 ## Cross-refs
 
-- [decisions/adsense-apex-application](../../decisions/adsense-apex-application.md)
-- [rules/no-ad-slots-in-markup](../../rules/no-ad-slots-in-markup.md)
+- [decisions/adsense-apex-application](../../decisions/monetisation/adsense-apex-application.md)
+- [rules/no-ad-slots-in-markup](../../rules/design/no-ad-slots-in-markup.md)

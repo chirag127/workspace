@@ -106,4 +106,4 @@ the canonical bookmarks are exported regularly via
 - [Cloudflare Pages — host that builds /links](../hosting/cloudflare-pages.md)
 - [GitHub Actions schedule — nightly re-build](../cron/github-actions-schedule.md)
 - [Doppler — `RAINDROP_TOKEN` source](../secrets/doppler.md)
-- [No card-on-file rule](../../rules/no-card-on-file.md)
+- [No card-on-file rule](../../rules/interaction/no-card-on-file.md)

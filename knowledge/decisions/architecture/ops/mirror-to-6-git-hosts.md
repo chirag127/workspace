@@ -174,6 +174,6 @@ All 6 hosts have been verified as free-with-no-card (verified 2026-06-24):
 
 - Service files per host → [`services/hosting/`](../../../services/hosting)
 - Setup runbook (one-time tokens + repo creation) → [`runbooks/mirror-all-hosts-setup.md`](../../../runbooks/hosting/mirror-all-hosts-setup.md)
-- Migrate to fallback CI → [`runbooks/migrate-ci-platform.md`](../../../runbooks/operations/migrate-ci-platform.md)
+- Migrate to fallback CI → [`runbooks/operations/migrate-ci-platform.md`](../../../runbooks/operations/migrate-ci-platform.md)
 - Backup everywhere (5 rails) → [`decisions/architecture/backup-everywhere-weekly.md`](./backup-everywhere-weekly.md)
-- Superseded decision → [`decisions/architecture/mirror-to-4-git-hosts.md`](./mirror-to-4-git-hosts.md)
+- Superseded decision → [`decisions/architecture/mirror-to-4-git-hosts.md`](../mirror-to-4-git-hosts.md)

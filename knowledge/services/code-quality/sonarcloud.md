@@ -57,5 +57,5 @@ Sonarcloud's rule library on TypeScript is the broadest of the OSS-tier options,
 
 - [services/code-quality/coderabbit](./coderabbit.md)
 - [services/code-quality/dependabot](./dependabot.md)
-- [rules/repos-work-independently](../../rules/repos-work-independently.md)
+- [rules/repos-work-independently](../../rules/development/repos-work-independently.md)
 - [decisions/code-quality-stack](../../decisions/process/code-quality-stack.md)

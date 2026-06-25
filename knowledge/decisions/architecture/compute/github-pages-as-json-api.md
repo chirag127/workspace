@@ -109,5 +109,5 @@ public subdomain URL.
 
 - [naming-policy-v6](../../branding/naming-policy-v6.md) — `-api` suffix added
 - [hono-worker-api-umbrella](./hono-worker-api-umbrella.md) — the CF Worker side
-- [multi-target-build](../ops/multi-target-build.md) — release cadence applies
-- [data-canonical-store](../../../policy/data-canonical-store.md) — JSONL conventions
+- [multi-target-build](../multi-target-build.md) — release cadence applies
+- [data-canonical-store](../../policy/data-canonical-store.md) — JSONL conventions

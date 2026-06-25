@@ -18,7 +18,7 @@ A **9-tool layered stack** on every public family repo — each tool catches or 
 | 3 | [Codecov](./codecov.md) | Per-PR coverage delta vs `main` | PR comment + status check |
 | 4 | [Code Climate](./codeclimate.md) | A — F maintainability grade per file | Dashboard + status check |
 | 5 | [DeepSource](./deepsource.md) | Static analysis with **autofix PRs** | Issue list + auto-PR |
-| 6 | **biome** (in-repo, not a SaaS) | Lint + format — style violations, simple bugs, unused imports | Local + CI (`pnpm biome check`); see [rules/match-surrounding-style](../../rules/match-surrounding-style.md) |
+| 6 | **biome** (in-repo, not a SaaS) | Lint + format — style violations, simple bugs, unused imports | Local + CI (`pnpm biome check`); see [rules/match-surrounding-style](../../rules/interaction/match-surrounding-style.md) |
 | 7 | [Dependabot](./dependabot.md) | Vulnerable dependencies; out-of-date packages | GitHub-native, opens PRs automatically |
 | 8 | [GitHub Insights](./github-insights.md) | Native contributors / commits / code-frequency / dependents | Repo `/pulse` + `/graphs/*` |
 | 9 | [Tokei](./tokei.md) | Per-language line / file / blank / comment counts | CI artefact + family `/stats` |
@@ -44,7 +44,7 @@ Each layer catches a different failure mode and renders on a different surface:
 - **LoC badge** = the cheapest at-a-glance line-count signal in every README
 
 All free for public repos under the family's
-[everything-is-public-OSS posture](../../rules/repos-work-independently.md). Auto-tracked end-to-end per [`auto-only-tracking`](../../rules/auto-only-tracking.md).
+[everything-is-public-OSS posture](../../rules/development/repos-work-independently.md). Auto-tracked end-to-end per [`auto-only-tracking`](../../rules/interaction/auto-only-tracking.md).
 
 ## Cross-refs
 
@@ -52,7 +52,7 @@ All free for public repos under the family's
 - [5-tool code-quality decision (extended above)](../../decisions/architecture/code-quality-five-tools.md)
 - [Earlier 4-tool stack decision (Batch 4, 2026-06-20)](../../decisions/process/code-quality-stack.md)
 - [Family-wide /stats page decision](../../decisions/architecture/family-wide-stats-page.md)
-- [rules/always-latest-deps](../../rules/always-latest-deps.md)
-- [rules/match-surrounding-style](../../rules/match-surrounding-style.md)
-- [rules/repos-work-independently](../../rules/repos-work-independently.md)
-- [Auto-only-tracking rule](../../rules/auto-only-tracking.md) (forward ref — being added in parallel)
+- [rules/always-latest-deps](../../rules/development/always-latest-deps.md)
+- [rules/match-surrounding-style](../../rules/interaction/match-surrounding-style.md)
+- [rules/repos-work-independently](../../rules/development/repos-work-independently.md)
+- [Auto-only-tracking rule](../../rules/interaction/auto-only-tracking.md) (forward ref — being added in parallel)

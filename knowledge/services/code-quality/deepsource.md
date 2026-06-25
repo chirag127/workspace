@@ -77,4 +77,4 @@ the codebase" without manual edits.
 - [Sonarcloud — broader SAST, no autofix](./sonarcloud.md)
 - [Code Climate — A — F grade rendering](./codeclimate.md)
 - [CodeRabbit — LLM PR review](./coderabbit.md)
-- [No card-on-file rule](../../rules/no-card-on-file.md)
+- [No card-on-file rule](../../rules/interaction/no-card-on-file.md)

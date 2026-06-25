@@ -95,5 +95,5 @@ Firebase for the actual delivery.
 - [Firebase Spark — auth + free tier](../auth/firebase-spark.md)
 - [Notifications: FCM + Knock decision](../../decisions/architecture/notifications-fcm-plus-knock.md)
 - [Firebase Spark forever](../../decisions/infrastructure/firebase-spark-forever.md)
-- [No card-on-file rule](../../rules/no-card-on-file.md)
-- [Never hit quotas rule](../../rules/never-hit-quotas.md)
+- [No card-on-file rule](../../rules/interaction/no-card-on-file.md)
+- [Never hit quotas rule](../../rules/interaction/never-hit-quotas.md)

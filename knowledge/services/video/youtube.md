@@ -39,9 +39,9 @@ already public.
 
 YouTube embeds set tracking cookies on every visit. Privacy-sensitive
 content (drafts, oriz-me intimate-scope lifestream entries, anything
-under the [public-private line](../../policy/public-private-line.md)
+under the [public-private line](../../decisions/policy/public-private-line.md)
 private side) MUST go to [gumlet](./gumlet.md) instead. The
-[per-extension privacy policy](../../policy/privacy-policy-per-extension.md)
+[per-extension privacy policy](../../decisions/policy/privacy-policy-per-extension.md)
 requires every extension site's `/privacy` page to disclose the
 embedded YouTube cookie set when video is embedded.
 
@@ -66,5 +66,5 @@ public content the discoverability bonus is a feature, not a bug.
 ## Cross-refs
 
 - [gumlet](./gumlet.md) — privacy-sensitive video fallback
-- [Per-extension privacy policy](../../policy/privacy-policy-per-extension.md) — must disclose YouTube cookie set
-- [Public/private line](../../policy/public-private-line.md)
+- [Per-extension privacy policy](../../decisions/policy/privacy-policy-per-extension.md) — must disclose YouTube cookie set
+- [Public/private line](../../decisions/policy/public-private-line.md)

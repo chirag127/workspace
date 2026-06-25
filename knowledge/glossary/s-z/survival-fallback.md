@@ -31,5 +31,5 @@ on every deploy.
 
 ## See also
 
-- [data-repo](./data-repo.md)
-- [cache-rebuild](./cache-rebuild.md)
+- [data-repo](../d-h/data-repo.md)
+- [cache-rebuild](../a-c/cache-rebuild.md)

@@ -99,7 +99,7 @@ The 1k writes/day KV cap is the binding constraint. Mitigations
   if KV writes ever cap.
 - Cloudflare Durable Objects — better consistency than KV; **not
   free** (Durable Objects are paid past 1M req/mo on Workers Paid
-  plan, fights [`no-card-on-file`](../../rules/no-card-on-file.md)).
+  plan, fights [`no-card-on-file`](../../rules/interaction/no-card-on-file.md)).
 - Cloudflare zone-level rate-limit — coarser, already configured by
   the [WAF service](./cloudflare-waf.md).
 
@@ -126,5 +126,5 @@ pays nothing for.
 - [Cloudflare Turnstile — form-submit sibling](./cloudflare-turnstile.md)
 - [Umbrella Hono Worker decision](../../decisions/architecture/hono-worker-api-umbrella.md)
 - [CF Worker quota mitigation playbook](../../decisions/architecture/cf-worker-quota-mitigation.md)
-- [oriz-kit glossary](../../glossary/o-r/oriz-kit.md)
-- [No card-on-file rule](../../rules/no-card-on-file.md)
+- <!-- TODO: broken link, was [oriz-kit glossary](../../glossary/o-r/oriz-kit.md) -->
+- [No card-on-file rule](../../rules/interaction/no-card-on-file.md)

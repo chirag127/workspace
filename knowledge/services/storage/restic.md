@@ -30,7 +30,7 @@ with [Backblaze B2](./backblaze-b2.md) as the storage backend per
 
 Run from a [GitHub Actions schedule](../cron/github-actions-schedule.md)
 weekly cron — see
-[`runbooks/restic-backup-setup.md`](../../runbooks/restic-backup-setup.md)
+[`runbooks/security/restic-backup-setup.md`](../../runbooks/security/restic-backup-setup.md)
 for the full setup.
 
 ## Free tier
@@ -98,7 +98,7 @@ Swapping the **backend** (B2 → R2 → some other S3) is a one-line
   with one curl, no per-runner licence.
 - **Encrypted by default** — repo password is the only key; B2 sees
   ciphertext, satisfies the
-  [no-hardcoded-secrets posture](../../rules/no-hardcoded-secrets.md).
+  [no-hardcoded-secrets posture](../../rules/security/no-hardcoded-secrets.md).
 - **Content-addressed dedup** — week-over-week diffs cost only the
   changed chunks; 10 GB B2 free tier covers many weeks of family-scale
   backups before any pruning kicks in.
@@ -110,6 +110,6 @@ Swapping the **backend** (B2 → R2 → some other S3) is a one-line
 - [Backup decision — restic + B2 + GH Actions cron](../../decisions/architecture/backup-restic-to-b2.md)
 - [Backblaze B2 — backup target](./backblaze-b2.md)
 - [GitHub Actions schedule — runs the cron](../cron/github-actions-schedule.md)
-- [Restic backup setup runbook](../../runbooks/restic-backup-setup.md)
+- [Restic backup setup runbook](../../runbooks/security/restic-backup-setup.md)
 - [Doppler — secrets source-of-truth](../secrets/doppler.md)
-- [No card-on-file rule](../../rules/no-card-on-file.md)
+- [No card-on-file rule](../../rules/interaction/no-card-on-file.md)

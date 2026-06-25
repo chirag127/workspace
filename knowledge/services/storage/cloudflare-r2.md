@@ -34,7 +34,7 @@ Although R2's free tier sign-up does not itself prompt for a card,
 adjacent Cloudflare Workers Paid features that we'd realistically
 want (higher CPU time, larger queue cliffs, R2 add-ons) pull in a
 billing method on the same account. The family's
-[no-card-on-file](../../rules/no-card-on-file.md) hard rule excludes
+[no-card-on-file](../../rules/interaction/no-card-on-file.md) hard rule excludes
 the whole surface, not just the free-tier door.
 
 ## Predecessor record
@@ -58,4 +58,4 @@ batch that introduced this file — left as a documented inconsistency.)
 - [Backblaze B2](./backblaze-b2.md) — replacement (blobs)
 - [GitHub Releases](./github-releases.md) — replacement (binaries)
 - [services/compute/cloudflare-r2](../compute/cloudflare-r2.md) — stale active entry, to be flipped
-- [No card-on-file rule](../../rules/no-card-on-file.md)
+- [No card-on-file rule](../../rules/interaction/no-card-on-file.md)

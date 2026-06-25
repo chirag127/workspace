@@ -27,7 +27,7 @@ The family's backup architecture is the triple:
 | Scheduler | [GitHub Actions schedule](../../services/cron/github-actions-schedule.md) (weekly Sunday 03:00 UTC) |
 
 The full setup — workflow YAML, repo init, restore drill — is the
-[`runbooks/restic-backup-setup.md`](../../runbooks/restic-backup-setup.md)
+[`runbooks/security/restic-backup-setup.md`](../../runbooks/security/restic-backup-setup.md)
 runbook. Retention policy is `--keep-daily 7 --keep-weekly 4
 --keep-monthly 12` (max 23 snapshots).
 
@@ -47,7 +47,7 @@ runbook. Retention policy is `--keep-daily 7 --keep-weekly 4
   Cron Triggers can't run a static binary on disk.
 - **All three layers are no-card / free-tier.** Restic is OSS, B2 is
   free at our scale, GH Actions is unlimited on public repos. No
-  exception to [`rules/no-card-on-file.md`](../../rules/no-card-on-file.md).
+  exception to [`rules/no-card-on-file.md`](../../rules/interaction/no-card-on-file.md).
 
 ## Implications
 
@@ -71,8 +71,8 @@ runbook. Retention policy is `--keep-daily 7 --keep-weekly 4
 - [restic service entry](../../services/storage/restic.md)
 - [Backblaze B2 service entry](../../services/storage/backblaze-b2.md)
 - [GitHub Actions schedule](../../services/cron/github-actions-schedule.md)
-- [Restic backup setup runbook](../../runbooks/restic-backup-setup.md)
+- [Restic backup setup runbook](../../runbooks/security/restic-backup-setup.md)
 - [Object storage split decision](./object-storage-split.md)
 - [Cron split decision](./cron-split-cf-vs-gh.md)
 - [Doppler — secrets source-of-truth](../security/secrets-management-doppler.md)
-- [No card-on-file rule](../../rules/no-card-on-file.md)
+- [No card-on-file rule](../../rules/interaction/no-card-on-file.md)

@@ -36,7 +36,7 @@ locked.
 
 - **Zero infra cost.** No CMS server, no hosted-CMS subscription, no
   card on file. A `.md` file is the cheapest possible content store
-  ([never-hit-quotas](../../rules/never-hit-quotas.md) + [no-card-on-file](../../rules/no-card-on-file.md) + [no-subscriptions](../../rules/no-subscriptions.md)).
+  ([never-hit-quotas](../../rules/interaction/never-hit-quotas.md) + [no-card-on-file](../../rules/interaction/no-card-on-file.md) + [no-subscriptions](../../rules/infrastructure/no-subscriptions.md)).
 - **Version control IS the editorial workflow.** Git history = revision
   history; PRs = drafts; `main` = published; `git revert` = unpublish.
   The same workflow already used for code, applied to content.
@@ -57,7 +57,7 @@ locked.
 | Tool | Why rejected |
 |---|---|
 | Decap CMS (formerly Netlify CMS) | Adds a JS-heavy admin UI on top of git that does what `git commit` already does for free; abandoned-feel since the Netlify rebrand |
-| TinaCMS | Free tier caps at 2 editors / 1K Tina Cloud documents — fights [`never-hit-quotas`](../../rules/never-hit-quotas.md); paid tier requires card |
+| TinaCMS | Free tier caps at 2 editors / 1K Tina Cloud documents — fights [`never-hit-quotas`](../../rules/interaction/never-hit-quotas.md); paid tier requires card |
 | Strapi (Cloud) | Hosted Strapi requires card; self-host fights [`no-self-host`] (we use only managed serverless) |
 | Sanity / Contentful / Storyblok / Hygraph | Hosted SaaS with free tiers that cap; require credit card upgrade path; introduce a content-API runtime dependency the static site doesn't need |
 | Payload / Directus / Keystone | Self-host or paid cloud; add a Postgres dependency we'd otherwise avoid for content |
@@ -95,6 +95,6 @@ locked.
 - [Cloudflare Pages for all sites](../infrastructure/cloudflare-pages-for-all-sites.md)
 - [One-branch-only rule](../process/one-branch-only-rule.md)
 - [Repo-naming suffixes](../branding/repo-naming-suffixes.md)
-- [No subscriptions rule](../../rules/no-subscriptions.md)
-- [No card-on-file rule](../../rules/no-card-on-file.md)
-- [Never-hit-quotas rule](../../rules/never-hit-quotas.md)
+- [No subscriptions rule](../../rules/infrastructure/no-subscriptions.md)
+- [No card-on-file rule](../../rules/interaction/no-card-on-file.md)
+- [Never-hit-quotas rule](../../rules/interaction/never-hit-quotas.md)

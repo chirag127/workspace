@@ -62,7 +62,7 @@ User direction (chronological, same day 2026-06-20):
    tracking."
 
 The later direction wins per
-[`rules/future-overrides-past.md`](../../../rules/interaction/future-overrides-past.md).
+[`rules/interaction/future-overrides-past.md`](../../../rules/interaction/future-overrides-past.md).
 
 ## Why
 

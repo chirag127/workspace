@@ -74,7 +74,7 @@ site repo.
 ## Why this is our pick
 
 It's the official Astro integration. Every site already runs Astro
-([`decisions/architecture/oriz-ui-split-into-5-packages.md`](../../decisions/architecture/oriz-ui-split-into-5-packages.md)
+(<!-- TODO: broken link, was [`decisions/architecture/oriz-ui-split-into-5-packages.md`](../../decisions/architecture/oriz-ui-split-into-5-packages.md) -->
 context), so adding the integration is one line in `astro.config.mjs`.
 Free, OSS, no backend, no card.
 

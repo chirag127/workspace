@@ -83,7 +83,7 @@ Affiliate-monetisable via Bankbazaar / Paisabazaar / IndusInd / HDFC affiliate n
 
 - **No card-on-file** — affiliate networks pay you, not the other way around. Compliant.
 - **No paid subscriptions** — N/A.
-- **Disclosure required** — every page that contains an affiliate link must disclose. Per [policy/](../../../policy/index.md). The honesty matters more than the revenue.
+- **Disclosure required** — every page that contains an affiliate link must disclose. Per [policy/](../../policy/index.md). The honesty matters more than the revenue.
 
 ## Why the user overrode the recommendation
 

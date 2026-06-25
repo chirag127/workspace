@@ -76,5 +76,5 @@ the same `pnpm` toolchain), no new vendor surface, no card.
 - [Hono Worker API umbrella decision](../../decisions/architecture/hono-worker-api-umbrella.md)
 - [Cloudflare Pages for all sites](../../decisions/infrastructure/cloudflare-pages-for-all-sites.md)
 - [Hookdeck — production webhook ingress](../tooling/hookdeck.md)
-- [No card-on-file rule](../../rules/no-card-on-file.md)
-- [No subscriptions rule](../../rules/no-subscriptions.md)
+- [No card-on-file rule](../../rules/interaction/no-card-on-file.md)
+- [No subscriptions rule](../../rules/infrastructure/no-subscriptions.md)

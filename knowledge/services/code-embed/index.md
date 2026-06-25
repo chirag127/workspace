@@ -29,4 +29,4 @@ card required.
 
 - [services/social/ray-so](../social/ray-so.md) — generates the og:image card for blog posts that embed any of these
 - [decisions/architecture/multi-engine-search-button](../../decisions/architecture/multi-engine-search-button.md) — screenshots from these embeds travel through the multi-search popover as og:image when shared
-- [No card-on-file rule](../../rules/no-card-on-file.md)
+- [No card-on-file rule](../../rules/interaction/no-card-on-file.md)

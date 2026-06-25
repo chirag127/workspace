@@ -79,4 +79,4 @@ sender. Resend, Buttondown, EmailOctopus are three distinct roles.
 - [Resend](../../services/email/resend.md) — transactional only
 - [Cross-post engine decision](./cross-post-engine.md)
 - [oriz-omnipost glossary](../../glossary/o-r/omnipost.md)
-- [No card-on-file rule](../../rules/no-card-on-file.md)
+- [No card-on-file rule](../../rules/interaction/no-card-on-file.md)

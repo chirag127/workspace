@@ -51,6 +51,6 @@ serving every site.
 
 ## Cross-refs
 
-- [Layer 5 — compute](../../architecture/layer-5-compute.md)
-- [API umbrella — Hono Worker](../../architecture/api-umbrella-hono-worker.md)
-- [Cloudflare Pages](./cloudflare-pages.md)
+- [Layer 5 — compute](../../decisions/architecture/general/layer-5-compute.md)
+- [API umbrella — Hono Worker](../../decisions/architecture/compute/api-umbrella-hono-worker.md)
+- [Cloudflare Pages](../hosting/cloudflare-pages.md)

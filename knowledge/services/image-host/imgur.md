@@ -48,7 +48,7 @@ without payment method. No card requested anywhere in the flow.
 1. Same CI step that uploads to [ImgBB](./imgbb.md) also POSTs to `https://api.imgur.com/3/image` with `Authorization: Client-ID <IMGUR_CLIENT_ID>` (from [Doppler](../secrets/doppler.md)) + base64 body.
 2. API returns `{ data: { link, deletehash, ... } }`.
 3. The URL is committed to the post's frontmatter as `image_tier_3:`.
-4. The [`<Image>` chain](../../glossary/o-r/oriz-kit.md) treats it as the fallback after ImgBB.
+4. The <!-- TODO: broken link, was [`<Image>` chain](../../glossary/o-r/oriz-kit.md) --> treats it as the fallback after ImgBB.
 
 ## Methods supported
 
@@ -89,5 +89,5 @@ keep resolving from `i.imgur.com` regardless.
 - [repo-hosted Tier 1](./repo-hosted-cf-pages.md)
 - [GitHub user-content Tier 4](./github-user-content.md)
 - [3-tier image-CDN chain](../image-cdn/index.md) — delivery wrapper
-- [No card-on-file rule](../../rules/no-card-on-file.md)
-- [Never-hit-quotas rule](../../rules/never-hit-quotas.md)
+- [No card-on-file rule](../../rules/interaction/no-card-on-file.md)
+- [Never-hit-quotas rule](../../rules/interaction/never-hit-quotas.md)

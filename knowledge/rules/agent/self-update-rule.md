@@ -61,7 +61,7 @@ Capture only **non-recoverable** information:
 5. If it supersedes an older concept, set `superseded_by` on the
    old + `supersedes` on the new. Don't delete.
 6. Commit `docs(knowledge): <one-line summary>` (don't push — see
-   [`no-push-without-say-so.md`](../no-push-without-say-so.md)).
+   <!-- TODO: broken link, was [`no-push-without-say-so.md`](../no-push-without-say-so.md) -->).
 
 ## See also
 

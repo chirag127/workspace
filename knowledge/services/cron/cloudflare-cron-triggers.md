@@ -70,5 +70,5 @@ runner cold start.
 - [Cron split decision](../../decisions/architecture/cron-split-cf-vs-gh.md)
 - [GitHub Actions schedule](./github-actions-schedule.md) — sister cron
 - [Cloudflare Workers](../compute/cloudflare-workers.md)
-- [API umbrella — Hono Worker](../../architecture/api-umbrella-hono-worker.md)
+- [API umbrella — Hono Worker](../../decisions/architecture/compute/api-umbrella-hono-worker.md)
 - [healthchecks.io](../monitoring/healthchecks-io.md)

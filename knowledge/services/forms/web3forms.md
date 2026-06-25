@@ -52,4 +52,4 @@ leak, and the spam protection is good enough out of the box.
 ## Cross-refs
 
 - [Formspree](./formspree.md) — fallback
-- [No card-on-file rule](../../rules/no-card-on-file.md)
+- [No card-on-file rule](../../rules/interaction/no-card-on-file.md)

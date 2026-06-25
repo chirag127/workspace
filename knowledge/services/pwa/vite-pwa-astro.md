@@ -91,7 +91,7 @@ The kit ships a default config preset; sites only override `name` /
   Workbox boilerplate.
 - `next-pwa` / `nuxt-pwa` — wrong framework. The family is
   Astro-only per
-  [`decisions/architecture/oriz-ui-split-into-5-packages.md`](../../decisions/architecture/oriz-ui-split-into-5-packages.md).
+  <!-- TODO: broken link, was [`decisions/architecture/oriz-ui-split-into-5-packages.md`](../../decisions/architecture/oriz-ui-split-into-5-packages.md) -->.
 - Capacitor / Tauri native wrappers — **walked back** per
   [`decisions/architecture/distribution-and-queues-locked.md`](../../decisions/architecture/distribution-and-queues-locked.md).
   PWA-only is the explicit floor. Re-open only if a native-only
@@ -116,5 +116,5 @@ site for the cost of one config block.
 - [Distribution + queues locked decision](../../decisions/architecture/distribution-and-queues-locked.md)
 - [PWA bucket index](./index.md)
 - [Cloudflare Pages for all sites](../../decisions/infrastructure/cloudflare-pages-for-all-sites.md)
-- [oriz-kit glossary entry](../../glossary/o-r/oriz-kit.md) — `<InstallPrompt />` forward reference
-- [No card-on-file rule](../../rules/no-card-on-file.md)
+- <!-- TODO: broken link, was [oriz-kit glossary entry](../../glossary/o-r/oriz-kit.md) --> — `<InstallPrompt />` forward reference
+- [No card-on-file rule](../../rules/interaction/no-card-on-file.md)

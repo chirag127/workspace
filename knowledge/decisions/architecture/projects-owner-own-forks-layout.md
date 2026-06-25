@@ -89,7 +89,7 @@ matrices scope by owner trivially.
 
 The brand-owned repos cluster under `oriz-org/`. Personal experiments
 and drive-by forks cluster under `chirag127/`. Recruiter strategy
-(see [rules/recruiter-strategy](../../rules/recruiter-strategy.md)):
+(see [rules/recruiter-strategy](../../rules/interaction/recruiter-strategy.md)):
 chirag127 stays populated so the personal account doesn't look dead.
 
 ## Why 4 buckets (products / services / libraries / content)
@@ -137,7 +137,7 @@ of `forks/`.
 - Repo slug naming — still follows [`repo-naming-suffixes`](../branding/repo-naming-suffixes.md)
 - Submodule discipline — still 74 submodules pinned to commits in
   the umbrella; no switch to subtree or manifest
-- Fork discipline — still minimum-diff, see [`rules/fork-discipline`](../../rules/fork-discipline.md)
+- Fork discipline — still minimum-diff, see [`rules/fork-discipline`](../../rules/development/fork-discipline.md)
 
 ## Migration cost
 

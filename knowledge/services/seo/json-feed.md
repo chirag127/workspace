@@ -91,5 +91,5 @@ guarantees we never lose a subscriber to a format gap.
 - [Multi-format feeds decision](../../decisions/architecture/feeds-rss-atom-json.md)
 - [Atom 1.0 sibling](./atom-feed.md)
 - [SEO services index](./index.md)
-- [oriz-kit glossary](../../glossary/o-r/oriz-kit.md) — `<FeedDiscovery />` + generators
+- <!-- TODO: broken link, was [oriz-kit glossary](../../glossary/o-r/oriz-kit.md) --> — `<FeedDiscovery />` + generators
 - jsonfeed.org spec v1.1 — https://www.jsonfeed.org/version/1.1/

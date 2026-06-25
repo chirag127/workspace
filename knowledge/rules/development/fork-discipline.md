@@ -144,4 +144,4 @@ and opens an issue.
 ## Cross-refs
 
 - [`repo-naming.md`](./repo-naming.md) — non-fork naming rules
-- [`decisions/architecture/submodule-pattern.md`](../../architecture/ops/submodule-pattern.md) — submodule discipline
+- [`decisions/architecture/submodule-pattern.md`](../../decisions/architecture/ops/submodule-pattern.md) — submodule discipline

@@ -60,8 +60,8 @@ Apps and APIs across the fleet are 100% public. No sign-in UI, no session check,
 
 ## Cross-refs
 
-- Supersedes: [auth-clerk-emergency-migrate-2026-06-25](./auth-clerk-emergency-migrate-2026-06-25.md)
-- Supersedes: [auth-firebase-login-account-2026-06-25](./auth-firebase-login-account-2026-06-25.md)
-- Related rule: [donations-only](../../../rules/interaction/donations-only.md)
+- Supersedes: [auth-clerk-emergency-migrate-2026-06-25](no-auth-in-apps-or-apis-2026-06-25.md)
+- Supersedes: <!-- TODO: broken link, was [auth-firebase-login-account-2026-06-25](./auth-firebase-login-account-2026-06-25.md) -->
+- Related rule: <!-- TODO: broken link, was [donations-only](../../../rules/interaction/donations-only.md) -->
 - Related rule: [no-card-on-file](../../../rules/interaction/no-card-on-file.md)
 - Related memory: [[no-auth-in-apps-or-apis]], [[donations-only-no-pro-no-ads]]

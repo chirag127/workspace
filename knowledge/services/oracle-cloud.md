@@ -34,10 +34,10 @@ the no-card-on-file rule, but the exclusion is broader than that.
 
 ## Replacement
 
-For compute: [Cloudflare Workers](./cloudflare-workers.md) +
-[GitHub Actions](./github-actions.md). For VMs: not pursued.
+For compute: [Cloudflare Workers](compute/cloudflare-workers.md) +
+[GitHub Actions](compute/github-actions.md). For VMs: not pursued.
 
 ## Cross-refs
 
-- [No card-on-file rule](../rules/no-card-on-file.md)
+- [No card-on-file rule](../rules/interaction/no-card-on-file.md)
 - [AGENTS.md hard constraints](../../AGENTS.md#hard-constraints-will-never-use)

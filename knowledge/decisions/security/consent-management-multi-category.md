@@ -173,7 +173,7 @@ the family ever has to ship.
   click; documented in the Giscus per-site placement.
 - **No third-party SaaS consent manager** — CookieYes / Cookiebot /
   Osano / OneTrust all rejected per
-  [`rules/no-subscriptions.md`](../../rules/no-subscriptions.md) and
+  [`rules/infrastructure/no-subscriptions.md`](../../rules/infrastructure/no-subscriptions.md) and
   (in some cases) card-on-file requirement.
 
 ## Cross-refs
@@ -187,6 +187,6 @@ the family ever has to ship.
 - [FCM — web push, functional category](../../services/push/fcm.md)
 - [Security headers strategy — CSP coupling](./security-headers-strategy.md)
 - [UTM attribution strategy — marketing-cookie context](../architecture/utm-attribution-strategy.md)
-- [No card-on-file rule](../../rules/no-card-on-file.md)
-- [No subscriptions rule](../../rules/no-subscriptions.md)
-- [Never hit quotas rule](../../rules/never-hit-quotas.md)
+- [No card-on-file rule](../../rules/interaction/no-card-on-file.md)
+- [No subscriptions rule](../../rules/infrastructure/no-subscriptions.md)
+- [Never hit quotas rule](../../rules/interaction/never-hit-quotas.md)

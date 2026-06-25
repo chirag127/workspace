@@ -35,7 +35,7 @@ that's intentional.
 **Sole time-tracking pick.**
 [Toggl Track was considered + rejected](./toggl-track.md) because
 it requires manual timer start/stop, which violates the family-wide
-[auto-only-tracking rule](../../rules/auto-only-tracking.md) locked
+[auto-only-tracking rule](../../rules/interaction/auto-only-tracking.md) locked
 2026-06-20. Non-coding time (meetings, planning, calls) is
 **intentionally not tracked** rather than manually tracked — manual
 data decays, and untracked time is honest signal that the user was
@@ -116,12 +116,12 @@ Wakatime's UI is the live dashboard.
   recruiter-facing artifact that documents "what the user
   actually uses day-to-day." Pairs with the
   everything-public-OSS posture per
-  [`repos-work-independently`](../../rules/repos-work-independently.md)
+  [`repos-work-independently`](../../rules/development/repos-work-independently.md)
   and the donation rails per
   [`max-payment-methods`](../../decisions/monetisation/max-payment-methods.md).
 - **No card** — fits
-  [`rules/no-card-on-file`](../../rules/no-card-on-file.md)
-  + [`rules/no-subscriptions`](../../rules/no-subscriptions.md).
+  [`rules/no-card-on-file`](../../rules/interaction/no-card-on-file.md)
+  + [`rules/no-subscriptions`](../../rules/infrastructure/no-subscriptions.md).
 - **REST API** is well-documented; daily JSONL export pattern
   works around the 2-week history cap on the free tier.
 - **IDE-plugin universe** covers every editor the family uses
@@ -132,7 +132,7 @@ Wakatime's UI is the live dashboard.
 - **[Toggl Track](./toggl-track.md)** — REJECTED 2026-06-20.
   Different surface (manual timers for non-coding work) but
   manual tracking is the rejection axis: violates the
-  [auto-only-tracking rule](../../rules/auto-only-tracking.md).
+  [auto-only-tracking rule](../../rules/interaction/auto-only-tracking.md).
 - **RescueTime** — broader auto-tracker (browser, app,
   category) but full reports require Premium + card; overlaps
   Wakatime's coding scope without the IDE-classification depth.
@@ -165,12 +165,12 @@ exportable via API; the JSONL archive is provider-agnostic.
 ## Cross-refs
 
 - [Time-tracking — Wakatime only (decision)](../../decisions/architecture/time-tracking-wakatime-only.md) — walk-back narrative for the original Toggl + Wakatime split
-- [Auto-only-tracking rule](../../rules/auto-only-tracking.md) — why this is the sole pick
+- [Auto-only-tracking rule](../../rules/interaction/auto-only-tracking.md) — why this is the sole pick
 - [Auto-tracking-everywhere decision](../../decisions/architecture/auto-tracking-everywhere.md) — family-wide auto-only principle
 - [Toggl Track — REJECTED counterpart](./toggl-track.md)
 - [Productivity services index](./index.md)
 - [Lifestream JSONL canonical](../../decisions/architecture/lifestream-jsonl-canonical.md) — future ingest target
 - [oriz-me added to family](../../decisions/branding/oriz-me-added-to-family.md) — public surface for the dashboard
 - [Doppler — API key vault](../secrets/doppler.md)
-- [Repos work independently rule](../../rules/repos-work-independently.md) — public dashboard fits OSS posture
-- [No card-on-file rule](../../rules/no-card-on-file.md)
+- [Repos work independently rule](../../rules/development/repos-work-independently.md) — public dashboard fits OSS posture
+- [No card-on-file rule](../../rules/interaction/no-card-on-file.md)

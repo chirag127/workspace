@@ -61,12 +61,12 @@ After those, decreasing in importance:
 ## What this rule supports
 
 - The owner-split layout
-  ([`projects-owner-own-forks-layout`](../../decisions/architecture/general/projects-owner-own-forks-layout.md))
+  ([`projects-owner-own-forks-layout`](../../decisions/architecture/projects-owner-own-forks-layout.md))
   — keeps both surfaces populated. Brand work under `oriz-org/`,
   personal work under `chirag127/`. Each surface tells the right
   story.
 - Moving `oriz-cs-me-app` off the brand org back to chirag127
-  ([`cs-me-app-moved-to-chirag127`](../../decisions/branding/cs-me-app-moved-to-chirag127.md))
+  (<!-- TODO: broken link, was [`cs-me-app-moved-to-chirag127`](../../decisions/branding/cs-me-app-moved-to-chirag127.md) -->)
   — the personal account needs 5–10 real repos to look alive.
 
 ## Sources of evidence

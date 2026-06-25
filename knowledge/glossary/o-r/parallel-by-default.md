@@ -31,4 +31,4 @@ parallelism is not.
 ## See also
 
 - [parallel-fan-out](./parallel-fan-out.md)
-- [self-update-rule](./self-update-rule.md)
+- [self-update-rule](../s-z/self-update-rule.md)

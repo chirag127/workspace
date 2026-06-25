@@ -36,7 +36,7 @@ under 100 ms anywhere.
 
 - Cloudflare D1
 - TinyBase static
-- Postgres on [Supabase](./supabase.md)
+- Postgres on [Supabase](../auth/supabase.md)
 
 ## Swap cost
 
@@ -50,5 +50,5 @@ network. Rebuildable from canonical at any time.
 
 ## Cross-refs
 
-- [Canonical store JSONL](../../architecture/canonical-store-jsonl.md)
-- [Layer 4 — database by shape](../../architecture/layer-4-database-by-shape.md)
+- [Canonical store JSONL](../../decisions/architecture/database/canonical-store-jsonl.md)
+- [Layer 4 — database by shape](../../decisions/architecture/general/layer-4-database-by-shape.md)

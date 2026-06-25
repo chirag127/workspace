@@ -28,4 +28,4 @@ Convention: bump commits in master use the message
 
 ## See also
 
-- [master-repo](./master-repo.md)
+- [master-repo](../i-n/master-repo.md)

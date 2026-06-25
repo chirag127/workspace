@@ -153,7 +153,7 @@ once per org (or after a full token rotation). Recurring mirror runs via
 
 ## Step 2: Store all tokens at chirag127 GitHub org level
 
-Per [`rules/github-org-level-secrets.md`](../../rules/security/github-org-level-secrets.md),
+Per [`rules/security/github-org-level-secrets.md`](../../rules/security/github-org-level-secrets.md),
 ALL secrets live at org level. Run this script:
 
 ```bash
@@ -326,15 +326,15 @@ When a token expires or is compromised:
 1. Regenerate on the host's dashboard (see Step 1 for each host)
 2. Update in Doppler: `doppler secrets set <NAME> --config prd`
 3. Re-run Step 2's `gh secret set` loop
-4. Per [`runbooks/rotate-leaked-secret.md`](../security/rotate-leaked-secret.md)
+4. Per [`runbooks/security/rotate-leaked-secret.md`](../security/rotate-leaked-secret.md)
 
 ---
 
 ## See also
 
 - Mirror decision → [`../decisions/architecture/mirror-to-6-git-hosts.md`](../../decisions/architecture/ops/mirror-to-6-git-hosts.md)
-- Org secrets rule → [`../rules/github-org-level-secrets.md`](../../rules/security/github-org-level-secrets.md)
+- Org secrets rule → [`../rules/security/github-org-level-secrets.md`](../../rules/security/github-org-level-secrets.md)
 - Set org secrets → [`./set-github-org-level-secrets.md`](../security/set-github-org-level-secrets.md)
 - Rotate leaked secret → [`./rotate-leaked-secret.md`](../security/rotate-leaked-secret.md)
 - Service files per host → [`../services/hosting/`](../../services/hosting)
-- Workflow file → [`../../.github/workflows/mirror-all.yml`](../../.github/workflows/mirror-all.yml)
+- Workflow file → <!-- TODO: broken link, was [`../../.github/workflows/mirror-all.yml`](../../.github/workflows/mirror-all.yml) -->

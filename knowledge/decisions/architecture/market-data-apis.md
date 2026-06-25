@@ -16,7 +16,7 @@ related:
   - rules/linux-ci-only
 ---
 
-> **Reactivated 2026-06-22** under a different mechanism. The original body below described two **Cloudflare Workers** (`flow-fii-dii.api.oriz.in`, `mmi.api.oriz.in`) backed by KV. That design was first replaced by an aggregator repo (`oriz-market-data`, see [`market-data-via-github`](./market-data-via-github.md)), then reverted same-day to the current shape: each API stays in its own repo, scraped by GH Actions, served via GitHub Pages + raw.githubusercontent.com. See [`market-data-per-repo`](./market-data-per-repo.md) for the current canonical decision. The CF Worker body below is preserved for audit trail and as the historical alternative — the repo slugs and product surfaces it locked are unchanged.
+> **Reactivated 2026-06-22** under a different mechanism. The original body below described two **Cloudflare Workers** (`flow-fii-dii.api.oriz.in`, `mmi.api.oriz.in`) backed by KV. That design was first replaced by an aggregator repo (`oriz-market-data`, see <!-- TODO: broken link, was [`market-data-via-github`](./market-data-via-github.md) -->), then reverted same-day to the current shape: each API stays in its own repo, scraped by GH Actions, served via GitHub Pages + raw.githubusercontent.com. See [`market-data-per-repo`](./market-data-per-repo.md) for the current canonical decision. The CF Worker body below is preserved for audit trail and as the historical alternative — the repo slugs and product surfaces it locked are unchanged.
 
 # Market-data APIs — FII/DII Activity + Tickertape MMI
 
@@ -41,7 +41,7 @@ Each gets its own 100K req/day free envelope per [cf-worker-quota-mitigation](./
 - DNS: 2 new CNAME records under `oriz.in` zone pointing at `*.workers.dev` — set via Cloudflare API on first deploy (handled by `wrangler deploy --custom-domain`).
 - Both Workers fit the [easy-free-tier catalog](../../services/easy-free-tier.md) — CF Workers free 100K req/day + KV 1K writes/day + 100K reads/day per namespace, no card on file.
 - Upstream resilience: FII/DII has NSE → Moneycontrol fallback in-Worker; MMI is single-upstream (Tickertape) — if Tickertape drops, we serve stale-while-error from KV until manual intervention.
-- Tests scaffolded with `@cloudflare/vitest-pool-workers`, one happy-path per endpoint, per the [tests-parallel rule](../../rules/tests-parallel-and-master-install.md).
+- Tests scaffolded with `@cloudflare/vitest-pool-workers`, one happy-path per endpoint, per the [tests-parallel rule](../../rules/development/tests-parallel-and-master-install.md).
 - License MIT per the [MIT relicense lock](./mit-license-all-repos.md).
 
 ## Cross-refs

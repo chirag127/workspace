@@ -170,4 +170,4 @@ periodic tasks.
 - [Security headers strategy — uses `_headers`](../../security/security-headers-strategy.md)
 - [Never hit quotas rule](../../../rules/interaction/never-hit-quotas.md)
 - [No card-on-file rule](../../../rules/interaction/no-card-on-file.md)
-- [Layer 5 — compute architecture (Tier 2 = CF Workers)](../../../architecture/general/layer-5-compute.md)
+- [Layer 5 — compute architecture (Tier 2 = CF Workers)](../general/layer-5-compute.md)

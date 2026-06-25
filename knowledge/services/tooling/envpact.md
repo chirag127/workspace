@@ -47,5 +47,5 @@ shape is already aligned to it.
 
 ## Cross-refs
 
-- [GitHub Actions](./github-actions.md) — pulls secrets at deploy
-- [Cloudflare Workers](./cloudflare-workers.md)
+- [GitHub Actions](../compute/github-actions.md) — pulls secrets at deploy
+- [Cloudflare Workers](../compute/cloudflare-workers.md)

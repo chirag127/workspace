@@ -46,5 +46,5 @@ behaviour. Same pattern as the
 
 - [5-tier analytics stack decision](../../decisions/architecture/analytics-five-tier-stack.md)
 - [UTM attribution strategy decision](../../decisions/architecture/utm-attribution-strategy.md)
-- [oriz-kit glossary](../../glossary/o-r/oriz-kit.md) — `<UtmLink>` + `<Analytics />` live here
-- [No card-on-file rule](../../rules/no-card-on-file.md)
+- <!-- TODO: broken link, was [oriz-kit glossary](../../glossary/o-r/oriz-kit.md) --> — `<UtmLink>` + `<Analytics />` live here
+- [No card-on-file rule](../../rules/interaction/no-card-on-file.md)

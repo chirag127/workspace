@@ -41,7 +41,7 @@ related:
 This runbook deploys the three auto-event pipelines locked in the
 [`lifestream-auto-event-sources`](../../decisions/architecture/general/lifestream-auto-event-sources.md)
 decision. The package
-[`@chirag127/oriz-lifestream`](../../packages/oriz-lifestream) holds
+<!-- TODO: broken link, was [`@chirag127/oriz-lifestream`](../../packages/oriz-lifestream) --> holds
 the code; this runbook holds the wiring.
 
 ## Inventory
@@ -144,7 +144,7 @@ re-set both secrets on the new worker.
 ## 5. Enable the two GH Actions cron workflows
 
 The workflow templates live in
-[`templates/per-lifestream-cron/.github/workflows/`](../../templates/per-lifestream-cron/.github/workflows).
+<!-- TODO: broken link, was [`templates/per-lifestream-cron/.github/workflows/`](../../templates/per-lifestream-cron/.github/workflows) -->.
 Copy both into the master `chirag127/oriz` repo at
 `.github/workflows/`:
 

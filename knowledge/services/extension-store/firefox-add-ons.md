@@ -97,4 +97,4 @@ audience. Free + no card means there's no friction to adding it.
 - [Chrome Web Store](./chrome-web-store.md)
 - [Microsoft Edge Add-ons](./edge-add-ons.md)
 - [Extension-store bucket index](./index.md)
-- [No card-on-file rule](../../rules/no-card-on-file.md)
+- [No card-on-file rule](../../rules/interaction/no-card-on-file.md)

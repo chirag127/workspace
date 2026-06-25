@@ -71,8 +71,8 @@ for the trigger conditions.
   reference) — already in-flight, the API choice unblocks the
   Worker route definition.
 - **Both free, both no-card** — fits
-  [no-card-on-file](../../rules/no-card-on-file.md) and
-  [no-subscriptions](../../rules/no-subscriptions.md).
+  [no-card-on-file](../../rules/interaction/no-card-on-file.md) and
+  [no-subscriptions](../../rules/infrastructure/no-subscriptions.md).
 
 ## Cross-refs
 
@@ -81,5 +81,5 @@ for the trigger conditions.
 - [CF Worker quota mitigation playbook](../../decisions/architecture/cf-worker-quota-mitigation.md)
 - [Umbrella Hono Worker — fronts every data-api call](../../decisions/architecture/hono-worker-api-umbrella.md)
 - [Doppler — API key vault for Alpha Vantage](../secrets/doppler.md)
-- [No card-on-file rule](../../rules/no-card-on-file.md)
-- [Never hit quotas rule](../../rules/never-hit-quotas.md)
+- [No card-on-file rule](../../rules/interaction/no-card-on-file.md)
+- [Never hit quotas rule](../../rules/interaction/never-hit-quotas.md)

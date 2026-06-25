@@ -27,7 +27,7 @@ config (path aliases, plugins, env loading) without a parallel
 `jest.config.ts`. Used for:
 
 - Pure-function tests in `@chirag127/oriz-kit` and the other
-  [5 oriz-ui packages](../../decisions/architecture/oriz-ui-split-into-5-packages.md)
+  <!-- TODO: broken link, was [5 oriz-ui packages](../../decisions/architecture/oriz-ui-split-into-5-packages.md) -->
 - React component logic with `@testing-library/react` (browser
   behaviour goes through [Playwright](./playwright.md), not JSDOM)
 - Hono Worker handler tests using `@hono/vite-test-utils`
@@ -87,4 +87,4 @@ Storybook/Chromatic for visual regression — the
 - [Testing three-layer decision](../../decisions/architecture/testing-three-layer.md)
 - [Code-quality stack decision](../../decisions/process/code-quality-stack.md)
 - [Sonarcloud — coverage upload target](../code-quality/sonarcloud.md)
-- [No card-on-file rule](../../rules/no-card-on-file.md)
+- [No card-on-file rule](../../rules/interaction/no-card-on-file.md)

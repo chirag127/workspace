@@ -113,4 +113,4 @@ for a single one — locked in
 - [Cloudflare _headers — static security headers](./cloudflare-headers.md)
 - [Cloudflare Pages — host that sits behind WAF](../hosting/cloudflare-pages.md)
 - [Cloudflare Workers — compute behind WAF](../compute/cloudflare-workers.md)
-- [No card-on-file rule](../../rules/no-card-on-file.md)
+- [No card-on-file rule](../../rules/interaction/no-card-on-file.md)

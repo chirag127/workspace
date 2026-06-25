@@ -117,6 +117,6 @@ None for metrics. Content is not subject to this rule (see
 - [`decisions/architecture/auto-tracking-everywhere.md`](../../decisions/architecture/general/auto-tracking-everywhere.md) — the family-wide decision that locks this principle, with concrete auto-event source list for the lifestream
 - [`decisions/architecture/time-tracking-wakatime-only.md`](../../decisions/architecture/ops/time-tracking-wakatime-only.md) — the walk-back of Toggl
 - [`decisions/architecture/lifestream-jsonl-canonical.md`](../../decisions/architecture/database/lifestream-jsonl-canonical.md) — the JSONL stream that consumes auto sources
-- [`rules/never-hit-quotas.md`](./never-hit-quotas.md) — paired rule on the architecture-not-survival posture
+- [`rules/interaction/never-hit-quotas.md`](./never-hit-quotas.md) — paired rule on the architecture-not-survival posture
 - [`rules/no-card-on-file.md`](./no-card-on-file.md) — auto-tracking spending = no spending
-- [`rules/future-overrides-past.md`](./future-overrides-past.md) — why this rule supersedes the earlier "Toggl + Wakatime both" direction from the same day
+- [`rules/interaction/future-overrides-past.md`](./future-overrides-past.md) — why this rule supersedes the earlier "Toggl + Wakatime both" direction from the same day

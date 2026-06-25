@@ -17,7 +17,7 @@ rejection_reason: "AWS requires a credit/debit card on file at sign-up, even to 
 
 ## Status
 
-**REJECTED.** Violates the [no-card-on-file rule](../rules/no-card-on-file.md).
+**REJECTED.** Violates the [no-card-on-file rule](../rules/interaction/no-card-on-file.md).
 
 ## Why rejected
 
@@ -33,11 +33,11 @@ the card on file regardless. Auto-billing is the default behavior.
 
 ## Replacement
 
-- Compute: [Cloudflare Workers](./cloudflare-workers.md)
-- Storage: [Cloudflare R2](./cloudflare-r2.md)
-- DB: [Firebase Spark](./firebase-spark.md), [Turso](./turso.md), [Supabase](./supabase.md)
+- Compute: [Cloudflare Workers](compute/cloudflare-workers.md)
+- Storage: [Cloudflare R2](compute/cloudflare-r2.md)
+- DB: [Firebase Spark](auth/firebase-spark.md), [Turso](database/turso.md), [Supabase](auth/supabase.md)
 
 ## Cross-refs
 
-- [No card-on-file rule](../rules/no-card-on-file.md)
-- [Cloudflare Workers](./cloudflare-workers.md) — Lambda replacement
+- [No card-on-file rule](../rules/interaction/no-card-on-file.md)
+- [Cloudflare Workers](compute/cloudflare-workers.md) — Lambda replacement

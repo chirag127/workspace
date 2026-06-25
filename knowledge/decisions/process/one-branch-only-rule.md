@@ -43,7 +43,7 @@ directly and catch breakage at the same point a PR would.
 
 ## Cross-refs
 
-- [One-branch-only rule (rules dir)](../../rules/one-branch-only.md)
+- [One-branch-only rule (rules dir)](../../rules/development/one-branch-only.md)
 - [Per-repo CI workflows](./per-repo-ci-workflows.md)
-- [No push without say-so rule](../../rules/no-push-without-say-so.md)
+- <!-- TODO: broken link, was [No push without say-so rule](../../rules/no-push-without-say-so.md) -->
 - [AGENTS.md git section](../../../AGENTS.md)

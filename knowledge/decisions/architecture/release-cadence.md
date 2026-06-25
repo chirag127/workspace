@@ -98,4 +98,4 @@ it won't show up in the changelog — that's the forcing function.
 
 - [multi-target-build](./multi-target-build.md) — per-app deploy workflow that the tag triggers
 - [naming-policy-v6](../branding/naming-policy-v6.md) — `-app` suffix is what the cron filter selects on
-- [rules/keep-knowledge-fresh](../../rules/keep-knowledge-fresh.md)
+- [rules/keep-knowledge-fresh](../../rules/agent/keep-knowledge-fresh.md)

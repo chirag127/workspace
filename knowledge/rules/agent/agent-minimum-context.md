@@ -83,7 +83,7 @@ Every knowledge file is:
 
 ### Step 4: Wikilink everything related
 
-`[[file-slug]]` or `[file](../relative/path.md)` — both work. Pick at least 2 related files to link from any new knowledge file. The bundle's graph density is what makes it navigable; isolated files rot.
+`[[file-slug]]` or `<!-- TODO: broken link, was [file](../relative/path.md) -->` — both work. Pick at least 2 related files to link from any new knowledge file. The bundle's graph density is what makes it navigable; isolated files rot.
 
 ### Step 5: Same-turn commit
 

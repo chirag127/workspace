@@ -59,5 +59,5 @@ most competitors.
 ## Cross-refs
 
 - [Web3Forms](./web3forms.md) — simple contact forms only
-- [Data canonical store policy](../../policy/data-canonical-store.md)
-- [No card-on-file rule](../../rules/no-card-on-file.md)
+- [Data canonical store policy](../../decisions/policy/data-canonical-store.md)
+- [No card-on-file rule](../../rules/interaction/no-card-on-file.md)

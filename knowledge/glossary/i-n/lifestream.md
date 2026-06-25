@@ -26,11 +26,11 @@ feed. The site itself is statically rebuilt from the JSONL on every
 push.
 
 Lifestream is one concrete implementation of the broader
-[digital-twin](./digital-twin.md) concept.
+[digital-twin](../d-h/digital-twin.md) concept.
 
 ## See also
 
-- [digital-twin](./digital-twin.md)
-- [data-repo](./data-repo.md)
-- [cache-rebuild](./cache-rebuild.md)
-- [the-provenance-strip](./the-provenance-strip.md)
+- [digital-twin](../d-h/digital-twin.md)
+- [data-repo](../d-h/data-repo.md)
+- [cache-rebuild](../a-c/cache-rebuild.md)
+- [the-provenance-strip](../s-z/the-provenance-strip.md)

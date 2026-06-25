@@ -82,4 +82,4 @@ choice.
 
 - [Max payment methods decision](../../decisions/monetisation/max-payment-methods.md)
 - [PayPal.me](./paypal-me.md)
-- [No card-on-file rule](../../rules/no-card-on-file.md)
+- [No card-on-file rule](../../rules/interaction/no-card-on-file.md)

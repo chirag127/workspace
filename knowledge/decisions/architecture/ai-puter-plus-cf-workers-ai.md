@@ -62,7 +62,7 @@ account, same `wrangler.toml`, same no-card billing surface).
   Workers AI's Stable Diffusion XL Lightning when needed.
 - **Whisper for ASR** (podcast / video transcription) goes through
   Workers AI server-side.
-- **Quota headroom** per [`rules/never-hit-quotas.md`](../../rules/never-hit-quotas.md):
+- **Quota headroom** per [`rules/interaction/never-hit-quotas.md`](../../rules/interaction/never-hit-quotas.md):
   the Hono Worker tracks neurons consumed per day in KV; trips a soft
   cap at 50% (5,000 neurons) to flag approach. Browser-side AI never
   burns the server budget — it goes through Puter.js.
@@ -80,5 +80,5 @@ account, same `wrangler.toml`, same no-card billing surface).
 - [AI services index](../../services/ai/index.md)
 - [Hono Worker API umbrella](./hono-worker-api-umbrella.md)
 - [Queue — Cloudflare native (sibling stack-cohesion decision)](./queue-cloudflare-native.md)
-- [No card-on-file rule](../../rules/no-card-on-file.md)
-- [Never hit quotas rule](../../rules/never-hit-quotas.md)
+- [No card-on-file rule](../../rules/interaction/no-card-on-file.md)
+- [Never hit quotas rule](../../rules/interaction/never-hit-quotas.md)

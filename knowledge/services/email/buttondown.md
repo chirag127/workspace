@@ -75,4 +75,4 @@ newsletter that doesn't want a wide audience.
 - [Resend](./resend.md) — transactional
 - [oriz-omnipost glossary](../../glossary/o-r/omnipost.md)
 - [Cross-post engine decision](../../decisions/architecture/cross-post-engine.md)
-- [No card-on-file rule](../../rules/no-card-on-file.md)
+- [No card-on-file rule](../../rules/interaction/no-card-on-file.md)

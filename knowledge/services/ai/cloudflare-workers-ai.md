@@ -58,11 +58,11 @@ decision at
 
 **NO.** Same account as the rest of the Cloudflare stack — the
 account stays no-card per
-[`rules/no-card-on-file.md`](../../rules/no-card-on-file.md).
+[`rules/no-card-on-file.md`](../../rules/interaction/no-card-on-file.md).
 
 ## Quota-headroom plan
 
-Per [`rules/never-hit-quotas.md`](../../rules/never-hit-quotas.md):
+Per [`rules/interaction/never-hit-quotas.md`](../../rules/interaction/never-hit-quotas.md):
 
 - The Hono Worker tracks neurons consumed per day in KV; trips a soft
   cap at 50% (5,000 neurons) to flag approach.
@@ -120,5 +120,5 @@ in `apps/api/src/ai/` so the swap is one file.
 - [AI split decision (Puter + Workers AI)](../../decisions/architecture/ai-puter-plus-cf-workers-ai.md)
 - [Hono Worker API umbrella](../../decisions/architecture/hono-worker-api-umbrella.md)
 - [Cloudflare Workers](../compute/cloudflare-workers.md)
-- [No card-on-file rule](../../rules/no-card-on-file.md)
-- [Never hit quotas rule](../../rules/never-hit-quotas.md)
+- [No card-on-file rule](../../rules/interaction/no-card-on-file.md)
+- [Never hit quotas rule](../../rules/interaction/never-hit-quotas.md)

@@ -56,9 +56,9 @@ zero by construction.
 
 ## Cross-refs
 
-- [Never hit free-tier quotas](../../rules/never-hit-quotas.md)
-- [No card-on-file rule](../../rules/no-card-on-file.md)
+- [Never hit free-tier quotas](../../rules/interaction/never-hit-quotas.md)
+- [No card-on-file rule](../../rules/interaction/no-card-on-file.md)
 - [Firebase Spark forever](../infrastructure/firebase-spark-forever.md)
 - [Cloudflare Pages for all sites](../infrastructure/cloudflare-pages-for-all-sites.md)
 - [AGENTS.md service catalog](../../../AGENTS.md)
-- [No paid tier policy](../../policy/no-paid-tier.md) — the policy-version of this decision
+- [No paid tier policy](../policy/no-paid-tier.md) — the policy-version of this decision

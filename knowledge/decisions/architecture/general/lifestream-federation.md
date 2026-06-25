@@ -79,7 +79,7 @@ replays the canonical JSONL into it — no data is at risk.
 ### Architecture
 
 - Two mirror scripts, both reading from `chirag127/oriz-me-data`
-  via the [canonical-store-jsonl architecture](../../../architecture/database/canonical-store-jsonl.md):
+  via the [canonical-store-jsonl architecture](../database/canonical-store-jsonl.md):
   - `scripts/mirror-to-atproto.ts` — pushes new JSONL events as
     AT Protocol records.
   - `scripts/mirror-to-activitypub.ts` — pushes new JSONL events
@@ -110,11 +110,11 @@ replays the canonical JSONL into it — no data is at risk.
 ### What gets federated
 
 - **Public-tagged events only.** Per the
-  [public/private line policy](../../../policy/public-private-line.md)
+  [public/private line policy](../../policy/public-private-line.md)
   and the
   [journal-stays-auth-gated decision](../../content/journal-stays-auth-gated.md),
   journal entries are NOT federated. Age-gated content per
-  [age-gating policy](../../../policy/age-gating.md) is NOT federated.
+  [age-gating policy](../../policy/age-gating.md) is NOT federated.
 - The mirror scripts read the `visibility` tag on each JSONL
   event and skip non-public events.
 
@@ -142,7 +142,7 @@ replays the canonical JSONL into it — no data is at risk.
 - [Lifestream JSONL is canonical (anchor decision)](../database/lifestream-jsonl-canonical.md)
 - [100-year strategy locked](../../content/100-year-strategy-locked.md)
 - [Journal stays auth-gated](../../content/journal-stays-auth-gated.md)
-- [Public/private line policy](../../../policy/public-private-line.md)
+- [Public/private line policy](../../policy/public-private-line.md)
 - [Hono Worker API umbrella](../compute/hono-worker-api-umbrella.md)
 - [Spaceship registrar + Cloudflare DNS](../../infrastructure/spaceship-registrar-cloudflare-dns.md)
 - [Cloudflare Cron Triggers](../../../services/cron/cloudflare-cron-triggers.md)

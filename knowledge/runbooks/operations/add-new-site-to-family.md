@@ -150,5 +150,5 @@ within 2–3 minutes.
 
 - Submodule pointer flow: [`./bump-submodule-pointer.md`](./bump-submodule-pointer.md)
 - Auth prerequisites: [`./auth-setup.md`](../security/auth-setup.md)
-- Monetisation defaults: [`../policy/monetisation.md`](../../policy/monetisation.md)
-- Family conventions: [`../../AGENTS.md`](../../AGENTS.md)
+- Monetisation defaults: [`../policy/monetisation.md`](../../decisions/policy/monetisation.md)
+- Family conventions: [`../../AGENTS.md`](../../../AGENTS.md)

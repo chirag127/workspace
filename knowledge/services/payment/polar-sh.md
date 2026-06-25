@@ -95,4 +95,4 @@ re-implement webhook verifier + checkout-link generator.
 - [GitHub Sponsors (developer donations, 0% fee)](./github-sponsors.md)
 - [Liberapay (recurring donations, 0% fee)](./liberapay.md)
 - [Open Collective (transparent fund accounting)](./opencollective.md)
-- [No card-on-file rule](../../rules/no-card-on-file.md)
+- [No card-on-file rule](../../rules/interaction/no-card-on-file.md)

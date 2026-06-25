@@ -50,5 +50,5 @@ Zero-config security baseline. Every repo gets a `.github/dependabot.yml` enabli
 ## Cross-refs
 
 - [services/code-quality/coderabbit](./coderabbit.md)
-- [rules/always-latest-deps](../../rules/always-latest-deps.md)
+- [rules/always-latest-deps](../../rules/development/always-latest-deps.md)
 - [decisions/code-quality-stack](../../decisions/process/code-quality-stack.md)

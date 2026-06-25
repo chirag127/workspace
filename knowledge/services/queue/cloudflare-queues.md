@@ -70,4 +70,4 @@ traffic.
 - [Upstash QStash](./upstash-qstash.md) — deferred alternative
 - [Inngest](./inngest.md) — deferred alternative
 - [Hookdeck](../tooling/hookdeck.md) — webhook reliability layer that pushes into this queue
-- [No card-on-file rule](../../rules/no-card-on-file.md)
+- [No card-on-file rule](../../rules/interaction/no-card-on-file.md)

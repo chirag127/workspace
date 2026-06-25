@@ -23,7 +23,7 @@ related:
 ## Role
 
 Component sandbox for every export of `@chirag127/oriz-kit` and
-the other [5 oriz-ui packages](../../decisions/architecture/oriz-ui-split-into-5-packages.md).
+the other <!-- TODO: broken link, was [5 oriz-ui packages](../../decisions/architecture/oriz-ui-split-into-5-packages.md) -->.
 Each component ships a `*.stories.tsx` file declaring its canonical
 states (default, loading, error, empty). Storybook serves three
 purposes:
@@ -68,7 +68,7 @@ and syncs to GitHub Actions.
   regressions)
 - States not represented in stories (caught at story-write time)
 - Theme + dark-mode regressions across the
-  [v2 design system](../../design/index.md)
+  [v2 design system](../../decisions/design/index.md)
 - Story-driven `play()` interaction tests via `@storybook/test`
 
 ## Alternatives
@@ -99,6 +99,6 @@ they form layer 3 of the
 - [Vitest — unit sibling](./vitest.md)
 - [Playwright — E2E sibling](./playwright.md)
 - [Testing three-layer decision](../../decisions/architecture/testing-three-layer.md)
-- [oriz-ui split into 5 packages](../../decisions/architecture/oriz-ui-split-into-5-packages.md)
+- <!-- TODO: broken link, was [oriz-ui split into 5 packages](../../decisions/architecture/oriz-ui-split-into-5-packages.md) -->
 - [Doppler — secrets source-of-truth](../secrets/doppler.md)
-- [No card-on-file rule](../../rules/no-card-on-file.md)
+- [No card-on-file rule](../../rules/interaction/no-card-on-file.md)

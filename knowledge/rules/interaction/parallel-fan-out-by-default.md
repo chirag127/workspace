@@ -16,9 +16,9 @@ format_version: okf-v0.1
 status: active
 related:
 - parallel-by-default.md
-- ../runbooks/clean-install.md
-- ../runbooks/add-new-site-to-family.md
-- ../runbooks/bump-submodule-pointer.md
+- ../runbooks/operations/clean-install.md
+- ../runbooks/operations/add-new-site-to-family.md
+- ../runbooks/operations/bump-submodule-pointer.md
 ---
 
 
@@ -50,7 +50,7 @@ Three independent reasons, any one of which is sufficient:
    files of orchestrator context. Searching them in 17 subagents
    returns one summary line per agent and burns ~zero orchestrator
    context. The user runs out of conversation 10x slower this way.
-   See [`claude-api`](../file:/~/.claude/skills/claude-api) for current
+   See <!-- TODO: broken link, was [`claude-api`](../file:/~/.claude/skills/claude-api) --> for current
    model context-window numbers — never answer from memory.
 2. **Wall-clock.** N parallel agents complete in roughly the time of
    the slowest one, not the sum. For a family of 11 sites + N
@@ -88,7 +88,7 @@ Agent(
   orchestrator when each background agent finishes. Don't poll; don't
   block.
 - **Commit + push after each batch** (subject to
-  [`no-push-without-say-so.md`](../no-push-without-say-so.md)). A batch
+  <!-- TODO: broken link, was [`no-push-without-say-so.md`](../no-push-without-say-so.md) -->). A batch
   is one logical unit — "added 5 sites' contact forms", not "added
   contact form to oriz-blog".
 
@@ -125,14 +125,14 @@ description: "sequential because step 2 depends on step 1 output."
 - **2026-06-20 bundle bootstrap**: 5 parallel subagents populated
   `decisions/` (33 files), `services/` (41 files), `architecture/`
   (21 files), `policy/` (11 files), `glossary/` (28 files); a sixth
-  rebuilt `rules/` (12 files). See [`../log.md`](../../log.md).
+  rebuilt `rules/` (12 files). See <!-- TODO: broken link, was [`../log.md`](../../log.md) -->.
 - **Clean install across 11 sites**: see
-  [`../runbooks/clean-install.md`](../../runbooks/operations/clean-install.md).
+  [`../runbooks/operations/clean-install.md`](../../runbooks/operations/clean-install.md).
 - **Bump submodule pointer**: when bumping multiple, fan out — see
-  [`../runbooks/bump-submodule-pointer.md`](../../runbooks/operations/bump-submodule-pointer.md).
+  [`../runbooks/operations/bump-submodule-pointer.md`](../../runbooks/operations/bump-submodule-pointer.md).
 - **Add new site to family**: bootstrap steps that don't depend on
   each other (workflows, secrets, DNS, submodule add) are fan-outable
-  — see [`../runbooks/add-new-site-to-family.md`](../../runbooks/operations/add-new-site-to-family.md).
+  — see [`../runbooks/operations/add-new-site-to-family.md`](../../runbooks/operations/add-new-site-to-family.md).
 
 ## See also
 

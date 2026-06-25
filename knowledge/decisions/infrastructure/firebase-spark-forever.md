@@ -44,8 +44,8 @@ no-card-on-file rule.
 
 ## Cross-refs
 
-- [Never hit free-tier quotas](../../rules/never-hit-quotas.md)
-- [No card-on-file rule](../../rules/no-card-on-file.md)
+- [Never hit free-tier quotas](../../rules/interaction/never-hit-quotas.md)
+- [No card-on-file rule](../../rules/interaction/no-card-on-file.md)
 - [No subscriptions anywhere](../monetisation/no-subscriptions-anywhere.md)
 - [Firebase Spark service entry](../../services/auth/firebase-spark.md)
-- [Layer 3 — Firebase Spark architecture](../../architecture/layer-3-auth-firebase-spark.md)
+- [Layer 3 — Firebase Spark architecture](../architecture/security/layer-3-auth-firebase-spark.md)

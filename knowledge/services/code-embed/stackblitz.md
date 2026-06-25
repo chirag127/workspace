@@ -84,4 +84,4 @@ is the most stable across ad-blockers we've tested.
 - [CodePen](./codepen.md) — sibling for CSS-heavy demos
 - [GitHub Gists](./github-gists.md) — sibling for static snippets
 - [Ray.so](../social/ray-so.md) — generates the og:image card for blog posts that embed StackBlitz
-- [No card-on-file rule](../../rules/no-card-on-file.md)
+- [No card-on-file rule](../../rules/interaction/no-card-on-file.md)

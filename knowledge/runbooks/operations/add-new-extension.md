@@ -123,7 +123,7 @@ cd /c/D/oriz/sites/oriz-extensions   # or oriz-home for the cross-promo
 The landing page uses the same `@chirag127/oriz-kit` shared
 primitives as everything else.
 
-Per [`../policy/monetisation.md`](../../policy/monetisation.md): NO
+Per [`../policy/monetisation.md`](../../decisions/policy/monetisation.md): NO
 ads on extension landing pages.
 
 ### 7. Register in the family list
@@ -158,5 +158,5 @@ git tag v0.1.0
 
 - Submodule pointer flow: [`./bump-submodule-pointer.md`](./bump-submodule-pointer.md)
 - Auth prerequisites: [`./auth-setup.md`](../security/auth-setup.md)
-- Monetisation policy (no ads on extension pages): [`../policy/monetisation.md`](../../policy/monetisation.md)
-- Family conventions: [`../../AGENTS.md`](../../AGENTS.md)
+- Monetisation policy (no ads on extension pages): [`../policy/monetisation.md`](../../decisions/policy/monetisation.md)
+- Family conventions: [`../../AGENTS.md`](../../../AGENTS.md)

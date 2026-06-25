@@ -37,7 +37,7 @@ The family's backup architecture is the triple:
 | Scheduler | [GitHub Actions schedule](../../../services/cron/github-actions-schedule.md) (weekly Sunday 03:00 UTC) |
 
 The full setup — workflow YAML, repo init, restore drill — is the
-[`runbooks/restic-backup-setup.md`](../../../runbooks/security/restic-backup-setup.md)
+[`runbooks/security/restic-backup-setup.md`](../../../runbooks/security/restic-backup-setup.md)
 runbook. Retention policy is `--keep-daily 7 --keep-weekly 4
 --keep-monthly 12` (max 23 snapshots).
 

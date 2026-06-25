@@ -46,5 +46,5 @@ Email transport behind Knock's email channel is
 - [Resend — email transport](../email/resend.md)
 - [Firebase Spark — auth + free tier](../auth/firebase-spark.md)
 - [Hookdeck — webhook reliability fronting Knock](../tooling/hookdeck.md)
-- [No card-on-file rule](../../rules/no-card-on-file.md)
-- [Never hit quotas rule](../../rules/never-hit-quotas.md)
+- [No card-on-file rule](../../rules/interaction/no-card-on-file.md)
+- [Never hit quotas rule](../../rules/interaction/never-hit-quotas.md)

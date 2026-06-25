@@ -149,4 +149,4 @@ copy-paste-with-find-replace.
 - [Tier 1 — s.oriz.in CF Worker](./cloudflare-worker.md)
 - [Tier 2 — TinyURL](./tinyurl.md)
 - [GitHub Releases — sibling free zero-infra storage](../storage/github-releases.md)
-- [No card-on-file rule](../../rules/no-card-on-file.md)
+- [No card-on-file rule](../../rules/interaction/no-card-on-file.md)

@@ -70,7 +70,7 @@ The family pattern: **Firestore for app data, Cloudflare D1 + KV for edge state,
 
 ## Firestore project + emulator
 
-- **Production Firestore project: `oriz-app`.** Single project for all production family workloads. Multi-tenant by collection prefix, not by project — keeps Spark plan free-tier quotas under one roof and dodges the [`never-hit-quotas`](../../rules/never-hit-quotas.md) cap-per-project trap.
+- **Production Firestore project: `oriz-app`.** Single project for all production family workloads. Multi-tenant by collection prefix, not by project — keeps Spark plan free-tier quotas under one roof and dodges the [`never-hit-quotas`](../../rules/interaction/never-hit-quotas.md) cap-per-project trap.
 - **Local dev: Firestore Emulator** (`firebase emulators:start --only firestore`). **No separate dev/staging Firestore project.** A second project would either need its own Blaze upgrade for features or sit underused on Spark and burn quota headroom unnecessarily.
 - **Migration to prod = export from emulator + import to `oriz-app`** via the standard `firestore.indexes.json` + `firestore.rules` pipeline. Seed data lives in `master/scripts/seed-firestore.ts`, runnable against either emulator or prod.
 

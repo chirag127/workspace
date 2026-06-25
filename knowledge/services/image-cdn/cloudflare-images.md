@@ -68,5 +68,5 @@ Cloudflare edge.
 - [Cloudflare Pages for all sites](../../decisions/infrastructure/cloudflare-pages-for-all-sites.md)
 - [wsrv.nl](./wsrv-nl.md)
 - [ImageKit](./imagekit.md)
-- [oriz-kit glossary](../../glossary/o-r/oriz-kit.md)
-- [No card-on-file rule](../../rules/no-card-on-file.md)
+- <!-- TODO: broken link, was [oriz-kit glossary](../../glossary/o-r/oriz-kit.md) -->
+- [No card-on-file rule](../../rules/interaction/no-card-on-file.md)

@@ -43,7 +43,7 @@ mental model stays consistent.
 
 ## Cross-refs
 
-- [Repo naming: oriz-<name>-site / -ext](../branding/keep-oriz-add-site-suffix.md)
+- <!-- TODO: broken link, was [Repo naming: oriz-<name>-site / -ext](../branding/keep-oriz-add-site-suffix.md) -->
 - [Extensions cross-store publish](./extensions-cross-store-publish.md)
 - [Per-repo CI workflows](../process/per-repo-ci-workflows.md)
 - [Per-extension subdomain](../content/per-extension-subdomain.md)

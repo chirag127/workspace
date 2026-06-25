@@ -29,7 +29,7 @@ content rather than being the content.
 
 ## Why
 
-Per the family design briefs ([design/_family-rules](../../design/_family-rules.md))
+Per the family design briefs ([design/_family-rules](../../decisions/design/_family-rules.md))
 the visual identity across every `oriz-*` site is "quiet, typographic,
 considered". Emoji break that on multiple axes:
 
@@ -64,4 +64,4 @@ README files (those aren't site chrome).
 
 ## See also
 
-- [`_family-rules.md`](../../design/_family-rules.md)
+- [`_family-rules.md`](../../decisions/design/_family-rules.md)

@@ -101,7 +101,7 @@ pnpm dev
 - json-server — too thin; doesn't model error paths / latency / state
   transitions the way Mockoon does.
 - Postman Mock Server — paid past trial; fights
-  [`rules/no-card-on-file.md`](../../rules/no-card-on-file.md).
+  [`rules/no-card-on-file.md`](../../rules/interaction/no-card-on-file.md).
 - Beeceptor — paid past free tier; same.
 - Mocky.io — paid past free tier; same.
 
@@ -131,4 +131,4 @@ those limits hardest.
 - [API mocks split decision](../../decisions/architecture/api-mocks-msw-plus-mockoon.md)
 - [Data APIs decision](../../decisions/architecture/data-apis-open-meteo-alpha-vantage.md)
 - [Testing three-layer decision](../../decisions/architecture/testing-three-layer.md)
-- [No card-on-file rule](../../rules/no-card-on-file.md)
+- [No card-on-file rule](../../rules/interaction/no-card-on-file.md)

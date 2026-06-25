@@ -72,7 +72,7 @@ family-wide load stays well under the soft cap.
 
 - **No API key** removes a secret-rotation surface — nothing to
   put in [Doppler](../secrets/doppler.md), nothing to leak.
-- **Unlimited free** removes the [never-hit-quotas](../../rules/never-hit-quotas.md)
+- **Unlimited free** removes the [never-hit-quotas](../../rules/interaction/never-hit-quotas.md)
   worry on the provider side; CF Worker quota is the only cap to
   manage, and the existing
   [CF Worker quota mitigation playbook](../../decisions/architecture/cf-worker-quota-mitigation.md)
@@ -92,7 +92,7 @@ family-wide load stays well under the soft cap.
   Higher cap than OWM but still narrower than Open-Meteo's
   unlimited.
 - **Tomorrow.io** — 500 calls/day, requires card after trial.
-  Rejected on [no-card-on-file](../../rules/no-card-on-file.md).
+  Rejected on [no-card-on-file](../../rules/interaction/no-card-on-file.md).
 - **Visual Crossing** — 1,000 records/day free, requires card
   past trial. Rejected on the same grounds.
 - **NOAA / NWS direct** (US only) — free, no key. Geo-restricted
@@ -111,5 +111,5 @@ transform in the umbrella Worker. No client SDK lock-in.
 - [Data APIs decision (Open-Meteo + Alpha Vantage)](../../decisions/architecture/data-apis-open-meteo-alpha-vantage.md)
 - [CF Worker quota mitigation playbook — caching policy](../../decisions/architecture/cf-worker-quota-mitigation.md)
 - [Workers KV — hot-path cache for weather payloads](../compute/cloudflare-workers.md)
-- [No card-on-file rule](../../rules/no-card-on-file.md)
-- [Never hit quotas rule](../../rules/never-hit-quotas.md)
+- [No card-on-file rule](../../rules/interaction/no-card-on-file.md)
+- [Never hit quotas rule](../../rules/interaction/never-hit-quotas.md)

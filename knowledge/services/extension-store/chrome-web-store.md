@@ -48,7 +48,7 @@ Firefox, Edge.
 cost** — paid once at developer-account creation, never billed
 again. This is **not** a subscription and **does not** create a
 card-on-file relationship — the family's
-[`rules/no-card-on-file.md`](../../rules/no-card-on-file.md) and
+[`rules/no-card-on-file.md`](../../rules/interaction/no-card-on-file.md) and
 [`decisions/monetisation/no-subscriptions-anywhere.md`](../../decisions/monetisation/no-subscriptions-anywhere.md)
 both still hold. (One-time fees for permanent capabilities are the
 documented exception class — same shape as a domain registration.)
@@ -110,4 +110,4 @@ the family already pays.
 - [Microsoft Edge Add-ons](./edge-add-ons.md)
 - [Extension-store bucket index](./index.md)
 - [Per-extension privacy policy](../../decisions/content/per-extension-privacy-policy.md)
-- [No card-on-file rule](../../rules/no-card-on-file.md)
+- [No card-on-file rule](../../rules/interaction/no-card-on-file.md)

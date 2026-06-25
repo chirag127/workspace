@@ -9,7 +9,7 @@ format_version: okf-v0.1
 
 # Service catalog — oriz family
 
-This catalog runs at **4-level hierarchy** (`services/<role>/<file>.md`) — see [`../_okf.md`](../_okf.md#hierarchy-depth--3-levels-by-default-4-levels-for-big-dirs) for the rule. The canonical service rules (no card-on-file, never enable Blaze, etc.) live in [`../rules/`](../rules/index.md). Architectural pairings live in [`../architecture/`](../architecture/index.md).
+This catalog runs at **4-level hierarchy** (`services/<role>/<file>.md`) — see [`../_okf.md`](../_okf.md#hierarchy-depth--3-levels-by-default-4-levels-for-big-dirs) for the rule. The canonical service rules (no card-on-file, never enable Blaze, etc.) live in [`../rules/`](../rules/index.md). Architectural pairings live in [`../architecture/`](../decisions/architecture/apps/index.md).
 
 **Status legend:** `active` = currently used primary, `fallback` = documented swap target if primary fails, `rejected` = explicitly excluded (card-required, user policy, or quota too tight).
 
@@ -236,6 +236,6 @@ This catalog runs at **4-level hierarchy** (`services/<role>/<file>.md`) — see
 
 ## Cross-refs
 
-- [No card-on-file rule](../rules/no-card-on-file.md)
-- [Never hit quotas rule](../rules/never-hit-quotas.md)
+- [No card-on-file rule](../rules/interaction/no-card-on-file.md)
+- [Never hit quotas rule](../rules/interaction/never-hit-quotas.md)
 - [AGENTS.md service catalog](../../AGENTS.md#service-catalog--picks--alternatives)

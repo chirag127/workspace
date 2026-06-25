@@ -48,5 +48,5 @@ review, and the APL query language is solid.
 
 ## Cross-refs
 
-- [GlitchTip](./glitchtip.md)
-- [Cloudflare Workers](./cloudflare-workers.md)
+- [GlitchTip](../monitoring/glitchtip.md)
+- [Cloudflare Workers](../compute/cloudflare-workers.md)

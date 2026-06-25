@@ -50,6 +50,6 @@ The family is a single-developer, eventually-consistent project. A Worker can be
 ## Cross-refs
 
 - [services/payment/razorpay](../payment/razorpay.md)
-- [architecture/api-umbrella-hono-worker](../../architecture/api-umbrella-hono-worker.md)
+- [architecture/api-umbrella-hono-worker](../../decisions/architecture/compute/api-umbrella-hono-worker.md)
 - [decisions/hookdeck-for-webhook-reliability](../../decisions/infrastructure/hookdeck-for-webhook-reliability.md)
 - [decisions/razorpay-as-primary-billing](../../decisions/monetisation/razorpay-as-primary-billing.md)

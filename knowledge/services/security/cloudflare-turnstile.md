@@ -95,7 +95,7 @@ widget loads without a per-site CSP exception.
 ## Swap cost
 
 Low — the `<Captcha>` component in
-[`@chirag127/oriz-kit`](../../glossary/o-r/oriz-kit.md) is the only
+<!-- TODO: broken link, was [`@chirag127/oriz-kit`](../../glossary/o-r/oriz-kit.md) --> is the only
 import surface. Swapping providers means re-implementing the
 component body; every site picks up the change on the next kit
 release.
@@ -116,5 +116,5 @@ covers it.
 - [reCAPTCHA Enterprise — App Check provider, different role](../auth/recaptcha-enterprise.md)
 - [Captcha decision — Turnstile primary + hCaptcha fallback](../../decisions/security/captcha-turnstile-plus-hcaptcha.md)
 - [Doppler — secrets sync source-of-truth](../secrets/doppler.md)
-- [oriz-kit glossary](../../glossary/o-r/oriz-kit.md)
-- [No card-on-file rule](../../rules/no-card-on-file.md)
+- <!-- TODO: broken link, was [oriz-kit glossary](../../glossary/o-r/oriz-kit.md) -->
+- [No card-on-file rule](../../rules/interaction/no-card-on-file.md)

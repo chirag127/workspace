@@ -112,4 +112,4 @@ error paths.
 - [Playwright — uses `page.route()` instead of MSW for E2E browser intercepts](./playwright.md)
 - [API mocks split decision](../../decisions/architecture/api-mocks-msw-plus-mockoon.md)
 - [Testing three-layer decision](../../decisions/architecture/testing-three-layer.md)
-- [No card-on-file rule](../../rules/no-card-on-file.md)
+- [No card-on-file rule](../../rules/interaction/no-card-on-file.md)

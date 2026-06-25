@@ -117,7 +117,7 @@ low-traffic sites; flip to `true` only on Workers / sites currently
 being debugged or recently deployed. Combined with the 3 GB/mo cap,
 this prevents a runaway log loop on one Worker from burning the
 family-wide budget. Documented under
-[`rules/never-hit-quotas.md`](../../../rules/interaction/never-hit-quotas.md).
+[`rules/interaction/never-hit-quotas.md`](../../../rules/interaction/never-hit-quotas.md).
 
 ### Three observability planes — distinct, not stacked
 
@@ -150,7 +150,7 @@ critical comms channel. So we don't run a redundant log sink.
 - **No Logtail / Datadog / Loggly / Papertrail.** All require card on
   file at family scale (or are paid past trial — fights
   [`rules/no-card-on-file.md`](../../../rules/interaction/no-card-on-file.md) +
-  [`rules/no-subscriptions.md`](../../../rules/infrastructure/no-subscriptions.md)).
+  [`rules/infrastructure/no-subscriptions.md`](../../../rules/infrastructure/no-subscriptions.md)).
 - **No self-hosted log stack** (Loki / Promtail, ELK). Self-host fights
   the family's no-self-host posture.
 - **No R2 fallback log sink.** R2 was rejected family-wide on
@@ -168,7 +168,7 @@ critical comms channel. So we don't run a redundant log sink.
 - [Sentry — error / exception plane](../../../services/monitoring/sentry.md)
 - [healthchecks.io — heartbeat plane](../../../services/monitoring/healthchecks-io.md)
 - [Axiom — metrics-shaped events](../../../services/tooling/axiom.md)
-- [API umbrella Hono Worker](../../../architecture/compute/api-umbrella-hono-worker.md)
+- [API umbrella Hono Worker](../compute/api-umbrella-hono-worker.md)
 - [CF Worker quota mitigation playbook](../compute/cf-worker-quota-mitigation.md)
 - [Never hit quotas rule](../../../rules/interaction/never-hit-quotas.md)
 - [No card-on-file rule](../../../rules/interaction/no-card-on-file.md)

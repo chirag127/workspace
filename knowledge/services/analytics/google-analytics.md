@@ -94,7 +94,7 @@ data is sent until consent lands.
 
 ## Per-site env-var toggle
 
-Per the [never-hit-quotas rule](../../rules/never-hit-quotas.md), GA4
+Per the [never-hit-quotas rule](../../rules/interaction/never-hit-quotas.md), GA4
 is one of the five layers covered by an env-var kill-switch:
 
 ```bash
@@ -102,7 +102,7 @@ ENABLE_GA4=true|false
 ```
 
 The `<Analytics />` component in
-[`@chirag127/oriz-kit`](../../glossary/o-r/oriz-kit.md) reads this at
+<!-- TODO: broken link, was [`@chirag127/oriz-kit`](../../glossary/o-r/oriz-kit.md) --> reads this at
 build time; setting `false` tree-shakes the GA4 script entirely
 (zero bytes shipped, not just blocked at runtime).
 
@@ -150,5 +150,5 @@ reader expects.
 - [5-tier analytics stack decision](../../decisions/architecture/analytics-five-tier-stack.md)
 - [Consent management multi-category decision](../../decisions/security/consent-management-multi-category.md)
 - [Klaro service](../security/klaro.md)
-- [No card-on-file rule](../../rules/no-card-on-file.md)
-- [Never hit quotas rule](../../rules/never-hit-quotas.md)
+- [No card-on-file rule](../../rules/interaction/no-card-on-file.md)
+- [Never hit quotas rule](../../rules/interaction/never-hit-quotas.md)

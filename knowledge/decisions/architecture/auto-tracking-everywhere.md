@@ -26,7 +26,7 @@ captured **automatically**. No manual entry anywhere in the metric
 pipeline.
 
 This decision file locks the family-wide principle. The companion
-[`rules/auto-only-tracking.md`](../../rules/auto-only-tracking.md)
+[`rules/interaction/auto-only-tracking.md`](../../rules/interaction/auto-only-tracking.md)
 spells out the rule that every future tracking pick must pass.
 
 For the `oriz-me` lifestream specifically, this decision pre-locks
@@ -47,7 +47,7 @@ automatically tracked no manual tracking."*
 ## Why
 
 - **Manual tracking decays.** See
-  [`rules/auto-only-tracking.md`](../../rules/auto-only-tracking.md)
+  [`rules/interaction/auto-only-tracking.md`](../../rules/interaction/auto-only-tracking.md)
   §"Why" for the full argument.
 - **Dishonest data is worse than no data.** A manually-fudged
   metric produces wrong decisions; an untracked gap is at least
@@ -128,7 +128,7 @@ manual fallback.
 - **Journal / thoughts entries on `oriz-journal-site`** are
   CONTENT, not metrics. Manual writing is intentional and
   expected. See
-  [`rules/auto-only-tracking.md`](../../rules/auto-only-tracking.md)
+  [`rules/interaction/auto-only-tracking.md`](../../rules/interaction/auto-only-tracking.md)
   §"When NOT to apply this rule".
 - **Markdown blog posts, design briefs, knowledge bundle
   entries** — also content. Not subject to this decision.
@@ -163,7 +163,7 @@ manual fallback.
 
 ## Cross-refs
 
-- [Auto-only-tracking rule](../../rules/auto-only-tracking.md) — the rule version of this principle
+- [Auto-only-tracking rule](../../rules/interaction/auto-only-tracking.md) — the rule version of this principle
 - [Time-tracking — Wakatime only](./time-tracking-wakatime-only.md) — Toggl walk-back driven by this decision
 - [Lifestream JSONL canonical](./lifestream-jsonl-canonical.md) — the durable store the auto sources feed
 - [oriz-me added to family](../branding/oriz-me-added-to-family.md) — the lifestream-bearing site
@@ -173,4 +173,4 @@ manual fallback.
 - [Cloudflare Web Analytics](../../services/analytics/cloudflare-web-analytics.md)
 - [Sentry — auto error capture](../../services/monitoring/sentry.md)
 - [GitHub Actions cron schedule](../../services/cron/github-actions-schedule.md)
-- [Future overrides past rule](../../rules/future-overrides-past.md)
+- [Future overrides past rule](../../rules/interaction/future-overrides-past.md)

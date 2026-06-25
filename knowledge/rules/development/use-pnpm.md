@@ -67,5 +67,5 @@ single site's deps, not 11×.
 
 - [`always-latest-deps.md`](./always-latest-deps.md) — install policy that pairs with this rule
 - [`repos-work-independently.md`](./repos-work-independently.md) — each repo runs `pnpm install` standalone
-- [`../runbooks/clean-install.md`](../../runbooks/operations/clean-install.md) — bootstrap procedure
+- [`../runbooks/operations/clean-install.md`](../../runbooks/operations/clean-install.md) — bootstrap procedure
 - [`../_okf.md`](../../_okf.md) — OKF conventions

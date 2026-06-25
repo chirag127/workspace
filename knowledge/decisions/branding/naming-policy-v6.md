@@ -226,7 +226,7 @@ For envpact specifically, the 7 repos keep their `envpact-*` prefix but add the 
 
 ## Cross-refs
 
-- [naming-policy-v5](./naming-policy-v5.md) — predecessor (status: superseded by v6)
+- <!-- TODO: broken link, was [naming-policy-v5](./naming-policy-v5.md) --> — predecessor (status: superseded by v6)
 - [multi-target-build](../architecture/multi-target-build.md) — release cadence, deploy gating, sentry, sitemap, dashboard locks
 - [per-runtime-framework](../architecture/per-runtime-framework.md) — framework matrix per runtime
-- [keep-knowledge-fresh](../../rules/keep-knowledge-fresh.md) — meta-rule
+- [keep-knowledge-fresh](../../rules/agent/keep-knowledge-fresh.md) — meta-rule

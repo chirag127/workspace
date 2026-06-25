@@ -78,7 +78,7 @@ Add a 2× safety margin for cold-cache spread across CF's ~300+
 edge POPs (each POP misses cache once per slug per year): worst
 case ~1-2K Worker requests/day. The free tier is 100,000/day. We
 sit at **1-2% of headroom**, comfortably inside
-[`rules/never-hit-quotas.md`](../../rules/never-hit-quotas.md).
+[`rules/interaction/never-hit-quotas.md`](../../rules/interaction/never-hit-quotas.md).
 
 ## Implications
 
@@ -105,7 +105,7 @@ sit at **1-2% of headroom**, comfortably inside
   third-party would only add fragility (vendor disappearance, custom
   domain loss, rate-limit surprises).
 - **DO NOT enable Workers Paid** to "increase headroom" — violates
-  [`rules/no-card-on-file.md`](../../rules/no-card-on-file.md) and
+  [`rules/no-card-on-file.md`](../../rules/interaction/no-card-on-file.md) and
   is unnecessary given the cache math above.
 
 ## Cross-refs
@@ -115,5 +115,5 @@ sit at **1-2% of headroom**, comfortably inside
 - [Cross-post engine — primary consumer](./cross-post-engine.md)
 - [Linkroll → s.oriz.in mints](./linkroll-raindrop-to-links-page.md)
 - [UTM attribution strategy — authoritative click source](./utm-attribution-strategy.md)
-- [Never hit quotas rule](../../rules/never-hit-quotas.md)
-- [No card-on-file rule](../../rules/no-card-on-file.md)
+- [Never hit quotas rule](../../rules/interaction/never-hit-quotas.md)
+- [No card-on-file rule](../../rules/interaction/no-card-on-file.md)

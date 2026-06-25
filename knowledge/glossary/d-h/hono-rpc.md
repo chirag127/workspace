@@ -31,4 +31,4 @@ boundaries.
 
 ## See also
 
-- [package-isolation](./package-isolation.md)
+- [package-isolation](../o-r/package-isolation.md)

@@ -45,7 +45,7 @@ the trigger — don't wait for confirmation.
     pure API keys this step is skipped.
 
 4. **Store via envpact.** Per
-    [`../rules/no-hardcoded-secrets.md`](../../rules/security/no-hardcoded-secrets.md),
+    [`../rules/security/no-hardcoded-secrets.md`](../../rules/security/no-hardcoded-secrets.md),
     every secret lives in envpact, never in `.env` files committed to
     git, never inline in source.
 
@@ -100,5 +100,5 @@ the trigger — don't wait for confirmation.
 ## See also
 
 - [`auth-setup.md`](./auth-setup.md)
-- [`../rules/no-hardcoded-secrets.md`](../../rules/security/no-hardcoded-secrets.md)
-- [`../policy/secrets-handling.md`](../../policy/secrets-handling.md)
+- [`../rules/security/no-hardcoded-secrets.md`](../../rules/security/no-hardcoded-secrets.md)
+- [`../policy/secrets-handling.md`](../../decisions/policy/secrets-handling.md)

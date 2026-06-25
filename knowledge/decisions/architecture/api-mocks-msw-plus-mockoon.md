@@ -144,5 +144,5 @@ the shared core ships from oriz-kit.
 - [testing services index](../../services/testing/index.md)
 - [Razorpay decision (sandbox is the most-mocked upstream)](../monetisation/razorpay-as-primary-billing.md)
 - [Open-Meteo + Alpha Vantage decision (Mockoon's other big customers)](./data-apis-open-meteo-alpha-vantage.md)
-- [No card-on-file rule](../../rules/no-card-on-file.md)
-- [No subscriptions rule](../../rules/no-subscriptions.md)
+- [No card-on-file rule](../../rules/interaction/no-card-on-file.md)
+- [No subscriptions rule](../../rules/infrastructure/no-subscriptions.md)

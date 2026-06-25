@@ -51,7 +51,7 @@ takes its cut from each transaction at settlement.
 
 Buyer-side, Razorpay does NOT require card-on-file — UPI flows are
 intent-based per-transaction and satisfy the
-[no-card-on-file rule](../../rules/no-card-on-file.md).
+[no-card-on-file rule](../../rules/interaction/no-card-on-file.md).
 
 ## Alternatives
 
@@ -74,5 +74,5 @@ worse without UPI.
 ## Cross-refs
 
 - [Razorpay as primary billing](../../decisions/monetisation/razorpay-as-primary-billing.md)
-- [Hono Worker](../../architecture/api-umbrella-hono-worker.md)
+- [Hono Worker](../../decisions/architecture/compute/api-umbrella-hono-worker.md)
 - [Firebase Spark](../auth/firebase-spark.md)

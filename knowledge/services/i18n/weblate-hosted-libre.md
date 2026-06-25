@@ -71,10 +71,10 @@ files.
 Three reasons:
 
 1. **Free for libre forever** on a public git repo — fits the
-   [no-card-on-file rule](../../rules/no-card-on-file.md) and the
+   [no-card-on-file rule](../../rules/interaction/no-card-on-file.md) and the
    no-paid-tier rule.
 2. **Hosted, not self-hosted** — Hosted Libre satisfies the
-   [no-selfhost rule](../../rules/no-selfhost.md). The self-hosted
+   <!-- TODO: broken link, was [no-selfhost rule](../../rules/no-selfhost.md) -->. The self-hosted
    Weblate Docker image is OSS but excluded by policy, same as the
    Tolgee self-host option.
 3. **PR-back-to-the-repo workflow** matches how every other content
@@ -92,5 +92,5 @@ deferred indefinitely.
 
 - [decisions/branding/i18n-weblate-when-ready.md](../../decisions/branding/i18n-weblate-when-ready.md) — the locking decision
 - [services/i18n/tolgee.md](./tolgee.md) — earlier deferred i18n option
-- [No card-on-file rule](../../rules/no-card-on-file.md)
-- [No selfhost rule](../../rules/no-selfhost.md)
+- [No card-on-file rule](../../rules/interaction/no-card-on-file.md)
+- <!-- TODO: broken link, was [No selfhost rule](../../rules/no-selfhost.md) -->

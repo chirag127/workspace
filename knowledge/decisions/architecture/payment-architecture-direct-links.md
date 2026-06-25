@@ -72,7 +72,7 @@ volume the burn is ~5K/day at peak — **20x headroom** on the
 
 ## Cross-refs
 
-- [`no-card-on-file.md`](../../rules/no-card-on-file.md) — the funding constraint
+- [`no-card-on-file.md`](../../rules/interaction/no-card-on-file.md) — the funding constraint
 - [`no-firebase-functions.md`](./no-firebase-functions.md) — why CF Workers, not Functions
 - [`cf-worker-quota-mitigation.md`](./cf-worker-quota-mitigation.md) — Worker free-tier headroom math
 - [`max-payment-methods.md`](../monetisation/max-payment-methods.md) — full payment-provider catalog

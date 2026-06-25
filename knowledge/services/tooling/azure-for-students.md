@@ -35,8 +35,8 @@ Auto-billing does not engage when credits run out — services pause.
 
 ## Alternatives
 
-- [Cloudflare Workers](./cloudflare-workers.md) for compute
-- [OpenRouter](./openrouter.md) / [Puter.js](./puter-js.md) for AI inference
+- [Cloudflare Workers](../compute/cloudflare-workers.md) for compute
+- [OpenRouter](../ai/openrouter.md) / [Puter.js](../ai/puter-js.md) for AI inference
 
 ## Swap cost
 
@@ -57,5 +57,5 @@ no-card-on-file rule. Useful for one-off ML batch jobs.
 ## Cross-refs
 
 - [Azure (paid tiers) — REJECTED](../azure-paid-tiers.md)
-- [No card-on-file rule](../../rules/no-card-on-file.md)
+- [No card-on-file rule](../../rules/interaction/no-card-on-file.md)
 - [Cloudflare Pages](../hosting/cloudflare-pages.md) — primary production host

@@ -42,5 +42,5 @@ fallback** roles specifically. Both views are valid.
 ## Cross-refs
 
 - [Image CDN fallback chain decision](../../decisions/architecture/image-cdn-fallback-chain.md)
-- [oriz-kit glossary](../../glossary/o-r/oriz-kit.md)
+- <!-- TODO: broken link, was [oriz-kit glossary](../../glossary/o-r/oriz-kit.md) -->
 - [Cloudflare Pages for all sites](../../decisions/infrastructure/cloudflare-pages-for-all-sites.md)

@@ -33,4 +33,4 @@ The Buttondown adapter is wired into
 - [Newsletter split decision](../../decisions/architecture/newsletter-split-buttondown-emailoctopus.md)
 - [Cross-post engine decision](../../decisions/architecture/cross-post-engine.md)
 - [oriz-omnipost glossary](../../glossary/o-r/omnipost.md)
-- [oriz-kit glossary](../../glossary/o-r/oriz-kit.md)
+- <!-- TODO: broken link, was [oriz-kit glossary](../../glossary/o-r/oriz-kit.md) -->

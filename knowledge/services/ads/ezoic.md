@@ -49,4 +49,4 @@ traffic is too low for Mediavine.
 ## Cross-refs
 
 - [Mediavine](./mediavine.md)
-- [Razorpay](./razorpay.md) — primary monetization path
+- [Razorpay](../payment/razorpay.md) — primary monetization path

@@ -144,7 +144,7 @@ Before modifying **any** code:
 Use plain markdown links, relative to the linking file. Per OKF spec, this is what builds the implicit knowledge graph:
 
 ```markdown
-This site follows the [no-card-on-file rule](../../knowledge/rules/no-card-on-file.md).
+This site follows the [no-card-on-file rule](rules/interaction/no-card-on-file.md).
 ```
 
 When a concept needs many cross-references, list them in frontmatter `related:` so consumers can build the graph without parsing prose:
@@ -180,7 +180,7 @@ The per-app bundle only carries facts specific to that app. Cross-cutting family
 
 Cross-link to family-wide concepts via relative paths (e.g. `../../../../knowledge/rules/no-card-on-file.md` from an app's runbook at depth 3 in a submodule that's at depth 4 from master root).
 
-Richest example: [`repos/c127/own/prod/apps/personal/cs-me-app/knowledge/`](../repos/c127/own/prod/apps/personal/cs-me-app/knowledge/) — lifestream architecture, age-gating, ingester contract, 100-year strategy.
+Richest example: <!-- TODO: broken link, was [`repos/c127/own/prod/apps/personal/cs-me-app/knowledge/`](../repos/c127/own/prod/apps/personal/cs-me-app/knowledge/) --> — lifestream architecture, age-gating, ingester contract, 100-year strategy.
 
 ---
 

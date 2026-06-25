@@ -80,5 +80,5 @@ permanent.
 - [Imgur Tier 3](./imgur.md)
 - [GitHub user-content Tier 4](./github-user-content.md)
 - [3-tier image-CDN chain](../image-cdn/index.md) — the delivery layer wrapping all 4 origin tiers
-- [No card-on-file rule](../../rules/no-card-on-file.md)
-- [Never-hit-quotas rule](../../rules/never-hit-quotas.md)
+- [No card-on-file rule](../../rules/interaction/no-card-on-file.md)
+- [Never-hit-quotas rule](../../rules/interaction/never-hit-quotas.md)

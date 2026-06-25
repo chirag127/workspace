@@ -37,7 +37,7 @@ do NOT republish. Hard stop.
 - Use a **different extension name** — CWS rejects duplicates anyway.
 - Use **different icons** (don't ship the upstream's logo files).
 - One-time **$5 developer registration fee** to Chrome Web Store
-  (covered by the prepaid-OK clause in [`no-card-on-file`](../../rules/no-card-on-file.md)).
+  (covered by the prepaid-OK clause in [`no-card-on-file`](../../rules/interaction/no-card-on-file.md)).
 
 ## Soft requirement (API backend)
 

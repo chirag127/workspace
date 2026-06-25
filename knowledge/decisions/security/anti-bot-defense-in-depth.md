@@ -68,7 +68,7 @@ primary + hCaptcha fallback).
 ### 2. Turnstile + hCaptcha fallback (form-submit)
 
 - The shared `<Captcha>` component in
-  [`@chirag127/oriz-kit`](../../glossary/o-r/oriz-kit.md) gates every
+  <!-- TODO: broken link, was [`@chirag127/oriz-kit`](../../glossary/o-r/oriz-kit.md) --> gates every
   unauthenticated POST surface — `<ContactForm>`, sign-up, comment
   boxes — per the locked
   [Turnstile + hCaptcha pair decision](./captcha-turnstile-plus-hcaptcha.md).
@@ -113,7 +113,7 @@ primary + hCaptcha fallback).
 - **No card-on-file** — none of the three layers requires the
   Cloudflare Workers Paid plan, Cloudflare Pro plan, or any other
   paid Cloudflare product. The family stays on the
-  [free-plan posture](../../rules/no-card-on-file.md).
+  [free-plan posture](../../rules/interaction/no-card-on-file.md).
 
 ## Cross-refs
 
@@ -125,4 +125,4 @@ primary + hCaptcha fallback).
 - [Security headers strategy decision](./security-headers-strategy.md) — adjacent layer
 - [Umbrella Hono Worker decision](../architecture/hono-worker-api-umbrella.md)
 - [CF Worker quota mitigation playbook](../architecture/cf-worker-quota-mitigation.md)
-- [No card-on-file rule](../../rules/no-card-on-file.md)
+- [No card-on-file rule](../../rules/interaction/no-card-on-file.md)

@@ -106,7 +106,7 @@ for repo in $REPOS; do
 done
 ```
 
-This script is at [`scripts/bulk-add-config-files.sh`](../../scripts/bulk-add-config-files.sh).
+This script is at <!-- TODO: broken link, was [`scripts/bulk-add-config-files.sh`](../../scripts/bulk-add-config-files.sh) -->.
 
 ### Bulk-enable security features per repo
 
@@ -135,7 +135,7 @@ for repo in $REPOS; do
 done
 ```
 
-This script is at [`scripts/bulk-enable-security.sh`](../../scripts/bulk-enable-security.sh).
+This script is at <!-- TODO: broken link, was [`scripts/bulk-enable-security.sh`](../../scripts/bulk-enable-security.sh) -->.
 
 ## Codecov setup (not a GitHub App — needs token per repo)
 

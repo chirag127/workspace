@@ -121,7 +121,7 @@ umbrella picks it up.
 
 Site-specific concepts live in each submodule's `knowledge/`
 directory. They cross-link to family-wide concepts via relative
-paths (`../../knowledge/rules/never-hit-quotas.md`) but are
+paths (`../../knowledge/rules/interaction/never-hit-quotas.md`) but are
 self-contained for reading purposes — a site's `knowledge/index.md`
 should make sense without the family bundle.
 
@@ -129,5 +129,5 @@ should make sense without the family bundle.
 
 - [`use-pnpm.md`](./use-pnpm.md) — the install command this rule presumes
 - [`one-branch-only.md`](./one-branch-only.md) — every submodule's `main` is the canonical branch
-- [`../runbooks/clean-install.md`](../../runbooks/operations/clean-install.md) — full-family bootstrap that doesn't violate this rule
+- [`../runbooks/operations/clean-install.md`](../../runbooks/operations/clean-install.md) — full-family bootstrap that doesn't violate this rule
 - [`../_okf.md`](../../_okf.md) — OKF conventions, including per-site bundle layout

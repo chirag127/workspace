@@ -34,7 +34,7 @@ related:
 One-page procedure for pushing a secret value from
 [Doppler](../../services/secrets/doppler.md) to the
 `chirag127`-org-level GitHub Actions secrets list. Implements
-[`rules/github-org-level-secrets.md`](../../rules/security/github-org-level-secrets.md)
+[`rules/security/github-org-level-secrets.md`](../../rules/security/github-org-level-secrets.md)
 and the Track B half of
 [`decisions/security/env-and-secrets-single-source.md`](../../decisions/security/env-and-secrets-single-source.md).
 
@@ -48,7 +48,7 @@ and the Track B half of
   value lands at Doppler then propagates here.
 - **Quarterly audit** — verify the org-level secret list matches
   the keys in
-  [`templates/.env.example`](../../templates/.env.example).
+  <!-- TODO: broken link, was [`templates/.env.example`](../../templates/.env.example) -->.
 - **First-time bootstrap** — running through every key in
   `templates/.env.example` once.
 
@@ -59,7 +59,7 @@ and the Track B half of
 - `doppler` CLI authenticated against the user's Doppler workplace
   (`doppler whoami` is clean).
 - The key already exists in
-  [`templates/.env.example`](../../templates/.env.example) — that's
+  <!-- TODO: broken link, was [`templates/.env.example`](../../templates/.env.example) --> — that's
   the source of truth for "which keys live at org level". Anything
   not in the example is either a Doppler-internal credential or an
   orphan — don't sync it.
@@ -122,7 +122,7 @@ bash scripts/set-org-secrets-from-doppler.sh
 ```
 
 The script reads every key from
-[`templates/.env.example`](../../templates/.env.example), pulls the
+<!-- TODO: broken link, was [`templates/.env.example`](../../templates/.env.example) -->, pulls the
 value from Doppler, and runs `gh secret set --org chirag127
 --visibility all` for each. Idempotent — re-running with no value
 changes is a no-op (the GH API still records an `updated_at` bump
@@ -148,7 +148,7 @@ modes:
 
 ### 6. Update the log
 
-Append a one-liner to [`knowledge/log.md`](../../log.md):
+Append a one-liner to <!-- TODO: broken link, was [`knowledge/log.md`](../../log.md) -->:
 
 ```markdown
 - 2026-06-20 — set <KEY> at chirag127 org level (visibility: all) sourced from Doppler
@@ -160,7 +160,7 @@ Append a one-liner to [`knowledge/log.md`](../../log.md):
 
 - **Don't `gh secret set --repo <name>` for any key in
   `templates/.env.example`.** Per
-  [`rules/github-org-level-secrets.md`](../../rules/security/github-org-level-secrets.md),
+  [`rules/security/github-org-level-secrets.md`](../../rules/security/github-org-level-secrets.md),
   per-repo writes are forbidden — they cause drift.
 - **Don't paste the value into chat** to "verify it set". The
   verification is `gh secret list` (which shows name + updated_at,
@@ -175,13 +175,13 @@ Append a one-liner to [`knowledge/log.md`](../../log.md):
 
 ## See also
 
-- [`../rules/github-org-level-secrets.md`](../../rules/security/github-org-level-secrets.md)
-- [`../rules/env-example-synced-from-master.md`](../../rules/security/env-example-synced-from-master.md)
+- [`../rules/security/github-org-level-secrets.md`](../../rules/security/github-org-level-secrets.md)
+- [`../rules/security/env-example-synced-from-master.md`](../../rules/security/env-example-synced-from-master.md)
 - [`../decisions/security/env-and-secrets-single-source.md`](../../decisions/security/env-and-secrets-single-source.md)
 - [`../decisions/security/secrets-management-doppler.md`](../../decisions/security/secrets-management-doppler.md)
 - [`./sync-env-example-to-all-repos.md`](../operations/sync-env-example-to-all-repos.md)
 - [`./rotate-leaked-secret.md`](./rotate-leaked-secret.md)
 - [`../services/secrets/doppler.md`](../../services/secrets/doppler.md)
 - [`../services/secrets/github-secrets.md`](../../services/secrets/github-secrets.md)
-- [`../../templates/.env.example`](../../templates/.env.example)
-- [`../../scripts/set-org-secrets-from-doppler.sh`](../../scripts/set-org-secrets-from-doppler.sh)
+- <!-- TODO: broken link, was [`../../templates/.env.example`](../../templates/.env.example) -->
+- <!-- TODO: broken link, was [`../../scripts/set-org-secrets-from-doppler.sh`](../../scripts/set-org-secrets-from-doppler.sh) -->

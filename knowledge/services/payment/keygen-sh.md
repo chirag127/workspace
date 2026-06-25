@@ -84,4 +84,4 @@ we have meaningful paid-extension revenue.
 - [Lemon Squeezy](./lemon-squeezy.md)
 - [Max payment methods decision](../../decisions/monetisation/max-payment-methods.md)
 - [-ext suffix glossary](../../glossary/d-h/extension-suffix.md)
-- [No card-on-file rule](../../rules/no-card-on-file.md)
+- [No card-on-file rule](../../rules/interaction/no-card-on-file.md)

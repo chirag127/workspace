@@ -48,5 +48,5 @@ Locked at
 
 - [AI split decision (Puter + Workers AI)](../../decisions/architecture/ai-puter-plus-cf-workers-ai.md)
 - [Hono Worker API umbrella](../../decisions/architecture/hono-worker-api-umbrella.md)
-- [No card-on-file rule](../../rules/no-card-on-file.md)
-- [Never hit quotas rule](../../rules/never-hit-quotas.md)
+- [No card-on-file rule](../../rules/interaction/no-card-on-file.md)
+- [Never hit quotas rule](../../rules/interaction/never-hit-quotas.md)

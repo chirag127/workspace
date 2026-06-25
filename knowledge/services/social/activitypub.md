@@ -83,7 +83,7 @@ public key embedded in the actor document.
 
 - All public-tagged lifestream events from
   `chirag127/oriz-me-data` per the
-  [public/private line policy](../../policy/public-private-line.md).
+  [public/private line policy](../../decisions/policy/public-private-line.md).
 - Journal entries **not** mirrored — gated by the
   [journal-stays-auth-gated decision](../../decisions/content/journal-stays-auth-gated.md).
 - Age-gated content **not** mirrored federated.
@@ -129,5 +129,5 @@ canonical source — per the
 - [Cloudflare Workers — runs the actor](../compute/cloudflare-workers.md)
 - [Cloudflare Cron Triggers — runs the mirror](../cron/cloudflare-cron-triggers.md)
 - [Doppler — secrets source-of-truth](../secrets/doppler.md)
-- [Public/private line policy](../../policy/public-private-line.md)
-- [No card-on-file rule](../../rules/no-card-on-file.md)
+- [Public/private line policy](../../decisions/policy/public-private-line.md)
+- [No card-on-file rule](../../rules/interaction/no-card-on-file.md)

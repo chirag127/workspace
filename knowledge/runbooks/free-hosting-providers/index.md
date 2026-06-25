@@ -17,7 +17,7 @@ related:
 
 ## Why this exists
 
-The family runs on the [no-card-on-file rule](../../rules/no-card-on-file.md). Every paid line item is rejected at the signup form. This catalog answers, for each tier of the stack, **which provider can host 50+ projects, free, with no card, with commercial use allowed**.
+The family runs on the [no-card-on-file rule](../../rules/interaction/no-card-on-file.md). Every paid line item is rejected at the signup form. This catalog answers, for each tier of the stack, **which provider can host 50+ projects, free, with no card, with commercial use allowed**.
 
 Research date: **2026-06-22**. Re-verify on the quarterly audit — the 2024–2026 window killed `Fly.io` perma-free, `PlanetScale Hobby`, `Cyclic.sh`, `Glitch hosting`, `IDrive E2 free`, and `Xata free`. This page is a snapshot, not a forecast.
 
@@ -51,7 +51,7 @@ For any critical serverless path:
 4. AWS Lambda         (quaternary;  1M req/mo,     400K GB-sec FOREVER — USER-APPROVED EXCEPTION)
 ```
 
-AWS Lambda is admitted as a narrow exception to the [`no-card-on-file`](../../rules/no-card-on-file.md) rule via [`rules/aws-lambda-exception.md`](../../rules/aws-lambda-exception.md). Lambda ONLY — no S3, EC2, RDS, DynamoDB, etc.
+AWS Lambda is admitted as a narrow exception to the [`no-card-on-file`](../../rules/interaction/no-card-on-file.md) rule via [`rules/infrastructure/aws-lambda-exception.md`](../../rules/infrastructure/aws-lambda-exception.md). Lambda ONLY — no S3, EC2, RDS, DynamoDB, etc.
 
 Possible 5th rail for **prototype/learning only** (NOT production): Azure Functions under the user's [Azure Student account](./azure-student.md).
 
@@ -62,7 +62,7 @@ These appeared in earlier scoping but are out as of 2026-06-22:
 | Provider | Reason | Date killed |
 |---|---|---|
 | Fly.io | Perma-free killed; now trial-only, card required after trial | Oct 2024 |
-| AWS Lambda | 1M req/mo is real; **USER-APPROVED EXCEPTION** as 4th-rail fallback per [`rules/aws-lambda-exception.md`](../../rules/aws-lambda-exception.md). Lambda ONLY. | — (always) |
+| AWS Lambda | 1M req/mo is real; **USER-APPROVED EXCEPTION** as 4th-rail fallback per [`rules/infrastructure/aws-lambda-exception.md`](../../rules/infrastructure/aws-lambda-exception.md). Lambda ONLY. | — (always) |
 | AWS (everything else: S3, EC2, RDS, DynamoDB, CloudFront, etc.) | Card required at signup; exception does NOT extend beyond Lambda | — (always) |
 | Google Cloud Run | 2M req/mo is real but **card required at GCP signup**; user aggressive about not using Google | — (always) |
 | Oracle Cloud Always Free | Genuinely best free compute but **card required at signup**; user cannot sign up for Oracle | — (always) |
@@ -112,7 +112,7 @@ Each sub-file ends with a `## Sources` section listing the official pricing page
 
 ## Cross-links
 
-- The no-card-on-file rule: [`../../rules/no-card-on-file.md`](../../rules/no-card-on-file.md)
-- Where each oriz site currently runs: [`../../services/free-tier-catalog.md`](../../services/free-tier-catalog.md)
-- Why Cloudflare Pages hosts the website fleet: [`../../decisions/architecture/cloudflare-pages-hosts-every-website-and-app.md`](../../decisions/architecture/cloudflare-pages-hosts-every-website-and-app.md)
+- The no-card-on-file rule: [`../../rules/no-card-on-file.md`](../../rules/interaction/no-card-on-file.md)
+- Where each oriz site currently runs: <!-- TODO: broken link, was [`../../services/free-tier-catalog.md`](../../services/free-tier-catalog.md) -->
+- Why Cloudflare Pages hosts the website fleet: <!-- TODO: broken link, was [`../../decisions/architecture/cloudflare-pages-hosts-every-website-and-app.md`](../../decisions/architecture/cloudflare-pages-hosts-every-website-and-app.md) -->
 - Adding a new site: [`../scaffold-a-new-site.md`](../scaffold-a-new-site.md)

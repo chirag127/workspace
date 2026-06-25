@@ -21,6 +21,6 @@ vendor, no card, no per-site fee.
 ## Cross-refs
 
 - [Family-wide privacy page decision](../../decisions/branding/family-wide-privacy-page.md)
-- [Per-extension privacy policy policy](../../policy/privacy-policy-per-extension.md)
-- [No paid-tier rule](../../rules/no-card-on-file.md)
+- [Per-extension privacy policy policy](../../decisions/policy/privacy-policy-per-extension.md)
+- [No paid-tier rule](../../rules/interaction/no-card-on-file.md)
 - [No subscriptions anywhere decision](../../decisions/monetisation/no-subscriptions-anywhere.md)

@@ -19,7 +19,7 @@ Cloudflare Workers is the entire runtime API surface (one Hono Worker at `api.or
 
 ## Cross-refs
 
-- [Layer 5 — compute](../../architecture/layer-5-compute.md)
-- [architecture/api-umbrella-hono-worker](../../architecture/api-umbrella-hono-worker.md)
-- [decisions/hono-worker-api-umbrella](../../decisions/hono-worker-api-umbrella.md)
-- [decisions/per-repo-ci-workflows](../../decisions/per-repo-ci-workflows.md)
+- [Layer 5 — compute](../../decisions/architecture/general/layer-5-compute.md)
+- [architecture/api-umbrella-hono-worker](../../decisions/architecture/compute/api-umbrella-hono-worker.md)
+- [decisions/hono-worker-api-umbrella](../../decisions/architecture/hono-worker-api-umbrella.md)
+- [decisions/per-repo-ci-workflows](../../decisions/process/per-repo-ci-workflows.md)

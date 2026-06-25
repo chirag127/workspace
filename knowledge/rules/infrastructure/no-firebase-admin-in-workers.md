@@ -37,7 +37,7 @@ needs. The Workers compatibility flags get close but never close
 enough; even when the bundler succeeds, requests time out or hang.
 
 The family runs its single API surface
-([api-umbrella-hono-worker](../../architecture/compute/api-umbrella-hono-worker.md))
+([api-umbrella-hono-worker](../../decisions/architecture/compute/api-umbrella-hono-worker.md))
 as a Cloudflare Worker. That means the rule is enforced everywhere
 shared backend code lives.
 
@@ -60,5 +60,5 @@ None inside Workers. `firebase-admin` is fine in Node-runtime contexts
 
 ## See also
 
-- [`api-umbrella-hono-worker.md`](../../architecture/compute/api-umbrella-hono-worker.md)
+- [`api-umbrella-hono-worker.md`](../../decisions/architecture/compute/api-umbrella-hono-worker.md)
 - [`firebase-spark.md`](../../services/auth/firebase-spark.md)

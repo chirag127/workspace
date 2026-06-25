@@ -41,7 +41,7 @@ Cloudflare R2's free tier (10 GB + zero egress + 1M Class A + 10M Class B ops/mo
 
 **But:** activating the R2 service in the Cloudflare dashboard requires linking a payment method (credit card or PayPal), even if you stay entirely within the 10 GB free tier. This is a one-time gate, not a charge, but it's still card-on-file.
 
-Per the [no-card-on-file rule](../../rules/no-card-on-file.md): **don't activate R2.** Use B2 instead. Re-evaluate if Cloudflare drops the card-gate or if the family adopts a single managed billing relationship with Cloudflare.
+Per the [no-card-on-file rule](../../rules/interaction/no-card-on-file.md): **don't activate R2.** Use B2 instead. Re-evaluate if Cloudflare drops the card-gate or if the family adopts a single managed billing relationship with Cloudflare.
 
 ## Quirks per provider
 

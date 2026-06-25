@@ -69,7 +69,7 @@ read-models in libSQL.
 ## Implications
 
 - **Compute autoscaling capped at 2 CU per project** on every Neon
-  project, per [`rules/never-hit-quotas.md`](../../../rules/interaction/never-hit-quotas.md).
+  project, per [`rules/interaction/never-hit-quotas.md`](../../../rules/interaction/never-hit-quotas.md).
   Higher burst would burn the 100 CU-hours / month / project budget
   in days.
 - **One Neon project per relational app** — `oriz-finance`,

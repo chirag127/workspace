@@ -18,5 +18,5 @@ format_version: okf-v0.1
 | [big-website-per-extension.md](./big-website-per-extension.md) | Each extension gets a rich website, not a small landing page |
 | [journal-stays-auth-gated.md](./journal-stays-auth-gated.md) | `me.oriz.in` does NOT publish journal entries; journal lives at `journal.oriz.in` |
 | [age-gating-policy-adopted.md](./age-gating-policy-adopted.md) | Adult-content sections require an 18+ confirmation |
-| [urls-to-md-folds-into-dev-tools.md](./urls-to-md-folds-into-dev-tools.md) | `urls-to-md` migrates into a future `oriz-dev-tools` site |
+| <!-- TODO: broken link, was [urls-to-md-folds-into-dev-tools.md](./urls-to-md-folds-into-dev-tools.md) --> | `urls-to-md` migrates into a future `oriz-dev-tools` site |
 | [100-year-strategy-locked.md](./100-year-strategy-locked.md) | 50-year horizon, public archive on death |

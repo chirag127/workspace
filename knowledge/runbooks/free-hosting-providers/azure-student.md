@@ -16,7 +16,7 @@ related:
 
 # Azure for Students — 2026-06-22
 
-The user holds an active **Azure for Students** subscription (offer code `MS-AZR-0170P`). This is the rare cloud account that passes our [`no-card-on-file`](../../rules/no-card-on-file.md) rule, because Microsoft verifies eligibility via institutional email instead of a credit card.
+The user holds an active **Azure for Students** subscription (offer code `MS-AZR-0170P`). This is the rare cloud account that passes our [`no-card-on-file`](../../rules/interaction/no-card-on-file.md) rule, because Microsoft verifies eligibility via institutional email instead of a credit card.
 
 This file documents what's actually free, what's USEFUL for the oriz family, and what we'll use vs SKIP.
 
@@ -81,10 +81,10 @@ This file documents what's actually free, what's USEFUL for the oriz family, and
 
 | Layer | Service | Why |
 |---|---|---|
-| Backup serverless rail | **Azure Functions Consumption** | 1M execs + 400k GB-s/mo always-free. Useful as a 5th-rail fallback under the [AWS Lambda exception](../../rules/aws-lambda-exception.md) chain for v0.1 prototype work. Not a production rail. |
+| Backup serverless rail | **Azure Functions Consumption** | 1M execs + 400k GB-s/mo always-free. Useful as a 5th-rail fallback under the [AWS Lambda exception](../../rules/infrastructure/aws-lambda-exception.md) chain for v0.1 prototype work. Not a production rail. |
 | Prototype Postgres | **Azure SQL free offer** | 10 DBs × 32 GB lifetime — more generous than Neon's 0.5 GB/project for any single DB. Useful for learning Azure SQL specifically. |
 | Per-app NoSQL prototype | **Cosmos DB free tier** | 1,000 RU/s + 25 GB lifetime. ONLY useful if we want to learn Cosmos; Firestore Spark covers production. |
-| Side-project static demo | **Static Web Apps Free** | 100 GB/mo, 2 custom domains. Useful for one-off Azure-integrated demos. Cloudflare Pages stays the primary host per [`cloudflare-pages-only`](../../rules/cloudflare-pages-only.md). |
+| Side-project static demo | **Static Web Apps Free** | 100 GB/mo, 2 custom domains. Useful for one-off Azure-integrated demos. Cloudflare Pages stays the primary host per [`cloudflare-pages-only`](../../rules/infrastructure/cloudflare-pages-only.md). |
 
 ## What we'll SKIP
 
@@ -100,7 +100,7 @@ This file documents what's actually free, what's USEFUL for the oriz family, and
 
 ## Cloudflare-Pages-only rule still wins
 
-Per [`cloudflare-pages-only.md`](../../rules/cloudflare-pages-only.md), **every website and every app in the family hosts on Cloudflare Pages**. No exceptions. Azure Static Web Apps is a learning/prototype playground, not a production destination.
+Per [`cloudflare-pages-only.md`](../../rules/infrastructure/cloudflare-pages-only.md), **every website and every app in the family hosts on Cloudflare Pages**. No exceptions. Azure Static Web Apps is a learning/prototype playground, not a production destination.
 
 Similarly, Azure Functions is a **5th-rail prototype fallback only**. The [serverless 4-rail chain](./serverless-functions.md) (CF Workers → Deno Deploy → Render → AWS Lambda) is the production order.
 

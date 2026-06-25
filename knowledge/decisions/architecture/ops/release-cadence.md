@@ -40,7 +40,7 @@ new commits:
 2. Runs `git cliff` against conventional commits to generate the
    changelog section.
 3. Tags the commit, pushes the tag, and triggers the per-app deploy
-   workflow (per [multi-target-build](./multi-target-build.md)).
+   workflow (per [multi-target-build](../multi-target-build.md)).
 
 Apps with no new commits since the last tag are **skipped** — the train
 doesn't drag dead cars.
@@ -111,6 +111,6 @@ it won't show up in the changelog — that's the forcing function.
 
 ## Cross-refs
 
-- [multi-target-build](./multi-target-build.md) — per-app deploy workflow that the tag triggers
+- [multi-target-build](../multi-target-build.md) — per-app deploy workflow that the tag triggers
 - [naming-policy-v6](../../branding/naming-policy-v6.md) — `-app` suffix is what the cron filter selects on
 - [rules/keep-knowledge-fresh](../../../rules/agent/keep-knowledge-fresh.md)

@@ -25,8 +25,8 @@ stable reference. Required frontmatter on every concept file: `type`,
 `related`. Body is plain markdown; cross-links are relative paths.
 
 The whole `knowledge/` directory is composed of concept files. See
-[`_okf.md`](../_okf.md) for the full contract.
+[`_okf.md`](../../_okf.md) for the full contract.
 
 ## See also
 
-- [okf-bundle](./okf-bundle.md)
+- [okf-bundle](../o-r/okf-bundle.md)

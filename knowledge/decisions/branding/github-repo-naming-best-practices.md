@@ -97,4 +97,4 @@ Set via `gh repo edit chirag127/<repo> --add-topic oriz --add-topic chirag127 --
 
 - [naming-policy-v6](./naming-policy-v6.md) — the canonical sixth-pass naming policy
 - [github-pages-as-json-api](../architecture/github-pages-as-json-api.md) — `-api` suffix usage
-- [keep-knowledge-fresh](../../rules/keep-knowledge-fresh.md) — meta-rule that triggered consolidating this file
+- [keep-knowledge-fresh](../../rules/agent/keep-knowledge-fresh.md) — meta-rule that triggered consolidating this file

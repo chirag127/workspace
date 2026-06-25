@@ -73,4 +73,4 @@ same account and same free tier.
 - [Cloudflare Images](./cloudflare-images.md) — primary
 - [wsrv.nl](./wsrv-nl.md) — fallback 1
 - [tooling/imagekit](../tooling/imagekit.md) — sibling DAM entry
-- [No card-on-file rule](../../rules/no-card-on-file.md)
+- [No card-on-file rule](../../rules/interaction/no-card-on-file.md)

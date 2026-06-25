@@ -48,4 +48,4 @@ single mental model covers everything.
 - [Lifestream JSONL canonical](../architecture/lifestream-jsonl-canonical.md)
 - [Journal stays auth-gated](../content/journal-stays-auth-gated.md)
 - [v2 design implementation](../process/v2-design-implementation.md)
-- [oriz-me design brief](../../design/oriz-me.md)
+- [oriz-me design brief](../design/oriz-me.md)

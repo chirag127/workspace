@@ -73,4 +73,4 @@ all for the same Microsoft account.
 - [@astrojs/sitemap](./astrojs-sitemap.md)
 - [IndexNow](./indexnow.md) — key management lives here
 - [Google Search Console](./google-search-console.md)
-- [No card-on-file rule](../../rules/no-card-on-file.md)
+- [No card-on-file rule](../../rules/interaction/no-card-on-file.md)

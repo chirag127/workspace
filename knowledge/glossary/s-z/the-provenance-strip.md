@@ -19,7 +19,7 @@ drew from.
 ## Expanded
 
 The strip ties the visible page back to the canonical
-[data-repo](./data-repo.md) and the [cache-rebuild](./cache-rebuild.md)
+[data-repo](../d-h/data-repo.md) and the [cache-rebuild](../a-c/cache-rebuild.md)
 that produced it. Each ingester (Last.fm, GitHub, Lichess, …) reports
 into the strip with its last successful sync time, so a missing
 heartbeat is visible to anyone reading the site, not buried in a
@@ -31,6 +31,6 @@ links the strip exposes.
 
 ## See also
 
-- [lifestream](./lifestream.md)
-- [data-repo](./data-repo.md)
+- [lifestream](../i-n/lifestream.md)
+- [data-repo](../d-h/data-repo.md)
 - [the-spine](./the-spine.md)

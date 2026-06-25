@@ -128,5 +128,5 @@ https://oriz-org:${MIRROR_CODEBERG_TOKEN}@codeberg.org/oriz-org/${REPO_NAME}.git
 ## Cross-refs
 
 - Full setup → [`../../../runbooks/mirror-all-hosts-setup.md`](../../runbooks/hosting/mirror-all-hosts-setup.md)
-- Daily oriz-org Codeberg mirror → [`../../../runbooks/codeberg-mirror-2026-06-23.md`](../../runbooks/hosting/codeberg-mirror-2026-06-23.md)
+- Daily oriz-org Codeberg mirror → [`../../../runbooks/hosting/codeberg-mirror-2026-06-23.md`](../../runbooks/hosting/codeberg-mirror-2026-06-23.md)
 - 6-host decision → [`../../decisions/architecture/mirror-to-6-git-hosts.md`](../../decisions/architecture/ops/mirror-to-6-git-hosts.md)

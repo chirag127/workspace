@@ -48,7 +48,7 @@ exclusion" of Backblaze B2 (see
 - **Cloudflare R2 was the obvious option but is rejected.** Adjacent
   Workers Paid features that we'd realistically want pull in a card
   on the same account, in violation of the family's
-  [`no-card-on-file`](../../rules/no-card-on-file.md) hard rule.
+  [`no-card-on-file`](../../rules/interaction/no-card-on-file.md) hard rule.
 
 ## Reversal of prior B2 rejection
 
@@ -78,4 +78,4 @@ file remains in place for the record; the live B2 entry is at
 - [Backblaze B2](../../services/storage/backblaze-b2.md)
 - [Cloudflare R2 (rejected)](../../services/storage/cloudflare-r2.md)
 - [Extensions cross-store publish](../infrastructure/extensions-cross-store-publish.md)
-- [No card-on-file rule](../../rules/no-card-on-file.md)
+- [No card-on-file rule](../../rules/interaction/no-card-on-file.md)

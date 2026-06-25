@@ -71,7 +71,7 @@ At ~50 stories per package × 1 viewport × 17 PRs/month avg, the
 family burns roughly 850 snapshots/mo without TurboSnap; with
 TurboSnap on, typically <300/mo. The 5K cap is a 5-10x buffer —
 well within the
-[never-hit-quotas](../../rules/never-hit-quotas.md) posture.
+[never-hit-quotas](../../rules/interaction/never-hit-quotas.md) posture.
 
 ## Alternatives
 
@@ -102,5 +102,5 @@ Pairs with Storybook + Vitest + Playwright as the family's
 - [Playwright — E2E sibling](./playwright.md)
 - [Testing three-layer decision](../../decisions/architecture/testing-three-layer.md)
 - [Doppler — secrets source-of-truth](../secrets/doppler.md)
-- [Never hit quotas rule](../../rules/never-hit-quotas.md)
-- [No card-on-file rule](../../rules/no-card-on-file.md)
+- [Never hit quotas rule](../../rules/interaction/never-hit-quotas.md)
+- [No card-on-file rule](../../rules/interaction/no-card-on-file.md)

@@ -28,5 +28,5 @@ submodule).
 
 ## See also
 
-- [extension-suffix](./extension-suffix.md)
-- [family](./family.md)
+- [extension-suffix](../d-h/extension-suffix.md)
+- [family](../d-h/family.md)

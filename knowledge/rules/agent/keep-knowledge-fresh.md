@@ -58,7 +58,7 @@ override), the decision lands in knowledge SAME TURN:
 - Reaffirmations → no new file, but log in `knowledge/log.md`
 - Reversals → mark prior file `status: superseded`, write new file
 
-Per `rules/self-update-rule.md`. The chat is ephemeral; knowledge is
+Per `rules/agent/self-update-rule.md`. The chat is ephemeral; knowledge is
 durable.
 
 ### 3. Delete obsoletes same-day
@@ -71,7 +71,7 @@ When a single section inside a file is obsoleted, **rewrite the section
 in place** to state the new truth. Delete the prior version in the same
 commit.
 
-Per `rules/user-prefers-deletion-over-archive.md`.
+Per `rules/interaction/user-prefers-deletion-over-archive.md`.
 
 ### 4. Current truth only — no historical logs
 
@@ -145,9 +145,9 @@ Everything else triggers the read-write-prune cycle.
 | Locked architectural / stack / naming choice | `decisions/<topic>/<slug>.md` | `decisions/branding/naming-policy-v5.md` |
 | Non-negotiable family-wide constraint | `rules/<slug>.md` | `rules/no-card-on-file.md` |
 | Service pick with alternatives + swap cost | `services/<category>/<service>.md` | `services/auth/firebase-spark.md` |
-| Step-by-step actionable sequence | `runbooks/<slug>.md` | `runbooks/scaffold-a-new-site.md` |
+| Step-by-step actionable sequence | `runbooks/<slug>.md` | `runbooks/operations/scaffold-a-new-site.md` |
 | Family-specific term definition | `glossary/<letter>/<term>.md` | `glossary/o-r/oriz-kit.md` |
-| Per-app scoped concept | inside the app submodule at `<app-path>/knowledge/<slug>.md` | see [`repos/oriz/own/prod/apps/personal/oriz-cs-me-app/knowledge/`](../../repos/oriz/own/prod/apps/personal/oriz-cs-me-app/knowledge) |
+| Per-app scoped concept | inside the app submodule at `<app-path>/knowledge/<slug>.md` | see <!-- TODO: broken link, was [`repos/oriz/own/prod/apps/personal/oriz-cs-me-app/knowledge/`](../../repos/oriz/own/prod/apps/personal/oriz-cs-me-app/knowledge) --> |
 | Time-stamped history | `log.md` | (append-only) |
 
 ## Cross-refs

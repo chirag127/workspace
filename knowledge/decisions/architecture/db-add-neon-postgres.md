@@ -58,7 +58,7 @@ read-models in libSQL.
 ## Implications
 
 - **Compute autoscaling capped at 2 CU per project** on every Neon
-  project, per [`rules/never-hit-quotas.md`](../../rules/never-hit-quotas.md).
+  project, per [`rules/interaction/never-hit-quotas.md`](../../rules/interaction/never-hit-quotas.md).
   Higher burst would burn the 100 CU-hours / month / project budget
   in days.
 - **One Neon project per relational app** — `oriz-finance`,
@@ -95,5 +95,5 @@ read-models in libSQL.
 - [Firebase Spark — Auth + Firestore](../../services/auth/firebase-spark.md)
 - [firebase-rest-firestore decision (Worker compat)](./firebase-rest-firestore-not-admin.md)
 - [Lifestream JSONL canonical](./lifestream-jsonl-canonical.md)
-- [No card-on-file rule](../../rules/no-card-on-file.md)
-- [Never hit quotas rule](../../rules/never-hit-quotas.md)
+- [No card-on-file rule](../../rules/interaction/no-card-on-file.md)
+- [Never hit quotas rule](../../rules/interaction/never-hit-quotas.md)

@@ -40,7 +40,7 @@ the free tier.
 ## Alternatives
 
 - LaunchDarkly (paid only — rejected)
-- PostHog feature flags ([already in stack](./posthog.md))
+- PostHog feature flags ([already in stack](../analytics/posthog.md))
 - Statsig (free tier exists)
 - GrowthBook (open source, but self-host violates the no-selfhost rule)
 - Unleash (open source, same issue)
@@ -61,7 +61,7 @@ LaunchDarkly is paid-only.
 
 ## Cross-refs
 
-- [API umbrella Hono Worker architecture](../../architecture/api-umbrella-hono-worker.md)
-- [Use pnpm rule](../../rules/use-pnpm.md)
+- [API umbrella Hono Worker architecture](../../decisions/architecture/compute/api-umbrella-hono-worker.md)
+- [Use pnpm rule](../../rules/development/use-pnpm.md)
 - [PostHog](../analytics/posthog.md) — product analytics, not the primary flag store
-- [No card-on-file rule](../../rules/no-card-on-file.md)
+- [No card-on-file rule](../../rules/interaction/no-card-on-file.md)

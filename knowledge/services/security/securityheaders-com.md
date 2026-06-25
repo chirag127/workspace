@@ -88,4 +88,4 @@ under 5 seconds. Pairs with Mozilla Observatory for double coverage.
 - [Mozilla Observatory — sibling auditor](./mozilla-observatory.md)
 - [Security headers strategy decision](../../decisions/security/security-headers-strategy.md)
 - [Doppler — secrets sync](../secrets/doppler.md)
-- [No card-on-file rule](../../rules/no-card-on-file.md)
+- [No card-on-file rule](../../rules/interaction/no-card-on-file.md)

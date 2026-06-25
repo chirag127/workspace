@@ -45,4 +45,4 @@ for genuinely independent endpoints we may add later.
 - [`services/monitoring/better-stack.md`](../../services/monitoring/better-stack.md)
 - [`services/monitoring/healthchecks-io.md`](../../services/monitoring/healthchecks-io.md)
 - [`services/domain/cloudflare-dns.md`](../../services/domain/cloudflare-dns.md)
-- [`rules/never-hit-quotas.md`](../../rules/never-hit-quotas.md)
+- [`rules/interaction/never-hit-quotas.md`](../../rules/interaction/never-hit-quotas.md)

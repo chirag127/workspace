@@ -36,7 +36,7 @@ but is not the active pick.
 - DNS at Cloudflare is non-negotiable: it integrates Pages / Workers / R2 / DNS / Email Routing in one dashboard, and is free at any scale the family hits. Spaceship's bundled DNS is fine but doesn't have the integration surface.
 - Cloudflare Email Routing is free up to 200 routing addresses per zone with unlimited forwarding volume — far more than the family will ever need. Pairs with [Resend](../../services/email/resend.md) for outbound, so receive ↔ send both stay free.
 - One Gmail inbox is the simplest possible mail surface — all routing rules live at Cloudflare; per-purpose labels live at Gmail; no additional inbox to monitor.
-- Domain renewal at Spaceship is the **same narrow card-on-file exception** the family already accepts for any registrar (see [`no-card-on-file.md`](../../rules/no-card-on-file.md)) — it's not a new exception.
+- Domain renewal at Spaceship is the **same narrow card-on-file exception** the family already accepts for any registrar (see [`no-card-on-file.md`](../../rules/interaction/no-card-on-file.md)) — it's not a new exception.
 
 ## Implications
 
@@ -83,4 +83,4 @@ but is not the active pick.
 - [Cloudflare Pages for all sites](./cloudflare-pages-for-all-sites.md)
 - [Subdomains under oriz.in](./subdomains-under-oriz-in.md)
 - [Resend — outbound transactional](../../services/email/resend.md)
-- [No card-on-file rule — domain-renewal exception](../../rules/no-card-on-file.md)
+- [No card-on-file rule — domain-renewal exception](../../rules/interaction/no-card-on-file.md)

@@ -47,4 +47,4 @@ sites are pre-50K. Subscriptions remain the primary monetization.
 ## Cross-refs
 
 - [Ezoic](./ezoic.md)
-- [Razorpay](./razorpay.md)
+- [Razorpay](../payment/razorpay.md)

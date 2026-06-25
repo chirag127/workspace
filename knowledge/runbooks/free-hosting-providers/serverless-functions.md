@@ -15,7 +15,7 @@ related:
 
 # Serverless functions + edge — free tiers (verified 2026-06-23)
 
-Adversarially re-verified against the official pricing pages on 2026-06-23. Sources cited per row. AWS Lambda remains a **user-approved exception** to the no-card rule (see [`rules/aws-lambda-exception.md`](../../rules/aws-lambda-exception.md)). GCP Cloud Run, Oracle Functions, Vercel Hobby (commercial-use ban), Cloudflare Containers (paid-plan-only), and Fly.io (free tier killed) are all DROP in 2026.
+Adversarially re-verified against the official pricing pages on 2026-06-23. Sources cited per row. AWS Lambda remains a **user-approved exception** to the no-card rule (see [`rules/infrastructure/aws-lambda-exception.md`](../../rules/infrastructure/aws-lambda-exception.md)). GCP Cloud Run, Oracle Functions, Vercel Hobby (commercial-use ban), Cloudflare Containers (paid-plan-only), and Fly.io (free tier killed) are all DROP in 2026.
 
 ## The 4-rail fallback chain (production order, 2026-06-23)
 
@@ -97,7 +97,7 @@ Cap holds for sparse / cron / lightweight-API traffic. Static + edge cache shoul
 
 - **Cloudflare Workers 10 ms CPU per invocation.** Hard. Image processing, heavy AI, big JSON crunching trips it. Mitigation: Deno Deploy (CPU-h budget) or Workers Paid Standard ($5/mo, but breaks no-card rule).
 - **Deno Deploy Classic is dead.** Migration cliff was 2025-07. Current product = "Deno Deploy" (no Classic suffix). Volume storage, memory-time, CPU-time billing model applies.
-- **AWS Free Plan auto-closes after 6 months.** This is the new 2026 model. To keep Lambda's 1M req/mo perpetual quota, the account must be on **Paid Plan** with card on file. The user-approved Lambda exception still holds — see [`rules/aws-lambda-exception.md`](../../rules/aws-lambda-exception.md) for hardening (budgets, service-quota floor, reserved concurrency).
+- **AWS Free Plan auto-closes after 6 months.** This is the new 2026 model. To keep Lambda's 1M req/mo perpetual quota, the account must be on **Paid Plan** with card on file. The user-approved Lambda exception still holds — see [`rules/infrastructure/aws-lambda-exception.md`](../../rules/infrastructure/aws-lambda-exception.md) for hardening (budgets, service-quota floor, reserved concurrency).
 - **Render Free spins down after 15 min idle.** ~1 min cold restart. Not suitable for user-facing critical paths — purely a last-resort rail.
 - **Koyeb free instance is small.** 512 MB / 0.1 vCPU / 2 GB SSD. Fine for a Node/Python API server with light traffic; not for memory-hungry workloads.
 - **Cloudflare Containers is $5/mo gated.** No free tier exists. If a workload needs containers, the family should reach for Render Free (free, with cold sleep) or Koyeb free instance first.
@@ -112,7 +112,7 @@ Cap holds for sparse / cron / lightweight-API traffic. Static + edge cache shoul
 
 1. **Rail 1 (primary):** Cloudflare Workers + Pages Functions for all edge-grade work. 100K req/day across the fleet.
 2. **Rail 2 (secondary):** Deno Deploy for anything exceeding 10 ms CPU per invocation.
-3. **Rail 3 (tertiary) — USER-APPROVED EXCEPTION:** AWS Lambda. Per [`aws-lambda-exception`](../../rules/aws-lambda-exception.md). Lambda only, no other AWS services. Account on Paid Plan to keep the perpetual quota past 6 months.
+3. **Rail 3 (tertiary) — USER-APPROVED EXCEPTION:** AWS Lambda. Per [`aws-lambda-exception`](../../rules/infrastructure/aws-lambda-exception.md). Lambda only, no other AWS services. Account on Paid Plan to keep the perpetual quota past 6 months.
 4. **Rail 4 (quaternary):** Render Free (with 15-min cold sleep) — last-resort rail.
 5. **Rail 5 candidate (no-card alt):** Koyeb free instance (512 MB / 0.1 vCPU / 2 GB SSD) — replaces Fly.io, useful when the Lambda exception isn't appropriate for a given workload.
 6. **AI specialty:** HF Spaces ZeroGPU (free GPU, quota-based, public Spaces) for demos; Modal ($30/mo credits, card req) for heavier GPU jobs; Workers AI (10K Neurons/day) for light inference.

@@ -92,7 +92,7 @@ Granular tokens (introduced 2023) replace classic tokens. Use them.
 
 ## Step 3 — Set org-level GH secrets
 
-Per `rules/github-org-level-secrets.md`, secrets are set ONCE at the
+Per `rules/security/github-org-level-secrets.md`, secrets are set ONCE at the
 `chirag127` org level and cascade to every repo.
 
 ```bash
@@ -120,7 +120,7 @@ NPM_TOKEN=<the new token>
 ```
 
 `.env.example` stays comment-only; `scripts/sync-env-example.sh`
-syncs it to every repo per `rules/env-example-synced-from-master.md`.
+syncs it to every repo per `rules/security/env-example-synced-from-master.md`.
 
 ## Step 5 — Update Doppler (if upstream)
 

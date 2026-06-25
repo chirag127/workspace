@@ -85,12 +85,12 @@ locked at
 [`decisions/branding/family-wide-privacy-page.md`](../../decisions/branding/family-wide-privacy-page.md).
 Self-built keeps the legal content under family control,
 zero-cost, and aligned with the
-[no-paid-tier rule](../../rules/no-card-on-file.md).
+[no-paid-tier rule](../../rules/interaction/no-card-on-file.md).
 
 ## Cross-refs
 
 - [Family-wide privacy page decision](../../decisions/branding/family-wide-privacy-page.md)
-- [Per-extension privacy policy policy](../../policy/privacy-policy-per-extension.md)
+- [Per-extension privacy policy policy](../../decisions/policy/privacy-policy-per-extension.md)
 - [Cloudflare Pages — host](../hosting/cloudflare-pages.md)
-- [No card-on-file rule](../../rules/no-card-on-file.md)
-- [Public/private line policy](../../policy/public-private-line.md)
+- [No card-on-file rule](../../rules/interaction/no-card-on-file.md)
+- [Public/private line policy](../../decisions/policy/public-private-line.md)

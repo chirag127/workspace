@@ -74,7 +74,7 @@ across all channels.
 ## Alternatives
 
 - Courier — free 10K notifs/mo, similar model
-- Novu — open-source, self-hostable; rejected per [no-self-host](../../rules/no-self-host.md)
+- Novu — open-source, self-hostable; rejected per <!-- TODO: broken link, was [no-self-host](../../rules/no-self-host.md) -->
 - Customer.io — paid only past 200 contacts
 - Building it ourselves on Workers — re-implementing dedupe, digest,
   preference center, channel routing is months of work
@@ -102,5 +102,5 @@ building a notification center in `@chirag127/oriz-kit`.
 - [Resend — email transport behind Knock](../email/resend.md)
 - [Notifications: FCM + Knock decision](../../decisions/architecture/notifications-fcm-plus-knock.md)
 - [Hookdeck — webhook reliability for Razorpay → Knock](../tooling/hookdeck.md)
-- [No card-on-file rule](../../rules/no-card-on-file.md)
-- [Never hit quotas rule](../../rules/never-hit-quotas.md)
+- [No card-on-file rule](../../rules/interaction/no-card-on-file.md)
+- [Never hit quotas rule](../../rules/interaction/never-hit-quotas.md)

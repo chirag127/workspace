@@ -38,7 +38,7 @@ REJECTED desktop tools:
 - **Drizzle Studio** — bundles its own electron-ish runtime; per-machine install; no value-add over Neon Console for ad-hoc queries
 - **Outerbase** — SaaS DB UI; free tier exists but signup adds another vendor surface; capability already covered by vendor consoles
 - **Beekeeper Studio** — desktop OSS GUI; would need to be installed + auth-configured on every dev machine
-- **TablePlus / DataGrip / DBeaver** — paid or per-seat or large install; fights [`rules/no-subscriptions.md`](../../rules/no-subscriptions.md)
+- **TablePlus / DataGrip / DBeaver** — paid or per-seat or large install; fights [`rules/infrastructure/no-subscriptions.md`](../../rules/infrastructure/no-subscriptions.md)
 
 ## Why
 
@@ -52,8 +52,8 @@ REJECTED desktop tools:
   GUI tool would either be paid (TablePlus / DataGrip) or add
   another vendor surface that needs ongoing
   permission/billing attention (Outerbase) — both cut against
-  [`rules/no-card-on-file.md`](../../rules/no-card-on-file.md) +
-  [`rules/no-subscriptions.md`](../../rules/no-subscriptions.md).
+  [`rules/no-card-on-file.md`](../../rules/interaction/no-card-on-file.md) +
+  [`rules/infrastructure/no-subscriptions.md`](../../rules/infrastructure/no-subscriptions.md).
 - **Browsers are the family-default surface anyway.** All 11+ sites
   are static SPAs deploying through browser-side dashboards (CF
   Pages, GitHub, Better Stack, Sentry, PostHog). Adding ONE more
@@ -123,5 +123,5 @@ REJECTED desktop tools:
 - [firebase-rest-firestore decision (Worker compat)](./firebase-rest-firestore-not-admin.md)
 - [Lifestream JSONL canonical](./lifestream-jsonl-canonical.md)
 - [Markdown-in-repo only — same minimal-tool posture](./cms-markdown-in-repo-only.md)
-- [No card-on-file rule](../../rules/no-card-on-file.md)
-- [No subscriptions rule](../../rules/no-subscriptions.md)
+- [No card-on-file rule](../../rules/interaction/no-card-on-file.md)
+- [No subscriptions rule](../../rules/infrastructure/no-subscriptions.md)

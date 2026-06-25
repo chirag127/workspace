@@ -51,5 +51,5 @@ integration is a nice-to-have we may use.
 
 ## Cross-refs
 
-- [No card-on-file rule](../../rules/no-card-on-file.md)
+- [No card-on-file rule](../../rules/interaction/no-card-on-file.md)
 - [MailerLite](./mailerlite.md) — for marketing email, not transactional

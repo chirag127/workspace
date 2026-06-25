@@ -93,7 +93,7 @@ providers (no monthly fee).
 ### What we don't do
 
 - **No direct Knock web-push** — every web-push goes through FCM.
-- **No self-hosted Novu** — per [no-self-host](../../rules/no-self-host.md).
+- **No self-hosted Novu** — per <!-- TODO: broken link, was [no-self-host](../../rules/no-self-host.md) -->.
 - **No Firebase Cloud Functions for notification fan-out** — that
   would force Blaze (paid) to call third parties; Hono Worker on
   Cloudflare handles it free.
@@ -108,6 +108,6 @@ providers (no monthly fee).
 - [Resend — email transport behind Knock](../../services/email/resend.md)
 - [Firebase Spark forever](../infrastructure/firebase-spark-forever.md)
 - [Hookdeck — webhook reliability](../infrastructure/hookdeck-for-webhook-reliability.md)
-- [Never hit quotas rule](../../rules/never-hit-quotas.md)
-- [No card-on-file rule](../../rules/no-card-on-file.md)
-- [No self-host rule](../../rules/no-self-host.md)
+- [Never hit quotas rule](../../rules/interaction/never-hit-quotas.md)
+- [No card-on-file rule](../../rules/interaction/no-card-on-file.md)
+- <!-- TODO: broken link, was [No self-host rule](../../rules/no-self-host.md) -->

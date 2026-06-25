@@ -89,4 +89,4 @@ both are advertised. Cost to publish: one build-step helper.
 - [JSON Feed sibling](./json-feed.md)
 - [SEO services index](./index.md)
 - [Cross-post engine](../../decisions/architecture/cross-post-engine.md) — `oriz-omnipost` reads RSS as the source-of-truth feed; Atom + JSON ride alongside for human readers
-- [oriz-kit glossary](../../glossary/o-r/oriz-kit.md) — `<FeedDiscovery />` component lives here
+- <!-- TODO: broken link, was [oriz-kit glossary](../../glossary/o-r/oriz-kit.md) --> — `<FeedDiscovery />` component lives here

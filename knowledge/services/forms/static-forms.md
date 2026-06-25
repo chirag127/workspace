@@ -22,7 +22,7 @@ related:
 ## Role
 
 The **fallback** contact-form backend. The `<ContactForm>` component
-in [`@chirag127/oriz-kit`](../../glossary/o-r/oriz-kit.md) posts to
+in <!-- TODO: broken link, was [`@chirag127/oriz-kit`](../../glossary/o-r/oriz-kit.md) --> posts to
 [Web3Forms](./web3forms.md) by default; on `5xx` / network failure
 or when an env-var flips, the same payload goes to Static Forms
 instead. Different vendor, different edge — a Web3Forms outage or
@@ -70,4 +70,4 @@ contact us."
 - [Web3Forms — primary sibling](./web3forms.md)
 - [Tally — rich form builder, different role](./tally.md)
 - [Forms trio decision](../../decisions/architecture/forms-trio.md)
-- [No card-on-file rule](../../rules/no-card-on-file.md)
+- [No card-on-file rule](../../rules/interaction/no-card-on-file.md)

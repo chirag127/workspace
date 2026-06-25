@@ -79,7 +79,7 @@ These don't change — they're now even MORE important since cards are allowed:
 
 ## Migration impact
 
-- `rules/no-card-on-file.md` → mark `status: superseded by rules/free-tier-with-cost-controls.md`
+- `rules/no-card-on-file.md` → mark `status: superseded by rules/infrastructure/free-tier-with-cost-controls.md`
 - `services/*.md` files marked "card-gated DROP" → re-evaluate
 - Knowledge runbooks → update verdicts where the only blocker was card-at-signup
 

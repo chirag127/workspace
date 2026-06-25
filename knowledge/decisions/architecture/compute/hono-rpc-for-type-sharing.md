@@ -51,5 +51,5 @@ problem entirely.
 ## Cross-refs
 
 - [Hono Worker API umbrella](./hono-worker-api-umbrella.md)
-- [API umbrella Hono Worker architecture](../../../architecture/compute/api-umbrella-hono-worker.md)
-- [AGENTS.md API layer section](../../../AGENTS.md)
+- [API umbrella Hono Worker architecture](api-umbrella-hono-worker.md)
+- [AGENTS.md API layer section](../../../../AGENTS.md)

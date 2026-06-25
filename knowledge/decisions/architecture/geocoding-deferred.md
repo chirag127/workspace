@@ -44,7 +44,7 @@ requires a card on the free tier.
   [max-payment-methods](../monetisation/max-payment-methods.md));
   ad-network selection differs by region. All three read
   `CF-IPCountry`, none need a coordinate or street address.
-- **Adopting today fights the [never-hit-quotas rule](../../rules/never-hit-quotas.md).**
+- **Adopting today fights the [never-hit-quotas rule](../../rules/interaction/never-hit-quotas.md).**
   Free tiers exist (Nominatim 1 req/sec OSS, Mapbox 100K
   loads/mo) but signing up before there's a feature to use it
   burns a swap-cost slot for no benefit.
@@ -58,9 +58,9 @@ requires a card on the free tier.
 
 - **No Nominatim account, no Mapbox key, no Google Geocoding
   account today.** Not in
-  [`templates/.env.example`](../../../templates/.env.example).
+  <!-- TODO: broken link, was [`templates/.env.example`](../../../templates/.env.example) -->.
 - **No `<Map>` or `<Geocoder>` component** in
-  [`@chirag127/oriz-kit`](../../glossary/o-r/oriz-kit.md). When
+  <!-- TODO: broken link, was [`@chirag127/oriz-kit`](../../glossary/o-r/oriz-kit.md) -->. When
   the first site needs one, it lands in the kit at adoption time.
 - **No reverse-geocoding fallback** in any consent / payment /
   i18n path. `CF-IPCountry` is enough for country-level routing;
@@ -92,11 +92,11 @@ Promote when **any one** of these holds:
 The picked provider must:
 
 - Not require a card on file at sign-up — keeps
-  [no-card-on-file](../../rules/no-card-on-file.md) intact.
+  [no-card-on-file](../../rules/interaction/no-card-on-file.md) intact.
 - Have a documented swap path back to the other in this table —
   fail-closed parity per
-  [never-hit-quotas](../../rules/never-hit-quotas.md).
-- Land in [`@chirag127/oriz-kit`](../../glossary/o-r/oriz-kit.md)
+  [never-hit-quotas](../../rules/interaction/never-hit-quotas.md).
+- Land in <!-- TODO: broken link, was [`@chirag127/oriz-kit`](../../glossary/o-r/oriz-kit.md) -->
   as `<Map>` / `<Geocoder>` so swapping providers is one prop
   flip across the family, not 11 fixes.
 
@@ -114,6 +114,6 @@ The picked provider must:
 - [Consent management uses CF-IPCountry for geo defaults](../security/consent-management-multi-category.md)
 - [Max payment methods — geo-routed by CF-IPCountry](../monetisation/max-payment-methods.md)
 - [Cloudflare Pages — provides CF-IPCountry header](../../services/hosting/cloudflare-pages.md)
-- [No card-on-file rule](../../rules/no-card-on-file.md)
-- [Never hit quotas rule](../../rules/never-hit-quotas.md)
+- [No card-on-file rule](../../rules/interaction/no-card-on-file.md)
+- [Never hit quotas rule](../../rules/interaction/never-hit-quotas.md)
 - [Open Knowledge Format — `_okf.md`](../../_okf.md)

@@ -19,7 +19,7 @@ print) with its first deployable Astro app.
 ## Prerequisites
 
 - Tokens rotated and org secrets set per
-  [`../security/credentials/rotate-cf-and-npm-tokens.md`](../security/credentials/rotate-cf-and-npm-tokens.md).
+  [`../security/credentials/rotate-cf-and-npm-tokens.md`](../../security/credentials/rotate-cf-and-npm-tokens.md).
 - Local clone: `git submodule update --init repos/websites/tools/<r>-tools-site`.
 - Working dir: `repos/websites/tools/<r>-tools-site`.
 
@@ -27,7 +27,7 @@ print) with its first deployable Astro app.
 
 ```
 <r>-tools-site/
-├── .env.example                 # synced from master per rules/env-example-synced-from-master.md
+├── .env.example                 # synced from master per rules/security/env-example-synced-from-master.md
 ├── .gitignore                   # node_modules, dist, .astro, .env
 ├── astro.config.mjs             # output: 'static', sitemap integration, mdx
 ├── biome.json                   # extends shared family config

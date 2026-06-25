@@ -20,7 +20,7 @@ related:
 
 Every public POST surface across `*.oriz.in` (contact forms,
 sign-up, comment, support) goes through **one** captcha component
-shipped from [`@chirag127/oriz-kit`](../../glossary/o-r/oriz-kit.md):
+shipped from <!-- TODO: broken link, was [`@chirag127/oriz-kit`](../../glossary/o-r/oriz-kit.md) -->:
 `<Captcha>`. The component:
 
 1. Probes `challenges.cloudflare.com` on mount.
@@ -111,5 +111,5 @@ overlap. Bot defense remains layered.
 - [reCAPTCHA Enterprise — App Check provider, different role](../../services/auth/recaptcha-enterprise.md)
 - [Multi-provider auth decision](./multi-provider-auth.md)
 - [Doppler — secrets source-of-truth](../../services/secrets/doppler.md)
-- [oriz-kit glossary](../../glossary/o-r/oriz-kit.md)
-- [No card-on-file rule](../../rules/no-card-on-file.md)
+- <!-- TODO: broken link, was [oriz-kit glossary](../../glossary/o-r/oriz-kit.md) -->
+- [No card-on-file rule](../../rules/interaction/no-card-on-file.md)

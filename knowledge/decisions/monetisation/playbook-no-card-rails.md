@@ -126,7 +126,7 @@ Read but NOT edited — these contradictions flagged for user reconciliation:
 
 ## Cross-refs
 
-- [No card-on-file rule](../../rules/no-card-on-file.md)
+- [No card-on-file rule](../../rules/interaction/no-card-on-file.md)
 - [Max payment methods (existing rail list)](./max-payment-methods.md)
 - [Per-surface recommendations](./per-surface-recommendations.md)
 - [No Firebase Functions](../architecture/no-firebase-functions.md)

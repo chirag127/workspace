@@ -25,7 +25,7 @@ wins, and the rule file is updated in the same conversation.
 ## The five non-negotiables (from AGENTS.md §"five non-negotiable rules")
 
 1. [`never-hit-quotas.md`](./never-hit-quotas.md) — architect for headroom; surprise quota walls are a design failure.
-2. [`no-card-on-file.md`](./no-card-on-file.md) — Cloudflare Free / Firebase Spark / GitHub Free only; no card EVER.
+2. [`no-card-on-file.md`](interaction/no-card-on-file.md) — Cloudflare Free / Firebase Spark / GitHub Free only; no card EVER.
 3. [`self-update-rule.md`](./self-update-rule.md) — every chat decision lands in `knowledge/` in the same conversation.
 4. [`future-overrides-past.md`](./future-overrides-past.md) — when chat contradicts knowledge, chat wins; knowledge updates.
 5. [`parallel-by-default.md`](./parallel-by-default.md) — fan-out subagents for any parallelisable work.
@@ -64,15 +64,15 @@ wins, and the rule file is updated in the same conversation.
 - [`no-paid-self-hosting-only.md`](./no-paid-self-hosting-only.md) — no VPS / Docker / k8s. Cloudflare Pages + Workers + KV/R2/D1 is the compute ceiling.
 - [`no-web3forms-server-side.md`](./no-web3forms-server-side.md) — browser-side only.
 - [`no-ad-slots-in-markup.md`](./no-ad-slots-in-markup.md) — AdSense / Ezoic / Mediavine inject at runtime.
-- [`ads-allowed-everywhere-except.md`](./ads-allowed-everywhere-except.md) — AdSense + AdMob on every app except `oriz-cs-me-app` and `oriz-janaushdhi-app`.
+- <!-- TODO: broken link, was [`ads-allowed-everywhere-except.md`](./ads-allowed-everywhere-except.md) --> — AdSense + AdMob on every app except `oriz-cs-me-app` and `oriz-janaushdhi-app`.
 
 ## Tooling / dependencies
 
 - [`always-latest-deps.md`](./always-latest-deps.md) — `pnpm add <pkg>@latest`; weekly `pnpm update --latest --recursive`.
 - [`repos-work-independently.md`](./repos-work-independently.md) — every submodule must `pnpm install && pnpm build` standalone.
 - [`use-pnpm.md`](./use-pnpm.md) — pnpm only, family-wide; the global store is what makes "no duplication" work.
-- [`single-env-example-per-repo.md`](./single-env-example-per-repo.md) — **SUPERSEDED 2026-06-20** by [`env-example-synced-from-master.md`](./env-example-synced-from-master.md). Kept for audit trail.
-- [`env-example-synced-from-master.md`](./env-example-synced-from-master.md) — canonical `.env.example` at master `templates/.env.example`; every other repo's copy is synced via [`scripts/sync-env-example.sh`](../../scripts/sync-env-example.sh); CI fails on drift; no comments. Pairs with [`github-org-level-secrets.md`](./github-org-level-secrets.md) and the [two-track decision](../decisions/security/env-and-secrets-single-source.md).
+- <!-- TODO: broken link, was [`single-env-example-per-repo.md`](./single-env-example-per-repo.md) --> — **SUPERSEDED 2026-06-20** by [`env-example-synced-from-master.md`](./env-example-synced-from-master.md). Kept for audit trail.
+- [`env-example-synced-from-master.md`](./env-example-synced-from-master.md) — canonical `.env.example` at master `templates/.env.example`; every other repo's copy is synced via <!-- TODO: broken link, was [`scripts/sync-env-example.sh`](../../scripts/sync-env-example.sh) -->; CI fails on drift; no comments. Pairs with [`github-org-level-secrets.md`](./github-org-level-secrets.md) and the [two-track decision](../decisions/security/env-and-secrets-single-source.md).
 - [`github-org-level-secrets.md`](./github-org-level-secrets.md) — every GitHub Actions secret lives at the `chirag127` ORG level (`gh secret set --org chirag127 --visibility all`); per-repo writes are forbidden — they cause drift. Doppler stays upstream; org-level GH secrets are the runtime CI mirror.
 
 ## Design + style rules
@@ -92,6 +92,6 @@ wins, and the rule file is updated in the same conversation.
 
 ## Geo + communication constraints
 
-- [`no-telegram-india-banned.md`](./no-telegram-india-banned.md) — Telegram is banned in India; user cannot access reliably. Drafts queue → GH Issues; notifications → GH + email. Do NOT propose Telegram bots for India-resident users.
+- <!-- TODO: broken link, was [`no-telegram-india-banned.md`](./no-telegram-india-banned.md) --> — Telegram is banned in India; user cannot access reliably. Drafts queue → GH Issues; notifications → GH + email. Do NOT propose Telegram bots for India-resident users.
 - [`communication-stt-friendly.md`](./communication-stt-friendly.md) — user uses STT heavily; accept transcription noise. When ambiguous, pick most-likely interpretation, state it explicitly, proceed. Never ask user to re-transcribe.
 - [`confirm-knowledge-deltas.md`](./confirm-knowledge-deltas.md) — when new user input contradicts existing knowledge, surface the delta explicitly, ask the user to confirm overwrite vs one-off, and only then act. Latest input wins ONLY after explicit confirmation. Pairs with future-overrides-past + keep-knowledge-fresh.

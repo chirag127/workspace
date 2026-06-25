@@ -30,7 +30,7 @@ appears.
 
 ## Why
 
-- **Twilio + Vonage both fight the [no-card-on-file rule](../../rules/no-card-on-file.md).**
+- **Twilio + Vonage both fight the [no-card-on-file rule](../../rules/interaction/no-card-on-file.md).**
   Twilio's free trial is time-bound and credit-bound and converts to
   a paid account requiring a card on file. Vonage's free trial is
   similar — both providers expect a card to graduate beyond the
@@ -58,7 +58,7 @@ appears.
 ### What we don't do
 
 - **No Twilio account.** No `TWILIO_ACCOUNT_SID` /
-  `TWILIO_AUTH_TOKEN` lines in [`templates/.env.example`](../../../templates/.env.example).
+  `TWILIO_AUTH_TOKEN` lines in <!-- TODO: broken link, was [`templates/.env.example`](../../../templates/.env.example) -->.
 - **No Vonage / MessageBird / Plivo account.** Not adopted, not
   documented under `services/`.
 - **No standalone SMS provider** of any kind. SMS, when it lands,
@@ -84,7 +84,7 @@ Promote from "deferred SMS path" to "active SMS workflow" when
 When it flips: enable Knock's SMS channel on the relevant
 workflow, top up Knock prepaid balance with one transaction (not
 a card-on-file), document the workflow in
-[`packages/oriz-kit/notifications/workflows/`](../../glossary/o-r/oriz-kit.md).
+<!-- TODO: broken link, was [`packages/oriz-kit/notifications/workflows/`](../../glossary/o-r/oriz-kit.md) -->.
 
 ### What stays
 
@@ -102,7 +102,7 @@ a card-on-file), document the workflow in
 - [Knock service entry — bundled SMS via Twilio / MessageBird](../../services/push/knock.md)
 - [Notifications: FCM + Knock decision](./notifications-fcm-plus-knock.md)
 - [push services index](../../services/push/index.md)
-- [No card-on-file rule](../../rules/no-card-on-file.md)
-- [No subscriptions rule](../../rules/no-subscriptions.md)
+- [No card-on-file rule](../../rules/interaction/no-card-on-file.md)
+- [No subscriptions rule](../../rules/infrastructure/no-subscriptions.md)
 - [No-paid-tier rule (no-subscriptions-anywhere)](../monetisation/no-subscriptions-anywhere.md)
 - [Multi-provider auth — passkeys + email-link instead of SMS-2FA](../security/multi-provider-auth.md)

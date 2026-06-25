@@ -59,6 +59,6 @@ CodeRabbit's free OSS tier is unbounded in repo count, which matches the family'
 
 - [services/code-quality/dependabot](./dependabot.md)
 - [services/code-quality/sonarcloud](./sonarcloud.md)
-- [rules/match-surrounding-style](../../rules/match-surrounding-style.md)
-- [runbooks/clean-install](../../runbooks/clean-install.md)
+- [rules/match-surrounding-style](../../rules/interaction/match-surrounding-style.md)
+- [runbooks/clean-install](../../runbooks/operations/clean-install.md)
 - [decisions/code-quality-stack](../../decisions/process/code-quality-stack.md)

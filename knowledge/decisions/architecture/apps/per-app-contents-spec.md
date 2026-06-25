@@ -250,6 +250,6 @@ Kept short (vendor-convention or category-IS-brand):
 
 - [chrome-config-contract](../general/chrome-config-contract.md) — 4-config split, locked
 - [per-runtime-framework](../general/per-runtime-framework.md) — Astro stack locked
-- [multi-target-build](../ops/multi-target-build.md) — deploy gating, CI shape, PWA build
+- [multi-target-build](../multi-target-build.md) — deploy gating, CI shape, PWA build
 - [naming-policy-v6](../../branding/naming-policy-v6.md) — full brand slugs
 - [scaffold-a-new-site](../../../runbooks/operations/scaffold-a-new-site.md) — runbook (predates v6.2; needs refresh)

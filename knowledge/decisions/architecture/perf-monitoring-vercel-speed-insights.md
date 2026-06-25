@@ -105,5 +105,5 @@ Together = full perf picture.
 - [Cloudflare Web Analytics](../../services/analytics/cloudflare-web-analytics.md)
 - [Lighthouse CI — lab-only score in PRs](../../services/a11y/lighthouse-ci.md)
 - [Cloudflare Pages — primary host](../../services/hosting/cloudflare-pages.md)
-- [Never hit quotas rule](../../rules/never-hit-quotas.md)
-- [No card-on-file rule](../../rules/no-card-on-file.md)
+- [Never hit quotas rule](../../rules/interaction/never-hit-quotas.md)
+- [No card-on-file rule](../../rules/interaction/no-card-on-file.md)

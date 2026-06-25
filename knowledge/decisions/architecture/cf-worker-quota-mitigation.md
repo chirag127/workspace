@@ -145,7 +145,7 @@ periodic tasks.
 - **No card-on-file** — quota fail-closed is a feature; the family
   never enables CF Workers Paid plan because that would put a card
   on the account in violation of
-  [`rules/no-card-on-file.md`](../../rules/no-card-on-file.md).
+  [`rules/no-card-on-file.md`](../../rules/interaction/no-card-on-file.md).
 
 ## Cross-refs
 
@@ -155,6 +155,6 @@ periodic tasks.
 - [Umbrella Hono Worker decision](./hono-worker-api-umbrella.md)
 - [Cron split decision](./cron-split-cf-vs-gh.md)
 - [Security headers strategy — uses `_headers`](../security/security-headers-strategy.md)
-- [Never hit quotas rule](../../rules/never-hit-quotas.md)
-- [No card-on-file rule](../../rules/no-card-on-file.md)
-- [Layer 5 — compute architecture (Tier 2 = CF Workers)](../../architecture/layer-5-compute.md)
+- [Never hit quotas rule](../../rules/interaction/never-hit-quotas.md)
+- [No card-on-file rule](../../rules/interaction/no-card-on-file.md)
+- [Layer 5 — compute architecture (Tier 2 = CF Workers)](general/layer-5-compute.md)

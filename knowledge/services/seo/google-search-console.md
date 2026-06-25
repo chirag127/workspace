@@ -80,4 +80,4 @@ domain-verifies once for every subdomain, no card.
 - [JSON-LD](./json-ld-structured-data.md) — what GSC's Rich Results report reads
 - [Bing Webmaster](./bing-webmaster.md) — same role, different engine
 - [Cloudflare DNS](../domain/cloudflare-dns.md) — TXT verification lives here
-- [No card-on-file rule](../../rules/no-card-on-file.md)
+- [No card-on-file rule](../../rules/interaction/no-card-on-file.md)

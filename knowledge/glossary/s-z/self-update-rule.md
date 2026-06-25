@@ -31,5 +31,5 @@ get marked `status: superseded`, never deleted.
 
 ## See also
 
-- [parallel-by-default](./parallel-by-default.md)
-- [concept-file](./concept-file.md)
+- [parallel-by-default](../o-r/parallel-by-default.md)
+- [concept-file](../a-c/concept-file.md)

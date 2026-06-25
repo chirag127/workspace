@@ -67,5 +67,5 @@ card.
 - [decisions/architecture/seo-three-pillars.md](../../decisions/architecture/seo-three-pillars.md) — the locking decision for the SEO pillars
 - [decisions/architecture/feeds-rss-atom-json.md](../../decisions/architecture/feeds-rss-atom-json.md) — the locking decision for the three-format feed strategy
 - [decisions/architecture/cross-post-engine.md](../../decisions/architecture/cross-post-engine.md) — oriz-omnipost reads RSS and fires the IndexNow ping on publish
-- [glossary/o-r/oriz-kit.md](../../glossary/o-r/oriz-kit.md) — `<JsonLd>`, `<FeedDiscovery />`, feed generators live here
-- [No card-on-file rule](../../rules/no-card-on-file.md)
+- <!-- TODO: broken link, was [glossary/o-r/oriz-kit.md](../../glossary/o-r/oriz-kit.md) --> — `<JsonLd>`, `<FeedDiscovery />`, feed generators live here
+- [No card-on-file rule](../../rules/interaction/no-card-on-file.md)

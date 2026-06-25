@@ -147,7 +147,7 @@ Headroom                          : ~83x
 ```
 
 Sits comfortably inside
-[`rules/never-hit-quotas.md`](../../rules/never-hit-quotas.md) even
+[`rules/interaction/never-hit-quotas.md`](../../rules/interaction/never-hit-quotas.md) even
 with 10x growth.
 
 ## Why this layering
@@ -159,10 +159,10 @@ with 10x growth.
 - **Tier 3 adds depth without dependency.** Even if Cloudflare and
   TinyURL both vanish, GitHub gists still resolve.
 - **No tier requires a card.** The
-  [`no-card-on-file rule`](../../rules/no-card-on-file.md) holds
+  [`no-card-on-file rule`](../../rules/interaction/no-card-on-file.md) holds
   across the entire stack.
 - **No tier requires a subscription.** The
-  [`no-subscriptions rule`](../../rules/no-subscriptions.md) holds
+  [`no-subscriptions rule`](../../rules/infrastructure/no-subscriptions.md) holds
   too.
 - **The decision explicitly rejects Bit.ly, Rebrandly, Short.io, T.ly
   paid tiers** — see the alternatives table in
@@ -197,5 +197,5 @@ with 10x growth.
 - [URL shortener quota mitigation (cache-the-301)](./url-shortener-quota-mitigation.md)
 - [Cross-post engine — primary Tier 1 consumer](./cross-post-engine.md)
 - [UTM attribution strategy — authoritative click source](./utm-attribution-strategy.md)
-- [Never hit quotas rule](../../rules/never-hit-quotas.md)
-- [No card-on-file rule](../../rules/no-card-on-file.md)
+- [Never hit quotas rule](../../rules/interaction/never-hit-quotas.md)
+- [No card-on-file rule](../../rules/interaction/no-card-on-file.md)

@@ -21,7 +21,7 @@ Every site in the family is a static build deployed to a host in this list. Prim
 
 ## Cross-refs
 
-- [Layer 1 — static hosting](../../architecture/layer-1-static-hosting.md)
-- [Layer 2 — survival fallback](../../architecture/layer-2-survival-fallback.md)
-- [decisions/cloudflare-pages-for-all-sites](../../decisions/cloudflare-pages-for-all-sites.md)
-- [decisions/github-pages-mirror-per-site](../../decisions/github-pages-mirror-per-site.md)
+- [Layer 1 — static hosting](../../decisions/architecture/frontend/layer-1-static-hosting.md)
+- [Layer 2 — survival fallback](../../decisions/architecture/frontend/layer-2-survival-fallback.md)
+- [decisions/cloudflare-pages-for-all-sites](../../decisions/infrastructure/cloudflare-pages-for-all-sites.md)
+- [decisions/github-pages-mirror-per-site](../../decisions/infrastructure/github-pages-mirror-per-site.md)

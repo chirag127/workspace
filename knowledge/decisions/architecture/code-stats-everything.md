@@ -67,7 +67,7 @@ public OSS) and makes a different reviewer comfortable:
 
 Auto-tracked everywhere — every metric is computed without a human
 pressing "refresh", in line with
-[`auto-only-tracking`](../../rules/auto-only-tracking.md). No manual
+[`auto-only-tracking`](../../rules/interaction/auto-only-tracking.md). No manual
 LOC counting, no manual contributor lists, no manual maintainability
 calls.
 
@@ -91,9 +91,9 @@ best."* For public-OSS repos, "everything" costs nothing.
   time for the family stats page), not configure it.
 - **Quota math** — all 9 tools free for OSS / public repos under
   the family's
-  [public-everywhere posture](../../rules/repos-work-independently.md);
+  [public-everywhere posture](../../rules/development/repos-work-independently.md);
   no card on file required for any. Per
-  [`rules/never-hit-quotas`](../../rules/never-hit-quotas.md): if
+  [`rules/never-hit-quotas`](../../rules/interaction/never-hit-quotas.md): if
   any tool tightens its OSS tier in future, that single tool drops;
   the rest stay.
 - **Build-time aggregation** — the family `/stats` page on
@@ -110,7 +110,7 @@ best."* For public-OSS repos, "everything" costs nothing.
 - [GitHub Insights service](../../services/code-quality/github-insights.md)
 - [Tokei service](../../services/code-quality/tokei.md)
 - [Lines of Code badge service](../../services/code-quality/lines-of-code-badge.md)
-- [Auto-only-tracking rule](../../rules/auto-only-tracking.md) (forward ref — being added in parallel)
-- [Repos work independently rule](../../rules/repos-work-independently.md)
-- [Never hit quotas rule](../../rules/never-hit-quotas.md)
-- [No card-on-file rule](../../rules/no-card-on-file.md)
+- [Auto-only-tracking rule](../../rules/interaction/auto-only-tracking.md) (forward ref — being added in parallel)
+- [Repos work independently rule](../../rules/development/repos-work-independently.md)
+- [Never hit quotas rule](../../rules/interaction/never-hit-quotas.md)
+- [No card-on-file rule](../../rules/interaction/no-card-on-file.md)

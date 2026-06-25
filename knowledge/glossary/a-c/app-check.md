@@ -31,4 +31,4 @@ a two-layer rate-limit and bot-fight defense.
 
 ## See also
 
-- [firestore-spark](./firestore-spark.md)
+- [firestore-spark](../d-h/firestore-spark.md)

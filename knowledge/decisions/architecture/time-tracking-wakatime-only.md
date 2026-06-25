@@ -32,7 +32,7 @@ Time tracking across the family is **Wakatime, automatic, only**.
   REJECTED. Originally adopted earlier on 2026-06-20 (Batch 19) as
   the manual half of a two-tool split; walked back the same day
   under the new family-wide
-  [auto-only-tracking rule](../../rules/auto-only-tracking.md).
+  [auto-only-tracking rule](../../rules/interaction/auto-only-tracking.md).
 - **Non-coding time is intentionally NOT tracked.** Meetings,
   planning, calls, learning sessions — untracked. The honest read of
   "what was the user doing during a 2-hour Wakatime gap?" is "away
@@ -49,7 +49,7 @@ User direction (chronological, same day 2026-06-20):
    tracking."
 
 The later direction wins per
-[`rules/future-overrides-past.md`](../../rules/future-overrides-past.md).
+[`rules/interaction/future-overrides-past.md`](../../rules/interaction/future-overrides-past.md).
 
 ## Why
 
@@ -73,12 +73,12 @@ The later direction wins per
 - **Wakatime stays free + no-card.** The 2-week-history limitation is
   mitigated by daily lifestream JSONL export (the API is the funnel,
   JSONL is the durable archive). Fits
-  [`rules/no-card-on-file`](../../rules/no-card-on-file.md) +
-  [`rules/no-subscriptions`](../../rules/no-subscriptions.md).
+  [`rules/no-card-on-file`](../../rules/interaction/no-card-on-file.md) +
+  [`rules/no-subscriptions`](../../rules/infrastructure/no-subscriptions.md).
 - **Wakatime's recruiter-facing dashboard** is a public artifact
   that surfaces "what tech stack the user actually uses" — pairs
   with the everything-is-public-OSS posture per
-  [`repos-work-independently`](../../rules/repos-work-independently.md)
+  [`repos-work-independently`](../../rules/development/repos-work-independently.md)
   and the donation rails per
   [`max-payment-methods`](../monetisation/max-payment-methods.md).
 
@@ -86,7 +86,7 @@ The later direction wins per
 
 | Tool | Why rejected |
 |---|---|
-| Toggl Track | **Walked back 2026-06-20.** Manual timer = manual data entry → violates [auto-only-tracking rule](../../rules/auto-only-tracking.md). Free tier was fine; the rejection is on the manual-tracking dimension, not billing. |
+| Toggl Track | **Walked back 2026-06-20.** Manual timer = manual data entry → violates [auto-only-tracking rule](../../rules/interaction/auto-only-tracking.md). Free tier was fine; the rejection is on the manual-tracking dimension, not billing. |
 | RescueTime | Auto-tracker in principle but full reports require Premium subscription (card-on-file); also overlaps Wakatime's coding scope without IDE-classification depth. |
 | Clockify | Manual tracker → same auto-only rejection as Toggl. |
 | Harvest | Card-required past 1 user / 2 projects; manual + invoice-shaped. |
@@ -182,12 +182,12 @@ When `oriz-me` ingest pipelines land per
 - [Wakatime service entry](../../services/productivity/wakatime.md) — sole time-tracking pick
 - [Toggl Track service entry — REJECTED](../../services/productivity/toggl-track.md) — audit trail
 - [Productivity services index](../../services/productivity/index.md)
-- [Auto-only-tracking rule](../../rules/auto-only-tracking.md) — the rule that rejected Toggl
+- [Auto-only-tracking rule](../../rules/interaction/auto-only-tracking.md) — the rule that rejected Toggl
 - [Auto-tracking-everywhere decision](./auto-tracking-everywhere.md) — family-wide auto-only principle
-- [Future overrides past rule](../../rules/future-overrides-past.md) — why the later "auto only" direction wins over the earlier "Toggl + Wakatime both"
+- [Future overrides past rule](../../rules/interaction/future-overrides-past.md) — why the later "auto only" direction wins over the earlier "Toggl + Wakatime both"
 - [oriz-me added to family](../branding/oriz-me-added-to-family.md) — lifestream consumes Wakatime data
 - [Lifestream JSONL canonical](./lifestream-jsonl-canonical.md) — JSONL shape for ingested time entries
 - [Secrets management — Doppler](../security/secrets-management-doppler.md) — API key
 - [Project mgmt — GitHub Projects only](./project-mgmt-github-projects-only.md) — separate concern (plan vs. effort actuals)
-- [No card-on-file rule](../../rules/no-card-on-file.md)
-- [No subscriptions rule](../../rules/no-subscriptions.md)
+- [No card-on-file rule](../../rules/interaction/no-card-on-file.md)
+- [No subscriptions rule](../../rules/infrastructure/no-subscriptions.md)

@@ -25,7 +25,7 @@ Every Astro app in the family ships as a PWA first. Native packages are generate
 
 Distribution channels (locked):
 
-- **Google Play Store** ($25 one-time fee, prepaid via PayPal balance — fits the [no-card-on-file](../../rules/no-card-on-file.md) "one-time prepaid" escape hatch already used by Chrome Web Store $5). AAB from PWABuilder.
+- **Google Play Store** ($25 one-time fee, prepaid via PayPal balance — fits the [no-card-on-file](../../rules/interaction/no-card-on-file.md) "one-time prepaid" escape hatch already used by Chrome Web Store $5). AAB from PWABuilder.
 - **Microsoft Store** (free for developer account). MSIX from PWABuilder.
 - **Chrome Web Store** ($5 one-time, prepaid — for browser extensions only, not apps; separate `*-ext` repos).
 - **Direct sideload** from `<brand>.oriz.in/download` — APK + EXE + dmg + AppImage for users who avoid stores.
@@ -43,11 +43,11 @@ Tauri stays available as an opt-in escape hatch because PWABuilder MSIX binaries
 
 ## Implications
 
-- `@chirag127/astro-distribute` becomes a thin CLI wrapping PWABuilder CLI + (optional) Tauri. Both routes share the same `dist/` PWA build. See [the-23-packages.md](../../architecture/the-23-packages.md).
+- `@chirag127/astro-distribute` becomes a thin CLI wrapping PWABuilder CLI + (optional) Tauri. Both routes share the same `dist/` PWA build. See [the-23-packages.md](packages/the-23-packages.md).
 - `astro-pwa` emits the manifest + service worker that PWABuilder reads — no per-app PWABuilder config needed.
 - CI workflow per app: `pnpm build` → `pnpm astro-distribute build` → uploads AAB/MSIX/APK/EXE to GitHub Releases. Stores publish manually from the release artefact (no API push — Play Console + Microsoft Partner Center don't reliably support unattended uploads on free tiers).
-- The runbook [build-distributable.md](../../runbooks/build-distributable.md) is updated to reflect PWABuilder primary + Tauri optional.
-- Family rule [`rules/no-card-on-file.md`](../../rules/no-card-on-file.md) gets an inline note that "one-time prepaid store fees" (Play $25, CWS $5) are the only exceptions, and only when paid via prepaid PayPal balance.
+- The runbook [build-distributable.md](../../runbooks/operations/build-distributable.md) is updated to reflect PWABuilder primary + Tauri optional.
+- Family rule [`rules/no-card-on-file.md`](../../rules/interaction/no-card-on-file.md) gets an inline note that "one-time prepaid store fees" (Play $25, CWS $5) are the only exceptions, and only when paid via prepaid PayPal balance.
 
 ## Rejected
 
@@ -55,12 +55,12 @@ Tauri stays available as an opt-in escape hatch because PWABuilder MSIX binaries
 - **Capacitor** — needs a per-app Capacitor project, defeats the "no per-app native code" rule.
 - **Cordova** — deprecated by its maintainers.
 - **Electron** — desktop only, much larger binaries than Tauri, and ships Chromium so PWA → Electron is double-counting the browser.
-- **Apple App Store / iOS** — $99/yr Apple Developer Program violates [no-card-on-file](../../rules/no-card-on-file.md) recurring-cost rule; no Apple devices to test on.
+- **Apple App Store / iOS** — $99/yr Apple Developer Program violates [no-card-on-file](../../rules/interaction/no-card-on-file.md) recurring-cost rule; no Apple devices to test on.
 
 ## Cross-refs
 
-- The 17 Packages (umbrella) → [../../architecture/the-23-packages.md](../../architecture/the-23-packages.md)
-- The build runbook → [../../runbooks/build-distributable.md](../../runbooks/build-distributable.md)
+- The 17 Packages (umbrella) → [../../architecture/the-23-packages.md](packages/the-23-packages.md)
+- The build runbook → [../../runbooks/operations/build-distributable.md](../../runbooks/operations/build-distributable.md)
 - The previous distribution lock (PWA + Bubblewrap + Tauri) → [distribution-and-queues-locked.md](./distribution-and-queues-locked.md) — superseded in scope by this file (Tauri demoted to optional, Bubblewrap replaced by PWABuilder)
-- The cost discipline this fits → [`rules/no-card-on-file.md`](../../rules/no-card-on-file.md)
-- The Linux-only CI rule that depends on PWABuilder eliminating macOS/Xcode → [`rules/linux-ci-only.md`](../../rules/linux-ci-only.md)
+- The cost discipline this fits → [`rules/no-card-on-file.md`](../../rules/interaction/no-card-on-file.md)
+- The Linux-only CI rule that depends on PWABuilder eliminating macOS/Xcode → [`rules/interaction/linux-ci-only.md`](../../rules/interaction/linux-ci-only.md)

@@ -117,4 +117,4 @@ we point the URL at one of the other donation rails.
 - [Buy Me a Coffee (5% fee)](./buymeacoffee.md)
 - [Liberapay (0% fee, recurring-only)](./liberapay.md)
 - [Polar.sh (OSS-friendly checkout)](./polar-sh.md)
-- [No card-on-file rule](../../rules/no-card-on-file.md)
+- [No card-on-file rule](../../rules/interaction/no-card-on-file.md)

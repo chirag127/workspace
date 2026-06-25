@@ -95,7 +95,7 @@ Monospace as display face for a portfolio that has longform content. Conventiona
 
 ## Cross-refs
 
-- [user-prefers-strict-no-toggle](../../rules/user-prefers-strict-no-toggle.md)
+- [user-prefers-strict-no-toggle](../../rules/interaction/user-prefers-strict-no-toggle.md)
 - [sidebar-4-tier](../architecture/sidebar-4-tier.md)
-- [user-prefers-pure-tool-brand](../../rules/user-prefers-pure-tool-brand.md)
+- [user-prefers-pure-tool-brand](../../rules/interaction/user-prefers-pure-tool-brand.md)
 - [title-case-oriz](../branding/title-case-oriz.md)

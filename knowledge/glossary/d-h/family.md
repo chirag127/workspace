@@ -31,6 +31,6 @@ five hard rules from `AGENTS.md`.
 
 ## See also
 
-- [oriz](./oriz.md)
-- [master-repo](./master-repo.md)
-- [oriz-kit](./oriz-kit.md)
+- [oriz](../o-r/oriz.md)
+- [master-repo](../i-n/master-repo.md)
+- <!-- TODO: broken link, was [oriz-kit](./oriz-kit.md) -->

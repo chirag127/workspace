@@ -95,4 +95,4 @@ aggregator platforms.
 - [Cloudflare Pages](../../services/hosting/cloudflare-pages.md)
 - [GitHub Actions schedule](../../services/cron/github-actions-schedule.md)
 - [Cross-post engine — consumer of the s.oriz.in mints](./cross-post-engine.md)
-- [No card-on-file rule](../../rules/no-card-on-file.md)
+- [No card-on-file rule](../../rules/interaction/no-card-on-file.md)

@@ -132,7 +132,7 @@ Together they answer "what was I doing yesterday?" without any tool
 that requires a human to press "start timer" or "log this". Manual
 non-coding time tracking lives separately in
 [Toggl Track](../../../services/productivity/toggl-track.md) per
-[`time-tracking-toggl-plus-wakatime`](../time-tracking-toggl-plus-wakatime.md);
+<!-- TODO: broken link, was [`time-tracking-toggl-plus-wakatime`](../time-tracking-toggl-plus-wakatime.md) -->;
 that source is **explicitly NOT** wired into the auto-only lifestream
 JSONL because it requires a human action.
 
@@ -174,4 +174,4 @@ JSONL because it requires a human action.
 - [healthchecks.io — heartbeat coverage](../../../services/monitoring/healthchecks-io.md)
 - [Auto-only-tracking rule](../../../rules/interaction/auto-only-tracking.md) (forward ref — being added in parallel)
 - [Auto-tracking everywhere decision](./auto-tracking-everywhere.md) (forward ref — being added in parallel)
-- [Time-tracking split (Toggl manual + Wakatime auto)](../time-tracking-toggl-plus-wakatime.md) — Toggl's manual stream is intentionally NOT a lifestream source
+- <!-- TODO: broken link, was [Time-tracking split (Toggl manual + Wakatime auto)](../time-tracking-toggl-plus-wakatime.md) --> — Toggl's manual stream is intentionally NOT a lifestream source

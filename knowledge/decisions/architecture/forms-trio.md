@@ -49,14 +49,14 @@ cover.
 ## Implications
 
 - **One `<ContactForm>` component** in
-  [`@chirag127/oriz-kit`](../../glossary/o-r/oriz-kit.md) wraps both
+  <!-- TODO: broken link, was [`@chirag127/oriz-kit`](../../glossary/o-r/oriz-kit.md) --> wraps both
   contact backends. `provider` prop or `onError` handler swaps
   Web3Forms → Static Forms transparently.
 - **Tally embeds** ship as a separate `<TallyForm formId="...">`
   component in oriz-kit — no overlap with `<ContactForm>`.
 - **Both contact backends are browser-only** — no API keys leak
   because both use domain-bound access keys; aligns with
-  [`rules/no-web3forms-server-side.md`](../../rules/no-web3forms-server-side.md).
+  [`rules/development/no-web3forms-server-side.md`](../../rules/development/no-web3forms-server-side.md).
 - **Anti-bot pairing** — `<ContactForm>` mounts the
   [`<Captcha>`](../security/captcha-turnstile-plus-hcaptcha.md)
   widget (Turnstile primary, hCaptcha fallback) inline. The token
@@ -73,5 +73,5 @@ cover.
 - [Static Forms — fallback](../../services/forms/static-forms.md)
 - [Tally — rich forms](../../services/forms/tally.md)
 - [Captcha pair decision](../security/captcha-turnstile-plus-hcaptcha.md)
-- [No web3forms server-side rule](../../rules/no-web3forms-server-side.md)
-- [No card-on-file rule](../../rules/no-card-on-file.md)
+- [No web3forms server-side rule](../../rules/development/no-web3forms-server-side.md)
+- [No card-on-file rule](../../rules/interaction/no-card-on-file.md)

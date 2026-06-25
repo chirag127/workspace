@@ -72,7 +72,7 @@ date.
 
     - **Schema migration** (renamed / added / removed fields): fan
         out subagents per
-        [`../rules/parallel-by-default.md`](../../rules/interaction/parallel-by-default.md).
+        [`../rules/interaction/parallel-by-default.md`](../../rules/interaction/parallel-by-default.md).
         Split the file list into ~5 chunks; spawn one general-purpose
         agent per chunk with the migration notes inline. Each agent
         updates its chunk and reports back.
@@ -109,4 +109,4 @@ date.
 
 - [`../_okf.md`](../../_okf.md)
 - [`add-new-decision.md`](./add-new-decision.md)
-- [`../log.md`](../../log.md)
+- <!-- TODO: broken link, was [`../log.md`](../../log.md) -->

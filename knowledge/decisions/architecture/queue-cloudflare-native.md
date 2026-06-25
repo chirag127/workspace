@@ -39,7 +39,7 @@ The justification is **stack cohesion, not feature richness**:
   separate credentials surface, no extra DNS resolution. Producer
   and consumer share the same `wrangler.toml`.
 - Same account → same billing surface (and same `no-card-on-file`
-  posture — see [`rules/no-card-on-file.md`](../../rules/no-card-on-file.md)).
+  posture — see [`rules/no-card-on-file.md`](../../rules/interaction/no-card-on-file.md)).
 - 1,000,000 ops/month free is an order of magnitude above realistic
   family traffic.
 
@@ -68,4 +68,4 @@ credentials surface, and an HTTP hop.
 - [Inngest (deferred)](../../services/queue/inngest.md)
 - [Cloudflare Pages for all sites](../infrastructure/cloudflare-pages-for-all-sites.md)
 - [Hookdeck for webhook reliability](../infrastructure/hookdeck-for-webhook-reliability.md)
-- [No card-on-file rule](../../rules/no-card-on-file.md)
+- [No card-on-file rule](../../rules/interaction/no-card-on-file.md)

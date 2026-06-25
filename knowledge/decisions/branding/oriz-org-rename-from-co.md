@@ -71,7 +71,7 @@ The cost of correcting the name is small and shrinks fast:
   [`repo-naming-suffixes`](repo-naming-suffixes.md). No move to
   `@oriz/*` or `@oriz-org/*` in this change.
 - The `oriz-cs-me-app` repo is moved separately to `chirag127/cs-me-app`
-  (see [`cs-me-app-moved-to-chirag127`](cs-me-app-moved-to-chirag127.md))
+  (see <!-- TODO: broken link, was [`cs-me-app-moved-to-chirag127`](cs-me-app-moved-to-chirag127.md) -->)
   because it's personal-only with puter.js auth, not brand auth.
 
 ## Recruiter angle
@@ -79,7 +79,7 @@ The cost of correcting the name is small and shrinks fast:
 Renaming to `oriz-org` makes the org name read as a brand-plus-suffix
 (`oriz` is the brand; `-org` clarifies it's the GitHub organization).
 Combined with the cross-link from chirag127's profile README (see
-[`rules/profile-readme-cross-link`](../../rules/profile-readme-cross-link.md)),
+[`rules/profile-readme-cross-link`](../../rules/interaction/profile-readme-cross-link.md)),
 a recruiter who lands on either surface sees both.
 
 ## Rollback path

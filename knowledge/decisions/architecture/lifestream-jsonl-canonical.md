@@ -48,6 +48,6 @@ store.
 ## Cross-refs
 
 - [100-year strategy locked](../content/100-year-strategy-locked.md) — §10–§11 set the canonical-store contract
-- [Canonical store JSONL architecture](../../architecture/canonical-store-jsonl.md)
+- [Canonical store JSONL architecture](database/canonical-store-jsonl.md)
 - [Turso service entry](../../services/database/turso.md)
 - Superseded predecessor: `oriz-me/knowledge/decisions/why-firestore-not-turso.md` (kept as historical context)

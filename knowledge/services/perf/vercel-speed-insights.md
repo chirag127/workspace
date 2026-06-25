@@ -103,5 +103,5 @@ full perf picture.
 - [Cloudflare Web Analytics](../analytics/cloudflare-web-analytics.md)
 - [Cloudflare Pages — primary host](../hosting/cloudflare-pages.md)
 - [Perf monitoring decision](../../decisions/architecture/perf-monitoring-vercel-speed-insights.md)
-- [Never hit quotas rule](../../rules/never-hit-quotas.md)
-- [No card-on-file rule](../../rules/no-card-on-file.md)
+- [Never hit quotas rule](../../rules/interaction/never-hit-quotas.md)
+- [No card-on-file rule](../../rules/interaction/no-card-on-file.md)

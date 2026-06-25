@@ -38,7 +38,7 @@ sign-up does not require card.
 
 - Filebase
 - 4EVERLAND
-- Backblaze B2 — **rejected by user policy** ([backblaze-b2.md](./backblaze-b2.md))
+- Backblaze B2 — **rejected by user policy** ([backblaze-b2.md](../backblaze-b2.md))
 
 ## Swap cost
 
@@ -51,5 +51,5 @@ dashboard as Pages and Workers.
 
 ## Cross-refs
 
-- [Cloudflare Pages](./cloudflare-pages.md)
-- [ImageKit](./imagekit.md) — used for transforms in front of R2
+- [Cloudflare Pages](../hosting/cloudflare-pages.md)
+- [ImageKit](../tooling/imagekit.md) — used for transforms in front of R2

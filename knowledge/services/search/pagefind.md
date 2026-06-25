@@ -44,4 +44,4 @@ re-authenticate, no quota to track.
 
 ## Cross-refs
 
-- [Cloudflare Pages](./cloudflare-pages.md) — hosts the indexed dist
+- [Cloudflare Pages](../hosting/cloudflare-pages.md) — hosts the indexed dist

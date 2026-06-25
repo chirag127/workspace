@@ -36,7 +36,7 @@ picked by post shape**:
    [Satori on the api.oriz.in Hono Worker](../../../services/social/satori-og-cards.md)
    at `https://api.oriz.in/og?title=<...>&theme=<...>&site=<...>`.
    `@vercel/og` (MIT) renders JSX themes from
-   [`@chirag127/oriz-kit`](../../../glossary/o-r/oriz-kit.md) to a
+   <!-- TODO: broken link, was [`@chirag127/oriz-kit`](../../../glossary/o-r/oriz-kit.md) --> to a
    1200×630 PNG. Free unlimited on the Cloudflare Workers free tier
    (100K req/day cap, well above family scale after edge caching).
 2. **Code-heavy posts** — [Ray.so](../../../services/social/ray-so.md)
@@ -100,5 +100,5 @@ public, max-age=31536000, immutable`, ETag = parameter hash).
 - [services/social/ray-so.md](../../../services/social/ray-so.md) — code-post path
 - [decisions/architecture/hono-worker-api-umbrella.md](../compute/hono-worker-api-umbrella.md) — the Worker the route lives on
 - [decisions/architecture/cross-post-engine.md](../general/cross-post-engine.md) — omnipost forwards canonical OG URL
-- [glossary/o-r/oriz-kit.md](../../../glossary/o-r/oriz-kit.md) — themes live in the kit
+- <!-- TODO: broken link, was [glossary/o-r/oriz-kit.md](../../../glossary/o-r/oriz-kit.md) --> — themes live in the kit
 - [No card-on-file rule](../../../rules/interaction/no-card-on-file.md)

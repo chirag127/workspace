@@ -74,12 +74,12 @@ plumbing. Pairing it with Doppler-as-source-of-truth gets us:
 - Workflows reference secrets the standard way (`${{ secrets.NAME }}`); they don't know Doppler exists.
 - **Never** `gh secret set` by hand for production secrets — that bypasses the audit log. The exception is bootstrapping (`DOPPLER_SERVICE_TOKEN` itself), which Doppler can't sync into GH because it's the credential that does the syncing.
 - Per-repo settings → "Allow GitHub Actions to create and approve PRs" stays **off**.
-- Workflow log redaction is automatic but never trust it for binary blobs — secrets in JSON / multiline values can leak through indirect outputs. The [secrets-handling policy](../../policy/secrets-handling.md) covers the don'ts.
+- Workflow log redaction is automatic but never trust it for binary blobs — secrets in JSON / multiline values can leak through indirect outputs. The [secrets-handling policy](../../decisions/policy/secrets-handling.md) covers the don'ts.
 
 ## Cross-refs
 
 - [Doppler — source of truth](./doppler.md)
 - [Secrets management decision](../../decisions/security/secrets-management-doppler.md)
 - [GitHub Actions service entry](../compute/github-actions.md)
-- [No hardcoded secrets rule](../../rules/no-hardcoded-secrets.md)
-- [Rotate leaked secret runbook](../../runbooks/rotate-leaked-secret.md)
+- [No hardcoded secrets rule](../../rules/security/no-hardcoded-secrets.md)
+- [Rotate leaked secret runbook](../../runbooks/security/rotate-leaked-secret.md)

@@ -24,7 +24,7 @@ Firebase Spark is the single auth backend for every site (and for extensions, pa
 
 ## Cross-refs
 
-- [Layer 3 — auth (Firebase Spark)](../../architecture/layer-3-auth-firebase-spark.md)
+- [Layer 3 — auth (Firebase Spark)](../../decisions/architecture/security/layer-3-auth-firebase-spark.md)
 - [decisions/security/multi-provider-auth](../../decisions/security/multi-provider-auth.md) — locks the 6-provider stack
 - [decisions/infrastructure/firebase-spark-forever](../../decisions/infrastructure/firebase-spark-forever.md)
 - [decisions/infrastructure/extension-auth-firebase-plus-license-key](../../decisions/infrastructure/extension-auth-firebase-plus-license-key.md)

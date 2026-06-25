@@ -18,11 +18,11 @@ swap_cost: medium
 
 Hosts API + SDK reference documentation for the family's npm
 packages — starting with
-[`@chirag127/oriz-kit`](../../glossary/o-r/oriz-kit.md)
+<!-- TODO: broken link, was [`@chirag127/oriz-kit`](../../glossary/o-r/oriz-kit.md) -->
 JSDoc + TypeScript reference, then each oriz-* package as it
 matures. NOT used for site `/privacy` pages: those stay inline as
 Astro pages on each site, per the
-[per-extension privacy policy](../../policy/privacy-policy-per-extension.md).
+[per-extension privacy policy](../../decisions/policy/privacy-policy-per-extension.md).
 
 ## Free tier
 
@@ -63,7 +63,7 @@ SDK docs out of each site's Astro build, so site builds stay fast.
 
 ## Cross-refs
 
-- [oriz-kit glossary entry](../../glossary/o-r/oriz-kit.md)
-- [Per-extension privacy policy](../../policy/privacy-policy-per-extension.md) — site /privacy stays inline, NOT on RTD
+- <!-- TODO: broken link, was [oriz-kit glossary entry](../../glossary/o-r/oriz-kit.md) -->
+- [Per-extension privacy policy](../../decisions/policy/privacy-policy-per-extension.md) — site /privacy stays inline, NOT on RTD
 - [decisions/architecture/lifestream-jsonl-canonical.md](../../decisions/architecture/lifestream-jsonl-canonical.md) — one canonical-store decision example
-- [No card-on-file rule](../../rules/no-card-on-file.md)
+- [No card-on-file rule](../../rules/interaction/no-card-on-file.md)

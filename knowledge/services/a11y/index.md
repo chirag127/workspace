@@ -40,5 +40,5 @@ policy is locked in
 - [a11y three-tools decision](../../decisions/architecture/a11y-three-tools.md)
 - [Vercel Speed Insights — RUM, pairs with Lighthouse CI lab perf](../perf/vercel-speed-insights.md)
 - [Code-quality stack decision](../../decisions/process/code-quality-stack.md)
-- [No card-on-file rule](../../rules/no-card-on-file.md)
-- [Never hit quotas rule](../../rules/never-hit-quotas.md)
+- [No card-on-file rule](../../rules/interaction/no-card-on-file.md)
+- [Never hit quotas rule](../../rules/interaction/never-hit-quotas.md)

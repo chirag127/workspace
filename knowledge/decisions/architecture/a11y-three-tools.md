@@ -92,7 +92,7 @@ are free, OSS, no card.
   Pro is paid. Three free tools cover us.
 - **No manual a11y review as the only check** — manual review still
   happens for keyboard-nav and screen-reader UX (per
-  [`design/family-rules.md`](../../design/family-rules.md) if it
+  <!-- TODO: broken link, was [`design/family-rules.md`](../../design/family-rules.md) --> if it
   exists in the family rules), but the automated trio is the floor.
 - **No suppressing failures across the board.** Tunable per-rule via
   config files; suppressing globally is not.
@@ -106,4 +106,4 @@ are free, OSS, no card.
 - [Code-quality stack decision](../process/code-quality-stack.md)
 - [Per-repo CI workflows decision](../process/per-repo-ci-workflows.md)
 - [Perf monitoring decision (Lighthouse CI also feeds perf budget)](./perf-monitoring-vercel-speed-insights.md)
-- [No card-on-file rule](../../rules/no-card-on-file.md)
+- [No card-on-file rule](../../rules/interaction/no-card-on-file.md)

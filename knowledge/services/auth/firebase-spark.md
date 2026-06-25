@@ -56,6 +56,6 @@ family already standardises on `auth.oriz.in`.
 ## Cross-refs
 
 - [Never enable Blaze](../../decisions/infrastructure/firebase-spark-forever.md)
-- [Layer 3 — Firebase Spark](../../architecture/layer-3-auth-firebase-spark.md)
+- [Layer 3 — Firebase Spark](../../decisions/architecture/security/layer-3-auth-firebase-spark.md)
 - [App Check](./app-check-firebase.md)
 - [reCAPTCHA Enterprise](./recaptcha-enterprise.md)

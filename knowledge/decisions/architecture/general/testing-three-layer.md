@@ -150,7 +150,7 @@ human acceptance of any declared diff.
 - [a11y three-tools decision — rides on the same Playwright install](../stack/a11y-three-tools.md)
 - [Code-quality stack decision](../../process/code-quality-stack.md)
 - [Per-repo CI workflows decision](../../process/per-repo-ci-workflows.md)
-- [oriz-ui split into 5 packages](../oriz-ui-split-into-5-packages.md)
+- <!-- TODO: broken link, was [oriz-ui split into 5 packages](../oriz-ui-split-into-5-packages.md) -->
 - [Doppler — secrets source-of-truth](../../../services/secrets/doppler.md)
 - [No card-on-file rule](../../../rules/interaction/no-card-on-file.md)
 - [Never hit quotas rule](../../../rules/interaction/never-hit-quotas.md)

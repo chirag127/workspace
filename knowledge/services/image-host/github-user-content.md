@@ -68,7 +68,7 @@ No card on file.
 
 1. Asset goes to `<repo>/assets` branch via `git push --force` (orphan branch is rebuild-able).
 2. Stable raw URL committed to the post's frontmatter as `image_tier_4:`.
-3. The [`<Image>` chain](../../glossary/o-r/oriz-kit.md) treats it as the deepest fallback.
+3. The <!-- TODO: broken link, was [`<Image>` chain](../../glossary/o-r/oriz-kit.md) --> treats it as the deepest fallback.
 4. Optional: front the raw URL with [jsDelivr's GitHub mirror](../cdn/jsdelivr.md) (`https://cdn.jsdelivr.net/gh/<user>/<repo>@<branch>/<path>`) for better edge cache; jsDelivr is already in our stack for npm packages.
 
 ## Methods supported
@@ -116,5 +116,5 @@ remain stable as long as the branch exists.
 - [Imgur Tier 3](./imgur.md)
 - [jsDelivr (npm + GitHub mirror CDN)](../cdn/jsdelivr.md)
 - [Object-storage split](../../decisions/architecture/object-storage-split.md) — different domain (versioned binaries vs. images)
-- [No card-on-file rule](../../rules/no-card-on-file.md)
-- [Never-hit-quotas rule](../../rules/never-hit-quotas.md)
+- [No card-on-file rule](../../rules/interaction/no-card-on-file.md)
+- [Never-hit-quotas rule](../../rules/interaction/never-hit-quotas.md)

@@ -29,5 +29,5 @@ a sibling on different infrastructure. Same pattern as the
 ## Cross-refs
 
 - [Forms trio decision](../../decisions/architecture/forms-trio.md)
-- [rules/no-web3forms-server-side](../../rules/no-web3forms-server-side.md)
-- [No card-on-file rule](../../rules/no-card-on-file.md)
+- [rules/no-web3forms-server-side](../../rules/development/no-web3forms-server-side.md)
+- [No card-on-file rule](../../rules/interaction/no-card-on-file.md)

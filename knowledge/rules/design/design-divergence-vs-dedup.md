@@ -42,7 +42,7 @@ related:
 The dedup-sweep threshold for extracting shared code into an
 `@chirag127/*` package is **≥25 lines duplicated across ≥3 consumers
 AND no community library covers it** (see
-[`the-23-packages`](../../architecture/packages/the-23-packages.md)).
+[`the-23-packages`](../../decisions/architecture/packages/the-23-packages.md)).
 
 That threshold applies to **TRUE duplicates** — byte-identical or
 trivially-parameterisable code. It does NOT apply to components that
@@ -89,6 +89,6 @@ the variants.
 
 ## See also
 
-- [`the-23-packages`](../../architecture/packages/the-23-packages.md) — the 25 × 3 threshold for true duplicates
+- [`the-23-packages`](../../decisions/architecture/packages/the-23-packages.md) — the 25 × 3 threshold for true duplicates
 - [`datasheet-dark`](../../decisions/design/datasheet-dark.md) — family-wide tokens stay shared; per-app chrome stays per-app
 - [`match-surrounding-style`](../interaction/match-surrounding-style.md) — sibling rule for style discipline per file

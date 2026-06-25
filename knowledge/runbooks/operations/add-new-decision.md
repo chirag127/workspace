@@ -70,7 +70,7 @@ made operational.
     <the reasoning, in 30-80 lines of body>
 
     ## See also
-    - [<related>](../../<area>/<related>.md)
+    - <!-- TODO: broken link, was [<related>](../../<area>/<related>.md) -->
     ```
 
 4. **Append to `knowledge/log.md`.** One line, dated, pointing at the
@@ -92,7 +92,7 @@ made operational.
     ```
 
     Don't push without say-so per
-    [`../rules/no-push-without-say-so.md`](../../rules/no-push-without-say-so.md).
+    <!-- TODO: broken link, was [`../rules/no-push-without-say-so.md`](../../rules/no-push-without-say-so.md) -->.
 
 ## When the new decision supersedes an older one
 
@@ -104,6 +104,6 @@ preserved as history.
 ## See also
 
 - [`../_okf.md`](../../_okf.md) — the full OKF contract
-- [`../rules/self-update-rule.md`](../../rules/agent/self-update-rule.md)
-- [`../log.md`](../../log.md)
+- [`../rules/agent/self-update-rule.md`](../../rules/agent/self-update-rule.md)
+- <!-- TODO: broken link, was [`../log.md`](../../log.md) -->
 - [`../decisions/process/okf-as-canonical-format.md`](../../decisions/process/okf-as-canonical-format.md) — the decision that locks OKF v0.1 as the format used by this runbook

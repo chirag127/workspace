@@ -44,7 +44,7 @@ This rule pairs with [[rules/future-overrides-past]] (newer wins after confirmat
 
 ## Examples
 
-- User says: "Header should be family-wide minimal." But `knowledge/rules/design-divergence-vs-dedup.md` says "Header is intentionally per-app divergent."
+- User says: "Header should be family-wide minimal." But `knowledge/rules/design/design-divergence-vs-dedup.md` says "Header is intentionally per-app divergent."
   → Agent surfaces both, asks: "Do I update design-divergence-vs-dedup.md, or keep it and override per-app variants in this turn only?"
 
 - User says: "Use Telegram for drafts." But `knowledge/rules/no-telegram-india-banned.md` says Telegram is banned in India.

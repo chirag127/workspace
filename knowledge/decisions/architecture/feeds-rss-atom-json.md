@@ -94,5 +94,5 @@ by Cloudflare Pages.
 - [SEO services index](../../services/seo/index.md)
 - [Cross-post engine](./cross-post-engine.md) — RSS 2.0 is its source-of-truth
 - [SEO three pillars](./seo-three-pillars.md) — discovery / instant-indexing / semantic-markup; feeds ride alongside
-- [oriz-kit glossary](../../glossary/o-r/oriz-kit.md) — `<FeedDiscovery />` + generators live here
-- [No card-on-file rule](../../rules/no-card-on-file.md)
+- <!-- TODO: broken link, was [oriz-kit glossary](../../glossary/o-r/oriz-kit.md) --> — `<FeedDiscovery />` + generators live here
+- [No card-on-file rule](../../rules/interaction/no-card-on-file.md)

@@ -119,7 +119,7 @@ one-time-fee.
   flavour's row of the matrix below. Per
   [`decisions/process/per-repo-ci-workflows.md`](../../process/per-repo-ci-workflows.md).
 - Every site repo enables `@vite-pwa/astro` via the
-  [`@chirag127/oriz-kit`](../../../glossary/o-r/oriz-kit.md) preset; the only per-site
+  <!-- TODO: broken link, was [`@chirag127/oriz-kit`](../../../glossary/o-r/oriz-kit.md) --> preset; the only per-site
   override is name / icons.
 - Every external-webhook producer (Razorpay first; Lemon Squeezy,
   GitHub, others as added) targets a Hookdeck connection URL, not
@@ -171,7 +171,7 @@ when a real need surfaces.
 - [Per-extension privacy policy](../../content/per-extension-privacy-policy.md)
 - [Per-repo CI workflows](../../process/per-repo-ci-workflows.md)
 - [Cloudflare Pages for all sites](../../infrastructure/cloudflare-pages-for-all-sites.md)
-- [oriz-ui split into 5 packages](../oriz-ui-split-into-5-packages.md)
+- <!-- TODO: broken link, was [oriz-ui split into 5 packages](../oriz-ui-split-into-5-packages.md) -->
 - [No subscriptions anywhere](../../monetisation/no-subscriptions-anywhere.md)
 - [No card-on-file rule](../../../rules/interaction/no-card-on-file.md)
 - [services/extension-store/index.md](../../../services/extension-store/index.md)

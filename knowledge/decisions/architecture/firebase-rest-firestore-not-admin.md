@@ -43,5 +43,5 @@ handles service-account JWT signing and document I/O via plain
 
 - [Hono Worker API umbrella](./hono-worker-api-umbrella.md)
 - [Firebase Spark forever](../infrastructure/firebase-spark-forever.md)
-- [API umbrella Hono Worker architecture](../../architecture/api-umbrella-hono-worker.md)
+- [API umbrella Hono Worker architecture](compute/api-umbrella-hono-worker.md)
 - [AGENTS.md edge-integrations section](../../../AGENTS.md)

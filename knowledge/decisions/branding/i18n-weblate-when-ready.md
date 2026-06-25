@@ -37,12 +37,12 @@ now answered — Weblate, not Tolgee.
 - **When demand arrives, we want a free / OSS / no-card option
   ready.** Weblate Hosted Libre is free for libre projects on a
   public git repo — fits every family rule
-  ([no card-on-file](../../rules/no-card-on-file.md),
-  [no selfhost](../../rules/no-selfhost.md), no paid tiers).
+  ([no card-on-file](../../rules/interaction/no-card-on-file.md),
+  <!-- TODO: broken link, was [no selfhost](../../rules/no-selfhost.md) -->, no paid tiers).
 - **Why Weblate over Tolgee:** Hosted Libre is a public-good tier
   with no quota cliff at family scale. Tolgee's SaaS free tier
   exists but has lower limits, and its self-hosted option is ruled
-  out by the [no-selfhost rule](../../rules/no-selfhost.md). The
+  out by the <!-- TODO: broken link, was [no-selfhost rule](../../rules/no-selfhost.md) -->. The
   Weblate self-host option is excluded by the same rule — Hosted
   Libre is the rule-compliant variant.
 - **PR-back-to-the-repo workflow** matches how every other content
@@ -77,5 +77,5 @@ now answered — Weblate, not Tolgee.
 - [services/i18n/weblate-hosted-libre.md](../../services/i18n/weblate-hosted-libre.md) — the picked service
 - [services/i18n/tolgee.md](../../services/i18n/tolgee.md) — earlier deferral, kept rejected
 - [services/i18n/index.md](../../services/i18n/index.md) — bucket policy
-- [No selfhost rule](../../rules/no-selfhost.md)
-- [No card-on-file rule](../../rules/no-card-on-file.md)
+- <!-- TODO: broken link, was [No selfhost rule](../../rules/no-selfhost.md) -->
+- [No card-on-file rule](../../rules/interaction/no-card-on-file.md)

@@ -53,7 +53,7 @@ producer in the family, not just Razorpay.
 
 **NO.** Hookdeck's free tier requires only an email-verified
 account. No payment method on file at any stage. Per
-[`rules/no-card-on-file.md`](../../rules/no-card-on-file.md).
+[`rules/no-card-on-file.md`](../../rules/interaction/no-card-on-file.md).
 
 ## Architecture
 
@@ -114,4 +114,4 @@ introducing a card-on-file requirement.
 - [Distribution + queues locked decision](../../decisions/architecture/distribution-and-queues-locked.md)
 - [Earlier Hookdeck-for-Razorpay decision (Batch 4)](../../decisions/infrastructure/hookdeck-for-webhook-reliability.md)
 - [Razorpay (Indian billing)](../payment/razorpay.md)
-- [No card-on-file rule](../../rules/no-card-on-file.md)
+- [No card-on-file rule](../../rules/interaction/no-card-on-file.md)

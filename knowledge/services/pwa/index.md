@@ -53,6 +53,6 @@ build until a native-only feature need arises.
 - [Distribution + queues locked decision](../../decisions/architecture/distribution-and-queues-locked.md)
 - [@vite-pwa/astro service](./vite-pwa-astro.md)
 - [Cloudflare Pages for all sites](../../decisions/infrastructure/cloudflare-pages-for-all-sites.md)
-- [oriz-ui split into 5 packages](../../decisions/architecture/oriz-ui-split-into-5-packages.md)
-- [No card-on-file rule](../../rules/no-card-on-file.md)
+- <!-- TODO: broken link, was [oriz-ui split into 5 packages](../../decisions/architecture/oriz-ui-split-into-5-packages.md) -->
+- [No card-on-file rule](../../rules/interaction/no-card-on-file.md)
 - [No subscriptions anywhere](../../decisions/monetisation/no-subscriptions-anywhere.md)

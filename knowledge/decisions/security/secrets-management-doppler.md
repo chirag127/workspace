@@ -39,8 +39,8 @@ The agent picked **Doppler** for these concrete reasons:
 
 - **Free 5 users** is permanent on the free tier. The family uses 1; the 4-user buffer covers any future contributor without ever needing to upgrade.
 - **Best integration coverage** of the modern free options — covers GitHub Actions + Cloudflare + Firebase out of the box, which is exactly the family's runtime triangle. Infisical is newer with rougher edges; 1Password's automation is a local-signing-model, not a sync-out model.
-- **Built-in rotation** for supported integrations — turns the [rotate-leaked-secret runbook](../../runbooks/rotate-leaked-secret.md) into "click rotate in Doppler, integrations re-sync within seconds".
-- **Audit log** — every read / write / sync is timestamped + attributed; satisfies the family's [secrets-handling policy](../../policy/secrets-handling.md).
+- **Built-in rotation** for supported integrations — turns the [rotate-leaked-secret runbook](../../runbooks/security/rotate-leaked-secret.md) into "click rotate in Doppler, integrations re-sync within seconds".
+- **Audit log** — every read / write / sync is timestamped + attributed; satisfies the family's [secrets-handling policy](../policy/secrets-handling.md).
 - **Best DX** — `doppler run -- pnpm dev` is the simplest possible local-dev story, and beats every alternative we tried.
 
 ## Implications
@@ -57,7 +57,7 @@ The agent picked **Doppler** for these concrete reasons:
 
 - All secrets originate at Doppler. Humans never `gh secret set` or `wrangler secret put` by hand for production secrets — Doppler does it automatically.
 - Bootstrap secret: `DOPPLER_SERVICE_TOKEN` itself is the one credential that has to be planted into each runtime by hand (it's the credential that does the syncing). It's also the only secret whose rotation requires a tiny manual touch.
-- Local dev: `doppler run` injects secrets at process start. No `.env` file is ever committed (per [`no-hardcoded-secrets.md`](../../rules/no-hardcoded-secrets.md)).
+- Local dev: `doppler run` injects secrets at process start. No `.env` file is ever committed (per [`no-hardcoded-secrets.md`](../../rules/security/no-hardcoded-secrets.md)).
 - envpact stays for the user's personal secrets (cross-machine creds outside the family stack). It is not deprecated — its scope just narrows.
 
 ### Project layout in Doppler
@@ -72,14 +72,14 @@ The agent picked **Doppler** for these concrete reasons:
 
 ### Operational
 
-- **Rotation runbook** ([`rotate-leaked-secret.md`](../../runbooks/rotate-leaked-secret.md)) gains a Doppler step: revoke at provider → reissue → write at Doppler (NOT at GH / CF / Firebase) → wait for sync (seconds) → run sanity check. Direct writes to runtime mirrors are forbidden because they're overwritten on the next sync.
+- **Rotation runbook** ([`rotate-leaked-secret.md`](../../runbooks/security/rotate-leaked-secret.md)) gains a Doppler step: revoke at provider → reissue → write at Doppler (NOT at GH / CF / Firebase) → wait for sync (seconds) → run sanity check. Direct writes to runtime mirrors are forbidden because they're overwritten on the next sync.
 - **Audit reviews** quarterly — read Doppler's audit log for unexpected `read` events; cross-check against expected workflow runs.
 - **Access** — only the user's identity has Doppler access today. Adding a contributor uses one of the 4 free seats.
 - **Backup** — Doppler exports JSON / dotenv on demand; quarterly export committed (encrypted, age-recipient under user's key) to a private repo as cold-storage fallback.
 
 ### What we don't do
 
-- **No secret pasted into chat**, ever — this is the [no-hardcoded-secrets rule](../../rules/no-hardcoded-secrets.md), unchanged.
+- **No secret pasted into chat**, ever — this is the [no-hardcoded-secrets rule](../../rules/security/no-hardcoded-secrets.md), unchanged.
 - **No `.env` files committed to git**, ever — `doppler run` is the only way local dev sees secrets.
 - **No production secrets written by hand to GH / CF / Firebase UIs** — only Doppler writes them.
 - **No two source-of-truth stores** — envpact and Doppler do not race. Family-stack secrets are Doppler-only.
@@ -89,8 +89,8 @@ The agent picked **Doppler** for these concrete reasons:
 - [Doppler service entry](../../services/secrets/doppler.md)
 - [GitHub Secrets — runtime mirror](../../services/secrets/github-secrets.md)
 - [envpact — narrowed to personal use](../../services/tooling/envpact.md)
-- [No hardcoded secrets rule](../../rules/no-hardcoded-secrets.md)
-- [Secrets handling policy](../../policy/secrets-handling.md)
-- [Rotate leaked secret runbook](../../runbooks/rotate-leaked-secret.md)
+- [No hardcoded secrets rule](../../rules/security/no-hardcoded-secrets.md)
+- [Secrets handling policy](../policy/secrets-handling.md)
+- [Rotate leaked secret runbook](../../runbooks/security/rotate-leaked-secret.md)
 - [Multi-provider auth decision](./multi-provider-auth.md) — provider creds land in `oriz-firebase` Doppler project
 - [Cron split decision](../architecture/cron-split-cf-vs-gh.md) — both substrates pull from Doppler

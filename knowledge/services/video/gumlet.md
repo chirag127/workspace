@@ -19,7 +19,7 @@ swap_cost: low
 Hosts video that should NOT leak into the YouTube algorithm or set
 tracking cookies on viewers — oriz-me lifestream entries on the
 private side of the
-[public-private line](../../policy/public-private-line.md), draft
+[public-private line](../../decisions/policy/public-private-line.md), draft
 preview videos before public publish, anything where embed-side
 viewer tracking would be inappropriate. [YouTube](./youtube.md)
 remains the primary for explicitly-public content.
@@ -56,7 +56,7 @@ one provider's basket.
 The most generous no-card video free tier we found that ships with
 adaptive streaming and a clean embedded player. 250 GB/month easily
 covers private-side video; if usage grows, the
-[never-hit-quotas rule](../../rules/never-hit-quotas.md) kicks in
+[never-hit-quotas rule](../../rules/interaction/never-hit-quotas.md) kicks in
 and we evaluate Cloudflare Stream's paid tier rather than letting
 private content spill onto YouTube.
 
@@ -64,5 +64,5 @@ private content spill onto YouTube.
 
 - [YouTube](./youtube.md) — public-content video primary
 - [ImageKit](../tooling/imagekit.md) — images stay here, not on gumlet
-- [Public/private line](../../policy/public-private-line.md)
-- [Never hit quotas rule](../../rules/never-hit-quotas.md)
+- [Public/private line](../../decisions/policy/public-private-line.md)
+- [Never hit quotas rule](../../rules/interaction/never-hit-quotas.md)

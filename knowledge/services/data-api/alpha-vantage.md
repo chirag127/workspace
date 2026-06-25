@@ -46,7 +46,7 @@ account.
 The API key arrives in the inbox; no payment method requested.
 Card-on-file is required only for the paid premium tiers, which
 the family does not use per
-[no-card-on-file](../../rules/no-card-on-file.md).
+[no-card-on-file](../../rules/interaction/no-card-on-file.md).
 
 ## Quota mitigation — aggressive caching
 
@@ -100,7 +100,7 @@ single key in minutes.
   daily cap but card prompted for any plan upgrade; rejected on
   signup-friction grounds.
 - **Finnhub** — 60 req/min free, requires card past trial.
-  Rejected on [no-card-on-file](../../rules/no-card-on-file.md).
+  Rejected on [no-card-on-file](../../rules/interaction/no-card-on-file.md).
 - **IEX Cloud** — discontinued free tier in 2024; out.
 - **Yahoo Finance unofficial** (`query2.finance.yahoo.com`) —
   no key, no card, but no SLA, frequent rate-limit changes,
@@ -127,5 +127,5 @@ constant.
 - [Doppler — API key vault](../secrets/doppler.md)
 - [Secrets management decision](../../decisions/security/secrets-management-doppler.md)
 - [Workers KV — 1-day TTL EOD cache](../compute/cloudflare-workers.md)
-- [No card-on-file rule](../../rules/no-card-on-file.md)
-- [Never hit quotas rule](../../rules/never-hit-quotas.md)
+- [No card-on-file rule](../../rules/interaction/no-card-on-file.md)
+- [Never hit quotas rule](../../rules/interaction/never-hit-quotas.md)

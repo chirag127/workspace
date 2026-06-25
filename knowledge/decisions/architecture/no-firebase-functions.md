@@ -64,7 +64,7 @@ Payment webhooks (Razorpay, Lemon Squeezy, Polar.sh) **must not** be in the hot 
 
 ## Cross-refs
 
-- [No card-on-file rule](../../rules/no-card-on-file.md)
+- [No card-on-file rule](../../rules/interaction/no-card-on-file.md)
 - [Firebase Spark forever](../infrastructure/firebase-spark-forever.md)
 - [Hono Worker as umbrella API](./hono-worker-api-umbrella.md)
 - [Cron split: CF Workers + GH Actions](./cron-split-cf-vs-gh.md)

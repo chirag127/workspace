@@ -67,8 +67,8 @@ rotation runbook + the per-runtime sync config.
 ## Why this is our pick
 
 - Best **integration coverage** of the three modern free options (Doppler / Infisical / 1Password) — covers GitHub Actions + Cloudflare + Firebase out of the box, which is exactly the family's runtime triangle.
-- **Built-in rotation** for supported integrations — turns the [rotate-leaked-secret runbook](../../runbooks/rotate-leaked-secret.md) into "click rotate in Doppler, integrations update automatically".
-- **Audit log** — every read / write / sync is timestamped + attributed; satisfies the family's [secrets-handling policy](../../policy/secrets-handling.md).
+- **Built-in rotation** for supported integrations — turns the [rotate-leaked-secret runbook](../../runbooks/security/rotate-leaked-secret.md) into "click rotate in Doppler, integrations update automatically".
+- **Audit log** — every read / write / sync is timestamped + attributed; satisfies the family's [secrets-handling policy](../../decisions/policy/secrets-handling.md).
 - **Best DX** of the three (Infisical is newer with rougher edges; 1Password's automation is local-signing-model only).
 - **Free 5 users** is permanent — we use 1; 4-user buffer for any future contributor.
 
@@ -81,14 +81,14 @@ rotation runbook + the per-runtime sync config.
   - GitHub Actions: install Doppler GitHub App → org / repo scope → Doppler pushes secrets to GH Secrets on every change.
   - Cloudflare Workers: Doppler → Cloudflare integration writes Worker secrets via API.
   - Firebase: `doppler run -- firebase functions:config:set` in the deploy step (or via Cloud Build trigger when we move there).
-- Local dev: `doppler run -- pnpm dev` (per project) — no `.env` files committed, ever (per [`no-hardcoded-secrets.md`](../../rules/no-hardcoded-secrets.md)).
+- Local dev: `doppler run -- pnpm dev` (per project) — no `.env` files committed, ever (per [`no-hardcoded-secrets.md`](../../rules/security/no-hardcoded-secrets.md)).
 - Rotation: Doppler dashboard → secret → Rotate → integrations re-sync within seconds.
 
 ## Cross-refs
 
 - [Secrets management decision](../../decisions/security/secrets-management-doppler.md)
 - [GitHub Secrets — runtime mirror](./github-secrets.md)
-- [No hardcoded secrets rule](../../rules/no-hardcoded-secrets.md)
-- [Secrets handling policy](../../policy/secrets-handling.md)
-- [Rotate leaked secret runbook](../../runbooks/rotate-leaked-secret.md)
+- [No hardcoded secrets rule](../../rules/security/no-hardcoded-secrets.md)
+- [Secrets handling policy](../../decisions/policy/secrets-handling.md)
+- [Rotate leaked secret runbook](../../runbooks/security/rotate-leaked-secret.md)
 - [envpact — home-grown vault](../tooling/envpact.md)

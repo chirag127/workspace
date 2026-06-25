@@ -51,7 +51,7 @@ Each repo has two workflows:
 
 ## Why per-repo, not the aggregator we tried briefly
 
-The aggregator [`market-data-via-github`](../market-data-via-github.md) fused two unrelated upstreams into one repo for no real benefit:
+The aggregator <!-- TODO: broken link, was [`market-data-via-github`](../market-data-via-github.md) --> fused two unrelated upstreams into one repo for no real benefit:
 
 - **Slug stays 1:1 with product.** `flow-fii-dii.api.oriz.in` and `mmi.api.oriz.in` were already mapped to per-API slugs; mashing them under a third slug broke that mapping.
 - **No shared scraper code.** NSE FII/DII and Tickertape MMI scrapers have nothing in common beyond `fetch` + `cheerio`. Co-locating them shaved no LOC.
@@ -60,7 +60,7 @@ The aggregator [`market-data-via-github`](../market-data-via-github.md) fused tw
 
 ## Why GitHub Pages + raw, not CF Workers
 
-Same rationale as the original [`market-data-via-github`](../market-data-via-github.md) draft:
+Same rationale as the original <!-- TODO: broken link, was [`market-data-via-github`](../market-data-via-github.md) --> draft:
 
 - **Free forever.** GH Actions: 2000 min/mo free on public repos. Pages + raw: unlimited reads via GitHub's CDN. No card, no quota worry.
 - **Audit trail built in.** Every scrape is a commit. `git log data/` is the time-series history.
@@ -81,6 +81,6 @@ Trade-off accepted: a small eventual-consistency window (apps see data up to 1h 
 ## Cross-refs
 
 - [`market-data-apis`](../compute/market-data-apis.md) — the original CF-Worker design, now archived as a historical alternative
-- [`market-data-via-github`](../market-data-via-github.md) — the rejected aggregator pattern (same-day revert)
+- <!-- TODO: broken link, was [`market-data-via-github`](../market-data-via-github.md) --> — the rejected aggregator pattern (same-day revert)
 - [`github-pages-as-json-api`](../compute/github-pages-as-json-api.md) — the sibling pattern this generalises
 - [`cf-worker-quota-mitigation`](../compute/cf-worker-quota-mitigation.md) — quota-pressure context that motivated moving off Workers

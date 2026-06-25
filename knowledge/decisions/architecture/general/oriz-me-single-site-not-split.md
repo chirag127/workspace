@@ -43,7 +43,7 @@ related:
 >
 > Net effect: short bio + apps grid at apex, long-form lifelog + CV at
 > `me`. No subdomain split on the `me` side; the apex side now leads
-> with bio. See [multi-target-build § Q47-Q77 additions](../ops/multi-target-build.md#q47-q77-additions-2026-06-21-grill-round-2).
+> with bio. See [multi-target-build § Q47-Q77 additions](../multi-target-build.md#q47-q77-additions-2026-06-21-grill-round-2).
 
 ## Decision
 

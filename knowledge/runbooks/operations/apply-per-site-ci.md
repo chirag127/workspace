@@ -75,7 +75,7 @@ placeholder, commits, and bumps the master pointer.
 | `packages/oriz-family` | `chirag127/oriz-family` |
 
 > The repo-naming-suffix migration to `-site` / `-ext` (see
-> [`runbooks/rename-all-sites-to-suffix.md`](../rename-all-sites-to-suffix.md))
+> <!-- TODO: broken link, was [`runbooks/rename-all-sites-to-suffix.md`](../rename-all-sites-to-suffix.md) -->)
 > is a separate, prior step. If suffixes have already landed, swap
 > `oriz-<name>` for `oriz-<name>-site` everywhere below.
 
@@ -130,7 +130,7 @@ cp templates/per-site-ci/biome.json ${SUBMODULE_PATH}/biome.json
 ```
 
 Or fan out across every site + package via `git submodule foreach`
-(per [`rules/parallel-fan-out-by-default.md`](../../rules/interaction/parallel-fan-out-by-default.md)):
+(per [`rules/interaction/parallel-fan-out-by-default.md`](../../rules/interaction/parallel-fan-out-by-default.md)):
 
 ```bash
 git submodule foreach --quiet '
@@ -201,7 +201,7 @@ A green local run is the gate before committing.
 
 ### 5. Commit inside the submodule
 
-Per [`rules/conventional-commits.md`](../../rules/development/conventional-commits.md):
+Per [`rules/development/conventional-commits.md`](../../rules/development/conventional-commits.md):
 
 ```bash
 git add .github/ .coderabbit.yaml sonar-project.properties biome.json
@@ -210,7 +210,7 @@ git commit -m "ci(scaffold): add per-site CI from templates/per-site-ci"
 
 ### 6. Push the submodule (only when authorised)
 
-Per [`rules/no-push-without-say-so.md`](../../rules/no-push-without-say-so.md),
+Per <!-- TODO: broken link, was [`rules/no-push-without-say-so.md`](../../rules/no-push-without-say-so.md) -->,
 do not push without explicit user say-so this turn.
 
 ```bash
@@ -234,7 +234,7 @@ separate publish workflow is out of scope for this runbook.
 ### 8. Bump the master submodule pointer
 
 Once each submodule has its CI commit landed, bump master per
-[`runbooks/bump-submodule-pointer.md`](./bump-submodule-pointer.md):
+[`runbooks/operations/bump-submodule-pointer.md`](./bump-submodule-pointer.md):
 
 ```bash
 cd /path/to/oriz                    # master repo root
@@ -258,7 +258,7 @@ GitHub → Settings → Secrets and variables → Actions:
 - `CF_ACCOUNT_ID` — the Cloudflare account id (top-right of any CF page)
 
 > Family-wide secret rotation policy:
-> [`policy/secrets-handling.md`](../../policy/secrets-handling.md).
+> [`policy/secrets-handling.md`](../../decisions/policy/secrets-handling.md).
 
 ### 10. Enable the failover GitHub Pages site (one-time)
 
@@ -326,5 +326,5 @@ Cloudflare Pages keeps prior deploys live; the apex domain stays up.
   — why every site also publishes to GH Pages as failover.
 - [`../decisions/process/code-quality-stack.md`](../../decisions/process/code-quality-stack.md)
   — Dependabot + Biome + CodeRabbit + SonarCloud as the family-wide stack.
-- [`../rules/parallel-fan-out-by-default.md`](../../rules/interaction/parallel-fan-out-by-default.md)
+- [`../rules/interaction/parallel-fan-out-by-default.md`](../../rules/interaction/parallel-fan-out-by-default.md)
   — fan-out shape for applying this runbook across 17 repos in one turn.

@@ -16,7 +16,7 @@ swap_cost: medium
 
 ## Role
 
-Sits in front of [Cloudflare R2](./cloudflare-r2.md) (or any origin)
+Sits in front of [Cloudflare R2](../compute/cloudflare-r2.md) (or any origin)
 and serves transformed / optimized images to every site.
 
 ## Free tier
@@ -49,4 +49,4 @@ documented.
 
 ## Cross-refs
 
-- [Cloudflare R2](./cloudflare-r2.md) — origin
+- [Cloudflare R2](../compute/cloudflare-r2.md) — origin

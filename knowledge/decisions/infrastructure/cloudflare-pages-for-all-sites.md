@@ -45,4 +45,4 @@ running both was needless surface area.
 - [No subscriptions anywhere](../monetisation/no-subscriptions-anywhere.md)
 - [GitHub Pages mirror per site](./github-pages-mirror-per-site.md)
 - [Cloudflare Pages service entry](../../services/hosting/cloudflare-pages.md)
-- [Layer 1 — Static hosting architecture](../../architecture/layer-1-static-hosting.md)
+- [Layer 1 — Static hosting architecture](../architecture/frontend/layer-1-static-hosting.md)

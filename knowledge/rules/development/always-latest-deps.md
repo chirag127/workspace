@@ -132,4 +132,4 @@ you do it yearly. Pick weekly.
 - [`use-pnpm.md`](./use-pnpm.md) — the package manager that enforces this
 - [`never-hit-quotas.md`](../interaction/never-hit-quotas.md) — the bigger constraint this serves
 - [`no-card-on-file.md`](../interaction/no-card-on-file.md) — why deprecated free tiers are a real risk
-- [`../runbooks/clean-install.md`](../../runbooks/operations/clean-install.md) — first-install procedure
+- [`../runbooks/operations/clean-install.md`](../../runbooks/operations/clean-install.md) — first-install procedure

@@ -80,4 +80,4 @@ entry is **this file**.
 - [GitHub Releases](./github-releases.md) — sibling, versioned binaries
 - [Cloudflare R2](./cloudflare-r2.md) — rejected
 - [services/backblaze-b2.md](../backblaze-b2.md) — historical rejection record
-- [No card-on-file rule](../../rules/no-card-on-file.md)
+- [No card-on-file rule](../../rules/interaction/no-card-on-file.md)

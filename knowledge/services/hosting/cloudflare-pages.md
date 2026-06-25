@@ -51,6 +51,6 @@ already use. One vendor, one dashboard, one auth.
 
 ## Cross-refs
 
-- [Layer 1 — static hosting](../../architecture/layer-1-static-hosting.md)
+- [Layer 1 — static hosting](../../decisions/architecture/frontend/layer-1-static-hosting.md)
 - [Cloudflare Workers](../compute/cloudflare-workers.md)
 - [Cloudflare DNS](../domain/cloudflare-dns.md)

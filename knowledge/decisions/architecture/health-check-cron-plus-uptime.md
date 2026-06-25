@@ -75,12 +75,12 @@ incident — same fallback path documented in the
   13 of 20 free healthchecks slots = 35% headroom. ~12 active
   monitors envisioned (11 sites + `api.oriz.in`) at the 10-monitor
   Better Stack cap — apex-only keeps it at exactly 10. Per
-  [`rules/never-hit-quotas`](../../rules/never-hit-quotas.md), if
+  [`rules/never-hit-quotas`](../../rules/interaction/never-hit-quotas.md), if
   Better Stack monitor count crosses 10 we add a second free
   account, not a paid plan.
 - **Auto-only posture** — both tools verify auto-tracked surfaces
   without human polling, in line with
-  [`auto-only-tracking`](../../rules/auto-only-tracking.md). The
+  [`auto-only-tracking`](../../rules/interaction/auto-only-tracking.md). The
   alert routes (Slack / email) themselves are auto.
 - **Better Stack heartbeat-monitor mode is also on** alongside the
   HTTP probes — the same Better Stack account already in use for
@@ -98,5 +98,5 @@ incident — same fallback path documented in the
 - [Lifestream auto-event sources](./lifestream-auto-event-sources.md)
 - [Logs — Better Stack + CF Tail](./logs-better-stack-plus-cf-tail.md) — same Better Stack account
 - [Apex-only monitoring decision](../infrastructure/monitor-apex-only.md)
-- [Auto-only-tracking rule](../../rules/auto-only-tracking.md) (forward ref — being added in parallel)
-- [Never hit quotas rule](../../rules/never-hit-quotas.md)
+- [Auto-only-tracking rule](../../rules/interaction/auto-only-tracking.md) (forward ref — being added in parallel)
+- [Never hit quotas rule](../../rules/interaction/never-hit-quotas.md)

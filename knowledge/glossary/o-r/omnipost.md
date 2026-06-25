@@ -32,5 +32,5 @@ The name was chosen on 2026-06-20 — short for **omni** (every) +
 
 - [Cross-post engine architecture](../../decisions/architecture/cross-post-engine.md)
 - [Cloudflare Worker short-link](../../services/short-link/cloudflare-worker.md)
-- [oriz-kit](./oriz-kit.md)
+- <!-- TODO: broken link, was [oriz-kit](./oriz-kit.md) -->
 - [package-isolation](./package-isolation.md)

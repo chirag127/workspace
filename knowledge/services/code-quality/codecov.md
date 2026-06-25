@@ -44,7 +44,7 @@ Free forever for public repos:
 ## Card / subscription required?
 
 **NO** for public repos. Sign-in via GitHub OAuth; no payment method
-requested. The family's [public-repos-only stance](../../rules/repos-work-independently.md)
+requested. The family's [public-repos-only stance](../../rules/development/repos-work-independently.md)
 keeps every repo eligible.
 
 ## Alternatives
@@ -76,4 +76,4 @@ anything.
 - [Five-tool code quality decision](../../decisions/architecture/code-quality-five-tools.md)
 - [Vitest — emits LCOV](../testing/vitest.md)
 - [Sonarcloud — also tracks coverage](./sonarcloud.md)
-- [No card-on-file rule](../../rules/no-card-on-file.md)
+- [No card-on-file rule](../../rules/interaction/no-card-on-file.md)

@@ -62,4 +62,4 @@ auth'd secondary as the "always available" middle rung.
 - [Image CDN fallback chain decision](../../decisions/architecture/image-cdn-fallback-chain.md)
 - [Cloudflare Images](./cloudflare-images.md) — primary
 - [ImageKit](./imagekit.md) — fallback 2
-- [No card-on-file rule](../../rules/no-card-on-file.md)
+- [No card-on-file rule](../../rules/interaction/no-card-on-file.md)

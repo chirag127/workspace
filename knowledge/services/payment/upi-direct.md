@@ -81,4 +81,4 @@ QR with no platform cut.
 
 - [Max payment methods decision](../../decisions/monetisation/max-payment-methods.md)
 - [Razorpay](./razorpay.md)
-- [No card-on-file rule](../../rules/no-card-on-file.md)
+- [No card-on-file rule](../../rules/interaction/no-card-on-file.md)

@@ -80,4 +80,4 @@ duplicating the dashboard.
 - [Sonarcloud — broader SAST](./sonarcloud.md)
 - [DeepSource — sibling in this stack](./deepsource.md)
 - [Codecov — coverage rendering](./codecov.md)
-- [No card-on-file rule](../../rules/no-card-on-file.md)
+- [No card-on-file rule](../../rules/interaction/no-card-on-file.md)

@@ -90,7 +90,7 @@ User picked **4 tiers** over the recommended 4-tier shape (yes, the user agreed 
 
 ## Related
 
-- [packages-14-atomic.md](../packages-14-atomic.md) — `@chirag127/sidebar` is package #4
+- <!-- TODO: broken link, was [packages-14-atomic.md](../packages-14-atomic.md) --> — `@chirag127/sidebar` is package #4
 - [tools-site-15-repos.md](../stack/tools-site-15-repos.md) — Tier A consumers
 - [cards-site-scope.md](../apps/cards-site-scope.md) — Tier C consumer (financial cards)
 - [journal-site-sources.md](../content/journal-site-sources.md) — Tier B consumer

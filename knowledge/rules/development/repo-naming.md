@@ -34,7 +34,7 @@ disambiguates them. **Audit before publish: every `git push` to a
 new repo URL must verify the repo slug ends in one of those suffixes,
 OR is a clean npm-package name (no suffix).** A slug that doesn't
 match is a naming mistake — rename via
-[`runbooks/rename-repo.md`](../../runbooks/operations/rename-repo.md) before the
+[`runbooks/operations/rename-repo.md`](../../runbooks/operations/rename-repo.md) before the
 first push, not after, because GitHub repo redirects only fire after
 the rename and won't retroactively rewrite a wrong name that was
 already cloned.
@@ -42,5 +42,5 @@ already cloned.
 ## See also
 
 - [`decisions/branding/repo-naming-suffixes.md`](../../decisions/branding/repo-naming-suffixes.md) — the full suffix table and migration plan
-- [`runbooks/rename-repo.md`](../../runbooks/operations/rename-repo.md) — how to rename safely
-- [`no-push-without-say-so.md`](../no-push-without-say-so.md) — the audit happens *before* the user-authorised push
+- [`runbooks/operations/rename-repo.md`](../../runbooks/operations/rename-repo.md) — how to rename safely
+- <!-- TODO: broken link, was [`no-push-without-say-so.md`](../no-push-without-say-so.md) --> — the audit happens *before* the user-authorised push

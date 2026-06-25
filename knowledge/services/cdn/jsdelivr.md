@@ -69,6 +69,6 @@ publish-to-npm flow without any extra config.
 
 ## Cross-refs
 
-- [oriz-kit glossary](../../glossary/o-r/oriz-kit.md)
-- [Never hit quotas rule](../../rules/never-hit-quotas.md)
-- [No card-on-file rule](../../rules/no-card-on-file.md)
+- <!-- TODO: broken link, was [oriz-kit glossary](../../glossary/o-r/oriz-kit.md) -->
+- [Never hit quotas rule](../../rules/interaction/never-hit-quotas.md)
+- [No card-on-file rule](../../rules/interaction/no-card-on-file.md)

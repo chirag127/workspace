@@ -30,5 +30,5 @@ subscription unlocks everything" architecturally feasible.
 
 ## See also
 
-- [firestore-spark](./firestore-spark.md)
-- [oriz](./oriz.md)
+- [firestore-spark](../d-h/firestore-spark.md)
+- [oriz](../o-r/oriz.md)

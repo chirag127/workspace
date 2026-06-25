@@ -72,7 +72,7 @@ For client-side env vars (PUBLIC_*), Astro embeds them at build time via `import
 - **Secret rotation**: change once in `c:/D/oriz/.env` + commit the new encrypted file → wait for daily cron OR trigger workflow_dispatch → all 51+ repos rotated simultaneously
 - **New secret**: add to `templates/.env.example` (key + comment) + add value to `c:/D/oriz/.env` + sync → instantly available org-wide
 - **Audit**: master commit log = secret rotation history
-- **No drift**: per-repo manual secret writes are FORBIDDEN per `rules/github-org-level-secrets.md` (already locked)
+- **No drift**: per-repo manual secret writes are FORBIDDEN per `rules/security/github-org-level-secrets.md` (already locked)
 
 ## Supersedes-in-part
 

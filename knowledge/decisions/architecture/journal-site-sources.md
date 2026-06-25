@@ -57,7 +57,7 @@ The synthesis is bigger than the parts:
 
 ## Tension with the auto-only-tracking rule
 
-The existing [auto-only-tracking.md](../../rules/auto-only-tracking.md) rule says metrics must be auto-captured, not manually entered. Journal entries are **content**, not metrics — explicitly carved out in that rule. So journal-site is allowed.
+The existing [auto-only-tracking.md](../../rules/interaction/auto-only-tracking.md) rule says metrics must be auto-captured, not manually entered. Journal entries are **content**, not metrics — explicitly carved out in that rule. So journal-site is allowed.
 
 But the *metadata* on each entry (mood, location, weather) should be **auto-captured by default** to stay consistent with the spirit of that rule. Manual override allowed; manual-only not allowed.
 
@@ -76,6 +76,6 @@ The risk-mitigation: ship in vertical slices. Don't try to ship everything at on
 
 ## Related
 
-- [auto-only-tracking.md](../../rules/auto-only-tracking.md) — metrics vs content carve-out
+- [auto-only-tracking.md](../../rules/interaction/auto-only-tracking.md) — metrics vs content carve-out
 - [sidebar-4-tier.md](./sidebar-4-tier.md) — Tier B
 - [branding/repo-naming-suffixes.md](../branding/repo-naming-suffixes.md) — current slug is `chirag127/journal-site` (fourth-pass naming; renamed from `oriz-journal` → `roam` → `journal-site`)

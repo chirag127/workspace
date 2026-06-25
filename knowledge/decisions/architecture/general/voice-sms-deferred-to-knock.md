@@ -71,7 +71,7 @@ appears.
 ### What we don't do
 
 - **No Twilio account.** No `TWILIO_ACCOUNT_SID` /
-  `TWILIO_AUTH_TOKEN` lines in [`templates/.env.example`](../../../templates/.env.example).
+  `TWILIO_AUTH_TOKEN` lines in <!-- TODO: broken link, was [`templates/.env.example`](../../../templates/.env.example) -->.
 - **No Vonage / MessageBird / Plivo account.** Not adopted, not
   documented under `services/`.
 - **No standalone SMS provider** of any kind. SMS, when it lands,
@@ -97,7 +97,7 @@ Promote from "deferred SMS path" to "active SMS workflow" when
 When it flips: enable Knock's SMS channel on the relevant
 workflow, top up Knock prepaid balance with one transaction (not
 a card-on-file), document the workflow in
-[`packages/oriz-kit/notifications/workflows/`](../../../glossary/o-r/oriz-kit.md).
+<!-- TODO: broken link, was [`packages/oriz-kit/notifications/workflows/`](../../../glossary/o-r/oriz-kit.md) -->.
 
 ### What stays
 

@@ -16,7 +16,7 @@ user's day-to-day workflow. Locked decision:
 The family adopts **automatic** capture only — what the editor
 *sees* (Wakatime). Manual capture (Toggl Track) was considered
 and rejected on 2026-06-20 under the new family-wide
-[auto-only-tracking rule](../../rules/auto-only-tracking.md):
+[auto-only-tracking rule](../../rules/interaction/auto-only-tracking.md):
 manual timers decay (humans forget, fudge, skip), and dishonest
 data is worse than no data. Non-coding time is intentionally
 **not tracked** rather than manually tracked. Untracked time
@@ -32,7 +32,7 @@ is honest signal that the user was away from the keyboard.
 
 | Service | Status | Why rejected |
 |---|---|---|
-| [toggl-track.md](./toggl-track.md) | rejected | Manual time tracking violates the [auto-only-tracking rule](../../rules/auto-only-tracking.md) (2026-06-20). Wakatime auto-tracks coding time; non-coding time is not tracked rather than manually tracked. |
+| [toggl-track.md](./toggl-track.md) | rejected | Manual time tracking violates the [auto-only-tracking rule](../../rules/interaction/auto-only-tracking.md) (2026-06-20). Wakatime auto-tracks coding time; non-coding time is not tracked rather than manually tracked. |
 
 ## Surface coverage
 
@@ -78,16 +78,16 @@ events, CF Web Analytics) — see
   family's other public surfaces (GitHub profile, sponsor
   rails per [`max-payment-methods`](../../decisions/monetisation/max-payment-methods.md)).
 - **Free, no-card** — fits
-  [`rules/no-card-on-file`](../../rules/no-card-on-file.md) +
-  [`rules/no-subscriptions`](../../rules/no-subscriptions.md).
+  [`rules/no-card-on-file`](../../rules/interaction/no-card-on-file.md) +
+  [`rules/no-subscriptions`](../../rules/infrastructure/no-subscriptions.md).
 
 ## Cross-refs
 
 - [Time-tracking — Wakatime only (decision)](../../decisions/architecture/time-tracking-wakatime-only.md)
-- [Auto-only-tracking rule](../../rules/auto-only-tracking.md)
+- [Auto-only-tracking rule](../../rules/interaction/auto-only-tracking.md)
 - [Auto-tracking-everywhere decision](../../decisions/architecture/auto-tracking-everywhere.md)
 - [Lifestream JSONL canonical](../../decisions/architecture/lifestream-jsonl-canonical.md) — future ingest target
 - [oriz-me added to family](../../decisions/branding/oriz-me-added-to-family.md)
 - [Doppler — API tokens](../secrets/doppler.md)
-- [No card-on-file rule](../../rules/no-card-on-file.md)
-- [No subscriptions rule](../../rules/no-subscriptions.md)
+- [No card-on-file rule](../../rules/interaction/no-card-on-file.md)
+- [No subscriptions rule](../../rules/infrastructure/no-subscriptions.md)

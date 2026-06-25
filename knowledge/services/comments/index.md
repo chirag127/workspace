@@ -39,4 +39,4 @@ the Giscus iframe. This:
 - [Giscus](./giscus.md)
 - [Consent management multi-category decision](../../decisions/security/consent-management-multi-category.md)
 - [Repo naming suffixes decision](../../decisions/branding/repo-naming-suffixes.md)
-- [No card-on-file rule](../../rules/no-card-on-file.md)
+- [No card-on-file rule](../../rules/interaction/no-card-on-file.md)

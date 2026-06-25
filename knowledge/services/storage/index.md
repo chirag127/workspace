@@ -20,7 +20,7 @@ The family runs a **two-way split** locked on 2026-06-20:
 [Cloudflare R2](./cloudflare-r2.md) was **rejected** because its
 adjacent paid features pull in a card-on-file requirement on the
 same account, in violation of
-[`rules/no-card-on-file.md`](../../rules/no-card-on-file.md). The
+[`rules/no-card-on-file.md`](../../rules/interaction/no-card-on-file.md). The
 split decision is documented in
 [`decisions/architecture/object-storage-split.md`](../../decisions/architecture/object-storage-split.md).
 
@@ -44,6 +44,6 @@ give you for free.
 
 - [Object storage split decision](../../decisions/architecture/object-storage-split.md)
 - [Backup decision — restic + B2 + GH Actions cron](../../decisions/architecture/backup-restic-to-b2.md)
-- [Restic backup setup runbook](../../runbooks/restic-backup-setup.md)
-- [No card-on-file rule](../../rules/no-card-on-file.md)
+- [Restic backup setup runbook](../../runbooks/security/restic-backup-setup.md)
+- [No card-on-file rule](../../rules/interaction/no-card-on-file.md)
 - [Extensions cross-store publish](../../decisions/infrastructure/extensions-cross-store-publish.md)

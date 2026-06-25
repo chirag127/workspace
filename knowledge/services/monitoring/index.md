@@ -47,10 +47,10 @@ health-check coverage splits cleanly across two free tools:
 healthchecks.io is the primary for cron heartbeats; Better Stack
 also runs heartbeat-monitor mode as a backup channel on the same
 account. Together they verify every auto-tracked surface in the
-family without human polling — the [`auto-only-tracking`](../../rules/auto-only-tracking.md)
+family without human polling — the [`auto-only-tracking`](../../rules/interaction/auto-only-tracking.md)
 posture extends to the watchdogs themselves.
 
 ## Cross-refs
 
-- [rules/never-hit-quotas](../../rules/never-hit-quotas.md)
+- [rules/never-hit-quotas](../../rules/interaction/never-hit-quotas.md)
 - [decisions/architecture/multi-engine-search-button](../../decisions/architecture/multi-engine-search-button.md) (unrelated, but new on the same date)

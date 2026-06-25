@@ -81,4 +81,4 @@ mirror to [GitHub Secrets](../secrets/github-secrets.md).
 - [Chrome extensions as submodules](../../decisions/infrastructure/chrome-extensions-as-submodules.md)
 - [Per-extension privacy policy](../../decisions/content/per-extension-privacy-policy.md)
 - [Per-repo CI workflows](../../decisions/process/per-repo-ci-workflows.md)
-- [No card-on-file rule](../../rules/no-card-on-file.md)
+- [No card-on-file rule](../../rules/interaction/no-card-on-file.md)

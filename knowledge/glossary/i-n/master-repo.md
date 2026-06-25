@@ -28,6 +28,6 @@ and `design-briefs/` live as the family's single source of truth.
 
 ## See also
 
-- [submodule-pointer](./submodule-pointer.md)
-- [family](./family.md)
-- [oriz](./oriz.md)
+- [submodule-pointer](../s-z/submodule-pointer.md)
+- [family](../d-h/family.md)
+- [oriz](../o-r/oriz.md)

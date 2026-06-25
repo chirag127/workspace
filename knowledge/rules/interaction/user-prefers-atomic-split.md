@@ -23,7 +23,7 @@ When a decision involves picking between "consolidate into N bigger units" vs "s
 Three independent decisions on 2026-06-20 all picked the more-aggressive split over the recommendation:
 
 1. **Tools shape** (recommended: 1 tools-site monorepo with 15 subdomain builds; chosen: **15 separate repos**). [tools-site-15-repos.md](../../decisions/architecture/stack/tools-site-15-repos.md).
-2. **Package count** (recommended: 5 packages; chosen: **14 atomic packages**). [packages-14-atomic.md](../../decisions/architecture/packages-14-atomic.md).
+2. **Package count** (recommended: 5 packages; chosen: **14 atomic packages**). <!-- TODO: broken link, was [packages-14-atomic.md](../../decisions/architecture/packages-14-atomic.md) -->.
 3. **Day-1 tool scope** (recommended: ship Tier 1 only as 8 repos, scaffold rest; chosen: **all 15 repos + Pages projects on day 1**). [tool-categories-roadmap.md](../../decisions/architecture/stack/tool-categories-roadmap.md).
 
 That's not a one-off — it's the third time in one session, on three independent decisions. It's a **taste**.

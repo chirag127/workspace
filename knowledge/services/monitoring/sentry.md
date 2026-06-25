@@ -25,7 +25,7 @@ Catches uncaught exceptions across every site + the api.oriz.in
 Hono Worker + every Chrome extension. Replaces GlitchTip as of
 2026-06-20 — the user's reasoning was "Sentry has the best
 integration with everything", and the family's existing
-[never-hit-quotas](../../rules/never-hit-quotas.md) rule is satisfied
+[never-hit-quotas](../../rules/interaction/never-hit-quotas.md) rule is satisfied
 by an env-var toggle (see below) rather than a quota-busting log
 sink.
 
@@ -60,7 +60,7 @@ if (import.meta.env.ENABLE_SENTRY === 'true') {
 ```
 
 The toggle is documented under
-[rules/never-hit-quotas](../../rules/never-hit-quotas.md). NO R2
+[rules/never-hit-quotas](../../rules/interaction/never-hit-quotas.md). NO R2
 logging fallback — R2 costs money and is explicitly rejected as an
 error sink.
 
@@ -86,6 +86,6 @@ cap is fine when paired with the per-site toggle.
 ## Cross-refs
 
 - [GlitchTip](./glitchtip.md) — rejected predecessor
-- [API umbrella Hono Worker](../../architecture/api-umbrella-hono-worker.md)
-- [Never hit quotas rule](../../rules/never-hit-quotas.md)
-- [No card-on-file rule](../../rules/no-card-on-file.md)
+- [API umbrella Hono Worker](../../decisions/architecture/compute/api-umbrella-hono-worker.md)
+- [Never hit quotas rule](../../rules/interaction/never-hit-quotas.md)
+- [No card-on-file rule](../../rules/interaction/no-card-on-file.md)

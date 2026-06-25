@@ -53,7 +53,7 @@ discarded) before the conversation ends. No long-lived branches.
 
 ## See also
 
-- [`no-push-without-say-so.md`](../no-push-without-say-so.md)
+- <!-- TODO: broken link, was [`no-push-without-say-so.md`](../no-push-without-say-so.md) -->
 - [`no-force-push-to-main.md`](./no-force-push-to-main.md)
 - [`conventional-commits.md`](./conventional-commits.md)
 - AGENTS.md "Git" section

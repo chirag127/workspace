@@ -40,7 +40,7 @@ decision file for context.
 paid. Holding existing domains at Spaceship needs a payment method
 on file at the renewal moment. The family treats this as the same
 narrow exception as [Cloudflare Registrar](./cloudflare-registrar.md):
-domain renewal is the only place the [no-card-on-file rule](../../rules/no-card-on-file.md)
+domain renewal is the only place the [no-card-on-file rule](../../rules/interaction/no-card-on-file.md)
 bends, because the alternative is losing the domain.
 
 ## Alternatives
@@ -76,4 +76,4 @@ Spaceship + Cloudflare Registrar.
 - [Cloudflare DNS](./cloudflare-dns.md)
 - [Cloudflare Email Routing](./cloudflare-email-routing.md)
 - [Cloudflare Registrar — alternative, not used today](./cloudflare-registrar.md)
-- [No card-on-file rule — domain-renewal exception](../../rules/no-card-on-file.md)
+- [No card-on-file rule — domain-renewal exception](../../rules/interaction/no-card-on-file.md)

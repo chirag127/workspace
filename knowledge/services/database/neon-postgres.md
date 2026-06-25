@@ -61,7 +61,7 @@ and [`decisions/architecture/lifestream-jsonl-canonical.md`](../../decisions/arc
 
 ## Quota-headroom plan
 
-Per [`rules/never-hit-quotas.md`](../../rules/never-hit-quotas.md), the
+Per [`rules/interaction/never-hit-quotas.md`](../../rules/interaction/never-hit-quotas.md), the
 family runs Neon at safe headroom:
 
 - **Compute autoscaling capped at 2 CU** on every project. Higher
@@ -117,5 +117,5 @@ shape of data the family touches.
 - [Firebase Spark — Auth + Firestore](../auth/firebase-spark.md)
 - [firebase-rest-firestore decision](../../decisions/architecture/firebase-rest-firestore-not-admin.md)
 - [Lifestream JSONL canonical decision](../../decisions/architecture/lifestream-jsonl-canonical.md)
-- [No card-on-file rule](../../rules/no-card-on-file.md)
-- [Never hit quotas rule](../../rules/never-hit-quotas.md)
+- [No card-on-file rule](../../rules/interaction/no-card-on-file.md)
+- [Never hit quotas rule](../../rules/interaction/never-hit-quotas.md)

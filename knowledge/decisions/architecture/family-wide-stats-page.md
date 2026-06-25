@@ -60,9 +60,9 @@ User direction: *"family-wide /stats on oriz.in"* — locked.
 ## Implications
 
 - **`<FamilyStatsDashboard />` component** lands in
-  [`@chirag127/oriz-kit`](../../glossary/o-r/oriz-kit.md) (forward
+  <!-- TODO: broken link, was [`@chirag127/oriz-kit`](../../glossary/o-r/oriz-kit.md) --> (forward
   reference — kit shim split per
-  [oriz-ui-split-into-5-packages](./oriz-ui-split-into-5-packages.md)).
+  <!-- TODO: broken link, was [oriz-ui-split-into-5-packages](./oriz-ui-split-into-5-packages.md) -->).
   Single component embedded in `oriz-in-site/src/pages/stats.astro`.
   Per the
   [markdown-in-repo-only posture](./cms-markdown-in-repo-only.md)
@@ -92,7 +92,7 @@ User direction: *"family-wide /stats on oriz.in"* — locked.
   time only. No tokens shipped to client.
 - **Auto-tracked end-to-end** — the page exists *because* every
   upstream is already auto-tracked per
-  [`auto-only-tracking`](../../rules/auto-only-tracking.md) and the
+  [`auto-only-tracking`](../../rules/interaction/auto-only-tracking.md) and the
   forward-referenced
   [`auto-tracking-everywhere` decision](./auto-tracking-everywhere.md).
   No manual data entry anywhere.
@@ -114,6 +114,6 @@ User direction: *"family-wide /stats on oriz.in"* — locked.
 - [GitHub Insights service](../../services/code-quality/github-insights.md)
 - [Tokei service](../../services/code-quality/tokei.md)
 - [Wakatime service](../../services/productivity/wakatime.md)
-- [Auto-only-tracking rule](../../rules/auto-only-tracking.md) (forward ref — being added in parallel)
+- [Auto-only-tracking rule](../../rules/interaction/auto-only-tracking.md) (forward ref — being added in parallel)
 - [Auto-tracking everywhere decision](./auto-tracking-everywhere.md) (forward ref — being added in parallel)
 - [Family-wide privacy page decision](../branding/family-wide-privacy-page.md)

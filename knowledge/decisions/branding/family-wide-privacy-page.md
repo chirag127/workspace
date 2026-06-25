@@ -26,7 +26,7 @@ where the surface introduces new disclosures (e.g. extension
 permission lists, site-specific data flows).
 
 The pre-existing
-[per-extension privacy policy policy](../../policy/privacy-policy-per-extension.md)
+[per-extension privacy policy policy](../policy/privacy-policy-per-extension.md)
 is **refined** by this decision, not superseded:
 
 - **Before**: each extension page inlined common boilerplate by
@@ -83,7 +83,7 @@ covers it.
   hosts oriz.in per
   [`decisions/branding/oriz-me-added-to-family.md`](./oriz-me-added-to-family.md)).
 - **Per-surface addendum template** lives in
-  [`@chirag127/oriz-kit`](../../glossary/o-r/oriz-kit.md) so every
+  <!-- TODO: broken link, was [`@chirag127/oriz-kit`](../../glossary/o-r/oriz-kit.md) --> so every
   site / extension / worker can scaffold its addendum from the
   same boilerplate.
 - **Footer link** in every site's footer points at `oriz.in/privacy`
@@ -94,7 +94,7 @@ covers it.
   store-required disclosures live there with a link back to the
   family policy.
 - **Annual review** (per
-  [`policy/privacy-policy-per-extension.md`](../../policy/privacy-policy-per-extension.md))
+  [`policy/privacy-policy-per-extension.md`](../policy/privacy-policy-per-extension.md))
   re-reads Chrome / Firefox / Edge / VS Code policies + GDPR / DPDP
   / CCPA, updates `oriz.in/privacy` once, propagates by reference.
 - **Cookie + analytics disclosure** lives on the family page —
@@ -105,9 +105,9 @@ covers it.
 ## Cross-refs
 
 - [Family privacy page service](../../services/legal/privacy-page.md)
-- [Per-extension privacy policy policy](../../policy/privacy-policy-per-extension.md) — refined by this decision
-- [Public/private line policy](../../policy/public-private-line.md)
+- [Per-extension privacy policy policy](../policy/privacy-policy-per-extension.md) — refined by this decision
+- [Public/private line policy](../policy/public-private-line.md)
 - [Cookie banner policy decision](../security/cookie-banner-policy.md)
 - [5-tier analytics stack decision](../architecture/analytics-five-tier-stack.md)
 - [oriz-me added to family](./oriz-me-added-to-family.md) — apex hosts master /privacy
-- [No card-on-file rule](../../rules/no-card-on-file.md)
+- [No card-on-file rule](../../rules/interaction/no-card-on-file.md)

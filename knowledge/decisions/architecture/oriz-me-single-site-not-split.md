@@ -64,7 +64,7 @@ other per-section subdomain.
 5. **Maintenance cost.** Each `-site` repo multiplies CI runs, env-key
    provisioning, deploy hooks, design-token sync, dependency upgrades,
    `.env.example` syncs (per [`env-and-secrets-single-source`](../security/env-and-secrets-single-source.md)).
-   [Auto-only-tracking](../../rules/auto-only-tracking.md) +
+   [Auto-only-tracking](../../rules/interaction/auto-only-tracking.md) +
    [lifestream JSONL](./lifestream-jsonl-canonical.md) drive most
    content auto-magically; splitting buys nothing and costs ~5x.
 6. **Alphabet analogy does NOT apply.** Alphabet lists subsidiaries on
@@ -115,5 +115,5 @@ other per-section subdomain.
 - [Lifestream federation](./lifestream-federation.md) — `me.oriz.in` mirrors to AT Protocol + ActivityPub
 - [oriz-me added to family](../branding/oriz-me-added-to-family.md) — original `me.oriz.in` lock
 - [Auto-tracking everywhere](./auto-tracking-everywhere.md) — auto-only-tracking principle
-- [`rules/auto-only-tracking`](../../rules/auto-only-tracking.md)
+- [`rules/auto-only-tracking`](../../rules/interaction/auto-only-tracking.md)
 - [Subdomains under oriz.in](../infrastructure/subdomains-under-oriz-in.md) — subdomain-per-product convention

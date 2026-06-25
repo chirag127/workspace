@@ -101,4 +101,4 @@ three-tool stack (axe + Pa11y + Lighthouse CI) is locked in
 - [axe-core — sibling tool](./axe-core.md)
 - [Lighthouse CI — score + PR comments](./lighthouse-ci.md)
 - [a11y three-tools decision](../../decisions/architecture/a11y-three-tools.md)
-- [No card-on-file rule](../../rules/no-card-on-file.md)
+- [No card-on-file rule](../../rules/interaction/no-card-on-file.md)

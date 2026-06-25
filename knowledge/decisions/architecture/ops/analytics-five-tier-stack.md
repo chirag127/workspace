@@ -68,7 +68,7 @@ preserves the family's [no-card-on-file rule](../../../rules/interaction/no-card
 and each runs at a different vendor, so a single outage / quota
 trip never goes dark across the board.
 
-## Quota safeguards (per [`rules/never-hit-quotas.md`](../../../rules/interaction/never-hit-quotas.md))
+## Quota safeguards (per [`rules/interaction/never-hit-quotas.md`](../../../rules/interaction/never-hit-quotas.md))
 
 Each layer has a per-site env-var kill-switch:
 
@@ -81,7 +81,7 @@ ENABLE_UTM_HELPER=true      # <UtmLink> validation in @chirag127/oriz-kit
 ```
 
 Set any to `false` per site if a quota cliff approaches. The
-`<Analytics />` component in [`@chirag127/oriz-kit`](../../../glossary/o-r/oriz-kit.md)
+`<Analytics />` component in <!-- TODO: broken link, was [`@chirag127/oriz-kit`](../../../glossary/o-r/oriz-kit.md) -->
 reads these flags at build time and tree-shakes the unused scripts.
 
 ## Implications
@@ -104,7 +104,7 @@ reads these flags at build time and tree-shakes the unused scripts.
   capture is read-only off the URL — no cookie required.
 - **No paid tier ever.** If any layer hits its quota:
   1. Toggle the env-var off on the highest-traffic site.
-  2. Document in [`log.md`](../../../log.md) which site / which layer.
+  2. Document in <!-- TODO: broken link, was [`log.md`](../../../log.md) --> which site / which layer.
   3. Consider sampling (`ENABLE_<TOOL>=true` only on 10% of sites) before turning back on.
 
 ## Cross-refs

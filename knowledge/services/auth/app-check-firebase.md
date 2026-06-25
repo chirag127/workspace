@@ -54,4 +54,4 @@ security rules.
 
 - [Firebase Spark](./firebase-spark.md)
 - [reCAPTCHA Enterprise](./recaptcha-enterprise.md) — attestation provider
-- [Firestore rules](../../architecture/layer-3-auth-firebase-spark.md)
+- [Firestore rules](../../decisions/architecture/security/layer-3-auth-firebase-spark.md)

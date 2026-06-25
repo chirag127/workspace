@@ -94,7 +94,7 @@ corpora.
 Medium — Orama's `@orama/orama` client and indexing pipeline
 differ from Pagefind's. The swap involves: (a) replacing the
 `<Search>` wrapper in
-[`@chirag127/oriz-kit`](../../glossary/o-r/oriz-kit.md), (b)
+<!-- TODO: broken link, was [`@chirag127/oriz-kit`](../../glossary/o-r/oriz-kit.md) -->, (b)
 re-running the index build at deploy time, (c) wiring an
 embeddings step into the build for vector retrieval (optional).
 
@@ -115,6 +115,6 @@ embeddings step into the build for vector retrieval (optional).
 - [search services index](./index.md)
 - [Pagefind — current pick for small sites](./pagefind.md)
 - [Algolia — current pick for large corpora](./algolia.md)
-- [oriz-kit glossary](../../glossary/o-r/oriz-kit.md)
-- [Never hit quotas rule](../../rules/never-hit-quotas.md)
-- [No card-on-file rule](../../rules/no-card-on-file.md)
+- <!-- TODO: broken link, was [oriz-kit glossary](../../glossary/o-r/oriz-kit.md) -->
+- [Never hit quotas rule](../../rules/interaction/never-hit-quotas.md)
+- [No card-on-file rule](../../rules/interaction/no-card-on-file.md)

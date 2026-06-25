@@ -47,7 +47,7 @@ User direction 2026-06-20: "+ Status banner on every site" — locked.
   [healthchecks.io heartbeat](../../services/monitoring/healthchecks-io.md),
   the banner gives a third **in-page** comms surface that survives
   even if one of the upstream surfaces is the outage.
-- **Built once in [oriz-kit](../../glossary/o-r/oriz-kit.md), shipped to all 11+ sites.** Single
+- **Built once in <!-- TODO: broken link, was [oriz-kit](../../glossary/o-r/oriz-kit.md) -->, shipped to all 11+ sites.** Single
   source of truth for the comms component; per-site config is one prop.
 
 ## Banner contract
@@ -133,7 +133,7 @@ export function StatusBanner({ siteId }: { siteId: string }) {
   [`Klaro`](../../services/security/klaro.md) consent (no banner
   needed for this cookie).
 - **No card** on any layer. Both Better Stack and Instatus are on
-  free tiers per [`rules/no-card-on-file.md`](../../rules/no-card-on-file.md).
+  free tiers per [`rules/no-card-on-file.md`](../../rules/interaction/no-card-on-file.md).
 
 ## Cross-refs
 
@@ -141,7 +141,7 @@ export function StatusBanner({ siteId }: { siteId: string }) {
 - [Instatus (redundant status page mirror)](../../services/monitoring/instatus.md)
 - [healthchecks.io (heartbeat fallback)](../../services/monitoring/healthchecks-io.md)
 - [Monitor apex only](../infrastructure/monitor-apex-only.md)
-- [oriz-kit glossary](../../glossary/o-r/oriz-kit.md)
+- <!-- TODO: broken link, was [oriz-kit glossary](../../glossary/o-r/oriz-kit.md) -->
 - [UTM attribution strategy](./utm-attribution-strategy.md) — `?ref=banner-<sitename>` convention
-- [No card-on-file rule](../../rules/no-card-on-file.md)
-- [Never-hit-quotas rule](../../rules/never-hit-quotas.md)
+- [No card-on-file rule](../../rules/interaction/no-card-on-file.md)
+- [Never-hit-quotas rule](../../rules/interaction/never-hit-quotas.md)

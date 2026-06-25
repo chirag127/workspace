@@ -72,9 +72,9 @@ requires a card on the free tier.
 
 - **No Nominatim account, no Mapbox key, no Google Geocoding
   account today.** Not in
-  [`templates/.env.example`](../../../templates/.env.example).
+  <!-- TODO: broken link, was [`templates/.env.example`](../../../templates/.env.example) -->.
 - **No `<Map>` or `<Geocoder>` component** in
-  [`@chirag127/oriz-kit`](../../../glossary/o-r/oriz-kit.md). When
+  <!-- TODO: broken link, was [`@chirag127/oriz-kit`](../../../glossary/o-r/oriz-kit.md) -->. When
   the first site needs one, it lands in the kit at adoption time.
 - **No reverse-geocoding fallback** in any consent / payment /
   i18n path. `CF-IPCountry` is enough for country-level routing;
@@ -110,7 +110,7 @@ The picked provider must:
 - Have a documented swap path back to the other in this table —
   fail-closed parity per
   [never-hit-quotas](../../../rules/interaction/never-hit-quotas.md).
-- Land in [`@chirag127/oriz-kit`](../../../glossary/o-r/oriz-kit.md)
+- Land in <!-- TODO: broken link, was [`@chirag127/oriz-kit`](../../../glossary/o-r/oriz-kit.md) -->
   as `<Map>` / `<Geocoder>` so swapping providers is one prop
   flip across the family, not 11 fixes.
 

@@ -104,14 +104,14 @@ NOT on app sites — utility apps don't carry a comments surface (see
   threadier and has reactions)
 - Disqus (ad-injected, privacy-hostile, requires consent banner)
 - Cusdis / Remark42 self-hosted (extra infra to run; fights
-  [`rules/no-card-on-file`](../../rules/no-card-on-file.md) only if
+  [`rules/no-card-on-file`](../../rules/interaction/no-card-on-file.md) only if
   hosted on paid tiers)
 - Hyvor Talk (paid past trial)
 
 ## Swap cost
 
 Low — the `<Giscus />` Astro component in
-[`@chirag127/oriz-kit`](../../glossary/o-r/oriz-kit.md) isolates the
+<!-- TODO: broken link, was [`@chirag127/oriz-kit`](../../glossary/o-r/oriz-kit.md) --> isolates the
 script-load surface. Swap = replace the `client.js` URL + the
 data-attributes; comment data does not migrate (lives in GitHub
 Discussions and stays there even if the widget changes).
@@ -132,5 +132,5 @@ Discussions and stays there even if the widget changes).
 - [Comments services index](./index.md)
 - [Consent management multi-category decision](../../decisions/security/consent-management-multi-category.md)
 - [Repo naming suffixes decision](../../decisions/branding/repo-naming-suffixes.md)
-- [oriz-kit glossary](../../glossary/o-r/oriz-kit.md) — `<Giscus />` lives here
-- [No card-on-file rule](../../rules/no-card-on-file.md)
+- <!-- TODO: broken link, was [oriz-kit glossary](../../glossary/o-r/oriz-kit.md) --> — `<Giscus />` lives here
+- [No card-on-file rule](../../rules/interaction/no-card-on-file.md)

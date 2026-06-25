@@ -59,7 +59,7 @@ User's "Other" text: "auth.oriz.in, packages.oriz.in. And every AI provider shou
 Agent must:
 1. Record `auth.oriz.in + packages.oriz.in` as the answer.
 2. Acknowledge "OpenAI-compat for all providers" as a new directive.
-3. Write a new rule `knowledge/rules/openai-compat-for-all-ai-providers.md`.
+3. Write a new rule `knowledge/rules/interaction/openai-compat-for-all-ai-providers.md`.
 4. Schedule follow-up MCQs to grill on the new directive.
 
 ## Why

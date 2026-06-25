@@ -25,7 +25,7 @@ Every site under `*.oriz.in` ships a strict security-headers
 configuration via a `_headers` file at the project root. Cloudflare
 Pages reads the file at deploy time and applies the rules at the
 edge — no Worker, no CDN config UI, no per-site secret. The same
-preset ships in [`@chirag127/oriz-kit`](../../glossary/o-r/oriz-kit.md);
+preset ships in <!-- TODO: broken link, was [`@chirag127/oriz-kit`](../../glossary/o-r/oriz-kit.md) -->;
 every site `imports`/copies it.
 
 ## Free tier
@@ -94,4 +94,4 @@ us honest.
 - [Mozilla Observatory — CI auditor](./mozilla-observatory.md)
 - [Cloudflare Pages — host that reads `_headers`](../hosting/cloudflare-pages.md)
 - [Security headers strategy decision](../../decisions/security/security-headers-strategy.md)
-- [No card-on-file rule](../../rules/no-card-on-file.md)
+- [No card-on-file rule](../../rules/interaction/no-card-on-file.md)

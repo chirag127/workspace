@@ -28,7 +28,7 @@ locality**:
 
 ### Layer 1 — pnpm content-addressable global store (per-developer-machine)
 
-Already in use family-wide via [`rules/use-pnpm.md`](../../rules/use-pnpm.md).
+Already in use family-wide via [`rules/development/use-pnpm.md`](../../rules/development/use-pnpm.md).
 pnpm hard-links every package version exactly once into `~/.pnpm-store/`
 (or `%LOCALAPPDATA%\pnpm` on Windows) and symlinks into each
 `node_modules/`. Cross-repo dedup: one library version downloaded
@@ -76,7 +76,7 @@ unrelated repo changes don't.
 
 - **Turbo Remote Cache** — requires Vercel signup + payment method
   even on the free tier; fights
-  [`rules/no-card-on-file.md`](../../rules/no-card-on-file.md). Each
+  [`rules/no-card-on-file.md`](../../rules/interaction/no-card-on-file.md). Each
   repo is sized that the GH Actions cache is sufficient on its own.
 - **Bazel** — over-engineered for the family's surface (~11 sites + a
   handful of packages, all on Vite + Astro). Bazel makes sense at
@@ -108,14 +108,14 @@ unrelated repo changes don't.
 ### CI workflow shape
 
 The per-site CI template at
-[`templates/per-site-ci/.github/workflows/ci.yml`](../../templates/per-site-ci/.github/workflows/ci.yml)
+<!-- TODO: broken link, was [`templates/per-site-ci/.github/workflows/ci.yml`](../../templates/per-site-ci/.github/workflows/ci.yml) -->
 already implements Layer 2 part A (pnpm store cache, lockfile-keyed,
 fuzzy fallback). The template now also documents the strategy in a
 header comment + adds Astro cache (Layer 2 part B) where the site
 ships an Astro build.
 
 The
-[per-site CI runbook](../../runbooks/apply-per-site-ci.md) covers
+[per-site CI runbook](../../runbooks/operations/apply-per-site-ci.md) covers
 applying the template to all 11 site repos + the package repos that
 also need cache + the cross-link to this decision.
 
@@ -131,7 +131,7 @@ shared, never bottlenecked.
 The `pnpm` workspace is per-repo (each site's repo + each package's
 repo); there is NO master root `pnpm-workspace.yaml` covering the
 whole family. This is intentional and aligns with
-[`rules/repos-work-independently.md`](../../rules/repos-work-independently.md).
+[`rules/development/repos-work-independently.md`](../../rules/development/repos-work-independently.md).
 
 ### Cache hygiene
 
@@ -139,7 +139,7 @@ whole family. This is intentional and aligns with
   source of truth and lockfile changes trigger explicit refresh
   rather than silent drift.
 - The
-  [clean-install runbook](../../runbooks/clean-install.md) is the
+  [clean-install runbook](../../runbooks/operations/clean-install.md) is the
   documented escape hatch when caches go bad: locally, blow
   `node_modules/` + `.pnpm-store/` + `.astro/`; in CI, bump the
   cache key prefix from `pnpm-store-` to `pnpm-store-v2-` to start
@@ -172,15 +172,15 @@ whole family. This is intentional and aligns with
 
 ## Cross-refs
 
-- [pnpm rule](../../rules/use-pnpm.md)
-- [always-latest-deps rule](../../rules/always-latest-deps.md)
-- [clean-install runbook](../../runbooks/clean-install.md)
+- [pnpm rule](../../rules/development/use-pnpm.md)
+- [always-latest-deps rule](../../rules/development/always-latest-deps.md)
+- [clean-install runbook](../../runbooks/operations/clean-install.md)
 - [code-quality stack decision](../process/code-quality-stack.md)
 - [per-repo CI workflows decision](../process/per-repo-ci-workflows.md)
-- [per-site CI template](../../templates/per-site-ci/.github/workflows/ci.yml)
-- [apply-per-site-ci runbook](../../runbooks/apply-per-site-ci.md)
+- <!-- TODO: broken link, was [per-site CI template](../../templates/per-site-ci/.github/workflows/ci.yml) -->
+- [apply-per-site-ci runbook](../../runbooks/operations/apply-per-site-ci.md)
 - [GitHub Actions service](../../services/compute/github-actions.md)
 - [GitHub Actions schedule (cron sibling)](../../services/cron/github-actions-schedule.md)
 - [CF Worker quota mitigation — sibling caching playbook](./cf-worker-quota-mitigation.md)
-- [No card-on-file rule](../../rules/no-card-on-file.md)
-- [No subscriptions rule](../../rules/no-subscriptions.md)
+- [No card-on-file rule](../../rules/interaction/no-card-on-file.md)
+- [No subscriptions rule](../../rules/infrastructure/no-subscriptions.md)

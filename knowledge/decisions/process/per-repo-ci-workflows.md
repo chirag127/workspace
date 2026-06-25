@@ -46,5 +46,5 @@ gate it can't fulfil.
 ## Cross-refs
 
 - [Extensions cross-store publish](../infrastructure/extensions-cross-store-publish.md)
-- [Parallel-by-default rule](../../rules/parallel-by-default.md)
+- [Parallel-by-default rule](../../rules/interaction/parallel-by-default.md)
 - [AGENTS.md per-repo CI section](../../../AGENTS.md)

@@ -42,8 +42,8 @@ decision file only."
 
 - **Free, GitHub-native, no card.** Projects v2 is part of every
   GitHub account at zero cost — no quota cliff at family scale,
-  no card on file ([`rules/no-card-on-file`](../../rules/no-card-on-file.md) +
-  [`rules/no-subscriptions`](../../rules/no-subscriptions.md)).
+  no card on file ([`rules/no-card-on-file`](../../rules/interaction/no-card-on-file.md) +
+  [`rules/no-subscriptions`](../../rules/infrastructure/no-subscriptions.md)).
 - **Lives next to the code + issues.** Issues filed per
   [`bug-tracker-github-issues-only`](./bug-tracker-github-issues-only.md)
   attach directly to project items via the same web UI;
@@ -129,7 +129,7 @@ decision file only."
   Until then, roadmap stays internal-but-everyone's-an-internal
   given the OSS posture.
 - **No time tracking on the board.** That lives separately under
-  [`time-tracking-toggl-plus-wakatime`](./time-tracking-toggl-plus-wakatime.md);
+  <!-- TODO: broken link, was [`time-tracking-toggl-plus-wakatime`](./time-tracking-toggl-plus-wakatime.md) -->;
   the Projects board tracks plan + status, not effort actuals.
 - **No Notion / Obsidian "second brain"** for project context.
   The OKF bundle is the second brain; the Projects board is the
@@ -165,6 +165,6 @@ Until then, GitHub Projects is the answer.
 - [CMS markdown-in-repo only](./cms-markdown-in-repo-only.md) — sister "no SaaS sidecar" decision for content
 - [OKF as canonical format](../process/okf-as-canonical-format.md) — `knowledge/` bundle covers docs
 - [Per-repo CI workflows](../process/per-repo-ci-workflows.md) — workflows live in each repo, not a central scheduler
-- [Time tracking — Toggl + Wakatime](./time-tracking-toggl-plus-wakatime.md) — separate concern, separate tools
-- [No card-on-file rule](../../rules/no-card-on-file.md)
-- [No subscriptions rule](../../rules/no-subscriptions.md)
+- <!-- TODO: broken link, was [Time tracking — Toggl + Wakatime](./time-tracking-toggl-plus-wakatime.md) --> — separate concern, separate tools
+- [No card-on-file rule](../../rules/interaction/no-card-on-file.md)
+- [No subscriptions rule](../../rules/infrastructure/no-subscriptions.md)

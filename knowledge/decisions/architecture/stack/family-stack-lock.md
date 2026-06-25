@@ -61,7 +61,7 @@ Every Astro site ships:
 - `tailwind.config` extends `@chirag127/theme`
 - `biome.json` extends shared family config
 - `tsconfig.json` extends shared family config
-- `.env.example` synced from master per `rules/env-example-synced-from-master.md`
-- CI: typecheck + lint + build per `runbooks/apply-per-site-ci.md`
+- `.env.example` synced from master per `rules/security/env-example-synced-from-master.md`
+- CI: typecheck + lint + build per `runbooks/operations/apply-per-site-ci.md`
 
 (Decided 2026-06-20.)

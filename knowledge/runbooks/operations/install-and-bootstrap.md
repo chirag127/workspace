@@ -38,7 +38,7 @@ cd c:/D/oriz
 pnpm install -r
 ```
 
-That's it. `--recurse-submodules` clones every submodule. `pnpm install -r` recursively installs every package in the pnpm workspace defined by [`pnpm-workspace.yaml`](../../pnpm-workspace.yaml) with hoisted deps and a single shared `node_modules/`.
+That's it. `--recurse-submodules` clones every submodule. `pnpm install -r` recursively installs every package in the pnpm workspace defined by <!-- TODO: broken link, was [`pnpm-workspace.yaml`](../../pnpm-workspace.yaml) --> with hoisted deps and a single shared `node_modules/`.
 
 ## Existing clone update
 
@@ -89,7 +89,7 @@ pnpm install -r
 - `repos/oriz/own/svc/api/*`
 - `repos/oriz/own/prod/bs-ext/*`, `ide-extensions/*`, `mcp-servers/*`, `skills/*`
 
-If you add a new category, also update [`pnpm-workspace.yaml`](../../pnpm-workspace.yaml).
+If you add a new category, also update <!-- TODO: broken link, was [`pnpm-workspace.yaml`](../../pnpm-workspace.yaml) -->.
 
 ## After landing changes inside a submodule
 

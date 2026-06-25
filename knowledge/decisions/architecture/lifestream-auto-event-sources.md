@@ -33,7 +33,7 @@ lines into `chirag127/oriz-me-data/events-<YYYY>.jsonl`.
 | 3 | [CF Web Analytics daily summary](#source-3-cf-web-analytics-daily-summary-cron) | Daily cron 01:00 IST | per-day per-site | `visitors` |
 
 This locks in the
-[`auto-only-tracking`](../../rules/auto-only-tracking.md) posture for
+[`auto-only-tracking`](../../rules/interaction/auto-only-tracking.md) posture for
 the lifestream itself — every event in oriz-me arrives without a
 human pressing "log this".
 
@@ -46,7 +46,7 @@ ingress (retries + replay + dead-letter) → CF Worker route at
 Subscribed events:
 
 - `push` (any branch — but family is `main`-only per
-  [`one-branch-only`](../../rules/one-branch-only.md))
+  [`one-branch-only`](../../rules/development/one-branch-only.md))
 - `pull_request` opened
 - `release` published
 - `workflow_run` completed (only `success`/`failure` terminal states)
@@ -117,7 +117,7 @@ Together they answer "what was I doing yesterday?" without any tool
 that requires a human to press "start timer" or "log this". Manual
 non-coding time tracking lives separately in
 [Toggl Track](../../services/productivity/toggl-track.md) per
-[`time-tracking-toggl-plus-wakatime`](./time-tracking-toggl-plus-wakatime.md);
+<!-- TODO: broken link, was [`time-tracking-toggl-plus-wakatime`](./time-tracking-toggl-plus-wakatime.md) -->;
 that source is **explicitly NOT** wired into the auto-only lifestream
 JSONL because it requires a human action.
 
@@ -157,6 +157,6 @@ JSONL because it requires a human action.
 - [Wakatime service](../../services/productivity/wakatime.md)
 - [Cloudflare Web Analytics service](../../services/analytics/cloudflare-web-analytics.md)
 - [healthchecks.io — heartbeat coverage](../../services/monitoring/healthchecks-io.md)
-- [Auto-only-tracking rule](../../rules/auto-only-tracking.md) (forward ref — being added in parallel)
+- [Auto-only-tracking rule](../../rules/interaction/auto-only-tracking.md) (forward ref — being added in parallel)
 - [Auto-tracking everywhere decision](./auto-tracking-everywhere.md) (forward ref — being added in parallel)
-- [Time-tracking split (Toggl manual + Wakatime auto)](./time-tracking-toggl-plus-wakatime.md) — Toggl's manual stream is intentionally NOT a lifestream source
+- <!-- TODO: broken link, was [Time-tracking split (Toggl manual + Wakatime auto)](./time-tracking-toggl-plus-wakatime.md) --> — Toggl's manual stream is intentionally NOT a lifestream source

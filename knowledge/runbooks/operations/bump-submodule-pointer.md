@@ -54,7 +54,7 @@ master that moves the pointer.
 
 4. **Push the submodule** — but only when the user has explicitly
     authorised pushing this turn. See
-    [`no-push-without-say-so.md`](../../rules/no-push-without-say-so.md).
+    <!-- TODO: broken link, was [`no-push-without-say-so.md`](../../rules/no-push-without-say-so.md) -->.
 
     ```bash
     git push origin main
@@ -97,5 +97,5 @@ vs. operators rolling back the family) and should not be squashed.
 ## See also
 
 - [`add-new-site-to-family.md`](./add-new-site-to-family.md)
-- [`../rules/conventional-commits.md`](../../rules/development/conventional-commits.md)
-- [`../rules/no-push-without-say-so.md`](../../rules/no-push-without-say-so.md)
+- [`../rules/development/conventional-commits.md`](../../rules/development/conventional-commits.md)
+- <!-- TODO: broken link, was [`../rules/no-push-without-say-so.md`](../../rules/no-push-without-say-so.md) -->

@@ -102,5 +102,5 @@ two manual sources of truth.
 - [Better Stack](./better-stack.md) — primary status page; this is its redundant mirror
 - [healthchecks.io](./healthchecks-io.md) — heartbeat fallback that posts to Instatus directly if Better Stack is the outage
 - [decisions/infrastructure/monitor-apex-only](../../decisions/infrastructure/monitor-apex-only.md) — same apex-only scope applies to both status pages
-- [Never hit quotas rule](../../rules/never-hit-quotas.md)
-- [No card-on-file rule](../../rules/no-card-on-file.md)
+- [Never hit quotas rule](../../rules/interaction/never-hit-quotas.md)
+- [No card-on-file rule](../../rules/interaction/no-card-on-file.md)

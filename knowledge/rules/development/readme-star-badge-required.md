@@ -1,7 +1,7 @@
 ---
 type: rule
 title: "Every repo README must carry a star-this-repo badge near the top"
-description: "Family-wide convention: each repo's README places a `[⭐ Star this Repo ⭐](<repo-url>)` link/badge near the top of the file, above the BLUF/overview section. Promotes discoverability across the 80+ repo family."
+description: "Family-wide convention: each repo's README places a `<!-- TODO: broken link, was [⭐ Star this Repo ⭐](<repo-url>) -->` link/badge near the top of the file, above the BLUF/overview section. Promotes discoverability across the 80+ repo family."
 tags: [rule, readme, branding, family-convention]
 timestamp: 2026-06-25
 format_version: okf-v0.1

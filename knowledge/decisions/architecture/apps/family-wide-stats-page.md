@@ -74,9 +74,9 @@ User direction: *"family-wide /stats on oriz.in"* — locked.
 ## Implications
 
 - **`<FamilyStatsDashboard />` component** lands in
-  [`@chirag127/oriz-kit`](../../../glossary/o-r/oriz-kit.md) (forward
+  <!-- TODO: broken link, was [`@chirag127/oriz-kit`](../../../glossary/o-r/oriz-kit.md) --> (forward
   reference — kit shim split per
-  [oriz-ui-split-into-5-packages](../oriz-ui-split-into-5-packages.md)).
+  <!-- TODO: broken link, was [oriz-ui-split-into-5-packages](../oriz-ui-split-into-5-packages.md) -->).
   Single component embedded in `oriz-in-site/src/pages/stats.astro`.
   Per the
   [markdown-in-repo-only posture](../general/cms-markdown-in-repo-only.md)

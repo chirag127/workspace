@@ -162,7 +162,7 @@ Headroom                          : ~83x
 ```
 
 Sits comfortably inside
-[`rules/never-hit-quotas.md`](../../../rules/interaction/never-hit-quotas.md) even
+[`rules/interaction/never-hit-quotas.md`](../../../rules/interaction/never-hit-quotas.md) even
 with 10x growth.
 
 ## Why this layering

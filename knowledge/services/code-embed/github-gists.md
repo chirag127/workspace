@@ -83,4 +83,4 @@ where the reader needs to copy-paste.
 - [StackBlitz](./stackblitz.md) — sibling for full-stack playgrounds
 - [CodePen](./codepen.md) — sibling for CSS-heavy demos
 - [Ray.so](../social/ray-so.md) — generates pretty PNG screenshots for social og:image (different role)
-- [No card-on-file rule](../../rules/no-card-on-file.md)
+- [No card-on-file rule](../../rules/interaction/no-card-on-file.md)

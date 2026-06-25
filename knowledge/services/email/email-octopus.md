@@ -78,4 +78,4 @@ campaigns. For Markdown-native, API-driven technical digests we use
 - [Newsletter split decision](../../decisions/architecture/newsletter-split-buttondown-emailoctopus.md)
 - [Resend](./resend.md) — transactional email only, not marketing
 - [MailerLite](./mailerlite.md) — fallback marketing provider
-- [No card-on-file rule](../../rules/no-card-on-file.md)
+- [No card-on-file rule](../../rules/interaction/no-card-on-file.md)

@@ -28,5 +28,5 @@ its own GitHub Actions workflow.
 
 ## See also
 
-- [site-suffix](./site-suffix.md)
+- [site-suffix](../s-z/site-suffix.md)
 - [family](./family.md)

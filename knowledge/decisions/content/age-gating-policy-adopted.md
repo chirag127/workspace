@@ -47,4 +47,4 @@ unintentionally.
 
 - [me.oriz.in journal stays auth-gated](./journal-stays-auth-gated.md)
 - [100-year strategy locked](./100-year-strategy-locked.md) — §6 public/private line
-- [Age-gating policy](../../policy/age-gating.md)
+- [Age-gating policy](../policy/age-gating.md)

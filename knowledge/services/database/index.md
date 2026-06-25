@@ -45,11 +45,11 @@ those workloads with no card and scale-to-zero, so we add it as the
 
 ## Cross-refs
 
-- [Layer 4 — database by shape](../../architecture/layer-4-database-by-shape.md)
-- [architecture/canonical-store-jsonl](../../architecture/canonical-store-jsonl.md)
-- [architecture/cloud-dbs-as-caches](../../architecture/cloud-dbs-as-caches.md)
+- [Layer 4 — database by shape](../../decisions/architecture/general/layer-4-database-by-shape.md)
+- [architecture/canonical-store-jsonl](../../decisions/architecture/database/canonical-store-jsonl.md)
+- [architecture/cloud-dbs-as-caches](../../decisions/architecture/database/cloud-dbs-as-caches.md)
 - [decisions/architecture/lifestream-jsonl-canonical](../../decisions/architecture/lifestream-jsonl-canonical.md)
 - [decisions/architecture/db-add-neon-postgres](../../decisions/architecture/db-add-neon-postgres.md)
 - [decisions/architecture/firebase-rest-firestore-not-admin](../../decisions/architecture/firebase-rest-firestore-not-admin.md)
-- [No card-on-file rule](../../rules/no-card-on-file.md)
-- [Never hit quotas rule](../../rules/never-hit-quotas.md)
+- [No card-on-file rule](../../rules/interaction/no-card-on-file.md)
+- [Never hit quotas rule](../../rules/interaction/never-hit-quotas.md)

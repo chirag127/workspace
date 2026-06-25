@@ -45,4 +45,4 @@ content.
 
 - [100-year strategy locked](./100-year-strategy-locked.md) — §6 public/private line
 - [Age-gating policy adopted](./age-gating-policy-adopted.md)
-- [Public-private line policy](../../policy/public-private-line.md)
+- [Public-private line policy](../policy/public-private-line.md)

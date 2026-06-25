@@ -107,5 +107,5 @@ intersection of (EU visitor) × (tracker-bearing page).
 - [PostHog — cookie-issuing in identified mode](../../services/analytics/posthog.md)
 - [Security headers strategy](./security-headers-strategy.md)
 - [jsDelivr — Klaro bundle CDN](../../services/cdn/jsdelivr.md)
-- [No card-on-file rule](../../rules/no-card-on-file.md)
-- [No subscriptions rule](../../rules/no-subscriptions.md)
+- [No card-on-file rule](../../rules/interaction/no-card-on-file.md)
+- [No subscriptions rule](../../rules/infrastructure/no-subscriptions.md)

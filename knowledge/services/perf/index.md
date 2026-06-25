@@ -45,4 +45,4 @@ Together = full picture. Each is free with no card.
 - [Sentry — error tracking + perf traces](../monitoring/sentry.md)
 - [Cloudflare Web Analytics](../analytics/cloudflare-web-analytics.md)
 - [Lighthouse CI — lab-only score in PRs](../a11y/lighthouse-ci.md)
-- [Never hit quotas rule](../../rules/never-hit-quotas.md)
+- [Never hit quotas rule](../../rules/interaction/never-hit-quotas.md)

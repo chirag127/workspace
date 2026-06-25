@@ -156,7 +156,7 @@ with Doppler without committing them.
 ### What we don't do
 
 - **No ngrok account.** No `NGROK_AUTH_TOKEN` in
-  [`templates/.env.example`](../../../templates/.env.example).
+  <!-- TODO: broken link, was [`templates/.env.example`](../../../templates/.env.example) -->.
 - **No paid Wrangler / Cloudflare plan** for local dev — Wrangler
   is free; Cloudflare Tunnel is free; Workers free tier covers
   remote-mode parity testing.

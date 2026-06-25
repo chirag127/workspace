@@ -1,7 +1,7 @@
 ---
 type: service
 title: "Lines of Code badge (GitHub Action)"
-description: "Auto-generated `[![Lines of Code](badge.svg)]` badge in every family repo's README. GitHub Action runs on push, recomputes line count, commits the badge SVG. Free, OSS, auto-tracked."
+description: "Auto-generated `<!-- TODO: broken link, was [![Lines of Code](badge.svg) -->]` badge in every family repo's README. GitHub Action runs on push, recomputes line count, commits the badge SVG. Free, OSS, auto-tracked."
 tags: [services, code-quality, code-stats, badge, readme, github-actions, auto-tracking]
 timestamp: 2026-06-20
 format_version: okf-v0.1
@@ -28,7 +28,7 @@ back to the repo. The badge is referenced from each README's
 heading block alongside the existing quality / coverage badges:
 
 ```markdown
-[![Lines of Code](.github/badges/lines-of-code.svg)](#)
+<!-- TODO: broken link, was [![Lines of Code](.github/badges/lines-of-code.svg) -->](#)
 ```
 
 Every repo's README ships the badge by default via
@@ -38,7 +38,7 @@ Every repo's README ships the badge by default via
 
 Free OSS Action, runs on the family's existing GitHub Actions free
 public-repo minutes — unlimited under the
-[public-everywhere posture](../../rules/repos-work-independently.md).
+[public-everywhere posture](../../rules/development/repos-work-independently.md).
 
 ## Card / subscription required?
 
@@ -76,7 +76,7 @@ for the cross-repo aggregate view. The badge is the per-repo glance;
 
 Auto-tracked end-to-end: badge regenerates on every push without
 human action, in line with the
-[`auto-only-tracking`](../../rules/auto-only-tracking.md) rule.
+[`auto-only-tracking`](../../rules/interaction/auto-only-tracking.md) rule.
 
 ## Cross-refs
 
@@ -85,4 +85,4 @@ human action, in line with the
 - [Family-wide /stats page decision](../../decisions/architecture/family-wide-stats-page.md)
 - [Tokei — canonical line counter](./tokei.md)
 - [GitHub Insights — sibling native stats](./github-insights.md)
-- [Auto-only-tracking rule](../../rules/auto-only-tracking.md) (forward ref — being added in parallel)
+- [Auto-only-tracking rule](../../rules/interaction/auto-only-tracking.md) (forward ref — being added in parallel)

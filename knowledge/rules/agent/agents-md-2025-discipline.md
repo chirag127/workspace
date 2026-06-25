@@ -60,7 +60,7 @@ This project is NOT a toy. It is the oriz family — 60+ submodules, paying-user
 
 ## Cross-refs
 
-- README.md is the canonical entry — see [README.md](../../README.md).
+- README.md is the canonical entry — see [README.md](../../../README.md).
 - The knowledge brain index — see [knowledge/index.md](../../index.md).
 - Format spec for files in `knowledge/` — see [knowledge/_okf.md](../../_okf.md).
 - Companion rule on filing every locked decision — see [[self-update-on-every-decision]].

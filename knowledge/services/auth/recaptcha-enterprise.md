@@ -63,6 +63,6 @@ trade-off we explicitly accept until we hit a strict no-card moment.
 
 ## Cross-refs
 
-- [No card-on-file rule](../../rules/no-card-on-file.md) — exception documented
+- [No card-on-file rule](../../rules/interaction/no-card-on-file.md) — exception documented
 - [App Check](./app-check-firebase.md)
 - [Firebase Spark](./firebase-spark.md)

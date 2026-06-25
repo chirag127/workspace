@@ -89,5 +89,5 @@ Both free, both OSS. Locked in
 - [a11y services index](../a11y/index.md)
 - [Code-quality stack decision](../../decisions/process/code-quality-stack.md)
 - [Per-repo CI workflows decision](../../decisions/process/per-repo-ci-workflows.md)
-- [No card-on-file rule](../../rules/no-card-on-file.md)
-- [Never hit quotas rule](../../rules/never-hit-quotas.md)
+- [No card-on-file rule](../../rules/interaction/no-card-on-file.md)
+- [Never hit quotas rule](../../rules/interaction/never-hit-quotas.md)

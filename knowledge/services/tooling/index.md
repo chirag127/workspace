@@ -24,4 +24,4 @@ Cross-cutting services that don't fit a single role bucket.
 
 ## Cross-refs
 
-- [rules/no-hardcoded-secrets](../../rules/no-hardcoded-secrets.md)
+- [rules/no-hardcoded-secrets](../../rules/security/no-hardcoded-secrets.md)

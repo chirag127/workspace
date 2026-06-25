@@ -50,8 +50,8 @@ Cloudflare Tunnel (free, CF-native)."
   has no auth limit.** The family already runs on Cloudflare
   (Pages + Workers + DNS + Email Routing). One more `cloudflared`
   binary fits without a new vendor surface — no card on file
-  ([`rules/no-card-on-file`](../../rules/no-card-on-file.md)),
-  no subscription ([`rules/no-subscriptions`](../../rules/no-subscriptions.md)),
+  ([`rules/no-card-on-file`](../../rules/interaction/no-card-on-file.md)),
+  no subscription ([`rules/no-subscriptions`](../../rules/infrastructure/no-subscriptions.md)),
   no anonymous-user TTL.
 - **Persistent hostnames.** A `cloudflared tunnel route dns`
   binding to `dev.oriz.in` survives laptop reboots and dynamic
@@ -143,7 +143,7 @@ with Doppler without committing them.
 ### What we don't do
 
 - **No ngrok account.** No `NGROK_AUTH_TOKEN` in
-  [`templates/.env.example`](../../../templates/.env.example).
+  <!-- TODO: broken link, was [`templates/.env.example`](../../../templates/.env.example) -->.
 - **No paid Wrangler / Cloudflare plan** for local dev — Wrangler
   is free; Cloudflare Tunnel is free; Workers free tier covers
   remote-mode parity testing.
@@ -168,5 +168,5 @@ with Doppler without committing them.
 - [Hono Worker API umbrella](./hono-worker-api-umbrella.md) — primary Worker tested under Wrangler dev
 - [Hookdeck for webhook reliability](../infrastructure/hookdeck-for-webhook-reliability.md) — production webhook ingress
 - [Secrets management — Doppler](../security/secrets-management-doppler.md)
-- [No card-on-file rule](../../rules/no-card-on-file.md)
-- [No subscriptions rule](../../rules/no-subscriptions.md)
+- [No card-on-file rule](../../rules/interaction/no-card-on-file.md)
+- [No subscriptions rule](../../rules/infrastructure/no-subscriptions.md)

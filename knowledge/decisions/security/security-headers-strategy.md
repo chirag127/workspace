@@ -43,7 +43,7 @@ PR fails if either score drops below A.
   alone; Mozilla Observatory adds TLS + cookies + redirect chains.
   Either alone leaves a category unchecked.
 - **Both are free, no card.** Aligns with
-  [no-card-on-file](../../rules/no-card-on-file.md).
+  [no-card-on-file](../../rules/interaction/no-card-on-file.md).
 - **Layered with the [code-quality stack](../process/code-quality-stack.md)** — same philosophy: defensive
   layering, fail loud, no silent drift.
 
@@ -64,7 +64,7 @@ The kit's `_headers` template:
 ```
 
 `connect-src` includes the family's known endpoints:
-[`api.oriz.in`](../../architecture/api-umbrella-hono-worker.md),
+[`api.oriz.in`](../architecture/compute/api-umbrella-hono-worker.md),
 Firestore, [Knock](../../services/push/knock.md), and
 [Vercel Speed Insights](../../services/perf/vercel-speed-insights.md).
 Per-site additions are allowed but must be reviewed.
@@ -130,4 +130,4 @@ Per-site additions are allowed but must be reviewed.
 - [Per-repo CI workflows decision](../process/per-repo-ci-workflows.md)
 - [Multi-provider auth — App Check + reCAPTCHA also gate Firestore](./multi-provider-auth.md)
 - [Doppler — secrets sync](../../services/secrets/doppler.md)
-- [No card-on-file rule](../../rules/no-card-on-file.md)
+- [No card-on-file rule](../../rules/interaction/no-card-on-file.md)

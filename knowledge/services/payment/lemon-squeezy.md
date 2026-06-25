@@ -80,4 +80,4 @@ services).
 - [Razorpay (India primary)](./razorpay.md)
 - [Max payment methods decision](../../decisions/monetisation/max-payment-methods.md)
 - [Razorpay as primary billing](../../decisions/monetisation/razorpay-as-primary-billing.md)
-- [No card-on-file rule](../../rules/no-card-on-file.md)
+- [No card-on-file rule](../../rules/interaction/no-card-on-file.md)

@@ -51,7 +51,7 @@ imgur and github user content and repo hosted" — locked.
 - **Quota survivability.** Each tier has independent operators,
   edges, and billing surfaces. ImgBB outage doesn't take Imgur down;
   CF Pages outage doesn't take GitHub raw down. Per
-  [`rules/never-hit-quotas.md`](../../../rules/interaction/never-hit-quotas.md).
+  [`rules/interaction/never-hit-quotas.md`](../../../rules/interaction/never-hit-quotas.md).
 - **Cost control.** All four tiers are free at our scale; no card on
   file required at any tier. See
   [`rules/no-card-on-file.md`](../../../rules/interaction/no-card-on-file.md).
@@ -92,7 +92,7 @@ Tier 4 origin (GitHub raw URL from frontmatter)
 
 ## Implementation hint
 
-The `<Image>` component in [`@chirag127/oriz-kit`](../../../glossary/o-r/oriz-kit.md)
+The `<Image>` component in <!-- TODO: broken link, was [`@chirag127/oriz-kit`](../../../glossary/o-r/oriz-kit.md) -->
 ships a `src` chain. Frontmatter on a post (or asset metadata) lists
 all available tiers; the wrapper tries Tier 1 → on `error` falls
 through to Tier 2 → etc. Each origin URL is then wrapped by the
@@ -164,6 +164,6 @@ chain is populated for new content automatically.
 - [Markdown-in-repo only CMS decision](./cms-markdown-in-repo-only.md) — authoring story behind Tier 1
 - [Object-storage split](../database/object-storage-split.md) — different asset class (binaries / blobs vs. images)
 - [Cloudflare Pages for all sites](../../infrastructure/cloudflare-pages-for-all-sites.md)
-- [oriz-kit glossary](../../../glossary/o-r/oriz-kit.md)
+- <!-- TODO: broken link, was [oriz-kit glossary](../../../glossary/o-r/oriz-kit.md) -->
 - [Never-hit-quotas rule](../../../rules/interaction/never-hit-quotas.md)
 - [No card-on-file rule](../../../rules/interaction/no-card-on-file.md)

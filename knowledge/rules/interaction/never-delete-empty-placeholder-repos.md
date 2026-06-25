@@ -51,19 +51,19 @@ Empty in this family means **reserved**, not **dead**.
   link is dead, and the GitHub auto-redirect for renamed-then-deleted
   URLs evaporates.
 - **The family treats empty repos as deliberate.** See
-  [`decisions/branding/oriz-urls-to-md-site-empty-placeholder.md`](../../decisions/branding/oriz-urls-to-md-site-empty-placeholder.md)
+  <!-- TODO: broken link, was [`decisions/branding/oriz-urls-to-md-site-empty-placeholder.md`](../../decisions/branding/oriz-urls-to-md-site-empty-placeholder.md) -->
   for the canonical example: `oriz-urls-to-md-site` is empty today,
   reserved for a URL → Markdown scraper feature that hasn't shipped
   yet, and explicitly named "do not delete" by the user.
 - **Outward-effect actions are already gated** by
-  [`rules/push-by-default.md`](../development/push-by-default.md) — `gh repo
+  [`rules/development/push-by-default.md`](../development/push-by-default.md) — `gh repo
   delete` is on the explicit confirmation list. This rule narrows
   the carve-out so "the repo is empty so the confirmation isn't
   needed" can never be argued.
 - **The audit trail matters.** Even if a deletion is later reversed
   (rare and lossy), the gap in master pointer history, in cross-repo
   link graphs, and in the family's
-  [knowledge log](../../log.md) is permanent.
+  <!-- TODO: broken link, was [knowledge log](../../log.md) --> is permanent.
 
 ## How to apply
 
@@ -79,7 +79,7 @@ Before any destructive remote action against a family repo:
    ambiguous "go ahead" is not.
 4. **Only then** run the command.
 5. **Log the deletion** in
-   [`knowledge/log.md`](../../log.md) with the reason and the user
+   <!-- TODO: broken link, was [`knowledge/log.md`](../../log.md) --> with the reason and the user
    message that authorised it.
 
 ## What does NOT count as authorisation
@@ -117,9 +117,9 @@ When in doubt, fall back to archive (`gh repo archive`) instead of delete.
 
 ## Cross-references
 
-- [oriz-urls-to-md-site empty placeholder decision](../../decisions/branding/oriz-urls-to-md-site-empty-placeholder.md) — the canonical empty-but-reserved repo
+- <!-- TODO: broken link, was [oriz-urls-to-md-site empty placeholder decision](../../decisions/branding/oriz-urls-to-md-site-empty-placeholder.md) --> — the canonical empty-but-reserved repo
 - [Repo naming suffixes](../../decisions/branding/repo-naming-suffixes.md) — the slug taxonomy this rule defends
 - [Push-by-default rule](../development/push-by-default.md) — outward-effect carve-out this rule narrows
 - [Repo naming rule](../development/repo-naming.md) — audit before publish; audit before delete is the symmetric ask
 - [Rename repo runbook](../../runbooks/operations/rename-repo.md) — the right way to retire a slug (rename, don't delete)
-- [Archive allowlist](../../policy/archive-allowlist.md) — sibling protection on the archive side; same set of repos, same logic
+- [Archive allowlist](../../decisions/policy/archive-allowlist.md) — sibling protection on the archive side; same set of repos, same logic

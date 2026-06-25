@@ -30,6 +30,6 @@ git-clonable to any new host.
 
 ## See also
 
-- [data-repo](./data-repo.md)
-- [lifestream](./lifestream.md)
-- [survival-fallback](./survival-fallback.md)
+- [data-repo](../d-h/data-repo.md)
+- [lifestream](../i-n/lifestream.md)
+- [survival-fallback](../s-z/survival-fallback.md)

@@ -61,7 +61,7 @@ Grilling is FAST when the recommendation is obvious — three questions, three R
 
 - Not for trivial edits (`AskUserQuestion` is the wrong tool for "should I rename this variable").
 - Not for choices the user already locked in earlier in the session — re-read context.
-- Not for choices the codebase already encodes — re-read [`knowledge/`](../../knowledge).
+- Not for choices the codebase already encodes — re-read <!-- TODO: broken link, was [`knowledge/`](../../knowledge) -->.
 - Not a stalling tactic. If everything is genuinely Recommended → 2nd choice → 3rd → 4th and the user repeatedly chooses Recommended, the grill has done its job by surfacing options.
 
 ## How NOT to apply

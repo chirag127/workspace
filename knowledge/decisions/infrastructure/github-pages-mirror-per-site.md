@@ -46,4 +46,4 @@ available — the cheapest insurance against Cloudflare risk.
 - [100-year strategy locked](../content/100-year-strategy-locked.md)
 - [Cloudflare Pages for all sites](./cloudflare-pages-for-all-sites.md)
 - [GitHub Pages mirror service entry](../../services/hosting/github-pages.md)
-- [Layer 2 — Survival fallback architecture](../../architecture/layer-2-survival-fallback.md)
+- [Layer 2 — Survival fallback architecture](../architecture/frontend/layer-2-survival-fallback.md)

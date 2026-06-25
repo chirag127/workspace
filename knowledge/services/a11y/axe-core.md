@@ -100,4 +100,4 @@ Pairs with Pa11y (different ruleset) and Lighthouse CI (scoring) for
 - [Pa11y — sibling tool, different ruleset](./pa11y.md)
 - [Lighthouse CI — score + perf in PR comments](./lighthouse-ci.md)
 - [a11y three-tools decision](../../decisions/architecture/a11y-three-tools.md)
-- [No card-on-file rule](../../rules/no-card-on-file.md)
+- [No card-on-file rule](../../rules/interaction/no-card-on-file.md)

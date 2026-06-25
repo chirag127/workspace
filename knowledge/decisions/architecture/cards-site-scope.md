@@ -73,13 +73,13 @@ Affiliate-monetisable via Bankbazaar / Paisabazaar / IndusInd / HDFC affiliate n
 
 - **No card-on-file** — affiliate networks pay you, not the other way around. Compliant.
 - **No paid subscriptions** — N/A.
-- **Disclosure required** — every page that contains an affiliate link must disclose. Per [policy/](../../policy/index.md). The honesty matters more than the revenue.
+- **Disclosure required** — every page that contains an affiliate link must disclose. Per [policy/](../policy/index.md). The honesty matters more than the revenue.
 
 ## Why the user overrode the recommendation
 
 Recommended option was "Credit cards only, India" (highest SEO concentration). User picked "all financial cards, India" instead — same India scope but broader card-type coverage.
 
-Pattern observed: **user prefers wider topical coverage over narrow SEO concentration when the cost is just more content, not more risk**. Captured as a meta-preference candidate. See [user-prefers-wider-coverage.md](../../rules/user-prefers-wider-coverage.md).
+Pattern observed: **user prefers wider topical coverage over narrow SEO concentration when the cost is just more content, not more risk**. Captured as a meta-preference candidate. See [user-prefers-wider-coverage.md](../../rules/interaction/user-prefers-wider-coverage.md).
 
 ## Related
 

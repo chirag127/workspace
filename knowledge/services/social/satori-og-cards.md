@@ -100,7 +100,7 @@ sites are untouched.
    first crawl.
 4. **Visual control** — Satori takes JSX → SVG → PNG, so themes
    are React components living in
-   [`@chirag127/oriz-kit`](../../glossary/o-r/oriz-kit.md). Each
+   <!-- TODO: broken link, was [`@chirag127/oriz-kit`](../../glossary/o-r/oriz-kit.md) -->. Each
    site can override per-theme colors/fonts via the `theme`/`site`
    query params.
 
@@ -110,5 +110,5 @@ sites are untouched.
 - [decisions/architecture/og-card-generation-satori.md](../../decisions/architecture/og-card-generation-satori.md)
 - [decisions/architecture/hono-worker-api-umbrella.md](../../decisions/architecture/hono-worker-api-umbrella.md)
 - [Cloudflare Workers](../compute/cloudflare-workers.md)
-- [oriz-kit glossary entry](../../glossary/o-r/oriz-kit.md) — themes live here
-- [No card-on-file rule](../../rules/no-card-on-file.md)
+- <!-- TODO: broken link, was [oriz-kit glossary entry](../../glossary/o-r/oriz-kit.md) --> — themes live here
+- [No card-on-file rule](../../rules/interaction/no-card-on-file.md)

@@ -32,7 +32,7 @@ related:
 
 
 
-> **Reactivated 2026-06-22** under a different mechanism. The original body below described two **Cloudflare Workers** (`flow-fii-dii.api.oriz.in`, `mmi.api.oriz.in`) backed by KV. That design was first replaced by an aggregator repo (`oriz-market-data`, see [`market-data-via-github`](../market-data-via-github.md)), then reverted same-day to the current shape: each API stays in its own repo, scraped by GH Actions, served via GitHub Pages + raw.githubusercontent.com. See [`market-data-per-repo`](../general/market-data-per-repo.md) for the current canonical decision. The CF Worker body below is preserved for audit trail and as the historical alternative — the repo slugs and product surfaces it locked are unchanged.
+> **Reactivated 2026-06-22** under a different mechanism. The original body below described two **Cloudflare Workers** (`flow-fii-dii.api.oriz.in`, `mmi.api.oriz.in`) backed by KV. That design was first replaced by an aggregator repo (`oriz-market-data`, see <!-- TODO: broken link, was [`market-data-via-github`](../market-data-via-github.md) -->), then reverted same-day to the current shape: each API stays in its own repo, scraped by GH Actions, served via GitHub Pages + raw.githubusercontent.com. See [`market-data-per-repo`](../general/market-data-per-repo.md) for the current canonical decision. The CF Worker body below is preserved for audit trail and as the historical alternative — the repo slugs and product surfaces it locked are unchanged.
 
 # Market-data APIs — FII/DII Activity + Tickertape MMI
 

@@ -30,7 +30,7 @@ related:
 
 One-page procedure to add / remove / rename a family-wide env var
 across every repo in the family. Implements
-[`rules/env-example-synced-from-master.md`](../../rules/security/env-example-synced-from-master.md)
+[`rules/security/env-example-synced-from-master.md`](../../rules/security/env-example-synced-from-master.md)
 and the Track A half of
 [`decisions/security/env-and-secrets-single-source.md`](../../decisions/security/env-and-secrets-single-source.md).
 
@@ -50,7 +50,7 @@ and the Track A half of
 
 ### 1. Edit the master template
 
-Open [`templates/.env.example`](../../templates/.env.example) on
+Open <!-- TODO: broken link, was [`templates/.env.example`](../../templates/.env.example) --> on
 master and add / remove / rename the key. One `KEY=` line per
 addition. No comments. Order is append-at-end for additions; for
 renames, edit the existing line in place.
@@ -102,9 +102,9 @@ git submodule foreach --recursive '
 '
 ```
 
-(Per [`rules/push-by-default.md`](../../rules/development/push-by-default.md),
+(Per [`rules/development/push-by-default.md`](../../rules/development/push-by-default.md),
 push immediately after commit. No feature branches per
-[`rules/one-branch-only.md`](../../rules/development/one-branch-only.md).)
+[`rules/development/one-branch-only.md`](../../rules/development/one-branch-only.md).)
 
 ### 5. Bump the master pointers
 
@@ -140,7 +140,7 @@ for the new key.
 ### 8. Update the log
 
 Append a one-liner to
-[`knowledge/log.md`](../../log.md):
+<!-- TODO: broken link, was [`knowledge/log.md`](../../log.md) -->:
 
 ```markdown
 - 2026-06-20 — added <KEY> to templates/.env.example + synced to every repo + pushed value to chirag127 org secrets
@@ -161,12 +161,12 @@ Append a one-liner to
 
 ## See also
 
-- [`../rules/env-example-synced-from-master.md`](../../rules/security/env-example-synced-from-master.md)
-- [`../rules/github-org-level-secrets.md`](../../rules/security/github-org-level-secrets.md)
+- [`../rules/security/env-example-synced-from-master.md`](../../rules/security/env-example-synced-from-master.md)
+- [`../rules/security/github-org-level-secrets.md`](../../rules/security/github-org-level-secrets.md)
 - [`../decisions/security/env-and-secrets-single-source.md`](../../decisions/security/env-and-secrets-single-source.md)
 - [`./set-github-org-level-secrets.md`](../security/set-github-org-level-secrets.md)
 - [`./bump-submodule-pointer.md`](./bump-submodule-pointer.md)
 - [`../services/secrets/doppler.md`](../../services/secrets/doppler.md)
-- [`../../templates/.env.example`](../../templates/.env.example)
-- [`../../scripts/sync-env-example.sh`](../../scripts/sync-env-example.sh)
-- [`../../scripts/verify-env-example-sync.sh`](../../scripts/verify-env-example-sync.sh)
+- <!-- TODO: broken link, was [`../../templates/.env.example`](../../templates/.env.example) -->
+- <!-- TODO: broken link, was [`../../scripts/sync-env-example.sh`](../../scripts/sync-env-example.sh) -->
+- <!-- TODO: broken link, was [`../../scripts/verify-env-example-sync.sh`](../../scripts/verify-env-example-sync.sh) -->

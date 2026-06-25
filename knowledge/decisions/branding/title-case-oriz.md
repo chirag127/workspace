@@ -18,7 +18,7 @@ The brand mark is **"Oriz"** (Title-Case) in every user-facing surface — homep
 
 # Why
 
-The user wrote on 2026-06-20: *"the brand is Oriz Title Case, not oriz lowercase."* The previous unwritten convention had the homepage wordmark as `oriz` (matching the slug) on the assumption that "the slug is the brand". That conflated the **trademark** (a thing humans read) with the **identifier** (a thing machines read). They are different artefacts with different rules — Google is "Google" in copy and `google` in `google.com`, Apple is "Apple" in copy and `apple` in `apple.com`. The trademark is now Title-Case; the identifier rules from [`repo-naming-suffixes`](./repo-naming-suffixes.md) and [`oriz-kit-package-name`](./oriz-kit-package-name.md) are unchanged.
+The user wrote on 2026-06-20: *"the brand is Oriz Title Case, not oriz lowercase."* The previous unwritten convention had the homepage wordmark as `oriz` (matching the slug) on the assumption that "the slug is the brand". That conflated the **trademark** (a thing humans read) with the **identifier** (a thing machines read). They are different artefacts with different rules — Google is "Google" in copy and `google` in `google.com`, Apple is "Apple" in copy and `apple` in `apple.com`. The trademark is now Title-Case; the identifier rules from [`repo-naming-suffixes`](./repo-naming-suffixes.md) and <!-- TODO: broken link, was [`oriz-kit-package-name`](./oriz-kit-package-name.md) --> are unchanged.
 
 # Implications
 
@@ -39,6 +39,6 @@ The user wrote on 2026-06-20: *"the brand is Oriz Title Case, not oriz lowercase
 
 - [`decisions/branding/oriz-me-added-to-family.md`](./oriz-me-added-to-family.md) — sister branding decision (member-site naming).
 - [`decisions/branding/repo-naming-suffixes.md`](./repo-naming-suffixes.md) — repo-slug rules; lowercase `oriz-<name>-<suffix>` lock unchanged.
-- [`decisions/branding/keep-oriz-add-site-suffix.md`](./keep-oriz-add-site-suffix.md) — original brand-vs-suffix split; refines.
-- [`decisions/branding/oriz-kit-package-name.md`](./oriz-kit-package-name.md) — `@chirag127/oriz-kit` npm name unchanged.
+- <!-- TODO: broken link, was [`decisions/branding/keep-oriz-add-site-suffix.md`](./keep-oriz-add-site-suffix.md) --> — original brand-vs-suffix split; refines.
+- <!-- TODO: broken link, was [`decisions/branding/oriz-kit-package-name.md`](./oriz-kit-package-name.md) --> — `@chirag127/oriz-kit` npm name unchanged.
 - [`decisions/branding/family-wide-privacy-page.md`](./family-wide-privacy-page.md) — privacy copy uses Title-Case "Oriz".

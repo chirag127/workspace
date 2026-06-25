@@ -90,8 +90,8 @@ parallel.
   already exists for Pages / Workers / DNS / Email / WAF; one
   more daemon, no new vendor surface.
 - **Free + no card** — fits
-  [`rules/no-card-on-file`](../../rules/no-card-on-file.md) and
-  [`rules/no-subscriptions`](../../rules/no-subscriptions.md).
+  [`rules/no-card-on-file`](../../rules/interaction/no-card-on-file.md) and
+  [`rules/no-subscriptions`](../../rules/infrastructure/no-subscriptions.md).
 - **Persistent hostnames** — `dev.oriz.in` survives laptop
   reboots, network changes, and IP changes. ngrok's free tier
   rotates hostnames every session, forcing webhook
@@ -162,4 +162,4 @@ but is a one-time per-sender lift.
 - [Cloudflare DNS — hosts the *.oriz.in zones bound to tunnels](../domain/cloudflare-dns.md)
 - [Cloudflare Workers — primary tunnel target during dev](../compute/cloudflare-workers.md)
 - [Hookdeck — production webhook ingress, used after dev verification](../tooling/hookdeck.md)
-- [No card-on-file rule](../../rules/no-card-on-file.md)
+- [No card-on-file rule](../../rules/interaction/no-card-on-file.md)

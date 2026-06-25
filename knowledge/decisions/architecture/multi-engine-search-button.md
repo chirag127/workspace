@@ -19,12 +19,12 @@ related:
 
 Every site in the chirag127/oriz family ships a single **"Search the
 web"** button — in the header OR footer per [the family design
-rules](../../design/_family-rules.md) — that opens a popover listing
+rules](../design/_family-rules.md) — that opens a popover listing
 multiple web search engines. Clicking an engine launches that engine's
 search for the page's **contextual query** (page title, current
 selection, or last-clicked card title) in a new tab.
 
-The component lives in [`@chirag127/oriz-kit`](../../glossary/o-r/oriz-kit.md)
+The component lives in <!-- TODO: broken link, was [`@chirag127/oriz-kit`](../../glossary/o-r/oriz-kit.md) -->
 as `<MultiSearch />` and is consumed by every site verbatim — no
 per-site forks.
 
@@ -46,7 +46,7 @@ this site and search the web" gesture.
 
 ## Implications
 
-- **Component**: `<MultiSearch />` exported from `@chirag127/oriz-kit`. No styles — uses `[data-oriz-multisearch]` attribute hooks per [family design rules](../../design/_family-rules.md), every site applies its own visual identity.
+- **Component**: `<MultiSearch />` exported from `@chirag127/oriz-kit`. No styles — uses `[data-oriz-multisearch]` attribute hooks per [family design rules](../design/_family-rules.md), every site applies its own visual identity.
 - **Default engine list** (configured in oriz-kit, overrideable per site via prop):
   - Google (`https://www.google.com/search?q={q}`)
   - DuckDuckGo (`https://duckduckgo.com/?q={q}`)
@@ -66,8 +66,8 @@ this site and search the web" gesture.
 
 ## Cross-refs
 
-- [oriz-kit glossary](../../glossary/o-r/oriz-kit.md)
-- [Family design rules](../../design/_family-rules.md)
+- <!-- TODO: broken link, was [oriz-kit glossary](../../glossary/o-r/oriz-kit.md) -->
+- [Family design rules](../design/_family-rules.md)
 - [Algolia](../../services/search/algolia.md) — on-site search, large corpora
 - [Pagefind](../../services/search/pagefind.md) — on-site search, small sites
 - [AGENTS.md](../../../AGENTS.md) — referenced under "Where to look in knowledge"

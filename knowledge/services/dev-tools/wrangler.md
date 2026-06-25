@@ -86,7 +86,7 @@ doppler secrets download --no-file --format env | \
 ```
 
 Pinned major version per
-[`rules/always-latest-deps`](../../rules/always-latest-deps.md);
+[`rules/always-latest-deps`](../../rules/development/always-latest-deps.md);
 upgraded by Dependabot per
 [`code-quality-five-tools`](../../decisions/architecture/code-quality-five-tools.md).
 
@@ -98,8 +98,8 @@ upgraded by Dependabot per
 - **Local + remote parity** in one tool — no separate "test
   against real bindings" workflow.
 - **Free + no card** — fits the family's
-  [`no-card-on-file`](../../rules/no-card-on-file.md) and
-  [`no-subscriptions`](../../rules/no-subscriptions.md) rules.
+  [`no-card-on-file`](../../rules/interaction/no-card-on-file.md) and
+  [`no-subscriptions`](../../rules/infrastructure/no-subscriptions.md) rules.
 - **Composes with [Cloudflare Tunnel](./cloudflare-tunnel.md)** —
   `wrangler dev --port 8787` + `cloudflared tunnel run --url
   http://localhost:8787 dev-oriz` exposes the in-flight Worker
@@ -145,5 +145,5 @@ and the broader CF stack lock.
 - [Hono Worker API umbrella](../../decisions/architecture/hono-worker-api-umbrella.md)
 - [CF Worker quota mitigation playbook](../../decisions/architecture/cf-worker-quota-mitigation.md)
 - [Secrets management — Doppler](../../decisions/security/secrets-management-doppler.md)
-- [Use pnpm rule](../../rules/use-pnpm.md)
-- [No card-on-file rule](../../rules/no-card-on-file.md)
+- [Use pnpm rule](../../rules/development/use-pnpm.md)
+- [No card-on-file rule](../../rules/interaction/no-card-on-file.md)

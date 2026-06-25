@@ -46,4 +46,4 @@ without compromising the primary path.
 - [Firebase Spark forever](./firebase-spark-forever.md)
 - [ONE subscription unlocks everything](../monetisation/one-subscription-unlocks-all.md)
 - [Chrome extensions as submodules](./chrome-extensions-as-submodules.md)
-- [Layer 3 — Firebase Spark architecture](../../architecture/layer-3-auth-firebase-spark.md)
+- [Layer 3 — Firebase Spark architecture](../architecture/security/layer-3-auth-firebase-spark.md)

@@ -53,5 +53,5 @@ free at our scale. Cron, matrix, and artifact upload all in one.
 ## Cross-refs
 
 - [Per-repo CI workflows](../../decisions/process/per-repo-ci-workflows.md)
-- [Canonical store JSONL](../../architecture/canonical-store-jsonl.md)
-- [healthchecks.io](./healthchecks-io.md)
+- [Canonical store JSONL](../../decisions/architecture/database/canonical-store-jsonl.md)
+- [healthchecks.io](../monitoring/healthchecks-io.md)

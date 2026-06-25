@@ -84,4 +84,4 @@ fits a build-step model — no human in the loop per post.
 - [CodePen](../code-embed/codepen.md) — same pattern for CSS-heavy posts
 - [GitHub Gists](../code-embed/github-gists.md) — same pattern for static-snippet posts
 - [Multi-engine search button](../../decisions/architecture/multi-engine-search-button.md) — screenshots travel through the multi-search button as og:image when readers share the post URL
-- [No card-on-file rule](../../rules/no-card-on-file.md)
+- [No card-on-file rule](../../rules/interaction/no-card-on-file.md)

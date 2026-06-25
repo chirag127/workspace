@@ -102,7 +102,7 @@ to 12.
 - **NO card-on-file anywhere.** No recurring auto-charge that
   requires a stored card. UPI auto-pay (e-Mandate via Razorpay) is
   consent-based per-transaction, NOT card-on-file — this is the only
-  recurring rail allowed. See [no-card-on-file rule](../../rules/no-card-on-file.md).
+  recurring rail allowed. See [no-card-on-file rule](../../rules/interaction/no-card-on-file.md).
 - Crypto receipts are tax-reportable under Indian Section 115BBH
   (30% flat + 1% TDS); track inbound for annual filing.
 - PayPal.me inbound to a personal account from international senders
@@ -117,6 +117,6 @@ to 12.
 - [Razorpay as primary billing](./razorpay-as-primary-billing.md)
 - [ONE subscription unlocks everything](./one-subscription-unlocks-all.md)
 - [No subscriptions anywhere](./no-subscriptions-anywhere.md)
-- [No card-on-file rule](../../rules/no-card-on-file.md)
+- [No card-on-file rule](../../rules/interaction/no-card-on-file.md)
 - [`-ext` suffix glossary](../../glossary/d-h/extension-suffix.md)
 - [AGENTS.md "Where to look in `knowledge/`"](../../../AGENTS.md)

@@ -11,7 +11,7 @@ format_version: okf-v0.1
 
 ## Definition
 
-An OKF bundle is a directory tree of [concept files](./concept-file.md)
+An OKF bundle is a directory tree of [concept files](../a-c/concept-file.md)
 that together describe one organization's durable knowledge — rules,
 decisions, services, runbooks, designs, schemas, glossary.
 
@@ -28,4 +28,4 @@ relative paths.
 
 ## See also
 
-- [concept-file](./concept-file.md)
+- [concept-file](../a-c/concept-file.md)

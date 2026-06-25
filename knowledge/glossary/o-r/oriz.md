@@ -30,6 +30,6 @@ a credit-card billing surface.
 
 ## See also
 
-- [family](./family.md)
-- [master-repo](./master-repo.md)
-- [auth-domain](./auth-domain.md)
+- [family](../d-h/family.md)
+- [master-repo](../i-n/master-repo.md)
+- [auth-domain](../a-c/auth-domain.md)

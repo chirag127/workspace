@@ -109,7 +109,7 @@ Same per-site env-var pattern as
 flip to `true` only on Workers currently being debugged or recently
 deployed. Combined with the 3 GB/mo cap, this prevents a runaway log
 loop on one Worker from burning the family-wide budget. Documented
-under [`rules/never-hit-quotas.md`](../../rules/never-hit-quotas.md).
+under [`rules/interaction/never-hit-quotas.md`](../../rules/interaction/never-hit-quotas.md).
 
 ## Quota math
 
@@ -160,5 +160,5 @@ plane and [Sentry](./sentry.md) for the error plane.
 - [healthchecks.io — heartbeat sibling](./healthchecks-io.md)
 - [Axiom — metrics-shaped events sibling](../tooling/axiom.md)
 - [Doppler — token source-of-truth](../secrets/doppler.md)
-- [Never hit quotas rule](../../rules/never-hit-quotas.md)
-- [No card-on-file rule](../../rules/no-card-on-file.md)
+- [Never hit quotas rule](../../rules/interaction/never-hit-quotas.md)
+- [No card-on-file rule](../../rules/interaction/no-card-on-file.md)

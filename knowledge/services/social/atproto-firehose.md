@@ -93,11 +93,11 @@ Idempotent on the JSONL `id` — repeated runs no-op.
 
 - All public-tagged lifestream events from
   `chirag127/oriz-me-data` per the
-  [public/private line policy](../../policy/public-private-line.md).
+  [public/private line policy](../../decisions/policy/public-private-line.md).
 - Journal entries are **not** mirrored — gated by the
   [journal-stays-auth-gated decision](../../decisions/content/journal-stays-auth-gated.md).
 - Age-gated content **not** mirrored federated — handled per
-  [age-gating policy](../../policy/age-gating.md).
+  [age-gating policy](../../decisions/policy/age-gating.md).
 
 ## Alternatives
 
@@ -134,5 +134,5 @@ ActivityPub for the Mastodon-flavoured federated audience —
 - [100-year strategy locked](../../decisions/content/100-year-strategy-locked.md)
 - [Cloudflare Cron Triggers — runs the mirror](../cron/cloudflare-cron-triggers.md)
 - [Doppler — secrets source-of-truth](../secrets/doppler.md)
-- [Public/private line policy](../../policy/public-private-line.md)
-- [No card-on-file rule](../../rules/no-card-on-file.md)
+- [Public/private line policy](../../decisions/policy/public-private-line.md)
+- [No card-on-file rule](../../rules/interaction/no-card-on-file.md)

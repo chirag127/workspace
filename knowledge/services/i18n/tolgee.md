@@ -43,5 +43,5 @@ re-evaluate Tolgee SaaS, Lokalise, Crowdin, and the
 
 ## Cross-refs
 
-- [No selfhost rule](../rules/no-selfhost.md)
-- [No card-on-file rule](../rules/no-card-on-file.md)
+- <!-- TODO: broken link, was [No selfhost rule](../rules/no-selfhost.md) -->
+- [No card-on-file rule](../../rules/interaction/no-card-on-file.md)

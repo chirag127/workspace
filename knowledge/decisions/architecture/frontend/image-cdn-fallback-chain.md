@@ -38,7 +38,7 @@ fallback**:
 3. **[ImageKit](../../../services/image-cdn/imagekit.md)** — fallback 2. 20 GB/mo + DAM, email-only signup.
 
 The chain is implemented as the `<Image>` component wrapper inside
-[`@chirag127/oriz-kit`](../../../glossary/o-r/oriz-kit.md). On image
+<!-- TODO: broken link, was [`@chirag127/oriz-kit`](../../../glossary/o-r/oriz-kit.md) -->. On image
 load failure (5xx, transformation error, network) the wrapper rewrites
 the `src` to the next rung's URL and retries.
 
@@ -72,7 +72,7 @@ export function Image({ src, ...opts }) {
   const [tier, setTier] = useState(0);
   return (
     <img
-      src={CHAIN[tier](../src, opts)}
+      src={CHAIN<!-- TODO: broken link, was [tier](../src, opts) -->}
       onError={() => setTier(t => Math.min(t + 1, CHAIN.length - 1))}
       {...opts}
     />
@@ -107,6 +107,6 @@ unaware of the chain.
 - [wsrv.nl](../../../services/image-cdn/wsrv-nl.md)
 - [ImageKit (CDN role)](../../../services/image-cdn/imagekit.md)
 - [Cloudflare Pages for all sites](../../infrastructure/cloudflare-pages-for-all-sites.md)
-- [oriz-kit glossary](../../../glossary/o-r/oriz-kit.md)
+- <!-- TODO: broken link, was [oriz-kit glossary](../../../glossary/o-r/oriz-kit.md) -->
 - [Never hit quotas rule](../../../rules/interaction/never-hit-quotas.md)
 - [No card-on-file rule](../../../rules/interaction/no-card-on-file.md)

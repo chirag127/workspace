@@ -183,4 +183,4 @@ This `knowledge/` directory IS an OKF bundle. See:
 - [`_okf.md`](../_okf.md) — family-specific conventions extending OKF v0.1
 - [`glossary/o-r/okf-bundle`](../glossary/o-r/okf-bundle.md) — definition of an OKF bundle
 - [`index.md`](../index.md) — bundle root index
-- [`log.md`](../log.md) — bundle change log
+- <!-- TODO: broken link, was [`log.md`](../log.md) --> — bundle change log

@@ -38,11 +38,11 @@ related:
 
 1. **Master is the only place a `.env.example` is hand-edited.** The
    canonical file lives at
-   [`templates/.env.example`](../../templates/.env.example) in the
+   <!-- TODO: broken link, was [`templates/.env.example`](../../templates/.env.example) --> in the
    master `chirag127/oriz` repo. ~65 keys today, plain `KEY=` lines,
    no comments.
 2. **Every other repo's `.env.example` is a verbatim copy** generated
-   by [`scripts/sync-env-example.sh`](../../scripts/sync-env-example.sh).
+   by <!-- TODO: broken link, was [`scripts/sync-env-example.sh`](../../scripts/sync-env-example.sh) -->.
    That includes every site (`sites/oriz-*-site`), every browser /
    VS Code extension, every package (`packages/oriz-*`),
    `oriz-omnipost`, `oriz-lifestream`, every worker, every CLI.
@@ -50,7 +50,7 @@ related:
    a key on master, then run the sync script. A child repo's
    `.env.example` IS NOT a place to put repo-specific keys.
 4. **CI enforces drift = failure.** Every PR (master + every repo)
-   runs [`scripts/verify-env-example-sync.sh`](../../scripts/verify-env-example-sync.sh)
+   runs <!-- TODO: broken link, was [`scripts/verify-env-example-sync.sh`](../../scripts/verify-env-example-sync.sh) -->
    (or its workflow equivalent) which `diff`s the repo's
    `.env.example` against `templates/.env.example`. Non-empty diff
    fails the PR. Per-repo deviation is forbidden.
@@ -90,14 +90,14 @@ related:
 
 - **Adding a new key.** Edit `templates/.env.example` on master,
   append the new `KEY=` line, run
-  [`scripts/sync-env-example.sh`](../../scripts/sync-env-example.sh),
+  <!-- TODO: broken link, was [`scripts/sync-env-example.sh`](../../scripts/sync-env-example.sh) -->,
   commit + push the master repo and every touched submodule. See
-  [`runbooks/sync-env-example-to-all-repos.md`](../../runbooks/operations/sync-env-example-to-all-repos.md).
+  [`runbooks/operations/sync-env-example-to-all-repos.md`](../../runbooks/operations/sync-env-example-to-all-repos.md).
 - **Removing a key.** Same flow — master first, then sync. Removed
   keys also drop from the `chirag127` org-level GH secret list per
   [`github-org-level-secrets.md`](./github-org-level-secrets.md).
 - **Drift detection.** CI step on every PR runs
-  [`scripts/verify-env-example-sync.sh`](../../scripts/verify-env-example-sync.sh).
+  <!-- TODO: broken link, was [`scripts/verify-env-example-sync.sh`](../../scripts/verify-env-example-sync.sh) -->.
   Master CI checks every submodule's `.env.example`; each
   submodule's CI checks its own `.env.example` against the latest
   master `templates/.env.example` fetched via raw URL.
@@ -131,8 +131,8 @@ related:
 
 ## Cross-refs
 
-- [`templates/.env.example`](../../templates/.env.example) — the master superset
-- [`./single-env-example-per-repo.md`](../single-env-example-per-repo.md) — superseded prior rule (kept for audit trail)
+- <!-- TODO: broken link, was [`templates/.env.example`](../../templates/.env.example) --> — the master superset
+- <!-- TODO: broken link, was [`./single-env-example-per-repo.md`](../single-env-example-per-repo.md) --> — superseded prior rule (kept for audit trail)
 - [`./github-org-level-secrets.md`](./github-org-level-secrets.md) — sibling rule for runtime CI secrets
 - [`./never-hit-quotas.md`](../interaction/never-hit-quotas.md) — drift = build failure = quota-shaped customer-visible outage
 - [`./no-card-on-file.md`](../interaction/no-card-on-file.md) — Doppler / GH / Cloudflare all stay free
@@ -141,4 +141,4 @@ related:
 - [`../services/secrets/github-secrets.md`](../../services/secrets/github-secrets.md) — runtime mirror for CI
 - [`../decisions/security/env-and-secrets-single-source.md`](../../decisions/security/env-and-secrets-single-source.md) — the two-track decision
 - [`../decisions/security/secrets-management-doppler.md`](../../decisions/security/secrets-management-doppler.md) — Doppler upstream
-- [`../runbooks/sync-env-example-to-all-repos.md`](../../runbooks/operations/sync-env-example-to-all-repos.md) — sync runbook
+- [`../runbooks/operations/sync-env-example-to-all-repos.md`](../../runbooks/operations/sync-env-example-to-all-repos.md) — sync runbook

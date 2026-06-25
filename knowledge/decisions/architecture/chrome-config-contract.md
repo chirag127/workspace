@@ -190,5 +190,5 @@ site. Published to npm on tag.
 - [decisions/architecture/analytics-five-tier-stack](./analytics-five-tier-stack.md)
 - [decisions/security/multi-provider-auth](../security/multi-provider-auth.md) — 6-provider Firebase Auth stack
 - [decisions/security/consent-management-multi-category](../security/consent-management-multi-category.md) — Klaro 5-category
-- [rules/astro-version-pin](../../rules/astro-version-pin.md)
-- [runbooks/scaffold-a-new-site](../../runbooks/scaffold-a-new-site.md)
+- [rules/astro-version-pin](../../rules/development/astro-version-pin.md)
+- [runbooks/scaffold-a-new-site](../../runbooks/operations/scaffold-a-new-site.md)

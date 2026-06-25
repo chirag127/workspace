@@ -22,7 +22,7 @@ format_version: okf-v0.1
 
 ## Cross-refs
 
-- [No card-on-file rule](../../rules/no-card-on-file.md)
-- [No hardcoded secrets rule](../../rules/no-hardcoded-secrets.md)
-- [Secrets handling policy](../../policy/secrets-handling.md)
-- [Rotate leaked secret runbook](../../runbooks/rotate-leaked-secret.md)
+- [No card-on-file rule](../../rules/interaction/no-card-on-file.md)
+- [No hardcoded secrets rule](../../rules/security/no-hardcoded-secrets.md)
+- [Secrets handling policy](../policy/secrets-handling.md)
+- [Rotate leaked secret runbook](../../runbooks/security/rotate-leaked-secret.md)

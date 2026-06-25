@@ -91,4 +91,4 @@ both is unambiguously well-configured.
 - [Cloudflare _headers — what we're auditing](./cloudflare-headers.md)
 - [securityheaders.com — sibling auditor](./securityheaders-com.md)
 - [Security headers strategy decision](../../decisions/security/security-headers-strategy.md)
-- [No card-on-file rule](../../rules/no-card-on-file.md)
+- [No card-on-file rule](../../rules/interaction/no-card-on-file.md)

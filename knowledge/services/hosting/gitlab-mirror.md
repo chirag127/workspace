@@ -117,4 +117,4 @@ https://oauth2:${MIRROR_GITLAB_TOKEN}@gitlab.com/${MIRROR_GITLAB_USERNAME}/${REP
 
 - Full setup → [`../../../runbooks/mirror-all-hosts-setup.md`](../../runbooks/hosting/mirror-all-hosts-setup.md)
 - 6-host mirror decision → [`../../decisions/architecture/mirror-to-6-git-hosts.md`](../../decisions/architecture/ops/mirror-to-6-git-hosts.md)
-- Workflow → [`../../../.github/workflows/mirror-all.yml`](../../.github/workflows/mirror-all.yml)
+- Workflow → <!-- TODO: broken link, was [`../../../.github/workflows/mirror-all.yml`](../../.github/workflows/mirror-all.yml) -->

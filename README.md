@@ -5,7 +5,7 @@
 [![hosted on Cloudflare](https://img.shields.io/badge/hosted-Cloudflare%20Pages-orange)](https://pages.cloudflare.com/)
 [![auth Firebase](https://img.shields.io/badge/auth-Firebase-yellow)](https://firebase.google.com/)
 [![billing Razorpay](https://img.shields.io/badge/billing-Razorpay%20INR-blue)](https://razorpay.com/)
-[![license MIT](https://img.shields.io/badge/license-MIT-green)](./LICENSE)
+[![license MIT](https://img.shields.io/badge/license-MIT-green)](https://opensource.org/licenses/MIT)
 
 This is the **master umbrella repo** (`oriz-org/workspace`). It is a meta-repo whose `repos/` tree submodules every app, API, package, book, extension, and skill in the family. The user always works from here (`c:/D/oriz/`); per-submodule `pnpm install` is wrong — always `pnpm install -r` from the workspace root.
 
@@ -83,7 +83,7 @@ c:/D/oriz/
 └── README.md                              # this file
 ```
 
-Full layout rationale: [`knowledge/decisions/architecture/projects-owner-own-forks-layout.md`](./knowledge/decisions/architecture/general/projects-owner-own-forks-layout.md).
+Full layout rationale: [`knowledge/decisions/architecture/projects-owner-own-forks-layout.md`](knowledge/decisions/architecture/projects-owner-own-forks-layout.md).
 
 ---
 
@@ -241,7 +241,7 @@ For anything in that exception list, the agent stops and asks via `AskUserQuesti
 
 ## License
 
-[MIT](./LICENSE). The source-available-but-all-rights-reserved framing in earlier versions of this README is **superseded** — every repo in the oriz-org org ships under MIT (locked decision: [`knowledge/decisions/architecture/mit-license-all-repos.md`](./knowledge/decisions/architecture/general/mit-license-all-repos.md)).
+<!-- TODO: broken link, was [MIT](./LICENSE) -->. The source-available-but-all-rights-reserved framing in earlier versions of this README is **superseded** — every repo in the oriz-org org ships under MIT (locked decision: [`knowledge/decisions/architecture/mit-license-all-repos.md`](./knowledge/decisions/architecture/general/mit-license-all-repos.md)).
 
 ---
 

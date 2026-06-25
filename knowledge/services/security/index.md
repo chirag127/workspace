@@ -56,7 +56,7 @@ Different operators on different infrastructure means a
 Cloudflare-edge incident or a regional / network block on
 Turnstile doesn't take public-form submission down with it. The
 shared `<Captcha>` component in
-[`@chirag127/oriz-kit`](../../glossary/o-r/oriz-kit.md) probes
+<!-- TODO: broken link, was [`@chirag127/oriz-kit`](../../glossary/o-r/oriz-kit.md) --> probes
 reachability on mount and swaps providers transparently.
 
 ## Anti-bot defense in depth (3 layers)
@@ -85,5 +85,5 @@ All three free, run on existing Cloudflare account, no card.
 - [Cloudflare Pages — host that reads `_headers`](../hosting/cloudflare-pages.md)
 - [App Check — Firestore bot defense](../auth/app-check-firebase.md)
 - [reCAPTCHA Enterprise — risk assessments](../auth/recaptcha-enterprise.md)
-- [No card-on-file rule](../../rules/no-card-on-file.md)
-- [No hardcoded secrets rule](../../rules/no-hardcoded-secrets.md)
+- [No card-on-file rule](../../rules/interaction/no-card-on-file.md)
+- [No hardcoded secrets rule](../../rules/security/no-hardcoded-secrets.md)

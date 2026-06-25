@@ -122,6 +122,6 @@ sink to configure, no retention cost, no quota.
 - [Better Stack Logs — retroactive sibling](./better-stack-logs.md)
 - [Sentry — error / exception sibling](./sentry.md)
 - [Cloudflare Workers service](../compute/cloudflare-workers.md)
-- [API umbrella Hono Worker](../../architecture/api-umbrella-hono-worker.md)
+- [API umbrella Hono Worker](../../decisions/architecture/compute/api-umbrella-hono-worker.md)
 - [CF Worker quota mitigation playbook](../../decisions/architecture/cf-worker-quota-mitigation.md)
-- [No card-on-file rule](../../rules/no-card-on-file.md)
+- [No card-on-file rule](../../rules/interaction/no-card-on-file.md)

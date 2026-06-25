@@ -81,7 +81,7 @@ an explicit consumer instead of an implicit one.
 
 Auto-tracked end-to-end: GitHub computes every graph from `git log`
 itself, no human action triggers updates. Aligns with the
-[`auto-only-tracking`](../../rules/auto-only-tracking.md) rule.
+[`auto-only-tracking`](../../rules/interaction/auto-only-tracking.md) rule.
 
 ## Cross-refs
 
@@ -90,4 +90,4 @@ itself, no human action triggers updates. Aligns with the
 - [Family-wide /stats page decision](../../decisions/architecture/family-wide-stats-page.md)
 - [Tokei — sibling line-counter](./tokei.md)
 - [Lines of Code badge — README rendering](./lines-of-code-badge.md)
-- [Auto-only-tracking rule](../../rules/auto-only-tracking.md) (forward ref — being added in parallel)
+- [Auto-only-tracking rule](../../rules/interaction/auto-only-tracking.md) (forward ref — being added in parallel)

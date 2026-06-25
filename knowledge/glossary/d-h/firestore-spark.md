@@ -32,6 +32,6 @@ with no cost ceiling.
 
 ## See also
 
-- [card-on-file](./card-on-file.md)
-- [app-check](./app-check.md)
-- [auth-domain](./auth-domain.md)
+- [card-on-file](../a-c/card-on-file.md)
+- [app-check](../a-c/app-check.md)
+- [auth-domain](../a-c/auth-domain.md)

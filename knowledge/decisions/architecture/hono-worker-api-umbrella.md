@@ -46,6 +46,6 @@ the obvious centralisation.
 
 - [Hono RPC for type sharing](./hono-rpc-for-type-sharing.md)
 - [firebase-rest-firestore not admin](./firebase-rest-firestore-not-admin.md)
-- [API umbrella Hono Worker architecture](../../architecture/api-umbrella-hono-worker.md)
-- [Layer 5 — Compute architecture](../../architecture/layer-5-compute.md)
+- [API umbrella Hono Worker architecture](compute/api-umbrella-hono-worker.md)
+- [Layer 5 — Compute architecture](general/layer-5-compute.md)
 - [AGENTS.md API layer section](../../../AGENTS.md)

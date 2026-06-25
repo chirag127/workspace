@@ -1,0 +1,62 @@
+refactor(knowledge)!: scrub superseded, restructure to OKF ≤6 levels, rebuild index, rewrite AGENTS.md
+
+Comprehensive knowledge-base cleanup. Reverses the supersession-not-deletion
+rule from earlier today — superseded files are now hard-deleted; git
+history is the audit trail.
+
+Stats:
+- knowledge/ files: 949 -> 792 (-157)
+  - 28 hard-deleted as superseded (status: superseded, superseded_by:,
+    or banner-marked)
+  - ~130 flat-vs-nested dupes removed during restructure
+- Max directory depth: 5 levels below knowledge/ (cap: 6)
+- 0 status:superseded files remain (only body-level cross-references)
+
+Restructure:
+- Dropped knowledge/architecture/, knowledge/policy/, knowledge/design/
+  top-level dirs (merged into knowledge/decisions/<area>/)
+- Final OKF top-level: _navigation, _okf, index, decisions/, glossary/,
+  rules/, runbooks/, services/
+- All file moves via `git mv` (history preserved)
+- Restructure-induced broken links: 0
+- Pre-existing broken links (refs to never-created files): 309
+  - 427 auto-repaired via supersession map + unique-basename match
+  - 351 inline-replaced with HTML-comment TODOs (no visible-prose change)
+
+Rule changes:
+- knowledge-deletion-not-supersession (NEW): superseded files are
+  hard-deleted in the same commit that adds the new decision.
+  `git log --follow <path>` is the audit trail.
+- knowledge-supersession-not-deletion (DELETED): self-applied rule —
+  rule that said "keep superseded files" was itself superseded, so
+  hard-deleted.
+
+knowledge/index.md rebuilt (168 KB / 1285 lines):
+- Rules: 71
+- Decisions - Architecture: 301
+- Decisions - Other: 84
+- Runbooks: 49
+- Services: 171
+- Glossary: 27
+
+AGENTS.md rewritten (309 lines):
+- TL;DR — 5 hard rules
+- OKF frontmatter spec
+- Rules + decisions + runbooks + services indexed by area
+- Memory file, commit, skills, tooling sections
+- Drop-in replacement for the old pointer-only AGENTS.md
+
+Memory:
+- knowledge-deletion-not-supersession.md (new)
+- knowledge-supersession-not-deletion.md (deleted)
+- MEMORY.md index updated
+
+Staging logs (for review):
+- .staging/superseded-deletion-log-2026-06-25.md (28 deletions)
+- .staging/restructure-moves-log-2026-06-25.md (190 ops)
+- .staging/broken-links-remaining-2026-06-25.md (351 unresolved)
+
+Reversal trail (today): 14 reversals captured. Knowledge tree is now
+the *current truth* only; archaeology lives in git.
+
+Co-authored-by: Claude Code agent <claude@anthropic.com>

@@ -60,6 +60,6 @@ command and waits for explicit confirmation.
 
 ## See also
 
-- [`no-push-without-say-so.md`](../no-push-without-say-so.md)
+- <!-- TODO: broken link, was [`no-push-without-say-so.md`](../no-push-without-say-so.md) -->
 - [`one-branch-only.md`](./one-branch-only.md)
 - AGENTS.md "Git" section

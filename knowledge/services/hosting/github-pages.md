@@ -49,6 +49,6 @@ outages independently.
 
 ## Cross-refs
 
-- [Layer 2 — survival fallback](../../architecture/layer-2-survival-fallback.md)
+- [Layer 2 — survival fallback](../../decisions/architecture/frontend/layer-2-survival-fallback.md)
 - [GitHub Actions](../compute/github-actions.md)
 - [Cloudflare Pages](./cloudflare-pages.md)

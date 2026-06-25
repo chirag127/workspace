@@ -109,7 +109,7 @@ Firebase Messaging registration. Per-app trigger via Knock workflow.
 
 AdSense Auto Ads enabled on every app EXCEPT `me-app` + `home-app`.
 Google decides placement at runtime; no ad-slot divs in markup per
-`rules/no-ad-slots-in-markup.md`. Banner ads above the fold disabled.
+`rules/design/no-ad-slots-in-markup.md`. Banner ads above the fold disabled.
 
 ## A/B testing
 
@@ -284,7 +284,7 @@ Two suffix categories alongside the app family:
 
 Play Store enrollment fee ($25 Google Play Developer) paid as a one-time
 exception. Currently in Play Store verification. See
-[`rules/no-card-on-file.md`](../../rules/no-card-on-file.md) § One-time
+[`rules/no-card-on-file.md`](../../rules/interaction/no-card-on-file.md) § One-time
 fees paid.
 
 ## Cross-refs
@@ -295,4 +295,4 @@ fees paid.
 - [decisions/architecture/oriz-me-single-site-not-split](./oriz-me-single-site-not-split.md)
 - [decisions/monetisation/adsense-apex-application](../monetisation/adsense-apex-application.md)
 - [decisions/architecture/notifications-fcm-plus-knock](./notifications-fcm-plus-knock.md)
-- [rules/keep-knowledge-fresh](../../rules/keep-knowledge-fresh.md)
+- [rules/keep-knowledge-fresh](../../rules/agent/keep-knowledge-fresh.md)

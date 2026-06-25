@@ -27,7 +27,7 @@ related:
 
 > Run from the master `chirag127/oriz` repo root (`/c/D/oriz`).
 > The user must authorise the push at step 8 — see
-> [`no-push-without-say-so.md`](../../rules/no-push-without-say-so.md).
+> <!-- TODO: broken link, was [`no-push-without-say-so.md`](../../rules/no-push-without-say-so.md) -->.
 
 ## Prerequisites
 
@@ -166,6 +166,6 @@ inner-repo edits in step 4.
 ## See also
 
 - [`decisions/branding/repo-naming-suffixes.md`](../../decisions/branding/repo-naming-suffixes.md) — what name to pick
-- [`rules/repo-naming.md`](../../rules/development/repo-naming.md) — the audit-before-publish rule
+- [`rules/development/repo-naming.md`](../../rules/development/repo-naming.md) — the audit-before-publish rule
 - [`bump-submodule-pointer.md`](./bump-submodule-pointer.md) — the underlying pointer-bump flow
-- [`../rules/no-push-without-say-so.md`](../../rules/no-push-without-say-so.md)
+- <!-- TODO: broken link, was [`../rules/no-push-without-say-so.md`](../../rules/no-push-without-say-so.md) -->

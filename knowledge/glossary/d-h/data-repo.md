@@ -30,6 +30,6 @@ under the same convention.
 
 ## See also
 
-- [lifestream](./lifestream.md)
-- [cache-rebuild](./cache-rebuild.md)
-- [survival-fallback](./survival-fallback.md)
+- [lifestream](../i-n/lifestream.md)
+- [cache-rebuild](../a-c/cache-rebuild.md)
+- [survival-fallback](../s-z/survival-fallback.md)

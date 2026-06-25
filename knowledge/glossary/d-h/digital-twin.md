@@ -16,7 +16,7 @@ and activity, assembled from the APIs of the services they use.
 
 ## Expanded
 
-Where a [lifestream](./lifestream.md) is the specific JSONL-backed
+Where a [lifestream](../i-n/lifestream.md) is the specific JSONL-backed
 event store on `me.oriz.in`, the digital twin is the *category* —
 the design pattern of pulling external service data (music, code,
 chess, books, films, fitness, …) into one canonical home that
@@ -28,5 +28,5 @@ controls. Private journaling lives separately on `journal.oriz.in`.
 
 ## See also
 
-- [lifestream](./lifestream.md)
+- [lifestream](../i-n/lifestream.md)
 - [data-repo](./data-repo.md)

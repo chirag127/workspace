@@ -84,7 +84,7 @@ repo's README.
 
 Auto-tracked end-to-end: Tokei runs on every CI invocation without
 human action, in line with the
-[`auto-only-tracking`](../../rules/auto-only-tracking.md) rule.
+[`auto-only-tracking`](../../rules/interaction/auto-only-tracking.md) rule.
 
 ## Cross-refs
 
@@ -93,4 +93,4 @@ human action, in line with the
 - [Family-wide /stats page decision](../../decisions/architecture/family-wide-stats-page.md)
 - [GitHub Insights — sibling native stats](./github-insights.md)
 - [Lines of Code badge — consumes Tokei output](./lines-of-code-badge.md)
-- [Auto-only-tracking rule](../../rules/auto-only-tracking.md) (forward ref — being added in parallel)
+- [Auto-only-tracking rule](../../rules/interaction/auto-only-tracking.md) (forward ref — being added in parallel)

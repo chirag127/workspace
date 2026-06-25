@@ -40,7 +40,7 @@ captured **automatically**. No manual entry anywhere in the metric
 pipeline.
 
 This decision file locks the family-wide principle. The companion
-[`rules/auto-only-tracking.md`](../../../rules/interaction/auto-only-tracking.md)
+[`rules/interaction/auto-only-tracking.md`](../../../rules/interaction/auto-only-tracking.md)
 spells out the rule that every future tracking pick must pass.
 
 For the `oriz-me` lifestream specifically, this decision pre-locks
@@ -61,7 +61,7 @@ automatically tracked no manual tracking."*
 ## Why
 
 - **Manual tracking decays.** See
-  [`rules/auto-only-tracking.md`](../../../rules/interaction/auto-only-tracking.md)
+  [`rules/interaction/auto-only-tracking.md`](../../../rules/interaction/auto-only-tracking.md)
   §"Why" for the full argument.
 - **Dishonest data is worse than no data.** A manually-fudged
   metric produces wrong decisions; an untracked gap is at least
@@ -142,7 +142,7 @@ manual fallback.
 - **Journal / thoughts entries on `oriz-journal-site`** are
   CONTENT, not metrics. Manual writing is intentional and
   expected. See
-  [`rules/auto-only-tracking.md`](../../../rules/interaction/auto-only-tracking.md)
+  [`rules/interaction/auto-only-tracking.md`](../../../rules/interaction/auto-only-tracking.md)
   §"When NOT to apply this rule".
 - **Markdown blog posts, design briefs, knowledge bundle
   entries** — also content. Not subject to this decision.

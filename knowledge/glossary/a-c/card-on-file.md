@@ -32,4 +32,4 @@ because…" justifications.
 
 ## See also
 
-- [firestore-spark](./firestore-spark.md)
+- [firestore-spark](../d-h/firestore-spark.md)

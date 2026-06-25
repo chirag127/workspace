@@ -29,5 +29,5 @@ translation-management platform. The full reasoning lives in
 ## Cross-refs
 
 - [decisions/branding/i18n-weblate-when-ready.md](../../decisions/branding/i18n-weblate-when-ready.md) — the locking decision
-- [No selfhost rule](../../rules/no-selfhost.md)
-- [No card-on-file rule](../../rules/no-card-on-file.md)
+- <!-- TODO: broken link, was [No selfhost rule](../../rules/no-selfhost.md) -->
+- [No card-on-file rule](../../rules/interaction/no-card-on-file.md)

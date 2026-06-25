@@ -44,7 +44,7 @@ the system, no per-site manual setup.
 
 - A populated `~/.pnpm-store/` is fine to keep across re-installs;
   this is the whole point of pnpm — see
-  [`../rules/use-pnpm.md`](../../rules/development/use-pnpm.md).
+  [`../rules/development/use-pnpm.md`](../../rules/development/use-pnpm.md).
 
 ## Steps
 
@@ -113,7 +113,7 @@ Open a new terminal, or `hash -r` (bash/zsh), or run pnpm via
 
 **`ERR_PNPM_PEER_DEP_ISSUES` on a specific site.**
 A peer dep is out of range. Check
-[`../rules/always-latest-deps.md`](../../rules/development/always-latest-deps.md)
+[`../rules/development/always-latest-deps.md`](../../rules/development/always-latest-deps.md)
 for the pin policy — the site may be in a documented exception
 window during a major upgrade.
 
@@ -125,14 +125,14 @@ same volume as the projects, or accept the cost.
 
 **A submodule fails standalone but works from the umbrella.**
 That's a violation of
-[`../rules/repos-work-independently.md`](../../rules/development/repos-work-independently.md).
+[`../rules/development/repos-work-independently.md`](../../rules/development/repos-work-independently.md).
 File-fix in the offending submodule, don't paper over it in the
 umbrella.
 
 ## Cross-refs
 
-- [`../rules/use-pnpm.md`](../../rules/development/use-pnpm.md) — why pnpm is mandatory
-- [`../rules/always-latest-deps.md`](../../rules/development/always-latest-deps.md) — install policy this runbook presumes
-- [`../rules/repos-work-independently.md`](../../rules/development/repos-work-independently.md) — every submodule passes the standalone-clone test
+- [`../rules/development/use-pnpm.md`](../../rules/development/use-pnpm.md) — why pnpm is mandatory
+- [`../rules/development/always-latest-deps.md`](../../rules/development/always-latest-deps.md) — install policy this runbook presumes
+- [`../rules/development/repos-work-independently.md`](../../rules/development/repos-work-independently.md) — every submodule passes the standalone-clone test
 - [`./auth-setup.md`](../security/auth-setup.md) — what to run after install for full local dev with auth
 - [`../_okf.md`](../../_okf.md) — OKF conventions

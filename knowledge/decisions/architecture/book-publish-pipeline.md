@@ -175,7 +175,7 @@ MIT License — Copyright (c) 2026 Chirag Singhal
   - EPUB3: `--toc --toc-depth=2 --css=.../epub.css --embed-fonts`
   - PDF: LaTeX via `tectonic` (Linux-only, no MacTeX/MikTeX); A5 page, Iosevka body
   - MOBI: via `kindlegen` shim or Calibre's `ebook-convert` if `kindlegen` is gone
-- Pandoc + tectonic + Calibre install lines documented in the package README. All Linux-only per [`rules/linux-ci-only`](../rules/linux-ci-only.md).
+- Pandoc + tectonic + Calibre install lines documented in the package README. All Linux-only per [`rules/linux-ci-only`](../../rules/interaction/linux-ci-only.md).
 
 ## omni-publish integration
 

@@ -34,7 +34,7 @@ Doppler (source of truth)
 ## Cross-refs
 
 - [Secrets management decision](../../decisions/security/secrets-management-doppler.md)
-- [No hardcoded secrets rule](../../rules/no-hardcoded-secrets.md)
-- [Secrets handling policy](../../policy/secrets-handling.md)
-- [Rotate leaked secret runbook](../../runbooks/rotate-leaked-secret.md)
+- [No hardcoded secrets rule](../../rules/security/no-hardcoded-secrets.md)
+- [Secrets handling policy](../../decisions/policy/secrets-handling.md)
+- [Rotate leaked secret runbook](../../runbooks/security/rotate-leaked-secret.md)
 - [envpact (user's home-grown vault, still around)](../tooling/envpact.md)

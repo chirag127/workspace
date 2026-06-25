@@ -463,5 +463,5 @@ LIVE plan IDs will replace these after step 8.
 - Billing webhook architecture → [`../decisions/architecture/billing-webhook-cf-pages-function.md`](../../decisions/architecture/compute/billing-webhook-cf-pages-function.md)
 - Earlier setup runbook (covers both Razorpay + Paddle) → [`./razorpay-paddle-subscriptions-setup.md`](./razorpay-paddle-subscriptions-setup.md)
 - Env management → [`./env-management.md`](../operations/env-management.md)
-- Secrets policy → [`../policy/secrets-handling.md`](../../policy/secrets-handling.md)
+- Secrets policy → [`../policy/secrets-handling.md`](../../decisions/policy/secrets-handling.md)
 - Rotation runbook (for if a key leaks) → [`./rotate-leaked-secret.md`](./rotate-leaked-secret.md)

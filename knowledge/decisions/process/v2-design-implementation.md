@@ -44,6 +44,6 @@ design-quality bar.
 ## Cross-refs
 
 - [oriz-me added to family](../branding/oriz-me-added-to-family.md)
-- [Family design rules](../../design/_family-rules.md)
+- [Family design rules](../design/_family-rules.md)
 - Master commit `e69214e`: "feat(submodules): bump all 11 sites to v2 design implementations"
-- Design brief index: [`../../design/index.md`](../../design/index.md)
+- Design brief index: [`../../design/index.md`](../design/index.md)

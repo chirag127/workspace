@@ -39,4 +39,4 @@ Squeezy webhooks route through the same Hookdeck queue.
 - [decisions/monetisation/razorpay-as-primary-billing](../../decisions/monetisation/razorpay-as-primary-billing.md)
 - [decisions/monetisation/one-subscription-unlocks-all](../../decisions/monetisation/one-subscription-unlocks-all.md)
 - [decisions/infrastructure/hookdeck-for-webhook-reliability](../../decisions/infrastructure/hookdeck-for-webhook-reliability.md)
-- [rules/no-card-on-file](../../rules/no-card-on-file.md)
+- [rules/no-card-on-file](../../rules/interaction/no-card-on-file.md)

@@ -20,7 +20,7 @@ Add **Hookdeck** to the family stack as the webhook reliability layer for Razorp
 
 ## Why
 
-A Worker outage during a payment webhook silently drops revenue — the user paid but the subscription never activates because Razorpay's retry window is short. Hookdeck's free tier (100K requests/month, 100K attempts, 3-day retention, exponential-backoff retries, manual replay) covers the family's expected payment volume by orders of magnitude and adds a debug-friendly dashboard. No card required, no subscription — fits the family's [no-paid-tier](../../policy/no-paid-tier.md) rule.
+A Worker outage during a payment webhook silently drops revenue — the user paid but the subscription never activates because Razorpay's retry window is short. Hookdeck's free tier (100K requests/month, 100K attempts, 3-day retention, exponential-backoff retries, manual replay) covers the family's expected payment volume by orders of magnitude and adds a debug-friendly dashboard. No card required, no subscription — fits the family's [no-paid-tier](../policy/no-paid-tier.md) rule.
 
 ## Implications
 
@@ -35,6 +35,6 @@ A Worker outage during a payment webhook silently drops revenue — the user pai
 
 - [services/tooling/hookdeck](../../services/tooling/hookdeck.md)
 - [services/payment/razorpay](../../services/payment/razorpay.md)
-- [architecture/api-umbrella-hono-worker](../../architecture/api-umbrella-hono-worker.md)
+- [architecture/api-umbrella-hono-worker](../architecture/compute/api-umbrella-hono-worker.md)
 - [decisions/razorpay-as-primary-billing](../monetisation/razorpay-as-primary-billing.md)
 - [decisions/code-quality-stack](../process/code-quality-stack.md) — sibling reliability decision from the same session

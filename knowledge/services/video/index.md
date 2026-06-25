@@ -19,5 +19,5 @@ touches the YouTube tracking pixel.
 
 ## Cross-refs
 
-- [Public/private line policy](../../policy/public-private-line.md)
-- [Per-extension privacy policy](../../policy/privacy-policy-per-extension.md)
+- [Public/private line policy](../../decisions/policy/public-private-line.md)
+- [Per-extension privacy policy](../../decisions/policy/privacy-policy-per-extension.md)

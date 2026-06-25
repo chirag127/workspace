@@ -32,10 +32,10 @@ the family's hard rule excludes it.
 
 ## Replacement
 
-[Cloudflare R2](./cloudflare-r2.md) — same 10 GB free, zero egress
+[Cloudflare R2](compute/cloudflare-r2.md) — same 10 GB free, zero egress
 fees, one dashboard with Pages and Workers.
 
 ## Cross-refs
 
-- [Cloudflare R2](./cloudflare-r2.md) — replacement
+- [Cloudflare R2](compute/cloudflare-r2.md) — replacement
 - [AGENTS.md hard constraints](../../AGENTS.md#hard-constraints-will-never-use)

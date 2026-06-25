@@ -121,5 +121,5 @@ scripts, omnipost adapters, Worker-side replies).
 - [Cloudflare Web Analytics service](../../../services/analytics/cloudflare-web-analytics.md)
 - [Analytics services index](../../../services/analytics/index.md)
 - [Cross-post engine — auto-UTMs cross-posts](./cross-post-engine.md)
-- [oriz-kit glossary](../../../glossary/o-r/oriz-kit.md) — `<UtmLink>` lives here
+- <!-- TODO: broken link, was [oriz-kit glossary](../../../glossary/o-r/oriz-kit.md) --> — `<UtmLink>` lives here
 - [No card-on-file rule](../../../rules/interaction/no-card-on-file.md)

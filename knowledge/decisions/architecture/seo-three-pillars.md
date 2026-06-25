@@ -35,7 +35,7 @@ not a subset:
    + Yandex + Seznam + Naver in milliseconds.
 3. **JSON-LD structured data** —
    [`<JsonLd type="..." data={{...}} />`](../../services/seo/json-ld-structured-data.md)
-   component in [`@chirag127/oriz-kit`](../../glossary/o-r/oriz-kit.md)
+   component in <!-- TODO: broken link, was [`@chirag127/oriz-kit`](../../glossary/o-r/oriz-kit.md) -->
    (forward reference — lands in oriz-kit's next release) emits
    schema.org markup for `Article`, `BreadcrumbList`,
    `Organization`, `WebSite`, and `Person`.
@@ -98,7 +98,7 @@ the family's existing setup:
   property — one DNS TXT record covers every subdomain via
   [Cloudflare DNS](../../services/domain/cloudflare-dns.md).
 - **No card** anywhere across the five layers. All five fit the
-  [no-card-on-file rule](../../rules/no-card-on-file.md) and the
+  [no-card-on-file rule](../../rules/interaction/no-card-on-file.md) and the
   no-paid-tier rule.
 
 ## Cross-refs
@@ -110,5 +110,5 @@ the family's existing setup:
 - [services/seo/bing-webmaster.md](../../services/seo/bing-webmaster.md)
 - [services/seo/index.md](../../services/seo/index.md) — bucket overview
 - [decisions/architecture/cross-post-engine.md](./cross-post-engine.md) — oriz-omnipost fires IndexNow
-- [glossary/o-r/oriz-kit.md](../../glossary/o-r/oriz-kit.md) — `<JsonLd>` component (forward reference)
-- [No card-on-file rule](../../rules/no-card-on-file.md)
+- <!-- TODO: broken link, was [glossary/o-r/oriz-kit.md](../../glossary/o-r/oriz-kit.md) --> — `<JsonLd>` component (forward reference)
+- [No card-on-file rule](../../rules/interaction/no-card-on-file.md)

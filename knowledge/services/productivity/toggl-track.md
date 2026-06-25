@@ -22,7 +22,7 @@ related:
 # Toggl Track (REJECTED)
 
 > **Why rejected (2026-06-20):** Manual time tracking violates the
-> family-wide [auto-only-tracking rule](../../rules/auto-only-tracking.md)
+> family-wide [auto-only-tracking rule](../../rules/interaction/auto-only-tracking.md)
 > locked the same day this service was originally adopted. Wakatime
 > auto-tracks coding time; non-coding time is intentionally **not
 > tracked at all** rather than manually tracked. Manual timers decay
@@ -43,7 +43,7 @@ for the walk-back narrative.
 ## What replaces it
 
 Nothing. Non-coding time is not a system metric in the family. The
-[auto-only-tracking rule](../../rules/auto-only-tracking.md) explicitly
+[auto-only-tracking rule](../../rules/interaction/auto-only-tracking.md) explicitly
 distinguishes **metrics** (must auto) from **content** (manual writing
 is fine — that's what the journal is). Time spent on meetings /
 planning / calls is not a metric the family captures.
@@ -101,10 +101,10 @@ the keyboard, which is information.
 
 ## Cross-refs
 
-- [Auto-only-tracking rule (2026-06-20)](../../rules/auto-only-tracking.md) — the rule that rejects this service
+- [Auto-only-tracking rule (2026-06-20)](../../rules/interaction/auto-only-tracking.md) — the rule that rejects this service
 - [Auto-tracking-everywhere decision](../../decisions/architecture/auto-tracking-everywhere.md) — the family-wide principle
 - [Time-tracking — Wakatime only (decision, walk-back)](../../decisions/architecture/time-tracking-wakatime-only.md) — the rename of the original Batch 19 decision after the walk-back
 - [Wakatime — sole time-tracking pick](./wakatime.md)
 - [Productivity services index](./index.md)
 - [Lifestream JSONL canonical](../../decisions/architecture/lifestream-jsonl-canonical.md)
-- [No card-on-file rule](../../rules/no-card-on-file.md) — separate concern; Toggl was fine on this axis
+- [No card-on-file rule](../../rules/interaction/no-card-on-file.md) — separate concern; Toggl was fine on this axis

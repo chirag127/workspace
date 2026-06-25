@@ -35,7 +35,7 @@ chain so each `src=` either resolves at Tier 1 or falls through.
 | How is it resized + edge-cached? (CDN) | Cloudflare Images → wsrv.nl → ImageKit | [`image-cdn/`](../image-cdn/index.md) |
 
 Both chains are wired into the same `<Image>` component in
-[`@chirag127/oriz-kit`](../../glossary/o-r/oriz-kit.md). The CDN
+<!-- TODO: broken link, was [`@chirag127/oriz-kit`](../../glossary/o-r/oriz-kit.md) -->. The CDN
 chain wraps the origin URL with a transform + edge-cache layer — they
 compose cleanly because every CDN tier accepts an absolute URL as
 input.
@@ -63,7 +63,7 @@ input.
 - [4-tier image-host decision](../../decisions/architecture/image-host-four-tier.md)
 - [3-tier image-CDN chain](../image-cdn/index.md) — different concern (transform/resize), composed alongside this chain
 - [Markdown-in-repo only CMS decision](../../decisions/architecture/cms-markdown-in-repo-only.md) — Tier 1 is the natural fit for markdown-authored content
-- [oriz-kit glossary](../../glossary/o-r/oriz-kit.md)
+- <!-- TODO: broken link, was [oriz-kit glossary](../../glossary/o-r/oriz-kit.md) -->
 - [Cloudflare Pages for all sites](../../decisions/infrastructure/cloudflare-pages-for-all-sites.md)
-- [No card-on-file rule](../../rules/no-card-on-file.md)
-- [Never-hit-quotas rule](../../rules/never-hit-quotas.md)
+- [No card-on-file rule](../../rules/interaction/no-card-on-file.md)
+- [Never-hit-quotas rule](../../rules/interaction/never-hit-quotas.md)

@@ -91,7 +91,7 @@ cross-posts/day × 1.5 click avg ≈ ~450 omnipost clicks/day, plus
 linkroll + QR / talk slugs = ~1-2K Worker requests/day worst-case
 across all CF edge POPs. That's **1-2% of the 100K/day free
 envelope**, comfortably inside
-[`rules/never-hit-quotas.md`](../../rules/never-hit-quotas.md).
+[`rules/interaction/never-hit-quotas.md`](../../rules/interaction/never-hit-quotas.md).
 
 **Slugs are immutable by design.** Once minted, a slug never
 re-points; retire by minting a new one. The cached 301 trick
@@ -129,5 +129,5 @@ are all standard short-link APIs; swapping means changing the engine's
 - [oriz-omnipost cross-post engine](../../decisions/architecture/cross-post-engine.md)
 - [Cloudflare Workers — base service](../compute/cloudflare-workers.md)
 - [Subdomains under oriz.in](../../decisions/infrastructure/subdomains-under-oriz-in.md)
-- [Never hit quotas rule](../../rules/never-hit-quotas.md)
-- [No card-on-file rule](../../rules/no-card-on-file.md)
+- [Never hit quotas rule](../../rules/interaction/never-hit-quotas.md)
+- [No card-on-file rule](../../rules/interaction/no-card-on-file.md)

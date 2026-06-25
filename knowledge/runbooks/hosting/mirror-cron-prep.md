@@ -1,33 +1,17 @@
 ---
 type: runbook
-title: "Mirror cron \u2014 pre-flight checklist"
-description: Pre-flight checklist for the Friday 03:30 IST 4-host git mirror cron
-  at `.github/workflows/mirror-all.yml`. Generate 4 host tokens with write+create-repo
-  scope, pre-create 51 empty mirror repos on each host, store all tokens at chirag127
-  GH org level, and run a first-pass dry-run to verify the bare-clone push lands on
-  every host.
-tags:
-- runbook
-- mirror
-- git-host
-- gitlab
-- codeberg
-- bitbucket
-- gitflic
-- secrets
-- pre-flight
+title: "Mirror cron — pre-flight checklist"
+description: "Pre-flight checklist for the Friday 03:30 IST 4-host git mirror cron at `.github/workflows/mirror-all.yml`. Generate 4 host tokens with write+create-repo scope, pre-create 51 empty mirror repos on each host, store all tokens at chirag127 GH org level, and run a first-pass dry-run to verify the bare-clone push lands on every host."
+tags: [runbook, mirror, git-host, gitlab, codeberg, bitbucket, gitflic, secrets, pre-flight]
 timestamp: 2026-06-21
 format_version: okf-v0.1
-status: superseded
-superseded_by: runbooks/mirror-all-hosts-setup
+status: active
 related:
-- decisions/architecture/ops/mirror-to-6-git-hosts
-- rules/security/github-org-level-secrets
-- runbooks/security/set-github-org-level-secrets
-- runbooks/operations/migrate-ci-platform
+  - decisions/architecture/mirror-to-4-git-hosts
+  - rules/github-org-level-secrets
+  - runbooks/set-github-org-level-secrets
+  - runbooks/migrate-ci-platform
 ---
-
-
 
 # Mirror cron — pre-flight checklist
 

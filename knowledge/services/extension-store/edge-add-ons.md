@@ -94,4 +94,4 @@ step.
 - [Chrome Web Store](./chrome-web-store.md)
 - [Firefox Add-ons](./firefox-add-ons.md)
 - [Extension-store bucket index](./index.md)
-- [No card-on-file rule](../../rules/no-card-on-file.md)
+- [No card-on-file rule](../../rules/interaction/no-card-on-file.md)

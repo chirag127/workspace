@@ -83,4 +83,4 @@ how readers already think.
 - [StackBlitz](./stackblitz.md) — sibling for full-stack demos
 - [GitHub Gists](./github-gists.md) — sibling for static snippets
 - [Ray.so](../social/ray-so.md) — generates the og:image for posts embedding pens
-- [No card-on-file rule](../../rules/no-card-on-file.md)
+- [No card-on-file rule](../../rules/interaction/no-card-on-file.md)
