@@ -1,60 +1,60 @@
 [submodule "repos/me"]
-	path = repos/me
+	path = repos/own/me
 	url = https://github.com/oriz-org/me.git
 [submodule "repos/journal"]
-	path = repos/journal
+	path = repos/own/journal
 	url = https://github.com/oriz-org/journal.git
 [submodule "repos/home"]
-	path = repos/home
+	path = repos/own/home
 	url = https://github.com/oriz-org/home.git
 [submodule "repos/oriz-ncert-app"]
-	path = repos/oriz-ncert-app
+	path = repos/own/oriz-ncert-app
 	url = https://github.com/oriz-org/oriz-ncert-app.git
 [submodule "repos/oriz-lore-app"]
-	path = repos/oriz-lore-app
+	path = repos/own/oriz-lore-app
 	url = https://github.com/oriz-org/oriz-lore-app.git
 [submodule "repos/oriz-janaushdhi-app"]
-	path = repos/oriz-janaushdhi-app
+	path = repos/own/oriz-janaushdhi-app
 	url = https://github.com/oriz-org/oriz-janaushdhi-app.git
 [submodule "repos/oriz-janaushdhi-book"]
-	path = repos/oriz-janaushdhi-book
+	path = repos/own/oriz-janaushdhi-book
 	url = https://github.com/oriz-org/oriz-janaushdhi-book.git
 [submodule "repos/oriz-me-book"]
-	path = repos/oriz-me-book
+	path = repos/own/oriz-me-book
 	url = https://github.com/oriz-org/oriz-me-book.git
 [submodule "repos/oriz-mmi-tickertape-mmi-api"]
-	path = repos/oriz-mmi-tickertape-mmi-api
+	path = repos/own/oriz-mmi-tickertape-mmi-api
 	url = https://github.com/oriz-org/oriz-mmi-tickertape-mmi-api.git
 [submodule "repos/ai-rewrite-bs-ext"]
-	path = repos/ai-rewrite-bs-ext
+	path = repos/frk/ai-rewrite-bs-ext
 	url = https://github.com/oriz-org/ai-rewrite-bs-ext.git
 [submodule "repos/dearrow-plus-bs-ext"]
-	path = repos/dearrow-plus-bs-ext
+	path = repos/frk/dearrow-plus-bs-ext
 	url = https://github.com/oriz-org/dearrow-plus-bs-ext.git
 [submodule "repos/userscripts"]
-	path = repos/userscripts
+	path = repos/own/userscripts
 	url = https://github.com/oriz-org/userscripts.git
 [submodule "repos/claude-notifications-cli"]
-	path = repos/claude-notifications-cli
+	path = repos/frk/claude-notifications-cli
 	url = https://github.com/oriz-org/claude-notifications-cli.git
 [submodule "repos/freellmapi"]
-	path = repos/freellmapi
+	path = repos/frk/freellmapi
 	url = https://github.com/oriz-org/freellmapi.git
 [submodule "repos/omniroute"]
-	path = repos/omniroute
+	path = repos/frk/omniroute
 	url = https://github.com/oriz-org/omniroute.git
 [submodule "repos/sops-lens-vsc-ext"]
-	path = repos/sops-lens-vsc-ext
+	path = repos/own/sops-lens-vsc-ext
 	url = https://github.com/oriz-org/sops-lens-vsc-ext.git
 [submodule "repos/bookmark-mind-bs-ext"]
-	path = repos/bookmark-mind-bs-ext
+	path = repos/own/bookmark-mind-bs-ext
 	url = https://github.com/oriz-org/bookmark-mind-bs-ext.git
 [submodule "repos/agent-skills"]
-	path = repos/agent-skills
+	path = repos/own/agent-skills
 	url = https://github.com/oriz-org/agent-skills.git
 [submodule "repos/blog"]
-	path = repos/blog
+	path = repos/own/blog
 	url = https://github.com/oriz-org/blog.git
 [submodule "repos/backup"]
-	path = repos/backup
+	path = repos/own/backup
 	url = https://github.com/oriz-org/backup.git
