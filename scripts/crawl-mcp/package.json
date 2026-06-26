@@ -1,0 +1,15 @@
+{
+  "name": "crawl-md-mcp",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "No-key MCP stdio server: BFS-crawl a URL, return markdown for agent ingestion.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.0.0",
+    "turndown": "^7.2.0"
+  }
+}
