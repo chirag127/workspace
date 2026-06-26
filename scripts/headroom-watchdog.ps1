@@ -1,4 +1,4 @@
-# headroom-watchdog.ps1
+﻿# headroom-watchdog.ps1
 # Pings Hr /health every 60s. Restart container on 3 consecutive failures.
 param(
   [int]$IntervalSec = 60,
