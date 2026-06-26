@@ -308,3 +308,13 @@ Agents may commit + push to `main` on `oriz-org/workspace` and any submodule **w
 - Mass deletions ≥50 LOC (rule [`grill-on-loc-removal`](./knowledge/rules/agent/grill-on-loc-removal.md) triggers a grill-me MCQ first)
 
 For anything in that exception list, stop and ask via `AskUserQuestion` MCQ.
+
+---
+
+## OKF grounding rules
+
+- **Ground every non-trivial answer in `knowledge/`.** Don't reason from memory when a concept file exists for the topic.
+- **Query the index first.** Start at [`knowledge/index.md`](./knowledge/index.md) — it is the single source-of-truth catalogue of all 793 concept files. Do NOT grep the whole `knowledge/` tree before reading the index.
+- **Lookup helper.** `python scripts/okf-index-lookup.py <term>` returns matching concept-file paths from the index. Stdlib-only, no proxy or LLM dependency. Use it before broad searches.
+- **Cite concept files inline.** When an answer rests on a decision/rule/runbook, link the file (e.g. `knowledge/rules/agent/self-update-rule.md`) so the user can audit.
+- **If `knowledge/` is silent on a decisive question,** invoke the self-update rule: write the concept file in the same turn the decision lands.
