@@ -1,68 +1,40 @@
 ---
 type: rule
-title: 'MCP servers — no-key in this repo, keyed in Smithery toolbox'
-description: No-API-key MCPs go in committed .mcp.json. Keyed MCPs go in Smithery toolbox via @smithery/cli (handles credential storage). NEVER commit keys.
-tags: [mcp, security, no-card, smithery, dont-dup-tools]
-timestamp: 2026-06-27
+title: "MCP no-key in repo, keyed in Smithery"
+description: "No-API-key MCP servers are committed to this repo as configurable entries. Keyed/auth MCP servers go into Smithery toolbox (chirag127) via Smithery CLI."
+tags: [mcp, smithery, api-keys, security, tool-config]
+timestamp: 2026-06-26
 format_version: okf-v0.1
 status: active
-related:
-  - rules/agent/dont-dup-smithery-tools
-  - rules/agent/search-multi-engine-fallback
-  - rules/interaction/no-card-on-file
 ---
 
-# MCP installation: dual-bucket rule
+# MCP no-key in repo, keyed in Smithery
 
 ## Rule
 
-Two buckets for MCP servers, **never mixed**:
+- **No-API-key MCP servers** → committed to this repo as `claude mcp add` config entries in `scripts/` or `.claude.json` snippets
+- **Keyed/auth MCP servers** → installed via Smithery CLI (`npx @smithery/cli install <server>`) into the `chirag127` toolbox (Smithery-hosted, not committed)
+- **Never** commit API keys, tokens, or env secrets into any repo file
 
-| Bucket | Where | Authentication | Persistence |
-|---|---|---|---|
-| **A — no-key** | `c:\D\oriz\.mcp.json` (committed) | none | git, survives clone |
-| **B — keyed** | Smithery toolbox at `chirag127` endpoint | per-user via `@smithery/cli` | Smithery cloud |
+## Rationale
 
-## Why
+- This repo is public (oriz-org/workspace)
+- `.env` is gitignored — only `.env.example` with documentation blocks is committed
+- Smithery handles authentication server-side; keys stay in Smithery's vault
+- When cloning fresh: `git clone` gets all no-key MCPs + instructions; keyed MCPs need Smithery login
 
-- `.mcp.json` is committed to a PUBLIC repo. Tokens MUST NEVER be in it.
-- Smithery handles per-user keyed credentials in its own vault — no leakage to repo or to other users who clone.
-- Keeps the public repo cloneable / forkable without leaking auth.
+## Current no-key MCPs in repo config
 
-## How to add a new MCP
+| MCP | Type | Source |
+|-----|------|--------|
+| searxng | Web search | npx mcp-searxng (baresearch.org) |
+| duckduckgo | Web search | npx duckduckgo-mcp-server |
+| open-websearch | Web search (8 engines) | npx open-websearch |
+| playwright | Browser automation | npx @playwright/mcp |
+| fetch | URL fetch | uvx mcp-server-fetch |
+| github | GitHub API | Docker (uses GITHUB_PERSONAL_ACCESS_TOKEN from .env) |
 
-```bash
-# Step 1: does it need an API key?
-# Check the upstream README. If yes → Smithery. If no → .mcp.json.
+## Keyed MCPs in Smithery toolbox
 
-# A — no-key
-# Edit .mcp.json, add an entry:
-#   {"mcpServers": {"<name>": {"command": "npx", "args": ["-y", "<pkg>"]}}}
-# Restart Claude Code. Verify with: claude mcp list
-
-# B — keyed
-npx -y @smithery/cli install <slug> --client claude
-# Smithery CLI prompts for the API key, stores in its own vault,
-# routes through your chirag127 toolbox endpoint.
-```
-
-## Discovery rules
-
-1. **Check Smithery toolbox first** (per `dont-dup-smithery-tools`). If the MCP is already exposed via `mcp__chirag127__*`, don't re-add.
-2. **Survey via web search MCPs** (per `search-multi-engine-fallback`) — smithery.ai, awesome-mcp-servers, npm.
-3. **Smoke-test before commit** — `npx -y <pkg>` for 5s, confirm starts cleanly.
-
-## Anti-patterns
-
-- ❌ API key hardcoded in `.mcp.json` (public repo leak)
-- ❌ Same MCP in BOTH .mcp.json AND Smithery toolbox (double-routing, 2x context cost)
-- ❌ Standalone install of an MCP that's already bundled in Smithery toolbox
-- ❌ `claude mcp add --scope user <name>` for an MCP that should be in this repo (won't survive clone elsewhere)
-
-## Today's status (2026-06-27)
-
-**`.mcp.json` (in-repo, committed)**: rebuilt by sibling agent — N no-key MCPs.
-
-**Smithery toolbox (`chirag127`)**: routes hundreds of bundled tools on demand. Keyed MCPs added by user via `@smithery/cli` when needed.
-
-**User-scope standalone (still ok per-user, not project)**: `playwright`, `fetch`, `github` (these 3 are infrastructure-critical and not naturally fit for `.mcp.json` — playwright needs browser binaries, github needs Docker socket).
+These live in the chirag127 Smithery endpoint, NOT in repo config.
+Install via: `npx @smithery/cli install <server> --client claude`
