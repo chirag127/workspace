@@ -34,6 +34,14 @@ executes end-to-end. NEVER a numbered list of manual steps.
 - ✅ Provider CLIs over portals (az, gh, fly, wrangler, vercel, cf, sops)
 - ✅ Infrastructure-as-code (Bicep / Terraform / Pulumi) when state matters
 - ✅ Secrets fetched at runtime (Bitwarden, Key Vault, env), never hardcoded
+- ✅ Entry point MUST work in stock `cmd.exe` on Windows (a `.cmd` wrapper
+  that calls `powershell.exe` / `pwsh.exe`). The user runs from cmd, not pwsh.
+- ✅ Bootstrap missing prerequisites IN THE SCRIPT (winget, choco, scoop,
+  direct MSI download as fallback). Never say "install X first".
+- ✅ The script must run from `C:\Windows\System32` cwd. No `cd` instructions
+  to the user.
+- ✅ If a prerequisite install requires elevation, the script must self-elevate
+  (`Start-Process -Verb RunAs`), not tell the user to "open admin shell".
 
 ## The only manual step allowed
 
