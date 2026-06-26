@@ -1,8 +1,8 @@
 ---
 type: rule
-title: 'Web search — 2-engine fallback: searxng → duckduckgo'
-description: Always-on web-search MCPs are searxng + duckduckgo. If one rate-limits or fails, fall back to the other. Both are no-key.
-tags: [mcp, search, fallback, no-card]
+title: 'Web search — 3-MCP fallback chain (10 engines, no keys)'
+description: searxng + duckduckgo + open-websearch. 10 distinct engines accessible without ANY API key. Try in order on failure.
+tags: [mcp, search, fallback, no-card, no-key]
 timestamp: 2026-06-27
 format_version: okf-v0.1
 status: active
@@ -11,21 +11,35 @@ related:
   - rules/agent/dont-dup-smithery-tools
 ---
 
-# Web search — 2-engine fallback chain
+# Web search — 3-MCP fallback chain
 
 ## Rule
 
-Two web-search MCPs are always installed at user scope:
-1. **searxng** (npx `mcp-searxng`, instance `https://baresearch.org`) — meta-search, aggregates Google/Bing/Wikipedia
-2. **duckduckgo** (npx `duckduckgo-mcp-server`) — DDG direct
+Three no-key web-search MCPs always installed at user scope. Try them in priority order:
 
-On any search call, try searxng first. If it fails (rate-limit, 403, 5xx), fall back to duckduckgo. Per `try-multiple-on-failure` rule.
+| Priority | MCP | Engines | Notes |
+|---|---|---|---|
+| 1 | **searxng** | Google + Bing + Wikipedia (meta) | Best aggregate quality |
+| 2 | **open-websearch** | Bing, Baidu, DuckDuckGo, Brave, Exa, GitHub, Juejin, CSDN | 8 engines, AUTO routing |
+| 3 | **duckduckgo** | DuckDuckGo direct | Simplest fallback |
 
-## Paid/keyed alternatives (NOT installed, decision 2026-06-27)
+Total engine coverage: **10 distinct engines** across the 3 MCPs. All free. All zero-API-key. No card-on-file.
 
-- **Brave Search** (free 2k/mo, no card) — skipped: 2 free engines already
-- **Tavily** (free 1k/mo, no card) — skipped
-- **Exa** ($10 free credit, no card) — skipped
+## Skipped (require API key)
+
+- **Brave Search MCP** (free 2k/mo) — duplicate, no-key open-websearch covers Brave
+- **Tavily** (free 1k/mo) — no-key alternatives exist
+- **Exa** ($10 free credit) — open-websearch covers Exa
 - **Kagi** (paid + card) — violates no-card-on-file
 
-Revisit if both no-key engines start failing consistently OR a query needs LLM-optimized output that DDG/SearXNG can't deliver.
+Revisit if all 3 no-key MCPs fail simultaneously on a query.
+
+## How to apply
+
+When you need web search:
+1. Try searxng tool first
+2. On failure (rate-limit, 403, 5xx, empty results) → open-websearch
+3. On second failure → duckduckgo
+4. Only escalate (ask user / add new MCP) if all 3 fail consistently
+
+Per `try-multiple-on-failure` — at least 3 alts before reporting blocker. This rule MAKES that achievable in one click.
