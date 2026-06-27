@@ -17,7 +17,7 @@ timestamp: 2026-06-24
 format_version: okf-v0.1
 status: active
 related:
-- decisions/architecture/ops/mirror-to-6-git-hosts
+- decisions/architecture/ops/mirror-to-5-popular-alternatives-2026-06-28
 - runbooks/hosting/mirror-all-hosts-setup
 - rules/infrastructure/free-tier-with-cost-controls
 - rules/interaction/no-card-on-file
@@ -130,5 +130,5 @@ https://${MIRROR_BITBUCKET_USERNAME}:${MIRROR_BITBUCKET_API_TOKEN}@bitbucket.org
 ## Cross-refs
 
 - Full setup → [`../../../runbooks/mirror-all-hosts-setup.md`](../../runbooks/hosting/mirror-all-hosts-setup.md)
-- 6-host decision → [`../../decisions/architecture/mirror-to-6-git-hosts.md`](../../decisions/architecture/ops/mirror-to-6-git-hosts.md)
+- 5-host decision → [`../../decisions/architecture/ops/mirror-to-5-popular-alternatives-2026-06-28.md`](../../decisions/architecture/ops/mirror-to-5-popular-alternatives-2026-06-28.md)
 - Official Bitbucket API token migration guide: <https://support.atlassian.com/bitbucket-cloud/docs/api-tokens/>

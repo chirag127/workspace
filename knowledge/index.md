@@ -77,7 +77,7 @@ status: active
 | File | Description |
 |---|---|
 | [`aws-lambda-exception`](./rules/infrastructure/aws-lambda-exception.md) | User-approved exception. AWS Lambda is the 3rd-rail fallback in the\ |
-| [`cloudflare-pages-apps-only`](./rules/infrastructure/cloudflare-pages-apps-only.md) | Locked 2026-06-23. CF Pages hosts the 25 apps under repos/oriz/own/prod/apps/\ |
+| [`hosting-split-cf-and-github-pages`](./rules/infrastructure/hosting-split-cf-and-github-pages.md) | Locked 2026-06-23. CF Pages hosts the 25 apps under repos/oriz/own/prod/apps/\ |
 | [`cloudflare-pages-only`](./rules/infrastructure/cloudflare-pages-only.md) | Family hosting lock. See the decision file for full rationale. |
 | [`free-tier-with-cost-controls`](./rules/infrastructure/free-tier-with-cost-controls.md) | REVERSED 2026-06-23. Card-on-file is permitted, but ONLY with providers\ |
 | [`no-firebase-admin-in-workers`](./rules/infrastructure/no-firebase-admin-in-workers.md) | Cloudflare's workerd runtime does not fully support gRPC, which firebase-admin |
@@ -184,7 +184,7 @@ status: active
 | [`disk-image-windows-builtin-2026-06-25`](./decisions/architecture/ops/disk-image-windows-builtin-2026-06-25.md) | active | Locked 2026-06-25. Macrium Reflect Free is discontinued (Jan 2024) and is no longer available. Replace with Windows built-in Backup-and-Restore (Windows 7-era tool, still present in Windows 11) for full-disk images. Restic to Backblaze B... |
 | [`extension-distribution`](./decisions/architecture/ops/extension-distribution.md) | active | Every extension is its own GitHub repo, submoduled under extensions/. |
 | [`logs-better-stack-plus-cf-tail`](./decisions/architecture/ops/logs-better-stack-plus-cf-tail.md) | active | Two-layer log strategy. Cloudflare Workers Tail for live in-Worker debugging |
-| [`mirror-to-6-git-hosts`](./decisions/architecture/ops/mirror-to-6-git-hosts.md) | active | Extends mirror-to-4-git-hosts (2026-06-21) to 6 hosts by adding Azure\ |
+| [`mirror-to-5-popular-alternatives-2026-06-28`](./decisions/architecture/ops/mirror-to-5-popular-alternatives-2026-06-28.md) | active | Trim mirror fleet to 5 popular feature-complete GitHub alternatives (GitLab, Codeberg, Bitbucket, GitFlic, Azure DevOps); drop AWS CodeCommit; scope = repos/own/* submodules only. |
 | [`perf-monitoring-vercel-speed-insights`](./decisions/architecture/ops/perf-monitoring-vercel-speed-insights.md) | active | Vercel Speed Insights captures Real-User Monitoring Web Vitals on every |
 | [`release-cadence`](./decisions/architecture/ops/release-cadence.md) | active | Every app rides a weekly release train on Wednesday 9 AM IST via a workspace-level |
 | [`seo-a11y-cdn-ssl`](./decisions/architecture/ops/seo-a11y-cdn-ssl.md) | active | Multi-engine SEO (Google + Bing + Yandex + IndexNow auto-submission)\ |
@@ -341,7 +341,7 @@ status: active
 
 | File | Status | Description |
 |---|---|---|
-| [`agent-skills-monorepo`](./decisions/architecture/general/agent-skills-monorepo.md) | active | Single source of truth for all agent skills used by both Claude Code |
+| [`agent-skills-monorepo`](./decisions/architecture/general/agent-skills-monorepo.md) | active | Single source of truth for all agent skills used by both the AI agent |
 | [`auto-tracking-everywhere`](./decisions/architecture/general/auto-tracking-everywhere.md) | active | Locked 2026-06-20: every tracked metric in the chirag127/oriz family\ |
 | [`bug-tracker-github-issues-only`](./decisions/architecture/general/bug-tracker-github-issues-only.md) | active | Locked 2026-06-20: every site / extension / package / worker / data\ |
 | [`chrome-config-contract`](./decisions/architecture/general/chrome-config-contract.md) | active | Locked: generic components driven by 4 per-site config files; 3-level\ |
@@ -898,7 +898,6 @@ status: active
 | [`bitbucket-mirror`](./services/hosting/bitbucket-mirror.md) | Bitbucket Cloud (Atlassian) is mirror host #3. Free: unlimited private\ |
 | [`cloudflare-pages`](./services/hosting/cloudflare-pages.md) | Primary static host for every oriz site — unlimited bandwidth, free forever. |
 | [`codeberg-mirror`](./services/hosting/codeberg-mirror.md) | Codeberg.org (Forgejo) is mirror host #2. FOSS-mission non-profit git\ |
-| [`codecommit-mirror`](./services/hosting/codecommit-mirror.md) | AWS CodeCommit returned to full GA on November 24, 2025 (was briefly |
 | [`firebase-hosting`](./services/hosting/firebase-hosting.md) | REJECTED — Spark daily bandwidth cap shifted to 360 MB/day shared, too tight. |
 | [`gitflic-mirror`](./services/hosting/gitflic-mirror.md) | GitFlic.ru is mirror host #4. Russian-hosted git platform with free |
 | [`github-pages`](./services/hosting/github-pages.md) | Survival fallback static host — the second-account-equivalent every oriz site mirrors to. |

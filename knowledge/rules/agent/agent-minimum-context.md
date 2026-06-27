@@ -1,7 +1,7 @@
 ---
 type: rule
 title: "Agent minimum-context protocol \u2014 find before deriving"
-meta_description: 'How any AI agent (Claude Code, Aider, Cursor, etc.) operates on
+meta_description: 'How any AI agent (the AI agent, Aider, Cursor, etc.) operates on
   this repo with minimum upfront token cost. Five protocol steps: (1) read knowledge/_navigation.md
   FIRST for any decision-shaped question; (2) grep knowledge/ for existing rules before
   writing new ones; (3) keep new knowledge files terse and self-contained (~60 lines,
@@ -108,12 +108,12 @@ Per [[rules/self-update-rule]], when a chat-decision lands, the knowledge file l
 | Add an env / secret | [[decisions/security/sops-plus-doppler-hybrid]] → [[rules/git-identity-chirag127-noreply]] |
 | Change repo / folder layout | [[decisions/architecture/projects-owner-own-forks-layout]] |
 | Decide where a repo lives (owner / brand vs personal) | [[decisions/branding/keep-oriz-org-recruiter-via-pinning]] → [[rules/recruiter-strategy]] |
-| Mirror / back up code or metadata | [[decisions/architecture/mirror-to-6-git-hosts]] → [[runbooks/backup-metadata-to-b2]] → [[decisions/architecture/backup-channels-alternative]] |
+| Mirror / back up code or metadata | [[decisions/architecture/ops/mirror-to-5-popular-alternatives-2026-06-28]] → [[runbooks/backup-metadata-to-b2]] → [[decisions/architecture/backup-channels-alternative]] |
 | Write a userscript | [[decisions/architecture/userscript-prototype-via-tweeks]] → develop-userscripts skill |
 | Download a Chrome extension's source | `scripts/download-cws-extension.mjs <EXT_ID>` |
 | Decide which AI / LLM provider for a feature | [[decisions/architecture/ai-puter-plus-cf-workers-ai]] + scan `services/llm/*` |
 | Set up payments | [[decisions/monetisation/max-payment-methods]] → [[decisions/architecture/razorpay-donation-button]] |
-| Pick a hosting target | [[rules/cloudflare-pages-apps-only]] + scan `services/hosting/*` |
+| Pick a hosting target | [[rules/hosting-split-cf-and-github-pages]] + scan `services/hosting/*` |
 | Name a new repo | [[decisions/branding/repo-naming-suffixes]] |
 
 ## Anti-patterns

@@ -16,7 +16,7 @@ timestamp: 2026-06-24
 format_version: okf-v0.1
 status: active
 related:
-- decisions/architecture/ops/mirror-to-6-git-hosts
+- decisions/architecture/ops/mirror-to-5-popular-alternatives-2026-06-28
 - runbooks/hosting/mirror-all-hosts-setup
 - rules/infrastructure/free-tier-with-cost-controls
 - rules/interaction/no-card-on-file
@@ -116,5 +116,5 @@ https://oauth2:${MIRROR_GITLAB_TOKEN}@gitlab.com/${MIRROR_GITLAB_USERNAME}/${REP
 ## Cross-refs
 
 - Full setup → [`../../../runbooks/mirror-all-hosts-setup.md`](../../runbooks/hosting/mirror-all-hosts-setup.md)
-- 6-host mirror decision → [`../../decisions/architecture/mirror-to-6-git-hosts.md`](../../decisions/architecture/ops/mirror-to-6-git-hosts.md)
+- 5-host mirror decision → [`../../decisions/architecture/ops/mirror-to-5-popular-alternatives-2026-06-28.md`](../../decisions/architecture/ops/mirror-to-5-popular-alternatives-2026-06-28.md)
 - Workflow → <!-- TODO: broken link, was [`../../../.github/workflows/mirror-all.yml`](../../.github/workflows/mirror-all.yml) -->

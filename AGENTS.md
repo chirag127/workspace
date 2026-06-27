@@ -6,6 +6,23 @@
 
 ---
 
+## Always-loaded rules (auto-imported every session)
+
+These 6 files inline into the agent context on every session. They govern *every* response. Everything else in `knowledge/` is on-demand — read when the topic comes up, via `knowledge/index.md`.
+
+@knowledge/rules/agent/ponytail.md
+@knowledge/rules/agent/caveman.md
+@knowledge/rules/agent/self-update-rule.md
+@knowledge/rules/agent/preferences/edit-mode-prefs.md
+@knowledge/rules/interaction/future-overrides-past.md
+@knowledge/rules/interaction/communication-stt-friendly.md
+
+**Lazy-loaded** — read on first knowledge access, not auto-imported:
+- [`knowledge/rules/agent/agent-minimum-context.md`](./knowledge/rules/agent/agent-minimum-context.md) — meta-protocol for navigating `knowledge/`. Read this BEFORE the first grep/read in `knowledge/` each session.
+- [`knowledge/rules/agent/read-before-edit.md`](./knowledge/rules/agent/read-before-edit.md) — harness already enforces; read only if a Read/Edit error needs context.
+
+---
+
 ## TL;DR — the 5 things that matter most
 
 1. **`oriz` is a polyrepo with 20 submodules under `repos/{own,frk}/<slug>/`.** Originals in `own/`, forks in `frk/`. Post-scope-cut (2026-06-25): only shipping content survives. See [`knowledge/decisions/architecture/fleet/scope-cut-2026-06-25.md`](./knowledge/decisions/architecture/fleet/scope-cut-2026-06-25.md).
@@ -50,68 +67,9 @@ When working in this workspace, every agent picks up this file. Agent-specific o
 
 ---
 
-## Agent rules (inlined — no plugin install)
+## Agent disciplines (Ponytail, Caveman)
 
-Two prompt-engineering disciplines that all agents follow in this workspace. **These are rules, not skills/plugins.** Summaries inlined here so any agent reading `AGENTS.md` picks them up. Full rule text lives in `knowledge/rules/agent/` (linked per section).
-
-### Ponytail — lazy senior dev (output discipline)
-
-ACTIVE EVERY RESPONSE for code generation. The best code is the code never written.
-
-Full rule: [`knowledge/rules/agent/ponytail.md`](./knowledge/rules/agent/ponytail.md). Summary below.
-
-**The ladder** — stop at the first rung that holds:
-
-1. **Does this need to exist at all?** Speculative need = skip it, say so in one line. (YAGNI)
-2. **Already in this codebase?** A helper, util, type, or pattern that already lives here → reuse it.
-3. **Stdlib does it?** Use it.
-4. **Native platform feature covers it?** `<input type="date">` over a picker lib, CSS over JS, DB constraint over app code.
-5. **Already-installed dependency solves it?** Use it. Never add a new one for what a few lines can do.
-6. **Can it be one line?** One line.
-7. **Only then:** the minimum code that works.
-
-Read the task and trace the real flow end-to-end FIRST. The ladder runs AFTER you understand the problem.
-
-**Rules:**
-- No unrequested abstractions (no interface with one impl, no factory for one product).
-- No boilerplate "for later" — later can scaffold for itself.
-
-**Output pattern:** `[code] → skipped: [X], add when [Y].` Code first, ≤3 short lines of explanation. If explanation > code, delete the explanation.
-
-**When NOT to be lazy:**
-- **Never simplify away** input validation at trust boundaries, error handling that prevents data loss, or anything the user explicitly requested.
-- **Never lazy about understanding the problem.** Ask MCQ questions liberally to clarify intent. The ladder shortens the *solution*, never the *reading*.
-- **Proactively suggest extra features** the user did not explicitly request — via MCQ, with each feature as a separate option. Don't wait to be asked.
-
-Source: [DietrichGebert/ponytail](https://github.com/DietrichGebert/ponytail) — MIT, adapted.
-
-### Caveman — terse prose (token compression)
-
-ACTIVE EVERY RESPONSE for prose only. Code/commits/PRs written normally.
-
-Full rule: [`knowledge/rules/agent/caveman.md`](./knowledge/rules/agent/caveman.md). Summary below.
-
-**Rules:**
-- Drop articles (a/an/the), filler (just/really/basically/actually/simply), pleasantries (sure/certainly/of course), hedging.
-- Fragments OK. Short synonyms (big not extensive, fix not "implement a solution for").
-- Standard acronyms OK (DB/API/HTTP); never invent new abbreviations.
-- Technical terms exact. Code blocks unchanged. Errors quoted exact.
-- No tool-call narration, no decorative tables/emoji, no long raw error logs unless asked.
-- Preserve user's dominant language (compress style, not language).
-- Never name or announce the style. No "caveman mode on" headers. Output caveman-only.
-
-**Pattern:** `[thing] [action] [reason]. [next step].`
-
-❌ "Sure! I'd be happy to help you with that. The issue you're experiencing is likely caused by..."
-✅ "Bug in auth middleware. Token expiry check use `<` not `<=`. Fix:"
-
-**Drop terse mode when:**
-- Irreversible action confirmations (rm -rf, git push --force, drop table, deploy to prod).
-- Multi-step sequences where fragment order or omitted conjunctions risk misread.
-
-Resume terse after the clear part.
-
-Source: [JuliusBrussee/caveman](https://github.com/JuliusBrussee/caveman) — MIT, adapted.
+Two prompt-engineering disciplines auto-loaded above via `@knowledge/rules/agent/ponytail.md` and `@knowledge/rules/agent/caveman.md`. Don't repeat the rule text here — read those files.
 
 ---
 
@@ -241,7 +199,7 @@ Read [`knowledge/decisions/architecture/`](./knowledge/decisions/architecture/) 
 | `infrastructure/` | 3 | `hosting-split-cf-and-gh-2026-06-25`, `umbrella-as-clone-entrypoint-2026-06-25`, `workspace-flat-repos-2026-06-25` |
 | `knowledge-bundle/` | 1 | `depth-5-level-hierarchy` |
 | `monetisation/` | 1 | `donations-only-2026-06-25` |
-| `ops/` | 17 | `analytics-five-tier-stack`, `mirror-to-6-git-hosts`, `backup-restic-to-b2`, `seo-three-pillars` |
+| `ops/` | 17 | `analytics-five-tier-stack`, `mirror-to-5-popular-alternatives-2026-06-28`, `backup-restic-to-b2`, `seo-three-pillars` |
 | `packages/` | 9 | `the-23-packages` (largely SUPERSEDED by zero-in-house-packages), `oriz-ai-providers-package`, `omni-publish-package` |
 | `packaging/` | 1 | `zero-in-house-packages-inline-analytics-2026-06-25` |
 | `security/` | 7 | `no-auth-in-apps-or-apis-2026-06-25`, `cross-site-auth-via-auth-oriz-in`, `payment-architecture-direct-links` |

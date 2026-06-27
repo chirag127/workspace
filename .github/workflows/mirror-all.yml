@@ -1,10 +1,10 @@
-name: Mirror to 6 git hosts
+name: Mirror to 5 git hosts
 # Master cron — every Friday 03:30 IST (Thursday 22:00 UTC).
-# Pushes ALL repos from oriz-org + chirag127 to 6 mirror hosts.
-# Hosts: GitLab.com, Codeberg.org, Bitbucket Cloud, GitFlic.ru, Azure DevOps, AWS CodeCommit.
+# Pushes ALL repos/own/* submodules to 5 popular GitHub-alternative hosts.
+# Hosts: GitLab.com, Codeberg.org, Bitbucket Cloud, GitFlic.ru, Azure DevOps.
 # Insurance against GitHub becoming unusable.
-# See knowledge/decisions/architecture/mirror-to-6-git-hosts.md
-# Setup runbook: knowledge/runbooks/mirror-all-hosts-setup.md
+# See knowledge/decisions/architecture/ops/mirror-to-5-popular-alternatives-2026-06-28.md
+# Setup runbook: knowledge/runbooks/hosting/mirror-all-hosts-setup.md
 
 on:
   schedule:
@@ -15,36 +15,35 @@ permissions:
   contents: read
 
 jobs:
-  # ── Step 1: Discover all repos (oriz-org + chirag127 personal) ─────────────
+  # ── Step 1: Discover repos/own/* submodules from .gitmodules ───────────────
   discover:
     runs-on: ubuntu-latest
     outputs:
       repos: ${{ steps.collect.outputs.repos }}
     steps:
-      - name: Collect repos from oriz-org and chirag127
+      - name: Checkout workspace
+        uses: actions/checkout@v4
+      - name: Collect repos/own/* submodules from .gitmodules
         id: collect
-        env:
-          GH_TOKEN: ${{ secrets.GH_ADMIN_PAT }}
         run: |
-          # Org repos
-          ORG_REPOS=$(gh repo list oriz-org --limit 500 --json nameWithOwner,name,isPrivate \
-            -q '[.[] | select(.isPrivate == false) | {full: .nameWithOwner, name: .name}]')
-
-          # Personal repos (chirag127 — only those owned by chirag127, not forks or collaborator)
-          # ALSO filter out private repos — they're personal/sensitive and don't belong on public mirrors.
-          PERSONAL_REPOS=$(gh repo list chirag127 --limit 500 --json nameWithOwner,name,isPrivate \
-            -q '[.[] | select(.isPrivate == false) | {full: .nameWithOwner, name: .name}]')
-
-          # Explicit exclusion list — defense in depth.
-          # Anything matching these names is dropped even if it appears public.
-          # See knowledge/decisions/policy/private-repos-excluded-from-mirror-cron.md
-          EXCLUDE='["secrets", "Recovery-codes", "recovery-codes", "envpact-secrets"]'
-
-          # Merge both arrays + apply exclusion
-          ALL=$(echo "$ORG_REPOS $PERSONAL_REPOS" | jq -s --argjson excl "$EXCLUDE" \
-            'add | unique_by(.name) | map(select(.name as $n | $excl | index($n) | not))')
-          echo "Total repos to mirror: $(echo "$ALL" | jq 'length')"
-          echo "repos=$ALL" >> $GITHUB_OUTPUT
+          # Parse .gitmodules — keep only entries whose path starts with repos/own/.
+          # Mirror scope = own originals only. Forks (repos/frk/*) skipped —
+          # upstream already mirrors them; we only patched local copies.
+          REPOS=$(awk '
+            /^\[submodule/ { path=""; url="" }
+            /^[[:space:]]*path[[:space:]]*=/ { sub(/^[^=]*=[[:space:]]*/, ""); path=$0 }
+            /^[[:space:]]*url[[:space:]]*=/  { sub(/^[^=]*=[[:space:]]*/, ""); url=$0
+              if (path ~ /^repos\/own\//) {
+                # Extract repo name from path (basename) and owner/name from URL
+                n=split(path, p, "/"); name=p[n]
+                # owner/name from URL: strip protocol, host, and trailing .git
+                sub(/^https:\/\/github\.com\//, "", url); sub(/\.git$/, "", url)
+                printf "{\"full\":\"%s\",\"name\":\"%s\"}\n", url, name
+              }
+            }
+          ' .gitmodules | jq -s 'unique_by(.name)')
+          echo "Total repos/own/* to mirror: $(echo "$REPOS" | jq 'length')"
+          echo "repos=$(echo "$REPOS" | jq -c)" >> $GITHUB_OUTPUT
 
   # ── Step 2: Mirror to each host in parallel ────────────────────────────────
   mirror:
@@ -81,11 +80,6 @@ jobs:
             token_var: MIRROR_AZURE_DEVOPS_TOKEN
             user_var: MIRROR_AZURE_DEVOPS_ORG
             token_type: azure
-          - name: codecommit
-            url_prefix: https://USER:TOKEN@git.codecommit.REGION.amazonaws.com/v1/repos
-            token_var: MIRROR_CODECOMMIT_PASSWORD
-            user_var: MIRROR_CODECOMMIT_USERNAME
-            token_type: codecommit
 
     steps:
       - name: Mirror all repos to ${{ matrix.host.name }}
@@ -101,18 +95,10 @@ jobs:
           # Azure-specific
           ADO_ORG: ${{ secrets.MIRROR_AZURE_DEVOPS_ORG }}
           ADO_PROJECT: ${{ secrets.MIRROR_AZURE_DEVOPS_PROJECT }}
-          # CodeCommit-specific
-          CC_REGION: ${{ secrets.MIRROR_CODECOMMIT_REGION }}
-          CC_USER: ${{ secrets.MIRROR_CODECOMMIT_USERNAME }}
-          CC_PASS: ${{ secrets.MIRROR_CODECOMMIT_PASSWORD }}
-          AWS_ACCESS_KEY_ID: ${{ secrets.MIRROR_AWS_ACCESS_KEY_ID }}
-          AWS_SECRET_ACCESS_KEY: ${{ secrets.MIRROR_AWS_SECRET_ACCESS_KEY }}
         run: |
           set -e
           STATUS_FILE=/tmp/mirror-${HOST_NAME}-status.txt
           : > "$STATUS_FILE"
-
-          pip install git-remote-codecommit --quiet 2>/dev/null || true
 
           echo "$REPOS" | jq -r '.[].full' | while read -r FULL_NAME; do
             REPO_NAME=$(basename "$FULL_NAME")
@@ -122,7 +108,6 @@ jobs:
             case "$TOKEN_TYPE" in
               gitlab)
                 MIRROR_URL="https://oauth2:${HOST_TOKEN}@gitlab.com/${HOST_USER}/${REPO_NAME}.git"
-                # Create repo (idempotent)
                 curl -s -o /dev/null -X POST "https://gitlab.com/api/v4/projects" \
                   -H "PRIVATE-TOKEN: ${HOST_TOKEN}" \
                   -H "Content-Type: application/json" \
@@ -130,7 +115,6 @@ jobs:
                 ;;
               forgejo)
                 MIRROR_URL="https://${HOST_USER}:${HOST_TOKEN}@codeberg.org/${HOST_USER}/${REPO_NAME}.git"
-                # Create repo (idempotent)
                 curl -s -o /dev/null -X POST "https://codeberg.org/api/v1/user/repos" \
                   -H "Authorization: token ${HOST_TOKEN}" \
                   -H "Content-Type: application/json" \
@@ -138,7 +122,6 @@ jobs:
                 ;;
               bitbucket)
                 MIRROR_URL="https://${HOST_USER}:${HOST_TOKEN}@bitbucket.org/${HOST_USER}/${REPO_NAME}.git"
-                # Create repo (idempotent)
                 curl -s -o /dev/null -X POST \
                   -H "Authorization: Bearer ${HOST_TOKEN}" \
                   -H "Content-Type: application/json" \
@@ -147,16 +130,13 @@ jobs:
                 ;;
               gitflic)
                 MIRROR_URL="https://${HOST_USER}:${HOST_TOKEN}@gitflic.ru/project/${HOST_USER}/${REPO_NAME}.git"
-                # Create repo (idempotent)
                 curl -s -o /dev/null -X POST "https://api.gitflic.ru/project" \
                   -H "Authorization: token ${HOST_TOKEN}" \
                   -H "Content-Type: application/json" \
                   -d "{\"title\":\"${REPO_NAME}\",\"alias\":\"${REPO_NAME}\",\"private\":false}" || true
                 ;;
               azure)
-                # Azure DevOps URL: https://x:PAT@dev.azure.com/org/project/_git/repo
                 MIRROR_URL="https://x:${HOST_TOKEN}@dev.azure.com/${ADO_ORG}/${ADO_PROJECT}/_git/${REPO_NAME}"
-                # Create repo (idempotent — get project ID first)
                 if [ -z "$ADO_PROJECT_ID" ]; then
                   ADO_PROJECT_ID=$(curl -s -u ":${HOST_TOKEN}" \
                     "https://dev.azure.com/${ADO_ORG}/_apis/projects/${ADO_PROJECT}?api-version=7.1" \
@@ -168,20 +148,11 @@ jobs:
                   -d "{\"name\":\"${REPO_NAME}\",\"project\":{\"id\":\"${ADO_PROJECT_ID}\"}}" \
                   "https://dev.azure.com/${ADO_ORG}/${ADO_PROJECT}/_apis/git/repositories?api-version=7.1" || true
                 ;;
-              codecommit)
-                MIRROR_URL="https://${CC_USER}:${CC_PASS}@git.codecommit.${CC_REGION}.amazonaws.com/v1/repos/${REPO_NAME}"
-                # Create repo via AWS CLI (idempotent)
-                aws codecommit create-repository \
-                  --repository-name "${REPO_NAME}" \
-                  --region "${CC_REGION}" 2>/dev/null || true
-                ;;
             esac
 
-            # Clone source from GitHub
             TMP_DIR="/tmp/mirror-${REPO_NAME}-$$"
             if git clone --mirror "https://x-access-token:${GH_TOKEN}@github.com/${FULL_NAME}.git" "$TMP_DIR" 2>&1 | tail -3; then
               cd "$TMP_DIR"
-              # Push mirror
               if git push --mirror --force-with-lease "$MIRROR_URL" 2>&1 | tail -3; then
                 echo "✓ $FULL_NAME" >> "$STATUS_FILE"
               else
@@ -233,5 +204,5 @@ jobs:
         run: |
           curl -s -X POST "https://api.telegram.org/bot${BOT_TOKEN}/sendMessage" \
             -d "chat_id=${CHAT_ID}" \
-            -d "text=📦 Weekly 6-host mirror complete: $(date -u '+%Y-%m-%d')%0Ahosts: GitLab ✓ Codeberg ✓ Bitbucket ✓ GitFlic ✓ AzureDevOps ✓ CodeCommit ✓" \
+            -d "text=📦 Weekly 5-host mirror complete: $(date -u '+%Y-%m-%d')%0Ahosts: GitLab ✓ Codeberg ✓ Bitbucket ✓ GitFlic ✓ AzureDevOps ✓" \
             -d "disable_notification=false" || true

@@ -21,7 +21,7 @@ format_version: okf-v0.1
 status: active
 related:
 - decisions/architecture/ops/backup-channels-alternative
-- decisions/architecture/ops/mirror-to-6-git-hosts
+- decisions/architecture/ops/mirror-to-5-popular-alternatives-2026-06-28
 - rules/infrastructure/free-tier-with-cost-controls
 - rules/interaction/no-card-on-file
 ---
@@ -32,11 +32,11 @@ related:
 
 ## What this solves
 
-The 6-host mirror cron (`mirror-all.yml`) preserves **git history** — code, branches, tags, commits — across GitLab/Codeberg/Bitbucket/GitFlic/Azure DevOps/AWS CodeCommit. It does NOT capture GitHub-only metadata: issues, PR conversations, wiki pages, release binaries, milestones, labels, projects. This runbook adds a second weekly cron that uses the GitHub Migration API to grab a `.tar.gz` per repo with all of that data + uploads to B2.
+The 5-host mirror cron (`mirror-all.yml`) preserves **git history** — code, branches, tags, commits — across GitLab/Codeberg/Bitbucket/GitFlic/Azure DevOps/AWS CodeCommit. It does NOT capture GitHub-only metadata: issues, PR conversations, wiki pages, release binaries, milestones, labels, projects. This runbook adds a second weekly cron that uses the GitHub Migration API to grab a `.tar.gz` per repo with all of that data + uploads to B2.
 
 ## What this is NOT
 
-Not a code backup — code is in the 6-host mirrors. Don't conflate the two.
+Not a code backup — code is in the 5-host mirrors. Don't conflate the two.
 
 ## Prerequisites
 
@@ -234,6 +234,6 @@ jobs:
 ## Cross-refs
 
 - backup channels catalog: [[decisions/architecture/backup-channels-alternative]]
-- 6-host code mirror: [[decisions/architecture/mirror-to-6-git-hosts]]
+- 5-host code mirror: [[decisions/architecture/ops/mirror-to-5-popular-alternatives-2026-06-28]]
 - existing mirror workflow: `.github/workflows/mirror-all.yml`
 - existing setup runbook: [[runbooks/mirror-all-hosts-setup]]

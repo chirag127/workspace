@@ -1,13 +1,13 @@
 ---
 type: runbook
 title: "Mirror all hosts setup \u2014 one-time token generation + repo pre-creation\
-  \ for all 6 hosts"
-description: 'One-time setup runbook to configure the 6-host automatic git mirror
-  for oriz-org and chirag127. Covers: token generation for GitLab, Codeberg, Bitbucket
-  (API Token, NOT App Password), GitFlic, Azure DevOps, and AWS CodeCommit; pre-creating
-  mirror repos on each host; storing tokens at chirag127 GitHub org level; and running
-  the first dry-run. All steps automated except the token generation (browser UI).
-  No manual recurring sync.'
+  \ for the 5 popular hosts"
+description: 'One-time setup runbook to configure the 5-host automatic git mirror
+  for repos/own/* submodules. Covers: token generation for GitLab, Codeberg, Bitbucket
+  (API Token, NOT App Password), GitFlic, and Azure DevOps; pre-creating mirror repos
+  on each host; storing tokens at chirag127 GitHub org level; and running the first
+  dry-run. All steps automated except the token generation (browser UI). No manual
+  recurring sync.'
 tags:
 - runbook
 - mirror
@@ -17,14 +17,13 @@ tags:
 - bitbucket
 - gitflic
 - azure-devops
-- codecommit
 - secrets
 - setup
-timestamp: 2026-06-24
+timestamp: 2026-06-28
 format_version: okf-v0.1
 status: active
 related:
-- decisions/architecture/ops/mirror-to-6-git-hosts
+- decisions/architecture/ops/mirror-to-5-popular-alternatives-2026-06-28
 - rules/security/github-org-level-secrets
 - rules/infrastructure/free-tier-with-cost-controls
 - rules/interaction/no-card-on-file
@@ -34,14 +33,13 @@ related:
 - services/hosting/bitbucket-mirror
 - services/hosting/gitflic-mirror
 - services/hosting/azure-devops-mirror
-- services/hosting/codecommit-mirror
 ---
 
 
 
 # Mirror all hosts setup — one-time
 
-Complete setup guide for the 6-host automatic git mirror strategy. Run this
+Complete setup guide for the 5-host automatic git mirror strategy. Run this
 once per org (or after a full token rotation). Recurring mirror runs via
 `mirror-all.yml` cron automatically — no further manual steps.
 
@@ -50,12 +48,11 @@ once per org (or after a full token rotation). Recurring mirror runs via
 - `gh` CLI authenticated as admin of `chirag127` org
 - `doppler` CLI authenticated
 - Browser access for token generation steps
-- `aws` CLI installed (for CodeCommit repo creation)
 - `jq` installed
 
 ---
 
-## Step 1: Generate 6 host tokens (browser — one-time per host)
+## Step 1: Generate 5 host tokens (browser — one-time per host)
 
 ### 1A. GitLab.com — Personal Access Token
 
@@ -130,25 +127,6 @@ once per org (or after a full token rotation). Recurring mirror runs via
    doppler secrets set MIRROR_AZURE_DEVOPS_PROJECT --config prd  # e.g. mirrors
    ```
 
-### 1F. AWS CodeCommit — IAM HTTPS Git Credentials
-
-1. Log in at <https://console.aws.amazon.com/iam/>
-2. Go to **IAM → Users → select your user → Security credentials** tab
-3. Scroll to **HTTPS Git credentials for AWS CodeCommit** → **Generate credentials**
-4. Copy username + password immediately
-5. Choose region (e.g. `us-east-1`)
-6. Also create IAM Access Keys for `aws codecommit create-repository`:
-   - IAM → Users → Security credentials → Access keys → Create access key
-   - Purpose: CLI usage
-7. Save to Doppler:
-   ```bash
-   doppler secrets set MIRROR_CODECOMMIT_USERNAME --config prd
-   doppler secrets set MIRROR_CODECOMMIT_PASSWORD --config prd
-   doppler secrets set MIRROR_CODECOMMIT_REGION --config prd      # e.g. us-east-1
-   doppler secrets set MIRROR_AWS_ACCESS_KEY_ID --config prd
-   doppler secrets set MIRROR_AWS_SECRET_ACCESS_KEY --config prd
-   ```
-
 ---
 
 ## Step 2: Store all tokens at chirag127 GitHub org level
@@ -168,14 +146,10 @@ SECRETS=(
   MIRROR_BITBUCKET_API_TOKEN
   MIRROR_BITBUCKET_USERNAME
   MIRROR_GITFLIC_TOKEN
+  MIRROR_GITFLIC_USERNAME
   MIRROR_AZURE_DEVOPS_TOKEN
   MIRROR_AZURE_DEVOPS_ORG
   MIRROR_AZURE_DEVOPS_PROJECT
-  MIRROR_CODECOMMIT_USERNAME
-  MIRROR_CODECOMMIT_PASSWORD
-  MIRROR_CODECOMMIT_REGION
-  MIRROR_AWS_ACCESS_KEY_ID
-  MIRROR_AWS_SECRET_ACCESS_KEY
 )
 
 for NAME in "${SECRETS[@]}"; do
@@ -193,14 +167,14 @@ gh secret list --org chirag127 | grep -E '^MIRROR_'
 
 ## Step 3: Pre-create mirror repos on each host
 
-This script reads all repos from `oriz-org` and `chirag127` via `gh` CLI
-and creates empty target repos on each of the 6 hosts. Idempotent — 409/4xx
-errors on existing repos are ignored.
+This script reads `repos/own/*` submodules from `.gitmodules` and creates
+empty target repos on each of the 5 hosts. Idempotent — 409/4xx errors on
+existing repos are ignored.
 
 ```bash
 #!/bin/bash
 # pre-create-mirror-repos.sh
-# Run from c:/D/oriz — requires gh CLI, curl, aws CLI, jq, doppler
+# Run from c:/D/oriz — requires curl, jq, doppler
 
 set -e
 
@@ -212,23 +186,22 @@ CODEBERG_USER=$(doppler secrets get MIRROR_CODEBERG_USERNAME --plain --config pr
 BB_TOKEN=$(doppler secrets get MIRROR_BITBUCKET_API_TOKEN --plain --config prd)
 BB_USER=$(doppler secrets get MIRROR_BITBUCKET_USERNAME --plain --config prd)
 GITFLIC_TOKEN=$(doppler secrets get MIRROR_GITFLIC_TOKEN --plain --config prd)
+GITFLIC_USER=$(doppler secrets get MIRROR_GITFLIC_USERNAME --plain --config prd)
 ADO_TOKEN=$(doppler secrets get MIRROR_AZURE_DEVOPS_TOKEN --plain --config prd)
 ADO_ORG=$(doppler secrets get MIRROR_AZURE_DEVOPS_ORG --plain --config prd)
 ADO_PROJECT=$(doppler secrets get MIRROR_AZURE_DEVOPS_PROJECT --plain --config prd)
-CC_REGION=$(doppler secrets get MIRROR_CODECOMMIT_REGION --plain --config prd)
-AWS_KEY=$(doppler secrets get MIRROR_AWS_ACCESS_KEY_ID --plain --config prd)
-AWS_SECRET=$(doppler secrets get MIRROR_AWS_SECRET_ACCESS_KEY --plain --config prd)
 
-# Collect all repo names
-echo "Collecting repo list..."
-REPOS_JSON=$(
-  {
-    gh repo list oriz-org --limit 500 --json name -q '.[].name'
-    gh repo list chirag127 --limit 500 --json name -q '.[].name'
-  } | sort -u
-)
+# Collect repos/own/* submodule names from .gitmodules
+echo "Collecting repos/own/* submodules..."
+REPOS_JSON=$(awk '
+  /^\[submodule/ { path="" }
+  /^[[:space:]]*path[[:space:]]*=/ { sub(/^[^=]*=[[:space:]]*/, ""); path=$0
+    if (path ~ /^repos\/own\//) { n=split(path, p, "/"); print p[n] }
+  }
+' .gitmodules)
 
 echo "$REPOS_JSON" | while read -r REPO_NAME; do
+  [ -z "$REPO_NAME" ] && continue
   echo "--- Creating mirrors for: $REPO_NAME ---"
 
   # GitLab
@@ -273,14 +246,7 @@ echo "$REPOS_JSON" | while read -r REPO_NAME; do
     "https://dev.azure.com/${ADO_ORG}/${ADO_PROJECT}/_apis/git/repositories?api-version=7.1" || true
   sleep 0.3
 
-  # AWS CodeCommit
-  AWS_ACCESS_KEY_ID="$AWS_KEY" AWS_SECRET_ACCESS_KEY="$AWS_SECRET" \
-    aws codecommit create-repository \
-      --repository-name "${REPO_NAME}" \
-      --region "${CC_REGION}" 2>/dev/null || true
-  sleep 0.3
-
-  echo "✓ $REPO_NAME pre-created on all 6 hosts"
+  echo "✓ $REPO_NAME pre-created on all 5 hosts"
 done
 
 echo ""
@@ -332,9 +298,9 @@ When a token expires or is compromised:
 
 ## See also
 
-- Mirror decision → [`../decisions/architecture/mirror-to-6-git-hosts.md`](../../decisions/architecture/ops/mirror-to-6-git-hosts.md)
+- Mirror decision → [`../../decisions/architecture/ops/mirror-to-5-popular-alternatives-2026-06-28.md`](../../decisions/architecture/ops/mirror-to-5-popular-alternatives-2026-06-28.md)
 - Org secrets rule → [`../rules/security/github-org-level-secrets.md`](../../rules/security/github-org-level-secrets.md)
 - Set org secrets → [`./set-github-org-level-secrets.md`](../security/set-github-org-level-secrets.md)
 - Rotate leaked secret → [`./rotate-leaked-secret.md`](../security/rotate-leaked-secret.md)
-- Service files per host → [`../services/hosting/`](../../services/hosting)
-- Workflow file → <!-- TODO: broken link, was [`../../.github/workflows/mirror-all.yml`](../../.github/workflows/mirror-all.yml) -->
+- Service files per host → [`../../services/hosting/`](../../services/hosting)
+- Workflow file → `.github/workflows/mirror-all.yml`

@@ -1,13 +1,13 @@
 ---
 type: decision
-title: "Private repos are excluded from the 6-host mirror cron"
+title: "Private repos are excluded from the 5-host mirror cron"
 description: "The .github/workflows/mirror-all.yml cron pushes every public repo from oriz-org + chirag127 to 6 mirror hosts. Private repos (oriz-org/secrets and any other isPrivate=true repo) are FILTERED OUT at discovery time via gh-list's isPrivate filter PLUS an explicit name-based exclusion list. Defense in depth: if GitHub ever wrongly reports a private repo as public, the name-list still drops it. Adding a new private repo to the family means: (1) create it as private, (2) verify the discover step filters it, (3) optionally add its name to the explicit EXCLUDE list, (4) only THEN add as a submodule to the umbrella."
 tags: [decision, policy, mirror, private, secrets, security]
 timestamp: 2026-06-24
 format_version: okf-v0.1
 status: active
 related:
-  - decisions/architecture/mirror-to-6-git-hosts
+  - decisions/architecture/ops/mirror-to-5-popular-alternatives-2026-06-28
   - rules/submodule-env-files-three-file-pattern
   - decisions/security/sops-plus-doppler-hybrid
 ---
@@ -16,7 +16,7 @@ related:
 
 ## Decision
 
-The 6-host mirror cron in `.github/workflows/mirror-all.yml` MUST NOT push private repos to public mirror hosts. Two filters in series:
+The 5-host mirror cron in `.github/workflows/mirror-all.yml` MUST NOT push private repos to public mirror hosts. Two filters in series:
 
 1. **gh list `isPrivate` filter** — the `gh repo list` calls in the discover step filter by `isPrivate == false`. Public repos only.
 2. **Explicit name EXCLUDE list** — even if a repo is mis-flagged as public, its name in this hardcoded list drops it. Defense in depth.
@@ -63,6 +63,6 @@ The name-list catches all three. Cost of maintaining two filters: 0 (just add th
 
 ## Cross-refs
 
-- The mirror decision: [[decisions/architecture/mirror-to-6-git-hosts]]
+- The mirror decision: [[decisions/architecture/ops/mirror-to-5-popular-alternatives-2026-06-28]]
 - The mirror workflow itself: `.github/workflows/mirror-all.yml` (umbrella root)
 - The secrets repo this rule primarily protects: [oriz-org/secrets](https://github.com/oriz-org/secrets) (private)

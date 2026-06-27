@@ -9,7 +9,7 @@ status: active
 related:
   - decisions/policy/forked-extension-cws-rules
   - decisions/architecture/userscript-prototype-via-tweeks
-  - decisions/architecture/mirror-to-6-git-hosts
+  - decisions/architecture/ops/mirror-to-5-popular-alternatives-2026-06-28
   - rules/fork-discipline
 ---
 
