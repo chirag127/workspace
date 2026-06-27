@@ -18,22 +18,30 @@ related:
 
 **Goal**: every public `oriz-org/*` and `chirag127/*` repo gets pushed to N Git providers automatically. If one provider goes down or DMCAs us, the others stand.
 
-**Targets (locked 2026-06-28)**:
+**Targets (locked 2026-06-28)** — every **managed** (non-self-hosted) Git host:
 
 | # | Provider | URL pattern | Why |
 |---|---|---|---|
 | 1 | **GitHub** (primary) | `github.com/oriz-org/<slug>` | Where the work happens |
 | 2 | **GitLab Cloud** | `gitlab.com/oriz-org/<slug>` | Free unlimited public; mature CI |
-| 3 | **Codeberg** | `codeberg.org/oriz-org/<slug>` | German non-profit, EU jurisdiction, no AI training, no DMCA auto-execution |
-| 4 | **Bitbucket Cloud** | `bitbucket.org/oriz-org/<slug>` | Atlassian, free tier |
-| 5 | **Azure DevOps** (optional) | `dev.azure.com/oriz-org/<slug>` | Microsoft enterprise host; nice-to-have not must-have |
+| 3 | **Codeberg** | `codeberg.org/oriz-org/<slug>` | German non-profit, EU jurisdiction, no AI training |
+| 4 | **Bitbucket Cloud** | `bitbucket.org/oriz-org/<slug>` | Atlassian, free 5-user public |
+| 5 | **Azure DevOps** | `dev.azure.com/oriz-org/<slug>` | Microsoft enterprise host |
+| 6 | **GitFlic** | `gitflic.ru/oriz-org/<slug>` | Russian-hosted, relaxed DMCA |
+| 7 | **GitGud.io** | `gitgud.io/oriz-org/<slug>` | Sapphire.moe-hosted GitLab, fringe-friendly |
+| 8 | **Notabug.org** | `notabug.org/oriz-org/<slug>` | P2P-friendly, FOSS, minimal admin interference |
+| 9 | **SourceHut** | `git.sr.ht/~oriz-org/<slug>` | Hyper-minimalist, no JS, no tracking |
+| 10 | **Gitea.com** (hosted) | `gitea.com/oriz-org/<slug>` | Public Gitea instance (NOT self-host) |
+
+**Scope of mirroring**:
+- ✅ Only repos under `repos/own/*` in the umbrella (originals we authored)
+- ❌ NOT `repos/frk/*` (forks — upstream already exists elsewhere)
+- ❌ NOT private content (per public-only rule)
 
 **Skipped (and why)**:
 
-- Self-hosted Gitea/Forgejo — we don't run servers (per `cloud-dbs-as-caches` + no-self-host bias)
+- Self-hosted Gitea/Forgejo/GitLab CE — we don't run servers (per `cloud-dbs-as-caches` + no-self-host bias)
 - Radicle (P2P) — too niche, no web URL means no jsDelivr equivalent
-- SourceHut — email-first workflow doesn't fit our git push flow
-- GitFlic / GitGud / Notabug — fringe, not stable enough for primary infrastructure
 
 **Implementation**: GitHub Actions workflow in each repo that pushes to all 4 mirrors on every push to main. Use `pixta-dev/repository-mirroring-action` or hand-rolled `git push --mirror` per provider. Secrets (mirror PATs) stored as GH Actions org-level secrets.
 
