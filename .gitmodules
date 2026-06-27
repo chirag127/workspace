@@ -67,3 +67,6 @@
 [submodule "repos/own/dynasties-api"]
 	path = repos/own/dynasties-api
 	url = https://github.com/oriz-org/dynasties-api
+[submodule "repos/own/countries-plus-api"]
+	path = repos/own/countries-plus-api
+	url = https://github.com/oriz-org/countries-plus-api
