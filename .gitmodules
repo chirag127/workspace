@@ -64,3 +64,6 @@
 [submodule "repos/own/ragas-api"]
 	path = repos/own/ragas-api
 	url = https://github.com/oriz-org/ragas-api
+[submodule "repos/own/dynasties-api"]
+	path = repos/own/dynasties-api
+	url = https://github.com/oriz-org/dynasties-api
