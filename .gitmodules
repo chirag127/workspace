@@ -28,9 +28,6 @@
 [submodule "repos/ai-rewrite-bs-ext"]
 	path = repos/frk/ai-rewrite-bs-ext
 	url = https://github.com/oriz-org/ai-rewrite-bs-ext.git
-[submodule "repos/dearrow-plus-bs-ext"]
-	path = repos/frk/dearrow-plus-bs-ext
-	url = https://github.com/oriz-org/dearrow-plus-bs-ext.git
 [submodule "repos/userscripts"]
 	path = repos/own/userscripts
 	url = https://github.com/oriz-org/userscripts.git
