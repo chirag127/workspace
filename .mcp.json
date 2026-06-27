@@ -47,6 +47,19 @@
     "crawl-md": {
       "command": "node",
       "args": ["./scripts/crawl-mcp/server.js"]
+    },
+    "serena": {
+      "command": "uvx",
+      "args": [
+        "--from",
+        "git+https://github.com/oraios/serena",
+        "serena",
+        "start-mcp-server",
+        "--context",
+        "ide-assistant",
+        "--project",
+        "."
+      ]
     }
   }
 }
