@@ -49,7 +49,7 @@ Long, descriptive names everywhere going forward. Examples:
 - npm package: `@oriz-org-fleet/analytics-injector-google-microsoft-posthog-sentry-cloudflare-multi-provider`
 - repos can stay short (existing `rto-api` etc.) since the GitHub slug is the public surface
 - workflow names: `mirror-to-all-managed-git-hosts-on-push-to-main.yml`
-- secret names: `OIZ_FLEET_GOOGLE_ANALYTICS_MEASUREMENT_ID`, `OIZ_FLEET_MICROSOFT_CLARITY_PROJECT_ID`, etc.
+- secret names: `ORIZ_FLEET_GOOGLE_ANALYTICS_MEASUREMENT_ID`, `ORIZ_FLEET_MICROSOFT_CLARITY_PROJECT_ID`, etc.
 
 ## Implementation phases
 
@@ -86,12 +86,12 @@ For each existing API repo:
 
 GitHub org `oriz-org` -> Settings -> Secrets and variables -> Actions. Add:
 
-- `OIZ_FLEET_GOOGLE_ANALYTICS_MEASUREMENT_ID`
-- `OIZ_FLEET_MICROSOFT_CLARITY_PROJECT_ID`
-- `OIZ_FLEET_POSTHOG_PROJECT_API_KEY`
-- `OIZ_FLEET_POSTHOG_API_HOST` (e.g. https://us.i.posthog.com)
-- `OIZ_FLEET_SENTRY_DSN_BROWSER_SDK`
-- `OIZ_FLEET_CLOUDFLARE_WEB_ANALYTICS_TOKEN`
+- `ORIZ_FLEET_GOOGLE_ANALYTICS_MEASUREMENT_ID`
+- `ORIZ_FLEET_MICROSOFT_CLARITY_PROJECT_ID`
+- `ORIZ_FLEET_POSTHOG_PROJECT_API_KEY`
+- `ORIZ_FLEET_POSTHOG_API_HOST` (e.g. https://us.i.posthog.com)
+- `ORIZ_FLEET_SENTRY_DSN_BROWSER_SDK`
+- `ORIZ_FLEET_CLOUDFLARE_WEB_ANALYTICS_TOKEN`
 
 Repos opt in to using these via repo-level workflow inheritance.
 
