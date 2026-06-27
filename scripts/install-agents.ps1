@@ -58,10 +58,23 @@ if (-not (Have winget)) {
 }
 Ok 'winget present'
 
+# Helper: run a native cmd that prints progress to stderr without
+# tripping PS's RemoteException-on-stderr behavior under strict mode.
+function Invoke-Native($cmdline) {
+  $prev = $ErrorActionPreference
+  $ErrorActionPreference = 'Continue'
+  try {
+    & cmd /c "$cmdline 2>&1" | Out-Host
+    return $LASTEXITCODE
+  } finally {
+    $ErrorActionPreference = $prev
+  }
+}
+
 # ── 1. Node (for OpenCode) ────────────────────────────────────────────────
 Step '1. Node.js'
 if (-not (Have node)) {
-  & winget install --id OpenJS.NodeJS.LTS -e --silent --accept-source-agreements --accept-package-agreements --disable-interactivity 2>&1 | Out-Host
+  Invoke-Native 'winget install --id OpenJS.NodeJS.LTS -e --silent --accept-source-agreements --accept-package-agreements --disable-interactivity' | Out-Null
   $env:PATH = "$env:ProgramFiles\nodejs;$env:PATH"
 }
 Ok ('node: ' + ((node --version 2>&1) | Out-String).Trim())
@@ -77,7 +90,7 @@ if (Have claude) {
 # ── 3. OpenCode ───────────────────────────────────────────────────────────
 Step '3. OpenCode'
 if (-not (Have opencode)) {
-  & npm install -g opencode-ai 2>&1 | Out-Host
+  Invoke-Native 'npm install -g opencode-ai' | Out-Null
 }
 if (Have opencode) {
   Ok 'opencode installed'
@@ -88,15 +101,15 @@ if (Have opencode) {
 # ── 4. VS Code + Cline + Kilo Code ────────────────────────────────────────
 Step '4. VS Code + extensions'
 if (-not (Have code)) {
-  & winget install --id Microsoft.VisualStudioCode -e --silent --accept-source-agreements --accept-package-agreements --disable-interactivity 2>&1 | Out-Host
+  Invoke-Native 'winget install --id Microsoft.VisualStudioCode -e --silent --accept-source-agreements --accept-package-agreements --disable-interactivity' | Out-Null
   $env:PATH = "$env:ProgramFiles\Microsoft VS Code\bin;$env:PATH"
 }
 if (Have code) {
-  & code --install-extension saoudrizwan.claude-dev --force 2>&1 | Out-Host
-  & code --install-extension kilocode.Kilo-Code     --force 2>&1 | Out-Host
+  Invoke-Native 'code --install-extension saoudrizwan.claude-dev --force' | Out-Null
+  Invoke-Native 'code --install-extension kilocode.Kilo-Code --force'     | Out-Null
   Ok 'Cline + Kilo Code installed via VS Code'
 } else {
-  Warn '`code` CLI not on PATH; Cline + Kilo Code skipped'
+  Warn 'code CLI not on PATH; Cline + Kilo Code skipped'
 }
 
 # ── 5. Wire .kilocode/rules -> .agents/kilocode/rules ─────────────────────

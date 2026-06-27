@@ -74,9 +74,14 @@ Ok ('winget: ' + ((winget --version 2>&1) | Out-String).Trim())
 Step '1. Rust toolchain'
 if (-not (Have cargo)) {
   Warn 'cargo missing. Installing Rustup via winget...'
-  & winget install --id Rustlang.Rustup -e --silent `
-      --accept-source-agreements --accept-package-agreements `
-      --disable-interactivity 2>&1 | Out-Host
+  # winget writes progress to stderr too - same fix.
+  $prev = $ErrorActionPreference
+  $ErrorActionPreference = 'Continue'
+  try {
+    & cmd /c "winget install --id Rustlang.Rustup -e --silent --accept-source-agreements --accept-package-agreements --disable-interactivity 2>&1" | Out-Host
+  } finally {
+    $ErrorActionPreference = $prev
+  }
   $cargoBin = Join-Path $env:USERPROFILE '.cargo\bin'
   if (Test-Path $cargoBin) { $env:PATH = "$cargoBin;$env:PATH" }
   if (-not (Have cargo)) {
@@ -89,17 +94,47 @@ Ok ('cargo: ' + ((cargo --version 2>&1) | Out-String).Trim())
 Step '2. RTK (Rust Token Killer)'
 if (-not (Have rtk)) {
   Warn 'Installing RTK from source (cargo install --locked --git github.com/rtk-ai/rtk)...'
-  & cargo install --locked --git https://github.com/rtk-ai/rtk rtk 2>&1 | Out-Host
-  if ($LASTEXITCODE -ne 0) {
-    Warn 'cargo install --git failed. Retrying via crates.io...'
-    & cargo install --locked rtk 2>&1 | Out-Host
-    if ($LASTEXITCODE -ne 0) { throw 'RTK install failed via both git + crates.io.' }
+  Write-Host '  (Cargo prints progress to stderr - that is normal output, not an error.)' -ForegroundColor DarkGray
+
+  # Cargo writes progress + "Updating git repository..." to stderr. PowerShell's
+  # default ErrorAction=Stop treats any stderr line as a terminating error.
+  # Two fixes layered:
+  #   1. 2>&1 merges stderr into stdout BEFORE PS sees it.
+  #   2. Locally relax $ErrorActionPreference around the call so PS's
+  #      RemoteException wrapper doesn't fire on stderr text.
+  $prev = $ErrorActionPreference
+  $ErrorActionPreference = 'Continue'
+  try {
+    & cmd /c "cargo install --locked --git https://github.com/rtk-ai/rtk rtk 2>&1" | Out-Host
+    $rc = $LASTEXITCODE
+  } finally {
+    $ErrorActionPreference = $prev
   }
+  if ($rc -ne 0) {
+    Warn 'cargo install --git failed. Retrying via crates.io...'
+    $ErrorActionPreference = 'Continue'
+    try {
+      & cmd /c "cargo install --locked rtk 2>&1" | Out-Host
+      $rc = $LASTEXITCODE
+    } finally {
+      $ErrorActionPreference = $prev
+    }
+    if ($rc -ne 0) { throw 'RTK install failed via both git + crates.io.' }
+  }
+  # PATH might not yet include the new cargo bin - re-add.
+  $cargoBin = Join-Path $env:USERPROFILE '.cargo\bin'
+  if (Test-Path $cargoBin) { $env:PATH = "$cargoBin;$env:PATH" }
 }
 Ok ('rtk: ' + ((rtk --version 2>&1) | Out-String).Trim())
 
 # rtk init -g writes hooks under ~/.claude. Safe to re-run.
-& rtk init -g --yes 2>&1 | Out-Host
+$prev = $ErrorActionPreference
+$ErrorActionPreference = 'Continue'
+try {
+  & cmd /c "rtk init -g --yes 2>&1" | Out-Host
+} finally {
+  $ErrorActionPreference = $prev
+}
 Ok 'RTK global hooks installed in ~/.claude/'
 
 # ── 3. Ponytail (Claude Code plugin via settings.json) ────────────────────
