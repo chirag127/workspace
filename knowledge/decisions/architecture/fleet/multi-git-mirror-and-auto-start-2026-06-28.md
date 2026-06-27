@@ -18,20 +18,25 @@ related:
 
 **Goal**: every public `oriz-org/*` and `chirag127/*` repo gets pushed to N Git providers automatically. If one provider goes down or DMCAs us, the others stand.
 
-**Targets (locked 2026-06-28)** — every **managed** (non-self-hosted) Git host:
+**Targets (locked 2026-06-28)** — every **managed** (non-self-hosted) Git host. Account creation needed on each:
 
-| # | Provider | URL pattern | Why |
+| # | Provider | URL pattern | Notes |
 |---|---|---|---|
 | 1 | **GitHub** (primary) | `github.com/oriz-org/<slug>` | Where the work happens |
-| 2 | **GitLab Cloud** | `gitlab.com/oriz-org/<slug>` | Free unlimited public; mature CI |
+| 2 | **GitLab Cloud** | `gitlab.com/oriz-org/<slug>` | Free unlimited public, mature CI |
 | 3 | **Codeberg** | `codeberg.org/oriz-org/<slug>` | German non-profit, EU jurisdiction, no AI training |
 | 4 | **Bitbucket Cloud** | `bitbucket.org/oriz-org/<slug>` | Atlassian, free 5-user public |
 | 5 | **Azure DevOps** | `dev.azure.com/oriz-org/<slug>` | Microsoft enterprise host |
-| 6 | **GitFlic** | `gitflic.ru/oriz-org/<slug>` | Russian-hosted, relaxed DMCA |
-| 7 | **GitGud.io** | `gitgud.io/oriz-org/<slug>` | Sapphire.moe-hosted GitLab, fringe-friendly |
-| 8 | **Notabug.org** | `notabug.org/oriz-org/<slug>` | P2P-friendly, FOSS, minimal admin interference |
-| 9 | **SourceHut** | `git.sr.ht/~oriz-org/<slug>` | Hyper-minimalist, no JS, no tracking |
+| 6 | **GitFlic** | `gitflic.ru/oriz-org/<slug>` | Russia-hosted, relaxed DMCA |
+| 7 | **GitGud.io** | `gitgud.io/oriz-org/<slug>` | Sapphire.moe GitLab, fringe-friendly |
+| 8 | **NotABug.org** | `notabug.org/oriz-org/<slug>` | FOSS-only, Gogs, minimal admin |
+| 9 | **SourceHut** | `git.sr.ht/~chirag127/<slug>` | Hyper-minimalist, no JS/tracking. Personal account only (no orgs) |
 | 10 | **Gitea.com** (hosted) | `gitea.com/oriz-org/<slug>` | Public Gitea instance (NOT self-host) |
+| 11 | **SourceForge** | `sourceforge.net/p/oriz-org/<slug>` | Legacy but free + still active |
+| 12 | **Launchpad** | `code.launchpad.net/~oriz-org/<slug>` | Canonical/Ubuntu, free public Git+Bzr |
+| 13 | **Framagit** | `framagit.org/oriz-org/<slug>` | Framasoft GitLab instance, FOSS-only, French |
+| 14 | **Disroot Git** | `git.disroot.org/oriz-org/<slug>` | Disroot Forgejo instance, privacy-first |
+| 15 | **Pagure** | `pagure.io/<slug>` | Fedora-run, RPC-based PR model |
 
 **Scope of mirroring**:
 - ✅ Only repos under `repos/own/*` in the umbrella (originals we authored)
@@ -40,8 +45,28 @@ related:
 
 **Skipped (and why)**:
 
-- Self-hosted Gitea/Forgejo/GitLab CE — we don't run servers (per `cloud-dbs-as-caches` + no-self-host bias)
+- Self-hosted Gitea / Forgejo / GitLab CE — we don't run servers (per `cloud-dbs-as-caches` + no-self-host bias)
 - Radicle (P2P) — too niche, no web URL means no jsDelivr equivalent
+- PikaCode — dead since ~2017
+
+## 1a. API documentation + landing page
+
+Goal: every API repo has a real **docs page** and the fleet has a **landing page**.
+
+| Surface | URL | What it shows |
+|---|---|---|
+| **Fleet landing** | `oriz.in` or `api.oriz.in` | List of all live APIs (Bhagavad Gita link to upstream, RTO, constants, ragas, dynasties, countries-plus), feature highlights, how-to-use, "free forever" pitch |
+| **Per-API docs** | `<slug>.oriz.in` root | Auto-generated from JSON Schema + manual examples. Endpoint list, sample responses, jsDelivr alt URL, license, contribute link |
+| **API explorer** | `<slug>.oriz.in/explorer` | Interactive UI: pick a code → see JSON response live (similar to Swagger but lighter — just a `<select>` + `fetch()` + pretty-print) |
+
+**Build pattern**: each API repo contains a `_site/` (Pages output) with:
+- `index.html` — landing for that API (Astro page or hand-rolled HTML)
+- `/codes/...json` — the actual data files (existing layout)
+- Same Pages deploy serves both — `https://rto.oriz.in/` is HTML, `https://rto.oriz.in/codes/MH-12.json` is the API
+
+**Fleet-level landing** lives in `oriz-org/api-fleet-landing` → deploys to `api.oriz.in` (or replaces the placeholder at `oriz.in` directly).
+
+**Stack**: Astro static (matches `framework-astro-react-tailwind-shadcn` decision), with a single shared layout component that each API repo imports via npm or git submodule. Or keep it simple: pure HTML + Tailwind CDN per repo, no shared dep, easier to maintain than a shared package.
 
 **Implementation**: GitHub Actions workflow in each repo that pushes to all 4 mirrors on every push to main. Use `pixta-dev/repository-mirroring-action` or hand-rolled `git push --mirror` per provider. Secrets (mirror PATs) stored as GH Actions org-level secrets.
 
