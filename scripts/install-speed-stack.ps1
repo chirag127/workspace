@@ -137,45 +137,21 @@ try {
 }
 Ok 'RTK global hooks installed in ~/.claude/'
 
-# ── 3. Ponytail (Claude Code plugin via settings.json) ────────────────────
-Step '3. Ponytail'
-$settingsPath = Join-Path $env:USERPROFILE '.claude\settings.json'
-if (-not (Test-Path $settingsPath)) {
-  throw "Claude Code settings.json not found at $settingsPath"
+# ── 3. Ponytail + Caveman: INLINED as rules, not installed ────────────────
+Step '3. Ponytail + Caveman (verify rules inlined in workspace AGENTS.md)'
+$agentsMd = 'C:\D\oriz\AGENTS.md'
+if (Test-Path $agentsMd) {
+  $content = Get-Content $agentsMd -Raw
+  $hasPonytail = $content -match '(?im)^### Ponytail'
+  $hasCaveman  = $content -match '(?im)^### Caveman'
+  if ($hasPonytail -and $hasCaveman) {
+    Ok 'Ponytail + Caveman rules present in C:\D\oriz\AGENTS.md (no plugin install needed)'
+  } else {
+    Warn 'AGENTS.md missing Ponytail or Caveman section. Pull latest workspace commits.'
+  }
+} else {
+  Warn "AGENTS.md not found at $agentsMd. Pull workspace repo first."
 }
-
-# Read as a hashtable, not a PSCustomObject - Add-Member on PSCustomObjects
-# with empty hashtable property values trips PS 5.1's parser in some shells.
-# Hashtable manipulation is unambiguous.
-$json = Get-Content $settingsPath -Raw
-# PS 5.1 ConvertFrom-Json does NOT have -AsHashtable; use a manual walk.
-$obj = $json | ConvertFrom-Json
-
-# Step 3a: ensure extraKnownMarketplaces.ponytail
-if (-not ($obj.PSObject.Properties.Name -contains 'extraKnownMarketplaces')) {
-  $obj | Add-Member -MemberType NoteProperty -Name 'extraKnownMarketplaces' -Value (New-Object PSObject)
-}
-$mkts = $obj.extraKnownMarketplaces
-if (-not ($mkts.PSObject.Properties.Name -contains 'ponytail')) {
-  $src = New-Object PSObject
-  $src | Add-Member -MemberType NoteProperty -Name 'source' -Value 'github'
-  $src | Add-Member -MemberType NoteProperty -Name 'repo'   -Value 'DietrichGebert/ponytail'
-  $mkt = New-Object PSObject
-  $mkt | Add-Member -MemberType NoteProperty -Name 'source' -Value $src
-  $mkts | Add-Member -MemberType NoteProperty -Name 'ponytail' -Value $mkt
-}
-
-# Step 3b: ensure enabledPlugins["ponytail@ponytail"] = $true
-if (-not ($obj.PSObject.Properties.Name -contains 'enabledPlugins')) {
-  $obj | Add-Member -MemberType NoteProperty -Name 'enabledPlugins' -Value (New-Object PSObject)
-}
-$plugins = $obj.enabledPlugins
-if (-not ($plugins.PSObject.Properties.Name -contains 'ponytail@ponytail')) {
-  $plugins | Add-Member -MemberType NoteProperty -Name 'ponytail@ponytail' -Value $true
-}
-
-$obj | ConvertTo-Json -Depth 20 | Set-Content $settingsPath -Encoding utf8
-Ok 'Ponytail wired into ~/.claude/settings.json (activates on next Claude Code launch)'
 
 # ── 4. Headroom - verify the existing chain still works ───────────────────
 Step '4. Headroom (verify only)'
@@ -191,7 +167,7 @@ Step '5. Done'
 Write-Host ''
 Write-Host '  Layer 1 (Headroom) : http://localhost:8787  (Hr -> hai -> Bedrock)' -ForegroundColor Green
 Write-Host '  Layer 2 (RTK)      : shell-output compression active'              -ForegroundColor Green
-Write-Host '  Layer 3 (Ponytail) : settings.json updated (restart Claude Code)'  -ForegroundColor Green
+Write-Host '  Rules (Ponytail+Caveman) : inlined in C:\D\oriz\AGENTS.md'         -ForegroundColor Green
 Write-Host ''
-Write-Host '  Restart Claude Code to activate Ponytail.' -ForegroundColor Yellow
+Write-Host '  Open any of the 4 agents in C:\D\oriz to pick up the rules.' -ForegroundColor Yellow
 Write-Host ''
