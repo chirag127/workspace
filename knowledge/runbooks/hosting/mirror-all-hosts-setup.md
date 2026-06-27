@@ -1,13 +1,13 @@
 ---
 type: runbook
 title: "Mirror all hosts setup \u2014 one-time token generation + repo pre-creation\
-  \ for the 5 popular hosts"
-description: 'One-time setup runbook to configure the 5-host automatic git mirror
+  \ for the 7 popular hosts"
+description: 'One-time setup runbook to configure the 7-host automatic git mirror
   for repos/own/* submodules. Covers: token generation for GitLab, Codeberg, Bitbucket
-  (API Token, NOT App Password), GitFlic, and Azure DevOps; pre-creating mirror repos
-  on each host; storing tokens at chirag127 GitHub org level; and running the first
-  dry-run. All steps automated except the token generation (browser UI). No manual
-  recurring sync.'
+  (API Token, NOT App Password), GitFlic, Azure DevOps, NotABug, and Radicle (P2P
+  identity bootstrap); pre-creating mirror repos on each host; storing tokens at
+  chirag127 GitHub org level; and running the first dry-run. All steps automated
+  except token generation (browser UI). No manual recurring sync.'
 tags:
 - runbook
 - mirror
@@ -17,13 +17,15 @@ tags:
 - bitbucket
 - gitflic
 - azure-devops
+- notabug
+- radicle
 - secrets
 - setup
 timestamp: 2026-06-28
 format_version: okf-v0.1
 status: active
 related:
-- decisions/architecture/ops/mirror-to-5-popular-alternatives-2026-06-28
+- decisions/architecture/ops/mirror-to-7-popular-alternatives-2026-06-28
 - rules/security/github-org-level-secrets
 - rules/infrastructure/free-tier-with-cost-controls
 - rules/interaction/no-card-on-file
@@ -33,13 +35,15 @@ related:
 - services/hosting/bitbucket-mirror
 - services/hosting/gitflic-mirror
 - services/hosting/azure-devops-mirror
+- services/hosting/notabug-mirror
+- services/hosting/radicle-mirror
 ---
 
 
 
 # Mirror all hosts setup — one-time
 
-Complete setup guide for the 5-host automatic git mirror strategy. Run this
+Complete setup guide for the 7-host automatic git mirror strategy. Run this
 once per org (or after a full token rotation). Recurring mirror runs via
 `mirror-all.yml` cron automatically — no further manual steps.
 
@@ -49,10 +53,11 @@ once per org (or after a full token rotation). Recurring mirror runs via
 - `doppler` CLI authenticated
 - Browser access for token generation steps
 - `jq` installed
+- `rad` CLI (for Radicle keypair generation — installed via `curl -sSf https://radicle.xyz/install | sh`)
 
 ---
 
-## Step 1: Generate 5 host tokens (browser — one-time per host)
+## Step 1: Generate 7 host credentials (browser + local — one-time per host)
 
 ### 1A. GitLab.com — Personal Access Token
 
@@ -127,6 +132,47 @@ once per org (or after a full token rotation). Recurring mirror runs via
    doppler secrets set MIRROR_AZURE_DEVOPS_PROJECT --config prd  # e.g. mirrors
    ```
 
+### 1F. NotABug.org — Access Token
+
+1. Log in at <https://notabug.org> (Gogs-based, registration via email)
+2. Go to: `https://notabug.org/user/settings/applications`
+3. Under "Manage Access Tokens" → **Generate New Token**
+4. Name: `oriz-mirror-bot`
+5. Copy token immediately (Gogs shows it once)
+6. Save to Doppler:
+   ```bash
+   doppler secrets set MIRROR_NOTABUG_TOKEN --config prd
+   doppler secrets set MIRROR_NOTABUG_USERNAME --config prd
+   ```
+
+⚠️ NotABug intermittently shows "ERROR! :(" pages. The workflow uses
+`continue-on-error: true` for this host so transient outages don't fail
+the cron.
+
+### 1G. Radicle — Identity bootstrap (one-time, local machine)
+
+Radicle is P2P. The runner needs a Radicle keypair (`~/.radicle/keys/`)
+and a passphrase. Generate them once on your local machine and ship them
+to org secrets:
+
+1. Install the CLI locally:
+   ```bash
+   curl -sSf https://radicle.xyz/install | sh
+   ```
+2. Create a fresh identity:
+   ```bash
+   rad auth   # prompts for an alias and a passphrase — pick a strong one
+   ```
+   This creates `~/.radicle/keys/radicle` and `radicle.pub`.
+3. Tar + base64-encode and save to Doppler:
+   ```bash
+   tar czf - -C ~/.radicle keys | base64 -w0 \
+     | doppler secrets set MIRROR_RADICLE_KEYPAIR_TAR_B64 --config prd
+   doppler secrets set MIRROR_RADICLE_PASSPHRASE --config prd  # paste the passphrase
+   ```
+4. Public seed node `radicle.garden` is used (free, public). No
+   self-hosted Radicle node needed.
+
 ---
 
 ## Step 2: Store all tokens at chirag127 GitHub org level
@@ -150,6 +196,10 @@ SECRETS=(
   MIRROR_AZURE_DEVOPS_TOKEN
   MIRROR_AZURE_DEVOPS_ORG
   MIRROR_AZURE_DEVOPS_PROJECT
+  MIRROR_NOTABUG_TOKEN
+  MIRROR_NOTABUG_USERNAME
+  MIRROR_RADICLE_KEYPAIR_TAR_B64
+  MIRROR_RADICLE_PASSPHRASE
 )
 
 for NAME in "${SECRETS[@]}"; do
@@ -168,8 +218,9 @@ gh secret list --org chirag127 | grep -E '^MIRROR_'
 ## Step 3: Pre-create mirror repos on each host
 
 This script reads `repos/own/*` submodules from `.gitmodules` and creates
-empty target repos on each of the 5 hosts. Idempotent — 409/4xx errors on
-existing repos are ignored.
+empty target repos on each of the 6 HTTPS hosts (Radicle creates repos
+on first `rad init`, no pre-creation step needed). Idempotent — 409/4xx
+errors on existing repos are ignored.
 
 ```bash
 #!/bin/bash
@@ -190,6 +241,8 @@ GITFLIC_USER=$(doppler secrets get MIRROR_GITFLIC_USERNAME --plain --config prd)
 ADO_TOKEN=$(doppler secrets get MIRROR_AZURE_DEVOPS_TOKEN --plain --config prd)
 ADO_ORG=$(doppler secrets get MIRROR_AZURE_DEVOPS_ORG --plain --config prd)
 ADO_PROJECT=$(doppler secrets get MIRROR_AZURE_DEVOPS_PROJECT --plain --config prd)
+NOTABUG_TOKEN=$(doppler secrets get MIRROR_NOTABUG_TOKEN --plain --config prd)
+NOTABUG_USER=$(doppler secrets get MIRROR_NOTABUG_USERNAME --plain --config prd)
 
 # Collect repos/own/* submodule names from .gitmodules
 echo "Collecting repos/own/* submodules..."
@@ -246,7 +299,14 @@ echo "$REPOS_JSON" | while read -r REPO_NAME; do
     "https://dev.azure.com/${ADO_ORG}/${ADO_PROJECT}/_apis/git/repositories?api-version=7.1" || true
   sleep 0.3
 
-  echo "✓ $REPO_NAME pre-created on all 5 hosts"
+  # NotABug (Gogs API)
+  curl -s -o /dev/null -X POST "https://notabug.org/api/v1/user/repos" \
+    -H "Authorization: token ${NOTABUG_TOKEN}" \
+    -H "Content-Type: application/json" \
+    -d "{\"name\":\"${REPO_NAME}\",\"private\":false,\"auto_init\":false}" || true
+  sleep 0.3
+
+  echo "✓ $REPO_NAME pre-created on all 6 HTTPS hosts (Radicle created on first sync)"
 done
 
 echo ""
@@ -298,7 +358,7 @@ When a token expires or is compromised:
 
 ## See also
 
-- Mirror decision → [`../../decisions/architecture/ops/mirror-to-5-popular-alternatives-2026-06-28.md`](../../decisions/architecture/ops/mirror-to-5-popular-alternatives-2026-06-28.md)
+- Mirror decision → [`../../decisions/architecture/ops/mirror-to-7-popular-alternatives-2026-06-28.md`](../../decisions/architecture/ops/mirror-to-7-popular-alternatives-2026-06-28.md)
 - Org secrets rule → [`../rules/security/github-org-level-secrets.md`](../../rules/security/github-org-level-secrets.md)
 - Set org secrets → [`./set-github-org-level-secrets.md`](../security/set-github-org-level-secrets.md)
 - Rotate leaked secret → [`./rotate-leaked-secret.md`](../security/rotate-leaked-secret.md)

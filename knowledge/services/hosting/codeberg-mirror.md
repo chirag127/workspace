@@ -18,7 +18,7 @@ timestamp: 2026-06-24
 format_version: okf-v0.1
 status: active
 related:
-- decisions/architecture/ops/mirror-to-5-popular-alternatives-2026-06-28
+- decisions/architecture/ops/mirror-to-7-popular-alternatives-2026-06-28
 - runbooks/hosting/mirror-all-hosts-setup
 - runbooks/hosting/codeberg-mirror-2026-06-23
 - rules/infrastructure/free-tier-with-cost-controls
@@ -129,4 +129,4 @@ https://oriz-org:${MIRROR_CODEBERG_TOKEN}@codeberg.org/oriz-org/${REPO_NAME}.git
 
 - Full setup → [`../../../runbooks/mirror-all-hosts-setup.md`](../../runbooks/hosting/mirror-all-hosts-setup.md)
 - Daily oriz-org Codeberg mirror → [`../../../runbooks/hosting/codeberg-mirror-2026-06-23.md`](../../runbooks/hosting/codeberg-mirror-2026-06-23.md)
-- 5-host decision → [`../../decisions/architecture/ops/mirror-to-5-popular-alternatives-2026-06-28.md`](../../decisions/architecture/ops/mirror-to-5-popular-alternatives-2026-06-28.md)
+- 7-host decision → [`../../decisions/architecture/ops/mirror-to-7-popular-alternatives-2026-06-28.md`](../../decisions/architecture/ops/mirror-to-7-popular-alternatives-2026-06-28.md)

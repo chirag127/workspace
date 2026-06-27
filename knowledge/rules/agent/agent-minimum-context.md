@@ -108,7 +108,7 @@ Per [[rules/self-update-rule]], when a chat-decision lands, the knowledge file l
 | Add an env / secret | [[decisions/security/sops-plus-doppler-hybrid]] → [[rules/git-identity-chirag127-noreply]] |
 | Change repo / folder layout | [[decisions/architecture/projects-owner-own-forks-layout]] |
 | Decide where a repo lives (owner / brand vs personal) | [[decisions/branding/keep-oriz-org-recruiter-via-pinning]] → [[rules/recruiter-strategy]] |
-| Mirror / back up code or metadata | [[decisions/architecture/ops/mirror-to-5-popular-alternatives-2026-06-28]] → [[runbooks/backup-metadata-to-b2]] → [[decisions/architecture/backup-channels-alternative]] |
+| Mirror / back up code or metadata | [[decisions/architecture/ops/mirror-to-7-popular-alternatives-2026-06-28]] → [[runbooks/backup-metadata-to-b2]] → [[decisions/architecture/backup-channels-alternative]] |
 | Write a userscript | [[decisions/architecture/userscript-prototype-via-tweeks]] → develop-userscripts skill |
 | Download a Chrome extension's source | `scripts/download-cws-extension.mjs <EXT_ID>` |
 | Decide which AI / LLM provider for a feature | [[decisions/architecture/ai-puter-plus-cf-workers-ai]] + scan `services/llm/*` |

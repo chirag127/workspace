@@ -199,7 +199,7 @@ Read [`knowledge/decisions/architecture/`](./knowledge/decisions/architecture/) 
 | `infrastructure/` | 3 | `hosting-split-cf-and-gh-2026-06-25`, `umbrella-as-clone-entrypoint-2026-06-25`, `workspace-flat-repos-2026-06-25` |
 | `knowledge-bundle/` | 1 | `depth-5-level-hierarchy` |
 | `monetisation/` | 1 | `donations-only-2026-06-25` |
-| `ops/` | 17 | `analytics-five-tier-stack`, `mirror-to-5-popular-alternatives-2026-06-28`, `backup-restic-to-b2`, `seo-three-pillars` |
+| `ops/` | 17 | `analytics-five-tier-stack`, `mirror-to-7-popular-alternatives-2026-06-28`, `backup-restic-to-b2`, `seo-three-pillars` |
 | `packages/` | 9 | `the-23-packages` (largely SUPERSEDED by zero-in-house-packages), `oriz-ai-providers-package`, `omni-publish-package` |
 | `packaging/` | 1 | `zero-in-house-packages-inline-analytics-2026-06-25` |
 | `security/` | 7 | `no-auth-in-apps-or-apis-2026-06-25`, `cross-site-auth-via-auth-oriz-in`, `payment-architecture-direct-links` |

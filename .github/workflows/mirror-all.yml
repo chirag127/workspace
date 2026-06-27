@@ -1,9 +1,10 @@
-name: Mirror to 5 git hosts
+name: Mirror to 7 git hosts
 # Master cron — every Friday 03:30 IST (Thursday 22:00 UTC).
-# Pushes ALL repos/own/* submodules to 5 popular GitHub-alternative hosts.
-# Hosts: GitLab.com, Codeberg.org, Bitbucket Cloud, GitFlic.ru, Azure DevOps.
-# Insurance against GitHub becoming unusable.
-# See knowledge/decisions/architecture/ops/mirror-to-5-popular-alternatives-2026-06-28.md
+# Pushes ALL repos/own/* submodules to 7 popular GitHub-alternative hosts.
+# Hosts: GitLab, Codeberg, Bitbucket, GitFlic, Azure DevOps, NotABug, Radicle.
+# All free, no self-hosting, no card-on-file. Backup runs from this umbrella
+# repo's GitHub Actions — zero local state.
+# See knowledge/decisions/architecture/ops/mirror-to-7-popular-alternatives-2026-06-28.md
 # Setup runbook: knowledge/runbooks/hosting/mirror-all-hosts-setup.md
 
 on:
@@ -52,7 +53,7 @@ jobs:
     if: needs.discover.outputs.repos != '[]'
     strategy:
       fail-fast: false
-      max-parallel: 5
+      max-parallel: 7
       matrix:
         host:
           - name: gitlab
@@ -80,6 +81,11 @@ jobs:
             token_var: MIRROR_AZURE_DEVOPS_TOKEN
             user_var: MIRROR_AZURE_DEVOPS_ORG
             token_type: azure
+          - name: notabug
+            url_prefix: https://USER:TOKEN@notabug.org
+            token_var: MIRROR_NOTABUG_TOKEN
+            user_var: MIRROR_NOTABUG_USERNAME
+            token_type: gogs
 
     steps:
       - name: Mirror all repos to ${{ matrix.host.name }}
@@ -148,6 +154,14 @@ jobs:
                   -d "{\"name\":\"${REPO_NAME}\",\"project\":{\"id\":\"${ADO_PROJECT_ID}\"}}" \
                   "https://dev.azure.com/${ADO_ORG}/${ADO_PROJECT}/_apis/git/repositories?api-version=7.1" || true
                 ;;
+              gogs)
+                # NotABug (Gogs API)
+                MIRROR_URL="https://${HOST_USER}:${HOST_TOKEN}@notabug.org/${HOST_USER}/${REPO_NAME}.git"
+                curl -s -o /dev/null -X POST "https://notabug.org/api/v1/user/repos" \
+                  -H "Authorization: token ${HOST_TOKEN}" \
+                  -H "Content-Type: application/json" \
+                  -d "{\"name\":\"${REPO_NAME}\",\"private\":false,\"auto_init\":false}" || true
+                ;;
             esac
 
             TMP_DIR="/tmp/mirror-${REPO_NAME}-$$"
@@ -191,9 +205,78 @@ jobs:
             -d "text=${MSG}" \
             -d "disable_notification=true" || true
 
+  # ── Step 2b: Mirror to Radicle (P2P seed network, separate job) ────────────
+  mirror-radicle:
+    needs: discover
+    runs-on: ubuntu-latest
+    if: needs.discover.outputs.repos != '[]'
+    continue-on-error: true
+    steps:
+      - name: Checkout workspace
+        uses: actions/checkout@v4
+      - name: Install Radicle CLI
+        run: |
+          curl -sSf https://radicle.xyz/install | sh
+          echo "$HOME/.radicle/bin" >> $GITHUB_PATH
+          rad --version
+      - name: Restore Radicle identity from secret
+        env:
+          RAD_KEYPAIR_TAR_B64: ${{ secrets.MIRROR_RADICLE_KEYPAIR_TAR_B64 }}
+          RAD_PASSPHRASE: ${{ secrets.MIRROR_RADICLE_PASSPHRASE }}
+        run: |
+          # MIRROR_RADICLE_KEYPAIR_TAR_B64 = base64(tar of ~/.radicle/keys)
+          # generated locally once via: tar czf - -C ~/.radicle keys | base64 -w0
+          mkdir -p ~/.radicle
+          echo "$RAD_KEYPAIR_TAR_B64" | base64 -d | tar xzf - -C ~/.radicle
+          # Preferred seed (radicle.garden — free public seed node)
+          rad config set node.preferredSeeds '["radicle.garden"]' || true
+      - name: Mirror each repo to Radicle
+        env:
+          REPOS: ${{ needs.discover.outputs.repos }}
+          GH_TOKEN: ${{ secrets.GH_ADMIN_PAT }}
+          RAD_PASSPHRASE: ${{ secrets.MIRROR_RADICLE_PASSPHRASE }}
+        run: |
+          set +e
+          STATUS_FILE=/tmp/mirror-radicle-status.txt
+          : > "$STATUS_FILE"
+          echo "$REPOS" | jq -r '.[].full' | while read -r FULL_NAME; do
+            REPO_NAME=$(basename "$FULL_NAME")
+            TMP_DIR="/tmp/rad-${REPO_NAME}-$$"
+            git clone "https://x-access-token:${GH_TOKEN}@github.com/${FULL_NAME}.git" "$TMP_DIR" || {
+              echo "✗ $FULL_NAME (clone failed)" >> "$STATUS_FILE"; continue;
+            }
+            cd "$TMP_DIR"
+            # rad init creates a Radicle repo; idempotent for re-runs after first init
+            RAD_PASSPHRASE="$RAD_PASSPHRASE" rad init \
+              --name "$REPO_NAME" --description "Mirror of github.com/${FULL_NAME}" \
+              --public --default-branch main --no-confirm 2>/dev/null || true
+            RAD_PASSPHRASE="$RAD_PASSPHRASE" rad sync --announce && \
+              echo "✓ $FULL_NAME" >> "$STATUS_FILE" || \
+              echo "✗ $FULL_NAME (sync failed)" >> "$STATUS_FILE"
+            cd "$GITHUB_WORKSPACE"
+            rm -rf "$TMP_DIR"
+            sleep 0.5
+          done
+          echo "=== radicle summary ==="
+          cat "$STATUS_FILE"
+          OK=$(grep -c '^✓' "$STATUS_FILE" || true)
+          FAIL=$(grep -c '^✗' "$STATUS_FILE" || true)
+          echo "ok=$OK fail=$FAIL"
+      - name: Notify Telegram on Radicle completion
+        if: always()
+        env:
+          BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: |
+          OK=$(grep -c '^✓' /tmp/mirror-radicle-status.txt || echo 0)
+          FAIL=$(grep -c '^✗' /tmp/mirror-radicle-status.txt || echo 0)
+          MSG="Mirror radicle: ✓ ${OK} repos | ✗ ${FAIL} repos | $(date -u '+%Y-%m-%d')"
+          curl -s -X POST "https://api.telegram.org/bot${BOT_TOKEN}/sendMessage" \
+            -d "chat_id=${CHAT_ID}" -d "text=${MSG}" -d "disable_notification=true" || true
+
   # ── Step 3: Weekly digest after all hosts complete ─────────────────────────
   weekly-digest:
-    needs: [discover, mirror]
+    needs: [discover, mirror, mirror-radicle]
     runs-on: ubuntu-latest
     if: always()
     steps:
@@ -204,5 +287,5 @@ jobs:
         run: |
           curl -s -X POST "https://api.telegram.org/bot${BOT_TOKEN}/sendMessage" \
             -d "chat_id=${CHAT_ID}" \
-            -d "text=📦 Weekly 5-host mirror complete: $(date -u '+%Y-%m-%d')%0Ahosts: GitLab ✓ Codeberg ✓ Bitbucket ✓ GitFlic ✓ AzureDevOps ✓" \
+            -d "text=📦 Weekly 7-host mirror complete: $(date -u '+%Y-%m-%d')%0Ahosts: GitLab ✓ Codeberg ✓ Bitbucket ✓ GitFlic ✓ AzureDevOps ✓ NotABug ✓ Radicle ✓" \
             -d "disable_notification=false" || true
