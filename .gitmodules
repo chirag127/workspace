@@ -58,3 +58,6 @@
 [submodule "repos/own/rto-api"]
 	path = repos/own/rto-api
 	url = https://github.com/oriz-org/rto-api
+[submodule "repos/own/constants-api"]
+	path = repos/own/constants-api
+	url = https://github.com/oriz-org/constants-api
