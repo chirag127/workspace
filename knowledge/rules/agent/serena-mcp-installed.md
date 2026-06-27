@@ -14,15 +14,25 @@ related:
 
 ## What's installed
 
-Serena MCP server (oraios/serena, 25.8k stars, MIT, Python). Registered to
-Claude Code via:
+Serena MCP server (oraios/serena, 25.8k stars, MIT, Python). Registered in
+this **repo's `.mcp.json`** (NOT in `~/.claude.json` global per-project config):
 
-```
-claude mcp add serena -- uvx --from git+https://github.com/oraios/serena \
-  serena start-mcp-server --context ide-assistant --project c:/D/oriz
+```json
+{
+  "mcpServers": {
+    "serena": {
+      "command": "uvx",
+      "args": ["--from", "git+https://github.com/oraios/serena",
+               "serena", "start-mcp-server",
+               "--context", "ide-assistant", "--project", "."]
+    }
+  }
+}
 ```
 
-Stored in `~/.claude.json` (per-project: c:/D/oriz).
+Workspace-scoped: anyone who clones `oriz-org/workspace` gets serena
+auto-loaded without touching their global Claude Code config. `--project .`
+means "current working directory" so it works on any clone path.
 
 ## Why this one (not others)
 
