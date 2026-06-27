@@ -1,0 +1,78 @@
+// OpenCode workspace config. See https://opencode.ai/docs/config
+// Reads AGENTS.md from workspace root automatically. This file adds
+// workspace-specific instructions + MCP servers.
+{
+  "$schema": "https://opencode.ai/config.json",
+
+  // Workspace-specific instructions (in addition to AGENTS.md).
+  "instructions": [
+    "../AGENTS.md",
+    "../CLAUDE.md"
+  ],
+
+  // MCP servers (same list as .mcp.json for Claude Code).
+  "mcp": {
+    "wikipedia": {
+      "type": "local",
+      "command": ["npx", "-y", "wikipedia-mcp"]
+    },
+    "arxiv": {
+      "type": "local",
+      "command": ["npx", "-y", "@cyanheads/arxiv-mcp-server"]
+    },
+    "hackernews": {
+      "type": "local",
+      "command": ["npx", "-y", "hn-mcp"]
+    },
+    "wayback": {
+      "type": "local",
+      "command": ["npx", "-y", "mcp-wayback-machine"]
+    },
+    "osm": {
+      "type": "local",
+      "command": ["npx", "-y", "@cyanheads/openstreetmap-mcp-server"]
+    },
+    "open-meteo": {
+      "type": "local",
+      "command": ["npx", "-y", "open-meteo-mcp"]
+    },
+    "youtube-transcript": {
+      "type": "local",
+      "command": ["npx", "-y", "youtube-transcript-mcp"]
+    },
+    "npm-registry": {
+      "type": "local",
+      "command": ["npx", "-y", "mcp-npm-registry"]
+    },
+    "fx": {
+      "type": "local",
+      "command": ["npx", "-y", "fx-mcp"]
+    },
+    "time": {
+      "type": "local",
+      "command": ["npx", "-y", "time-mcp"]
+    },
+    "duckduckgo": {
+      "type": "local",
+      "command": ["npx", "-y", "duckduckgo-mcp"]
+    },
+    "crawl-md": {
+      "type": "local",
+      "command": ["node", "../scripts/crawl-mcp/server.js"]
+    },
+    "serena": {
+      "type": "local",
+      "command": [
+        "uvx",
+        "--from",
+        "git+https://github.com/oraios/serena",
+        "serena",
+        "start-mcp-server",
+        "--context",
+        "ide-assistant",
+        "--project",
+        ".."
+      ]
+    }
+  }
+}
