@@ -46,9 +46,6 @@
 [submodule "repos/bookmark-mind-bs-ext"]
 	path = repos/own/bookmark-mind-bs-ext
 	url = https://github.com/oriz-org/bookmark-mind-bs-ext.git
-[submodule "repos/agent-skills"]
-	path = repos/own/agent-skills
-	url = https://github.com/oriz-org/agent-skills.git
 [submodule "repos/blog"]
 	path = repos/own/blog
 	url = https://github.com/oriz-org/blog.git
