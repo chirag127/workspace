@@ -47,9 +47,11 @@ When working in this workspace, every agent picks up this file. Agent-specific o
 
 ---
 
-## Speed-stack rules (inlined — no plugin install required)
+## Agent rules (inlined — no plugin install)
 
 Two prompt-engineering disciplines that all agents follow in this workspace. **These are rules, not skills/plugins.** Inlined here so any agent reading `AGENTS.md` picks them up without installing anything.
+
+> **NOTE 2026-06-27:** These rules are pending edits. Walk-through with user is in progress. Until that finishes, treat the verbatim text below as a starting point only.
 
 ### Ponytail — lazy senior dev (output discipline)
 
