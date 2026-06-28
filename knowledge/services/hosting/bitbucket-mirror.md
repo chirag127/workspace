@@ -81,11 +81,9 @@ Our repos are < 10 MB each; 1 GB workspace is ample for 60+ repos.
 5. Permissions: **Repositories — Write** + **Projects — Read**
 6. Expiry: set 1 year from today
 7. Click **Create** — copy immediately, shown once
-8. Store in Doppler:
-   ```bash
-   doppler secrets set MIRROR_BITBUCKET_API_TOKEN --config prd
-   doppler secrets set MIRROR_BITBUCKET_USERNAME --config prd  # bitbucket username
-   ```
+8. Store as chirag127 org-level GitHub secret(s) — paste value into `.env` then `gh secret set <NAME> --org chirag127 --visibility all < <(printf %s "$VALUE")`. Full loop: [`runbooks/hosting/mirror-all-hosts-setup.md`](../../runbooks/hosting/mirror-all-hosts-setup.md) Step 2.
+
+   
 
 ## API — Create Repo (idempotent)
 

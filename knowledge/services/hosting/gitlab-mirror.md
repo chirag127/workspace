@@ -64,12 +64,9 @@ Our repos are all < 100 MB; 100× headroom on the 10 GiB limit.
 5. Expiration: set to 1 year from today (GitLab now requires expiry)
 6. Scopes: tick `api` and `write_repository`
 7. Click **Create personal access token** — copy immediately, shown once
-8. Store in Doppler: `doppler secrets set MIRROR_GITLAB_TOKEN --config prd`
-9. Store username: `doppler secrets set MIRROR_GITLAB_USERNAME --config prd`
+8. Store as chirag127 org-level GitHub secret(s) — paste value into `.env` then `gh secret set <NAME> --org chirag127 --visibility all < <(printf %s "$VALUE")`. Full loop: [`runbooks/hosting/mirror-all-hosts-setup.md`](../../runbooks/hosting/mirror-all-hosts-setup.md) Step 2.
 
-## API — Create Repo (idempotent)
-
-```bash
+   ```bash
 # Create project under personal namespace
 curl -s -X POST "https://gitlab.com/api/v4/projects" \
   -H "PRIVATE-TOKEN: ${MIRROR_GITLAB_TOKEN}" \

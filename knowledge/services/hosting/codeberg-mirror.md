@@ -67,11 +67,9 @@ Our text-heavy repos are < 100 MB total; well within limits.
 4. Token name: `oriz-mirror-bot`
 5. Scope: tick **`write:repository`**
 6. Click **Generate Token** — copy immediately, shown once
-7. Store in Doppler:
-   ```bash
-   doppler secrets set MIRROR_CODEBERG_TOKEN --config prd
-   doppler secrets set MIRROR_CODEBERG_USERNAME --config prd  # your Codeberg username
-   ```
+7. Store as chirag127 org-level GitHub secret(s) — paste value into `.env` then `gh secret set <NAME> --org chirag127 --visibility all < <(printf %s "$VALUE")`. Full loop: [`runbooks/hosting/mirror-all-hosts-setup.md`](../../runbooks/hosting/mirror-all-hosts-setup.md) Step 2.
+
+   
 
 ## API — Create Repo (idempotent)
 

@@ -76,12 +76,7 @@ org (e.g. `chirag127`), NOT "All accessible organizations".
 9. Scope: **Code → Manage** (this includes read+write+create)
 10. Click **Create** — copy immediately, shown once
 11. Note your org name and project name
-12. Store in Doppler:
-    ```bash
-    doppler secrets set MIRROR_AZURE_DEVOPS_TOKEN --config prd
-    doppler secrets set MIRROR_AZURE_DEVOPS_ORG --config prd    # e.g. chirag127
-    doppler secrets set MIRROR_AZURE_DEVOPS_PROJECT --config prd # e.g. mirrors
-    ```
+12. Store as chirag127 org-level GitHub secrets (token + org + project). Full loop: [`runbooks/hosting/mirror-all-hosts-setup.md`](../../runbooks/hosting/mirror-all-hosts-setup.md) Step 2.
 
 ## API — Create Repo (idempotent)
 

@@ -1,13 +1,7 @@
 ---
 type: runbook
-title: "Mirror all hosts setup \u2014 one-time token generation + repo pre-creation\
-  \ for the 7 popular hosts"
-description: 'One-time setup runbook to configure the 7-host automatic git mirror
-  for repos/own/* submodules. Covers: token generation for GitLab, Codeberg, Bitbucket
-  (API Token, NOT App Password), GitFlic, Azure DevOps, NotABug, and Radicle (P2P
-  identity bootstrap); pre-creating mirror repos on each host; storing tokens at
-  chirag127 GitHub org level; and running the first dry-run. All steps automated
-  except token generation (browser UI). No manual recurring sync.'
+title: "Mirror all hosts setup — one-time token generation + repo pre-creation for the 7 popular hosts"
+description: 'One-time setup runbook to configure the 7-host automatic git mirror for repos/own/* submodules. Covers token + keypair generation for GitLab, Codeberg, Bitbucket, GitFlic, Azure DevOps, NotABug, and Radicle; pre-creating mirror repos on each host; storing tokens directly as chirag127 GitHub org-level secrets (no Doppler); per-host ENABLE flags as org-level Variables; dry-run + first real run. No manual recurring sync.'
 tags:
 - runbook
 - mirror
@@ -39,150 +33,111 @@ related:
 - services/hosting/radicle-mirror
 ---
 
-
-
 # Mirror all hosts setup — one-time
 
-Complete setup guide for the 7-host automatic git mirror strategy. Run this
-once per org (or after a full token rotation). Recurring mirror runs via
-`mirror-all.yml` cron automatically — no further manual steps.
+Complete setup for the 7-host weekly git mirror. Run once. After this, the
+Friday cron in `.github/workflows/mirror-all.yml` runs hands-free.
+
+**No Doppler.** Secrets and ENABLE flags live directly in GitHub at the
+`chirag127` org level. Local mirror in `c:/D/oriz/.env` (gitignored) is
+the authoring copy.
 
 ## Prerequisites
 
 - `gh` CLI authenticated as admin of `chirag127` org
-- `doppler` CLI authenticated
-- Browser access for token generation steps
-- `jq` installed
-- `rad` CLI (for Radicle keypair generation — installed via `curl -sSf https://radicle.xyz/install | sh`)
+- Browser access for token generation
+- `jq` and `curl` installed
+- `rad` CLI (for Radicle keypair only): `curl -sSf https://radicle.xyz/install | sh`
 
 ---
 
-## Step 1: Generate 7 host credentials (browser + local — one-time per host)
+## Step 1: Generate 7 host credentials (browser + local)
+
+Fill the value into `c:/D/oriz/.env` next to the matching `MIRROR_<HOST>_*`
+key as you go. Push to org secrets in Step 2.
 
 ### 1A. GitLab.com — Personal Access Token
 
-1. Log in at <https://gitlab.com>
-2. Go to: `https://gitlab.com/-/user_settings/personal_access_tokens`
-3. Click **Add new token**
-4. Name: `oriz-mirror-bot` | Expiration: 1 year | Scopes: ✅ `api` + ✅ `write_repository`
-5. Copy token immediately
-6. Save to Doppler:
-   ```bash
-   doppler secrets set MIRROR_GITLAB_TOKEN --config prd
-   doppler secrets set MIRROR_GITLAB_USERNAME --config prd
-   ```
+1. Log in: <https://gitlab.com>
+2. Token page: <https://gitlab.com/-/user_settings/personal_access_tokens>
+3. **Add new token** → name `oriz-mirror-bot` → expiry 1 year → scopes ✅ `api` + ✅ `write_repository`
+4. Copy → paste into `.env`: `MIRROR_GITLAB_TOKEN`, `MIRROR_GITLAB_USERNAME`
 
 ### 1B. Codeberg.org — Access Token
 
-1. Log in at <https://codeberg.org>
-2. Go to: `https://codeberg.org/user/settings/applications`
-3. Under "Manage Access Tokens" → **Generate Token**
-4. Name: `oriz-mirror-bot` | Scope: ✅ `write:repository`
-5. Copy token immediately
-6. Save to Doppler:
-   ```bash
-   doppler secrets set MIRROR_CODEBERG_TOKEN --config prd
-   doppler secrets set MIRROR_CODEBERG_USERNAME --config prd
-   ```
+Re-check status first: <https://status.codeberg.eu>. Skip if site is down.
+
+1. Sign up: <https://codeberg.org/user/sign_up>
+2. Token page: <https://codeberg.org/user/settings/applications>
+3. Under "Manage Access Tokens" → **Generate Token** → name `oriz-mirror-bot` → scope ✅ `write:repository`
+4. Copy → `.env`: `MIRROR_CODEBERG_TOKEN`, `MIRROR_CODEBERG_USERNAME`
 
 ### 1C. Bitbucket Cloud — Workspace Access Token (NOT App Password)
 
-⚠️ App Passwords are permanently retired (June-July 2026). Use API Tokens.
+⚠️ App Passwords retired 2026-07-28. Use Workspace Access Tokens.
 
-1. Log in at <https://bitbucket.org>
-2. Go to: `https://bitbucket.org/account/settings/access-tokens/`
-   (Or: Workspace → Settings → Security → Access tokens)
-3. Click **Create access token**
-4. Name: `oriz-mirror-bot` | Permissions: ✅ Repositories: **Write** + ✅ Projects: **Read**
-5. Expiration: 1 year
-6. Copy token immediately
-7. Save to Doppler:
-   ```bash
-   doppler secrets set MIRROR_BITBUCKET_API_TOKEN --config prd
-   doppler secrets set MIRROR_BITBUCKET_USERNAME --config prd
-   ```
+1. Sign up: <https://bitbucket.org/account/signup>
+2. Token page: <https://bitbucket.org/account/settings/access-tokens/> (if 404: Workspace → Settings → Security → Access tokens)
+3. **Create access token** → name `oriz-mirror-bot` → permissions ✅ Repositories: **Write** + ✅ Projects: **Read** → expiry 1 year
+4. Copy → `.env`: `MIRROR_BITBUCKET_API_TOKEN`, `MIRROR_BITBUCKET_USERNAME` (workspace slug)
 
 ### 1D. GitFlic.ru — Personal Token
 
-1. Log in at <https://gitflic.ru>
-2. Go to: `https://gitflic.ru/user/settings/tokens`
-3. Click **Create token** | Name: `oriz-mirror-bot` | Scope: `repo:write`
-4. Copy token immediately
-5. Save to Doppler:
-   ```bash
-   doppler secrets set MIRROR_GITFLIC_TOKEN --config prd
-   ```
+1. Sign up: <https://gitflic.ru/auth/signup/first-step>
+2. Token page: <https://gitflic.ru/user/settings/tokens>
+3. **Create token** → name `oriz-mirror-bot` → scope `repo:write`
+4. Copy → `.env`: `MIRROR_GITFLIC_TOKEN`, `MIRROR_GITFLIC_USERNAME`
 
-### 1E. Azure DevOps — Personal Access Token (org-scoped)
+### 1E. Azure DevOps — Org-scoped PAT
 
-⚠️ Use org-scoped PAT, NOT "All accessible organizations" (global PATs retire Dec 1 2026).
+⚠️ Use **org-scoped** PAT, not "All accessible organizations".
 
-1. Log in at <https://dev.azure.com>
-2. Create/ensure organization exists (e.g. `chirag127`)
-3. Create a project inside it (e.g. `mirrors`)
-4. Go to: `https://dev.azure.com/{org}/_usersSettings/tokens`
-5. Click **+ New Token**
-6. Name: `oriz-mirror-bot` | Org: select your specific org | Expiry: 1 year
-7. Scope: **Code → Manage** (tick this custom scope)
-8. Copy token immediately
-9. Save to Doppler:
-   ```bash
-   doppler secrets set MIRROR_AZURE_DEVOPS_TOKEN --config prd
-   doppler secrets set MIRROR_AZURE_DEVOPS_ORG --config prd      # e.g. chirag127
-   doppler secrets set MIRROR_AZURE_DEVOPS_PROJECT --config prd  # e.g. mirrors
-   ```
+1. Sign up: <https://dev.azure.com>
+2. Create org (e.g. `chirag127`) → create project (e.g. `mirrors`)
+3. Token page: `https://dev.azure.com/{org}/_usersSettings/tokens`
+4. **+ New Token** → name `oriz-mirror-bot` → org: pick your specific org → expiry 1 year → custom scope **Code → Manage**
+5. Copy → `.env`: `MIRROR_AZURE_DEVOPS_TOKEN`, `MIRROR_AZURE_DEVOPS_ORG`, `MIRROR_AZURE_DEVOPS_PROJECT`
 
-### 1F. NotABug.org — Access Token
+### 1F. NotABug.org — Gogs Access Token
 
-1. Log in at <https://notabug.org> (Gogs-based, registration via email)
-2. Go to: `https://notabug.org/user/settings/applications`
-3. Under "Manage Access Tokens" → **Generate New Token**
-4. Name: `oriz-mirror-bot`
-5. Copy token immediately (Gogs shows it once)
-6. Save to Doppler:
-   ```bash
-   doppler secrets set MIRROR_NOTABUG_TOKEN --config prd
-   doppler secrets set MIRROR_NOTABUG_USERNAME --config prd
-   ```
+1. Sign up: <https://notabug.org/user/sign_up>
+2. Token page: <https://notabug.org/user/settings/applications>
+3. **Manage Access Tokens** → Generate New Token → name `oriz-mirror-bot`
+4. ⚠️ COPY IMMEDIATELY — Gogs shows the token once
+5. Paste → `.env`: `MIRROR_NOTABUG_TOKEN`, `MIRROR_NOTABUG_USERNAME`
 
-⚠️ NotABug intermittently shows "ERROR! :(" pages. The workflow uses
-`continue-on-error: true` for this host so transient outages don't fail
-the cron.
+Workflow uses `continue-on-error: true` for NotABug so flakes don't break the cron.
 
-### 1G. Radicle — Identity bootstrap (one-time, local machine)
+### 1G. Radicle — Identity bootstrap (local one-time)
 
-Radicle is P2P. The runner needs a Radicle keypair (`~/.radicle/keys/`)
-and a passphrase. Generate them once on your local machine and ship them
-to org secrets:
+Radicle is P2P. Generate a keypair locally and ship to the runner.
 
-1. Install the CLI locally:
-   ```bash
-   curl -sSf https://radicle.xyz/install | sh
-   ```
-2. Create a fresh identity:
-   ```bash
-   rad auth   # prompts for an alias and a passphrase — pick a strong one
-   ```
-   This creates `~/.radicle/keys/radicle` and `radicle.pub`.
-3. Tar + base64-encode and save to Doppler:
-   ```bash
-   tar czf - -C ~/.radicle keys | base64 -w0 \
-     | doppler secrets set MIRROR_RADICLE_KEYPAIR_TAR_B64 --config prd
-   doppler secrets set MIRROR_RADICLE_PASSPHRASE --config prd  # paste the passphrase
-   ```
-4. Public seed node `radicle.garden` is used (free, public). No
-   self-hosted Radicle node needed.
+```bash
+curl -sSf https://radicle.xyz/install | sh
+rad auth                                  # pick an alias + a strong passphrase
+# Encode the keypair directory as one line:
+tar czf - -C ~/.radicle keys | base64 -w0 > /tmp/rad-keypair-b64.txt
+```
+
+Then paste:
+- contents of `/tmp/rad-keypair-b64.txt` → `.env`: `MIRROR_RADICLE_KEYPAIR_TAR_B64`
+- the passphrase you typed during `rad auth` → `.env`: `MIRROR_RADICLE_PASSPHRASE`
+
+Public seed node `radicle.garden` is used. No self-hosted Radicle node needed.
 
 ---
 
-## Step 2: Store all tokens at chirag127 GitHub org level
+## Step 2: Push all secrets to chirag127 org level (direct, no Doppler)
 
 Per [`rules/security/github-org-level-secrets.md`](../../rules/security/github-org-level-secrets.md),
-ALL secrets live at org level. Run this script:
+secrets live at org level so every repo in the org sees them. Reads them
+straight out of your local `.env`:
 
 ```bash
 #!/bin/bash
-# Run from c:/D/oriz after doppler is authenticated
+# Run from c:/D/oriz with .env already populated
+set -e
+set -a; . ./.env; set +a   # load .env into shell
 
 SECRETS=(
   MIRROR_GITLAB_TOKEN
@@ -203,164 +158,207 @@ SECRETS=(
 )
 
 for NAME in "${SECRETS[@]}"; do
-  VALUE="$(doppler secrets get "$NAME" --plain --config prd)"
-  printf '%s' "$VALUE" | gh secret set "$NAME" --org chirag127 --visibility all
-  echo "✓ Set $NAME"
+  VAL="${!NAME}"
+  if [ -z "$VAL" ]; then
+    echo "⊘ skip $NAME (empty in .env)"
+    continue
+  fi
+  printf '%s' "$VAL" | gh secret set "$NAME" --org chirag127 --visibility all
+  echo "✓ set $NAME"
 done
 
 echo ""
-echo "Verify:"
 gh secret list --org chirag127 | grep -E '^MIRROR_'
 ```
+
+Each empty value is skipped so partial setups (e.g. Codeberg still down)
+don't blow up the loop.
+
+### Per-host ENABLE flags as org-level Variables
+
+Flags are **Variables**, not Secrets — they're 0/1 toggles, not credentials:
+
+```bash
+#!/bin/bash
+# Set / reset the 7 ENABLE flags from .env values
+set -a; . ./.env; set +a
+
+FLAGS=(
+  ENABLE_MIRROR_GITLAB
+  ENABLE_MIRROR_CODEBERG
+  ENABLE_MIRROR_BITBUCKET
+  ENABLE_MIRROR_GITFLIC
+  ENABLE_MIRROR_AZURE_DEVOPS
+  ENABLE_MIRROR_NOTABUG
+  ENABLE_MIRROR_RADICLE
+)
+
+for NAME in "${FLAGS[@]}"; do
+  VAL="${!NAME:-0}"
+  gh variable set "$NAME" --org chirag127 --visibility all --body "$VAL"
+  echo "✓ var $NAME=$VAL"
+done
+
+gh variable list --org chirag127 | grep -E '^ENABLE_MIRROR_'
+```
+
+To toggle a single host later: `gh variable set ENABLE_MIRROR_CODEBERG --org chirag127 --visibility all --body 1`.
 
 ---
 
 ## Step 3: Pre-create mirror repos on each host
 
 This script reads `repos/own/*` submodules from `.gitmodules` and creates
-empty target repos on each of the 6 HTTPS hosts (Radicle creates repos
-on first `rad init`, no pre-creation step needed). Idempotent — 409/4xx
-errors on existing repos are ignored.
+empty target repos on the 6 HTTPS hosts (Radicle creates on first
+`rad init`, no pre-creation step needed). Idempotent — 409/4xx errors on
+existing repos are ignored.
 
 ```bash
 #!/bin/bash
-# pre-create-mirror-repos.sh
-# Run from c:/D/oriz — requires curl, jq, doppler
-
+# pre-create-mirror-repos.sh — requires curl, jq
 set -e
-
-# Load secrets from Doppler
-GITLAB_TOKEN=$(doppler secrets get MIRROR_GITLAB_TOKEN --plain --config prd)
-GITLAB_USER=$(doppler secrets get MIRROR_GITLAB_USERNAME --plain --config prd)
-CODEBERG_TOKEN=$(doppler secrets get MIRROR_CODEBERG_TOKEN --plain --config prd)
-CODEBERG_USER=$(doppler secrets get MIRROR_CODEBERG_USERNAME --plain --config prd)
-BB_TOKEN=$(doppler secrets get MIRROR_BITBUCKET_API_TOKEN --plain --config prd)
-BB_USER=$(doppler secrets get MIRROR_BITBUCKET_USERNAME --plain --config prd)
-GITFLIC_TOKEN=$(doppler secrets get MIRROR_GITFLIC_TOKEN --plain --config prd)
-GITFLIC_USER=$(doppler secrets get MIRROR_GITFLIC_USERNAME --plain --config prd)
-ADO_TOKEN=$(doppler secrets get MIRROR_AZURE_DEVOPS_TOKEN --plain --config prd)
-ADO_ORG=$(doppler secrets get MIRROR_AZURE_DEVOPS_ORG --plain --config prd)
-ADO_PROJECT=$(doppler secrets get MIRROR_AZURE_DEVOPS_PROJECT --plain --config prd)
-NOTABUG_TOKEN=$(doppler secrets get MIRROR_NOTABUG_TOKEN --plain --config prd)
-NOTABUG_USER=$(doppler secrets get MIRROR_NOTABUG_USERNAME --plain --config prd)
+set -a; . ./.env; set +a
 
 # Collect repos/own/* submodule names from .gitmodules
-echo "Collecting repos/own/* submodules..."
-REPOS_JSON=$(awk '
+REPOS=$(awk '
   /^\[submodule/ { path="" }
   /^[[:space:]]*path[[:space:]]*=/ { sub(/^[^=]*=[[:space:]]*/, ""); path=$0
     if (path ~ /^repos\/own\//) { n=split(path, p, "/"); print p[n] }
   }
 ' .gitmodules)
 
-echo "$REPOS_JSON" | while read -r REPO_NAME; do
+echo "$REPOS" | while read -r REPO_NAME; do
   [ -z "$REPO_NAME" ] && continue
-  echo "--- Creating mirrors for: $REPO_NAME ---"
+  echo "--- $REPO_NAME ---"
 
   # GitLab
-  curl -s -o /dev/null -X POST "https://gitlab.com/api/v4/projects" \
-    -H "PRIVATE-TOKEN: ${GITLAB_TOKEN}" \
-    -H "Content-Type: application/json" \
-    -d "{\"name\":\"${REPO_NAME}\",\"visibility\":\"public\"}" || true
-  sleep 0.3
+  if [ "${ENABLE_MIRROR_GITLAB:-0}" = "1" ] && [ -n "$MIRROR_GITLAB_TOKEN" ]; then
+    curl -s -o /dev/null -X POST "https://gitlab.com/api/v4/projects" \
+      -H "PRIVATE-TOKEN: ${MIRROR_GITLAB_TOKEN}" \
+      -H "Content-Type: application/json" \
+      -d "{\"name\":\"${REPO_NAME}\",\"visibility\":\"public\"}" || true
+    sleep 0.3
+  fi
 
-  # Codeberg (user namespace)
-  curl -s -o /dev/null -X POST "https://codeberg.org/api/v1/user/repos" \
-    -H "Authorization: token ${CODEBERG_TOKEN}" \
-    -H "Content-Type: application/json" \
-    -d "{\"name\":\"${REPO_NAME}\",\"private\":false,\"auto_init\":false}" || true
-  sleep 0.3
+  # Codeberg
+  if [ "${ENABLE_MIRROR_CODEBERG:-0}" = "1" ] && [ -n "$MIRROR_CODEBERG_TOKEN" ]; then
+    curl -s -o /dev/null -X POST "https://codeberg.org/api/v1/user/repos" \
+      -H "Authorization: token ${MIRROR_CODEBERG_TOKEN}" \
+      -H "Content-Type: application/json" \
+      -d "{\"name\":\"${REPO_NAME}\",\"private\":false,\"auto_init\":false}" || true
+    sleep 0.3
+  fi
 
   # Bitbucket
-  curl -s -o /dev/null -X POST \
-    -H "Authorization: Bearer ${BB_TOKEN}" \
-    -H "Content-Type: application/json" \
-    -d "{\"scm\":\"git\",\"is_private\":false}" \
-    "https://api.bitbucket.org/2.0/repositories/${BB_USER}/${REPO_NAME}" || true
-  sleep 0.3
+  if [ "${ENABLE_MIRROR_BITBUCKET:-0}" = "1" ] && [ -n "$MIRROR_BITBUCKET_API_TOKEN" ]; then
+    curl -s -o /dev/null -X POST \
+      -H "Authorization: Bearer ${MIRROR_BITBUCKET_API_TOKEN}" \
+      -H "Content-Type: application/json" \
+      -d "{\"scm\":\"git\",\"is_private\":false}" \
+      "https://api.bitbucket.org/2.0/repositories/${MIRROR_BITBUCKET_USERNAME}/${REPO_NAME}" || true
+    sleep 0.3
+  fi
 
   # GitFlic
-  curl -s -o /dev/null -X POST "https://api.gitflic.ru/project" \
-    -H "Authorization: token ${GITFLIC_TOKEN}" \
-    -H "Content-Type: application/json" \
-    -d "{\"title\":\"${REPO_NAME}\",\"alias\":\"${REPO_NAME}\",\"private\":false}" || true
-  sleep 0.3
-
-  # Azure DevOps — need project ID first (cache it)
-  if [ -z "$ADO_PROJECT_ID" ]; then
-    ADO_PROJECT_ID=$(curl -s -u ":${ADO_TOKEN}" \
-      "https://dev.azure.com/${ADO_ORG}/_apis/projects/${ADO_PROJECT}?api-version=7.1" \
-      | jq -r '.id')
-    echo "Azure DevOps project ID: $ADO_PROJECT_ID"
+  if [ "${ENABLE_MIRROR_GITFLIC:-0}" = "1" ] && [ -n "$MIRROR_GITFLIC_TOKEN" ]; then
+    curl -s -o /dev/null -X POST "https://api.gitflic.ru/project" \
+      -H "Authorization: token ${MIRROR_GITFLIC_TOKEN}" \
+      -H "Content-Type: application/json" \
+      -d "{\"title\":\"${REPO_NAME}\",\"alias\":\"${REPO_NAME}\",\"private\":false}" || true
+    sleep 0.3
   fi
-  curl -s -o /dev/null -X POST -u ":${ADO_TOKEN}" \
-    -H "Content-Type: application/json" \
-    -d "{\"name\":\"${REPO_NAME}\",\"project\":{\"id\":\"${ADO_PROJECT_ID}\"}}" \
-    "https://dev.azure.com/${ADO_ORG}/${ADO_PROJECT}/_apis/git/repositories?api-version=7.1" || true
-  sleep 0.3
+
+  # Azure DevOps (cache project ID across iterations)
+  if [ "${ENABLE_MIRROR_AZURE_DEVOPS:-0}" = "1" ] && [ -n "$MIRROR_AZURE_DEVOPS_TOKEN" ]; then
+    if [ -z "$ADO_PROJECT_ID" ]; then
+      ADO_PROJECT_ID=$(curl -s -u ":${MIRROR_AZURE_DEVOPS_TOKEN}" \
+        "https://dev.azure.com/${MIRROR_AZURE_DEVOPS_ORG}/_apis/projects/${MIRROR_AZURE_DEVOPS_PROJECT}?api-version=7.1" \
+        | jq -r '.id')
+      export ADO_PROJECT_ID
+    fi
+    curl -s -o /dev/null -X POST -u ":${MIRROR_AZURE_DEVOPS_TOKEN}" \
+      -H "Content-Type: application/json" \
+      -d "{\"name\":\"${REPO_NAME}\",\"project\":{\"id\":\"${ADO_PROJECT_ID}\"}}" \
+      "https://dev.azure.com/${MIRROR_AZURE_DEVOPS_ORG}/${MIRROR_AZURE_DEVOPS_PROJECT}/_apis/git/repositories?api-version=7.1" || true
+    sleep 0.3
+  fi
 
   # NotABug (Gogs API)
-  curl -s -o /dev/null -X POST "https://notabug.org/api/v1/user/repos" \
-    -H "Authorization: token ${NOTABUG_TOKEN}" \
-    -H "Content-Type: application/json" \
-    -d "{\"name\":\"${REPO_NAME}\",\"private\":false,\"auto_init\":false}" || true
-  sleep 0.3
+  if [ "${ENABLE_MIRROR_NOTABUG:-0}" = "1" ] && [ -n "$MIRROR_NOTABUG_TOKEN" ]; then
+    curl -s -o /dev/null -X POST "https://notabug.org/api/v1/user/repos" \
+      -H "Authorization: token ${MIRROR_NOTABUG_TOKEN}" \
+      -H "Content-Type: application/json" \
+      -d "{\"name\":\"${REPO_NAME}\",\"private\":false,\"auto_init\":false}" || true
+    sleep 0.3
+  fi
 
-  echo "✓ $REPO_NAME pre-created on all 6 HTTPS hosts (Radicle created on first sync)"
+  echo "✓ $REPO_NAME pre-created (enabled hosts only; Radicle inits on first sync)"
 done
-
-echo ""
-echo "Pre-creation complete. Run a dry-run next (Step 4)."
 ```
 
 ---
 
-## Step 4: Dry-run the mirror workflow
+## Step 4: Dry-run the workflow
 
 ```bash
-# Trigger workflow with dry-run mode (add --dry-run flag in push step temporarily)
-gh workflow run mirror-all.yml --repo chirag127/oriz
-gh run watch --repo chirag127/oriz
+gh workflow run mirror-all.yml --repo oriz-org/workspace
+gh run watch --repo oriz-org/workspace
 ```
 
-Check logs: every host should show ✓ per repo. Any ✗ indicates missing
-repo or wrong token — fix before re-enabling the full cron.
+Disabled hosts emit `::notice::Mirror <host> disabled` and skip. Enabled
+hosts should show ✓ per repo. Any ✗ = missing repo or wrong token — fix
+before the next Friday cron.
 
-## Step 5: Force a real first run
+## Step 5: First real run
+
+The cron runs every Friday 22:00 UTC. To force one now:
 
 ```bash
-gh workflow run mirror-all.yml --repo chirag127/oriz
+gh workflow run mirror-all.yml --repo oriz-org/workspace
 ```
 
-After completion, spot-check each host's web UI for the workspace repo's
-commit history — should match GitHub HEAD.
+Spot-check each enabled host's web UI for a fresh commit history matching
+GitHub HEAD.
 
 ---
 
 ## Adding a new repo (recurring task)
 
-When a new submodule or standalone repo is added:
+When a new submodule is added under `repos/own/*`:
 
-1. Run Step 3's repo-creation script (idempotent — safe to re-run fully)
-2. The next Friday cron will include the new repo automatically
+1. Re-run Step 3's repo-creation script (idempotent — safe to re-run).
+2. The next Friday cron picks up the new repo automatically.
 
 ---
 
 ## Token rotation
 
 When a token expires or is compromised:
-1. Regenerate on the host's dashboard (see Step 1 for each host)
-2. Update in Doppler: `doppler secrets set <NAME> --config prd`
-3. Re-run Step 2's `gh secret set` loop
-4. Per [`runbooks/security/rotate-leaked-secret.md`](../security/rotate-leaked-secret.md)
+
+1. Regenerate on the host (see Step 1 for the exact URL).
+2. Overwrite the value in `c:/D/oriz/.env`.
+3. Re-run Step 2's `gh secret set` loop — it overwrites existing secrets idempotently.
+4. Per [`runbooks/security/rotate-leaked-secret.md`](../security/rotate-leaked-secret.md).
+
+---
+
+## Re-enabling a previously disabled host
+
+When a downed host (Codeberg / Bitbucket / GitFlic) comes back:
+
+1. Verify signup + token page work end-to-end (Step 1).
+2. Paste credentials into `c:/D/oriz/.env`.
+3. Flip `ENABLE_MIRROR_<HOST>=1` in `.env`.
+4. Re-run Step 2 (secrets loop) and Step 2's flag loop.
+5. Re-run Step 3 to create any missing target repos.
 
 ---
 
 ## See also
 
 - Mirror decision → [`../../decisions/architecture/ops/mirror-to-7-popular-alternatives-2026-06-28.md`](../../decisions/architecture/ops/mirror-to-7-popular-alternatives-2026-06-28.md)
-- Org secrets rule → [`../rules/security/github-org-level-secrets.md`](../../rules/security/github-org-level-secrets.md)
-- Set org secrets → [`./set-github-org-level-secrets.md`](../security/set-github-org-level-secrets.md)
-- Rotate leaked secret → [`./rotate-leaked-secret.md`](../security/rotate-leaked-secret.md)
+- Org secrets rule → [`../../rules/security/github-org-level-secrets.md`](../../rules/security/github-org-level-secrets.md)
+- Set org secrets runbook → [`../security/set-github-org-level-secrets.md`](../security/set-github-org-level-secrets.md)
+- Rotate leaked secret → [`../security/rotate-leaked-secret.md`](../security/rotate-leaked-secret.md)
 - Service files per host → [`../../services/hosting/`](../../services/hosting)
 - Workflow file → `.github/workflows/mirror-all.yml`
