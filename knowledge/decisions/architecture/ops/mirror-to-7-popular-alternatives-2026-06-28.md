@@ -91,8 +91,10 @@ Friday 22:00 UTC (Friday 03:30 IST)
 └── Job: weekly-digest (Telegram 7-host summary)
 ```
 
-All credentials live as **org-level GitHub Secrets** under `chirag127` —
-see [`rules/security/github-org-level-secrets.md`](../../../rules/security/github-org-level-secrets.md).
+All credentials live as **org-level GitHub Secrets** under `oriz-org`
+(the org that owns the umbrella `oriz-org/workspace` repo running the
+cron). See [`rules/security/github-org-level-secrets.md`](../../../rules/security/github-org-level-secrets.md)
+for the broader org-level-secrets convention.
 
 ## Radicle identity bootstrap (one-time)
 
@@ -104,8 +106,8 @@ store as a base64 tarball in `MIRROR_RADICLE_KEYPAIR_TAR_B64`:
 curl -sSf https://radicle.xyz/install | sh
 rad auth                                          # creates ~/.radicle/keys
 tar czf - -C ~/.radicle keys | base64 -w0 \
-  | gh secret set MIRROR_RADICLE_KEYPAIR_TAR_B64 --org chirag127 --visibility all
-gh secret set MIRROR_RADICLE_PASSPHRASE --org chirag127 --visibility all  # type when prompted
+  | gh secret set MIRROR_RADICLE_KEYPAIR_TAR_B64 --org oriz-org --visibility all
+gh secret set MIRROR_RADICLE_PASSPHRASE --org oriz-org --visibility all  # type when prompted
 ```
 
 Workflow then unpacks `~/.radicle/keys`, configures `radicle.garden` as

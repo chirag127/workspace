@@ -64,7 +64,7 @@ Our repos are all < 100 MB; 100× headroom on the 10 GiB limit.
 5. Expiration: set to 1 year from today (GitLab now requires expiry)
 6. Scopes: tick `api` and `write_repository`
 7. Click **Create personal access token** — copy immediately, shown once
-8. Store as chirag127 org-level GitHub secret(s) — paste value into `.env` then `gh secret set <NAME> --org chirag127 --visibility all < <(printf %s "$VALUE")`. Full loop: [`runbooks/hosting/mirror-all-hosts-setup.md`](../../runbooks/hosting/mirror-all-hosts-setup.md) Step 2.
+8. Store as oriz-org org-level GitHub secret(s) — paste value into `.env` then `gh secret set <NAME> --org oriz-org --visibility all < <(printf %s "$VALUE")`. Full loop: [`runbooks/hosting/mirror-all-hosts-setup.md`](../../runbooks/hosting/mirror-all-hosts-setup.md) Step 2.
 
    ```bash
 # Create project under personal namespace

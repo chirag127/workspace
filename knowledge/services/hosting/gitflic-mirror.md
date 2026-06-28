@@ -68,7 +68,7 @@ GitFlic.ru is hosted in Russia. Access may be restricted:
 4. Name: `oriz-mirror-bot`
 5. Scope: `repo:write` (repository write access)
 6. Click **Create** — copy immediately
-7. Store as chirag127 org-level GitHub secret(s) — paste value into `.env` then `gh secret set <NAME> --org chirag127 --visibility all < <(printf %s "$VALUE")`. Full loop: [`runbooks/hosting/mirror-all-hosts-setup.md`](../../runbooks/hosting/mirror-all-hosts-setup.md) Step 2.
+7. Store as oriz-org org-level GitHub secret(s) — paste value into `.env` then `gh secret set <NAME> --org oriz-org --visibility all < <(printf %s "$VALUE")`. Full loop: [`runbooks/hosting/mirror-all-hosts-setup.md`](../../runbooks/hosting/mirror-all-hosts-setup.md) Step 2.
 
    
 

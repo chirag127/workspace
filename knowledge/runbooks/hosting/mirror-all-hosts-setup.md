@@ -1,7 +1,7 @@
 ---
 type: runbook
 title: "Mirror all hosts setup — one-time token generation + repo pre-creation for the 7 popular hosts"
-description: 'One-time setup runbook to configure the 7-host automatic git mirror for repos/own/* submodules. Covers token + keypair generation for GitLab, Codeberg, Bitbucket, GitFlic, Azure DevOps, NotABug, and Radicle; pre-creating mirror repos on each host; storing tokens directly as chirag127 GitHub org-level secrets (no Doppler); per-host ENABLE flags as org-level Variables; dry-run + first real run. No manual recurring sync.'
+description: 'One-time setup runbook to configure the 7-host automatic git mirror for repos/own/* submodules. Covers token + keypair generation for GitLab, Codeberg, Bitbucket, GitFlic, Azure DevOps, NotABug, and Radicle; pre-creating mirror repos on each host; storing tokens directly as oriz-org GitHub org-level secrets (workflow lives in oriz-org/workspace); per-host ENABLE flags as org-level Variables; dry-run + first real run. No manual recurring sync.'
 tags:
 - runbook
 - mirror
@@ -38,13 +38,16 @@ related:
 Complete setup for the 7-host weekly git mirror. Run once. After this, the
 Friday cron in `.github/workflows/mirror-all.yml` runs hands-free.
 
-**No Doppler.** Secrets and ENABLE flags live directly in GitHub at the
-`chirag127` org level. Local mirror in `c:/D/oriz/.env` (gitignored) is
-the authoring copy.
+**Where the workflow reads from.** Mirror secrets and `ENABLE_MIRROR_*`
+variables live at the **`oriz-org`** GitHub org level — that's the org
+that owns the umbrella `oriz-org/workspace` repo running the cron. Local
+mirror in `c:/D/oriz/.env` (gitignored) is the authoring copy; Doppler
+may also hold it as a personal vault but the workflow path is GitHub
+org secrets only.
 
 ## Prerequisites
 
-- `gh` CLI authenticated as admin of `chirag127` org
+- `gh` CLI authenticated as admin of `oriz-org` org
 - Browser access for token generation
 - `jq` and `curl` installed
 - `rad` CLI (for Radicle keypair only): `curl -sSf https://radicle.xyz/install | sh`
@@ -127,11 +130,11 @@ Public seed node `radicle.garden` is used. No self-hosted Radicle node needed.
 
 ---
 
-## Step 2: Push all secrets to chirag127 org level (direct, no Doppler)
+## Step 2: Push all secrets to oriz-org org level
 
-Per [`rules/security/github-org-level-secrets.md`](../../rules/security/github-org-level-secrets.md),
-secrets live at org level so every repo in the org sees them. Reads them
-straight out of your local `.env`:
+Mirror secrets live at `oriz-org` (the org that owns the workflow repo).
+Doppler may also hold them; the workflow only reads org-level GH secrets.
+Reads from your local `.env`:
 
 ```bash
 #!/bin/bash
@@ -163,12 +166,12 @@ for NAME in "${SECRETS[@]}"; do
     echo "⊘ skip $NAME (empty in .env)"
     continue
   fi
-  printf '%s' "$VAL" | gh secret set "$NAME" --org chirag127 --visibility all
+  printf '%s' "$VAL" | gh secret set "$NAME" --org oriz-org --visibility all
   echo "✓ set $NAME"
 done
 
 echo ""
-gh secret list --org chirag127 | grep -E '^MIRROR_'
+gh secret list --org oriz-org | grep -E '^MIRROR_'
 ```
 
 Each empty value is skipped so partial setups (e.g. Codeberg still down)
@@ -195,14 +198,14 @@ FLAGS=(
 
 for NAME in "${FLAGS[@]}"; do
   VAL="${!NAME:-0}"
-  gh variable set "$NAME" --org chirag127 --visibility all --body "$VAL"
+  gh variable set "$NAME" --org oriz-org --visibility all --body "$VAL"
   echo "✓ var $NAME=$VAL"
 done
 
-gh variable list --org chirag127 | grep -E '^ENABLE_MIRROR_'
+gh variable list --org oriz-org | grep -E '^ENABLE_MIRROR_'
 ```
 
-To toggle a single host later: `gh variable set ENABLE_MIRROR_CODEBERG --org chirag127 --visibility all --body 1`.
+To toggle a single host later: `gh variable set ENABLE_MIRROR_CODEBERG --org oriz-org --visibility all --body 1`.
 
 ---
 
