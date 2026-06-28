@@ -12,7 +12,7 @@
 ## Build
 
 ```bash
-cd repos/own/sops-lens-vsc-ext
+cd repos/own/apps-vsc-ext/sops-lens-vsc-ext
 npm install
 npm run compile
 npx --yes @vscode/vsce@latest package --no-dependencies --no-git-tag-version
@@ -31,7 +31,7 @@ npx --yes @vscode/vsce@latest publish --packagePath sops-lens-0.2.0.vsix
 ```bash
 code --install-extension oriz-org.sops-lens --force
 # OR from local .vsix:
-code --install-extension C:/D/oriz/repos/own/sops-lens-vsc-ext/sops-lens-0.2.0.vsix --force
+code --install-extension C:/D/oriz/repos/own/apps-vsc-ext/sops-lens-vsc-ext/sops-lens-0.2.0.vsix --force
 ```
 
 Confirmed installed: `oriz-org.sops-lens@0.2.0` in VS Code stable.

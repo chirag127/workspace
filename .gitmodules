@@ -1,26 +1,26 @@
 [submodule "repos/me"]
-	path = repos/own/me
+	path = repos/own/sites/me
 	url = https://github.com/oriz-org/me.git
 [submodule "repos/journal"]
-	path = repos/own/journal
+	path = repos/own/sites/journal
 	url = https://github.com/oriz-org/journal.git
 [submodule "repos/home"]
-	path = repos/own/home
+	path = repos/own/sites/home
 	url = https://github.com/oriz-org/home.git
 [submodule "repos/oriz-ncert-app"]
-	path = repos/own/oriz-ncert-app
+	path = repos/own/apps-mobile/oriz-ncert-app
 	url = https://github.com/oriz-org/oriz-ncert-app.git
 [submodule "repos/oriz-lore-app"]
-	path = repos/own/oriz-lore-app
+	path = repos/own/apps-mobile/oriz-lore-app
 	url = https://github.com/oriz-org/oriz-lore-app.git
 [submodule "repos/oriz-janaushdhi-app"]
-	path = repos/own/oriz-janaushdhi-app
+	path = repos/own/apps-mobile/oriz-janaushdhi-app
 	url = https://github.com/oriz-org/oriz-janaushdhi-app.git
 [submodule "repos/oriz-janaushdhi-book"]
-	path = repos/own/oriz-janaushdhi-book
+	path = repos/own/books/oriz-janaushdhi-book
 	url = https://github.com/oriz-org/oriz-janaushdhi-book.git
 [submodule "repos/oriz-me-book"]
-	path = repos/own/oriz-me-book
+	path = repos/own/books/oriz-me-book
 	url = https://github.com/oriz-org/oriz-me-book.git
 [submodule "repos/oriz-mmi-tickertape-mmi-api"]
 	path = repos/own/api/oriz-mmi-tickertape-mmi-api
@@ -41,13 +41,13 @@
 	path = repos/frk/omniroute
 	url = https://github.com/oriz-org/omniroute.git
 [submodule "repos/sops-lens-vsc-ext"]
-	path = repos/own/sops-lens-vsc-ext
+	path = repos/own/apps-vsc-ext/sops-lens-vsc-ext
 	url = https://github.com/oriz-org/sops-lens-vsc-ext.git
 [submodule "repos/bookmark-mind-bs-ext"]
-	path = repos/own/bookmark-mind-bs-ext
+	path = repos/own/apps-bs-ext/bookmark-mind-bs-ext
 	url = https://github.com/oriz-org/bookmark-mind-bs-ext.git
 [submodule "repos/blog"]
-	path = repos/own/blog
+	path = repos/own/sites/blog
 	url = https://github.com/oriz-org/blog.git
 [submodule "repos/own/rto-api"]
 	path = repos/own/api/rto-api
@@ -65,11 +65,11 @@
 	path = repos/own/api/countries-plus-api
 	url = https://github.com/oriz-org/countries-plus-api
 [submodule "repos/own/api-fleet-template"]
-	path = repos/own/api-fleet-template
+	path = repos/own/infra/api-fleet-template
 	url = https://github.com/oriz-org/api-fleet-template
 [submodule "repos/own/api-fleet-landing"]
-	path = repos/own/api-fleet-landing
+	path = repos/own/infra/api-fleet-landing
 	url = https://github.com/oriz-org/api-fleet-landing
 [submodule "repos/own/agent-skills"]
-	path = repos/own/agent-skills
+	path = repos/own/infra/agent-skills
 	url = https://github.com/oriz-org/agent-skills

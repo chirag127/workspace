@@ -309,7 +309,7 @@ Family vocabulary under [`knowledge/glossary/`](./knowledge/glossary/) — split
 
 ## Skills available
 
-Skills live at `repos/own/agent-skills/<skill>/SKILL.md` (canonical) and are symlinked into `~/.claude/skills/` and `~/.agents/skills/`. The current set on this machine:
+Skills live at `repos/own/infra/agent-skills/<skill>/SKILL.md` (canonical) and are symlinked into `~/.claude/skills/` and `~/.agents/skills/`. The current set on this machine:
 
 | Skill | Purpose |
 |---|---|
