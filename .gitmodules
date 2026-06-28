@@ -49,9 +49,6 @@
 [submodule "repos/blog"]
 	path = repos/own/blog
 	url = https://github.com/oriz-org/blog.git
-[submodule "repos/backup"]
-	path = repos/own/backup
-	url = https://github.com/oriz-org/backup.git
 [submodule "repos/own/rto-api"]
 	path = repos/own/rto-api
 	url = https://github.com/oriz-org/rto-api

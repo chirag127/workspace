@@ -27,6 +27,8 @@ jobs:
         uses: actions/checkout@v4
       - name: Collect repos/own/* submodules from .gitmodules
         id: collect
+        env:
+          GH_TOKEN: ${{ secrets.GH_ADMIN_PAT }}
         run: |
           # Parse .gitmodules — keep only entries whose path starts with repos/own/.
           # Mirror scope = own originals only. Forks (repos/frk/*) skipped —
@@ -44,8 +46,22 @@ jobs:
               }
             }
           ' .gitmodules | jq -s 'unique_by(.name)')
-          echo "Total repos/own/* to mirror: $(echo "$REPOS" | jq 'length')"
-          echo "repos=$(echo "$REPOS" | jq -c)" >> $GITHUB_OUTPUT
+
+          # Filter out private repos — workspace policy: no private repos mirrored.
+          # See knowledge/decisions/policy/private-repos-excluded-from-mirror-cron.md
+          PUBLIC_REPOS='[]'
+          for FULL in $(echo "$REPOS" | jq -r '.[].full'); do
+            VIS=$(gh api "repos/${FULL}" --jq '.private' 2>/dev/null || echo "true")
+            if [ "$VIS" = "false" ]; then
+              ENTRY=$(echo "$REPOS" | jq --arg f "$FULL" '.[] | select(.full==$f)')
+              PUBLIC_REPOS=$(echo "$PUBLIC_REPOS" | jq --argjson e "$ENTRY" '. + [$e]')
+            else
+              echo "::notice::Skipping ${FULL} (private or inaccessible)"
+            fi
+          done
+
+          echo "Total public repos/own/* to mirror: $(echo "$PUBLIC_REPOS" | jq 'length')"
+          echo "repos=$(echo "$PUBLIC_REPOS" | jq -c)" >> $GITHUB_OUTPUT
 
   # ── Step 2: Mirror to each host in parallel ────────────────────────────────
   mirror:
