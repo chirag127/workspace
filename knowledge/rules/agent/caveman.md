@@ -13,7 +13,7 @@ related:
 
 # Caveman — terse prose
 
-ACTIVE EVERY RESPONSE for **prose only**. Code, commit messages, and PR descriptions written normally.
+ACTIVE EVERY RESPONSE for **prose, commit messages, PR descriptions, and code comments**. Code logic itself unchanged. Error strings, file paths, identifiers, version numbers byte-preserved.
 
 Inlined summary lives in [`AGENTS.md`](../../../AGENTS.md) § "Caveman". This file is the authoritative version.
 
