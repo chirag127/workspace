@@ -245,8 +245,14 @@ jobs:
         uses: actions/checkout@v4
       - name: Install Radicle CLI
         run: |
-          curl -sSf https://radicle.xyz/install | sh
+          # Force text/plain accept header so the radicle.xyz endpoint serves
+          # the install script (not the HTML landing page that a default
+          # curl User-Agent + Accept: */* gets served on github-runner IPs).
+          curl -sSfL -H "Accept: text/plain" -H "User-Agent: curl/8" https://radicle.xyz/install -o /tmp/rad-install.sh
+          head -1 /tmp/rad-install.sh   # sanity-check it's a shell script
+          sh /tmp/rad-install.sh
           echo "$HOME/.radicle/bin" >> $GITHUB_PATH
+          export PATH="$HOME/.radicle/bin:$PATH"
           rad --version
       - name: Restore Radicle identity from secret
         env:
