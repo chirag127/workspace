@@ -18,7 +18,7 @@ timestamp: 2026-06-24
 format_version: okf-v0.1
 status: active
 related:
-- decisions/architecture/ops/mirror-to-7-popular-alternatives-2026-06-28
+- decisions/architecture/ops/mirror-to-9-popular-alternatives-2026-06-28
 - decisions/architecture/ops/backup-everywhere-weekly
 - rules/interaction/no-card-on-file
 - rules/infrastructure/free-tier-with-cost-controls
@@ -146,5 +146,5 @@ For custom metadata extraction (saving issues/PRs as readable JSON rather than b
 ## Cross-refs
 
 - weekly everywhere plan → [[decisions/architecture/backup-everywhere-weekly]]
-- 7-host mirror → [[decisions/architecture/ops/mirror-to-7-popular-alternatives-2026-06-28]]
+- 9-host mirror → [[decisions/architecture/ops/mirror-to-9-popular-alternatives-2026-06-28]]
 - No card on file rule → [[rules/no-card-on-file]]

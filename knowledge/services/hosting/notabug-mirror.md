@@ -1,19 +1,19 @@
 ---
 type: service
 title: "NotABug.org — mirror host #6"
-description: "NotABug.org is mirror host #6. Free Gogs-based git hosting, no signup wall, no card-on-file. Push via HTTPS with a personal access token. Used as one of 7 popular GitHub alternatives in the umbrella's weekly mirror cron."
+description: "NotABug.org is mirror host #6. Free Gogs-based git hosting, no signup wall, no card-on-file. Push via HTTPS with a personal access token. Used as one of 9 popular GitHub alternatives in the umbrella's weekly mirror cron."
 tags: [service, hosting, mirror, notabug, gogs, free]
 timestamp: 2026-06-28
 format_version: okf-v0.1
 status: active
 related:
-  - decisions/architecture/ops/mirror-to-7-popular-alternatives-2026-06-28
+  - decisions/architecture/ops/mirror-to-9-popular-alternatives-2026-06-28
   - runbooks/hosting/mirror-all-hosts-setup
 ---
 
 # NotABug.org
 
-Free Gogs-based public git host. Mirror host #6 in the 7-host weekly cron.
+Free Gogs-based public git host. Mirror host #6 in the 9-host weekly cron.
 
 ## Free-tier numbers (2026-06-28)
 
@@ -41,5 +41,5 @@ MIRROR_NOTABUG_USERNAME
 
 ## Cross-refs
 
-- Decision → [`decisions/architecture/ops/mirror-to-7-popular-alternatives-2026-06-28`](../../decisions/architecture/ops/mirror-to-7-popular-alternatives-2026-06-28.md)
+- Decision → [`decisions/architecture/ops/mirror-to-9-popular-alternatives-2026-06-28`](../../decisions/architecture/ops/mirror-to-9-popular-alternatives-2026-06-28.md)
 - Setup → [`runbooks/hosting/mirror-all-hosts-setup`](../../runbooks/hosting/mirror-all-hosts-setup.md)

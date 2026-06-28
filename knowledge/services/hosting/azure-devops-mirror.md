@@ -17,7 +17,7 @@ timestamp: 2026-06-24
 format_version: okf-v0.1
 status: active
 related:
-- decisions/architecture/ops/mirror-to-7-popular-alternatives-2026-06-28
+- decisions/architecture/ops/mirror-to-9-popular-alternatives-2026-06-28
 - runbooks/hosting/mirror-all-hosts-setup
 - rules/infrastructure/free-tier-with-cost-controls
 - rules/interaction/no-card-on-file
@@ -131,5 +131,5 @@ Actions is the only automated option.
 ## Cross-refs
 
 - Full setup → [`../../../runbooks/mirror-all-hosts-setup.md`](../../runbooks/hosting/mirror-all-hosts-setup.md)
-- 7-host decision → [`../../decisions/architecture/ops/mirror-to-7-popular-alternatives-2026-06-28.md`](../../decisions/architecture/ops/mirror-to-7-popular-alternatives-2026-06-28.md)
+- 9-host decision → [`../../decisions/architecture/ops/mirror-to-9-popular-alternatives-2026-06-28.md`](../../decisions/architecture/ops/mirror-to-9-popular-alternatives-2026-06-28.md)
 - Microsoft PAT docs: <https://learn.microsoft.com/en-us/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate>

@@ -1,7 +1,7 @@
 ---
 type: runbook
-title: "Mirror all hosts setup — one-time token generation + repo pre-creation for the 7 popular hosts"
-description: 'One-time setup runbook to configure the 7-host automatic git mirror for repos/own/* submodules. Covers token + keypair generation for GitLab, Codeberg, Bitbucket, GitFlic, Azure DevOps, NotABug, and Radicle; pre-creating mirror repos on each host; storing tokens directly as oriz-org GitHub org-level secrets (workflow lives in oriz-org/workspace); per-host ENABLE flags as org-level Variables; dry-run + first real run. No manual recurring sync.'
+title: "Mirror all hosts setup — one-time token generation + repo pre-creation for the 9 popular hosts"
+description: 'One-time setup runbook to configure the 9-host automatic git mirror for repos/own/* submodules. Covers token + keypair generation for GitLab, Codeberg, Bitbucket, GitFlic, Azure DevOps, NotABug, GitGud, RocketGit, and Radicle; pre-creating mirror repos on each host; storing tokens directly as oriz-org GitHub org-level secrets (workflow lives in oriz-org/workspace); per-host ENABLE flags as org-level Variables; dry-run + first real run. No manual recurring sync.'
 tags:
 - runbook
 - mirror
@@ -12,6 +12,8 @@ tags:
 - gitflic
 - azure-devops
 - notabug
+- gitgud
+- rocketgit
 - radicle
 - secrets
 - setup
@@ -19,7 +21,7 @@ timestamp: 2026-06-28
 format_version: okf-v0.1
 status: active
 related:
-- decisions/architecture/ops/mirror-to-7-popular-alternatives-2026-06-28
+- decisions/architecture/ops/mirror-to-9-popular-alternatives-2026-06-28
 - rules/security/github-org-level-secrets
 - rules/infrastructure/free-tier-with-cost-controls
 - rules/interaction/no-card-on-file
@@ -30,12 +32,14 @@ related:
 - services/hosting/gitflic-mirror
 - services/hosting/azure-devops-mirror
 - services/hosting/notabug-mirror
+- services/hosting/gitgud-mirror
+- services/hosting/rocketgit-mirror
 - services/hosting/radicle-mirror
 ---
 
 # Mirror all hosts setup — one-time
 
-Complete setup for the 7-host weekly git mirror. Run once. After this, the
+Complete setup for the 9-host weekly git mirror. Run once. After this, the
 Friday cron in `.github/workflows/mirror-all.yml` runs hands-free.
 
 **Where the workflow reads from.** Mirror secrets and `ENABLE_MIRROR_*`
@@ -54,7 +58,7 @@ org secrets only.
 
 ---
 
-## Step 1: Generate 7 host credentials (browser + local)
+## Step 1: Generate 9 host credentials (browser + local)
 
 Fill the value into `c:/D/oriz/.env` next to the matching `MIRROR_<HOST>_*`
 key as you go. Push to org secrets in Step 2.
@@ -111,7 +115,22 @@ Re-check status first: <https://status.codeberg.eu>. Skip if site is down.
 
 Workflow uses `continue-on-error: true` for NotABug so flakes don't break the cron.
 
-### 1G. Radicle — Identity bootstrap (local one-time)
+### 1G. GitGud.io — GitLab PAT
+
+1. Sign up: <https://gitgud.io/users/sign_up>
+2. Token page: <https://gitgud.io/-/user_settings/personal_access_tokens>
+3. **Add new token** → name `oriz-mirror-bot` → expiry 1 year → scopes ✅ `api` + ✅ `write_repository`
+4. Copy → `.env`: `MIRROR_GITGUD_TOKEN`, `MIRROR_GITGUD_USERNAME`
+
+### 1H. RocketGit.com — API Token
+
+1. Sign up: <https://rocketgit.com/op/register>
+2. Dashboard → Settings → API tokens → **Create**
+3. Copy → `.env`: `MIRROR_ROCKETGIT_TOKEN`, `MIRROR_ROCKETGIT_USERNAME`
+
+⚠️ RocketGit has no public REST repo-create API. Pre-create each `repos/own/*` repo via the web UI before the first cron, or push will 404. Idempotent: repeat only for new submodules.
+
+### 1I. Radicle — Identity bootstrap (local one-time)
 
 Radicle is P2P. Generate a keypair locally and ship to the runner.
 
@@ -156,6 +175,10 @@ SECRETS=(
   MIRROR_AZURE_DEVOPS_PROJECT
   MIRROR_NOTABUG_TOKEN
   MIRROR_NOTABUG_USERNAME
+  MIRROR_GITGUD_TOKEN
+  MIRROR_GITGUD_USERNAME
+  MIRROR_ROCKETGIT_TOKEN
+  MIRROR_ROCKETGIT_USERNAME
   MIRROR_RADICLE_KEYPAIR_TAR_B64
   MIRROR_RADICLE_PASSPHRASE
 )
@@ -183,7 +206,7 @@ Flags are **Variables**, not Secrets — they're 0/1 toggles, not credentials:
 
 ```bash
 #!/bin/bash
-# Set / reset the 7 ENABLE flags from .env values
+# Set / reset the 9 ENABLE flags from .env values
 set -a; . ./.env; set +a
 
 FLAGS=(
@@ -193,6 +216,8 @@ FLAGS=(
   ENABLE_MIRROR_GITFLIC
   ENABLE_MIRROR_AZURE_DEVOPS
   ENABLE_MIRROR_NOTABUG
+  ENABLE_MIRROR_GITGUD
+  ENABLE_MIRROR_ROCKETGIT
   ENABLE_MIRROR_RADICLE
 )
 
@@ -359,7 +384,7 @@ When a downed host (Codeberg / Bitbucket / GitFlic) comes back:
 
 ## See also
 
-- Mirror decision → [`../../decisions/architecture/ops/mirror-to-7-popular-alternatives-2026-06-28.md`](../../decisions/architecture/ops/mirror-to-7-popular-alternatives-2026-06-28.md)
+- Mirror decision → [`../../decisions/architecture/ops/mirror-to-9-popular-alternatives-2026-06-28.md`](../../decisions/architecture/ops/mirror-to-9-popular-alternatives-2026-06-28.md)
 - Org secrets rule → [`../../rules/security/github-org-level-secrets.md`](../../rules/security/github-org-level-secrets.md)
 - Set org secrets runbook → [`../security/set-github-org-level-secrets.md`](../security/set-github-org-level-secrets.md)
 - Rotate leaked secret → [`../security/rotate-leaked-secret.md`](../security/rotate-leaked-secret.md)
