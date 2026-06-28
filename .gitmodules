@@ -23,7 +23,7 @@
 	path = repos/own/oriz-me-book
 	url = https://github.com/oriz-org/oriz-me-book.git
 [submodule "repos/oriz-mmi-tickertape-mmi-api"]
-	path = repos/own/oriz-mmi-tickertape-mmi-api
+	path = repos/own/api/oriz-mmi-tickertape-mmi-api
 	url = https://github.com/oriz-org/oriz-mmi-tickertape-mmi-api.git
 [submodule "repos/ai-rewrite-bs-ext"]
 	path = repos/frk/ai-rewrite-bs-ext
@@ -50,19 +50,19 @@
 	path = repos/own/blog
 	url = https://github.com/oriz-org/blog.git
 [submodule "repos/own/rto-api"]
-	path = repos/own/rto-api
+	path = repos/own/api/rto-api
 	url = https://github.com/oriz-org/rto-api
 [submodule "repos/own/constants-api"]
-	path = repos/own/constants-api
+	path = repos/own/api/constants-api
 	url = https://github.com/oriz-org/constants-api
 [submodule "repos/own/ragas-api"]
-	path = repos/own/ragas-api
+	path = repos/own/api/ragas-api
 	url = https://github.com/oriz-org/ragas-api
 [submodule "repos/own/dynasties-api"]
-	path = repos/own/dynasties-api
+	path = repos/own/api/dynasties-api
 	url = https://github.com/oriz-org/dynasties-api
 [submodule "repos/own/countries-plus-api"]
-	path = repos/own/countries-plus-api
+	path = repos/own/api/countries-plus-api
 	url = https://github.com/oriz-org/countries-plus-api
 [submodule "repos/own/api-fleet-template"]
 	path = repos/own/api-fleet-template
