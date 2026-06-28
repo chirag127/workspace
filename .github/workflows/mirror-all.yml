@@ -28,7 +28,7 @@ jobs:
       - name: Collect repos/own/* submodules from .gitmodules
         id: collect
         env:
-          GH_TOKEN: ${{ secrets.GH_ADMIN_PAT }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           # Parse .gitmodules — keep only entries whose path starts with repos/own/.
           # Mirror scope = own originals only. Forks (repos/frk/*) skipped —
@@ -163,7 +163,7 @@ jobs:
         env:
           HOST_TOKEN: ${{ secrets[matrix.host.token_var] }}
           HOST_USER: ${{ secrets[matrix.host.user_var] }}
-          GH_TOKEN: ${{ secrets.GH_ADMIN_PAT }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           REPOS: ${{ needs.discover.outputs.repos }}
           HOST_NAME: ${{ matrix.host.name }}
           TOKEN_TYPE: ${{ matrix.host.token_type }}
@@ -322,7 +322,7 @@ jobs:
       - name: Mirror each repo to Radicle
         env:
           REPOS: ${{ needs.discover.outputs.repos }}
-          GH_TOKEN: ${{ secrets.GH_ADMIN_PAT }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           RAD_PASSPHRASE: ${{ secrets.MIRROR_RADICLE_PASSPHRASE }}
         run: |
           set +e
