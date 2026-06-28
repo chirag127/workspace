@@ -23,7 +23,7 @@ related:
 # Always Read a file before Edit
 
 Always call `Read` on a file in the current session before calling
-`Edit` (or `Write` to overwrite it). The Claude Code harness already
+`Edit` (or `Write` to overwrite it). The agent harness already
 enforces this — Edit fails on a file the session hasn't Read — but
 agents still occasionally try to bypass by guessing context. Don't.
 
@@ -70,4 +70,4 @@ None. The harness will block you anyway.
 ## See also
 
 - [`match-surrounding-style.md`](../interaction/match-surrounding-style.md)
-- Claude Code edit-mode preferences in `~/.claude/CLAUDE.md`
+- agent edit-mode preferences in `~/.claude/CLAUDE.md`

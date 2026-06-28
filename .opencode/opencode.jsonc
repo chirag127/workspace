@@ -1,64 +1,44 @@
 // OpenCode workspace config. See https://opencode.ai/docs/config
-// Reads AGENTS.md from workspace root automatically. This file adds
-// workspace-specific instructions + MCP servers.
+// Reads AGENTS.md from workspace root automatically.
 {
   "$schema": "https://opencode.ai/config.json",
-
-  // Workspace-specific instructions (in addition to AGENTS.md).
   "instructions": [
     "../AGENTS.md",
     "../CLAUDE.md"
   ],
-
-  // MCP servers (same list as .mcp.json for Claude Code).
   "mcp": {
-    "wikipedia": {
+    "fetch": {
       "type": "local",
-      "command": ["npx", "-y", "wikipedia-mcp"]
+      "command": [
+        "uvx",
+        "mcp-server-fetch"
+      ]
     },
-    "arxiv": {
+    "searxng": {
       "type": "local",
-      "command": ["npx", "-y", "@cyanheads/arxiv-mcp-server"]
+      "command": [
+        "npx",
+        "-y",
+        "mcp-searxng"
+      ],
+      "environment": {
+        "SEARXNG_URL": "https://baresearch.org"
+      }
     },
-    "hackernews": {
+    "open-websearch": {
       "type": "local",
-      "command": ["npx", "-y", "hn-mcp"]
+      "command": [
+        "npx",
+        "-y",
+        "open-websearch"
+      ]
     },
-    "wayback": {
+    "mcp-crawl": {
       "type": "local",
-      "command": ["npx", "-y", "mcp-wayback-machine"]
-    },
-    "osm": {
-      "type": "local",
-      "command": ["npx", "-y", "@cyanheads/openstreetmap-mcp-server"]
-    },
-    "open-meteo": {
-      "type": "local",
-      "command": ["npx", "-y", "open-meteo-mcp"]
-    },
-    "youtube-transcript": {
-      "type": "local",
-      "command": ["npx", "-y", "youtube-transcript-mcp"]
-    },
-    "npm-registry": {
-      "type": "local",
-      "command": ["npx", "-y", "mcp-npm-registry"]
-    },
-    "fx": {
-      "type": "local",
-      "command": ["npx", "-y", "fx-mcp"]
-    },
-    "time": {
-      "type": "local",
-      "command": ["npx", "-y", "time-mcp"]
-    },
-    "duckduckgo": {
-      "type": "local",
-      "command": ["npx", "-y", "duckduckgo-mcp"]
-    },
-    "crawl-md": {
-      "type": "local",
-      "command": ["node", "../scripts/crawl-mcp/server.js"]
+      "command": [
+        "node",
+        "./scripts/crawl-mcp/server.js"
+      ]
     },
     "serena": {
       "type": "local",
@@ -71,7 +51,13 @@
         "--context",
         "ide-assistant",
         "--project",
-        ".."
+        "."
+      ]
+    },
+    "codebase-memory": {
+      "type": "local",
+      "command": [
+        "C:/Users/C5420321/AppData/Local/Programs/codebase-memory-mcp/codebase-memory-mcp.exe"
       ]
     }
   }

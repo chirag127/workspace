@@ -14,7 +14,7 @@ status: active
 
 - **Input compression proxy** only — token + cache mode
 - Docker deployment via `chopratejas/headroom:latest`
-- Chain: `Claude Code → Hr :8787 → hai :6655 → Bedrock → claude-opus-4-7`
+- Chain: `the AI agent → Hr :8787 → hai :6655 → Bedrock → claude-opus-4-7`
 
 ## What we DON'T use
 

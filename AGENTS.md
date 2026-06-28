@@ -26,7 +26,7 @@ These 6 files inline into the agent context on every session. They govern *every
 ## TL;DR — the 5 things that matter most
 
 1. **`oriz` is a polyrepo with 20 submodules under `repos/{own,frk}/<slug>/`.** Originals in `own/`, forks in `frk/`. Post-scope-cut (2026-06-25): only shipping content survives. See [`knowledge/decisions/architecture/fleet/scope-cut-2026-06-25.md`](./knowledge/decisions/architecture/fleet/scope-cut-2026-06-25.md).
-2. **Zero in-house npm packages.** All deps community. Analytics inlined per app via `<script>` tags in `BaseLayout.astro`, env-gated. See [`knowledge/decisions/architecture/packaging/zero-in-house-packages-inline-analytics-2026-06-25.md`](./knowledge/decisions/architecture/packaging/zero-in-house-packages-inline-analytics-2026-06-25.md).
+2. **Packages extracted lazily on 2nd use.** Community-first; when ≥2 apps need the same logic and no community equivalent fits, extract to an atomic `@oriz/*` (npm) or `oriz-*` (PyPI) package — one concern, 3-5 exports, 100-300 LOC. Analytics still inlined per app in `BaseLayout.astro`. See [`knowledge/rules/agent/preferences/atomic-packages-lazy.md`](./knowledge/rules/agent/preferences/atomic-packages-lazy.md).
 3. **No auth in apps or APIs.** Login lives in a separate TBD project; apps/APIs are 100% public. See [`knowledge/decisions/architecture/security/no-auth-in-apps-or-apis-2026-06-25.md`](./knowledge/decisions/architecture/security/no-auth-in-apps-or-apis-2026-06-25.md).
 4. **No card-on-file, ever.** Hard rule. Has killed: CF R2, Vercel Pro, Auth0, Clerk Pro, Firebase Blaze, Twilio. See [`knowledge/rules/interaction/no-card-on-file.md`](./knowledge/rules/interaction/no-card-on-file.md).
 5. **Donations only.** No Pro tier, no ads, no recurring fees. Buy Me a Coffee + GitHub Sponsors + UPI. See [`knowledge/decisions/architecture/monetisation/donations-only-2026-06-25.md`](./knowledge/decisions/architecture/monetisation/donations-only-2026-06-25.md).
@@ -200,8 +200,7 @@ Read [`knowledge/decisions/architecture/`](./knowledge/decisions/architecture/) 
 | `knowledge-bundle/` | 1 | `depth-5-level-hierarchy` |
 | `monetisation/` | 1 | `donations-only-2026-06-25` |
 | `ops/` | 17 | `analytics-five-tier-stack`, `mirror-to-9-popular-alternatives-2026-06-28`, `backup-restic-to-b2`, `seo-three-pillars` |
-| `packages/` | 9 | `the-23-packages` (largely SUPERSEDED by zero-in-house-packages), `oriz-ai-providers-package`, `omni-publish-package` |
-| `packaging/` | 1 | `zero-in-house-packages-inline-analytics-2026-06-25` |
+| `packages/` | 9 | `the-23-packages` (SUPERSEDED — see atomic-packages-lazy), `oriz-ai-providers-package`, `omni-publish-package` |
 | `security/` | 7 | `no-auth-in-apps-or-apis-2026-06-25`, `cross-site-auth-via-auth-oriz-in`, `payment-architecture-direct-links` |
 | `stack/` | 22 | `automation`, `cli-tools`, `databases`, `extensions`, `hosting`, `javascript-typescript`, `python`, `rust`, `cpp`, `csharp`, `go`, `java`, `family-stack-lock`, `stack-picks-2026-06-22`, `tools-shape-and-priority` |
 | `uncategorised/` | 128 | older flat files — see [`knowledge/index.md`](./knowledge/index.md#uncategorised-architecture-128) (being progressively re-homed) |

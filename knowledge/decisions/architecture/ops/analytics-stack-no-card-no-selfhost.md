@@ -32,5 +32,5 @@ Two hard constraints: (1) no card on file (matches the no-card rule across the f
 - **FullStory** — card required → rejected.
 
 Related:
-- [`zero-in-house-packages-inline-analytics-2026-06-25`](../packaging/zero-in-house-packages-inline-analytics-2026-06-25.md) — inline-scripts decision (no in-house wrapper packages; embed the vendors' snippets directly)
+- [`atomic-packages-lazy`](../../../rules/agent/preferences/atomic-packages-lazy.md) — analytics stays inline; no in-house wrapper package (embed vendor snippets directly).
 - [`no-card-on-file-prepaid-escape`](../../../rules/interaction/no-card-on-file-prepaid-escape.md) — the card-rule this enforces

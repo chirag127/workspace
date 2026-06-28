@@ -47,7 +47,7 @@ skills get `-skill`, agent rule bundles get `-rules`.
 | Cloudflare / Firebase Function | `-fn` | `og-image-fn` |
 | Model Context Protocol server | `-mcp` | `knowledge-mcp` |
 | Static data repo | `-data` | `redirects-data` |
-| Agent skill (Claude Code, etc.) | `-skill` | `grill-me-skill`, `agents-md-sync-skill` |
+| Agent skill (the AI agent, etc.) | `-skill` | `grill-me-skill`, `agents-md-sync-skill` |
 | Agent rule bundle | `-rules` | `family-rules` |
 
 **No brand prefix.** The `chirag127/` org slug is already the prefix.

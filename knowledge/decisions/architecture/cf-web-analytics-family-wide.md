@@ -9,7 +9,7 @@ status: active
 related:
   - decisions/architecture/analytics-five-tier-stack
   - rules/shared-tenant-by-default
-  - rules/cloudflare-pages-apps-only
+  - rules/hosting-split-cf-and-github-pages
   - services/analytics/cloudflare-web-analytics
 ---
 
@@ -81,5 +81,5 @@ PUBLIC_ENABLE_CF_WEB_ANALYTICS=true                                # kill-switch
 
 - 5-tier analytics → [[decisions/architecture/analytics-five-tier-stack]]
 - Shared-tenant → [[rules/shared-tenant-by-default]]
-- CF Pages apps-only → [[rules/cloudflare-pages-apps-only]]
+- CF Pages apps-only → [[rules/hosting-split-cf-and-github-pages]]
 - CFWA service profile → [[services/analytics/cloudflare-web-analytics]]

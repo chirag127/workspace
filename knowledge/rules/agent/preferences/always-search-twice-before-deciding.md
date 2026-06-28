@@ -52,7 +52,7 @@ For every non-trivial recommendation:
 **Skip the searches only for**:
 - Mechanical edits ("rename this var")
 - Facts already established in the same session ("we already confirmed RTK is installed")
-- Trivial syntax lookups where a doc-page WebFetch is faster than a search
+- Trivial syntax lookups where a doc-page web-fetch tool is faster than a search
 
 ## Anti-patterns
 

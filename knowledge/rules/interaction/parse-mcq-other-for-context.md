@@ -2,7 +2,7 @@
 type: rule
 title: Always parse 'Other' answers in MCQs for additional context beyond the literal
   question
-description: "When the user selects 'Other' on an AskUserQuestion MCQ and adds free-text,\
+description: "When the user selects 'Other' on an multi-choice question prompt MCQ and adds free-text,\
   \ that free-text may carry context unrelated to the specific question being asked\
   \ \u2014 instructions, constraints, requests, new decisions. The agent MUST parse\
   \ the free-text for ALL meaningful directives, not just answer the literal question.\
@@ -33,7 +33,7 @@ related:
 
 ## Rule
 
-When the user answers an AskUserQuestion MCQ with free-text "Other" (especially via STT), that text often carries:
+When the user answers an multi-choice question prompt MCQ with free-text "Other" (especially via STT), that text often carries:
 
 1. The literal answer to the question being asked
 2. New directives, constraints, preferences for OTHER topics

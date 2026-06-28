@@ -66,4 +66,4 @@ to match a specific neighbouring file.
 ## See also
 
 - [`read-before-edit.md`](../agent/read-before-edit.md)
-- [Claude Code edit-mode preferences](../../../CLAUDE.md)
+- [agent edit-mode preferences](../../../CLAUDE.md)

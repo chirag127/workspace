@@ -9,7 +9,7 @@ status: active
 related:
   - rules/no-card-on-file
   - services/free-tier-catalog
-  - decisions/architecture/cloudflare-pages-hosts-every-website-and-app
+  - decisions/architecture/hosting-split-cf-and-github-pages
   - runbooks/scaffold-a-new-site
 ---
 
@@ -114,5 +114,5 @@ Each sub-file ends with a `## Sources` section listing the official pricing page
 
 - The no-card-on-file rule: [`../../rules/no-card-on-file.md`](../../rules/interaction/no-card-on-file.md)
 - Where each oriz site currently runs: <!-- TODO: broken link, was [`../../services/free-tier-catalog.md`](../../services/free-tier-catalog.md) -->
-- Why Cloudflare Pages hosts the website fleet: <!-- TODO: broken link, was [`../../decisions/architecture/cloudflare-pages-hosts-every-website-and-app.md`](../../decisions/architecture/cloudflare-pages-hosts-every-website-and-app.md) -->
+- Why Cloudflare Pages hosts the website fleet: <!-- TODO: broken link, was [`../../decisions/architecture/hosting-split-cf-and-github-pages.md`](../../decisions/architecture/hosting-split-cf-and-github-pages.md) -->
 - Adding a new site: [`../scaffold-a-new-site.md`](../scaffold-a-new-site.md)

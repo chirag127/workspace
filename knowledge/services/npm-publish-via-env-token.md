@@ -30,4 +30,4 @@ npm whoami    # should print chirag127
 
 Reference script: [`scripts/stub-and-publish-22.sh`](../../scripts/stub-and-publish-22.sh) is the working template.
 
-Related: [`twenty-two-packages-on-npm`](../decisions/architecture/packaging/twenty-two-packages-on-npm.md), [`no-card-on-file-prepaid-escape`](../rules/interaction/no-card-on-file-prepaid-escape.md).
+Related: [`atomic-packages-lazy`](../rules/agent/preferences/atomic-packages-lazy.md), [`no-card-on-file-prepaid-escape`](../rules/interaction/no-card-on-file-prepaid-escape.md).

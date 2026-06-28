@@ -41,5 +41,5 @@ Per Q5 lock (2026-06-26): vault is in `oriz-org/workspace` PUBLIC repo. **Discip
 
 ## Linked apps
 
-- Claude Code: this vault is the knowledge base. `~/.claude/settings.json` configured for Hr→hai chain
+- the AI agent: this vault is the knowledge base. `~/.claude/settings.json` configured for Hr→hai chain
 - kepano/obsidian-skills installed globally at `~/.claude/skills/obsidian-vault/`

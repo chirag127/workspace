@@ -38,7 +38,7 @@ results = 30 result-pages worth of recall, with overlap dedup.
 
 When researching:
 1. Pick 3 search MCPs (already installed: searxng / open-websearch / duckduckgo).
-2. Fire same query at all 3 in parallel (single Claude turn, batched).
+2. Fire same query at all 3 in parallel (single the AI agent turn, batched).
 3. Dedupe by URL.
 4. Read top 5-10 unique results.
 5. Synthesize.

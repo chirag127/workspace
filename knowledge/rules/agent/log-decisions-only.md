@@ -22,7 +22,7 @@ Decision files in `knowledge/decisions/` and rule files in `knowledge/rules/` ca
 
 - Decision/rule body: state the locked choice, the rationale in 1-2 sentences, how to apply, why.
 - Do NOT include: "we first considered X, then Y, then Z, then user said..."
-- Do NOT paste the AskUserQuestion options into the decision file.
+- Do NOT paste the multi-choice question prompt options into the decision file.
 - Per-batch grill summary (optional): `knowledge/log/grills/<date>-<topic>.md` — 1 paragraph summarising the session, NOT a transcript.
 - Audit trail = git log + chat history; knowledge/ stays clean.
 

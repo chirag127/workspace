@@ -100,11 +100,11 @@ Hr listens on `localhost:8787`. Compresses file reads + chat history before send
 
 If Hr is down, Claude Code fails. That's intentional — single config, single chain.
 
-## RTK — installed elsewhere (NOT on this machine)
+## RTK — installed and active
 
-RTK (Rust Token Killer) compresses shell-tool output (`git diff`, `npm install`, `ls -R`) before Claude reads it. On this corporate machine, cargo build hits **Defender ASR** ("Access is denied. (os error 5)" on build scripts in `%TEMP%`). Same trap as `agent-browser`.
+RTK (Rust Token Killer) v0.42.4 compresses shell-tool output (`git diff`, `npm install`, `ls -R`) before agent reads it. `rtk gain` as of 2026-06-28: **48.5% savings on 329 commands, 370.9K tokens saved**.
 
-Install path: build on a non-ASR machine, copy `rtk.exe` to `~/.cargo/bin/`. Until then, accept the ~10-30% extra tokens on noisy shell commands.
+Verify: `rtk --version` (should show ≥0.28.2), `rtk gain` (should show non-zero savings).
 
 ## Ponytail + Caveman — output-side compression
 

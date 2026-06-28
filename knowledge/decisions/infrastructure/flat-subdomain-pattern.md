@@ -8,7 +8,7 @@ format_version: okf-v0.1
 status: active
 related:
   - rules/one-level-subdomain-only
-  - rules/cloudflare-pages-apps-only
+  - rules/hosting-split-cf-and-github-pages
   - decisions/infrastructure/subdomains-under-oriz-in
   - decisions/architecture/api-hosting-triple-rail
 ---
@@ -59,5 +59,5 @@ We'll have ~85 entries in DNS. CF allows unlimited records on a free plan. Risk 
 ## Cross-refs
 
 - One-level subdomain rule → [[rules/one-level-subdomain-only]]
-- CF Pages apps-only → [[rules/cloudflare-pages-apps-only]]
+- CF Pages apps-only → [[rules/hosting-split-cf-and-github-pages]]
 - API triple-rail → [[decisions/architecture/api-hosting-triple-rail]]

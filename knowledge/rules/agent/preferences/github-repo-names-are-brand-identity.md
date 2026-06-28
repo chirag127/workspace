@@ -22,4 +22,4 @@ When a name collision forces a rename, prefer to rename the **local folder / cat
 - Tolerate verbose folder names (`npm-packages/`, not `npm/`).
 - Avoid synonym-tax in repo names (don't rename `packages` → `packages-catalog` just to free a folder slot).
 
-**Related:** [`fs-nested-when-large-flat-when-small`](./fs-nested-when-large-flat-when-small.md), [`repo-names-drop-oriz-prefix`](../../../decisions/architecture/branding/repo-names-drop-oriz-prefix.md), [`repo-slug-suffix-npm-pkg`](./repo-slug-suffix-npm-pkg.md).
+**Related:** [`fs-own-frk-split`](./fs-own-frk-split.md), [`repo-names-drop-oriz-prefix`](../../../decisions/architecture/branding/repo-names-drop-oriz-prefix.md), [`repo-slug-suffix-npm-pkg`](./repo-slug-suffix-npm-pkg.md).

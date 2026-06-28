@@ -19,4 +19,4 @@ User direction 2026-06-21 when shown the mismatch (8 existing repos `chirag127/a
 - README badges + cross-refs: GitHub URLs include `-npm-pkg`; npm URLs don't.
 - Sites are different — they use `-site` (not `-site-npm-pkg`). See the repo-naming-suffixes matrix for the full table.
 
-Related: [`twenty-two-packages-on-npm`](../../../decisions/architecture/packaging/twenty-two-packages-on-npm.md).
+Related: [`atomic-packages-lazy`](./atomic-packages-lazy.md).

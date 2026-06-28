@@ -45,7 +45,7 @@ revoke + rotate.
   server-only — never expose it to a client bundle. `PUBLIC_FIREBASE_*`
   keys are safe in the client (they are not secrets, they are public
   config).
-- **Never paste a secret into chat.** Not into Claude Code, not into
+- **Never paste a secret into chat.** Not into the AI agent, not into
   the assistant transcript, not into a GitHub issue, not into Discord.
   If the agent asks for a secret value, the user gives it the env-var
   name, not the value.

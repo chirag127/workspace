@@ -1,7 +1,7 @@
 ---
 type: rule
 title: 'Grill me properly before non-trivial work'
-description: Default to grill-mode for any task with >1 reasonable interpretation. Walk down the decision tree branch-by-branch via AskUserQuestion. Surface assumptions, lock them, then act.
+description: Default to grill-mode for any task with >1 reasonable interpretation. Walk down the decision tree branch-by-branch via multi-choice question prompt. Surface assumptions, lock them, then act.
 tags: [grill, askuserquestion, decision-discipline, hard-rule]
 timestamp: 2026-06-27
 format_version: okf-v0.1
@@ -21,7 +21,7 @@ Default to **grill-mode** for any task where:
 - The user said "set up", "deploy", "host", "build", "design", or "plan"
 
 In grill-mode:
-1. Walk the decision tree branch-by-branch via `AskUserQuestion`.
+1. Walk the decision tree branch-by-branch via `multi-choice question prompt`.
 2. ≥3 ranked MCQ questions before non-trivial work (already in `~/AGENTS.md`).
 3. Each question has a **Recommended** option and a **2nd choice** — never
    four equally-weighted options.

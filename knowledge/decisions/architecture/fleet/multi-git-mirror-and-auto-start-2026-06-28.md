@@ -82,12 +82,12 @@ Goal: every API repo has a real **docs page** and the fleet has a **landing page
 
 | Service | What | Why auto-start |
 |---|---|---|
-| Headroom Docker container | Hr→hai→Bedrock chain on `localhost:8787` | Claude Code fails if `:8787` is down |
+| Headroom Docker container | Hr→hai→Bedrock chain on `localhost:8787` | the AI agent fails if `:8787` is down |
 | cavemem worker | local SQLite worker on `:37777` | Background memory writes need it |
-| RTK hook | Per-session via Claude Code hook (already wired) | n/a — fires on demand |
-| MCP servers | Per-session via Claude Code MCP config | n/a — Claude Code starts them |
+| RTK hook | Per-session via the AI agent hook (already wired) | n/a — fires on demand |
+| MCP servers | Per-session via the AI agent MCP config | n/a — the AI agent starts them |
 
-So actually only **Headroom + cavemem** truly need Task Scheduler. RTK + MCP run inside Claude Code.
+So actually only **Headroom + cavemem** truly need Task Scheduler. RTK + MCP run inside the AI agent.
 
 **Implementation**: a single script `C:\D\oriz\scripts\install-auto-start.cmd` that:
 1. Registers a Scheduled Task `Oriz-Headroom-Login` running `docker start headroom` at user logon

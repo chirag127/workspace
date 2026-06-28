@@ -205,8 +205,8 @@ The bundle is a living wiki. Outdated concepts get marked `status: superseded`, 
 
 Per the OKF "producer/consumer independence" principle:
 
-- **Producers**: Claude Code, Gemini/Antigravity, Cursor, Aider, Copilot, the user (manually), build-time scripts, future ingest agents. None should require special tooling beyond a markdown editor.
-- **Consumers**: any LLM-backed agent (Claude, Gemini, ChatGPT, Copilot, Cursor, Aider), the static visualizer Google ships, future search/dashboard tools, the user reading directly.
+- **Producers**: the AI agent, Gemini/Antigravity, Cursor, Aider, Copilot, the user (manually), build-time scripts, future ingest agents. None should require special tooling beyond a markdown editor.
+- **Consumers**: any LLM-backed agent (the AI agent, Gemini, ChatGPT, Copilot, Cursor, Aider), the static visualizer Google ships, future search/dashboard tools, the user reading directly.
 
 If you find yourself reaching for a custom tool to read or write a concept file, you've left OKF. Stop and reconsider.
 

@@ -22,7 +22,7 @@ executes end-to-end. NEVER a numbered list of manual steps.
 - ❌ "Step 1: open the portal, click Create..."
 - ❌ "Run these 12 commands one by one..."
 - ❌ Multi-page runbooks with copy-paste blocks the user has to babysit
-- ❌ TaskCreate breakdowns that just enumerate the manual steps
+- ❌ task-list tool breakdowns that just enumerate the manual steps
 - ❌ "First do X, then I'll do Y" — user is the bottleneck
 
 ## What this rules in
@@ -50,8 +50,8 @@ ONE interactive credential prompt at the top of the script (e.g. `az login`,
 
 ## When asking permission is OK
 
-`AskUserQuestion` to lock decisions (compute size, domain, region) — yes.
-`AskUserQuestion` "shall I run the next step?" — no. Lock all decisions
+`multi-choice question prompt` to lock decisions (compute size, domain, region) — yes.
+`multi-choice question prompt` "shall I run the next step?" — no. Lock all decisions
 up front, then execute the whole thing.
 
 ## Cross-refs

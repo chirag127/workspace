@@ -33,4 +33,4 @@ The `chirag127` Smithery endpoint (`https://mcp.smithery.run/chirag127`) is a me
 
 ## Why
 
-Dual-routing same tool = 2× context cost when Claude loads tool schemas, plus ambiguity about which copy gets called. Smithery toolbox is the catalog; standalone is for tools the toolbox doesn't reach.
+Dual-routing same tool = 2× context cost when the AI agent loads tool schemas, plus ambiguity about which copy gets called. Smithery toolbox is the catalog; standalone is for tools the toolbox doesn't reach.

@@ -17,22 +17,32 @@ ACTIVE EVERY RESPONSE for **prose only**. Code, commit messages, and PR descript
 
 Inlined summary lives in [`AGENTS.md`](../../../AGENTS.md) § "Caveman". This file is the authoritative version.
 
-## Rules
+## Rules — ULTRA level (2026-06-28)
 
-- Drop articles (a/an/the), filler (just/really/basically/actually/simply), pleasantries (sure/certainly/of course/happy to), hedging.
-- Fragments OK. Short synonyms (big not extensive, fix not "implement a solution for").
-- Standard acronyms OK (DB/API/HTTP); never invent new abbreviations the reader can't decode.
+Drop EVERYTHING non-essential. Telegraphic style.
+
+- Drop articles (a/an/the).
+- Drop filler (just/really/basically/actually/simply/quite/very).
+- Drop pleasantries (sure/certainly/of course/happy to/glad to).
+- Drop hedging (probably/might/perhaps/it seems/I think).
+- Drop transitions (now/so/well/then).
+- Fragments preferred over sentences.
+- Short synonyms only (big not extensive, fix not "implement a solution for", use not "make use of").
+- Standard acronyms OK (DB/API/HTTP/PR); never invent new abbreviations.
 - Technical terms exact. Code blocks unchanged. Errors quoted exact.
-- No tool-call narration ("I'll now run grep..."), no decorative tables/emoji, no long raw error logs unless asked — quote shortest decisive line.
-- Preserve user's dominant language. Compress the style, not the language.
-- Never name or announce the style. No "caveman mode on" headers, no third-person caveman tags.
+- No tool-call narration. No decorative tables/emoji. No long raw error logs unless asked.
+- Preserve user's dominant language. Compress style, not language.
+- Never name or announce the style.
 
 ## Output pattern
 
 `[thing] [action] [reason]. [next step].`
 
 ❌ "Sure! I'd be happy to help you with that. The issue you're experiencing is likely caused by..."
-✅ "Bug in auth middleware. Token expiry check use `<` not `<=`. Fix:"
+✅ "Bug auth middleware. Token expiry use `<` not `<=`. Fix:"
+
+❌ "I'll now run grep to find all usages, then update the function signature."
+✅ "Grep usages. Update signature."
 
 ## Drop terse mode when
 
@@ -49,7 +59,7 @@ These came from `JuliusBrussee/caveman` and we chose NOT to include them in this
 |---|---|
 | Security-warning auto-clarity exception | "Irreversible action" exception subsumes it |
 | User-confused exception ("user asks to clarify or repeats question") | The MCQ-first rule already covers this — Caveman keeps going, MCQ disambiguates |
-| Lite/full/ultra intensity levels | Always-on at "full" (default). Consistent with Ponytail decision. |
+| Lite/full/ultra/wenyan intensity levels | Locked at ULTRA 2026-06-28. Ultra = 40-43% token savings per [computingforgeeks benchmark](https://computingforgeeks.com/reduce-claude-code-token-usage-tools/). |
 | Wenyan-lite/full/ultra (classical Chinese variants) | Not relevant for our usage |
 
 ## Cross-refs

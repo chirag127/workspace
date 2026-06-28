@@ -1,52 +1,39 @@
 {
+  "$schema": "https://raw.githubusercontent.com/cline/cline/main/src/schemas/mcp.json",
   "mcpServers": {
-    "wikipedia": {
-      "command": "npx",
-      "args": ["-y", "wikipedia-mcp"]
+    "fetch": {
+      "type": "stdio",
+      "command": "uvx",
+      "args": [
+        "mcp-server-fetch"
+      ],
+      "env": {}
     },
-    "arxiv": {
+    "searxng": {
       "command": "npx",
-      "args": ["-y", "@cyanheads/arxiv-mcp-server"]
+      "args": [
+        "-y",
+        "mcp-searxng"
+      ],
+      "env": {
+        "SEARXNG_URL": "https://baresearch.org"
+      }
     },
-    "hackernews": {
+    "open-websearch": {
+      "type": "stdio",
       "command": "npx",
-      "args": ["-y", "hn-mcp"]
+      "args": [
+        "-y",
+        "open-websearch"
+      ],
+      "env": {}
     },
-    "wayback": {
-      "command": "npx",
-      "args": ["-y", "mcp-wayback-machine"]
-    },
-    "osm": {
-      "command": "npx",
-      "args": ["-y", "@cyanheads/openstreetmap-mcp-server"]
-    },
-    "open-meteo": {
-      "command": "npx",
-      "args": ["-y", "open-meteo-mcp"]
-    },
-    "youtube-transcript": {
-      "command": "npx",
-      "args": ["-y", "youtube-transcript-mcp"]
-    },
-    "npm-registry": {
-      "command": "npx",
-      "args": ["-y", "mcp-npm-registry"]
-    },
-    "fx": {
-      "command": "npx",
-      "args": ["-y", "fx-mcp"]
-    },
-    "time": {
-      "command": "npx",
-      "args": ["-y", "time-mcp"]
-    },
-    "duckduckgo": {
-      "command": "npx",
-      "args": ["-y", "duckduckgo-mcp"]
-    },
-    "crawl-md": {
+    "mcp-crawl": {
+      "type": "stdio",
       "command": "node",
-      "args": ["./scripts/crawl-mcp/server.js"]
+      "args": [
+        "./scripts/crawl-mcp/server.js"
+      ]
     },
     "serena": {
       "command": "uvx",
@@ -60,6 +47,10 @@
         "--project",
         "."
       ]
+    },
+    "codebase-memory": {
+      "command": "C:/Users/C5420321/AppData/Local/Programs/codebase-memory-mcp/codebase-memory-mcp.exe",
+      "args": []
     }
   }
 }

@@ -20,7 +20,7 @@ timestamp: 2026-06-23
 format_version: okf-v0.1
 status: active
 related:
-- rules/cloudflare-pages-hosts-every-website-and-app
+- rules/hosting-split-cf-and-github-pages
 - rules/infrastructure/one-level-subdomain-only
 - decisions/architecture/compute/api-hosting-triple-rail
 - decisions/architecture/security/monetization-centralized-on-oriz-in
@@ -107,7 +107,7 @@ Delete from CF Pages dashboard any project that isn't on the 26 list above. Spec
 
 ## Cross-refs
 
-- Cloudflare Pages hosts every website and app (memory) → [[memory/cloudflare-pages-hosts-every-website-and-app]] (now refined: apps-only)
+- Cloudflare Pages hosts every website and app (memory) → [[memory/hosting-split-cf-and-github-pages]] (now refined: apps-only)
 - One-level subdomain rule → [[rules/one-level-subdomain-only]]
 - API hosting triple-rail → [[decisions/architecture/api-hosting-triple-rail]]
 - Monetization centralized → [[decisions/architecture/monetization-centralized-on-oriz-in]]

@@ -37,7 +37,7 @@ All IDs/DSNs stored as **GitHub org-level secrets** on `oriz-org` (per existing 
 1. **Cloudflare Pages free plan caps at 100 projects.** We have 6 deployed (rto/constants/ragas/dynasties/countries-plus + the killed api-fleet-landing) and growing. GitHub Pages has no per-account project cap — every public repo gets a Pages site for free.
 2. **Cloudflare OAuth scopes via wrangler login** don't include `dns_records:write`. The DNS step kept needing either the workspace-level `CLOUDFLARE_API_TOKEN` env var (which appeared in tool output, prompting concern) or manual dashboard work. GitHub Pages + CNAME is fully scriptable via `gh` CLI which we already have authed.
 3. **GitHub Pages is the natural home for OSS data APIs.** Each API repo is already on GitHub; the Pages site is a build-and-publish step away. No second platform to wire.
-4. **Analytics everywhere** because we just deleted the `zero-in-house-packages` rule and the spirit of the change is "instrument everything we ship." All 5 services have generous free tiers and don't need a credit card.
+4. **Analytics everywhere** because the spirit of the family is "instrument everything we ship" (analytics stay inline per `atomic-packages-lazy`). All 5 services have generous free tiers and don't need a credit card.
 
 ## Naming convention (user preference 2026-06-28)
 

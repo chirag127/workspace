@@ -28,4 +28,4 @@ One source of truth across every app in the org. Rotate the org secret once, eve
 `PUBLIC_*` env vars in Astro are **public by design** — they ship to the browser as plain strings in the bundled JS. The analytics keys we're injecting (GA4 ID, PostHog project key, etc.) **are supposed to ship to the browser**; they are public identifiers, not credentials. "Secret" in this context means "centrally managed config," not "must stay confidential." Genuine credentials (e.g., write-access API tokens) never go in `PUBLIC_*` and never reach the static output — those stay in workflow-only env (no `PUBLIC_` prefix) and are used only by CI steps.
 
 Related:
-- [`zero-in-house-packages-inline-analytics-2026-06-25`](../../../decisions/architecture/packaging/zero-in-house-packages-inline-analytics-2026-06-25.md) — the inline-scripts decision this feeds
+- [`atomic-packages-lazy`](./atomic-packages-lazy.md) — analytics stays inline; secrets get injected at build time into those inline snippets

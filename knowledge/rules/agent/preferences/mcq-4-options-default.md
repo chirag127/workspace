@@ -1,7 +1,7 @@
 ---
 type: rule
 title: "4 options per MCQ (default)"
-description: "MCQs default to exactly 4 ranked options: Recommended, 2nd choice, plus 2 other viable shapes. Never 3, never 2. SDK caps at 4 questions per AskUserQuestion call; option count stays 4 each."
+description: "MCQs default to exactly 4 ranked options: Recommended, 2nd choice, plus 2 other viable shapes. Never 3, never 2. SDK caps at 4 questions per multi-choice question prompt call; option count stays 4 each."
 tags: [agent-behavior, preferences, mcq, askuserquestion]
 timestamp: 2026-06-26
 format_version: okf-v0.1
@@ -15,7 +15,7 @@ related:
 
 ## Rule
 
-Every AskUserQuestion MCQ ships exactly 4 ranked options. Option 1 = Recommended (suffix `(Recommended)`). Option 2 = 2nd choice (suffix `(2nd choice)`). Options 3-4 = other viable shapes. Never fewer than 4.
+Every multi-choice question prompt MCQ ships exactly 4 ranked options. Option 1 = Recommended (suffix `(Recommended)`). Option 2 = 2nd choice (suffix `(2nd choice)`). Options 3-4 = other viable shapes. Never fewer than 4.
 
 ## How to apply
 

@@ -141,7 +141,7 @@ status: active
 
 | File | Status | Description |
 |---|---|---|
-| [`zero-in-house-packages-inline-analytics-2026-06-25`](./decisions/architecture/packaging/zero-in-house-packages-inline-analytics-2026-06-25.md) | active | All 23 in-house npm packages archived 2026-06-25. Apps hardcode <script> tags for CF Web Analytics + MS Clarity + PostHog in their BaseLayout. |
+| [`atomic-packages-lazy`](./rules/agent/preferences/atomic-packages-lazy.md) | active | Community-first; extract atomic `@oriz/*` packages only when ≥2 apps need the same logic. Analytics stays inline in `BaseLayout.astro`. Supersedes the prior "zero in-house packages" blanket rule. |
 
 ### Packages (9)
 

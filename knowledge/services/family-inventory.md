@@ -60,7 +60,7 @@ Run `git submodule status | wc -l` from `c:/D/oriz/` to verify the submodule tot
 
 ## NPM packages — 0 in-house
 
-All 23 packages archived 2026-06-25 per [[zero-in-house-packages-inline-analytics]]. Analytics (CF Web Analytics + Clarity + PostHog + GA4) is now inlined in each app's `BaseLayout.astro` via `<script>` tags; brand tokens live in repo-local `tailwind.config.ts`; SEO helpers are inlined per app.
+All 23 packages archived 2026-06-25 per [[atomic-packages-lazy]] (rebuild any one on 2nd-use). Analytics (CF Web Analytics + Clarity + PostHog + GA4) stays inlined in each app's `BaseLayout.astro` via `<script>` tags; brand tokens live in repo-local `tailwind.config.ts`; SEO helpers are inlined per app.
 
 Community packages are used freely (Astro, React, Tailwind, shadcn, etc.) — only **in-house** packages were cut.
 
@@ -104,7 +104,7 @@ All browser-extension repo slugs follow the `-bs-ext` suffix per [`repo-naming-s
 
 CLI + service-API forks (not browser extensions):
 
-- `claude-notifications-cli` — Go CLI for Claude Code notifications. **Personal fork** of `777genius/claude-notifications-go` (GPL-3.0). Submodule under `repos/oriz/frk/prod/clis/claude-notifications-cli/`. Repo: `oriz-org/claude-notifications-cli`. Renamed from `-go` (language) to `-cli` (role) per [[decisions/branding/repo-naming-suffixes]].
+- `claude-notifications-cli` — Go CLI for the AI agent notifications. **Personal fork** of `777genius/claude-notifications-go` (GPL-3.0). Submodule under `repos/oriz/frk/prod/clis/claude-notifications-cli/`. Repo: `oriz-org/claude-notifications-cli`. Renamed from `-go` (language) to `-cli` (role) per [[decisions/branding/repo-naming-suffixes]].
 - `freellmapi` — OpenAI-compatible aggregator of 16 free LLM provider tiers. **Personal fork** of `tashfeenahmed/freellmapi` (MIT). Submodule under `repos/oriz/frk/svc/api/freellmapi/`. Repo: `oriz-org/freellmapi`. Slug unchanged (MIT product brand).
 - `omniroute` — AI gateway / router across 231 providers, 50+ free. **Personal fork** of `diegosouzapw/OmniRoute` (MIT). Submodule under `repos/oriz/frk/svc/api/omniroute/`. Repo: `oriz-org/omniroute` (renamed lowercase per family convention).
 
@@ -113,7 +113,7 @@ CLI + service-API forks (not browser extensions):
 After the 2026-06-25 scope-cut, `.gitmodules` is being swept to remove the 33 archived repos. Approximate composition of the survivors (verify with `cd /c/D/oriz && git submodule status | wc -l` after the cleanup commit):
 
 - 6 app submodules — `home`, `me`, `blog`, `journal`, `oriz-janaushdhi-app`, `oriz-lore-app`, `oriz-ncert-app` (+ `oriz-portfolio-engine-app` if kept).
-- 0 npm-package submodules (all 23 archived per [[zero-in-house-packages-inline-analytics]]).
+- 0 npm-package submodules (all 23 archived; rebuild lazily per [[atomic-packages-lazy]]).
 - 0 in-house API submodules (all 15 archived; see Cut list above).
 - 3 active book submodules — `oriz-janaushdhi-book`, `oriz-me-book`, `oriz-stack-book` *(kept on review)*.
 - 1 skill monorepo — `agent-skills` (single repo replacing the per-skill submodules per [[agent-skills-monorepo]]).
@@ -141,7 +141,7 @@ When any count changes on disk:
 
 - 2026-06-25 scope-cut (33 repos) → [[decisions/architecture/fleet/scope-cut-2026-06-25]]
 - 11 saturated apps cut earlier same day → [[eleven-saturated-apps-archived-2026-06-25]]
-- Zero in-house packages → [[zero-in-house-packages-inline-analytics]]
+- Lazy atomic packages, analytics inline → [[atomic-packages-lazy]]
 - No-auth rule (orphaned the `auth` repo) → [[no-auth-in-apps-or-apis]]
 - 23 packages prior enumeration (now archived) → [[architecture/the-23-packages]]
 - 16 tools prior order (mostly archived) → [[decisions/architecture/tools-shape-and-priority]]

@@ -8,7 +8,7 @@ format_version: okf-v0.1
 status: active
 related:
   - rules/interaction/no-card-on-file
-  - rules/development/env-example-mirrors-env-with-steps
+  - rules/development/rules-centralized-at-umbrella-no-per-repo
 ---
 
 # VS Code Copilot warning suppression + Copilot Free signup
@@ -101,7 +101,7 @@ Restart VS Code. The warning should be gone.
 
 ## GitHub tokens — what's expected in `.env`
 
-The umbrella `.env` (gitignored, per [`env-example-mirrors-env-with-steps`](../rules/development/env-example-mirrors-env-with-steps.md)) has these GitHub-related vars:
+The umbrella `.env` (gitignored, per [`rules-centralized-at-umbrella-no-per-repo`](../rules/development/rules-centralized-at-umbrella-no-per-repo.md)) has these GitHub-related vars:
 
 ```env
 # GitHub Personal Access Token (classic) with the full admin scope set.

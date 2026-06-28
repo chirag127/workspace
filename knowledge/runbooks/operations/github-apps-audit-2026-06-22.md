@@ -97,7 +97,7 @@ Go to <https://github.com/settings/installations> and click **Configure** on eac
 | `renovate` | Dependabot is now batch-grouped — Renovate adds what? | REMOVE — Dependabot tamed is enough |
 | `mergify` | Worth adding `.mergify.yml` to all repos? | KEEP if auto-merge is a goal; REMOVE if manual merges are fine |
 | `smithery` | Publish any MCP servers? | KEEP if yes (per `oriz-omni-post` plans); else REMOVE |
-| `cursor` | Use Cursor.sh? | KEEP if yes; REMOVE if Claude Code only |
+| `cursor` | Use Cursor.sh? | KEEP if yes; REMOVE if the AI agent only |
 
 ## Email-noise impact estimate
 

@@ -34,7 +34,7 @@ Both:
 - **Do NOT build a new aggregator from scratch.** Reaching freellmapi parity is ~6 months solo. Reaching OmniRoute parity is ~12 months. Filed: omniroute#5161 covers the gaps both ways.
 - **Do NOT host publicly yet.** Localhost-only until we know which one is the daily-driver.
 - **Do NOT migrate storage to a hosted DB.** Both apps use local SQLite; switching to async DB drivers (Turso/Neon/Supabase) needs 43+ file rewrites + permanent merge-conflict with upstream.
-- **Do NOT replace the Hr->hai->Bedrock chain** with either of these for Claude Code. That chain is SAP-mandated and verified working.
+- **Do NOT replace the Hr->hai->Bedrock chain** with either of these for the AI agent. That chain is SAP-mandated and verified working.
 
 ## Why both, not one
 
@@ -71,6 +71,6 @@ Per fork-minimize-conflict-surface rule:
 
 ## Cross-refs
 
-- `rules/agent/omniroute-eval-install` - OmniRoute is eval-only, not in the Claude routing chain
+- `rules/agent/omniroute-eval-install` - OmniRoute is eval-only, not in the agent routing chain
 - `rules/agent/fork-minimize-conflict-surface` - how to keep upstream merges clean
 - Filed upstream: https://github.com/diegosouzapw/OmniRoute/issues/5161

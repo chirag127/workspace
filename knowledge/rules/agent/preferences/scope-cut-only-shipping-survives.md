@@ -35,6 +35,6 @@ Some "kept on review" entries above may need a second-pass check.
 
 Generalizes [`build-gate-top3-must-have-defect`](../../../decisions/architecture/fleet/build-gate-top3-must-have-defect.md) from features to repos.
 
-Related: [`zero-in-house-packages-inline-analytics-2026-06-25`](../../../decisions/architecture/packaging/zero-in-house-packages-inline-analytics-2026-06-25.md) (similar scope-cut, applied to packages).
+Related: [`atomic-packages-lazy`](./atomic-packages-lazy.md) (the package-side counterpart — extract lazily, not speculatively).
 
 Why same-day reversal of Phase A: template, tools, secrets were created speculatively. None had shipping content; all met the kill criterion.

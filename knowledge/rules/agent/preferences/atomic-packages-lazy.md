@@ -16,7 +16,7 @@ When the same logic is needed in 2 or more apps, extract it to an atomic package
 - **Namespaces:**
   - npm: `@oriz/<concern>` (e.g. `@oriz/analytics`, `@oriz/donations`, `@oriz/india-currency`)
   - PyPI: `oriz-<concern>` (e.g. `oriz-llm-providers`, `oriz-india-data-fetchers`)
-- **Scope:** Astro/React components, vanilla TS utilities, India-data formatters, scraper helpers for APIs. NOT auth (that's a separate project per `no-auth-in-apps-or-apis`), NOT analytics WRAPPER (analytics stay inline per `zero-in-house-packages-inline-analytics` until 2+ apps need the same custom event shape).
+- **Scope:** Astro/React components, vanilla TS utilities, India-data formatters, scraper helpers for APIs. NOT auth (that's a separate project per `no-auth-in-apps-or-apis`), NOT analytics WRAPPER (analytics stay inline in `BaseLayout.astro` until 2+ apps need the same custom event shape).
 - **Repo home:** Each package lives in its own repo at `oriz-org/<slug>-npm-pkg` or `oriz-org/<slug>-py-pkg`. Submodule at `repos/own/<slug>-<npm|py>-pkg/`.
 
 **Does NOT reverse:**
@@ -25,7 +25,7 @@ When the same logic is needed in 2 or more apps, extract it to an atomic package
 - Auth stays out of apps. A future `@oriz/login-redirect` thin client could exist when the separate login project ships.
 
 **Reverses:**
-- The strict "zero in-house packages" reading of `zero-in-house-packages-inline-analytics`. That rule still applies to analytics specifically (stay inline) but no longer applies as a blanket package ban.
+- The earlier strict "zero in-house packages" blanket ban. Analytics stays inline; everything else is build-on-2nd-use.
 
 **How to apply when 2nd app demands the same logic:**
 1. Verify no community package exists at the right size/shape.
@@ -40,7 +40,6 @@ When the same logic is needed in 2 or more apps, extract it to an atomic package
 - AGENTS.md auto-rebuild picks up new packages on next sync.
 
 **Related:**
-- [`zero-in-house-packages-inline-analytics-2026-06-25`](../../../decisions/architecture/packaging/zero-in-house-packages-inline-analytics-2026-06-25.md) — analytics is still inline (this rule scopes that one down to analytics-only).
 - [`lean-by-need-not-count`](./lean-by-need-not-count.md) — build-gate applies to packages.
 - [`scope-cut-2026-06-25`](../../../decisions/architecture/fleet/scope-cut-2026-06-25.md) — only build packages used today.
 - [`github-repo-names-are-brand-identity`](./github-repo-names-are-brand-identity.md) — package repo names are brand identity, picked carefully.

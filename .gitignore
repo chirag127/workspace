@@ -53,3 +53,6 @@ logs
 
 # Allow workspace MCP config for Cline even though .vscode/ is ignored
 !.vscode/mcp.json
+
+# Knowledge graph index — local-only, regenerated via mcp__codebase-memory__index_repository
+.codebase-memory/

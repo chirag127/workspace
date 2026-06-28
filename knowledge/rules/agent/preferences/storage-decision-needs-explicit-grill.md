@@ -12,4 +12,4 @@ User said "you directly choosed the cloudflare d1 without grilling me on the con
 
 **Why:** When the user names a specific worry ("X is slow"), they want to be heard on X, not handed a fait accompli that routes around X. The auto-grill rule (`knowledge/rules/auto-grill-on-architectural-decisions.md`) exists for exactly this. I broke it within 5 minutes of writing it.
 
-**How to apply:** When the user voices a tech concern, the very next tool call is `AskUserQuestion` with the concern as one of the options. Even if my recommendation is to NOT use that tech, the user picks. The runbook comes AFTER the answer, not before. Treat runbooks as decision-RECORDING, not decision-MAKING. Related: `auto-grill-on-architectural-decisions`.
+**How to apply:** When the user voices a tech concern, the very next tool call is `multi-choice question prompt` with the concern as one of the options. Even if my recommendation is to NOT use that tech, the user picks. The runbook comes AFTER the answer, not before. Treat runbooks as decision-RECORDING, not decision-MAKING. Related: `auto-grill-on-architectural-decisions`.

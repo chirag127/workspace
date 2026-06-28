@@ -33,8 +33,8 @@ B2 — already locked in `decisions/architecture/ops/backup-restic-b2-plus-windo
 
 ## Anti-patterns
 
-- AskUserQuestion option that says "add chirag127 as second remote"
-- AskUserQuestion option that says "dual-push"
+- multi-choice question prompt option that says "add chirag127 as second remote"
+- multi-choice question prompt option that says "dual-push"
 - Any "do you want to add a backup remote" question
 - Any rationale about "two copies of the same data on GitHub for resilience"
 

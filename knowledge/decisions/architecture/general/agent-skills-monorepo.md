@@ -1,94 +1,114 @@
 ---
-type: concept
-title: agent-skills monorepo + symlink invariant
-description: Single source of truth for all agent skills used by both Claude Code
-  (~/.claude/skills/) and the cross-agent harness (~/.agents/skills/). Lives as a
-  git submodule of oriz; both target dirs are symlinks into it.
-tags:
-- architecture
-- skills
-- agents
-- monorepo
-- submodule
-timestamp: '2026-06-25'
+type: decision
+title: 'Skills in .agents/skills/ workspace-scoped + junctions for all 5 agents'
+description: Single canonical skills directory at .agents/skills/ in the oriz workspace. All 5 supported agents read it via NTFS junctions. Easy to migrate to another project (just copy the .agents/skills/ dir). Replaces the previous oriz-org/agent-skills submodule which was archived 2026-06-28.
+tags: [architecture, skills, agents, junctions, workspace-scoped]
+timestamp: 2026-06-28
 format_version: okf-v0.1
 status: active
+related:
+  - rules/agent/preferences/playwright-over-chrome-devtools-mcp
 ---
 
-# agent-skills monorepo + symlink invariant
+# Skills in .agents/skills/ workspace-scoped
 
 ## What
 
-A single repo, [`oriz-org/agent-skills`](https://github.com/oriz-org/agent-skills),
-holds every agent skill used by either harness on this machine. It is mounted
-into oriz as a git submodule at
-<!-- TODO: broken link, was [`repos/oriz/own/content/skills/agent-skills/`](../../../repos/oriz/own/content/skills/agent-skills/) -->.
-The only working copy is the submodule checkout — there is **no separate clone**.
-
-`~/.claude/skills/<skill>` and `~/.agents/skills/<skill>` are NTFS symbolic links
-(mklink /D on Windows) pointing at directories inside the submodule. Editing a
-skill once updates both harnesses.
-
-## Why
-
-Two harnesses (Claude Code and the cross-agent shell) read skills from two
-different dirs. Before this change, the same skill existed twice on disk —
-sometimes as a real copy in one dir and an ad-hoc symlink in the other,
-sometimes as drifting copies in both. Editing a skill required remembering to
-sync. A monorepo + symlink kills that whole class of bug.
-
-## Layout
+All agent skills (21 as of 2026-06-28) live in **one canonical directory** at:
 
 ```
-oriz-org/agent-skills/
-├── README.md            # install + setup instructions
-├── scripts/link.sh      # idempotent setup script for new machines
-├── develop-userscripts/
-├── frontend-design/
-├── github-actions-docs/
-├── grill-me/
-├── karpathy-guidelines/
-├── playwright-cli/
-├── secure-linux-web-hosting/
-├── smithery-ai-cli/
-├── use-my-browser/
-├── webapp-testing/
-└── web-design-reviewer/
+c:/D/oriz/.agents/skills/<skill-name>/SKILL.md
 ```
 
-11 skills as of 2026-06-25. `unblock-action` was listed in CLAUDE.md but turned
-out to be a dangling symlink with no source on disk — dropped from the canonical
-set.
+This dir is workspace-scoped, committed to the oriz umbrella repo, version-controlled with the rest of the workspace. Migrating to another project = copy `.agents/skills/` into the new project's root.
+
+## Why this architecture (over previous submodule pattern)
+
+Previously: `oriz-org/agent-skills` git submodule at `repos/own/agent-skills/`. Archived 2026-06-28 (`gh repo archive`). Reasons for the move:
+
+1. **Submodule overhead** — every fresh clone required `--recurse-submodules` + bootstrap to set up symlinks. New project = friction.
+2. **Submodule pointer drift** — `git submodule status` showed stale SHA if skills were edited but pointer not bumped. Forgettable.
+3. **Skill discoverability** — skills inside `repos/own/agent-skills/` were buried 3 levels deep. Workspace-root `.agents/skills/` is discoverable.
+
+Workspace-scoped trades submodule reusability for migration ergonomics. The 21 skills can still be extracted as a standalone repo later if needed.
+
+## Per-agent paths — table of truth
+
+Five agents are supported. Each reads skills from its own canonical path. All 4 per-agent paths are NTFS junctions pointing at `c:/D/oriz/.agents/skills/`.
+
+| Agent | Project (workspace) path | Global (per-user) path | Junction status |
+|---|---|---|---|
+| **Canonical** | `c:/D/oriz/.agents/skills/` | n/a | real dir |
+| **Claude Code** | `.claude/skills/` | `~/.claude/skills/` | both junctions → canonical |
+| **Cline** | reads Claude's `.claude/skills/` | reads `~/.claude/skills/` | covered by Claude junctions |
+| **Kilo Code** | `.kilocode/skills/` | `~/.kilocode/skills/` (not symlinked yet) | project junction → canonical |
+| **OpenCode** | falls back to `.agents/skills/` natively | reads `~/.agents/skills/` | global junction → canonical |
+| **Antigravity / Codex / 30+ Open Standard agents** | reads `.agents/skills/` natively | reads `~/.agents/skills/` | covered |
+
+## How junctions are created on Windows
+
+NTFS **junctions** (not symbolic links) are used because:
+- Junctions work for any user without admin elevation
+- Symbolic links require Developer Mode OR admin
+- For directory targets, the behavior is identical
+
+Create via:
+```bash
+python -c "import subprocess; subprocess.run(['cmd', '/c', 'mklink', '/J', r'C:\Users\C5420321\.claude\skills', r'C:\D\oriz\.agents\skills'])"
+```
+
+Or PowerShell elevated:
+```powershell
+New-Item -ItemType SymbolicLink -Path 'C:\Users\C5420321\.claude\skills' -Target 'C:\D\oriz\.agents\skills'
+```
+
+## Migration to a new project
+
+1. Copy `.agents/skills/` into the new project's root (or symlink it).
+2. Create junctions from `.claude/skills/` and `.kilocode/skills/` to the new location.
+3. Optionally repoint `~/.claude/skills/` and `~/.agents/skills/` if you want the same skills used in OTHER projects too.
+
+No git submodule init required. No bootstrap script. Just copy + 4 junction commands.
+
+## Layout (21 skills as of 2026-06-28)
+
+```
+.agents/skills/
+├── cloudflare/                       # Cloudflare platform reference
+├── cloudflare-email-service/         # CF Email Sending + Routing
+├── develop-userscripts/              # Tampermonkey/ScriptCat
+├── frontend-design/                  # UI/UX component patterns
+├── github-actions-docs/              # GH Actions reference
+├── grill-me/                          # Decision-tree MCQ pattern
+├── karpathy-guidelines/              # LLM coding guidelines
+├── obsidian-bases/                   # Obsidian Bases (.base)
+├── obsidian-cli/                     # Obsidian CLI ops
+├── obsidian-defuddle/                # Markdown extraction
+├── obsidian-json-canvas/             # .canvas files
+├── obsidian-markdown/                # Obsidian Flavored Markdown
+├── playwright-cli/                   # Browser automation
+├── playwright-persistent-sessions/   # Persistent browser sessions
+├── secure-linux-web-hosting/         # Linux server hardening
+├── smithery-ai-cli/                  # Smithery toolbox CLI
+├── use-my-browser/                   # Live browser session driver
+├── web-design-reviewer/              # UX/A11Y review
+├── webapp-testing/                   # Playwright app testing
+├── workers-best-practices/           # CF Workers patterns
+└── wrangler/                         # CF Wrangler CLI
+```
 
 ## Invariants
 
-- **The submodule is the only working copy.** Do not clone agent-skills
-  separately. Edit it in place at
-  `repos/oriz/own/content/skills/agent-skills/`, commit, push, then bump the
-  submodule pointer in oriz.
-- **No real directories under the symlinked names.** If
-  `~/.claude/skills/<X>` or `~/.agents/skills/<X>` exists as a real dir, the
-  invariant is broken — back it up and re-run `scripts/link.sh`.
-- **Skills not in the monorepo are still allowed.** A skill that lives only in
-  one harness can sit as a real dir next to the symlinks; `link.sh` only
-  manages dirs that exist in the monorepo. (Today, no such skill exists — all
-  11 are symlinked into both dirs.)
+- **`.agents/skills/` is the only canonical copy.** Edit skills here, commit to oriz.
+- **All per-agent dirs are junctions.** If `~/.claude/skills/` becomes a real dir (someone copied content into it), the invariant breaks — `link.sh` is idempotent but won't clobber real dirs.
+- **Skills added through the canonical path appear in all 5 agents automatically.** No copy step.
+- **Removed: `oriz-org/agent-skills` submodule.** Repo archived on GitHub 2026-06-28. Don't re-add as a submodule.
 
-## Setup on a new machine
+## What was archived
 
-After `git submodule update --init --recursive` on the oriz superproject:
-
-```bash
-bash repos/oriz/own/content/skills/agent-skills/scripts/link.sh
-```
-
-On Windows, this requires Developer Mode (Settings → For developers) so that
-`mklink /D` works without admin. The script refuses to clobber any real
-directory already at a target path.
+The old submodule [`oriz-org/agent-skills`](https://github.com/oriz-org/agent-skills) was archived on GitHub via `gh repo archive`. Read-only from 2026-06-28 onwards. Reversible via `gh repo unarchive`. The 21 skills' git history is preserved in that archived repo if anyone needs blame data; otherwise the live source is here in oriz.
 
 ## Related
 
-- [[master-pointer-as-production-sha]] — the same submodule-pointer-as-state
-  pattern, applied here at the per-machine level rather than per-deploy.
-- [[dont-create-bak-folders]] (memory) — informed `link.sh`'s decision to
-  refuse rather than auto-rename when a target dir already exists.
+- [[playwright-over-chrome-devtools-mcp]] — playwright-cli + playwright-persistent-sessions are workspace-scoped skills, not MCPs
+- [[grill-me-default]] — the grill-me discipline is one of the skills here

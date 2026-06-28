@@ -40,7 +40,7 @@ Agents MUST adapt:
 ### When asking questions
 
 - Short labels (helps STT-readback and on-screen scan)
-- Many short options is fine; respect the 4-question cap per `AskUserQuestion` call
+- Many short options is fine; respect the 4-question cap per `multi-choice question prompt` call
 - Infer intent from imperfect transcription — `pdf splitter` and `pf splitter` mean the same thing
 - Put the question stem INSIDE the widget, not in the prose above (overlay artefact on Windows TUIs)
 

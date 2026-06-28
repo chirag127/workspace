@@ -1,7 +1,7 @@
 ---
 type: rule
 title: "Knowledge-only, no memory dual-write"
-description: "Durable user preferences and locked decisions are written to knowledge/ ONLY — not also mirrored into the Claude Code MEMORY.md auto-memory store. Single source of truth; memory store becomes a cache, not a parallel database."
+description: "Durable user preferences and locked decisions are written to knowledge/ ONLY — not also mirrored into the agent MEMORY.md auto-memory store. Single source of truth; memory store becomes a cache, not a parallel database."
 tags: [agent-behavior, knowledge, memory, single-source-of-truth]
 timestamp: 2026-06-26
 format_version: okf-v0.1
@@ -16,7 +16,7 @@ related:
 
 ## Rule
 
-When locking a durable preference, rule, or decision, write it to `knowledge/` only. Do NOT also write it into the Claude Code MEMORY.md auto-memory store. Single source of truth = `knowledge/`. The memory store may *reference* knowledge files but does not duplicate their content.
+When locking a durable preference, rule, or decision, write it to `knowledge/` only. Do NOT also write it into the agent MEMORY.md auto-memory store. Single source of truth = `knowledge/`. The memory store may *reference* knowledge files but does not duplicate their content.
 
 ## How to apply
 

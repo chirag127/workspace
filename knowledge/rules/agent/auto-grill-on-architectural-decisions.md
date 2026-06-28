@@ -3,7 +3,7 @@ type: rule
 title: Auto-grill on architectural decisions
 description: "Before any multi-file architectural choice (storage, auth, deploy, payments,\
   \ framework, data model), agents MUST run the grill skill or its inline equivalent\
-  \ (3\u20134 ranked-recommendation questions via AskUserQuestion). Decision must\
+  \ (3\u20134 ranked-recommendation questions via multi-choice question prompt). Decision must\
   \ be locked into knowledge/decisions/ before code lands. Locked 2026-06-23 in response\
   \ to user explicitly choosing the auto-grill cadence. Compounds with self-update-on-every-decision:\
   \ grill produces the decision, that rule files it."
@@ -37,7 +37,7 @@ Before writing code for any decision that:
 - chooses between SaaS providers, hosting tiers, or payment processors,
 - changes how auth, billing, secrets, or PII are handled,
 
-agents MUST run a structured grill of 3–4 questions via `AskUserQuestion` (or invoke the `grill-me` skill), then write the resulting choice to `knowledge/decisions/<topic>.md` BEFORE any code lands.
+agents MUST run a structured grill of 3–4 questions via `multi-choice question prompt` (or invoke the `grill-me` skill), then write the resulting choice to `knowledge/decisions/<topic>.md` BEFORE any code lands.
 
 ## Why
 
@@ -48,7 +48,7 @@ Grilling is FAST when the recommendation is obvious — three questions, three R
 ## How to apply
 
 1. Identify the decision boundary. If you're about to write code that introduces dependency / SaaS / DB / shared API / auth-billing-PII change, STOP.
-2. Compose 3–4 ranked-recommendation questions per `AskUserQuestion`. Each option:
+2. Compose 3–4 ranked-recommendation questions per `multi-choice question prompt`. Each option:
    - Option 1 = Recommended (suffix `(Recommended)`)
    - Option 2 = 2nd choice (suffix `(2nd choice)`)
    - Options 3–4 = other viable shapes
@@ -59,7 +59,7 @@ Grilling is FAST when the recommendation is obvious — three questions, three R
 
 ## What grill is NOT
 
-- Not for trivial edits (`AskUserQuestion` is the wrong tool for "should I rename this variable").
+- Not for trivial edits (`multi-choice question prompt` is the wrong tool for "should I rename this variable").
 - Not for choices the user already locked in earlier in the session — re-read context.
 - Not for choices the codebase already encodes — re-read <!-- TODO: broken link, was [`knowledge/`](../../knowledge) -->.
 - Not a stalling tactic. If everything is genuinely Recommended → 2nd choice → 3rd → 4th and the user repeatedly chooses Recommended, the grill has done its job by surfacing options.

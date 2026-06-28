@@ -69,6 +69,6 @@ fs.writeFileSync(p, JSON.stringify(j, null, 2));
 
 ## Cross-refs
 
-- `workspace-scoped-agents` — same principle for agents (Claude Code, OpenCode, Cline, Kilo Code)
+- `workspace-scoped-agents` — same principle for agents (the AI agent, OpenCode, Cline, Kilo Code)
 - `mcp-no-key-in-repo-keyed-in-smithery` — secrets go to Smithery, not repo
 - `serena-mcp-installed` — concrete example of this rule applied

@@ -1,6 +1,6 @@
 ---
 type: rule
-title: '5-agent workspace setup: Claude Code, OpenCode, Cline, Kilo Code, Antigravity'
+title: '5-agent workspace setup: the AI agent, OpenCode, Cline, Kilo Code, Antigravity'
 description: Workspace supports exactly these 5 agents. All config inside C:\D\oriz\. Never touch global files. Antigravity added 2026-06-27.
 tags: [agents, claude-code, opencode, kilocode, cline, antigravity, scope, hard-rule]
 timestamp: 2026-06-27
@@ -19,7 +19,7 @@ This workspace (`C:\D\oriz\`) supports **exactly 5** coding agents:
 
 | Agent | Type | Cost | How it sees this workspace |
 |---|---|---|---|
-| Claude Code | CLI | Anthropic API (covered by SAP hai chain) | reads `C:\D\oriz\CLAUDE.md` + `C:\D\oriz\AGENTS.md` + `.mcp.json` |
+| the AI agent | CLI | Anthropic API (covered by SAP hai chain) | reads `C:\D\oriz\CLAUDE.md` + `C:\D\oriz\AGENTS.md` + `.mcp.json` |
 | OpenCode | CLI | Free (BYOK) | reads `C:\D\oriz\AGENTS.md` + `.opencode/opencode.jsonc` |
 | Cline | VS Code ext | Free (BYOK) | reads `C:\D\oriz\AGENTS.md` + `.vscode/mcp.json` |
 | Kilo Code | VS Code ext | Free (provider markup-free) | reads `C:\D\oriz\.kilocode\rules\*.md` (symlinked to `.agents/kilocode/rules/`) + `.kilocode/mcp.json` |
@@ -41,7 +41,7 @@ Added 2026-06-27 per user request. Antigravity is Google's agent-first IDE:
 The installer `scripts/install-agents.cmd` ONLY touches:
 - `C:\D\oriz\.agents\*` — per-agent stubs
 - `C:\D\oriz\.kilocode\rules\` — symlink for Kilo Code
-- `C:\D\oriz\.mcp.json` — Claude Code MCPs
+- `C:\D\oriz\.mcp.json` — the AI agent MCPs
 - `C:\D\oriz\.opencode\opencode.jsonc` — OpenCode config + MCPs
 - `C:\D\oriz\.vscode\mcp.json` — Cline MCPs
 - `C:\D\oriz\.kilocode\mcp.json` — Kilo Code MCPs

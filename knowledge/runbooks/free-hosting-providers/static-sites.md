@@ -9,7 +9,7 @@ status: active
 related:
   - runbooks/free-hosting-providers/index
   - rules/no-card-on-file
-  - decisions/architecture/cloudflare-pages-hosts-every-website-and-app
+  - decisions/architecture/hosting-split-cf-and-github-pages
 ---
 
 # Static site hosting — free tiers (2026-06-22)

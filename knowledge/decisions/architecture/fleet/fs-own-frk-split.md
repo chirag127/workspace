@@ -6,7 +6,7 @@ tags: [filesystem, fleet, forks]
 timestamp: 2026-06-25
 format_version: okf-v0.1
 status: active
-supersedes: fs-flat-always
+supersedes: fs-own-frk-split
 ---
 
 Two-folder split: `repos/own/<slug>/` for repos I created, `repos/frk/<slug>/` for repos forked from upstream.
@@ -19,7 +19,7 @@ Two-folder split: `repos/own/<slug>/` for repos I created, `repos/frk/<slug>/` f
 - 15 own + 5 frk fits naturally; the categorize-once-per-repo rule isn't violated (fork-status is a hard binary, not a soft category).
 - Muscle memory still works inside each bucket — `cd repos/own/<slug>/` and `cd repos/frk/<slug>/` are both predictable.
 
-**Supersedes:** [`fs-flat-always`](../../../rules/agent/preferences/fs-flat-always.md) (locked 3h earlier same day).
+**Supersedes:** [`fs-own-frk-split`](../../../rules/agent/preferences/fs-own-frk-split.md) (locked 3h earlier same day).
 
 **The 5 forks (2026-06-25):**
 - ai-rewrite-bs-ext (parent: SupratimRK/Ai-rewrite)
@@ -33,4 +33,4 @@ Two-folder split: `repos/own/<slug>/` for repos I created, `repos/frk/<slug>/` f
 - New repo I fork → `repos/frk/<slug>/`
 - Slug suffixes (`-api`, `-bs-ext`, etc.) still encode functional category.
 
-**Related:** [`fs-flat-always`](../../../rules/agent/preferences/fs-flat-always.md) (superseded), [`github-repo-names-are-brand-identity`](../../../rules/agent/preferences/github-repo-names-are-brand-identity.md), [`scope-cut-2026-06-25`](./scope-cut-2026-06-25.md).
+**Related:** [`fs-own-frk-split`](../../../rules/agent/preferences/fs-own-frk-split.md) (superseded), [`github-repo-names-are-brand-identity`](../../../rules/agent/preferences/github-repo-names-are-brand-identity.md), [`scope-cut-2026-06-25`](./scope-cut-2026-06-25.md).

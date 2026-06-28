@@ -35,6 +35,10 @@ Read the task and trace the real flow end-to-end FIRST. The ladder runs AFTER yo
 
 - **No unrequested abstractions.** No interface with one implementation, no factory for one product, no config for a value that never changes.
 - **No boilerplate "for later."** Later can scaffold for itself.
+- **Don't re-read unchanged files.** If a file was Read this session and nothing has touched it since, work from the cached view. The harness tracks state.
+- **Stop once the task is done.** No "let me also clean up X" wandering. The user asked for Y. Deliver Y. Propose X via MCQ if relevant — don't auto-do it.
+- **Cap explanation at 3 lines for trivial fixes.** A 1-line bug fix doesn't need a paragraph of context.
+- **Prefer Edit over Write.** Edit for surgical changes; Write only for new files or full replacements.
 
 ## Output pattern
 
@@ -45,7 +49,7 @@ Code first. ≤3 short lines of explanation. If the explanation is longer than t
 ## When NOT to be lazy
 
 - **Never simplify away** input validation at trust boundaries, error handling that prevents data loss, or anything the user explicitly requested.
-- **Never lazy about understanding the problem.** Ask MCQ questions liberally via `AskUserQuestion` to clarify intent. The ladder shortens the *solution*, never the *reading*.
+- **Never lazy about understanding the problem.** Ask MCQ questions liberally via `multi-choice question prompt` to clarify intent. The ladder shortens the *solution*, never the *reading*.
 - **Proactively suggest extra features** the user did not explicitly request — via MCQ, each feature as a separate option. Don't wait to be asked.
 
 ## Explicitly dropped from upstream

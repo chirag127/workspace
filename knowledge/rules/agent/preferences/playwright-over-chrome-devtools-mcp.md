@@ -33,5 +33,5 @@ For ALL browser automation tasks, use the Playwright skills:
 - After removal, `mcp__chrome-devtools__*` tools disappear from the available toolbox, removing the temptation.
 
 **Related:**
-- [`agent-skills-monorepo`](../../../decisions/architecture/fleet/agent-skills-monorepo.md) — playwright-cli + playwright-persistent-sessions both live at `repos/own/agent-skills/`.
+- [`agent-skills-monorepo`](../../../decisions/architecture/fleet/agent-skills-monorepo.md) — playwright-cli + playwright-persistent-sessions both live at `.agents/skills/`.
 - Global CLAUDE.md note about Defender Exploit Guard ASR blocking unsigned browser binaries — Playwright sidesteps this.
