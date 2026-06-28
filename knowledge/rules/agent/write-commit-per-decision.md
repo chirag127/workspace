@@ -9,7 +9,7 @@ status: active
 related:
   - rules/agent/self-update-rule
   - rules/agent/adaptive-commit-granularity
-  - rules/agent/log-decisions-only
+  - rules/agent/keep-knowledge-fresh
 ---
 
 # Write + commit per decision
@@ -38,4 +38,4 @@ User locked this on 2026-06-26 (Q12). Per-decision commits give a clean revert s
 
 - [`self-update-rule`](./self-update-rule.md)
 - [`adaptive-commit-granularity`](./adaptive-commit-granularity.md)
-- [`log-decisions-only`](./log-decisions-only.md)
+- [`keep-knowledge-fresh`](./keep-knowledge-fresh.md) (§4 current-truth-only is the no-transcript rule this used to point at)

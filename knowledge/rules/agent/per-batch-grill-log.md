@@ -7,7 +7,7 @@ timestamp: 2026-06-26
 format_version: okf-v0.1
 status: active
 related:
-  - rules/agent/log-decisions-only
+  - rules/agent/keep-knowledge-fresh
   - decisions/architecture/knowledge-bundle/hierarchy-add-log-concepts-playbooks-2026-06-26
 ---
 
@@ -22,7 +22,7 @@ One grill session = one log file. A "grill session" = the contiguous batch of re
 - Path: `knowledge/log/grills/<YYYY-MM-DD>-<topic-slug>.md`.
 - Frontmatter: `type: log`, `title`, `description`, `tags`, `timestamp`, `format_version`, `status`.
 - Body: 1 paragraph context + bulleted list of locked decisions (with links to the actual rule/decision files).
-- Do NOT paste the Q&A transcript — see [`log-decisions-only`](./log-decisions-only.md).
+- Do NOT paste the Q&A transcript — see [`keep-knowledge-fresh`](./keep-knowledge-fresh.md) §4 current-truth-only.
 - If two unrelated grills happen the same day, two files: `<date>-<topic-a>.md` and `<date>-<topic-b>.md`.
 - If a grill spans two sessions (resumed next day), one file dated by start date with a note about resumption.
 
@@ -36,5 +36,5 @@ User locked this on 2026-06-26 (Q15). Per-question = noise; per-day = collisions
 
 ## Related
 
-- [`log-decisions-only`](./log-decisions-only.md)
+- [`keep-knowledge-fresh`](./keep-knowledge-fresh.md)
 - [`hierarchy-add-log-concepts-playbooks-2026-06-26`](../../decisions/architecture/knowledge-bundle/hierarchy-add-log-concepts-playbooks-2026-06-26.md)

@@ -34,7 +34,7 @@ status: active
 | [`grill-to-knowledge`](./rules/agent/grill-to-knowledge.md) | When the user invokes grill-me or runs a sequence of design questions, |
 | [`keep-knowledge-fresh`](./rules/agent/keep-knowledge-fresh.md) | Every session reads knowledge before acting, writes decisions into knowledge |
 | [`knowledge-deletion-not-supersession`](./rules/agent/knowledge-deletion-not-supersession.md) | When a decision is superseded, git rm the old file in the same commit that adds the new one. Audit trail lives in git history. |
-| [`knowledge-first`](./rules/agent/knowledge-first.md) | Durable info goes in knowledge/ first. README is entry-point only. If |
+| [`keep-knowledge-fresh`](./rules/agent/keep-knowledge-fresh.md) | Every session reads knowledge before acting, writes decisions as CURRENT TRUTH, |
 | [`read-before-edit`](./rules/agent/read-before-edit.md) | Always Read a file in the current session before calling Edit. The harness\ |
 | [`self-update-rule`](./rules/agent/self-update-rule.md) | Every durable architectural / naming / stack / external-fact decision\ |
 

@@ -9,7 +9,7 @@ status: active
 related:
   - decisions/architecture/knowledge-bundle/depth-5-level-hierarchy
   - rules/agent/per-batch-grill-log
-  - rules/agent/log-decisions-only
+  - rules/agent/keep-knowledge-fresh
   - _okf
 ---
 
@@ -43,5 +43,5 @@ User locked this on 2026-06-26 (Q14). Grill logs need a home. Concepts need a ho
 
 - [`depth-5-level-hierarchy`](./depth-5-level-hierarchy.md)
 - [`per-batch-grill-log`](../../../rules/agent/per-batch-grill-log.md)
-- [`log-decisions-only`](../../../rules/agent/log-decisions-only.md)
+- [`keep-knowledge-fresh`](../../../rules/agent/keep-knowledge-fresh.md) (§4 'current truth only — no historical logs' subsumes the prior log-decisions-only rule)
 - [`_okf`](../../../_okf.md)

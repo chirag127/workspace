@@ -18,7 +18,6 @@ related:
 - rules/agent/keep-knowledge-fresh
 - rules/interaction/future-overrides-past
 - rules/agent/grill-to-knowledge
-- rules/agent/knowledge-first
 - rules/interaction/communication-stt-friendly
 ---
 
