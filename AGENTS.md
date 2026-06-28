@@ -116,23 +116,22 @@ related:
 
 ```
 c:/D/oriz/
-├── repos/                           # 20 submodules total
+├── repos/                           # submodules — categorized 2026-06-28
 │   ├── own/                         # originals (oriz-org/<slug>)
-│   │   ├── agent-skills/            # symlinked into ~/.claude/skills and ~/.agents/skills
-│   │   ├── backup/                  # restic→B2 keys + RECOVERY.md (private)
-│   │   ├── blog, home, journal, me  # content + hub apps
-│   │   ├── bookmark-mind-bs-ext     # browser extension
-│   │   ├── oriz-janaushdhi-app, oriz-ncert-app, oriz-lore-app
-│   │   ├── oriz-janaushdhi-book, oriz-me-book
-│   │   ├── oriz-mmi-tickertape-mmi-api
-│   │   ├── sops-lens-vsc-ext
-│   │   └── userscripts/             # Tampermonkey/Violentmonkey scripts
-│   └── frk/                         # upstreams we patched
-│       ├── ai-rewrite-bs-ext
-│       ├── claude-notifications-cli
-│       ├── dearrow-plus-bs-ext
-│       ├── freellmapi, omniroute    # 2-LLM-shim experiment
-├── knowledge/                       # 792 files — the canonical brain
+│   │   ├── api/                     # static-API fleet (6): rto, constants, ragas,
+│   │   │                            #   dynasties, countries-plus, oriz-mmi-tickertape-mmi-api
+│   │   ├── sites/                   # Astro static sites (4): blog, home, journal, me
+│   │   ├── apps-mobile/             # mobile/PWA (3): oriz-janaushdhi-app, oriz-lore-app, oriz-ncert-app
+│   │   ├── apps-bs-ext/             # browser extensions (1): bookmark-mind-bs-ext
+│   │   ├── apps-vsc-ext/            # VS Code extensions (1): sops-lens-vsc-ext
+│   │   ├── books/                   # static books (2): oriz-janaushdhi-book, oriz-me-book
+│   │   ├── infra/                   # fleet plumbing (3): agent-skills (junctioned into
+│   │   │                            #   .claude/.opencode/.kilocode/.gemini/skills),
+│   │   │                            #   api-fleet-template (Astro Integration npm pkg),
+│   │   │                            #   api-fleet-landing (api.oriz.in)
+│   │   └── userscripts/             # Tampermonkey/Violentmonkey monorepo (already category-shaped)
+│   └── frk/                         # upstream forks we patched
+├── knowledge/                       # OKF concept files — the canonical brain
 ├── scripts/, templates/             # automation + scaffolds
 ├── README.md, AGENTS.md, CLAUDE.md
 ├── .env, .env.enc                   # sops+age encrypted single source of truth
