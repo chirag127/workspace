@@ -8,11 +8,12 @@
 
 ## Always-loaded rules (auto-imported every session)
 
-These 8 files inline into the agent context on every session. They govern *every* response. Everything else in `knowledge/` is on-demand — read when the topic comes up, via `knowledge/index.md`.
+These 9 files inline into the agent context on every session. They govern *every* response. Everything else in `knowledge/` is on-demand — read when the topic comes up, via `knowledge/index.md`.
 
 @knowledge/rules/agent/ponytail.md
 @knowledge/rules/agent/caveman.md
 @knowledge/rules/agent/output-minimalism.md
+@knowledge/rules/agent/minimum-everything.md
 @knowledge/rules/agent/delegate-to-subagents-by-default.md
 @knowledge/rules/agent/self-update-rule.md
 @knowledge/rules/agent/preferences/edit-mode-prefs.md
