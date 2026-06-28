@@ -51,12 +51,16 @@ jobs:
           # See knowledge/decisions/policy/private-repos-excluded-from-mirror-cron.md
           PUBLIC_REPOS='[]'
           for FULL in $(echo "$REPOS" | jq -r '.[].full'); do
-            VIS=$(gh api "repos/${FULL}" --jq '.private' 2>/dev/null || echo "true")
+            VIS=$(curl -s -H "Authorization: Bearer ${GH_TOKEN}" \
+                          -H "Accept: application/vnd.github+json" \
+                          "https://api.github.com/repos/${FULL}" \
+                  | jq -r '.private // "missing"')
             if [ "$VIS" = "false" ]; then
               ENTRY=$(echo "$REPOS" | jq --arg f "$FULL" '.[] | select(.full==$f)')
               PUBLIC_REPOS=$(echo "$PUBLIC_REPOS" | jq --argjson e "$ENTRY" '. + [$e]')
+              echo "  ✓ public: ${FULL}"
             else
-              echo "::notice::Skipping ${FULL} (private or inaccessible)"
+              echo "::notice::Skipping ${FULL} (private=${VIS})"
             fi
           done
 
