@@ -88,7 +88,36 @@ jobs:
             token_type: gogs
 
     steps:
+      - name: Skip if host disabled
+        id: gate
+        env:
+          HOST: ${{ matrix.host.name }}
+          ENABLE_GITLAB: ${{ vars.ENABLE_MIRROR_GITLAB }}
+          ENABLE_CODEBERG: ${{ vars.ENABLE_MIRROR_CODEBERG }}
+          ENABLE_BITBUCKET: ${{ vars.ENABLE_MIRROR_BITBUCKET }}
+          ENABLE_GITFLIC: ${{ vars.ENABLE_MIRROR_GITFLIC }}
+          ENABLE_AZURE: ${{ vars.ENABLE_MIRROR_AZURE_DEVOPS }}
+          ENABLE_NOTABUG: ${{ vars.ENABLE_MIRROR_NOTABUG }}
+        run: |
+          # Default ON for hosts known healthy 2026-06-28 (gitlab, azure, notabug);
+          # default OFF for hosts currently down/broken (codeberg, bitbucket, gitflic).
+          # Override via repo/org Variables: ENABLE_MIRROR_<HOST>=0|1.
+          case "$HOST" in
+            gitlab)    FLAG="${ENABLE_GITLAB:-1}" ;;
+            codeberg)  FLAG="${ENABLE_CODEBERG:-0}" ;;
+            bitbucket) FLAG="${ENABLE_BITBUCKET:-0}" ;;
+            gitflic)   FLAG="${ENABLE_GITFLIC:-0}" ;;
+            azure)     FLAG="${ENABLE_AZURE:-1}" ;;
+            notabug)   FLAG="${ENABLE_NOTABUG:-1}" ;;
+            *)         FLAG="0" ;;
+          esac
+          echo "enabled=$FLAG" >> "$GITHUB_OUTPUT"
+          if [ "$FLAG" != "1" ]; then
+            echo "::notice::Mirror $HOST disabled (ENABLE_MIRROR_${HOST^^}=$FLAG). Skipping."
+          fi
+
       - name: Mirror all repos to ${{ matrix.host.name }}
+        if: steps.gate.outputs.enabled == '1'
         id: mirror
         continue-on-error: true
         env:
@@ -209,7 +238,7 @@ jobs:
   mirror-radicle:
     needs: discover
     runs-on: ubuntu-latest
-    if: needs.discover.outputs.repos != '[]'
+    if: needs.discover.outputs.repos != '[]' && (vars.ENABLE_MIRROR_RADICLE == '1' || vars.ENABLE_MIRROR_RADICLE == '')
     continue-on-error: true
     steps:
       - name: Checkout workspace
