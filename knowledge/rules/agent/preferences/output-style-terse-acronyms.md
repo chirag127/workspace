@@ -7,7 +7,7 @@ timestamp: 2026-06-26
 format_version: okf-v0.1
 status: active
 related:
-  - rules/agent/preferences/max-proactive-grill-always
+  - rules/agent/grill-me-default
   - rules/agent/preferences/mcq-4-options-default
 ---
 
@@ -35,5 +35,5 @@ User locked this on 2026-06-26 (Q1) — preferred verbose-recap is "skip caveman
 
 ## Related
 
-- [`max-proactive-grill-always`](./max-proactive-grill-always.md)
+- [`grill-me-default`](../grill-me-default.md)
 - [`mcq-4-options-default`](./mcq-4-options-default.md)

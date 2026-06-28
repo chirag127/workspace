@@ -8,7 +8,7 @@ format_version: okf-v0.1
 status: active
 related:
   - rules/agent/automate-never-runbook
-  - rules/agent/fork-minimize-conflict-surface
+  - rules/development/fork-discipline
 ---
 
 # 5-agent workspace setup
@@ -58,5 +58,5 @@ It does NOT touch:
 - ❌ Add a 6th agent without writing a new rule first
 - ❌ Edit `~/.claude/CLAUDE.md` from a workspace installer
 - ❌ Copy rules from `AGENTS.md` into per-agent stubs (duplication = drift)
-- ❌ Create a `<repo>/AGENTS.md` in any submodule's fork (per `fork-minimize-conflict-surface`)
+- ❌ Create a `<repo>/AGENTS.md` in any submodule's fork (per `fork-discipline`)
 - ❌ Treat Antigravity as a 4-agent extension; it counts as its own slot

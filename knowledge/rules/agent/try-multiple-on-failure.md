@@ -7,7 +7,7 @@ timestamp: 2026-06-27
 format_version: okf-v0.1
 status: active
 related:
-  - rules/agent/preferences/max-proactive-grill-always
+  - rules/agent/grill-me-default
 ---
 
 # Try multiple alternatives on failure

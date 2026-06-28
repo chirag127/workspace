@@ -7,7 +7,7 @@ timestamp: 2026-06-27
 format_version: okf-v0.1
 status: active
 related:
-  - rules/agent/fork-minimize-conflict-surface
+  - rules/development/fork-discipline
   - decisions/architecture/fleet/fleet-owner-oriz-org
 ---
 
@@ -69,5 +69,5 @@ Saved as `archive/pre-2026-06-27` branch on `oriz-org/freellmapi`. Old work surv
 ## Cross-refs
 
 - `no-dual-remote-backup` — companion: GitHub IS the backup
-- `fork-minimize-conflict-surface` — what stays in fork branches (deploy/, docs/oriz/, .github/workflows/oriz-*)
+- `fork-discipline` — what stays in fork branches (deploy/, docs/oriz/, .github/workflows/oriz-*) + the minimum-diff principle
 - `fleet-owner-oriz-org` — ownership lives at org level

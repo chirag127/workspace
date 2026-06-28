@@ -7,8 +7,8 @@ timestamp: 2026-06-26
 format_version: okf-v0.1
 status: active
 related:
-  - rules/agent/preferences/max-proactive-grill-always
-  - rules/agent/preferences/grill-every-ambiguity
+  - rules/agent/grill-me-default
+  - rules/agent/auto-grill-on-architectural-decisions
 ---
 
 # 4 options per MCQ (default)
@@ -35,5 +35,5 @@ User locked this on 2026-06-26 (Q5) — picked "4 options always" over "2-4 depe
 
 ## Related
 
-- [`max-proactive-grill-always`](./max-proactive-grill-always.md)
-- [`grill-every-ambiguity`](./grill-every-ambiguity.md)
+- [`grill-me-default`](../grill-me-default.md)
+- [`auto-grill-on-architectural-decisions`](../auto-grill-on-architectural-decisions.md)

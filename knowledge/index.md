@@ -56,7 +56,6 @@ status: active
 | [`astro-version-pin`](./rules/development/astro-version-pin.md) | Every package.json across the family pins Astro at the current major |
 | [`community-packages-first`](./rules/development/community-packages-first.md) | Locked 2026-06-23. Default to a well-maintained community library/package |
 | [`conventional-commits`](./rules/development/conventional-commits.md) | Every commit message uses a Conventional Commits prefix: feat, fix, |
-| [`fork-customization-minimum-conflict`](./rules/development/fork-customization-minimum-conflict.md) | When patching upstream code in a fork, isolate customizations into separate |
 | [`fork-discipline`](./rules/development/fork-discipline.md) | All forks live under oriz-org/<upstream-name> on GitHub and repos/oriz/frk/<bucket>/<category>/<upstream-name>/\ |
 | [`git-identity-chirag127-noreply`](./rules/development/git-identity-chirag127-noreply.md) | Every commit on this machine attributes to chirag127 via the noreply |
 | [`no-force-push-to-main`](./rules/development/no-force-push-to-main.md) | Force-push to main requires a separate, explicit user instruction \u2014\ |

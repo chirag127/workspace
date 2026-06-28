@@ -163,8 +163,8 @@ Grouped by subdirectory of `knowledge/rules/`. The full table with descriptions 
 - `no-emoji-in-chrome` — no emoji in nav, headers, footers, wordmarks, `<title>`.
 - `per-app-distinctive-frontend-design` — each app gets its own palette/type/signature.
 
-### Development (20) — `knowledge/rules/development/`
-- `always-latest-deps`, `astro-version-pin`, `community-packages-first`, `conventional-commits`, `env-example-mirrors-env-with-steps` (per-repo `.env.example` + `.env` in lock-step; every var documented with how-to-obtain steps), `fork-customization-minimum-conflict`, `fork-discipline`, `git-identity-chirag127-noreply`, `no-force-push-to-main`, `no-rebuilding-free-software`, `no-web3forms-server-side`, `one-branch-only`, `playwright-persistent-sessions`, `push-by-default`, `readme-star-badge-required`, `repo-naming`, `repos-work-independently`, `tests-parallel-and-master-install`, `use-pnpm`, `userscript-author-handle`.
+### Development (19) — `knowledge/rules/development/`
+- `always-latest-deps`, `astro-version-pin`, `community-packages-first`, `conventional-commits`, `env-example-mirrors-env-with-steps` (per-repo `.env.example` + `.env` in lock-step; every var documented with how-to-obtain steps), `fork-discipline`, `git-identity-chirag127-noreply`, `no-force-push-to-main`, `no-rebuilding-free-software`, `no-web3forms-server-side`, `one-branch-only`, `playwright-persistent-sessions`, `push-by-default`, `readme-star-badge-required`, `repo-naming`, `repos-work-independently`, `tests-parallel-and-master-install`, `use-pnpm`, `userscript-author-handle`.
 
 ### Infrastructure (10) — `knowledge/rules/infrastructure/`
 - `aws-lambda-exception` (3rd-rail fallback), `cloudflare-pages-apps-only`, `cloudflare-pages-only`, `free-tier-with-cost-controls` (cards OK only with hard caps), `no-firebase-admin-in-workers`, `no-firebase-functions-blaze`, `no-paid-self-hosting-only`, `no-subscriptions`, `one-level-subdomain-only`, `shared-tenant-by-default` (one Sentry/GA4/Clarity family-wide).

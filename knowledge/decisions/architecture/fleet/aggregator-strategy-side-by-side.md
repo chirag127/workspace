@@ -8,7 +8,7 @@ format_version: okf-v0.1
 status: active
 related:
   - rules/agent/omniroute-eval-install
-  - rules/agent/fork-minimize-conflict-surface
+  - rules/development/fork-discipline
 ---
 
 # Free-LLM-aggregator: side-by-side, localhost only
@@ -65,12 +65,12 @@ npm start
 
 ## Upstream sync cadence
 
-Per fork-minimize-conflict-surface rule:
+Per fork-discipline rule:
 - `git fetch upstream && git merge upstream/main -X theirs` weekly.
 - All our edits live in `deploy/`, `.github/workflows/oriz-*`, `docs/oriz/`, `scripts/oriz-*` — not inside upstream-owned files.
 
 ## Cross-refs
 
 - `rules/agent/omniroute-eval-install` - OmniRoute is eval-only, not in the agent routing chain
-- `rules/agent/fork-minimize-conflict-surface` - how to keep upstream merges clean
+- `rules/development/fork-discipline` - how to keep upstream merges clean
 - Filed upstream: https://github.com/diegosouzapw/OmniRoute/issues/5161

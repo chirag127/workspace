@@ -103,7 +103,7 @@ Per [[rules/self-update-rule]], when a chat-decision lands, the knowledge file l
 | If the user wants to… | Start here |
 |---|---|
 | Add a new submodule fork | [[rules/fork-discipline]] → [[runbooks/git-upstream-merge-private-fork]] → [[decisions/policy/forked-extension-cws-rules]] (if CWS-shipping) |
-| Patch a fork's code | [[rules/fork-customization-minimum-conflict]] |
+| Patch a fork's code | [[rules/development/fork-discipline]] |
 | Merge upstream into our forks | scripts/merge-upstreams.mjs pattern (see this rule's runbook section below) |
 | Add an env / secret | [[decisions/security/sops-plus-doppler-hybrid]] → [[rules/git-identity-chirag127-noreply]] |
 | Change repo / folder layout | [[decisions/architecture/projects-owner-own-forks-layout]] |
