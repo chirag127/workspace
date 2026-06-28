@@ -277,7 +277,7 @@ jobs:
         if: always()
         env:
           BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
-          CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          CHAT_ID: "889470354"
           HOST: ${{ matrix.host.name }}
           OK: ${{ steps.mirror.outputs.ok }}
           FAIL: ${{ steps.mirror.outputs.fail }}
@@ -355,7 +355,7 @@ jobs:
         if: always()
         env:
           BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
-          CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          CHAT_ID: "889470354"
         run: |
           OK=$(grep -c '^✓' /tmp/mirror-radicle-status.txt || echo 0)
           FAIL=$(grep -c '^✗' /tmp/mirror-radicle-status.txt || echo 0)
@@ -372,7 +372,7 @@ jobs:
       - name: Post weekly digest to Telegram
         env:
           BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
-          CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          CHAT_ID: "889470354"
         run: |
           curl -s -X POST "https://api.telegram.org/bot${BOT_TOKEN}/sendMessage" \
             -d "chat_id=${CHAT_ID}" \
