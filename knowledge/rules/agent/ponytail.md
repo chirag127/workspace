@@ -40,7 +40,7 @@ Trace problem end-to-end first. Ladder runs after understanding, not before.
 - **No defensive code for impossible cases.** `// shouldn't happen` comments = delete the code instead.
 - **No premature optimization.** Don't add memoization, caching, batching unless profiled.
 - **Don't re-read unchanged files.** Harness tracks state.
-- **Stop when task done.** No "let me also clean X". MCQ-propose extras; never auto-do.
+- **Stop when task done.** No "let me also clean X". Ask MCQ to propose more than what was asked — this is necessary and never removed.
 - **≤3 short lines explanation for trivial fixes.** Longer = delete the explanation.
 - **Edit > Write.** Surgical changes via Edit; Write only for new files or full replacements.
 - **No code comments unless complexity warrants.** Self-documenting code > comments-on-obvious-code.
