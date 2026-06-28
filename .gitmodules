@@ -67,3 +67,6 @@
 [submodule "repos/own/api-fleet-template"]
 	path = repos/own/api-fleet-template
 	url = https://github.com/oriz-org/api-fleet-template
+[submodule "repos/own/api-fleet-landing"]
+	path = repos/own/api-fleet-landing
+	url = https://github.com/oriz-org/api-fleet-landing
