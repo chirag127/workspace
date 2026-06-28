@@ -28,7 +28,7 @@ wins, and the rule file is updated in the same conversation.
 2. [`no-card-on-file.md`](interaction/no-card-on-file.md) — Cloudflare Free / Firebase Spark / GitHub Free only; no card EVER.
 3. [`self-update-rule.md`](./self-update-rule.md) — every chat decision lands in `knowledge/` in the same conversation.
 4. [`future-overrides-past.md`](./future-overrides-past.md) — when chat contradicts knowledge, chat wins; knowledge updates.
-5. [`parallel-by-default.md`](./parallel-by-default.md) — fan-out subagents for any parallelisable work.
+5. [`parallel-fan-out-by-default.md`](./interaction/parallel-fan-out-by-default.md) — fan-out subagents for any parallelisable work.
 
 ## Auto-only tracking (family-wide goal)
 

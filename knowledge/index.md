@@ -97,9 +97,8 @@ status: active
 | [`match-surrounding-style`](./rules/interaction/match-surrounding-style.md) | When editing existing files, match the file's existing comment density, |
 | [`never-delete-empty-placeholder-repos`](./rules/interaction/never-delete-empty-placeholder-repos.md) | An empty repo in the chirag127/oriz* family is a deliberate slug reservation, |
 | [`never-hit-quotas`](./rules/interaction/never-hit-quotas.md) | Architect for headroom. Surprise quota walls are a design failure, not |
-| [`no-card-on-file`](./rules/interaction/no-card-on-file.md) | (no description) |
 | [`openai-compat-for-all-ai-providers`](./rules/interaction/openai-compat-for-all-ai-providers.md) | Every adapter in @chirag127/oriz-ai-providers must use the OpenAI SDK |
-| [`parallel-by-default`](./rules/interaction/parallel-by-default.md) | Any work that can be parallelised MUST be fanned out via subagents. Sequential |
+| [`parallel-fan-out-by-default`](./rules/interaction/parallel-fan-out-by-default.md) | Any parallelisable work MUST be fanned out via background subagents. Sequential is the exception. |
 | [`parallel-fan-out-by-default`](./rules/interaction/parallel-fan-out-by-default.md) | Any work that can be parallelised MUST be fanned out via background\ |
 | [`parse-mcq-other-for-context`](./rules/interaction/parse-mcq-other-for-context.md) | When the user selects 'Other' on an AskUserQuestion MCQ and adds free-text,\ |
 | [`profile-readme-cross-link`](./rules/interaction/profile-readme-cross-link.md) | The chirag127 GitHub profile README must include a one-line cross-link\ |

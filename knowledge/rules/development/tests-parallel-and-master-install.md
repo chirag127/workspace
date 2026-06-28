@@ -15,7 +15,7 @@ timestamp: 2026-06-21
 format_version: okf-v0.1
 status: active
 related:
-- rules/interaction/parallel-by-default
+- rules/interaction/parallel-fan-out-by-default
 - rules/interaction/linux-ci-only
 - runbooks/operations/install-and-bootstrap
 ---
@@ -64,6 +64,6 @@ Single source of truth for dependency graph + cross-package linking (workspace:*
 
 ## Cross-refs
 
-- Parallel-by-default sibling → [[rules/parallel-by-default]]
+- Parallel-fan-out-by-default sibling → [[rules/interaction/parallel-fan-out-by-default]]
 - Linux-only CI runners → [[rules/linux-ci-only]]
 - Install runbook → [[runbooks/install-and-bootstrap]]
