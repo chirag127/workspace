@@ -33,11 +33,14 @@ The reversal is captured here; the original workspace-only rule has been deleted
 
 | Step | Behavior |
 |---|---|
+| Trigger | **Manual only.** User invokes `node scripts/sync-globals.mjs` when ready. No auto-trigger (session-start, cron, hook). |
 | Read | Workspace anchors (`.mcp.json`, `.agents/claude/settings.template.json`, agent-skills junction) |
 | Diff | Compare against globals (`~/.claude.json`, `~/.opencode/config.json`, `~/.kilocode/`, etc.) |
 | Silent | If workspace and globals match → exit 0, no output |
 | Grill | If new item OR drift → fire grill-me MCQ (migrate / keep both / delete from workspace) |
 | Write | Apply user's grill answer back to globals + registry |
+
+Note: per-agent propagation (`scripts/sync-mcp-configs.mjs`) is also a separate manual step — `sync-globals.mjs` no longer auto-invokes it.
 
 ## Per-agent schema transform
 
