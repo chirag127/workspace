@@ -357,6 +357,24 @@ Full skills inventory: [`knowledge/decisions/architecture/general/agent-skills-m
 - **`sops` + `age`** for `.env.enc` ↔ `.env` decryption.
 - **`restic`** + Backblaze B2 for backup (`runbooks/security/restic-backup-setup.md`).
 - **`node scripts/sync-mcp-configs.mjs`** after every `.mcp.json` change — syncs MCP servers to all 4 agents (`.kilocode/`, `.antigravity/`, `.opencode/`; Claude Code reads `.mcp.json` directly).
+- **`make sync-showcases`** writes the 4 public per-agent mirror repos (see below).
+
+---
+
+## Public showcase mirrors
+
+Inspired by [5kahoisaac/opencode-configs](https://github.com/5kahoisaac/opencode-configs) — a single-purpose, easy-to-star, copy-paste-friendly mirror per agent. **One-way mirrors**, this workspace remains canonical.
+
+| Mirror | Contents | Sync via |
+|---|---|---|
+| [`oriz-org/claude-code-config`](https://github.com/oriz-org/claude-code-config) | `CLAUDE.md` global rules, `settings.template.json` (scrubbed), `.mcp.json`, per-agent rules, 13 auto-loaded universal rules | `make sync-showcases` |
+| [`oriz-org/opencode-config`](https://github.com/oriz-org/opencode-config) | `AGENTS.md`, `opencode.jsonc` | same |
+| [`oriz-org/kilocode-config`](https://github.com/oriz-org/kilocode-config) | rules, `mcp.json` | same |
+| [`oriz-org/antigravity-config`](https://github.com/oriz-org/antigravity-config) | `AGENTS.md`, `mcp.json` | same |
+
+Each mirror has its own README (TOC + Roadmap + Recent Transitions + Reference Links) and Makefile (`make help`, `make sync`).
+
+Sync script: [`scripts/sync-config-showcases.mjs`](./scripts/sync-config-showcases.mjs). Runs manual-only — same discipline as [`globals-derived-from-workspace`](./knowledge/rules/agent/globals-derived-from-workspace.md). Scrubs `ANTHROPIC_AUTH_TOKEN` + per-user absolute paths before pushing.
 
 ---
 
