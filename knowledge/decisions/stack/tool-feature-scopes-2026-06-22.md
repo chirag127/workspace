@@ -24,7 +24,7 @@ related:
 
 # Tool app features (locked)
 
-## slice-pdf — pdf.oriz.in
+## slice-pdf â€” pdf.oriz.in
 
 **Organize:**
 - Merge multiple PDFs (drag-drop reorder)
@@ -36,9 +36,9 @@ related:
 - Crop PDF
 - Compare PDF (visual diff)
 
-**Convert TO PDF:** JPG ? PDF · Word ? PDF · PowerPoint ? PDF · Excel ? PDF · HTML ? PDF · Scan ? PDF (camera capture)
+**Convert TO PDF:** JPG ? PDF Â· Word ? PDF Â· PowerPoint ? PDF Â· Excel ? PDF Â· HTML ? PDF Â· Scan ? PDF (camera capture)
 
-**Convert FROM PDF:** PDF ? JPG · PDF ? Word · PDF ? PowerPoint · PDF ? Excel · PDF ? PDF/A
+**Convert FROM PDF:** PDF ? JPG Â· PDF ? Word Â· PDF ? PowerPoint Â· PDF ? Excel Â· PDF ? PDF/A
 
 **Edit:**
 - Add page numbers
@@ -59,7 +59,7 @@ related:
 
 **Tech:** `pdf-lib` + `pdfjs-dist` + `tesseract.js` (OCR, lazy) + `mammoth.js` (Word) + `xlsx` (Excel) + `pptxgenjs` (PowerPoint). All client-side.
 
-## pixie-image — image.oriz.in
+## pixie-image â€” image.oriz.in
 
 **Optimize:**
 - Compress image (Squoosh-style quality slider)
@@ -75,7 +75,7 @@ related:
 - Crop image
 - Rotate image
 
-**Convert:** JPG ? PNG ? WebP ? AVIF ? HEIC ? SVG · HTML ? image (html2canvas)
+**Convert:** JPG ? PNG ? WebP ? AVIF ? HEIC ? SVG Â· HTML ? image (html2canvas)
 
 **Security:**
 - Watermark image
@@ -83,7 +83,7 @@ related:
 
 **Tech:** Squoosh codecs + `@imgly/background-removal-js` + `html2canvas` + `face-api.js`. All client-side, lazy-loaded per tool.
 
-## paisa-finance — paisa.oriz.in
+## paisa-finance â€” paisa.oriz.in
 
 **Calculators:**
 - EMI calculator (with prepayment schedule)
@@ -99,7 +99,7 @@ related:
 
 (FII/DII chart + MMI gauge + credit-card-compare moved to v1; v0 is calculators-only per grill lock.)
 
-## forge-dev — dev.oriz.in
+## forge-dev â€” dev.oriz.in
 
 **JSON:**
 - Format / minify / validate
@@ -126,7 +126,7 @@ related:
 
 **Tech:** monaco-editor (lazy) + jsonpath + jose (JWT) + cronstrue + sql-formatter. All client-side.
 
-## scribe-text — text.oriz.in
+## scribe-text â€” text.oriz.in
 
 **Case + counter:**
 - Case converter (upper/lower/title/snake/kebab/camel/pascal/constant)
@@ -147,7 +147,7 @@ related:
 
 **Tech:** Marked + KaTeX + diff + faker. All client-side.
 
-## grid-qr — qr.oriz.in
+## grid-qr â€” qr.oriz.in
 
 **Generate:**
 - Plain text / URL / vCard / WiFi / email / phone / SMS / geo / event
@@ -165,7 +165,7 @@ related:
 
 **Tech:** `qr-code-styling` + `@zxing/library` + `jsbarcode` + `jszip`. All client-side.
 
-## shift-convert — convert.oriz.in
+## shift-convert â€” convert.oriz.in
 
 **Unit converter:** length / weight / temperature / area / volume / time / speed / data / energy / pressure / angle
 
@@ -177,7 +177,7 @@ related:
 
 **Tech:** `convert-units` + `exchangerate.host` fetch + `date-fns-tz`. Client-side.
 
-## dice-random — random.oriz.in
+## dice-random â€” random.oriz.in
 
 - Random number (range + count)
 - Dice roller (D4/D6/D8/D10/D12/D20/D100, custom dice notation)
@@ -191,21 +191,21 @@ related:
 
 **Tech:** `crypto.getRandomValues` for cryptographic randomness. Client-side.
 
-## cipher-crypto — crypto.oriz.in
+## cipher-crypto â€” crypto.oriz.in
 
 **Hashes:** MD5 / SHA-1 / SHA-256 / SHA-384 / SHA-512 / SHA-3 / BLAKE2 / RIPEMD-160
 
-**Encryption:** AES-128/192/256 (CBC/GCM/CTR) encrypt+decrypt · ChaCha20 · RSA generate keys + encrypt/sign
+**Encryption:** AES-128/192/256 (CBC/GCM/CTR) encrypt+decrypt Â· ChaCha20 Â· RSA generate keys + encrypt/sign
 
 **HMAC:** HMAC-SHA256 / HMAC-SHA512
 
-**Encoding:** UUID v1/v4/v7 · bcrypt hash + verify (Argon2 via WASM optional)
+**Encoding:** UUID v1/v4/v7 Â· bcrypt hash + verify (Argon2 via WASM optional)
 
-**Cert tools:** X.509 cert decoder · CSR generator · SSH key pair generator
+**Cert tools:** X.509 cert decoder Â· CSR generator Â· SSH key pair generator
 
 **Tech:** Web Crypto API + `node-forge` (cert) + `bcryptjs`. Client-side.
 
-## paper-print — print.oriz.in
+## paper-print â€” print.oriz.in
 
 - Print preview (paginate any document)
 - PDF ? printable (margins, headers, footers)
@@ -218,7 +218,7 @@ related:
 
 **Tech:** `paper-css` + `print-js`. Client-side.
 
-## vitals-health — vitals.oriz.in
+## vitals-health â€” vitals.oriz.in
 
 - BMI / BMR / TDEE / body-fat-% calculators
 - Calorie counter + macro split
@@ -232,7 +232,7 @@ related:
 
 **Tech:** pure JS math + ECharts. Client-side. (Period/sleep/pregnancy use Firestore for Pro+.)
 
-## rank-seo — seo.oriz.in
+## rank-seo â€” seo.oriz.in
 
 - Keyword density analyzer
 - SERP preview (Google/Bing) with character limits
@@ -247,7 +247,7 @@ related:
 
 **Tech:** CF Worker proxy for fetching arbitrary URLs (CORS) + client-side analysis. ~1 worker call per URL.
 
-## reel-video — video.oriz.in
+## reel-video â€” video.oriz.in
 
 - Trim (start/end markers)
 - Convert (MP4 ? WebM ? MOV ? AVI ? MKV)
@@ -259,7 +259,7 @@ related:
 
 **Tech:** `ffmpeg.wasm` (~30 MB lazy-loaded). Client-side but heavy; users warned about RAM. v0 ships trim+convert+extract-audio+compress; v0.1 adds GIF+thumbnail+watermark.
 
-## echo-audio — audio.oriz.in
+## echo-audio â€” audio.oriz.in
 
 - Convert (MP3 ? WAV ? OGG ? AAC ? FLAC)
 - Trim
@@ -272,7 +272,7 @@ related:
 
 **Tech:** Web Audio API + `ffmpeg.wasm` (shared with reel-video) + `lamejs`. Client-side.
 
-## pivot-data — data.oriz.in
+## pivot-data â€” data.oriz.in
 
 - CSV ? JSON ? Excel (XLSX) ? TSV ? YAML converter
 - Sort / filter / group / pivot table

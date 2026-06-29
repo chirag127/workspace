@@ -30,15 +30,15 @@ related:
 
 There is **ONE** pricing page across the entire oriz family. Same content, same layout, same prices, served from a shared package so every app renders the identical page at `/pricing` (or `/upgrade`).
 
-**Package:** add `Pricing.astro` + `PricingTable.astro` to `@chirag127/astro-billing` (existing) — bump to v0.1.1 or higher. Each app imports and mounts at its own `/pricing` route. Per-app override = button labels only (e.g. "Upgrade Oriz Slice" vs "Upgrade Oriz Paisa").
+**Package:** add `Pricing.astro` + `PricingTable.astro` to `@chirag127/astro-billing` (existing) â€” bump to v0.1.1 or higher. Each app imports and mounts at its own `/pricing` route. Per-app override = button labels only (e.g. "Upgrade Oriz Slice" vs "Upgrade Oriz Paisa").
 
 ## The only paid feature: ad-free
 
 Family-wide, the **only** thing the paid tier unlocks is **ad removal** (AdSense on web, AdMob in Play AAB). No "Pro features", no "extra tools", no "higher limits". Removing ads is enough.
 
 Why this is enough:
-- Simplest mental model — "pay to remove ads" is universally understood
-- No engineering cost per app — the ad-rendering layer reads a single `isAdFree` flag from auth state
+- Simplest mental model â€” "pay to remove ads" is universally understood
+- No engineering cost per app â€” the ad-rendering layer reads a single `isAdFree` flag from auth state
 - Aligns with the per-app divergence philosophy (apps stay simple, monetisation stays out of the way)
 - Honors `oriz-cs-me-app` + `oriz-janaushdhi-app` which have no ads anyway (paid tier has nothing to offer there ? those apps don't show the pricing page)
 
@@ -46,12 +46,12 @@ Why this is enough:
 
 | Tier | Price (INR) | Price (USD) | Channel | Recurrence |
 |---|---|---|---|---|
-| **Free** | ?0 | $0 | — | — |
-| **Ad-free monthly** | ?49 / mo | $0.99 / mo | Razorpay (IN) · Paddle (ROW) · Play Billing (Android AAB) · MS Store (Windows MSIX) | Monthly |
-| **Ad-free yearly** | ?399 / yr | $9 / yr | Same as above | Yearly (˜40% off) |
-| **Ad-free lifetime** | ?999 once | $19 once | Razorpay · Paddle · Gumroad | One-time |
+| **Free** | ?0 | $0 | â€” | â€” |
+| **Ad-free monthly** | ?49 / mo | $0.99 / mo | Razorpay (IN) Â· Paddle (ROW) Â· Play Billing (Android AAB) Â· MS Store (Windows MSIX) | Monthly |
+| **Ad-free yearly** | ?399 / yr | $9 / yr | Same as above | Yearly (Ëœ40% off) |
+| **Ad-free lifetime** | ?999 once | $19 once | Razorpay Â· Paddle Â· Gumroad | One-time |
 
-Same prices everywhere — no per-app skew.
+Same prices everywhere â€” no per-app skew.
 
 ## Architecture (no Workers in hot path)
 
@@ -65,12 +65,12 @@ CF Workers usage: ZERO in the purchase flow. CF Pages Functions: 1 call per purc
 
 ## Cross-app SSO for ad-free state
 
-The `isAdFree` flag travels with the Firebase Auth user — sign in once across `*.oriz.in`, ad-free works everywhere. Powered by `auth.oriz.in` (existing decision).
+The `isAdFree` flag travels with the Firebase Auth user â€” sign in once across `*.oriz.in`, ad-free works everywhere. Powered by `auth.oriz.in` (existing decision).
 
 ## Apps with no pricing page
 
-- `oriz-cs-me-app` — personal site, no ads, no pricing
-- `oriz-janaushdhi-app` — public-health ethics, no ads, no pricing
+- `oriz-cs-me-app` â€” personal site, no ads, no pricing
+- `oriz-janaushdhi-app` â€” public-health ethics, no ads, no pricing
 
 Every other app mounts the package-served `/pricing` route.
 

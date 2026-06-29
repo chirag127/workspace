@@ -13,7 +13,7 @@ related:
   - branding/oriz-org-rename-from-co
 ---
 
-# Secrets workflow — sops+age primary, Doppler for runtime sync
+# Secrets workflow â€” sops+age primary, Doppler for runtime sync
 
 ## Decision
 
@@ -41,7 +41,7 @@ For a 65-key .env with section grouping, this is a real loss. The dashboard's ta
 
 ## Why not pure sops+age (status quo)
 
-Frequent .env edits today require encrypt + commit + workflow run + 65 GitHub Actions API calls. Doppler's `doppler secrets upload` is a single command that auto-fans-out via the integration — zero extra commits, faster CI propagation, browser editing as a fallback.
+Frequent .env edits today require encrypt + commit + workflow run + 65 GitHub Actions API calls. Doppler's `doppler secrets upload` is a single command that auto-fans-out via the integration â€” zero extra commits, faster CI propagation, browser editing as a fallback.
 
 ## Why not delete oriz-org and run pure-personal
 
@@ -51,7 +51,7 @@ Doppler's GitHub integration has only `sync_target = org | repo`. No `user` targ
 
 This workflow stays locked unless:
 1. A second human needs workspace access (Doppler free tier covers 3 users, friction lower than handing them an age key)
-2. Auto-rotation matters (AWS IAM keys, DB passwords) — Doppler offers it on Team tier ($21/user/mo); evaluate when first credential gets compromised
+2. Auto-rotation matters (AWS IAM keys, DB passwords) â€” Doppler offers it on Team tier ($21/user/mo); evaluate when first credential gets compromised
 3. Doppler's free tier changes materially (track via the pricing page)
 
 ## Cross-refs

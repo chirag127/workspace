@@ -1,6 +1,6 @@
 ---
 type: decision
-title: "i18n — English-only today, Weblate Hosted Libre when ready"
+title: "i18n â€” English-only today, Weblate Hosted Libre when ready"
 description: English-only until non-English demand; then Weblate
 tags: [decisions, branding, i18n, weblate, deferred-then-locked]
 timestamp: 2026-06-20
@@ -13,7 +13,7 @@ related:
   - rules/no-selfhost
 ---
 
-# i18n — English-only today, Weblate Hosted Libre when ready
+# i18n â€” English-only today, Weblate Hosted Libre when ready
 
 ## Decision
 
@@ -27,7 +27,7 @@ as the chosen tool.
 This **revisits and refines** the earlier deferral at
 [`services/business/i18n/tolgee.md`](../../services/business/i18n/tolgee.md): the
 "defer i18n" call still holds, but the *which tool when ready* is
-now answered — Weblate, not Tolgee.
+now answered â€” Weblate, not Tolgee.
 
 ## Why
 
@@ -36,14 +36,14 @@ now answered — Weblate, not Tolgee.
   English copy nobody asked for is also dead weight.
 - **When demand arrives, we want a free / OSS / no-card option
   ready.** Weblate Hosted Libre is free for libre projects on a
-  public git repo — fits every family rule
+  public git repo â€” fits every family rule
   ([no card-on-file](../../rules/interaction/no-card-on-file.md),
   <!-- TODO: broken link, was [no selfhost](../../rules/no-selfhost.md) -->, no paid tiers).
 - **Why Weblate over Tolgee:** Hosted Libre is a public-good tier
   with no quota cliff at family scale. Tolgee's SaaS free tier
   exists but has lower limits, and its self-hosted option is ruled
   out by the <!-- TODO: broken link, was [no-selfhost rule](../../rules/no-selfhost.md) -->. The
-  Weblate self-host option is excluded by the same rule — Hosted
+  Weblate self-host option is excluded by the same rule â€” Hosted
   Libre is the rule-compliant variant.
 - **PR-back-to-the-repo workflow** matches how every other content
   change in the family already flows. Translators land PRs in
@@ -63,19 +63,19 @@ now answered — Weblate, not Tolgee.
   4. Add a locale switcher to the site (component lives in
      `@chirag127/oriz-kit` once shape is clear; first site eats
      the temporary in-repo version).
-- **No site-wide locale switcher in oriz-kit yet** — the component
+- **No site-wide locale switcher in oriz-kit yet** â€” the component
   lands when the first site needs it, not pre-emptively.
 - **Tolgee stays `rejected`** in the service catalog. The
   `services/business/i18n/tolgee.md` page cross-links to weblate as the
   picked replacement.
 - **No URL changes today.** When i18n flips on for a given site,
   the locale strategy (`/en/` prefix vs `lang.site.tld` vs cookie)
-  is decided per-site at flip-on time — not pre-emptively here.
+  is decided per-site at flip-on time â€” not pre-emptively here.
 
 ## Cross-refs
 
-- [services/business/i18n/weblate-hosted-libre.md](../../services/business/i18n/weblate-hosted-libre.md) — the picked service
-- [services/business/i18n/tolgee.md](../../services/business/i18n/tolgee.md) — earlier deferral, kept rejected
-- [services/business/i18n/index.md](../../services/business/i18n/index.md) — bucket policy
+- [services/business/i18n/weblate-hosted-libre.md](../../services/business/i18n/weblate-hosted-libre.md) â€” the picked service
+- [services/business/i18n/tolgee.md](../../services/business/i18n/tolgee.md) â€” earlier deferral, kept rejected
+- [services/business/i18n/index.md](../../services/business/i18n/index.md) â€” bucket policy
 - <!-- TODO: broken link, was [No selfhost rule](../../rules/no-selfhost.md) -->
 - [No card-on-file rule](../../rules/interaction/no-card-on-file.md)

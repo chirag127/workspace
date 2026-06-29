@@ -29,7 +29,7 @@ related:
 
 
 
-# Image host — chained 4-tier origin (repo + ImgBB + Imgur + GitHub user-content)
+# Image host â€” chained 4-tier origin (repo + ImgBB + Imgur + GitHub user-content)
 
 ## Decision
 
@@ -38,13 +38,13 @@ from (and composed with) the
 [3-tier image-CDN chain](../frontend/image-cdn-fallback-chain.md) that handles
 **delivery / transformation**:
 
-1. **[repo-hosted on Cloudflare Pages](../../../services/media/image-host/repo-hosted-cf-pages.md)** — default for everything that fits in the repo. Image lives next to the `.mdx` that embeds it.
-2. **[ImgBB](../../../services/media/image-host/imgbb.md)** — uploaded by CI for blog-post images that don't belong in the repo (large screenshots, automated batch uploads).
-3. **[Imgur](../../../services/media/image-host/imgur.md)** — mirror of Tier 2; same payload pushed in parallel from CI for hot-link backup.
-4. **[GitHub user-content](../../../services/media/image-host/github-user-content.md)** — rare; assets > 25 MB, large animated GIFs we don't want in the site repo, PNG-must-stay-PNG cases. Uses an orphan `assets` branch of any family repo, hot-linked via `raw.githubusercontent.com`.
+1. **[repo-hosted on Cloudflare Pages](../../../services/media/image-host/repo-hosted-cf-pages.md)** â€” default for everything that fits in the repo. Image lives next to the `.mdx` that embeds it.
+2. **[ImgBB](../../../services/media/image-host/imgbb.md)** â€” uploaded by CI for blog-post images that don't belong in the repo (large screenshots, automated batch uploads).
+3. **[Imgur](../../../services/media/image-host/imgur.md)** â€” mirror of Tier 2; same payload pushed in parallel from CI for hot-link backup.
+4. **[GitHub user-content](../../../services/media/image-host/github-user-content.md)** â€” rare; assets > 25 MB, large animated GIFs we don't want in the site repo, PNG-must-stay-PNG cases. Uses an orphan `assets` branch of any family repo, hot-linked via `raw.githubusercontent.com`.
 
 User direction 2026-06-20: "use all of them and add all imgbb and
-imgur and github user content and repo hosted" — locked.
+imgur and github user content and repo hosted" â€” locked.
 
 ## Why
 
@@ -64,11 +64,11 @@ imgur and github user content and repo hosted" — locked.
   and CDN (how it's resized + edge-cached) are different concerns
   with different failure modes. Two chains, composed cleanly.
 
-## Origin vs CDN — composition with the existing chain
+## Origin vs CDN â€” composition with the existing chain
 
 ```
 [ Tier 1 origin: /posts/2026/hero.png on CF Pages         ]
-                              ¦
+                              Â¦
                               ?
 [ CDN Tier 1: Cloudflare Images /cdn-cgi/image/<opts>/... ]
    ? on 5xx
@@ -123,9 +123,9 @@ The frontmatter shape for a post embedding an image:
 title: "..."
 images:
   hero:
-    src: ./hero.png                          # Tier 1 — repo-hosted
-    imageTier2: https://i.ibb.co/.../...     # Tier 2 — ImgBB
-    imageTier3: https://i.imgur.com/....png  # Tier 3 — Imgur mirror
+    src: ./hero.png                          # Tier 1 â€” repo-hosted
+    imageTier2: https://i.ibb.co/.../...     # Tier 2 â€” ImgBB
+    imageTier3: https://i.imgur.com/....png  # Tier 3 â€” Imgur mirror
     imageTier4: https://raw.githubusercontent.com/chirag127/blog-site/assets/2026/06/hero.png  # Tier 4
 ---
 ```
@@ -139,12 +139,12 @@ chain is populated for new content automatically.
   have: ImgBB (email), Imgur (email + Client-ID), GitHub (already
   exists). All free, no card.
 - **CI mirroring step** added to oriz-blog-site (and any
-  content-bearing site) — uploads new images to Tier 2 / 3 / 4 and
+  content-bearing site) â€” uploads new images to Tier 2 / 3 / 4 and
   writes URLs back to the post's frontmatter as a single PR. Lives
   in `.github/workflows/mirror-images.yml`; secrets via
   [Doppler](../../../services/business/secrets/doppler.md) ? GH Secrets.
 - **`<Image>` wrapper composes** origin chain (this decision) with
-  CDN chain (the [existing decision](../frontend/image-cdn-fallback-chain.md)) — sites stay unaware of either chain.
+  CDN chain (the [existing decision](../frontend/image-cdn-fallback-chain.md)) â€” sites stay unaware of either chain.
 - **Storage caveat.** This decision governs **images only**.
   Versioned binaries still go to [GitHub Releases](../../../services/data/storage/github-releases.md);
   unversioned blobs / backups still go to
@@ -156,13 +156,13 @@ chain is populated for new content automatically.
 
 ## Cross-refs
 
-- [Tier 1 — repo-hosted on CF Pages](../../../services/media/image-host/repo-hosted-cf-pages.md)
-- [Tier 2 — ImgBB](../../../services/media/image-host/imgbb.md)
-- [Tier 3 — Imgur](../../../services/media/image-host/imgur.md)
-- [Tier 4 — GitHub user-content](../../../services/media/image-host/github-user-content.md)
-- [3-tier image-CDN chain](../frontend/image-cdn-fallback-chain.md) — delivery layer composed alongside this origin chain
-- [Markdown-in-repo only CMS decision](./cms-markdown-in-repo-only.md) — authoring story behind Tier 1
-- [Object-storage split](../database/object-storage-split.md) — different asset class (binaries / blobs vs. images)
+- [Tier 1 â€” repo-hosted on CF Pages](../../../services/media/image-host/repo-hosted-cf-pages.md)
+- [Tier 2 â€” ImgBB](../../../services/media/image-host/imgbb.md)
+- [Tier 3 â€” Imgur](../../../services/media/image-host/imgur.md)
+- [Tier 4 â€” GitHub user-content](../../../services/media/image-host/github-user-content.md)
+- [3-tier image-CDN chain](../frontend/image-cdn-fallback-chain.md) â€” delivery layer composed alongside this origin chain
+- [Markdown-in-repo only CMS decision](./cms-markdown-in-repo-only.md) â€” authoring story behind Tier 1
+- [Object-storage split](../database/object-storage-split.md) â€” different asset class (binaries / blobs vs. images)
 - [Cloudflare Pages for all sites](../../infrastructure/cloudflare-pages-for-all-sites.md)
 - <!-- TODO: broken link, was [oriz-kit glossary](../../../glossary/o-r/oriz-kit.md) -->
 - [Never-hit-quotas rule](../../../rules/interaction/never-hit-quotas.md)

@@ -76,8 +76,8 @@ User mandate: "But the legal pages will also be specified specifically for all o
 
 ## Supersedes-in-part
 
-- `maximalist-footer-and-monetization-everywhere.md` (the "all apps same footer" wording) — footer is now per-app design + universal legal section
-- `legal-pages-package-in-domain.md` — per-app legal content customization clarified
+- `maximalist-footer-and-monetization-everywhere.md` (the "all apps same footer" wording) â€” footer is now per-app design + universal legal section
+- `legal-pages-package-in-domain.md` â€” per-app legal content customization clarified
 
 ## Cross-refs
 

@@ -33,22 +33,22 @@ related:
 
 
 
-# No separate dev/prod projects — one prod + emulator
+# No separate dev/prod projects â€” one prod + emulator
 
 ## TL;DR
 
-For 1-2 person teams on Firebase + Cloudflare + Razorpay, the canonical 2026 recommendation from official docs is "at least two Firebase projects." But the verifiable solo founders (Plausible's Uku Täht — 3 years solo, one prod, Docker dev; Cal.com early team) shipped with one prod + emulator and only added staging once a teammate or paying user appeared. For oriz today, the same pattern fits: single Firebase project `oriz-app` + Local Emulator Suite for dev + 5 cheap pre-emptive moves that get most of the safety benefit without the operational tax of a second project.
+For 1-2 person teams on Firebase + Cloudflare + Razorpay, the canonical 2026 recommendation from official docs is "at least two Firebase projects." But the verifiable solo founders (Plausible's Uku TÃ¤ht â€” 3 years solo, one prod, Docker dev; Cal.com early team) shipped with one prod + emulator and only added staging once a teammate or paying user appeared. For oriz today, the same pattern fits: single Firebase project `oriz-app` + Local Emulator Suite for dev + 5 cheap pre-emptive moves that get most of the safety benefit without the operational tax of a second project.
 
 ## Why not "two projects from day one"
 
-The Firebase team docs are explicit: *"Firebase recommends using a separate Firebase project for each environment"* + *"Every app should have at least one pre-production environment that's isolated from production data and resources."* But the trigger is qualitative, not numeric — *"especially if you have more than one person working on your app."*
+The Firebase team docs are explicit: *"Firebase recommends using a separate Firebase project for each environment"* + *"Every app should have at least one pre-production environment that's isolated from production data and resources."* But the trigger is qualitative, not numeric â€” *"especially if you have more than one person working on your app."*
 
 The hidden cost of a second project at single-founder scale:
 
-1. **2× config files**: `.firebaserc` aliases, `firebase.json` per env, separate service-account JSONs, separate Auth OAuth client IDs (one per project per provider).
-2. **2× org-secrets matrix**: every key has `_DEV` and `_PROD` variants. With 61 org-level secrets, that's 122 entries to maintain.
-3. **2× CI matrix**: every workflow must select which project. Easy to deploy dev branch to prod with a typo.
-4. **2× Firestore Spark caps to monitor**: free tier is per-project so 2 projects = 2× free, but also 2× the quota-overshoot risk.
+1. **2Ã— config files**: `.firebaserc` aliases, `firebase.json` per env, separate service-account JSONs, separate Auth OAuth client IDs (one per project per provider).
+2. **2Ã— org-secrets matrix**: every key has `_DEV` and `_PROD` variants. With 61 org-level secrets, that's 122 entries to maintain.
+3. **2Ã— CI matrix**: every workflow must select which project. Easy to deploy dev branch to prod with a typo.
+4. **2Ã— Firestore Spark caps to monitor**: free tier is per-project so 2 projects = 2Ã— free, but also 2Ã— the quota-overshoot risk.
 5. **Per-env redirect URLs**: Google Sign-In has separate authorized redirect URIs per Firebase project. Centralized auth at `auth.oriz.in` doubles in complexity.
 
 At oriz scale today (no paying customers, solo, 22-package npm stubs, free-tier everywhere), the tax outweighs the gain.
@@ -63,14 +63,14 @@ A lien blocks the "Delete Project" button until removed. Neutralizes the single 
 
 **Apply via Console**: GCP Console ? IAM & Admin ? Settings ? Liens ? Add Lien
 - Restrictions: `resourcemanager.projects.delete`
-- Reason: `Production data — do not delete`
+- Reason: `Production data â€” do not delete`
 - Origin: `lien-2026-06-23`
 
 **Or via gcloud CLI** (if installed):
 ```bash
 gcloud alpha resource-manager liens create \
   --restrictions=resourcemanager.projects.delete \
-  --reason="Production data — do not delete" \
+  --reason="Production data â€” do not delete" \
   --project=oriz-app
 ```
 
@@ -82,7 +82,7 @@ gcloud alpha resource-manager liens delete <LIEN_ID>
 
 ### Move 2: Migrate any `functions.config()` ? `defineSecret()`
 
-`functions.config()` was decommissioned in `firebase-functions@v7`. Use Cloud Secret Manager-backed secrets instead. (Pure housekeeping — not a real exposure today since we're not yet using Cloud Functions heavily, but lock the pattern before we do.)
+`functions.config()` was decommissioned in `firebase-functions@v7`. Use Cloud Secret Manager-backed secrets instead. (Pure housekeeping â€” not a real exposure today since we're not yet using Cloud Functions heavily, but lock the pattern before we do.)
 
 ```js
 import { defineSecret } from 'firebase-functions/params';
@@ -99,11 +99,11 @@ Set via: `firebase functions:secrets:set RAZORPAY_KEY_SECRET` (interactive promp
 
 Even inside a single Cloudflare account, each Worker config gets two environment blocks with separate KV namespace IDs, separate D1 database IDs, separate R2 bucket bindings. Costs zero (free-tier resources are per-account, not per-binding) and future-proofs the moment we ever want to flip on remote bindings.
 
-Caveat: 11 binding keys are non-inheritable in `[env.preview]` — override one, redeclare all 11. Documented for whoever scaffolds Workers next.
+Caveat: 11 binding keys are non-inheritable in `[env.preview]` â€” override one, redeclare all 11. Documented for whoever scaffolds Workers next.
 
 ### Move 4: `op run -- wrangler dev` (or Infisical) for local secrets
 
-Removes `.env` files from disk. GitHub reported 12.8M secrets leaked in 2025 — most via accidentally-committed `.env` files. 1Password CLI or Infisical injects secrets into the process env at runtime without ever writing them to disk.
+Removes `.env` files from disk. GitHub reported 12.8M secrets leaked in 2025 â€” most via accidentally-committed `.env` files. 1Password CLI or Infisical injects secrets into the process env at runtime without ever writing them to disk.
 
 Setup (1Password CLI):
 ```bash
@@ -156,7 +156,7 @@ Test-mode covers everything except 10 live-only features (Smart Collect VPA, Fun
 
 ## What the named indie founders actually did
 
-- **Plausible (Uku Täht, solo 2018-2021)**: Docker for Postgres+Clickhouse locally; `config/.env.dev`, `.env.test`, `.env.e2e_test`; no `staging` tag; prod on Hetzner + Terraform/Ansible. Uku on secrets: *"Secrets should never be committed to source control, whether the repo is public or not."* (HN 25456673)
+- **Plausible (Uku TÃ¤ht, solo 2018-2021)**: Docker for Postgres+Clickhouse locally; `config/.env.dev`, `.env.test`, `.env.e2e_test`; no `staging` tag; prod on Hetzner + Terraform/Ansible. Uku on secrets: *"Secrets should never be committed to source control, whether the repo is public or not."* (HN 25456673)
 - **Cal.com (early)**: single `.env.example`, all URLs at `localhost:3000`; README distinguishes only dev vs prod; internal staging only appeared once they had paying users + a team.
 - **Linear**: GCP + K8s + Postgres/Redis/MongoDB; first-week hires ship to prod by end of week 1. No public staging statement.
 
@@ -166,7 +166,7 @@ Pattern: even the OSS apps that are now multi-engineer started with one prod + l
 
 For when we do scale up to needing branch previews:
 
-1. Pages has **exactly 2 env slots** (Preview + Production). All non-prod branches share **one** Preview env-var set — no per-branch envs.
+1. Pages has **exactly 2 env slots** (Preview + Production). All non-prod branches share **one** Preview env-var set â€” no per-branch envs.
 2. **11 binding keys are non-inheritable** in `[env.preview]`: `vars`, `kv_namespaces`, `d1_databases`, `r2_buckets`, `durable_objects`, `services`, `queues.producers`, `vectorize`, `hyperdrive`, `analytics_engine_datasets`, `ai`.
 3. **Preview URLs are public** by default (`X-Robots-Tag: noindex` but still fetchable). Wrap in Cloudflare Access if sensitive.
 4. Pages Functions **can produce to Queues but can't consume** + **can't host Durable Object classes**.
@@ -175,15 +175,15 @@ For when we do scale up to needing branch previews:
 
 Local is local-by-default since Wrangler v3 (May 2023). What DOESN'T emulate locally:
 
-- **Workers AI / Vectorize / Browser Rendering / Hyperdrive** — no local sim; must set `remote: true` or deploy.
-- **Cron triggers** — never auto-fire; hit `/cdn-cgi/handler/scheduled?cron=...` manually.
-- **KV eventual consistency** — local is immediate-everywhere; prod takes up to 60s globally.
-- **D1 latency** — local: microseconds; prod: 10-50ms per query. "#1 source of works-on-my-machine" per CF docs.
-- **Email Routing** — no emulator.
-- **DO WebSocket Hibernation lifecycle** — only fires in prod (constructor re-run + `deserializeAttachment`).
-- **Secrets set via `wrangler secret put`** — don't populate local; need `.dev.vars`.
+- **Workers AI / Vectorize / Browser Rendering / Hyperdrive** â€” no local sim; must set `remote: true` or deploy.
+- **Cron triggers** â€” never auto-fire; hit `/cdn-cgi/handler/scheduled?cron=...` manually.
+- **KV eventual consistency** â€” local is immediate-everywhere; prod takes up to 60s globally.
+- **D1 latency** â€” local: microseconds; prod: 10-50ms per query. "#1 source of works-on-my-machine" per CF docs.
+- **Email Routing** â€” no emulator.
+- **DO WebSocket Hibernation lifecycle** â€” only fires in prod (constructor re-run + `deserializeAttachment`).
+- **Secrets set via `wrangler secret put`** â€” don't populate local; need `.dev.vars`.
 
-So local dev still demands one brief `wrangler deploy` sanity check per cron-fired or AI-bound path before commit. No separate dev account needed for that — just deploy cadence discipline.
+So local dev still demands one brief `wrangler deploy` sanity check per cron-fired or AI-bound path before commit. No separate dev account needed for that â€” just deploy cadence discipline.
 
 ## Cross-refs
 

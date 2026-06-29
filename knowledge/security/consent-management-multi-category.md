@@ -1,6 +1,6 @@
 ---
 type: decision
-title: "Consent management for many categories — Klaro config + GA4 Consent Mode v2 + geo routing + cookie-less default"
+title: "Consent management for many categories â€” Klaro config + GA4 Consent Mode v2 + geo routing + cookie-less default"
 description: 'Klaro consent: 5 categories. EU/UK denied, US/CA accepted'
 tags: [security, privacy, consent, klaro, gdpr, ccpa, gpc, cookies, multi-category, geo]
 timestamp: 2026-06-20
@@ -19,26 +19,26 @@ related:
   - rules/never-hit-quotas
 ---
 
-# Consent management for many categories — Klaro config + GA4 Consent Mode v2 + geo routing + cookie-less default
+# Consent management for many categories â€” Klaro config + GA4 Consent Mode v2 + geo routing + cookie-less default
 
 ## Decision
 
-The family's consent surface uses **5 categories × N services** via
+The family's consent surface uses **5 categories Ã— N services** via
 [Klaro](../../services/business/security/klaro.md), with three orthogonal
 levers stacked on top:
 
-1. **Geo-routed defaults** — EU/UK gets default-DENIED banner;
+1. **Geo-routed defaults** â€” EU/UK gets default-DENIED banner;
    US/CA gets default-ACCEPTED with `Sec-GPC` honoured; rest of world
    gets NO banner.
-2. **Lazy-loaded Klaro itself** — Klaro JS ships ONLY to visitors
+2. **Lazy-loaded Klaro itself** â€” Klaro JS ships ONLY to visitors
    whose `CF-IPCountry` is in the EU/UK/CCPA list. Other visitors get
    zero CLS, zero render-block, zero Klaro bytes.
-3. **Cookie-less defaults** — every service that has a cookie-less
+3. **Cookie-less defaults** â€” every service that has a cookie-less
    mode uses it by default, so the consent surface stays small.
 
 This **refines, not supersedes**,
 [`security/cookie-banner-policy.md`](./cookie-banner-policy.md)
-— that policy stated "no banner unless EU + tracker"; this decision
+â€” that policy stated "no banner unless EU + tracker"; this decision
 adds the explicit category map, the US/CA + GPC handling, the lazy-
 load rule, and the cookie-less default rule.
 
@@ -77,15 +77,15 @@ tracker loads:
 
 | Visitor region | `__consentRegime` | Banner shown? | Default consent | Auto-honour |
 |---|---|---|---|---|
-| EU member state, UK, IS, NO, LI, CH | `'eu'` | Yes | **DENIED** for analytics / marketing / functional / social | — |
+| EU member state, UK, IS, NO, LI, CH | `'eu'` | Yes | **DENIED** for analytics / marketing / functional / social | â€” |
 | US, CA | `'ccpa'` | Yes (CCPA "Do Not Sell" link required) | **ACCEPTED** | `Sec-GPC: 1` request header ? auto-DENY analytics + marketing |
-| Rest of world | `'rest'` | **No banner** | Trackers load if locally lawful (cookie-less default services always; cookie-issuing services per local law) | — |
+| Rest of world | `'rest'` | **No banner** | Trackers load if locally lawful (cookie-less default services always; cookie-issuing services per local law) | â€” |
 
 **`Sec-GPC: 1` (Global Privacy Control)** is honoured on every CCPA-
 region request: when the header is present, Klaro pre-fills the
 banner with analytics + marketing toggles OFF, equivalent to a CCPA
 "Do Not Sell or Share" opt-out. The visitor can still re-enable via
-the banner — GPC is the default, not a hard gate.
+the banner â€” GPC is the default, not a hard gate.
 
 ## Lazy-load rule
 
@@ -104,7 +104,7 @@ the Klaro `<script>` tag. The shared `<ConsentBanner>` helper in
 re-implements it.
 
 This refines [`cookie-banner-policy.md`](./cookie-banner-policy.md):
-that policy gated Klaro on (EU visitor) × (cookie-issuing tracker on
+that policy gated Klaro on (EU visitor) Ã— (cookie-issuing tracker on
 this page); this decision widens the visitor list to cover CCPA
 regions and codifies the lazy-load JS-loading rule.
 
@@ -127,20 +127,20 @@ the family ever has to ship.
 ## Why
 
 - **Many categories + many cookies** is exactly Klaro's design point;
-  it scales N-services × N-purposes without re-architecting.
+  it scales N-services Ã— N-purposes without re-architecting.
 - **GA4 Consent Mode v2** is Google's official answer to "load the
-  script, defer the firing" — pragmatic, doesn't require GA4 to
+  script, defer the firing" â€” pragmatic, doesn't require GA4 to
   fight the family's consent flow.
 - **Geo-routed defaults** match law: EU is opt-in (GDPR), US/CA is
   opt-out (CCPA); ROW currently has no broad cookie-consent law that
   the family must defensively honour. This avoids the "banner-fatigue
   tax" on ~80% of visitors who legally don't need a banner.
 - **Lazy-loading Klaro itself** means most pageviews ship zero
-  consent JS — keeps Web Vitals high, keeps CLS at zero.
+  consent JS â€” keeps Web Vitals high, keeps CLS at zero.
 - **Cookie-less by default** means the categories the user has to
   consider are smaller in the first place; the more cookie-less
   services we use, the less work the consent surface does.
-- **All services in this map are free, no card** — the family's
+- **All services in this map are free, no card** â€” the family's
   rules continue to hold; consent management adds no cost surface.
 
 ## Implications
@@ -153,25 +153,25 @@ the family ever has to ship.
   ships on any site. Today GA4 isn't deployed; when it lands, the
   service file gets updated to reflect the consent-mode posture.
 - **`Sec-GPC` parsing** lives in the same edge inline script as the
-  geo-routing logic — the CF edge passes it through; the inline
+  geo-routing logic â€” the CF edge passes it through; the inline
   script reads `navigator.globalPrivacyControl` (the JS surface) +
   the response of a tiny header-echo Worker if needed.
-- **Per-site rendering of the "Privacy Settings" footer link** —
+- **Per-site rendering of the "Privacy Settings" footer link** â€”
   shown ONLY when at least one cookie-issuing service in
   analytics/marketing/social is in the per-site service list AND the
   visitor's `__consentRegime !== 'rest'`. Sites with only
   `necessary` services (e.g. a static doc page) get no link.
-- **CSP delta on Klaro pages** — already documented in
+- **CSP delta on Klaro pages** â€” already documented in
   [`services/business/security/klaro.md`](../../services/business/security/klaro.md);
   the kit emits the additional `style-src 'unsafe-inline'` only on
   pages where Klaro loads.
-- **Microsoft Clarity is dual-categoried** — denying either analytics
+- **Microsoft Clarity is dual-categoried** â€” denying either analytics
   OR marketing suppresses it; this is intentional caution given
   session-recording is the most sensitive class of capture.
 - **Giscus loads on user click** even before consent if the visitor
-  taps the "Load comments" placeholder — consent is implicit from the
+  taps the "Load comments" placeholder â€” consent is implicit from the
   click; documented in the Giscus per-site placement.
-- **No third-party SaaS consent manager** — CookieYes / Cookiebot /
+- **No third-party SaaS consent manager** â€” CookieYes / Cookiebot /
   Osano / OneTrust all rejected per
   [`rules/infrastructure/no-subscriptions.md`](../../rules/infrastructure/no-subscriptions.md) and
   (in some cases) card-on-file requirement.
@@ -180,13 +180,13 @@ the family ever has to ship.
 
 - [Klaro service entry](../../services/business/security/klaro.md)
 - [Cookie banner policy (refined by this decision)](./cookie-banner-policy.md)
-- [Cloudflare Web Analytics — cookie-less primary signal](../../services/monitoring/monitoring/analytics/cloudflare-web-analytics.md)
-- [PostHog — cookie-issuing in identified mode](../../services/monitoring/monitoring/analytics/posthog.md)
-- [Microsoft Clarity — session recording](../../services/monitoring/monitoring/analytics/microsoft-clarity.md)
-- [Knock — transactional notifications, server-side](../../services/business/push/knock.md)
-- [FCM — web push, functional category](../../services/business/push/fcm.md)
-- [Security headers strategy — CSP coupling](./security-headers-strategy.md)
-- [UTM attribution strategy — marketing-cookie context](../architecture/utm-attribution-strategy.md)
+- [Cloudflare Web Analytics â€” cookie-less primary signal](../../services/monitoring/monitoring/analytics/cloudflare-web-analytics.md)
+- [PostHog â€” cookie-issuing in identified mode](../../services/monitoring/monitoring/analytics/posthog.md)
+- [Microsoft Clarity â€” session recording](../../services/monitoring/monitoring/analytics/microsoft-clarity.md)
+- [Knock â€” transactional notifications, server-side](../../services/business/push/knock.md)
+- [FCM â€” web push, functional category](../../services/business/push/fcm.md)
+- [Security headers strategy â€” CSP coupling](./security-headers-strategy.md)
+- [UTM attribution strategy â€” marketing-cookie context](../architecture/utm-attribution-strategy.md)
 - [No card-on-file rule](../../rules/interaction/no-card-on-file.md)
 - [No subscriptions rule](../../rules/infrastructure/no-subscriptions.md)
 - [Never hit quotas rule](../../rules/interaction/never-hit-quotas.md)

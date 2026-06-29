@@ -44,9 +44,9 @@ problem entirely.
 - `apps/api/src/index.ts` ends with `export type AppType = typeof app;`.
 - `packages/api-client/` re-exports `hc<AppType>` and a configured base URL (`https://api.oriz.in`).
 - Each site / extension imports `import { client } from '@chirag127/api-client'` and calls `client.routes.contact.$post(...)` etc., with full IntelliSense on payload shape and response.
-- When a route changes shape on the Worker, every consumer sees the type error at build time — this is the core value.
+- When a route changes shape on the Worker, every consumer sees the type error at build time â€” this is the core value.
 - Master matrix deploy runs Worker + API client publish in lockstep so consumers don't see type drift during deploys.
-- The pattern applies to extensions too (Chrome extensions importing the same package) — the only constraint is bundling against the workspace package.
+- The pattern applies to extensions too (Chrome extensions importing the same package) â€” the only constraint is bundling against the workspace package.
 
 ## Cross-refs
 

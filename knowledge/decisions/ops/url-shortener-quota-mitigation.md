@@ -28,7 +28,7 @@ related:
 
 
 
-# URL shortener quota mitigation — cache the 301 itself at the CF edge
+# URL shortener quota mitigation â€” cache the 301 itself at the CF edge
 
 ## Decision
 
@@ -42,7 +42,7 @@ The mitigation is a **single trick**: cache the 301 redirect itself
 at the Cloudflare edge.
 
 ```ts
-// sketch — actual Worker is ~30 LoC
+// sketch â€” actual Worker is ~30 LoC
 return new Response(null, {
   status: 301,
   headers: {
@@ -66,15 +66,15 @@ No external shortener is added. No card. No Bitly. No paid tier.
 
 ## Why this works
 
-- A 301 is **cacheable HTTP per RFC 7231 §6.4.2** — any CDN may
+- A 301 is **cacheable HTTP per RFC 7231 Â§6.4.2** â€” any CDN may
   cache it indefinitely. CF respects `Cache-Control` on Worker
   responses by default.
-- The Worker emits **only** a 301 — minimal CPU, minimal memory.
+- The Worker emits **only** a 301 â€” minimal CPU, minimal memory.
   Even uncached, each request is well under the per-request CPU
   budget.
 - The KV mapping is read **once per POP per slug per year**, well
   inside KV's free 100K reads/day envelope.
-- Slug invalidation (rare — short-links are immutable by design) is
+- Slug invalidation (rare â€” short-links are immutable by design) is
   handled by purging that one URL via the CF API on the rare retire
   case.
 
@@ -82,12 +82,12 @@ No external shortener is added. No card. No Bitly. No paid tier.
 
 Back-of-envelope:
 
-- ~30 active platforms × ~10 cross-posts/day × 1.5 click avg
-  ˜ **450 clicks/day** for `oriz-omnipost`-minted slugs.
-- Linkroll click volume — well under 1K/day even on a viral day.
-- QR / talk slugs — sporadic, bursty, low.
+- ~30 active platforms Ã— ~10 cross-posts/day Ã— 1.5 click avg
+  Ëœ **450 clicks/day** for `oriz-omnipost`-minted slugs.
+- Linkroll click volume â€” well under 1K/day even on a viral day.
+- QR / talk slugs â€” sporadic, bursty, low.
 
-Add a 2× safety margin for cold-cache spread across CF's ~300+
+Add a 2Ã— safety margin for cold-cache spread across CF's ~300+
 edge POPs (each POP misses cache once per slug per year): worst
 case ~1-2K Worker requests/day. The free tier is 100,000/day. We
 sit at **1-2% of headroom**, comfortably inside
@@ -106,7 +106,7 @@ sit at **1-2% of headroom**, comfortably inside
   inconsistency).
 - **No analytics from the Worker for cached visits.** The cache
   hits never reach the Worker, so per-slug click analytics undercount.
-  The family accepts this — Cloudflare Web Analytics + UTM
+  The family accepts this â€” Cloudflare Web Analytics + UTM
   parameters captured on the destination page are the source of
   truth for click attribution per
   [`decisions/architecture/utm-attribution-strategy.md`](./utm-attribution-strategy.md).
@@ -117,16 +117,16 @@ sit at **1-2% of headroom**, comfortably inside
   pushes us so far inside the free envelope that reaching for a
   third-party would only add fragility (vendor disappearance, custom
   domain loss, rate-limit surprises).
-- **DO NOT enable Workers Paid** to "increase headroom" — violates
+- **DO NOT enable Workers Paid** to "increase headroom" â€” violates
   [`rules/no-card-on-file.md`](../../../rules/interaction/no-card-on-file.md) and
   is unnecessary given the cache math above.
 
 ## Cross-refs
 
 - [s.oriz.in service entry](../../../services/business/short-link/cloudflare-worker.md)
-- [Cloudflare Workers — substrate](../../../services/infra/compute/cloudflare-workers.md)
-- [Cross-post engine — primary consumer](./cross-post-engine.md)
+- [Cloudflare Workers â€” substrate](../../../services/infra/compute/cloudflare-workers.md)
+- [Cross-post engine â€” primary consumer](./cross-post-engine.md)
 - [Linkroll ? s.oriz.in mints](../frontend/linkroll-raindrop-to-links-page.md)
-- [UTM attribution strategy — authoritative click source](./utm-attribution-strategy.md)
+- [UTM attribution strategy â€” authoritative click source](./utm-attribution-strategy.md)
 - [Never hit quotas rule](../../../rules/interaction/never-hit-quotas.md)
 - [No card-on-file rule](../../../rules/interaction/no-card-on-file.md)

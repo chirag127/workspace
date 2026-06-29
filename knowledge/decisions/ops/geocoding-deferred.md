@@ -26,22 +26,22 @@ related:
 
 
 
-# Geocoding — deferred (no current need); CF-IPCountry covers today
+# Geocoding â€” deferred (no current need); CF-IPCountry covers today
 
 ## Decision
 
 The family adopts **no geocoding service** in 2026-06-20. No
 account at OpenStreetMap Nominatim, no Mapbox account, no
 Google Geocoding key. The `CF-IPCountry` header that Cloudflare
-attaches to every request at the edge — free, included with the
+attaches to every request at the edge â€” free, included with the
 existing [Cloudflare Pages](../../../services/infra/hosting/cloudflare-pages.md)
-zone, requires no third-party account — is sufficient for every
+zone, requires no third-party account â€” is sufficient for every
 geo-shaped need the family has today.
 
 When a future site lands a feature that needs **address ?
 coordinate** translation (forward or reverse geocoding), the
 swap target is documented as **OpenStreetMap Nominatim** or
-**Mapbox** — picked at adoption time based on volume, neither
+**Mapbox** â€” picked at adoption time based on volume, neither
 requires a card on the free tier.
 
 ## Why
@@ -49,7 +49,7 @@ requires a card on the free tier.
 - **No current geocoding-shaped need.** None of the 11 sites
   have a map view, a "find nearby" feature, an address-input
   form, or a coordinate-display surface. The user direction was
-  *"confused; recommend skip as deferred"* — the family
+  *"confused; recommend skip as deferred"* â€” the family
   takes that recommendation.
 - **`CF-IPCountry` covers every current geo-routing need.** The
   consent-banner default is geo-routed by country code (per
@@ -62,7 +62,7 @@ requires a card on the free tier.
   Free tiers exist (Nominatim 1 req/sec OSS, Mapbox 100K
   loads/mo) but signing up before there's a feature to use it
   burns a swap-cost slot for no benefit.
-- **Deferred is honest** — documents the swap targets and the
+- **Deferred is honest** â€” documents the swap targets and the
   trigger conditions so the next agent doesn't re-derive the
   shortlist when the feature lands.
 
@@ -80,7 +80,7 @@ requires a card on the free tier.
   i18n path. `CF-IPCountry` is enough for country-level routing;
   city / coordinate-level routing is not a current need.
 
-### When this flips — promote `deferred ? active`
+### When this flips â€” promote `deferred ? active`
 
 Promote when **any one** of these holds:
 
@@ -96,7 +96,7 @@ Promote when **any one** of these holds:
 4. **A consent-banner surface needs sub-country geo-targeting**
    that `CF-IPCountry` cannot serve.
 
-### Swap targets — pick at adoption time
+### Swap targets â€” pick at adoption time
 
 | Provider | Free tier | Card | When to pick |
 |---|---|---|---|
@@ -105,9 +105,9 @@ Promote when **any one** of these holds:
 
 The picked provider must:
 
-- Not require a card on file at sign-up — keeps
+- Not require a card on file at sign-up â€” keeps
   [no-card-on-file](../../../rules/interaction/no-card-on-file.md) intact.
-- Have a documented swap path back to the other in this table —
+- Have a documented swap path back to the other in this table â€”
   fail-closed parity per
   [never-hit-quotas](../../../rules/interaction/never-hit-quotas.md).
 - Land in <!-- TODO: broken link, was [`@chirag127/oriz-kit`](../../../glossary/o-r/oriz-kit.md) -->
@@ -116,18 +116,18 @@ The picked provider must:
 
 ### What stays
 
-- **`CF-IPCountry` header** — used by the consent banner geo
+- **`CF-IPCountry` header** â€” used by the consent banner geo
   defaults, payment-route gateway selection, and ad-network
   geo-switch. Free, edge-injected, no third-party.
-- **No geo-IP city DB** — city-level GeoIP is a separate
+- **No geo-IP city DB** â€” city-level GeoIP is a separate
   capability and not currently needed; if a feature lands, it
   comes through the same evaluation as geocoding.
 
 ## Cross-refs
 
 - [Consent management uses CF-IPCountry for geo defaults](../../security/consent-management-multi-category.md)
-- [Max payment methods — geo-routed by CF-IPCountry](../../monetisation/max-payment-methods.md)
-- [Cloudflare Pages — provides CF-IPCountry header](../../../services/infra/hosting/cloudflare-pages.md)
+- [Max payment methods â€” geo-routed by CF-IPCountry](../../monetisation/max-payment-methods.md)
+- [Cloudflare Pages â€” provides CF-IPCountry header](../../../services/infra/hosting/cloudflare-pages.md)
 - [No card-on-file rule](../../../rules/interaction/no-card-on-file.md)
 - [Never hit quotas rule](../../../rules/interaction/never-hit-quotas.md)
-- [Open Knowledge Format — `_okf.md`](../../../_okf.md)
+- [Open Knowledge Format â€” `_okf.md`](../../../_okf.md)

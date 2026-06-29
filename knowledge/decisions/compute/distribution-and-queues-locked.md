@@ -46,7 +46,7 @@ related:
 
 Single consolidated Batch 13 decision covering four parallel
 distribution / reliability picks. All four locks were originally
-proposed at wider scope and walked back to the floors below — the
+proposed at wider scope and walked back to the floors below â€” the
 family chose **simplicity over coverage** every time.
 
 ## Decision
@@ -55,9 +55,9 @@ family chose **simplicity over coverage** every time.
 
 Every `oriz-*-ext` repo publishes to **all three** browser stores:
 
-- [Chrome Web Store](../../../services/business/extension-store/chrome-web-store.md) — $5 one-time dev fee (sunk cost, not a subscription)
-- [Firefox Add-ons (AMO)](../../../services/business/extension-store/firefox-add-ons.md) — free, unlimited
-- [Microsoft Edge Add-ons](../../../services/business/extension-store/edge-add-ons.md) — free, unlimited
+- [Chrome Web Store](../../../services/business/extension-store/chrome-web-store.md) â€” $5 one-time dev fee (sunk cost, not a subscription)
+- [Firefox Add-ons (AMO)](../../../services/business/extension-store/firefox-add-ons.md) â€” free, unlimited
+- [Microsoft Edge Add-ons](../../../services/business/extension-store/edge-add-ons.md) â€” free, unlimited
 
 CI flow: build once via `web-ext`; submit in parallel to all three.
 
@@ -65,8 +65,8 @@ CI flow: build once via `web-ext`; submit in parallel to all three.
 
 Every `oriz-*-vsc-ext` repo dual-publishes:
 
-- [VS Code Marketplace](../../../services/business/extension-store/vs-code-marketplace.md) — Microsoft's official, free
-- [Open VSX Registry](../../../services/business/extension-store/open-vsx-registry.md) — Eclipse Foundation, required for VSCodium / Cursor / Theia / Gitpod / code-server
+- [VS Code Marketplace](../../../services/business/extension-store/vs-code-marketplace.md) â€” Microsoft's official, free
+- [Open VSX Registry](../../../services/business/extension-store/open-vsx-registry.md) â€” Eclipse Foundation, required for VSCodium / Cursor / Theia / Gitpod / code-server
 
 CI flow: build once into `.vsix`; `vsce publish` + `ovsx publish`.
 
@@ -80,8 +80,8 @@ wrapper. Workbox-generated service worker, manifest, install prompt.
 
 The reliability stack is two layers:
 
-- [Hookdeck](../../../services/data/queue/hookdeck.md) (webhook ingress) — 50K events/mo free, exponential-backoff retries, replay UI
-- [Cloudflare Queues](../../../services/data/queue/cloudflare-queues.md) (fan-out queue) — 1M ops/mo free, native Worker binding
+- [Hookdeck](../../../services/data/queue/hookdeck.md) (webhook ingress) â€” 50K events/mo free, exponential-backoff retries, replay UI
+- [Cloudflare Queues](../../../services/data/queue/cloudflare-queues.md) (fan-out queue) â€” 1M ops/mo free, native Worker binding
 
 Producers POST to Hookdeck ? Hookdeck retries to api.oriz.in
 Worker ? Worker enqueues onto Cloudflare Queues ? consumer Workers
@@ -95,11 +95,11 @@ one-time-fee.
 
 - Three browser stores reach >99% of extension users; adding a
   fourth (Safari, Opera-native) would gate on Apple Developer
-  Program ($99/yr — fights [`no-subscriptions-anywhere`](../../monetisation/no-subscriptions-anywhere.md))
+  Program ($99/yr â€” fights [`no-subscriptions-anywhere`](../../monetisation/no-subscriptions-anywhere.md))
   or duplicate Chromium reach.
 - Two VS Code marketplaces reach every VS Code-compatible editor
   (VSCodium, Cursor, Theia, Gitpod, code-server). JetBrains is a
-  different IDE family — different artifact format, different
+  different IDE family â€” different artifact format, different
   build, different audience. The family has no JetBrains plugin in
   plan; pre-emptively wiring the publish step would be over-coverage.
 - PWA-only means every site is installable today with no Apple
@@ -133,7 +133,7 @@ one-time-fee.
   [`infrastructure/hookdeck-for-webhook-reliability.md`](../../infrastructure/hookdeck-for-webhook-reliability.md)
   (Batch 4) and
   [`decisions/architecture/queue-cloudflare-native.md`](./queue-cloudflare-native.md)
-  (Batch 8) are NOT superseded — they remain in force; this Batch
+  (Batch 8) are NOT superseded â€” they remain in force; this Batch
   13 lock consolidates them with the new VS Code + PWA + Hookdeck-as-ingress
   facets and records the walked-back alternatives.
 
@@ -146,11 +146,11 @@ one-time-fee.
 | Site (`oriz-*-site`) | PWA via `@vite-pwa/astro` | Capacitor, Tauri, TWA |
 | Webhook reliability | Hookdeck (ingress) ? Cloudflare Queues (fan-out) | Trigger.dev (durable workflows) |
 
-## Walked back — why simplicity over coverage
+## Walked back â€” why simplicity over coverage
 
 | Walked back | Originally proposed for | Why walked back |
 |---|---|---|
-| **JetBrains Marketplace** | VS Code distribution trio | Different IDE family entirely (Gradle build, JetBrains Platform SDK, separate audience). Family has no JetBrains plugin in plan; adding the publish target pre-emptively is dead code. Re-open if a JetBrains plugin is ever greenlit — likely under a `-jb-ext` suffix added to [`repo-naming-suffixes.md`](../../branding/repo-naming-suffixes.md). |
+| **JetBrains Marketplace** | VS Code distribution trio | Different IDE family entirely (Gradle build, JetBrains Platform SDK, separate audience). Family has no JetBrains plugin in plan; adding the publish target pre-emptively is dead code. Re-open if a JetBrains plugin is ever greenlit â€” likely under a `-jb-ext` suffix added to [`repo-naming-suffixes.md`](../../branding/repo-naming-suffixes.md). |
 | **Capacitor** | Native PWA wrapper, parallel to vite-pwa | iOS publish requires Apple Developer Program at $99/yr, conflicts with [`no-subscriptions-anywhere`](../../monetisation/no-subscriptions-anywhere.md). Android publish doable free but adds a per-app binary, signing, Play Store review. PWA install on Android already covers the install-icon use case. |
 | **Tauri** | Native PWA wrapper, parallel to vite-pwa | Adds a Rust toolchain + WebView dependency for zero gain over PWA on the surface the family targets (web). Re-open only if a desktop-native feature lands (system tray, native-menubar, native-FS) that PWA APIs can't express. |
 | **Trigger.dev** | Durable-workflow queue alternative to CF Queues | Powerful programming model (code-defined multi-step workflows with checkpointed state) but overkill for current webhook volume. Adds a separate account, credentials surface, and hosting dependency. CF Queues + Hookdeck covers the same reliability surface inside the family's existing stack. Re-open if multi-step durable workflows become a real need (the [`queue/inngest.md`](../../../services/data/queue/inngest.md) entry covers the same swap-target shape). |
@@ -163,7 +163,7 @@ when a real need surfaces.
 
 ## Cross-refs
 
-- [Repo naming suffixes — `-ext` / `-vsc-ext`](../../branding/repo-naming-suffixes.md)
+- [Repo naming suffixes â€” `-ext` / `-vsc-ext`](../../branding/repo-naming-suffixes.md)
 - [Earlier cross-store browser-ext decision (Batch 1)](../../infrastructure/extensions-cross-store-publish.md)
 - [Earlier Hookdeck-for-Razorpay decision (Batch 4)](../../infrastructure/hookdeck-for-webhook-reliability.md)
 - [Earlier CF Queues primary decision (Batch 8)](./queue-cloudflare-native.md)

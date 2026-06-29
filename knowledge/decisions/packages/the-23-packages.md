@@ -1,6 +1,6 @@
 ---
 type: architecture
-title: The twenty-three packages — the locked oriz family package set
+title: The twenty-three packages â€” the locked oriz family package set
 description: '23 npm packages: 10 Astro, 4 auth, 5 cross-cutting, 4 specialized'
 tags: [architecture, packages, astro, npm, locked]
 timestamp: 2026-06-22
@@ -25,7 +25,7 @@ related:
   - services/family-inventory
 ---
 
-# The twenty-three packages — locked
+# The twenty-three packages â€” locked
 
 ## Concept
 
@@ -36,7 +36,7 @@ A package exists only when:
 2. **=3 consuming projects**, AND
 3. **No community npm package** already does it adequately.
 
-If only (1) and (2) hold but (3) doesn't — use the community package directly. If only (2) holds and the duplication is <25 lines — inline.
+If only (1) and (2) hold but (3) doesn't â€” use the community package directly. If only (2) holds and the duplication is <25 lines â€” inline.
 
 ## The set (23 total)
 
@@ -44,54 +44,54 @@ If only (1) and (2) hold but (3) doesn't — use the community package directly. I
 
 | # | Package | Peer-dep | What it owns |
 |---|---|---|---|
-| 1 | `@chirag127/astro-shell` | — (base) | astro.config wrapper + locked integration set (`@astrojs/react` / `@astrojs/sitemap` / `@astrojs/mdx` / `@tailwindcss/vite` / `astro-icon` / `astro-compress` / `vite-plugin-wasm` / `vite-plugin-top-level-await` / `@astrojs/rss`) + Base layout + Tailwind v4 preset + reusable Cloudflare Pages deploy workflow. |
+| 1 | `@chirag127/astro-shell` | â€” (base) | astro.config wrapper + locked integration set (`@astrojs/react` / `@astrojs/sitemap` / `@astrojs/mdx` / `@tailwindcss/vite` / `astro-icon` / `astro-compress` / `vite-plugin-wasm` / `vite-plugin-top-level-await` / `@astrojs/rss`) + Base layout + Tailwind v4 preset + reusable Cloudflare Pages deploy workflow. |
 | 2 | `@chirag127/astro-chrome` | astro-shell | Header / Sidebar / BottomBar / Footer / Stamp / SEO + JSON-LD / Auth UI (AccountPanel + FinishSignIn) / Analytics + Consent (Klaro) / 24 legal pages + Datasheet Dark tokens + self-hosted fonts. |
 | 3 | `@chirag127/astro-tools` | astro-chrome | `<ToolGrid>` + `<ToolCard>` + `<ToolPage>` for the 16 tool subdomains. |
 | 4 | `@chirag127/astro-content` | astro-chrome | Zod content-collection schemas (post / book / card / journal) + RSS + Atom + JSON-Feed generators + sitemap glue + IndexNow ping + OG-card emit. |
-| 5 | `@chirag127/astro-data` | — | Firebase init + Firestore typed helpers + family.ts constants + TanStack Query setup + LocalStorage hooks + Puter.js wrappers (folded in from former astro-ai). |
-| 6 | `@chirag127/astro-forms` | — | react-hook-form + Zod resolvers + shadcn-style Form wrappers + honeypot + Web3Forms client + StaticForms fallback. |
-| 7 | `@chirag127/astro-billing` | — | Razorpay checkout + license-key verify + `<Paywall>` + `<PriceTag>` for one-subscription-unlocks-all per [[subscription-flow]]. |
-| 8 | `@chirag127/astro-pwa` | — | `@vite-pwa/astro` wrapper with locked defaults (manifest from astro-chrome brand, offline shell, `<InstallPrompt>`, `<UpdateToast>`). |
-| 9 | `@chirag127/astro-distribute` | — | Thin CLI wrapping PWABuilder (primary — AAB / MSIX / iOS-project) + optional Tauri for desktop EXE/dmg/AppImage. |
-| 10 | `@chirag127/astro-widgets` | astro-chrome | Shared cross-app islands — `<MultiSearch>` popover + `<StatusBanner>` + `<ConsentBanner>` (Klaro). |
+| 5 | `@chirag127/astro-data` | â€” | Firebase init + Firestore typed helpers + family.ts constants + TanStack Query setup + LocalStorage hooks + Puter.js wrappers (folded in from former astro-ai). |
+| 6 | `@chirag127/astro-forms` | â€” | react-hook-form + Zod resolvers + shadcn-style Form wrappers + honeypot + Web3Forms client + StaticForms fallback. |
+| 7 | `@chirag127/astro-billing` | â€” | Razorpay checkout + license-key verify + `<Paywall>` + `<PriceTag>` for one-subscription-unlocks-all per [[subscription-flow]]. |
+| 8 | `@chirag127/astro-pwa` | â€” | `@vite-pwa/astro` wrapper with locked defaults (manifest from astro-chrome brand, offline shell, `<InstallPrompt>`, `<UpdateToast>`). |
+| 9 | `@chirag127/astro-distribute` | â€” | Thin CLI wrapping PWABuilder (primary â€” AAB / MSIX / iOS-project) + optional Tauri for desktop EXE/dmg/AppImage. |
+| 10 | `@chirag127/astro-widgets` | astro-chrome | Shared cross-app islands â€” `<MultiSearch>` popover + `<StatusBanner>` + `<ConsentBanner>` (Klaro). |
 
 ### Shared test fixtures (1)
 
 | # | Package | Peer-dep | What it owns |
 |---|---|---|---|
-| 11 | `@chirag127/astro-test-utils` | — | Common Vitest + Playwright + MSW + Firebase test fixtures. Thin wrapper over `@firebase/rules-unit-testing`, `msw`, `@playwright/test`. |
+| 11 | `@chirag127/astro-test-utils` | â€” | Common Vitest + Playwright + MSW + Firebase test fixtures. Thin wrapper over `@firebase/rules-unit-testing`, `msw`, `@playwright/test`. |
 
 ### Cross-surface auth (4)
 
 | # | Package | Peer-dep | What it owns |
 |---|---|---|---|
-| 12 | `@chirag127/auth-core` | — | Cross-surface auth primitives — auth.oriz.in URL helpers, Firebase ID-token verify, refresh logic. Runtime-agnostic. |
-| 13 | `@chirag127/auth-wxt` | auth-core | Browser-extension auth — `chrome.identity.launchWebAuthFlow` bouncing through auth.oriz.in, ID-token in `chrome.storage.local`. Chrome / Firefox / Edge via `@wxt-dev/browser`. |
-| 14 | `@chirag127/auth-vsc` | auth-core | VS Code extension auth — `vscode.authentication` API + Firebase ID-token mint via REST + secure storage via `context.secrets`. |
-| 15 | `@chirag127/auth-cli` | auth-core | CLI auth — Firebase OAuth device-code flow + token store at `~/.config/oriz/auth.json` + refresh on 401. |
+| 12 | `@chirag127/auth-core` | â€” | Cross-surface auth primitives â€” auth.oriz.in URL helpers, Firebase ID-token verify, refresh logic. Runtime-agnostic. |
+| 13 | `@chirag127/auth-wxt` | auth-core | Browser-extension auth â€” `chrome.identity.launchWebAuthFlow` bouncing through auth.oriz.in, ID-token in `chrome.storage.local`. Chrome / Firefox / Edge via `@wxt-dev/browser`. |
+| 14 | `@chirag127/auth-vsc` | auth-core | VS Code extension auth â€” `vscode.authentication` API + Firebase ID-token mint via REST + secure storage via `context.secrets`. |
+| 15 | `@chirag127/auth-cli` | auth-core | CLI auth â€” Firebase OAuth device-code flow + token store at `~/.config/oriz/auth.json` + refresh on 401. |
 
 ### Cross-post + book-build (2)
 
 | # | Package | Peer-dep | What it owns |
 |---|---|---|---|
-| 16 | `@chirag127/omni-publish` | — | RSS ? every-platform cross-poster. Watches `blog.oriz.in/rss.xml`; adapter-per-platform (dev.to / Hashnode / Medium / X / LinkedIn / Bluesky / Mastodon / Reddit / Threads). Idempotent, canonical URL preserved. See [[decisions/packages/omni-publish-package]]. |
-| 17 | `@chirag127/oriz-book-build` | — | Markua-flavoured `.md` ? Pandoc ? EPUB3 + PDF + MOBI build pipeline. Powers the 5-book publish channel set (Leanpub / Gumroad / LemonSqueezy / D2D / KDP). See [[decisions/content/book-publish-pipeline]]. |
+| 16 | `@chirag127/omni-publish` | â€” | RSS ? every-platform cross-poster. Watches `blog.oriz.in/rss.xml`; adapter-per-platform (dev.to / Hashnode / Medium / X / LinkedIn / Bluesky / Mastodon / Reddit / Threads). Idempotent, canonical URL preserved. See [[decisions/packages/omni-publish-package]]. |
+| 17 | `@chirag127/oriz-book-build` | â€” | Markua-flavoured `.md` ? Pandoc ? EPUB3 + PDF + MOBI build pipeline. Powers the 5-book publish channel set (Leanpub / Gumroad / LemonSqueezy / D2D / KDP). See [[decisions/content/book-publish-pipeline]]. |
 
 ### AI providers aggregator (1)
 
 | # | Package | Peer-dep | What it owns |
 |---|---|---|---|
-| 18 | `@chirag127/oriz-ai-providers` | — | Thin wrapper around 20 free LLM APIs (OVHcloud, LLM7, Pollinations, Cerebras, Groq, NVIDIA NIM, OpenRouter, Google AI Studio, Cohere, GitHub Models, Cloudflare Workers AI, HuggingFace, Mistral, SambaNova, Z.AI, SiliconFlow, Aion Labs, Ollama Cloud, ModelScope, Kilo Code). Priority-based fallback chain; OpenAI SDK-compatible. Provider / model / rate-limit / priority data lives in the SEPARATE `chirag127/oriz-ai-providers-data` repo (CC0). See [[decisions/packages/oriz-ai-providers-package]]. |
+| 18 | `@chirag127/oriz-ai-providers` | â€” | Thin wrapper around 20 free LLM APIs (OVHcloud, LLM7, Pollinations, Cerebras, Groq, NVIDIA NIM, OpenRouter, Google AI Studio, Cohere, GitHub Models, Cloudflare Workers AI, HuggingFace, Mistral, SambaNova, Z.AI, SiliconFlow, Aion Labs, Ollama Cloud, ModelScope, Kilo Code). Priority-based fallback chain; OpenAI SDK-compatible. Provider / model / rate-limit / priority data lives in the SEPARATE `chirag127/oriz-ai-providers-data` repo (CC0). See [[decisions/packages/oriz-ai-providers-package]]. |
 
-### Cross-cutting concerns (5) — added 2026-06-22
+### Cross-cutting concerns (5) â€” added 2026-06-22
 
 | # | Package | Peer-dep | What it owns |
 |---|---|---|---|
-| 19 | `@chirag127/oriz-rate-limit` | — | Per-user usage caps enforcing Free / Pro / Max tier limits (10/100/unlimited). Firestore-backed daily counters. See [[decisions/packages/four-more-packages-22-total]]. |
-| 20 | `@chirag127/oriz-analytics` | — | Single wrapper around CF Web Analytics + GA4 + Microsoft Clarity + Sentry. One init call per app. Klaro consent-gated. |
-| 21 | `@chirag127/oriz-seo` | — | Sitemap + IndexNow + JSON-LD + OG image generator (satori). |
-| 22 | `@chirag127/oriz-consent` | — | Klaro pre-configured for EU/UK (default-DENIED) + India DPDP + US GPC + ROW (no banner). Geo-routed via CF. |
-| 23 | `@chirag127/oriz-kit` | astro-chrome | Family-wide kit barrel — `<MultiSearch />`, `<SponsorButton />` (Razorpay donation button pl_T4iEPIDcALKLPk per [[security/razorpay-donation-button]]), `<Wordmark />`, brand tokens. |
+| 19 | `@chirag127/oriz-rate-limit` | â€” | Per-user usage caps enforcing Free / Pro / Max tier limits (10/100/unlimited). Firestore-backed daily counters. See [[decisions/packages/four-more-packages-22-total]]. |
+| 20 | `@chirag127/oriz-analytics` | â€” | Single wrapper around CF Web Analytics + GA4 + Microsoft Clarity + Sentry. One init call per app. Klaro consent-gated. |
+| 21 | `@chirag127/oriz-seo` | â€” | Sitemap + IndexNow + JSON-LD + OG image generator (satori). |
+| 22 | `@chirag127/oriz-consent` | â€” | Klaro pre-configured for EU/UK (default-DENIED) + India DPDP + US GPC + ROW (no banner). Geo-routed via CF. |
+| 23 | `@chirag127/oriz-kit` | astro-chrome | Family-wide kit barrel â€” `<MultiSearch />`, `<SponsorButton />` (Razorpay donation button pl_T4iEPIDcALKLPk per [[security/razorpay-donation-button]]), `<Wordmark />`, brand tokens. |
 
 ## Hierarchy
 
@@ -116,13 +116,13 @@ auth-core   (base)
 
 omni-publish     (standalone)
 oriz-book-build  (standalone)
-oriz-ai-providers (standalone — fetches data from chirag127/oriz-ai-providers-data)
+oriz-ai-providers (standalone â€” fetches data from chirag127/oriz-ai-providers-data)
 
 oriz-rate-limit  (standalone)
 oriz-analytics   (standalone)
 oriz-seo         (standalone)
 oriz-consent     (standalone)
-oriz-kit         (peer-dep on astro-chrome — family-wide barrel)
+oriz-kit         (peer-dep on astro-chrome â€” family-wide barrel)
 ```
 
 ## Dropped from the set (use community library directly)
@@ -151,7 +151,7 @@ oriz-kit         (peer-dep on astro-chrome — family-wide barrel)
 ## Testing strategy
 
 - Each package has its own `src/__tests__/` Vitest suite. `pnpm test` per package; CI runs on push + PR.
-- Common test/lint/build configs live in `templates/` at master root (not a package — copied once per repo).
+- Common test/lint/build configs live in `templates/` at master root (not a package â€” copied once per repo).
 - Weekly drift-check GH Actions workflow at master compares each repo's configs against `templates/` and opens an issue on drift.
 
 ## License

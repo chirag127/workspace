@@ -33,7 +33,7 @@ related:
 
 **Apache ECharts** (Apache-2.0, ~300 KB gzip) becomes the family-wide chart library. Lazy-loaded per chart page; zero bundle hit on non-chart pages.
 
-User mandate (2026-06-22): "I want many types of charts and very very very kind of charts and graph and all of the charts in graph which are possible in this world." ECharts has 50+ types — the broadest free library.
+User mandate (2026-06-22): "I want many types of charts and very very very kind of charts and graph and all of the charts in graph which are possible in this world." ECharts has 50+ types â€” the broadest free library.
 
 ## Chart types supported
 
@@ -51,10 +51,10 @@ User mandate (2026-06-22): "I want many types of charts and very very very kind 
 
 ## Apps loading ECharts (initial)
 
-- `oriz-paisa-finance-tools-app` — FII/DII candlesticks, sector pies, MMI gauge
-- `oriz-janaushdhi-app` — price history lines per medicine, savings calculator bars
-- `oriz-stats-app` (stats.oriz.in) — visits/downloads/stars time-series, sankey funnel, geo heatmap
-- `oriz-pages-blog-app` — MDX `<Chart>` component for post embeds
+- `oriz-paisa-finance-tools-app` â€” FII/DII candlesticks, sector pies, MMI gauge
+- `oriz-janaushdhi-app` â€” price history lines per medicine, savings calculator bars
+- `oriz-stats-app` (stats.oriz.in) â€” visits/downloads/stars time-series, sankey funnel, geo heatmap
+- `oriz-pages-blog-app` â€” MDX `<Chart>` component for post embeds
 - Future apps as needed
 
 ## Load strategy: lazy per chart page

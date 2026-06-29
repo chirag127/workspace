@@ -49,7 +49,7 @@ Branch.io, Rebrandly) would:
 - Add a redirect hop that hurts perceived load time.
 - Lock attribution data to that vendor (swap cost up).
 
-Skipping attribution entirely is the other option, and it's wrong —
+Skipping attribution entirely is the other option, and it's wrong â€”
 it's the only way to know which channels actually move users to the
 sites. The middle path is the right path: ride the convention every
 analytics tool already knows.
@@ -61,14 +61,14 @@ analytics tool already knows.
 | `utm_source` | required | Where the link is | `twitter`, `dev-to`, `hashnode`, `newsletter`, `oriz-extension-<name>`, etc. |
 | `utm_medium` | required | What kind of link | `social`, `email`, `cross-post`, `referral`, `cpc` |
 | `utm_campaign` | required | Why we shipped this | `2026-q2-launch`, `oriz-finance-beta`, `weekly-2026-06-20` |
-| `utm_term` | optional | Paid keywords | rare for us — only on paid placements |
+| `utm_term` | optional | Paid keywords | rare for us â€” only on paid placements |
 | `utm_content` | optional | A/B variant or link position | `header`, `footer-cta`, `variant-b`, `thread-1` |
 
 Rules:
 
 - Values are **kebab-case, lower-case, ASCII only**. No spaces. No
   underscores in values.
-- **Never PII** — never an email or user ID.
+- **Never PII** â€” never an email or user ID.
 - `utm_campaign` should match the date of the campaign or the
   feature being launched, so historical reports stay readable.
 
@@ -98,7 +98,7 @@ scripts, omnipost adapters, Worker-side replies).
   through `<UtmLink>` or `buildUtmUrl()`.
 - **`oriz-omnipost` adapters auto-tag cross-posts** with
   `utm_source=<platform>&utm_medium=cross-post&utm_campaign=<post-slug>`
-  on the way to dev.to / Hashnode / etc. — see
+  on the way to dev.to / Hashnode / etc. â€” see
   [`cross-post-engine.md`](./cross-post-engine.md).
 - **PostHog `$pageview` event** captures all `utm_*` params as event
   properties; reports group by `utm_source` / `utm_medium` /
@@ -109,9 +109,9 @@ scripts, omnipost adapters, Worker-side replies).
   `window.history.replaceState` to drop `utm_*` from the URL bar
   after the first event, so the canonical path is what's bookmarked
   / shared next.
-- **No PII**, ever — `<UtmLink>` rejects values matching obvious PII
+- **No PII**, ever â€” `<UtmLink>` rejects values matching obvious PII
   patterns at type-check time (no `@`, no UUID-shaped values).
-- Swap cost is low — UTM is universal. Any future analytics swap
+- Swap cost is low â€” UTM is universal. Any future analytics swap
   reads the same convention.
 
 ## Cross-refs
@@ -120,6 +120,6 @@ scripts, omnipost adapters, Worker-side replies).
 - [PostHog service](../../../services/monitoring/monitoring/analytics/posthog.md)
 - [Cloudflare Web Analytics service](../../../services/monitoring/monitoring/analytics/cloudflare-web-analytics.md)
 - [Analytics services index](../../../services/monitoring/monitoring/analytics/index.md)
-- [Cross-post engine — auto-UTMs cross-posts](./cross-post-engine.md)
-- <!-- TODO: broken link, was [oriz-kit glossary](../../../glossary/o-r/oriz-kit.md) --> — `<UtmLink>` lives here
+- [Cross-post engine â€” auto-UTMs cross-posts](./cross-post-engine.md)
+- <!-- TODO: broken link, was [oriz-kit glossary](../../../glossary/o-r/oriz-kit.md) --> â€” `<UtmLink>` lives here
 - [No card-on-file rule](../../../rules/interaction/no-card-on-file.md)

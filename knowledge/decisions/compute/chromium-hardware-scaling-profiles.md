@@ -57,7 +57,7 @@ This decision establishes standard scaling profiles and configuration rules for 
 *   **RDP/Virtual Display Driver Overhead:** Accessing remote VMs via remote desktop protocols introduces client-side display rendering overhead.
 
 ### Decisions & Rules
-1.  **Aggressive Memory Saver:** Configure Chrome/Edge Memory Saver to "Maximum" or "Aggressive" thresholds. Idle tabs must be discarded after 15–30 minutes to preserve local RAM for compiler runs and IDE processes.
+1.  **Aggressive Memory Saver:** Configure Chrome/Edge Memory Saver to "Maximum" or "Aggressive" thresholds. Idle tabs must be discarded after 15â€“30 minutes to preserve local RAM for compiler runs and IDE processes.
 2.  **Hardware Acceleration for Remote Displays:** Enable hardware display acceleration on the thin client to offload RDP/virtual graphics rendering to the local integrated GPU, preventing the local CPU from bottling on rendering threads.
 
 ---

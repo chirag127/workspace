@@ -25,9 +25,9 @@ related:
 
 
 
-# oriz-me-site stays a single site with sections — not split into now/uses/gear/cv subdomains
+# oriz-me-site stays a single site with sections â€” not split into now/uses/gear/cv subdomains
 
-> **2026-06-21 — home/me role split sharpened (Q60-Q63).** This decision
+> **2026-06-21 â€” home/me role split sharpened (Q60-Q63).** This decision
 > still stands: `me.oriz.in` remains a single site with internal
 > sections. What changed in the second grill pass is the boundary with
 > `home.oriz.in` / `oriz.in`:
@@ -38,12 +38,12 @@ related:
 >   `me` = lifelog (now / uses / gear / reading / coding / lifestream /
 >   cv / contact, per the sections below).
 > - **Q63.** Home hero carries an explicit "See my full work" CV button
->   linking to `me.oriz.in/cv`. The CV stays at `/cv` on `me` — Q63
+>   linking to `me.oriz.in/cv`. The CV stays at `/cv` on `me` â€” Q63
 >   just adds the cross-site entry point.
 >
 > Net effect: short bio + apps grid at apex, long-form lifelog + CV at
 > `me`. No subdomain split on the `me` side; the apex side now leads
-> with bio. See [multi-target-build § Q47-Q77 additions](../multi-target-build.md#q47-q77-additions-2026-06-21-grill-round-2).
+> with bio. See [multi-target-build Â§ Q47-Q77 additions](../multi-target-build.md#q47-q77-additions-2026-06-21-grill-round-2).
 
 ## Decision
 
@@ -59,14 +59,14 @@ other per-section subdomain.
    products.** Recruiters / visitors / collaborators want one page that
    answers "who is this person?", not 6 subdomains to navigate.
 2. **Reference set agrees.** brianlovin.com, leerob.io, mxstbr.com,
-   wesbos.com, kentcdodds.com, swyx.io — every well-known dev personal
+   wesbos.com, kentcdodds.com, swyx.io â€” every well-known dev personal
    brand is a single-domain site with internal sections. None split
    into per-section subdomains.
 3. **Locked architecture already assumes one store.** The lifestream
    JSONL canonical file (per [`lifestream-jsonl-canonical`](../database/lifestream-jsonl-canonical.md))
    is one file, sharded by year, in one repo. Splitting `me` into N
    sites would force either duplicated consent / analytics / Sentry
-   setup × N or fragmented JSONL across N data repos — both fight the
+   setup Ã— N or fragmented JSONL across N data repos â€” both fight the
    single-source posture.
 4. **Single domain accumulates SEO equity faster.** Splitting dilutes
    it across N subdomains; backlinks to `me.oriz.in/uses` build
@@ -86,15 +86,15 @@ other per-section subdomain.
 ## Implications
 
 - Site URL plan locked:
-  - `/` — Bio + photo + latest 5 lifestream events
-  - `/now` — current month's focus (the [nownownow.com](https://nownownow.com) convention)
-  - `/uses` — hardware, software, dotfiles (the [uses.tech](https://uses.tech) convention)
-  - `/gear` — camera / desk / keyboard photos
-  - `/reading` — currently reading + recent finishes (auto-fed from `oriz-books-site`)
-  - `/coding` — Wakatime weekly summary (auto, per [`auto-tracking-everywhere`](./auto-tracking-everywhere.md))
-  - `/lifestream` — full JSONL feed, paginated, filterable by event kind
-  - `/cv` — CV / resume
-  - `/contact` — email, GitHub, Bluesky, etc.
+  - `/` â€” Bio + photo + latest 5 lifestream events
+  - `/now` â€” current month's focus (the [nownownow.com](https://nownownow.com) convention)
+  - `/uses` â€” hardware, software, dotfiles (the [uses.tech](https://uses.tech) convention)
+  - `/gear` â€” camera / desk / keyboard photos
+  - `/reading` â€” currently reading + recent finishes (auto-fed from `oriz-books-site`)
+  - `/coding` â€” Wakatime weekly summary (auto, per [`auto-tracking-everywhere`](./auto-tracking-everywhere.md))
+  - `/lifestream` â€” full JSONL feed, paginated, filterable by event kind
+  - `/cv` â€” CV / resume
+  - `/contact` â€” email, GitHub, Bluesky, etc.
 - All under one Astro project, one `me.oriz.in` domain, one design
   language, one analytics setup, one deploy.
 - Resume / CV intentionally lives at `me.oriz.in/cv` not
@@ -111,7 +111,7 @@ other per-section subdomain.
 
 - DO NOT create separate `-site` repos for `/now`, `/uses`, `/gear`,
   `/resume`, `/cv`. Each is a route in `oriz-me-site`.
-- DO NOT split the lifestream JSONL across multiple sites — one site,
+- DO NOT split the lifestream JSONL across multiple sites â€” one site,
   one canonical store, per [`lifestream-jsonl-canonical`](../database/lifestream-jsonl-canonical.md).
 - DO NOT add subdomain-per-section under `me.oriz.in`. Subdomains stay
   reserved for separate products in the family
@@ -120,10 +120,10 @@ other per-section subdomain.
 
 ## Cross-refs
 
-- [Lifestream JSONL canonical](../database/lifestream-jsonl-canonical.md) — single canonical store across the site
-- [Lifestream auto event sources](./lifestream-auto-event-sources.md) — 3 auto-event streams feed `me.oriz.in`
-- [Lifestream federation](./lifestream-federation.md) — `me.oriz.in` mirrors to AT Protocol + ActivityPub
-- [oriz-me added to family](../../branding/oriz-me-added-to-family.md) — original `me.oriz.in` lock
-- [Auto-tracking everywhere](./auto-tracking-everywhere.md) — auto-only-tracking principle
+- [Lifestream JSONL canonical](../database/lifestream-jsonl-canonical.md) â€” single canonical store across the site
+- [Lifestream auto event sources](./lifestream-auto-event-sources.md) â€” 3 auto-event streams feed `me.oriz.in`
+- [Lifestream federation](./lifestream-federation.md) â€” `me.oriz.in` mirrors to AT Protocol + ActivityPub
+- [oriz-me added to family](../../branding/oriz-me-added-to-family.md) â€” original `me.oriz.in` lock
+- [Auto-tracking everywhere](./auto-tracking-everywhere.md) â€” auto-only-tracking principle
 - [`rules/auto-only-tracking`](../../../rules/interaction/auto-only-tracking.md)
-- [Subdomains under oriz.in](../../infrastructure/subdomains-under-oriz-in.md) — subdomain-per-product convention
+- [Subdomains under oriz.in](../../infrastructure/subdomains-under-oriz-in.md) â€” subdomain-per-product convention

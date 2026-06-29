@@ -18,8 +18,8 @@ folder qualifies for; never exceed 5.
 | L1 file count | Depth | Example |
 |---|---|---|
 | =15 | 2 | `knowledge/glossary/api.md` |
-| 16–50 | 3 | `knowledge/rules/security/no-hardcoded-secrets.md` |
-| 51–150 | 4 | `knowledge/services/business/auth/firebase/firebase-auth.md` |
+| 16â€“50 | 3 | `knowledge/rules/security/no-hardcoded-secrets.md` |
+| 51â€“150 | 4 | `knowledge/services/business/auth/firebase/firebase-auth.md` |
 | 151+ | **5** | `knowledge/decisions/knowledge-bundle/depth/5-level-hierarchy.md` |
 
 `index.md` exists at every level and lists only direct children.
@@ -32,7 +32,7 @@ dump. Minimum context = minimum tokens = sharper agent attention.
 Forcing 5 levels everywhere (the rejected earlier rule) bloats tiny
 folders with empty pass-through subdirs. Letting depth float with
 size keeps the bottom of the tree tight in big areas and flat in
-small ones. Same property — minimum leaf — without the make-work.
+small ones. Same property â€” minimum leaf â€” without the make-work.
 
 ## Implementation
 

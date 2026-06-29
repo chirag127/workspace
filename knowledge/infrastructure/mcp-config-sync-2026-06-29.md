@@ -7,9 +7,9 @@ timestamp: 2026-06-29
 format_version: okf-v0.1
 status: active
 supersedes:
-  - (no prior decision — new)
+  - (no prior decision â€” new)
 related:
-  - agent-rules/mcp-config-single-source-of-truth.md
+  - rules/agent/mcp-config-single-source-of-truth.md
 ---
 
 # MCP config single source of truth
@@ -22,10 +22,10 @@ related:
 
 | Question | Chosen option |
 |---|---|
-| Config sync strategy | **Single source + sync script** — `.mcp.json` canonical, `scripts/sync-mcp-configs.mjs` derives all 5 agent configs |
-| Server count | **Keep all 18, prune later** — no urgent need to consolidate |
-| Agents to maintain | **Keep all 5**, single source of truth — each has different strengths |
-| Search strategy | **Keep independent search tools** — no unified search wrapper needed |
+| Config sync strategy | **Single source + sync script** â€” `.mcp.json` canonical, `scripts/sync-mcp-configs.mjs` derives all 5 agent configs |
+| Server count | **Keep all 18, prune later** â€” no urgent need to consolidate |
+| Agents to maintain | **Keep all 5**, single source of truth â€” each has different strengths |
+| Search strategy | **Keep independent search tools** â€” no unified search wrapper needed |
 
 ## The 6 core MCP servers
 
@@ -45,6 +45,6 @@ related:
 
 ## Related
 
-- Free coding agent alternatives researched (Crab Code, SideCar, gocode, Codeep, Coddy, Claurst, free-code) — all BYOK, zero markup.
+- Free coding agent alternatives researched (Crab Code, SideCar, gocode, Codeep, Coddy, Claurst, free-code) â€” all BYOK, zero markup.
 - Antigravity 2.0 announced at Google I/O 2026 with CLI + SDK. Still keeping all 5 agents.
-- See `knowledge/agent-rules/mcp-config-single-source-of-truth.md` for the enforceable rule.
+- See `knowledge/rules/agent/mcp-config-single-source-of-truth.md` for the enforceable rule.

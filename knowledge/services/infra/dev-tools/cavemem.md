@@ -8,7 +8,7 @@ format_version: okf-v0.1
 status: active
 related:
   - runbooks/workflow/maintain/cavemem-hook-sh-not-found-fix
-  - agent-rules/caveman
+  - rules/agent/caveman
 ---
 
 # cavemem
@@ -44,7 +44,7 @@ Plus an MCP server (`cavemem mcp`) the agent can call for explicit `memory_save`
 
 ## Why this exists (and why we kept it after the speed-stack rule "skipped" Caveman)
 
-Speed-stack rule's "Caveman skipped — no install path" referred to the **prose-compression** Caveman from JuliusBrussee, which we did adopt as a written rule (`agent-rules/caveman.md`) without a CLI. `cavemem` is a different thing entirely — a memory daemon, no prose work. It IS installed and active, has been since pre-2026-06-29 sometime, and survives `/clear` / session restart unlike Claude's built-in memory.
+Speed-stack rule's "Caveman skipped — no install path" referred to the **prose-compression** Caveman from JuliusBrussee, which we did adopt as a written rule (`rules/agent/caveman.md`) without a CLI. `cavemem` is a different thing entirely — a memory daemon, no prose work. It IS installed and active, has been since pre-2026-06-29 sometime, and survives `/clear` / session restart unlike Claude's built-in memory.
 
 ## Required peer dep
 
@@ -76,4 +76,4 @@ cavemem reindex                      # rebuild FTS if corrupted
 ## Cross-refs
 
 - [`runbooks/workflow/maintain/cavemem-hook-sh-not-found-fix`](../../../runbooks/workflow/maintain/cavemem-hook-sh-not-found-fix.md) — the gotcha that triggered this file
-- [`agent-rules/caveman`](../../../agent-rules/caveman.md) — different thing, terse-prose rule, no relation despite the name
+- [`rules/agent/caveman`](../../../rules/agent/caveman.md) — different thing, terse-prose rule, no relation despite the name

@@ -25,7 +25,7 @@ User locked this on 2026-06-26 (Q7). Cold-start latency compounds badly across t
 
 - Single supervised process; restart on crash (Task Scheduler "restart on failure" or PM2-style supervisor).
 - Listens on fixed loopback port + named pipe for MCP.
-- No per-invocation fork/exec for the proxy itself — only the upstream backend may be lazy.
+- No per-invocation fork/exec for the proxy itself â€” only the upstream backend may be lazy.
 - Health endpoint at `/healthz` for monitoring.
 - See [`task-scheduler-at-login-2026-06-26`](./task-scheduler-at-login-2026-06-26.md) for autostart wiring.
 

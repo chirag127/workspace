@@ -39,10 +39,10 @@ This SUPERSEDES `minimal-ui-library-set.md` (which itself superseded `max-ui-lib
 ### UI primitives
 - **shadcn/ui** (copy-paste, MIT)
 - **Radix UI primitives** (~20 KB, MIT)
-- **Headless UI (Tailwind Labs)** (~10 KB, MIT) — re-added
-- **Park UI + Ark UI** (~15 KB, MIT) — re-added
-- **Aria Components (React Aria)** (~12 KB, MIT) — new
-- **Mantine** (alt source for complex widgets, MIT) — new
+- **Headless UI (Tailwind Labs)** (~10 KB, MIT) â€” re-added
+- **Park UI + Ark UI** (~15 KB, MIT) â€” re-added
+- **Aria Components (React Aria)** (~12 KB, MIT) â€” new
+- **Mantine** (alt source for complex widgets, MIT) â€” new
 
 ### Icons
 - **Iconify aggregator** (Lucide + Tabler + Phosphor + Material Symbols + Heroicons + Simple Icons + Bootstrap Icons + Carbon + Lineicons + Solar). Tree-shaken per-page; only used icons ship.
@@ -114,15 +114,15 @@ This SUPERSEDES `minimal-ui-library-set.md` (which itself superseded `max-ui-lib
 
 ### Why this works for performance
 
-- **Astro per-route islands** — only hydrate components on routes that use them.
-- **Tree-shaking** — bundlers strip unused exports.
-- **Dynamic `import()`** — heavy libs (ffmpeg.wasm 30MB, ECharts 300KB, pdf-lib 200KB, bg-removal 30MB WASM) lazy-load on first feature use.
+- **Astro per-route islands** â€” only hydrate components on routes that use them.
+- **Tree-shaking** â€” bundlers strip unused exports.
+- **Dynamic `import()`** â€” heavy libs (ffmpeg.wasm 30MB, ECharts 300KB, pdf-lib 200KB, bg-removal 30MB WASM) lazy-load on first feature use.
 - **Per-page bundle budget** still enforced (<50 KB critical / <500 KB total for non-heavy tools).
 - **Lighthouse perf gate** stays at =85.
 
 ## Our own packages: also lean on community
 
-Every `@chirag127/oriz-*` and `@chirag127/astro-*` package wraps community libraries — does NOT re-implement. Examples:
+Every `@chirag127/oriz-*` and `@chirag127/astro-*` package wraps community libraries â€” does NOT re-implement. Examples:
 - `@chirag127/astro-forms` wraps `react-hook-form` + `zod` (does not re-build form state)
 - `@chirag127/oriz-rate-limit` wraps `firebase-admin/firestore` counters
 - `@chirag127/astro-billing` wraps Razorpay SDK + Paddle SDK + Firebase Auth

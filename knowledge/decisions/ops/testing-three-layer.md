@@ -28,20 +28,20 @@ related:
 
 
 
-# Testing — three-layer stack (Vitest unit + Playwright E2E + Storybook+Chromatic visual)
+# Testing â€” three-layer stack (Vitest unit + Playwright E2E + Storybook+Chromatic visual)
 
 ## Decision
 
 Every site's and every package's per-PR CI runs **three layers** of
 tests in parallel after the Cloudflare Pages preview deploy lands:
 
-1. **Unit / integration** — [Vitest](../../../services/code/testing/vitest.md). Fast,
+1. **Unit / integration** â€” [Vitest](../../../services/code/testing/vitest.md). Fast,
    in-memory, Vite-native; runs every `*.test.ts` file.
-2. **End-to-end** — [Playwright](../../../services/code/testing/playwright.md). Real
+2. **End-to-end** â€” [Playwright](../../../services/code/testing/playwright.md). Real
    browser (Chromium + WebKit + Firefox) against the preview URL.
    Already the substrate the
    [a11y axe-core suite](../stack/a11y-three-tools.md) rides on.
-3. **Visual regression** —
+3. **Visual regression** â€”
    [Storybook](../../../services/code/testing/storybook.md) +
    [Chromatic](../../../services/code/testing/chromatic.md). Storybook
    declares canonical states; Chromatic diffs them against the
@@ -57,7 +57,7 @@ human acceptance of any declared diff.
   bugs but not focus / scroll / keyboard-nav issues. Playwright
   catches browser behaviour but is expensive to write per
   component state. Chromatic catches "this CSS change broke
-  something unrelated" — a class of regression the other two
+  something unrelated" â€” a class of regression the other two
   miss entirely.
 - **Cost is zero.** All three layers are free. Vitest, Playwright,
   and Storybook are OSS; Chromatic's free tier (5K snapshots/mo) is
@@ -79,12 +79,12 @@ human acceptance of any declared diff.
 ### Architecture
 
 - Three new GitHub Actions jobs in each site's `ci.yml`:
-  - `test-unit` — `pnpm vitest run --coverage`. Coverage uploads to
+  - `test-unit` â€” `pnpm vitest run --coverage`. Coverage uploads to
     Sonarcloud.
-  - `test-e2e` — depends on the Cloudflare Pages preview deploy;
+  - `test-e2e` â€” depends on the Cloudflare Pages preview deploy;
     runs `pnpm playwright test` against `$PREVIEW_URL`. Reuses the
     Playwright install the a11y trio already needs.
-  - `test-visual` — `pnpm storybook build` then
+  - `test-visual` â€” `pnpm storybook build` then
     `chromaui/action@v11`. Posts the Visual-changes check back on
     the PR; explicit accept required.
 - Shared test scaffolding ships from
@@ -102,33 +102,33 @@ human acceptance of any declared diff.
 
 ### Coupling to existing stacks
 
-- **A11y trio** — axe-core is invoked from the same Playwright
+- **A11y trio** â€” axe-core is invoked from the same Playwright
   install. Test files under `tests/a11y/` reuse the
   `playwright.config.shared.ts`. The two stacks (a11y + testing)
-  are independently failing — passing one does not let the other
+  are independently failing â€” passing one does not let the other
   off the hook.
-- **Code-quality stack** — Sonarcloud's coverage gate consumes
+- **Code-quality stack** â€” Sonarcloud's coverage gate consumes
   `coverage/lcov.info` from Vitest. CodeRabbit reads test diffs
   for review-comment context. Dependabot batches updates for all
   test-tier packages weekly.
-- **Per-repo CI workflows** — each repo owns its own `ci.yml` per
+- **Per-repo CI workflows** â€” each repo owns its own `ci.yml` per
   the [per-repo CI decision](../../process/per-repo-ci-workflows.md).
   The shared kit ships the configs; per-repo files are thin
   wrappers.
 
 ### Per-PR gating
 
-- **Any failure fails the PR** — same posture as the a11y trio.
+- **Any failure fails the PR** â€” same posture as the a11y trio.
 - Visual diffs **must be explicitly accepted** in Chromatic's UI;
   the PR check stays red until acceptance lands. Acceptance is
   the design author's call, recorded in Chromatic's audit log.
 - Flaky-test budget: Playwright retries are capped at 1 in CI;
   any retry-required test gets a `@flaky` tag and an issue. No
-  global retry-twice posture — that hides real regressions.
+  global retry-twice posture â€” that hides real regressions.
 
 ### What we don't do
 
-- **No paid testing tools** — Percy / Cypress Cloud / BrowserStack
+- **No paid testing tools** â€” Percy / Cypress Cloud / BrowserStack
   paid tiers all fight the no-paid-tier posture; covered by free
   alternatives.
 - **No "warn-only" gating.** Same logic as the
@@ -147,10 +147,10 @@ human acceptance of any declared diff.
 - [Storybook service entry](../../../services/code/testing/storybook.md)
 - [Chromatic service entry](../../../services/code/testing/chromatic.md)
 - [testing services index](../../../services/code/testing/index.md)
-- [a11y three-tools decision — rides on the same Playwright install](../stack/a11y-three-tools.md)
+- [a11y three-tools decision â€” rides on the same Playwright install](../stack/a11y-three-tools.md)
 - [Code-quality stack decision](../../process/code-quality-stack.md)
 - [Per-repo CI workflows decision](../../process/per-repo-ci-workflows.md)
 - <!-- TODO: broken link, was [oriz-ui split into 5 packages](../oriz-ui-split-into-5-packages.md) -->
-- [Doppler — secrets source-of-truth](../../../services/business/secrets/doppler.md)
+- [Doppler â€” secrets source-of-truth](../../../services/business/secrets/doppler.md)
 - [No card-on-file rule](../../../rules/interaction/no-card-on-file.md)
 - [Never hit quotas rule](../../../rules/interaction/never-hit-quotas.md)

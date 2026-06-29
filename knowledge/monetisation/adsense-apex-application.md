@@ -17,7 +17,7 @@ related:
 
 The family files ONE Google AdSense application for the `oriz.in`
 apex domain. Per AdSense 2026 rules, all `*.oriz.in` subdomains
-inherit the approval — no per-subdomain application option exists
+inherit the approval â€” no per-subdomain application option exists
 or is needed. If AdSense rejects or terminates, the fallback order
 is Ezoic ? Mediavine ? other reputable networks.
 
@@ -27,16 +27,16 @@ Splitting ad approval across subdomains is impossible (AdSense
 doesn't support it in 2026), and concentrating one application at
 the apex gives every site in the family monetisation simultaneously.
 Ezoic and Mediavine accept smaller / younger sites than AdSense and
-support per-subdomain monetisation — they're the realistic backup
+support per-subdomain monetisation â€” they're the realistic backup
 when AdSense rejects.
 
 ## Implications
 
 - AdSense application uses `oriz.in` apex as the property; all `*.oriz.in` subdomains automatically covered.
-- NO ad slot divs in markup (per family rule) — AdSense / Ezoic / Mediavine inject ads at runtime when the script loads. Sites have organic content layout that ads fill around.
-- One `<script>` snippet from the chosen ad network gets included via the shared chrome (header / footer) of `@chirag127/oriz-kit` — sites don't manage ad code individually.
+- NO ad slot divs in markup (per family rule) â€” AdSense / Ezoic / Mediavine inject ads at runtime when the script loads. Sites have organic content layout that ads fill around.
+- One `<script>` snippet from the chosen ad network gets included via the shared chrome (header / footer) of `@chirag127/oriz-kit` â€” sites don't manage ad code individually.
 - Subscription users (per [one-subscription-unlocks-all](./one-subscription-unlocks-all.md)) see ads suppressed via the entitlement check before the ad script loads.
-- GitHub Pages mirrors (the fallback host) also allow AdSense for content/utility/portfolio sites — so the survival layer keeps monetisation if Cloudflare dies.
+- GitHub Pages mirrors (the fallback host) also allow AdSense for content/utility/portfolio sites â€” so the survival layer keeps monetisation if Cloudflare dies.
 - Failed AdSense ? switch the script tag in the shared kit, no per-site changes needed.
 
 ## Cross-refs

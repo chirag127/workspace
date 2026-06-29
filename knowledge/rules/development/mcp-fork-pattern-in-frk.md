@@ -9,7 +9,7 @@ status: active
 related:
   - rules/development/fork-discipline
   - rules/development/mcp-repo-naming-suffix
-  - agent-rules/agent-fleet-parity
+  - rules/agent/agent-fleet-parity
 ---
 
 # MCP forks in `repos/frk/`

@@ -16,12 +16,12 @@ related:
   - glossary/o-r/oriz-kit
 ---
 
-# Repo naming — subdomain-prefix for sites + role suffix for everything else
+# Repo naming â€” subdomain-prefix for sites + role suffix for everything else
 
 ## Decision (revised 2026-06-21, fourth pass)
 
 Every chirag127 repo carries a suffix that names its runtime category.
-**Site repos are named `<subdomain-prefix>-site`** — the slug mirrors the
+**Site repos are named `<subdomain-prefix>-site`** â€” the slug mirrors the
 public subdomain on `oriz.in`. The repo for `blog.oriz.in` is
 `chirag127/blog-site`, for `journal.oriz.in` it's
 `chirag127/journal-site`, etc. This replaces the prior brand-only slugs
@@ -39,7 +39,7 @@ skills get `-skill`, agent rule bundles get `-rules`.
 | Role | Suffix | Examples |
 |---|---|---|
 | Static site | `<subdomain-prefix>-site` | `blog-site` (blog.oriz.in), `journal-site` (journal.oriz.in), `pdf-tools-site` (pdf.oriz.in) |
-| Astro / JS / TS npm package | _(none — scoped only)_ | `@chirag127/astro-shell`, `@chirag127/astro-chrome` |
+| Astro / JS / TS npm package | _(none â€” scoped only)_ | `@chirag127/astro-shell`, `@chirag127/astro-chrome` |
 | Browser extension | `-bs-ext` | `kagi-summarizer-bs-ext`, `bookmarks-bs-ext`, `dearrow-plus-bs-ext` |
 | VS Code extension | `-vsc-ext` | `snippets-vsc-ext` |
 | CLI tool | `-cli` | `deploy-cli`, `echo-cli` |
@@ -64,7 +64,7 @@ skills get `-skill`, agent rule bundles get `-rules`.
 - **Organization listing readability**: repos sort + group by suffix in
   `gh repo list` output and on the GitHub user page.
 - **Stamp wordmark**: the family-wide rubber-stamp signature on every
-  site reads `ORIZ · pages-site` / `ORIZ · pdf-tools-site` — the suffix
+  site reads `ORIZ Â· pages-site` / `ORIZ Â· pdf-tools-site` â€” the suffix
   becomes part of the visible brand (per user MCQ this session).
 - **Skill discovery**: `chirag127/*-skill` is grep-able for the agent
   skills CLI; `chirag127/skill-*` was the old npm-skills convention but
@@ -110,7 +110,7 @@ Full current table:
 | `chirag127/post-site` | post.oriz.in (planned) |
 | `chirag127/janaushdhi-site` | (TBD) |
 
-`home-site` is grandfathered for the apex domain — no public subdomain
+`home-site` is grandfathered for the apex domain â€” no public subdomain
 prefix exists for `oriz.in`. Sites without a locked subdomain
 (`lore-site`, `janaushdhi-site`) keep their current slug until the
 subdomain is decided.
@@ -118,11 +118,11 @@ subdomain is decided.
 ## Rejected this session
 
 - Brand-only sites (`pages-site`, `tabs-site`, `roam-site`, `echo-site`)
-  whose slug didn't track the public subdomain — fourth-pass reversal.
-- Dropping `-site` suffix entirely (bare `blog`, `journal`, etc.) — kept
+  whose slug didn't track the public subdomain â€” fourth-pass reversal.
+- Dropping `-site` suffix entirely (bare `blog`, `journal`, etc.) â€” kept
   for at-a-glance role typing in `gh repo list`.
 - Stripping `-tools-` from the tools sites (e.g. `pdf-site` instead of
-  `pdf-tools-site`) — kept because the `-tools-` infix signals the
+  `pdf-tools-site`) â€” kept because the `-tools-` infix signals the
   shared tools/ directory and shared scaffold.
 
 ## Why
@@ -147,7 +147,7 @@ table to consult before any `gh repo create`.
   working.
 - New sites: pick the public subdomain first, then the repo slug is
   `<subdomain-prefix>-site`. If the subdomain isn't locked, defer the
-  rename until it is — don't ship a brand-only slug.
+  rename until it is â€” don't ship a brand-only slug.
 
 - New extensions get `oriz-<slug>-ext` from day one; new VS Code
   extensions get `oriz-<slug>-vsc-ext`.
@@ -156,23 +156,23 @@ table to consult before any `gh repo create`.
 - NPM package repos stay clean: `@chirag127/oriz-kit`, `oriz-firestream`,
   `@chirag127/firebase-init`, etc. The `@chirag127/` scope (or, for
   unscoped, the absence of a suffix table entry) is the disambiguator.
-- Data repos already use `-data` — that suffix is now formalised in
+- Data repos already use `-data` â€” that suffix is now formalised in
   the table above.
-- GitHub repo redirects on rename keep old clones working — all
+- GitHub repo redirects on rename keep old clones working â€” all
   rename steps go through [`runbooks/workflow/rename-repo.md`](../../runbooks/workflow/rename-repo.md)
   which sets them up automatically.
 - Audit gate: every `git push` to a *new* repo URL must verify the
   slug ends in one of the seven suffixes (or is a clean npm-package
-  name) — see [`rules/development/repo-naming.md`](../../rules/development/repo-naming.md).
+  name) â€” see [`rules/development/repo-naming.md`](../../rules/development/repo-naming.md).
 
 ## Cross-refs
 
-- <!-- TODO: broken link, was [keep-oriz-add-site-suffix](./keep-oriz-add-site-suffix.md) --> — the
+- <!-- TODO: broken link, was [keep-oriz-add-site-suffix](./keep-oriz-add-site-suffix.md) --> â€” the
   earlier two-suffix decision this one supersedes-by-extension
 - [oriz-me added to the family](./oriz-me-added-to-family.md)
 - <!-- TODO: broken link, was [@chirag127/oriz-kit package name](./oriz-kit-package-name.md) -->
 - [Chrome extensions as submodules](../infrastructure/chrome-extensions-as-submodules.md)
-- [`rules/development/repo-naming.md`](../../rules/development/repo-naming.md) — the audit-before-publish rule
-- [`runbooks/workflow/rename-repo.md`](../../runbooks/workflow/rename-repo.md) — the rename procedure
+- [`rules/development/repo-naming.md`](../../rules/development/repo-naming.md) â€” the audit-before-publish rule
+- [`runbooks/workflow/rename-repo.md`](../../runbooks/workflow/rename-repo.md) â€” the rename procedure
 - <!-- TODO: broken link, was [oriz-kit glossary entry](../../glossary/o-r/oriz-kit.md) -->
 - [AGENTS.md](../../../AGENTS.md)

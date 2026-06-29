@@ -26,28 +26,28 @@ related:
 
 # Tools shape + priority
 
-## Shape — 16 subdomains, one per tool
+## Shape â€” 16 subdomains, one per tool
 
 | # | Subdomain | Tool category |
 |---|---|---|
-| 1 | `paisa.oriz.in` | Finance — calculators, EMI, SIP, tax |
-| 2 | `slice.oriz.in` | PDF — merge, split, compress, OCR |
-| 3 | `scribe.oriz.in` | Text — word count, case, diff, format |
-| 4 | `pixie.oriz.in` | Image — resize, compress, format-convert, bg-info |
-| 5 | `grid.oriz.in` | QR — generator, decoder, batch |
-| 6 | `forge.oriz.in` | Dev — JSON/YAML/JWT/UUID/hash tools |
-| 7 | `shift.oriz.in` | Convert — units, currency, timezone, base |
-| 8 | `dice.oriz.in` | Random — strings, numbers, names, picker |
-| 9 | `cipher.oriz.in` | Crypto — encode/decode/hash (NOT cryptocurrency) |
-| 10 | `paper.oriz.in` | Print — paper sizes, page templates, label sheets |
-| 11 | `vitals.oriz.in` | Health — BMI, BMR, calorie, vitals tracker |
-| 12 | `rank.oriz.in` | SEO — meta inspector, sitemap audit, schema validator |
-| 13 | `reel.oriz.in` | Video — trim, format-info, thumbnail-grab |
-| 14 | `echo.oriz.in` | Audio — convert, trim, waveform |
-| 15 | `pivot.oriz.in` | Data — CSV viewer, JSON-to-CSV, pivot table |
-| 16+ | … | Whatever else exists after the locked 15 |
+| 1 | `paisa.oriz.in` | Finance â€” calculators, EMI, SIP, tax |
+| 2 | `slice.oriz.in` | PDF â€” merge, split, compress, OCR |
+| 3 | `scribe.oriz.in` | Text â€” word count, case, diff, format |
+| 4 | `pixie.oriz.in` | Image â€” resize, compress, format-convert, bg-info |
+| 5 | `grid.oriz.in` | QR â€” generator, decoder, batch |
+| 6 | `forge.oriz.in` | Dev â€” JSON/YAML/JWT/UUID/hash tools |
+| 7 | `shift.oriz.in` | Convert â€” units, currency, timezone, base |
+| 8 | `dice.oriz.in` | Random â€” strings, numbers, names, picker |
+| 9 | `cipher.oriz.in` | Crypto â€” encode/decode/hash (NOT cryptocurrency) |
+| 10 | `paper.oriz.in` | Print â€” paper sizes, page templates, label sheets |
+| 11 | `vitals.oriz.in` | Health â€” BMI, BMR, calorie, vitals tracker |
+| 12 | `rank.oriz.in` | SEO â€” meta inspector, sitemap audit, schema validator |
+| 13 | `reel.oriz.in` | Video â€” trim, format-info, thumbnail-grab |
+| 14 | `echo.oriz.in` | Audio â€” convert, trim, waveform |
+| 15 | `pivot.oriz.in` | Data â€” CSV viewer, JSON-to-CSV, pivot table |
+| 16+ | â€¦ | Whatever else exists after the locked 15 |
 
-## Ship order (Wave 2 — after the flagship four)
+## Ship order (Wave 2 â€” after the flagship four)
 
 Exactly the order above: paisa ? slice ? scribe ? pixie ? grid ? forge ? shift ? dice ? cipher ? paper ? vitals ? rank ? reel ? echo ? pivot ? remainder.
 
@@ -59,7 +59,7 @@ Wave 2 starts after Wave 1 (home + janaushdhi + ncert + blog) per [[decisions/ap
 |---|---|---|
 | paisa-finance | YES (disclosed) | Bank / card affiliate networks |
 | scribe-text | YES (Amazon book affiliate OK) | Writing-focused; books are on-topic |
-| vitals-health | **NO** | Public-health ethics — same posture as janaushdhi-app |
+| vitals-health | **NO** | Public-health ethics â€” same posture as janaushdhi-app |
 | All others | YES (case-by-case, disclosed) | Tools default per [[policy/monetisation-channel-matrix]] |
 
 All 16: anonymous-first auth, free, opt-in sponsor footer.

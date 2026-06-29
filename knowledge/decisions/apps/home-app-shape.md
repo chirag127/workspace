@@ -37,12 +37,12 @@ related:
 | `/tools` | tools overview | 16 single-purpose tool subdomains |
 | `/books` | books.oriz.in | Static book catalog (5 books) |
 | `/packages` | packages.oriz.in | npm package catalog (auto-discovered) |
-| `/me` | me.oriz.in / cs.oriz.in | Personal canon — resume, writing, lifestream |
+| `/me` | me.oriz.in / cs.oriz.in | Personal canon â€” resume, writing, lifestream |
 
 ## What it is NOT
 
 - NOT a dashboard. No logged-in stats, no charts, no "your activity".
-- NOT a personal home. The personal site is `me.oriz.in` — see [[decisions/apps/cs-me-app-scope]].
+- NOT a personal home. The personal site is `me.oriz.in` â€” see [[decisions/apps/cs-me-app-scope]].
 - NOT a status page. Status lives at `status.oriz.in` via Better Stack.
 - NOT a search interface. Search is per-app via Pagefind.
 

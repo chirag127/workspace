@@ -26,7 +26,7 @@ related:
 
 
 
-# Markdown-in-repo only — no headless CMS, anywhere
+# Markdown-in-repo only â€” no headless CMS, anywhere
 
 ## Decision
 
@@ -36,10 +36,10 @@ build (Astro / Vite) reads the markdown at build time, renders to
 static HTML, and ships to [Cloudflare Pages](../../infrastructure/cloudflare-pages-for-all-sites.md).
 **No** headless CMS sits between the writer and the repo. Decap CMS,
 TinaCMS, Strapi, Sanity, Contentful, Storyblok, Hygraph, Payload,
-Directus, Keystatic, Outstatic, Pages CMS, Front Matter CMS — all
+Directus, Keystatic, Outstatic, Pages CMS, Front Matter CMS â€” all
 explicitly REJECTED.
 
-User direction 2026-06-20: "Markdown-in-repo only (RECOMMENDED)" —
+User direction 2026-06-20: "Markdown-in-repo only (RECOMMENDED)" â€”
 locked.
 
 ## Why
@@ -67,11 +67,11 @@ locked.
 | Tool | Why rejected |
 |---|---|
 | Decap CMS (formerly Netlify CMS) | Adds a JS-heavy admin UI on top of git that does what `git commit` already does for free; abandoned-feel since the Netlify rebrand |
-| TinaCMS | Free tier caps at 2 editors / 1K Tina Cloud documents — fights [`never-hit-quotas`](../../../rules/interaction/never-hit-quotas.md); paid tier requires card |
+| TinaCMS | Free tier caps at 2 editors / 1K Tina Cloud documents â€” fights [`never-hit-quotas`](../../../rules/interaction/never-hit-quotas.md); paid tier requires card |
 | Strapi (Cloud) | Hosted Strapi requires card; self-host fights [`no-self-host`] (we use only managed serverless) |
 | Sanity / Contentful / Storyblok / Hygraph | Hosted SaaS with free tiers that cap; require credit card upgrade path; introduce a content-API runtime dependency the static site doesn't need |
 | Payload / Directus / Keystone | Self-host or paid cloud; add a Postgres dependency we'd otherwise avoid for content |
-| Keystatic / Outstatic / Pages CMS / Front Matter CMS | All git-backed CMSes that wrap `git commit` in a UI — solving a problem we don't have (we like writing markdown in our editor) |
+| Keystatic / Outstatic / Pages CMS / Front Matter CMS | All git-backed CMSes that wrap `git commit` in a UI â€” solving a problem we don't have (we like writing markdown in our editor) |
 
 ## Implications
 
@@ -83,14 +83,14 @@ locked.
   master `chirag127/oriz` repo.
 - **Cross-site content gets canonical-URL'd.** If two sites need the
   same fact, one site owns the source of truth as `.mdx` and the
-  other links via canonical URL — never duplicates the file.
+  other links via canonical URL â€” never duplicates the file.
 - **The `oriz-me` lifestream is the ONLY exception.** It uses
-  newline-delimited JSON, not markdown — see
+  newline-delimited JSON, not markdown â€” see
   [`lifestream-jsonl-canonical.md`](../database/lifestream-jsonl-canonical.md).
   That's a stream of timestamped events, not prose, so the data shape
   is genuinely different.
-- **Image embedding follows the [4-tier image-host chain](./image-host-four-tier.md)** — Tier 1 puts images alongside the `.md` file in the same repo for the simple case.
-- **Feed generation reads the markdown directly** — see
+- **Image embedding follows the [4-tier image-host chain](./image-host-four-tier.md)** â€” Tier 1 puts images alongside the `.md` file in the same repo for the simple case.
+- **Feed generation reads the markdown directly** â€” see
   [`feeds-rss-atom-json.md`](../content/feeds-rss-atom-json.md) for how
   `/rss.xml`, `/atom.xml`, `/feed.json` are generated at build time
   from the same source files.
@@ -100,8 +100,8 @@ locked.
 
 ## Cross-refs
 
-- [4-tier image-host chain](./image-host-four-tier.md) — origin storage for images embedded in markdown
-- [3-format feeds](../content/feeds-rss-atom-json.md) — RSS / Atom / JSON Feed generated from markdown at build time
+- [4-tier image-host chain](./image-host-four-tier.md) â€” origin storage for images embedded in markdown
+- [3-format feeds](../content/feeds-rss-atom-json.md) â€” RSS / Atom / JSON Feed generated from markdown at build time
 - [Cloudflare Pages for all sites](../../infrastructure/cloudflare-pages-for-all-sites.md)
 - [One-branch-only rule](../../process/one-branch-only-rule.md)
 - [Repo-naming suffixes](../../branding/repo-naming-suffixes.md)

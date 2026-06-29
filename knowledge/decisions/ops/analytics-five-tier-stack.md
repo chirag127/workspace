@@ -30,7 +30,7 @@ related:
 
 
 
-# Analytics — 5-tier stack (CFWA + GA4 + PostHog + Clarity + UTM)
+# Analytics â€” 5-tier stack (CFWA + GA4 + PostHog + Clarity + UTM)
 
 ## Decision
 
@@ -45,12 +45,12 @@ free, no card, and each can be killed by a per-site
 | 2 | Marketing funnel | Google Analytics 4 (GA4) | Acquisition / engagement / conversion against the same definitions advertisers use |
 | 3 | Product analytics | [PostHog](../../../services/monitoring/monitoring/analytics/posthog.md) | Funnels, retention, feature-flag usage, **session replay** (product side) |
 | 4 | Heatmaps + session replay (vendor-redundant) | [Microsoft Clarity](../../../services/monitoring/monitoring/analytics/microsoft-clarity.md) | Where do users click / scroll / rage-click; second replay so a PostHog quota miss never blinds us |
-| 5 | Attribution convention | [UTM tracking](../../../services/monitoring/monitoring/analytics/utm-tracking.md) | Which channel / campaign drove this session — read by tiers 2-4 from the URL |
+| 5 | Attribution convention | [UTM tracking](../../../services/monitoring/monitoring/analytics/utm-tracking.md) | Which channel / campaign drove this session â€” read by tiers 2-4 from the URL |
 
 ## Why five and not fewer
 
 The user's direction was: *"I want to use all of the analytics and
-all of the Google practices, Microsoft Clarity and everything … I
+all of the Google practices, Microsoft Clarity and everything â€¦ I
 want a free service for everything."* Picking only one layer leaves
 real questions unanswered:
 
@@ -59,7 +59,7 @@ real questions unanswered:
 - **PostHog alone** = single-vendor risk; 1M-events/mo cap blinds the
   family the moment a post goes viral.
 - **Clarity alone** = no funnels, no flags, no acquisition reports.
-- **UTM alone** = a convention, not a tool — needs a tool to read it.
+- **UTM alone** = a convention, not a tool â€” needs a tool to read it.
 
 The five layers together answer every operationally interesting
 question with **vendor redundancy on session replay** (PostHog +
@@ -74,9 +74,9 @@ Each layer has a per-site env-var kill-switch:
 
 ```bash
 ENABLE_CFWA=true            # Cloudflare Web Analytics (no real cap)
-ENABLE_GA4=true             # GA4 — sampled past 10M events/mo (free)
-ENABLE_POSTHOG=true         # PostHog — 1M events/mo, 5K replays/mo
-ENABLE_CLARITY=true         # Microsoft Clarity — no documented cap
+ENABLE_GA4=true             # GA4 â€” sampled past 10M events/mo (free)
+ENABLE_POSTHOG=true         # PostHog â€” 1M events/mo, 5K replays/mo
+ENABLE_CLARITY=true         # Microsoft Clarity â€” no documented cap
 ENABLE_UTM_HELPER=true      # <UtmLink> validation in @chirag127/oriz-kit
 ```
 
@@ -101,7 +101,7 @@ reads these flags at build time and tree-shakes the unused scripts.
 - **Cookie banner** ([`Klaro` already locked](../../../services/business/security/klaro.md))
   gates GA4 + Clarity + PostHog behind explicit consent in regions
   that need it; CFWA is cookieless and runs without consent. UTM
-  capture is read-only off the URL — no cookie required.
+  capture is read-only off the URL â€” no cookie required.
 - **No paid tier ever.** If any layer hits its quota:
   1. Toggle the env-var off on the highest-traffic site.
   2. Document in <!-- TODO: broken link, was [`log.md`](../../../log.md) --> which site / which layer.
@@ -109,7 +109,7 @@ reads these flags at build time and tree-shakes the unused scripts.
 
 ## Cross-refs
 
-- [Analytics services index](../../../services/monitoring/monitoring/analytics/index.md) — per-service detail
+- [Analytics services index](../../../services/monitoring/monitoring/analytics/index.md) â€” per-service detail
 - [Cloudflare Web Analytics service](../../../services/monitoring/monitoring/analytics/cloudflare-web-analytics.md)
 - [Microsoft Clarity service](../../../services/monitoring/monitoring/analytics/microsoft-clarity.md)
 - [PostHog service](../../../services/monitoring/monitoring/analytics/posthog.md)

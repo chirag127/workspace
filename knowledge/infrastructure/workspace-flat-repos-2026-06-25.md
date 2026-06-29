@@ -1,6 +1,6 @@
 ---
 type: decision
-title: Workspace layout — flat repos/<slug>/ with type-suffix sort
+title: Workspace layout â€” flat repos/<slug>/ with type-suffix sort
 description: Flat repos/<slug>/ dir, type in suffix, forks via .is-fork file
 tags:
 - decision
@@ -19,7 +19,7 @@ related:
 supersedes: decisions/architecture/general/projects-owner-own-forks-layout
 ---
 
-# Workspace layout — flat repos/<slug>/
+# Workspace layout â€” flat repos/<slug>/
 
 ## Decision
 
@@ -27,18 +27,18 @@ Every submodule sits at `repos/<slug>/`, period. No `owner/`, no `own/` vs `frk/
 
 ## Why
 
-- **Path stability** — five-level paths (`repos/oriz/own/prod/apps/personal/<slug>`) broke 243 hardcoded references on every rename. Flat paths only break on slug change.
-- **Type suffix already sorts** — `ls repos/` clusters `*-api`, `*-npm-pkg`, `*-bs-ext` together for free; no folder hierarchy needed.
-- **Forks-by-path was structural overhead** — `.is-fork` is one file, greppable, doesn't move when a fork promotes to a divergent product.
-- **Drops two-owner partition** — `oriz-org/` vs `chirag127/` was useful when ownership leaked into branding; with the rename to `oriz-org` org as canonical, the owner is unambiguous from the GitHub remote URL.
-- **Cleaner umbrella** — `oriz` umbrella `.gitmodules` lists every submodule at `path = repos/<slug>` with no embedded structure to maintain.
-- **Easier glob in CI** — `repos/*-app/` is a one-segment glob; the old layout needed `repos/*/own/prod/apps/*/`.
+- **Path stability** â€” five-level paths (`repos/oriz/own/prod/apps/personal/<slug>`) broke 243 hardcoded references on every rename. Flat paths only break on slug change.
+- **Type suffix already sorts** â€” `ls repos/` clusters `*-api`, `*-npm-pkg`, `*-bs-ext` together for free; no folder hierarchy needed.
+- **Forks-by-path was structural overhead** â€” `.is-fork` is one file, greppable, doesn't move when a fork promotes to a divergent product.
+- **Drops two-owner partition** â€” `oriz-org/` vs `chirag127/` was useful when ownership leaked into branding; with the rename to `oriz-org` org as canonical, the owner is unambiguous from the GitHub remote URL.
+- **Cleaner umbrella** â€” `oriz` umbrella `.gitmodules` lists every submodule at `path = repos/<slug>` with no embedded structure to maintain.
+- **Easier glob in CI** â€” `repos/*-app/` is a one-segment glob; the old layout needed `repos/*/own/prod/apps/*/`.
 
 ## Implications
 
 - Every `.gitmodules` `path =` entry rewrites to `repos/<slug>`.
 - Cross-knowledge links to `repos/<old-five-segments>/` need a sed migration pass.
-- Recruiter-strategy posture (chirag127 stays populated) shifts: personal repos still live on the chirag127 GH account, but they sit at the flat `repos/<slug>/` level locally — owner is read from the remote URL when needed.
-- Fork discipline rule unchanged — minimum-diff still applies; `.is-fork` is added by the fork bootstrap script.
+- Recruiter-strategy posture (chirag127 stays populated) shifts: personal repos still live on the chirag127 GH account, but they sit at the flat `repos/<slug>/` level locally â€” owner is read from the remote URL when needed.
+- Fork discipline rule unchanged â€” minimum-diff still applies; `.is-fork` is added by the fork bootstrap script.
 - VS Code multi-root workspace files refresh once; Windows file watchers re-index once at migration time.
 - Per-app knowledge bundles inside submodules use shorter relative paths back to master `knowledge/` (4 levels instead of 6).

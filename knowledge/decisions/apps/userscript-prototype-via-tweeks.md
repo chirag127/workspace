@@ -30,7 +30,7 @@ related:
 ## Default flow for a new userscript
 
 1. **Describe the change in Tweeks** (Y Combinator-backed AI browser extension at tweeks.io). It generates JS that runs in the browser via their extension.
-2. **Test it lives** — install, use for a few sessions, confirm the behavior is what you wanted.
+2. **Test it lives** â€” install, use for a few sessions, confirm the behavior is what you wanted.
 3. **If keepable**, view the generated JS in Tweeks' code view, copy it.
 4. **Port to .user.js**:
    - Wrap in a Tampermonkey-format metadata block: `@name`, `@namespace https://github.com/oriz-org/userscripts`, `@version 0.1.0`, `@match`, `@grant none` (or specific `GM_*` if needed), `@author Chirag Singhal`, `@license MIT`, `@homepageURL`, `@supportURL`, `@updateURL` + `@downloadURL` pointing at the GitHub raw URL
@@ -56,7 +56,7 @@ For complex DOM tweaks, the AI generation is genuinely a time-saver vs writing s
 ## Anti-patterns
 
 - DON'T let Tweeks be the source of truth. The .user.js in `oriz-org/userscripts` is.
-- DON'T trust Tweeks-generated selectors to be production-ready — review every `document.querySelector` for stability before publishing.
+- DON'T trust Tweeks-generated selectors to be production-ready â€” review every `document.querySelector` for stability before publishing.
 - DON'T forget the metadata block. Without `@updateURL`, Tampermonkey-installed copies are dead-frozen at v0.1.0 forever.
 - DON'T skip the README per script. Greasefork users grep these for the install button URL.
 

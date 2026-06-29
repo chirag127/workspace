@@ -29,19 +29,19 @@ related:
 
 
 
-# No Firebase Functions — Blaze requires a card on file
+# No Firebase Functions â€” Blaze requires a card on file
 
 ## Decision
 
-**Firebase Cloud Functions are never used by any product in the family.** This is a hard exclusion, not a "prefer not to" — Functions only runs on Blaze, Blaze requires a card on file, and the no-card-on-file rule is non-negotiable.
+**Firebase Cloud Functions are never used by any product in the family.** This is a hard exclusion, not a "prefer not to" â€” Functions only runs on Blaze, Blaze requires a card on file, and the no-card-on-file rule is non-negotiable.
 
 This closes the loop on [`firebase-spark-forever.md`](../../infrastructure/firebase-spark-forever.md): Spark forever implies Functions never.
 
 ## Why
 
-- Cloud Functions for Firebase is the one Firebase service that **does not run on Spark at all**. There is no free quota on Spark for Functions — calling it requires Blaze enabled.
+- Cloud Functions for Firebase is the one Firebase service that **does not run on Spark at all**. There is no free quota on Spark for Functions â€” calling it requires Blaze enabled.
 - Blaze requires a credit/debit card on file. Cloud Spend Caps are still in private preview at Cloud Next '26 and do not cover Firestore/Storage/Hosting/Functions in practice.
-- Documented bill-shock cases (simmer.io ~$98K, Tamara ~$70K, €54K Gemini-key incident) all involved Blaze-tier services and confirm the catastrophic failure mode.
+- Documented bill-shock cases (simmer.io ~$98K, Tamara ~$70K, â‚¬54K Gemini-key incident) all involved Blaze-tier services and confirm the catastrophic failure mode.
 - Functions are not architecturally required: every workload that one would put on Functions has a card-free home elsewhere.
 
 ## What replaces Functions
@@ -62,19 +62,19 @@ Payment webhooks (Razorpay, Lemon Squeezy, Polar.sh) **must not** be in the hot 
 
 - Webhooks hit **Hookdeck** first (free tier handles retries) ? forward to **GitHub Actions** via `repository_dispatch` for durable processing, OR to a CF Worker that only writes to Firestore REST and returns 200 fast.
 - License-key fulfilment via `keygen.sh` is decoupled (already in [`max-payment-methods.md`](../../monetisation/max-payment-methods.md)).
-- A failed worker run does NOT mean a failed payment — Hookdeck retries; the customer's payment is already complete at the processor.
+- A failed worker run does NOT mean a failed payment â€” Hookdeck retries; the customer's payment is already complete at the processor.
 
 ## What changes vs prior decisions
 
 - [`hono-worker-api-umbrella.md`](../compute/hono-worker-api-umbrella.md): unchanged. Hono Workers were already the chosen umbrella API layer; this decision just rules out the Functions alternative explicitly.
 - [`cron-split-cf-vs-gh.md`](../compute/cron-split-cf-vs-gh.md): unchanged. CF Workers cron + GH Actions cron continue to split the cron load.
-- [`firebase-spark-forever.md`](../../infrastructure/firebase-spark-forever.md): this decision is its corollary — Functions specifically singled out as the most-tempting-to-enable trap.
+- [`firebase-spark-forever.md`](../../infrastructure/firebase-spark-forever.md): this decision is its corollary â€” Functions specifically singled out as the most-tempting-to-enable trap.
 
 ## Implications
 
 - Service-catalog entries for Firebase products must show "Functions: NOT USED" in their free-tier-coverage row.
 - Any prompt suggesting "deploy this as a Firebase Function" is rejected at design review.
-- The `@chirag127/firebase-rest-firestore` package handles all server-style mutations from CF Workers via the REST API — no Admin SDK, no Functions.
+- The `@chirag127/firebase-rest-firestore` package handles all server-style mutations from CF Workers via the REST API â€” no Admin SDK, no Functions.
 - Any team-onboarding doc should call this out as one of the 5 things-you-cannot-do.
 
 ## Cross-refs

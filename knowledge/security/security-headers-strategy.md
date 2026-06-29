@@ -1,6 +1,6 @@
 ---
 type: decision
-title: "Security headers — strict CSP via _headers + dual CI audit"
+title: "Security headers â€” strict CSP via _headers + dual CI audit"
 description: Strict CSP/HSTS/Permissions-Policy via CF _headers from oriz-kit
 tags: [decisions, security, headers, csp, hsts]
 timestamp: 2026-06-20
@@ -14,7 +14,7 @@ related:
   - decisions/process/code-quality-stack
 ---
 
-# Security headers — strict CSP via `_headers` + dual CI audit
+# Security headers â€” strict CSP via `_headers` + dual CI audit
 
 ## Decision
 
@@ -25,8 +25,8 @@ Pages reads the file at deploy and applies the rules at the edge.
 
 Every PR runs **two** auditors in parallel:
 
-1. [securityheaders.com](../../services/business/security/securityheaders-com.md) — Scott Helme's rubric (headers grade)
-2. [Mozilla Observatory](../../services/business/security/mozilla-observatory.md) — TLS + cookies + redirects + headers (comprehensive)
+1. [securityheaders.com](../../services/business/security/securityheaders-com.md) â€” Scott Helme's rubric (headers grade)
+2. [Mozilla Observatory](../../services/business/security/mozilla-observatory.md) â€” TLS + cookies + redirects + headers (comprehensive)
 
 PR fails if either score drops below A.
 
@@ -36,7 +36,7 @@ PR fails if either score drops below A.
   `unsafe-eval` or wildcard origins is the single most effective
   XSS mitigation; it has to ship by default, not as an opt-in per
   site.
-- **Config-as-code via `_headers`** — auditable in git, no
+- **Config-as-code via `_headers`** â€” auditable in git, no
   Cloudflare UI clicks, ships in the kit. Every site copies the
   preset; per-site additions allowed but never weakening.
 - **Dual audit catches drift.** securityheaders.com grades headers
@@ -44,7 +44,7 @@ PR fails if either score drops below A.
   Either alone leaves a category unchecked.
 - **Both are free, no card.** Aligns with
   [no-card-on-file](../../rules/interaction/no-card-on-file.md).
-- **Layered with the [code-quality stack](../process/code-quality-stack.md)** — same philosophy: defensive
+- **Layered with the [code-quality stack](../process/code-quality-stack.md)** â€” same philosophy: defensive
   layering, fail loud, no silent drift.
 
 ## The locked preset
@@ -77,21 +77,21 @@ Per-site additions are allowed but must be reviewed.
   `templates/_headers`. Each site's CI either copies the file or
   extends it via per-site `_headers.append`.
 - The preset registers HSTS preload (`max-age=63072000` =
-  2 years, `includeSubDomains`, `preload`) — **`oriz.in` apex must
+  2 years, `includeSubDomains`, `preload`) â€” **`oriz.in` apex must
   be submitted to <https://hstspreload.org/>** once across the
   family (it covers all subdomains).
 - Permissions-Policy whitelist is minimal: only `payment=(self)`
   for Razorpay flows. Camera / mic / geolocation / accelerometer
-  are off everywhere — sites that need them flip the relevant
+  are off everywhere â€” sites that need them flip the relevant
   directive in their per-site `_headers`.
 
 ### CI gate
 
 - Per-repo `ci.yml` adds two jobs after the Cloudflare Pages preview
   deploy:
-  - `security-headers-grade` — calls securityheaders.com API,
+  - `security-headers-grade` â€” calls securityheaders.com API,
     parses JSON for grade, fails if not `A` or `A+`.
-  - `mozilla-observatory` — runs `npx @mdn/mdn-http-observatory`
+  - `mozilla-observatory` â€” runs `npx @mdn/mdn-http-observatory`
     against the preview hostname, fails if score < 85.
 - API key for securityheaders.com lives in
   [Doppler](../../services/business/secrets/doppler.md) and syncs to GitHub
@@ -101,7 +101,7 @@ Per-site additions are allowed but must be reviewed.
 
 - securityheaders.com grade = A or A+ ? pass; any other grade fails.
 - Mozilla Observatory score = 85 (= grade A) ? pass; below fails.
-- Score *drops* — i.e. a PR is blocked only if it makes things
+- Score *drops* â€” i.e. a PR is blocked only if it makes things
   worse. Pre-existing site state is the floor; PRs cannot weaken
   it. (Lifting all sites to A is a one-time push, not a per-PR
   blocker.)
@@ -112,10 +112,10 @@ Per-site additions are allowed but must be reviewed.
   patterns (e.g. live MDX preview) sandbox them in an iframe.
 - **No `*` wildcard origins** in `connect-src` / `img-src`. Specific
   hosts only.
-- **No paid auditors** — Hardenize, Probely, Detectify all paid.
-- **No Cloudflare Transform Rules UI** — config-as-code via `_headers`
+- **No paid auditors** â€” Hardenize, Probely, Detectify all paid.
+- **No Cloudflare Transform Rules UI** â€” config-as-code via `_headers`
   is auditable; UI clicks drift silently.
-- **No HSTS rollback path** — preload list removal takes weeks; a
+- **No HSTS rollback path** â€” preload list removal takes weeks; a
   site that breaks HTTPS stays broken. The kit's preset is reviewed
   before family-wide adoption.
 
@@ -125,9 +125,9 @@ Per-site additions are allowed but must be reviewed.
 - [securityheaders.com service entry](../../services/business/security/securityheaders-com.md)
 - [Mozilla Observatory service entry](../../services/business/security/mozilla-observatory.md)
 - [security services index](../../services/business/security/index.md)
-- [Cloudflare Pages — host that reads `_headers`](../../services/infra/hosting/cloudflare-pages.md)
+- [Cloudflare Pages â€” host that reads `_headers`](../../services/infra/hosting/cloudflare-pages.md)
 - [Code-quality stack decision](../process/code-quality-stack.md)
 - [Per-repo CI workflows decision](../process/per-repo-ci-workflows.md)
-- [Multi-provider auth — App Check + reCAPTCHA also gate Firestore](./multi-provider-auth.md)
-- [Doppler — secrets sync](../../services/business/secrets/doppler.md)
+- [Multi-provider auth â€” App Check + reCAPTCHA also gate Firestore](./multi-provider-auth.md)
+- [Doppler â€” secrets sync](../../services/business/secrets/doppler.md)
 - [No card-on-file rule](../../rules/interaction/no-card-on-file.md)

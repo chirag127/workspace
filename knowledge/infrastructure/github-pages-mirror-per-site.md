@@ -1,6 +1,6 @@
 ---
 type: decision
-title: "Every site builds a static GitHub Pages mirror per §16"
+title: "Every site builds a static GitHub Pages mirror per Â§16"
 description: Each site CI builds GH Pages fallback on push to main
 tags: [hosting, fallback, github-pages, durability]
 timestamp: 2026-06-20
@@ -13,7 +13,7 @@ related:
   - architecture/layer-2-survival-fallback
 ---
 
-# Every site builds a static GitHub Pages mirror per §16
+# Every site builds a static GitHub Pages mirror per Â§16
 
 ## Decision
 
@@ -25,13 +25,13 @@ the core content (`/work`, `/me`, `/legal`, etc.).
 
 ## Why
 
-Per the 100-year strategy §16, "minimum-survival layer": if
+Per the 100-year strategy Â§16, "minimum-survival layer": if
 everything dies, what still works? Static `/work` + `/me` rendered
 to GitHub Pages, and raw JSONL on GitHub. These two layers must be
 independent of every other piece of infrastructure. GitHub Pages
 free (100 GB/mo bandwidth/site, 1 GB site cap, free forever as long
 as the GitHub account exists) is the single most-durable free host
-available — the cheapest insurance against Cloudflare risk.
+available â€” the cheapest insurance against Cloudflare risk.
 
 ## Implications
 
@@ -39,11 +39,11 @@ available — the cheapest insurance against Cloudflare risk.
 - Mirror is content-only: no APIs, no Firebase Auth, no client-side SDK calls that hit `auth.oriz.in` (those degrade gracefully with a "running in survival mode" notice).
 - One custom domain per repo means each site can also have its own GitHub Pages subdomain if we choose, though primary URL stays `*.oriz.in`.
 - Annual fire-drill (per the 100-year strategy review checklist): clone each `chirag127.github.io/<site>` URL on a fresh machine and confirm `/work` still loads.
-- Commercial intent rule: GitHub Pages allows AdSense + content + utility + portfolio — fine for our sites; never host an e-commerce flow on the mirror.
+- Commercial intent rule: GitHub Pages allows AdSense + content + utility + portfolio â€” fine for our sites; never host an e-commerce flow on the mirror.
 
 ## Cross-refs
 
 - [100-year strategy locked](../content/100-year-strategy-locked.md)
 - [Cloudflare Pages for all sites](./cloudflare-pages-for-all-sites.md)
 - [GitHub Pages mirror service entry](../../services/infra/hosting/github-pages.md)
-- [Layer 2 — Survival fallback architecture](../architecture/frontend/layer-2-survival-fallback.md)
+- [Layer 2 â€” Survival fallback architecture](../architecture/frontend/layer-2-survival-fallback.md)

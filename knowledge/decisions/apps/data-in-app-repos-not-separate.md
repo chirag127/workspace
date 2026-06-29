@@ -36,7 +36,7 @@ Each data-driven app (`oriz-janaushdhi-app`, `oriz-ncert-app`, `oriz-financial-c
 
 NO separate `oriz-*-data` repos created for any of them.
 
-Existing API service repos (`oriz-flow-fii-dii-activity-api`, `oriz-mmi-tickertape-mmi-api`) stay — they're services with data/ dirs of their own, served via GH Pages.
+Existing API service repos (`oriz-flow-fii-dii-activity-api`, `oriz-mmi-tickertape-mmi-api`) stay â€” they're services with data/ dirs of their own, served via GH Pages.
 
 ## Why
 
@@ -61,7 +61,7 @@ App-level GH Action handles everything; zero external coordination.
 Where data MUST be live (intraday market data, live counters), apps lazy-fetch from raw URLs:
 
 - `paisa-finance` fetches FII/DII + MMI from `raw.githubusercontent.com/chirag127/oriz-flow-fii-dii-activity-api/main/data/latest.json` + similar for MMI
-- Lazy + SWR (stale-while-revalidate) + localStorage 1h TTL — shows cached immediately, fetches fresh in background
+- Lazy + SWR (stale-while-revalidate) + localStorage 1h TTL â€” shows cached immediately, fetches fresh in background
 
 ## Cross-refs
 

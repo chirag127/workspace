@@ -32,14 +32,14 @@ related:
 
 
 
-# Build cache — GitHub Actions cache + pnpm CAS
+# Build cache â€” GitHub Actions cache + pnpm CAS
 
 ## Decision
 
 The family's build-cache strategy is **three layers, picked by
 locality**:
 
-### Layer 1 — pnpm content-addressable global store (per-developer-machine)
+### Layer 1 â€” pnpm content-addressable global store (per-developer-machine)
 
 Already in use family-wide via [`rules/development/use-pnpm.md`](../../../rules/development/use-pnpm.md).
 pnpm hard-links every package version exactly once into `~/.pnpm-store/`
@@ -48,7 +48,7 @@ pnpm hard-links every package version exactly once into `~/.pnpm-store/`
 once across all 11 sites + N packages on a developer's machine.
 Cleared only when disk pressure (or via `pnpm store prune`).
 
-### Layer 2 — GitHub Actions cache (per-repo, free 10 GB)
+### Layer 2 â€” GitHub Actions cache (per-repo, free 10 GB)
 
 Two cache buckets per repo:
 
@@ -85,16 +85,16 @@ hash bucket from the previous one).
 Keyed by config + source-tree hash so source edits invalidate but
 unrelated repo changes don't.
 
-### Layer 3 — REJECTED for now
+### Layer 3 â€” REJECTED for now
 
-- **Turbo Remote Cache** — requires Vercel signup + payment method
+- **Turbo Remote Cache** â€” requires Vercel signup + payment method
   even on the free tier; fights
   [`rules/no-card-on-file.md`](../../../rules/interaction/no-card-on-file.md). Each
   repo is sized that the GH Actions cache is sufficient on its own.
-- **Bazel** — over-engineered for the family's surface (~11 sites + a
+- **Bazel** â€” over-engineered for the family's surface (~11 sites + a
   handful of packages, all on Vite + Astro). Bazel makes sense at
   monorepo scales the family doesn't have.
-- **Nx Cloud** — same Vercel-style signup + paid-past-trial issue as
+- **Nx Cloud** â€” same Vercel-style signup + paid-past-trial issue as
   Turbo.
 
 ## Why
@@ -137,8 +137,8 @@ also need cache + the cross-link to this decision.
 The master `oriz/` repo is a polyrepo-as-submodules pattern
 ([`infrastructure/chrome-extensions-as-submodules.md`](../../infrastructure/chrome-extensions-as-submodules.md)
 + the same posture for sites). Each submodule has its own
-`pnpm-lock.yaml` + its own GH Actions cache budget — meaning the
-10 GB/repo limit is effectively N × 10 GB across the family, never
+`pnpm-lock.yaml` + its own GH Actions cache budget â€” meaning the
+10 GB/repo limit is effectively N Ã— 10 GB across the family, never
 shared, never bottlenecked.
 
 The `pnpm` workspace is per-repo (each site's repo + each package's
@@ -157,7 +157,7 @@ whole family. This is intentional and aligns with
   `node_modules/` + `.pnpm-store/` + `.astro/`; in CI, bump the
   cache key prefix from `pnpm-store-` to `pnpm-store-v2-` to start
   fresh.
-- Stale cache eviction is GitHub's job — entries unused for 7 days
+- Stale cache eviction is GitHub's job â€” entries unused for 7 days
   are auto-evicted. The 10 GB/repo limit pushes oldest first; we
   don't run a manual sweep.
 
@@ -194,6 +194,6 @@ whole family. This is intentional and aligns with
 - [apply-per-site-ci runbook](../../../runbooks/workflow/apply-per-site-ci.md)
 - [GitHub Actions service](../../../services/infra/compute/github-actions.md)
 - [GitHub Actions schedule (cron sibling)](../../../services/business/cron/github-actions-schedule.md)
-- [CF Worker quota mitigation — sibling caching playbook](../compute/cf-worker-quota-mitigation.md)
+- [CF Worker quota mitigation â€” sibling caching playbook](../compute/cf-worker-quota-mitigation.md)
 - [No card-on-file rule](../../../rules/interaction/no-card-on-file.md)
 - [No subscriptions rule](../../../rules/infrastructure/no-subscriptions.md)

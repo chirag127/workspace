@@ -66,22 +66,22 @@ Each API gets `<name>.api.oriz.in`:
 | `oriz-india-holidays-api` | `holidays.api.oriz.in` | TO BUILD |
 | `oriz-currency-rates-api` | `currency.api.oriz.in` | TO BUILD |
 
-CNAME setup at Cloudflare DNS (free tier) — points subdomain to `chirag127.github.io`. GH Pages "Custom domain" field receives the same.
+CNAME setup at Cloudflare DNS (free tier) â€” points subdomain to `chirag127.github.io`. GH Pages "Custom domain" field receives the same.
 
 ## Per-API repo shape
 
 ```
 chirag127/oriz-<name>-api/
 +-- .github/workflows/
-¦   +-- scrape.yml         # GH Action cron scrapes data ? commits to data/
-¦   +-- pages.yml          # GH Pages deploy from /data on push to main
-¦   +-- distribute.yml     # PWABuilder builds APK/MSIX/EXE on tag ? GH Release
+Â¦   +-- scrape.yml         # GH Action cron scrapes data ? commits to data/
+Â¦   +-- pages.yml          # GH Pages deploy from /data on push to main
+Â¦   +-- distribute.yml     # PWABuilder builds APK/MSIX/EXE on tag ? GH Release
 +-- scripts/scrape.mjs     # ~50 LOC node-fetch + cheerio
 +-- data/
-¦   +-- 2026-06-22.json    # daily snapshot
-¦   +-- latest.json        # always-current
+Â¦   +-- 2026-06-22.json    # daily snapshot
+Â¦   +-- latest.json        # always-current
 +-- docs/                  # GH Pages site (Astro static)
-¦   +-- index.astro        # landing + docs + playground
+Â¦   +-- index.astro        # landing + docs + playground
 +-- manifest.webmanifest   # PWA manifest for PWABuilder
 +-- CNAME                  # custom domain
 +-- README.md
@@ -101,7 +101,7 @@ Per API:
 
 New app `oriz-data-aggregator-app` at `c:/D/oriz/repos/oriz/own/prod/apps/content/oriz-data-aggregator-app/`:
 
-- Hosted on Cloudflare Pages (NOT GH Pages — this is the catalog UI, not an API)
+- Hosted on Cloudflare Pages (NOT GH Pages â€” this is the catalog UI, not an API)
 - Lists all 14+ APIs from `FAMILY_APIS` (dynamic registry)
 - Per-API page: docs / schema / live playground / status badge
 - Status check: server-side fetch each API's GH Pages URL daily; flag stale
@@ -124,7 +124,7 @@ User mandate (2026-06-22 evening): "Each of the API will have their own website 
 
 Reason inferred: GH Pages is free + unlimited bandwidth + GH-CDN-cached. No CF Workers consumed. Custom domain works identically. CF Pages stays for full Astro apps; GH Pages is for static data + minimal docs sites.
 
-This is a NARROW exception to the `cloudflare-pages-only.md` rule — applies ONLY to API repos.
+This is a NARROW exception to the `cloudflare-pages-only.md` rule â€” applies ONLY to API repos.
 
 ## Cross-refs
 

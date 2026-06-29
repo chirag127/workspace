@@ -45,7 +45,7 @@ many other methods".
 The user is an Indian-resident sole proprietor with no entity and a
 personal bank account. Maximising payment-method coverage is the
 cheapest growth lever (no extra cost per channel) and the constraint
-to design around is "no entity" — that's why the international rail
+to design around is "no entity" â€” that's why the international rail
 must be merchant-of-record, not Stripe direct.
 
 ## Routing logic
@@ -55,7 +55,7 @@ must be merchant-of-record, not Stripe direct.
 | Indian buyer (geo-detected) | [Razorpay](../../services/business/payment/razorpay.md) primary, [UPI Direct QR](../../services/business/payment/upi-direct.md) fallback on the same page | UPI is dominant; Razorpay covers UPI + cards + netbanking + wallets + EMI + pay-later |
 | Non-Indian buyer | [Lemon Squeezy](../../services/business/payment/lemon-squeezy.md) | Merchant-of-record handles VAT/GST/sales-tax filing for a no-entity seller |
 | Software-license buyer (any geo) | [keygen.sh](../../services/business/payment/keygen-sh.md) issues key after Razorpay/LS/Polar webhook | Decouples key fulfilment from the checkout provider |
-| OSS sponsor / maintainer-funding buyer (any geo) | [Polar.sh](../../services/business/payment/polar-sh.md) — slots between LS and the donations grid as "OSS-friendly checkout" (4% + 40¢ MoR) | Lower fees than LS for the OSS sponsor case + GitHub-native UX |
+| OSS sponsor / maintainer-funding buyer (any geo) | [Polar.sh](../../services/business/payment/polar-sh.md) â€” slots between LS and the donations grid as "OSS-friendly checkout" (4% + 40Â¢ MoR) | Lower fees than LS for the OSS sponsor case + GitHub-native UX |
 | Donation / tip (any geo) | [GitHub Sponsors](../../services/business/payment/github-sponsors.md) + [Ko-fi](../../services/business/payment/ko-fi.md) + [Buy Me a Coffee](../../services/business/payment/buymeacoffee.md) + [Liberapay](../../services/business/payment/liberapay.md) + [Open Collective](../../services/business/payment/opencollective.md) + [PayPal.me](../../services/business/payment/paypal-me.md) + [UPI Direct QR](../../services/business/payment/upi-direct.md) + [crypto addresses](../../services/business/payment/crypto-bitcoinaddr.md) ALL displayed on `/support` | Maximum donor choice; cost of running each is a single button |
 
 ## Methods covered (cumulative)
@@ -65,25 +65,25 @@ netbanking (60+ banks), wallets (PhonePe / Paytm / Mobikwik / Amazon
 Pay / Freecharge), card EMI, no-cost EMI, pay-later (Simpl / LazyPay
 / ICICI Pay Later). Lemon Squeezy adds: international cards, Apple
 Pay, Google Pay, PayPal. Polar.sh adds the OSS-sponsor surface
-(GitHub-integrated tiers + product checkout) at 4% + 40¢ — lower
+(GitHub-integrated tiers + product checkout) at 4% + 40Â¢ â€” lower
 than LS, same MoR posture. Donations add: PayPal F&F, BTC, ETH,
 USDC, recurring weekly/monthly via Liberapay (0% platform), and
 public-ledger sponsorship via Open Collective (transparent fund
 accounting). Static UPI QR adds: any UPI app at zero fee for donations.
 
-## 2026-06-20 update — added Polar.sh + Liberapay + Open Collective
+## 2026-06-20 update â€” added Polar.sh + Liberapay + Open Collective
 
 `/support` now lists **all 12 rails**. Polar.sh slots between
 [Lemon Squeezy](../../services/business/payment/lemon-squeezy.md) and the
-donations grid as "OSS-friendly checkout" — same MoR posture as LS
-but with lower fees (4% + 40¢ vs. 5% + 50¢) and GitHub-native UX
+donations grid as "OSS-friendly checkout" â€” same MoR posture as LS
+but with lower fees (4% + 40Â¢ vs. 5% + 50Â¢) and GitHub-native UX
 better suited to maintainer-sponsorship workflows.
 [Liberapay](../../services/business/payment/liberapay.md) and
 [Open Collective](../../services/business/payment/opencollective.md) sit
 alongside [GitHub Sponsors](../../services/business/payment/github-sponsors.md) /
 [Ko-fi](../../services/business/payment/ko-fi.md) /
 [Buy Me a Coffee](../../services/business/payment/buymeacoffee.md) in the
-donations grid — Liberapay covers recurring-donation-only at 0% fee
+donations grid â€” Liberapay covers recurring-donation-only at 0% fee
 (EU-friendly via SEPA), and Open Collective is the only rail with a
 public expense ledger and US 501(c)(6) tax receipts via the Open
 Source Collective fiscal host. Together they bring rail count from 9
@@ -91,25 +91,25 @@ to 12.
 
 ## Implications
 
-- Geo-detect at checkout time on every paid surface — Cloudflare's
+- Geo-detect at checkout time on every paid surface â€” Cloudflare's
   `cf-ipcountry` header is sufficient (free, no extra service).
 - Webhook handlers exist for both Razorpay AND Lemon Squeezy on the
   Hono Worker; both call keygen.sh to mint keys for license-key
   products.
 - The family-wide `/support` page is a `<Support />` component shipped
-  in `@chirag127/oriz-kit` — single-source-of-truth so adding a
+  in `@chirag127/oriz-kit` â€” single-source-of-truth so adding a
   channel updates every site at once.
 - **NO card-on-file anywhere.** No recurring auto-charge that
   requires a stored card. UPI auto-pay (e-Mandate via Razorpay) is
-  consent-based per-transaction, NOT card-on-file — this is the only
+  consent-based per-transaction, NOT card-on-file â€” this is the only
   recurring rail allowed. See [no-card-on-file rule](../../rules/interaction/no-card-on-file.md).
 - Crypto receipts are tax-reportable under Indian Section 115BBH
   (30% flat + 1% TDS); track inbound for annual filing.
 - PayPal.me inbound to a personal account from international senders
-  triggers FEMA/RBI reporting once aggregate crosses thresholds —
+  triggers FEMA/RBI reporting once aggregate crosses thresholds â€”
   track for filing.
 - UPI Direct inbound > ?10L/year into a personal account triggers
-  income-tax scrutiny — track and report under "income from
+  income-tax scrutiny â€” track and report under "income from
   donations / professional receipts".
 
 ## Cross-refs

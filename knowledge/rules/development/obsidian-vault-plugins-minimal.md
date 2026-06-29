@@ -8,7 +8,7 @@ format_version: okf-v0.1
 status: active
 related:
   - security/personal-notes-public-discipline-2026-06-27
-  - agent-rules/kepano-obsidian-skills-global
+  - rules/agent/kepano-obsidian-skills-global
 ---
 
 # Obsidian vault: minimal plugin set

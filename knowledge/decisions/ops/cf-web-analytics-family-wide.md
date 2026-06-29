@@ -25,7 +25,7 @@ related:
 
 
 
-# Cloudflare Web Analytics — single SITE_TAG family-wide
+# Cloudflare Web Analytics â€” single SITE_TAG family-wide
 
 ## Scope
 
@@ -67,7 +67,7 @@ Each repo's `docs/index.astro` (or `index.html`) gets the same snippet hardcoded
 CFWA dashboard groups all traffic under one site_tag but lets you filter by hostname. So:
 - One dashboard to monitor 80+ surfaces
 - Cross-app traffic comparison trivial
-- New apps don't need a new site_tag — just match against `*.oriz.in`
+- New apps don't need a new site_tag â€” just match against `*.oriz.in`
 
 This matches Rule 15: shared-tenant-by-default.
 

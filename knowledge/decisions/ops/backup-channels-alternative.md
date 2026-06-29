@@ -69,7 +69,7 @@ GitHub offers a native migration API that generates a single, downloadable `.tar
 
 ---
 
-## 2. Cloudflare R2 (10 GB S3-Compatible Free Storage) — **PREFERRED**
+## 2. Cloudflare R2 (10 GB S3-Compatible Free Storage) â€” **PREFERRED**
 
 Cloudflare R2 provides a free-tier object storage bucket with zero egress fees, making it the perfect remote archive repository for backup bundles.
 
@@ -93,7 +93,7 @@ Since R2 is S3-compatible, the pre-installed `aws` CLI on GitHub runners can cop
 
 ---
 
-## 3. Backblaze B2 (10 GB Free Storage) — **SECONDARY**
+## 3. Backblaze B2 (10 GB Free Storage) â€” **SECONDARY**
 
 Backblaze B2 is an alternative object storage option offering a free-forever tier without requiring a credit card.
 
@@ -109,7 +109,7 @@ rclone copy backup.tar.gz b2:oriz-backups-bucket/ -v
 
 ---
 
-## 4. Hugging Face Datasets — **AVOID for generic file backup**
+## 4. Hugging Face Datasets â€” **AVOID for generic file backup**
 
 **?? CAVEAT 2026-06-24**: Hugging Face's "free unlimited" hosting is intended for **public ML datasets and model weights**. Using HF Datasets as a generic file backup target for tarballs / metadata archives:
 
@@ -139,7 +139,7 @@ For custom metadata extraction (saving issues/PRs as readable JSON rather than b
 
 **Default channel**: Native GitHub Migration API ? Cloudflare R2 weekly. R2's zero egress + 10 GB free + S3-compatible CLI makes it the cleanest path. Use B2 as a secondary mirror only if you've outgrown R2's 10 GB.
 
-**Skip HF Datasets** for this purpose — not designed for it, real ToS risk.
+**Skip HF Datasets** for this purpose â€” not designed for it, real ToS risk.
 
 ## Cross-refs
 

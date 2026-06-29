@@ -10,8 +10,8 @@ supersedes:
   - infrastructure/hosting-split-cf-and-gh-2026-06-25
   - decisions/fleet/multi-git-mirror-and-auto-start-2026-06-28
 related:
-  - agent-rules/preferences/always-search-twice-before-deciding
-  - agent-rules/preferences/dont-recreate-what-exists-freely
+  - rules/agent/preferences/always-search-twice-before-deciding
+  - rules/agent/preferences/dont-recreate-what-exists-freely
 ---
 
 # Hosting migration to GitHub Pages + analytics-everywhere
@@ -20,7 +20,7 @@ related:
 
 **All static API sites move from Cloudflare Pages to GitHub Pages.** Cloudflare DNS is retained (no change). Each API repo gets a GitHub Pages site at `<subdomain>.oriz.in` via CNAME.
 
-**Analytics + observability stack on every page** (shared via the `@oriz-org-fleet/api-fleet-template-astro-integration` package — long descriptive names per user preference 2026-06-28):
+**Analytics + observability stack on every page** (shared via the `@oriz-org-fleet/api-fleet-template-astro-integration` package â€” long descriptive names per user preference 2026-06-28):
 
 | Service | Purpose | Tier |
 |---|---|---|
@@ -34,7 +34,7 @@ All IDs/DSNs stored as **GitHub org-level secrets** on `oriz-org` (per existing 
 
 ## Why
 
-1. **Cloudflare Pages free plan caps at 100 projects.** We have 6 deployed (rto/constants/ragas/dynasties/countries-plus + the killed api-fleet-landing) and growing. GitHub Pages has no per-account project cap — every public repo gets a Pages site for free.
+1. **Cloudflare Pages free plan caps at 100 projects.** We have 6 deployed (rto/constants/ragas/dynasties/countries-plus + the killed api-fleet-landing) and growing. GitHub Pages has no per-account project cap â€” every public repo gets a Pages site for free.
 2. **Cloudflare OAuth scopes via wrangler login** don't include `dns_records:write`. The DNS step kept needing either the workspace-level `CLOUDFLARE_API_TOKEN` env var (which appeared in tool output, prompting concern) or manual dashboard work. GitHub Pages + CNAME is fully scriptable via `gh` CLI which we already have authed.
 3. **GitHub Pages is the natural home for OSS data APIs.** Each API repo is already on GitHub; the Pages site is a build-and-publish step away. No second platform to wire.
 4. **Analytics everywhere** because the spirit of the family is "instrument everything we ship" (analytics stay inline per `atomic-packages-lazy`). All 5 services have generous free tiers and don't need a credit card.
@@ -53,14 +53,14 @@ Long, descriptive names everywhere going forward. Examples:
 
 ## Implementation phases
 
-### Phase 1 — Delete Cloudflare Pages projects + remove custom domains
+### Phase 1 â€” Delete Cloudflare Pages projects + remove custom domains
 
 For each of rto-api, constants-api, ragas-api, dynasties-api, countries-plus-api, api-fleet-landing:
 
 1. `wrangler pages project delete <project-name>` (removes the Pages project)
-2. CNAME records `<slug>.oriz.in` stay pointing at `<slug>-api.pages.dev` BRIEFLY (so URLs don't die during migration) — flip them to `oriz-org.github.io` once GH Pages is live for that repo.
+2. CNAME records `<slug>.oriz.in` stay pointing at `<slug>-api.pages.dev` BRIEFLY (so URLs don't die during migration) â€” flip them to `oriz-org.github.io` once GH Pages is live for that repo.
 
-### Phase 2 — Set up GitHub Pages for each repo
+### Phase 2 â€” Set up GitHub Pages for each repo
 
 For each existing API repo:
 
@@ -78,11 +78,11 @@ For each existing API repo:
 6. Verify subdomain works
 7. Then run Phase 1 for that repo
 
-### Phase 3 — npm package for analytics injection
+### Phase 3 â€” npm package for analytics injection
 
-`@oriz-org-fleet/analytics-injector-google-microsoft-posthog-sentry-cloudflare-multi-provider` — a small package that takes config + env vars and returns the `<script>` tags to inject. Consumed by `@oriz-org-fleet/api-fleet-template-astro-integration` so every site auto-gets all 5 providers.
+`@oriz-org-fleet/analytics-injector-google-microsoft-posthog-sentry-cloudflare-multi-provider` â€” a small package that takes config + env vars and returns the `<script>` tags to inject. Consumed by `@oriz-org-fleet/api-fleet-template-astro-integration` so every site auto-gets all 5 providers.
 
-### Phase 4 — Org-level secret seeding
+### Phase 4 â€” Org-level secret seeding
 
 GitHub org `oriz-org` -> Settings -> Secrets and variables -> Actions. Add:
 
@@ -95,7 +95,7 @@ GitHub org `oriz-org` -> Settings -> Secrets and variables -> Actions. Add:
 
 Repos opt in to using these via repo-level workflow inheritance.
 
-### Phase 5 — Fleet landing (api.oriz.in)
+### Phase 5 â€” Fleet landing (api.oriz.in)
 
 Rebuild `oriz-org/api-fleet-landing` for GH Pages instead of CF Pages. Same Astro static site, different deploy target.
 

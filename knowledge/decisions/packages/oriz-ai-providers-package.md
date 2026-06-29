@@ -46,28 +46,28 @@ Add **`@chirag127/oriz-ai-providers`** as the 18th package in the family. Its jo
 ## Providers list (as of 2026-06-22)
 
 ### Tier 1: Anonymous (no key, no signup, no card)
-1. **OVHcloud AI Endpoints** — 2 RPM per IP per model, EU-hosted, 20+ models (Qwen3.5, gpt-oss, Llama 3.3, Mistral)
-2. **LLM7.io** — 30 RPM per IP, 30+ models (deepseek-r1, gpt-4o-mini, gemini-2.5-flash-lite, etc.)
-3. **Pollinations** — anonymous gpt-oss-20b
+1. **OVHcloud AI Endpoints** â€” 2 RPM per IP per model, EU-hosted, 20+ models (Qwen3.5, gpt-oss, Llama 3.3, Mistral)
+2. **LLM7.io** â€” 30 RPM per IP, 30+ models (deepseek-r1, gpt-4o-mini, gemini-2.5-flash-lite, etc.)
+3. **Pollinations** â€” anonymous gpt-oss-20b
 
 ### Tier 2: Free with no-card signup
-4. **Cerebras** — 30 RPM + 1M TPD, ultra-fast (~2,600 tok/s), gpt-oss-120b + Llama 3.1 8B
-5. **Groq Cloud** — 30 RPM + 1,000 RPD, llama-3.3-70b-versatile (faster than NIM)
-6. **NVIDIA NIM** — 40 RPM, 100+ models, requires phone verification
-7. **Google AI Studio** — Gemini 2.5 / 3.x Flash, 5-15 RPM + 20-1,500 RPD per model (free outside EU/UK/Switzerland)
-8. **Cohere** — 20 RPM + 1,000 req/month, Command A+ / R+ (non-commercial only)
-9. **GitHub Models** — 10-15 RPM + 50-150 RPD, GPT-5 / GPT-4.1 / o4-mini, free with Copilot tier
-10. **Cloudflare Workers AI** — 10K neurons/day, Llama 3.3 70B FP8 / GPT-OSS / Qwen3
-11. **HuggingFace** — 100K credits/mo, router to Fireworks/Together/Hyperbolic, thousands of models
-12. **Mistral La Plateforme** — 500K TPM + ~1B tokens/month (Experiment plan), Mistral Medium 3.5 / Codestral
-13. **SambaNova** — 20 RPM + 200K TPD, DeepSeek V3.1 + Llama 3.3 70B
-14. **OpenRouter** — 20 RPM + 200 RPD per :free model (Llama 3.3 70B, Qwen3-Coder, Nemotron-Ultra-550B)
-15. **Z.AI (Zhipu)** — GLM-4.7-Flash + GLM-4.6V-Flash (Chinese provider)
-16. **SiliconFlow** — Qwen3-8B + DeepSeek-R1-Distill (Chinese)
-17. **Aion Labs** — 15 RPM + 20K TPD, roleplay-specialized
-18. **Ollama Cloud** — qualitative usage, 400+ Ollama-hosted models (not OpenAI SDK)
-19. **ModelScope** — 2,000 RPD, Qwen3.5-35B-A3B + Qwen3.5-27B (requires Alibaba real-name)
-20. **Kilo Code** — auto-router free models
+4. **Cerebras** â€” 30 RPM + 1M TPD, ultra-fast (~2,600 tok/s), gpt-oss-120b + Llama 3.1 8B
+5. **Groq Cloud** â€” 30 RPM + 1,000 RPD, llama-3.3-70b-versatile (faster than NIM)
+6. **NVIDIA NIM** â€” 40 RPM, 100+ models, requires phone verification
+7. **Google AI Studio** â€” Gemini 2.5 / 3.x Flash, 5-15 RPM + 20-1,500 RPD per model (free outside EU/UK/Switzerland)
+8. **Cohere** â€” 20 RPM + 1,000 req/month, Command A+ / R+ (non-commercial only)
+9. **GitHub Models** â€” 10-15 RPM + 50-150 RPD, GPT-5 / GPT-4.1 / o4-mini, free with Copilot tier
+10. **Cloudflare Workers AI** â€” 10K neurons/day, Llama 3.3 70B FP8 / GPT-OSS / Qwen3
+11. **HuggingFace** â€” 100K credits/mo, router to Fireworks/Together/Hyperbolic, thousands of models
+12. **Mistral La Plateforme** â€” 500K TPM + ~1B tokens/month (Experiment plan), Mistral Medium 3.5 / Codestral
+13. **SambaNova** â€” 20 RPM + 200K TPD, DeepSeek V3.1 + Llama 3.3 70B
+14. **OpenRouter** â€” 20 RPM + 200 RPD per :free model (Llama 3.3 70B, Qwen3-Coder, Nemotron-Ultra-550B)
+15. **Z.AI (Zhipu)** â€” GLM-4.7-Flash + GLM-4.6V-Flash (Chinese provider)
+16. **SiliconFlow** â€” Qwen3-8B + DeepSeek-R1-Distill (Chinese)
+17. **Aion Labs** â€” 15 RPM + 20K TPD, roleplay-specialized
+18. **Ollama Cloud** â€” qualitative usage, 400+ Ollama-hosted models (not OpenAI SDK)
+19. **ModelScope** â€” 2,000 RPD, Qwen3.5-35B-A3B + Qwen3.5-27B (requires Alibaba real-name)
+20. **Kilo Code** â€” auto-router free models
 
 ## Priority order (default fallback chain)
 
@@ -100,7 +100,7 @@ For vision/multimodal:
 ```
 providers.json    # one entry per provider
 models.json       # one entry per model (with provider link)
-rate-limits.json  # provider × model × tier
+rate-limits.json  # provider Ã— model Ã— tier
 env-vars.json     # which env var maps to which provider
 signup-urls.json  # for the README + onboarding doc
 priority.json     # default fallback chain (the order above)
@@ -136,12 +136,12 @@ The wrapper:
 
 Adding this package brings the family count to **18 packages** (was 17 per `the-23-packages.md`). Rename + update count in:
 - `knowledge/architecture/the-23-packages.md` ? `the-23-packages.md` (rename via `git mv` to keep history)
-- `knowledge/services/family-inventory.md` — bump count
+- `knowledge/services/family-inventory.md` â€” bump count
 - AGENTS.md "Where to look" if referenced
 
 ## Supersedes in part
 
-`decisions/architecture/stack-picks-2026-06-22.md` — its "AI inference" section named NIM primary + OpenRouter fallback only. That's now superseded by this decision (priority chain in this file). Update that file to point here.
+`decisions/architecture/stack-picks-2026-06-22.md` â€” its "AI inference" section named NIM primary + OpenRouter fallback only. That's now superseded by this decision (priority chain in this file). Update that file to point here.
 
 ## Cross-refs
 

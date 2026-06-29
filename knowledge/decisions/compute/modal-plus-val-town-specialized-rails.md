@@ -34,7 +34,7 @@ related:
 - **$30/month recurring credits** (refreshed monthly, not one-time signup grant)
 - ~50 T4-hours/mo at $0.59/hr, ~7.6 H100-hours/mo at $3.95/hr
 - Generic "compute" budget applies to GPU, CPU, memory, volume storage all in one wallet
-- Signup via GitHub OAuth — **no card required at signup**
+- Signup via GitHub OAuth â€” **no card required at signup**
 - Card enforced only when usage exceeds $30 free credit
 - **Workspace budget cap** is a first-class feature: set to $0 to stay strictly free
 
@@ -46,7 +46,7 @@ related:
 - Anything GPU that Workers AI's 10K Neurons/day can't cover
 
 ### When NOT to use
-- Real-time HTTP requests (use Workers / Deno — Modal cold starts are slow)
+- Real-time HTTP requests (use Workers / Deno â€” Modal cold starts are slow)
 - Anything in the 4-rail HTTP fallback chain
 - Anything that fits in Workers AI free quota (use that first)
 

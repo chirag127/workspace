@@ -1,6 +1,6 @@
 ---
 type: decision
-title: "Three-tier pricing: Free / Pro / Max — single package, minimum manual work, community-support only"
+title: "Three-tier pricing: Free / Pro / Max â€” single package, minimum manual work, community-support only"
 description: 3 tiers Free/Pro/Max. Single @chirag127/astro-billing package
 tags: [decision, pricing, tiers, free, pro, max, single-package, minimum-manual]
 timestamp: 2026-06-22
@@ -25,19 +25,19 @@ related:
 | **Ads (AdSense + AdMob)** | shown | hidden | hidden |
 | **PWA install / offline static content** | ? | ? | ? |
 | **Family SSO across all 26 apps** | ? | ? | ? |
-| **Cross-device sync** (history, bookmarks, theme) | — | ? | ? |
-| **Custom themes** (light/dark/HC + custom palette) | — | ? | ? |
+| **Cross-device sync** (history, bookmarks, theme) | â€” | ? | ? |
+| **Custom themes** (light/dark/HC + custom palette) | â€” | ? | ? |
 | **Multi-format export** (PDF / CSV / JSON / XLSX) | limited | full | full |
 | **Usage caps on tools** (PDF merges, image converts, etc.) | 10/day | 100/day | unlimited |
 | **AI features in apps** (chatbot, summarize, rewrite) | 10/day free-providers only | 50/day free-providers | unlimited + premium models |
 | **AI rate limit** | shared free-provider pool | dedicated free-provider quota | premium models + dedicated quota |
-| **Early access to new tools** | — | — | ? (30 days before Free) |
-| **API access to oriz services** (REST) | — | — | ? |
-| **Pro badge in community** (Giscus comments) | — | ? | ? (Max badge) |
-| **Free books bundle** | — | — | ? (1 book/year for Yearly Pro/Max) |
+| **Early access to new tools** | â€” | â€” | ? (30 days before Free) |
+| **API access to oriz services** (REST) | â€” | â€” | ? |
+| **Pro badge in community** (Giscus comments) | â€” | ? | ? (Max badge) |
+| **Free books bundle** | â€” | â€” | ? (1 book/year for Yearly Pro/Max) |
 | **Support** | community (Giscus/Discord) | community + GH issue priority | community + GH issue priority + direct DM |
 
-## Pricing — NO LIFETIME (monthly + yearly only, per 2026-06-22 grill update)
+## Pricing â€” NO LIFETIME (monthly + yearly only, per 2026-06-22 grill update)
 
 | Tier | Monthly INR | Yearly INR |
 |---|---|---|
@@ -45,7 +45,7 @@ related:
 | **Pro** | ?99 | ?799 |
 | **Max** | ?299 | ?2,499 |
 
-USD via Paddle (auto-converted): Pro ~$1.19/mo · $9.59/yr · Max ~$3.59/mo · $30/yr.
+USD via Paddle (auto-converted): Pro ~$1.19/mo Â· $9.59/yr Â· Max ~$3.59/mo Â· $30/yr.
 
 **Lifetime tier DROPPED 2026-06-22.** Reason: subscription is the standard for SaaS; lifetime locks predictable revenue. Reintroducible later if user demand emerges.
 |---|---|---|---|
@@ -53,7 +53,7 @@ USD via Paddle (auto-converted): Pro ~$1.19/mo · $9.59/yr · Max ~$3.59/mo · $30/
 | **Pro** | ?99 | ?799 |
 | **Max** | ?299 | ?2,499 |
 
-USD via Paddle (auto-converted): Pro ~$1.19/mo · $9.59/yr · Max ~$3.59/mo · $30/yr.
+USD via Paddle (auto-converted): Pro ~$1.19/mo Â· $9.59/yr Â· Max ~$3.59/mo Â· $30/yr.
 
 ## Cross-refs
 

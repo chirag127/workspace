@@ -37,7 +37,7 @@ Cloudflare's own docs say: "if the logic is used by more than one
 application, Pages Functions would not be a good use case." Pages
 Functions can't use Cloudflare Secrets Store, and splitting the
 same auth / CORS / reCAPTCHA verification across 11 sites' Functions
-would 11× duplicate the code without buying any quota relief
+would 11Ã— duplicate the code without buying any quota relief
 (100K req/day is per-account regardless). One umbrella Worker is
 the obvious centralisation.
 
@@ -55,5 +55,5 @@ the obvious centralisation.
 - [Hono RPC for type sharing](./hono-rpc-for-type-sharing.md)
 - [firebase-rest-firestore not admin](../database/firebase-rest-firestore-not-admin.md)
 - [API umbrella Hono Worker architecture](api-umbrella-hono-worker.md)
-- [Layer 5 — Compute architecture](../general/layer-5-compute.md)
+- [Layer 5 â€” Compute architecture](../general/layer-5-compute.md)
 - [AGENTS.md API layer section](../../../../AGENTS.md)

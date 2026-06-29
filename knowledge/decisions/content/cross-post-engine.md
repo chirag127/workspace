@@ -24,14 +24,14 @@ related:
 
 
 
-# RSS-driven cross-post engine — oriz-omnipost
+# RSS-driven cross-post engine â€” oriz-omnipost
 
 ## Decision
 
 `@chirag127/post-site` is the family's single cross-poster. It
 reads the canonical RSS feed at `blog.oriz.in/rss.xml`, diffs against
 its persisted state, and fans each new entry out to every supported
-blogging platform via a pluggable **Adapter pattern** — one adapter
+blogging platform via a pluggable **Adapter pattern** â€” one adapter
 per platform (dev.to, Hashnode, Medium-via-Friend, Substack-API-when-
 public, etc.). Each post on an external platform carries a
 `canonical_url` pointing back to the original at `blog.oriz.in/<slug>`.
@@ -42,7 +42,7 @@ short-link Worker (`s.oriz.in`, see
 [`services/business/short-link/cloudflare-worker.md`](../../../services/business/short-link/cloudflare-worker.md)).
 Platforms with no API are not used at all.
 
-Each blog post is **self-contained** — series ARE allowed, but every
+Each blog post is **self-contained** â€” series ARE allowed, but every
 part of a series is independently readable and links to the canonical
 landing page on `blog.oriz.in` (NOT to other parts of the series on
 external platforms). The series-as-rabbit-hole stays exclusive to the
@@ -51,20 +51,20 @@ canonical site.
 ## Why
 
 User direction (verbatim 2026-06-20): *"Cross post to all of the
-blogging platform possible … If the website don't support the API
-then don't use it … if the data platform don't allow too much content
+blogging platform possible â€¦ If the website don't support the API
+then don't use it â€¦ if the data platform don't allow too much content
 then we will post the link of our website blogging website as a short
-link … currently many blogs are a series of blogs. I want each blog
-has single blog only so that they are self content … There can be
+link â€¦ currently many blogs are a series of blogs. I want each blog
+has single blog only so that they are self content â€¦ There can be
 series of blogs but they will link to the initial website,
-blog.oriz.in only … Every best pattern should be used … taking the
+blog.oriz.in only â€¦ Every best pattern should be used â€¦ taking the
 RSS feed and putting it to all of the platform."*
 
 The family writes blogs once on `blog.oriz.in`. Cross-posting to where
 readers already live (dev.to, Hashnode, etc.) raises reach without
 splitting authorship. Canonical URL on every cross-post preserves SEO
 authority. RSS as the source-of-truth means the engine is decoupled
-from the blog site's framework — any future migration of
+from the blog site's framework â€” any future migration of
 oriz-blog-site doesn't break distribution.
 
 ## Implications
@@ -73,51 +73,51 @@ oriz-blog-site doesn't break distribution.
 
 - **Source**: `blog.oriz.in/rss.xml` (RSS 2.0 with full content + canonical URL + tags + cover image).
 - **Trigger**: GitHub Actions cron on `oriz-omnipost` repo, runs every 30 minutes; also a webhook from oriz-blog-site's deploy hook for low-latency.
-- **Persisted state**: a `state.json` (or `state.jsonl`) committed back to the repo, listing `{ guid, postedAt, adapterResults: { [adapter]: { id, url, status } } }` per article. Keeps the engine **idempotent** — never reposts the same item.
+- **Persisted state**: a `state.json` (or `state.jsonl`) committed back to the repo, listing `{ guid, postedAt, adapterResults: { [adapter]: { id, url, status } } }` per article. Keeps the engine **idempotent** â€” never reposts the same item.
 - **Adapter interface** (TypeScript): `interface Adapter { name: string; supports: { maxLengthChars?: number; markdown: 'mdx'|'gfm'|'commonmark'|'plain'; canonicalUrl: boolean }; post(article: Article): Promise<PostResult> }`.
-- **Engine entry**: `runRssCrossPost(feedUrl, adapters, state)` — pure function for testability; CLI binary wraps it.
+- **Engine entry**: `runRssCrossPost(feedUrl, adapters, state)` â€” pure function for testability; CLI binary wraps it.
 
 ### Best-practice pattern bundle (user: "Every best pattern should be used")
 
-- **Adapter pattern** — one file per platform under `src/adapters/`.
-- **Strategy pattern** for short-link fallback — adapters opt-in via a `truncationStrategy: 'fail'|'short-link'|'teaser'` flag.
-- **Idempotency key** — RSS `<guid>` (falls back to canonical URL).
-- **Retry-with-exponential-backoff** — 3 attempts per adapter per run, 1s/4s/16s; failures escalate to a dead-letter list in state.
-- **Dead-letter** — failed entries logged to `state.json` under `failed: []` with last error; surfaced in CI summary.
-- **Observability** — Sentry breadcrumb per adapter, structured JSON logs (compatible with [Axiom](../../../services/business/tooling/axiom.md)), `--dry-run` flag prints planned actions without firing.
-- **Test-per-adapter** — every adapter has a vitest spec using `msw` to mock its API.
-- **SemVer** — adapters can be added in minor releases; breaking changes to the engine entry are major.
-- **Secrets** — every adapter reads tokens from env vars (`OMNIPOST_DEVTO_TOKEN`, `OMNIPOST_HASHNODE_TOKEN`, …). No tokens in state.json.
-- **Canonical URL** — emitted on every adapter (dev.to `canonical_url`, Hashnode `canonicalUrl`, etc.). Adapters that can't set it are flagged `unsupported` and skipped unless explicitly opted in.
+- **Adapter pattern** â€” one file per platform under `src/adapters/`.
+- **Strategy pattern** for short-link fallback â€” adapters opt-in via a `truncationStrategy: 'fail'|'short-link'|'teaser'` flag.
+- **Idempotency key** â€” RSS `<guid>` (falls back to canonical URL).
+- **Retry-with-exponential-backoff** â€” 3 attempts per adapter per run, 1s/4s/16s; failures escalate to a dead-letter list in state.
+- **Dead-letter** â€” failed entries logged to `state.json` under `failed: []` with last error; surfaced in CI summary.
+- **Observability** â€” Sentry breadcrumb per adapter, structured JSON logs (compatible with [Axiom](../../../services/business/tooling/axiom.md)), `--dry-run` flag prints planned actions without firing.
+- **Test-per-adapter** â€” every adapter has a vitest spec using `msw` to mock its API.
+- **SemVer** â€” adapters can be added in minor releases; breaking changes to the engine entry are major.
+- **Secrets** â€” every adapter reads tokens from env vars (`OMNIPOST_DEVTO_TOKEN`, `OMNIPOST_HASHNODE_TOKEN`, â€¦). No tokens in state.json.
+- **Canonical URL** â€” emitted on every adapter (dev.to `canonical_url`, Hashnode `canonicalUrl`, etc.). Adapters that can't set it are flagged `unsupported` and skipped unless explicitly opted in.
 
 ### Single-blog rule
 
-- Every post on `blog.oriz.in` is self-contained — readable without prerequisites.
+- Every post on `blog.oriz.in` is self-contained â€” readable without prerequisites.
 - Series ARE allowed but each part links **only** back to the canonical landing page on `blog.oriz.in` (e.g. `/series/<series-slug>`), not to sibling parts on dev.to / Hashnode.
 - Cross-posted parts include a **"Read the full series on blog.oriz.in"** call-out at the end (rendered by the engine, not authored per-post).
 
 ### Short-link fallback
 
 - Platforms with `maxLengthChars` lower than the post's plain-text length receive a **teaser + short link** payload instead of the full body.
-- Short link served by [`s.oriz.in`](../../../services/business/short-link/cloudflare-worker.md) (Cloudflare Worker). Each cross-post mints a unique short slug — useful for click attribution per platform.
+- Short link served by [`s.oriz.in`](../../../services/business/short-link/cloudflare-worker.md) (Cloudflare Worker). Each cross-post mints a unique short slug â€” useful for click attribution per platform.
 - Adapters whose `truncationStrategy` is `'fail'` simply skip and log; never silently truncate.
 
-### Platform list (adapter status — research agent's output merges later)
+### Platform list (adapter status â€” research agent's output merges later)
 
 Initial stubs in `packages/oriz-omnipost/src/adapters/`:
 
-- `dev-to.ts` (status: stub) — dev.to has a public Articles API + canonical URL.
-- `hashnode.ts` (status: stub) — Hashnode GraphQL API + canonical URL.
-- `short-link-fallback.ts` (status: stub) — generic adapter that posts only a short link to a configured target.
+- `dev-to.ts` (status: stub) â€” dev.to has a public Articles API + canonical URL.
+- `hashnode.ts` (status: stub) â€” Hashnode GraphQL API + canonical URL.
+- `short-link-fallback.ts` (status: stub) â€” generic adapter that posts only a short link to a configured target.
 
 Real implementations land in a follow-up pass. Substack, Medium,
 LinkedIn, Mastodon, Bluesky, Telegram, Reddit etc. are evaluated then.
 
 ### What we don't do
 
-- **No scraping or browser automation** — if a platform has no API, it's skipped. No Playwright, no agent-browser.
-- **No card-on-file** for any cross-post platform — per [no-card-on-file](../../../rules/interaction/no-card-on-file.md). Free tiers only.
-- **No content rewrite** — the engine doesn't paraphrase, summarise, or use AI to rephrase. The MDX ? adapter-native conversion is purely structural (e.g. MDX ? GFM strip-jsx).
+- **No scraping or browser automation** â€” if a platform has no API, it's skipped. No Playwright, no agent-browser.
+- **No card-on-file** for any cross-post platform â€” per [no-card-on-file](../../../rules/interaction/no-card-on-file.md). Free tiers only.
+- **No content rewrite** â€” the engine doesn't paraphrase, summarise, or use AI to rephrase. The MDX ? adapter-native conversion is purely structural (e.g. MDX ? GFM strip-jsx).
 
 ## Cross-refs
 

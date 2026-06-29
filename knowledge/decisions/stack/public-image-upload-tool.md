@@ -27,7 +27,7 @@ related:
 
 
 
-# Public image-upload tool — gated by tier
+# Public image-upload tool â€” gated by tier
 
 ## Scope
 
@@ -66,8 +66,8 @@ If 2/5 hosts survive, the image is still served via first-200-wins read path. So
 ## Implementation
 
 Lives in `repos/oriz/own/prod/apps/tools/oriz-pixie-image-tools-app/`:
-- `src/pages/upload.astro` — the public upload page
-- Uses `import { uploadPhoto } from '@chirag127/oriz-image-pipeline'` (extracted from journal-app's lib/photos.ts into a shared npm package — TODO)
+- `src/pages/upload.astro` â€” the public upload page
+- Uses `import { uploadPhoto } from '@chirag127/oriz-image-pipeline'` (extracted from journal-app's lib/photos.ts into a shared npm package â€” TODO)
 - reCAPTCHA v3 site key via `PUBLIC_RECAPTCHA_SITE_KEY` (already in .env)
 - Firestore quota check: `getDoc(doc(db, 'users', uid))` ? `image_uploads_today` field reset daily by Cloud Function or client-side timestamp comparison
 

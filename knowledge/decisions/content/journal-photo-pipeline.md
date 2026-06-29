@@ -27,7 +27,7 @@ related:
 
 
 
-# Journal photo pipeline — 4-host replicate-everywhere
+# Journal photo pipeline â€” 4-host replicate-everywhere
 
 The journal app's photo upload was Firebase-Storage-only. Firebase Storage requires Blaze (card on file) at any non-trivial scale and concentrates all photo durability on one provider. We migrated to the family's [4-host image CDN pattern](../../../runbooks/free-hosting-providers/image-cdn.md) so:
 
@@ -39,16 +39,16 @@ The journal app's photo upload was Firebase-Storage-only. Firebase Storage requi
 
 ```
 Drop / paste image in TipTap editor
-  ¦
+  Â¦
   ?
 optimizeImage()              canvas ? WebP (q=0.82) =2048px long edge,
                              JPEG (q=0.85) fallback. ORIGINAL never stored.
-  ¦
+  Â¦
   ?
 sha256(blob)                 used as Photo.id + as GH-Releases asset name
-                             (cross-entry dedup — same file uploaded twice
+                             (cross-entry dedup â€” same file uploaded twice
                              collapses to one GH asset via 422-recovery).
-  ¦
+  Â¦
   ?
 Promise.allSettled([
   uploadToCloudinary(blob),         POST /v1_1/<name>/image/upload (unsigned)
@@ -57,33 +57,33 @@ Promise.allSettled([
   uploadToImgbb(blob),              POST api.imgbb.com/1/upload?key=...
   uploadToGhReleases(blob, sha),    POST monthly release asset
 ])
-  ¦
+  Â¦
   ?
 Require =2 hosts succeed                If <2 ? throw, TipTap surfaces error.
-  ¦
+  Â¦
   ?
 Photo { id, urls: { cloudinary?, imagekit?, imgbb?, ghRelease? },
         bytes, sha256, createdAt }     persisted on Entry.photos[]
-  ¦
+  Â¦
   ?
 TipTap embeds primary URL in <img src>   ImageKit > Cloudinary > imgbb > GH
 ```
 
 ## Read path
 
-`readPhotoUrl(photo)` does a parallel HEAD race; first 200 wins. Order doesn't affect the outcome, but if all four fail we return the first candidate so the `<img>` at least has *something* to render (the browser will surface a broken-image icon — better than blocking).
+`readPhotoUrl(photo)` does a parallel HEAD race; first 200 wins. Order doesn't affect the outcome, but if all four fail we return the first candidate so the `<img>` at least has *something* to render (the browser will surface a broken-image icon â€” better than blocking).
 
 Accepts three shapes for backward compat:
 
-- `string` — raw URL (oldest legacy)
-- `{ url: string }` — single-host legacy
-- `Photo` — new shape
+- `string` â€” raw URL (oldest legacy)
+- `{ url: string }` â€” single-host legacy
+- `Photo` â€” new shape
 
 ## Entry schema change
 
 `Entry.photos?: PhotoRecord[]` was added next to the existing `photoUrls: string[]`. We keep `photoUrls` because:
 
-- TipTap embeds img tags with a single src — `photoUrls` is a cheap derived index of those srcs.
+- TipTap embeds img tags with a single src â€” `photoUrls` is a cheap derived index of those srcs.
 - Legacy entries (Firebase-Storage era) only have `photoUrls`. The new code reads either.
 - Querying "entries with any photos" stays a simple `photoUrls != []` check.
 
@@ -94,8 +94,8 @@ Accepts three shapes for backward compat:
 The image-cdn runbook lists five candidates (4 + Uploadcare). We use four because:
 
 - Uploadcare is technically a perma-trial and silently upgrades to Pro if a card is ever added. We don't want a footgun in the auth path.
-- Four uncorrelated rails is the sweet spot — three felt tight (cascading bad month on Cloudinary + ImageKit isn't impossible), five was diminishing returns.
-- imgbb has no signed delete API. We accept that — see "Deletion" below.
+- Four uncorrelated rails is the sweet spot â€” three felt tight (cascading bad month on Cloudinary + ImageKit isn't impossible), five was diminishing returns.
+- imgbb has no signed delete API. We accept that â€” see "Deletion" below.
 - GH Releases is the durability anchor (same uptime profile as the rest of GitHub).
 
 ## Env vars
@@ -103,11 +103,11 @@ The image-cdn runbook lists five candidates (4 + Uploadcare). We use four becaus
 | Key | Where | Notes |
 |---|---|---|
 | `PUBLIC_CLOUDINARY_CLOUD_NAME` | client | from dashboard |
-| `PUBLIC_CLOUDINARY_UPLOAD_PRESET` | client | unsigned preset — no admin key in browser |
+| `PUBLIC_CLOUDINARY_UPLOAD_PRESET` | client | unsigned preset â€” no admin key in browser |
 | `PUBLIC_IMAGEKIT_PUBLIC_KEY` | client | public-key half of the pair |
 | `PUBLIC_IMAGEKIT_URL_ENDPOINT` | client | `https://ik.imagekit.io/<id>` |
-| `IMAGEKIT_PRIVATE_KEY` | Pages Function only | HMAC-SHA1 signature — NEVER in client bundle |
-| `PUBLIC_IMGBB_API_KEY` | client | public-uploads-only — fine in browser |
+| `IMAGEKIT_PRIVATE_KEY` | Pages Function only | HMAC-SHA1 signature â€” NEVER in client bundle |
+| `PUBLIC_IMGBB_API_KEY` | client | public-uploads-only â€” fine in browser |
 | `PUBLIC_GH_RELEASES_REPO` | client *or* function | `chirag127/oriz-image-cdn` |
 | `GH_RELEASES_TOKEN` | Pages Function / migration script | PAT with `contents:write` |
 
@@ -115,7 +115,7 @@ ImageKit signature flow:
 
 ```
 Browser  --POST--?  /api/sign-imagekit  (Cloudflare Pages Function)
-                       ¦  HMAC_SHA1(IMAGEKIT_PRIVATE_KEY, token+expire)
+                       Â¦  HMAC_SHA1(IMAGEKIT_PRIVATE_KEY, token+expire)
                        ?
 Browser  ?--{ signature, expire, token }
 Browser  --POST--?  upload.imagekit.io/api/v1/files/upload
@@ -128,7 +128,7 @@ Browser  --POST--?  upload.imagekit.io/api/v1/files/upload
 
 Asset filename = `<sha256[0..16]>.bin` inside a per-month release tagged `images-YYYY-MM`. Uploading an asset whose name already exists returns 422; we treat 422 as a successful dedup and synthesize the download URL ourselves. This avoids the gh-releases "soft 5 GB" repo cap by collapsing duplicates and rotating the tag monthly (so old months can be pruned independently).
 
-The runbook calls out the **one release per app per month** rule explicitly — never one-release-per-image, GitHub will rate-limit. We comply.
+The runbook calls out the **one release per app per month** rule explicitly â€” never one-release-per-image, GitHub will rate-limit. We comply.
 
 ## Deletion
 
@@ -139,7 +139,7 @@ We don't actively delete photo blobs. Reasons:
 - **ImageKit** delete requires the private key (server-only) plus a per-file fileId we don't persist.
 - **GitHub Releases** asset deletion needs a per-asset id we don't persist either.
 
-Orphaned blobs age out via host-side quotas (Cloudinary credit pool resets monthly; ImageKit 20 GB total cap; imgbb has no expiry but a 32 MB/file cap; GH Releases rotates monthly tags). The journal app holds the metadata and the user owns the Firestore record — deleting their account removes the index. The blob orphans are an accepted leak.
+Orphaned blobs age out via host-side quotas (Cloudinary credit pool resets monthly; ImageKit 20 GB total cap; imgbb has no expiry but a 32 MB/file cap; GH Releases rotates monthly tags). The journal app holds the metadata and the user owns the Firestore record â€” deleting their account removes the index. The blob orphans are an accepted leak.
 
 If we ever need server-side reaping: stand up a Worker that on a cron walks tombstoned entries and uses the per-host admin APIs. Not built; deferred until volume justifies it.
 
@@ -150,7 +150,7 @@ If we ever need server-side reaping: stand up a Worker that on a cron walks tomb
 1. Walks every `users/*/entries/*` doc via firebase-admin.
 2. For each photoUrl pointing at `firebasestorage.googleapis.com`, downloads it.
 3. Replicates to all four hosts.
-4. Writes `photos: PhotoRecord[]` back via merge — leaves `photoUrls` alone so legacy clients still render until they refresh.
+4. Writes `photos: PhotoRecord[]` back via merge â€” leaves `photoUrls` alone so legacy clients still render until they refresh.
 
 Runs with `--dry-run` by default-safe; `--uid <uid>` for one user. Not wired into package.json scripts (once-or-never). Needs `GOOGLE_APPLICATION_CREDENTIALS` pointing at a service-account JSON with Firestore + Storage read.
 
@@ -163,12 +163,12 @@ Runs with `--dry-run` by default-safe; `--uid <uid>` for one user. Not wired int
 
 ## Related changes
 
-- `src/lib/photos.ts` — full rewrite
-- `functions/api/sign-imagekit.ts` — new Pages Function
-- `src/lib/types.ts` — `PhotoRecord` + `Entry.photos?`
-- `src/components/TipTapEditor.tsx` — drop handler uses new pipeline
-- `src/components/DeleteAccountView.tsx` — copy updated (we no longer delete blobs)
-- `.env.example` + `templates/.env.example` — new image-host keys
+- `src/lib/photos.ts` â€” full rewrite
+- `functions/api/sign-imagekit.ts` â€” new Pages Function
+- `src/lib/types.ts` â€” `PhotoRecord` + `Entry.photos?`
+- `src/components/TipTapEditor.tsx` â€” drop handler uses new pipeline
+- `src/components/DeleteAccountView.tsx` â€” copy updated (we no longer delete blobs)
+- `.env.example` + `templates/.env.example` â€” new image-host keys
 
 ## Sources
 

@@ -27,7 +27,7 @@ related:
 
 Server-side Firestore access from the umbrella Hono Worker uses
 `firebase-rest-firestore` (REST + service-account JWT). The
-`firebase-admin` SDK is excluded — it requires gRPC, which
+`firebase-admin` SDK is excluded â€” it requires gRPC, which
 Cloudflare's `workerd` runtime only partially supports, and which
 inflates Worker bundle size past comfortable limits.
 
@@ -38,13 +38,13 @@ free, which uses `workerd`. `workerd` supports `fetch`-based REST
 calls perfectly but breaks on `firebase-admin`'s gRPC code paths
 under load. `firebase-rest-firestore` is a thin REST wrapper that
 handles service-account JWT signing and document I/O via plain
-`fetch` — exactly what Workers want.
+`fetch` â€” exactly what Workers want.
 
 ## Implications
 
 - The Firebase service account key (`FIREBASE_SERVICE_ACCOUNT_KEY`) lives in envpact and is injected as a Worker secret at deploy.
 - Worker code imports from `firebase-rest-firestore`, not `firebase-admin`.
-- Browser-side reads/writes use the regular Firebase Web SDK (`firebase/app`, `firebase/firestore`) — those have no Worker constraint.
+- Browser-side reads/writes use the regular Firebase Web SDK (`firebase/app`, `firebase/firestore`) â€” those have no Worker constraint.
 - Documentation under `apps/api/` must clearly forbid `firebase-admin` so a future contributor doesn't accidentally add it to fix a "missing import".
 - `@hono/firebase-auth` + `firebase-auth-cloudflare-workers` cover Auth verification under the same Worker-compatible constraint.
 

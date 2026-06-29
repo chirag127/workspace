@@ -23,13 +23,13 @@ related:
 A scheduled cron (`.github/workflows/sync-env-to-org-secrets.yml` on master) runs daily at 06:30 IST (or on-demand workflow_dispatch when `c:/D/oriz/.env` changes):
 
 1. Reads `templates/.env.example` to enumerate canonical key names
-2. For each key, reads the corresponding value from `c:/D/oriz/.env` (loaded via secure GH-Action secret OR encrypted file — see "Bootstrapping" below)
+2. For each key, reads the corresponding value from `c:/D/oriz/.env` (loaded via secure GH-Action secret OR encrypted file â€” see "Bootstrapping" below)
 3. Pushes each value to chirag127 GH Org Secrets: `gh secret set <KEY> --org chirag127 --visibility all --body "<VALUE>"`
 4. Every repo's workflows + builds inherit the org secret automatically (no per-repo setup)
 
 User mandate verbatim (2026-06-22 evening): "I want to set the single token for all of the authentication and all of the monetization and all of the everything. I want minimum number of environment variable to be set. ... I will set them only one time. Throughout the organization of my GitHub. ... The builder will generate the website and deploy it on whatever server or this repository's .env file will also be served as a single source of truth for all of the environment variables. You will periodically push all of the environment variable from this repository to GitHub. ... I don't want to set environment variable manually for all of the apps and all of the websites."
 
-## Bootstrap (one-time, manual — minimum manual work)
+## Bootstrap (one-time, manual â€” minimum manual work)
 
 You manually populate `c:/D/oriz/.env` ONCE with the canonical values (~50-80 env vars total). Then never touch them per-repo again.
 
@@ -37,7 +37,7 @@ To run the sync script the first time:
 
 1. Generate a chirag127 GH Personal Access Token with `admin:org` scope (one-time, 1-year expiry)
 2. Add it to `c:/D/oriz/.env` as `GH_ADMIN_PAT=ghp_...`
-3. Run `node scripts/sync-env-to-org-secrets.mjs` locally — this pushes all current keys to org-level secrets
+3. Run `node scripts/sync-env-to-org-secrets.mjs` locally â€” this pushes all current keys to org-level secrets
 4. After local verification, the GH Action takes over on the daily cron
 
 ## Sync script
@@ -63,7 +63,7 @@ Choosing (A): encrypted-file. Use `sops` + `age`. The unencrypted .env stays git
 
 ## Consuming env vars in app builds
 
-Every app's CF Pages build inherits chirag127 org secrets automatically. Apps reference `process.env.RAZORPAY_KEY_ID` etc. — no per-app setup needed.
+Every app's CF Pages build inherits chirag127 org secrets automatically. Apps reference `process.env.RAZORPAY_KEY_ID` etc. â€” no per-app setup needed.
 
 For client-side env vars (PUBLIC_*), Astro embeds them at build time via `import.meta.env.PUBLIC_*`. Same single source.
 
@@ -76,7 +76,7 @@ For client-side env vars (PUBLIC_*), Astro embeds them at build time via `import
 
 ## Supersedes-in-part
 
-`security/env-and-secrets-single-source.md` — that file describes the two-track delivery (`.env.example` synced + GH Actions secrets set once). This file extends it with the AUTOMATED periodic-sync mechanism (was implicit; now explicit).
+`security/env-and-secrets-single-source.md` â€” that file describes the two-track delivery (`.env.example` synced + GH Actions secrets set once). This file extends it with the AUTOMATED periodic-sync mechanism (was implicit; now explicit).
 
 ## Cross-refs
 
@@ -95,7 +95,7 @@ First-run results (local bootstrap, 2026-06-22):
 - `c:/D/oriz/.env` (128 lines, 65 key=value pairs) encrypted ? `c:/D/oriz/.env.enc` (committed)
 - `SOPS_AGE_KEY` pushed to `chirag127/workspace` as a **repo-level** bootstrap secret (CI reads it from there)
 - **Scope correction**: `chirag127` is a GitHub **User** account, not an Organization. Org-level secrets unavailable. Pivoted to **per-repo Actions secrets** across the oriz family (workspace + every `oriz-*` repo = 42 repos). The script `scripts/sync-env-to-org-secrets.mjs` fans out automatically.
-- First sync pushed **31 secrets × 42 repos = 1302 repo-level secrets** plus 1 bootstrap = **1335 total**, 0 failures.
+- First sync pushed **31 secrets Ã— 42 repos = 1302 repo-level secrets** plus 1 bootstrap = **1335 total**, 0 failures.
 - One canonical key skipped automatically: `GITHUB_TOKEN` (reserved name; GitHub auto-injects per workflow run). The script now hard-rejects `GITHUB_TOKEN` and any `GITHUB_*` / `ACTIONS_*` prefix.
 - Cron: `30 1 * * *` UTC (06:30 IST) daily, plus `workflow_dispatch` and push triggers on `.env.enc` / `templates/.env.example` / sync script changes.
 - Manual user step **still required**: generate a PAT with `repo` scope at https://github.com/settings/tokens and run `gh secret set GH_ADMIN_PAT --repo chirag127/workspace --body "ghp_..."`. The workflow fails fast with a clear error until that PAT is set.

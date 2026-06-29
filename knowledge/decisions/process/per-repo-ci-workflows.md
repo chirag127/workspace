@@ -21,13 +21,13 @@ Each repo (every site under `sites/`, every extension under
 `.github/workflows/ci.yml` that runs lint + typecheck + build on
 every PR. The master matrix workflow at
 `chirag127/oriz/.github/workflows/deploy.yml` no longer runs CI
-gating — it now ONLY owns production deploys (matrix over every
+gating â€” it now ONLY owns production deploys (matrix over every
 site, deploys to its Cloudflare Pages target).
 
 ## Why
 
 The earlier "one matrix workflow runs everything" approach made PRs
-inside a sub-repo unable to gate themselves — the matrix only
+inside a sub-repo unable to gate themselves â€” the matrix only
 triggered on the master pointer bump. That pushed breakage into
 master repeatedly. Per-repo CI catches breakage at PR time, in the
 repo where the change actually lives, with the contributor watching
@@ -38,9 +38,9 @@ gate it can't fulfil.
 ## Implications
 
 - Each site/extension/package repo gets a `.github/workflows/ci.yml` with `pnpm install` + lint + typecheck + build steps.
-- Each extension repo also gets a cross-store publish workflow (Chrome + Firefox + Edge stores) — separate file from `ci.yml`.
+- Each extension repo also gets a cross-store publish workflow (Chrome + Firefox + Edge stores) â€” separate file from `ci.yml`.
 - Master `deploy.yml` is reduced: matrix over sites, runs only on master pointer-bump commits, deploys to Cloudflare Pages.
-- New repos must include a CI workflow at bootstrap — adding it later means days of un-gated commits land before the first PR.
+- New repos must include a CI workflow at bootstrap â€” adding it later means days of un-gated commits land before the first PR.
 - envpact CI integration (`chirag127/envpact-action@v0`) goes in each repo's CI when the build needs secrets.
 
 ## Cross-refs

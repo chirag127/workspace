@@ -22,13 +22,13 @@ related:
 
 
 
-# Layer 2 — survival fallback on GitHub Pages
+# Layer 2 â€” survival fallback on GitHub Pages
 
 ## Concept
 
 Every site mirrors a static fallback build to GitHub Pages so that the
 identity-critical pages survive a Cloudflare outage, account
-suspension, or pricing change. This is the §16 rule of the 100-year
+suspension, or pricing change. This is the Â§16 rule of the 100-year
 strategy: "primary host can die; the wiki, work history, and legal
 pages must not".
 
@@ -39,12 +39,12 @@ pages must not".
   `chirag127.github.io/<site-name>`
 - One custom domain per repo if needed (each site can attach its own
   subdomain)
-- Quota: 100 GB/month bandwidth per site, 1 GB site cap — easily within
+- Quota: 100 GB/month bandwidth per site, 1 GB site cap â€” easily within
   reach for a degraded-mode mirror
-- Static-only — no APIs, no functions, no client-side calls to the
+- Static-only â€” no APIs, no functions, no client-side calls to the
   primary host. The fallback assumes the primary is down.
 - Extension catalog landing pages can run on GitHub Pages full-time
-  (not just as fallback) — see [extension-distribution.md](../ops/extension-distribution.md)
+  (not just as fallback) â€” see [extension-distribution.md](../ops/extension-distribution.md)
 - Allowed monetisation: AdSense + content + utility + portfolio. NOT
   allowed: e-commerce / SaaS-checkout primary intent.
 
@@ -54,7 +54,7 @@ Cloudflare Pages is excellent but is one company's free tier. The
 survival rule is "if the primary disappears overnight, the recruiter
 clicking through to oriz.in/work tomorrow morning still sees a page".
 GitHub Pages is the right second host because the source repos already
-live on GitHub — the publish workflow is a few-line YAML, no new
+live on GitHub â€” the publish workflow is a few-line YAML, no new
 account, no card.
 
 ## Cross-refs

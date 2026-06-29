@@ -28,7 +28,7 @@ related:
 
 
 
-# ncert.oriz.in — combined PDF directory
+# ncert.oriz.in â€” combined PDF directory
 
 ## Why it exists
 
@@ -38,7 +38,7 @@ ncert.nic.in publishes free official textbooks, but ONLY as per-chapter PDFs. To
 
 ## Pipeline
 
-1. **Scrape** `https://ncert.nic.in/textbook.php` via Playwright (use `playwright-cli` skill — signed binaries; survives Defender ASR). Enumerate every Class × Subject × Language combination.
+1. **Scrape** `https://ncert.nic.in/textbook.php` via Playwright (use `playwright-cli` skill â€” signed binaries; survives Defender ASR). Enumerate every Class Ã— Subject Ã— Language combination.
 2. **Download** each chapter PDF to a temp dir. Names follow ncert.nic.in's own convention.
 3. **Sort** chapters in correct order (chapter index from the catalog page, not filename).
 4. **Merge** using `qpdf --empty --pages <chap1.pdf> <chap2.pdf> ... -- out.pdf` (qpdf preserves PDF integrity; pdftk has Java dep issues on CI).
@@ -53,18 +53,18 @@ Once a year (June 1 IST cron) re-scrape to pick up any new chapter or new editio
 
 The catalog UI at ncert.oriz.in:
 
-- **Landing** — class picker (Pre-K + 1-12) ? subject ? language ? "Download PDF" button linking to GH release asset URL
-- **Per-book page** — `/class-9/mathematics/en` — book cover image (auto-generated via satori from NCERT cover scrape) + download button + file size + chapter count + table of contents (per-chapter PDF still linked if user wants individual chapters)
-- **Search** — Pagefind across book titles + chapter titles + subject names. (NOT full-text-of-PDF — too heavy. Defer.)
-- **Sort** — by class (ascending) ? by subject (alphabetical) ? English first then Hindi
-- **About** — copyright disclaimer: "NCERT textbooks are freely redistributable per Government of India open-content policy. We don't host the PDFs on our domain; downloads come from our GitHub releases. Original source: ncert.nic.in."
+- **Landing** â€” class picker (Pre-K + 1-12) ? subject ? language ? "Download PDF" button linking to GH release asset URL
+- **Per-book page** â€” `/class-9/mathematics/en` â€” book cover image (auto-generated via satori from NCERT cover scrape) + download button + file size + chapter count + table of contents (per-chapter PDF still linked if user wants individual chapters)
+- **Search** â€” Pagefind across book titles + chapter titles + subject names. (NOT full-text-of-PDF â€” too heavy. Defer.)
+- **Sort** â€” by class (ascending) ? by subject (alphabetical) ? English first then Hindi
+- **About** â€” copyright disclaimer: "NCERT textbooks are freely redistributable per Government of India open-content policy. We don't host the PDFs on our domain; downloads come from our GitHub releases. Original source: ncert.nic.in."
 
 ## What we DON'T do
 
 - No full-text search inside PDFs (too heavy for v0)
 - No quizzes from NCERT Exemplar (deferred to v1)
 - No hosting PDFs on Cloudflare Pages (25 MB per-file limit; some books exceed)
-- No store/sell — entirely free, ad-supported (per AdSense everywhere except cs-me + janaushdhi rule — ncert IS ad-eligible)
+- No store/sell â€” entirely free, ad-supported (per AdSense everywhere except cs-me + janaushdhi rule â€” ncert IS ad-eligible)
 - No Devanagari OCR (text already extractable from NCERT PDFs)
 
 ## Languages in v0

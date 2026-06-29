@@ -23,7 +23,7 @@ related:
 
 
 
-# Newsletter split — Buttondown for technical, EmailOctopus for marketing
+# Newsletter split â€” Buttondown for technical, EmailOctopus for marketing
 
 ## Decision
 
@@ -35,7 +35,7 @@ The family runs **two newsletter senders side by side**:
 | [EmailOctopus](../../../services/business/email/email-octopus.md) | General marketing / announcements | 2,500 subs | Visual editor, automations, landing pages |
 
 [Resend](../../../services/business/email/resend.md) remains transactional-only
-(sign-in links, receipts, contact-form replies) — not a newsletter
+(sign-in links, receipts, contact-form replies) â€” not a newsletter
 sender. Resend, Buttondown, EmailOctopus are three distinct roles.
 
 ## Why two
@@ -64,9 +64,9 @@ sender. Resend, Buttondown, EmailOctopus are three distinct roles.
 - General announcement / product launches ? EmailOctopus, hand-composed
   in their editor, list-managed via embedded signup forms across the
   family.
-- The signup widgets live as separate primitives — a
+- The signup widgets live as separate primitives â€” a
   `<TechNewsletterSignup />` (Buttondown form embed) and a
-  `<MarketingNewsletterSignup />` (EmailOctopus form embed) — both
+  `<MarketingNewsletterSignup />` (EmailOctopus form embed) â€” both
   surface from `@chirag127/oriz-kit` so per-site placement is
   uniform.
 
@@ -74,7 +74,7 @@ sender. Resend, Buttondown, EmailOctopus are three distinct roles.
 
 - Two API tokens to manage in envpact: `BUTTONDOWN_API_KEY` and
   `EMAILOCTOPUS_API_KEY`.
-- Two unsubscribe footers, two compliance surfaces — fine because
+- Two unsubscribe footers, two compliance surfaces â€” fine because
   the audiences don't overlap by design.
 - The omnipost adapter for Buttondown follows the standard adapter
   contract from
@@ -85,7 +85,7 @@ sender. Resend, Buttondown, EmailOctopus are three distinct roles.
 
 - [Buttondown](../../../services/business/email/buttondown.md)
 - [EmailOctopus](../../../services/business/email/email-octopus.md)
-- [Resend](../../../services/business/email/resend.md) — transactional only
+- [Resend](../../../services/business/email/resend.md) â€” transactional only
 - [Cross-post engine decision](../general/cross-post-engine.md)
 - [oriz-omnipost glossary](../../../glossary/o-r/omnipost.md)
 - [No card-on-file rule](../../../rules/interaction/no-card-on-file.md)

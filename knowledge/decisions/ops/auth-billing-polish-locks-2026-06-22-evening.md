@@ -27,7 +27,7 @@ related:
 | **Apple Sign-in** | Future App Store compliance + privacy-conscious users | Medium |
 | **Twitter/X OAuth** | Social-savvy audience; reduces friction for blog cross-post engagement | Low |
 
-User mandate: "what else can be there have it" — enable maximum signin paths. Each provider is a checkbox in Firebase Console; zero per-provider engineering.
+User mandate: "what else can be there have it" â€” enable maximum signin paths. Each provider is a checkbox in Firebase Console; zero per-provider engineering.
 
 ## Razorpay TEST mode first
 
@@ -97,7 +97,7 @@ Created in Razorpay dashboard ? **Subscriptions ? Coupons**. Each gets a coupon 
 
 ## Home page redesign (per Q-HOME-* grill)
 
-- **Mutually exclusive themes** — dark + light cannot mix on one page; whole page is one or the other
+- **Mutually exclusive themes** â€” dark + light cannot mix on one page; whole page is one or the other
 - Auto-detect from inner-page theme on first visit
 - Big dark hero (theme-locked dark)
 - Animated wordmark via Motion One

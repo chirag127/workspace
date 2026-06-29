@@ -48,7 +48,7 @@ New app `oriz-stats-app` at `c:/D/oriz/repos/oriz/own/prod/apps/content/oriz-sta
 **v0: blog only.** RSS 2.0 + Atom 1.0 + JSON Feed 1.1 at `blog.oriz.in/feed.{xml,atom,json}`.
 
 **Deferred to v1+:**
-- All content apps (lore/ncert/janaushdhi/tabs/journal) — `+content` feed per app
+- All content apps (lore/ncert/janaushdhi/tabs/journal) â€” `+content` feed per app
 - Tools changelog feeds (when version bumps via GH releases)
 - Packages catalog feed (when new package published)
 

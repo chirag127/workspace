@@ -38,12 +38,12 @@ no DOM, no CLS, no render cost) and renders only when an incident is
 live, showing severity + a link to
 [`status.oriz.in`](../../../services/monitoring/monitoring/better-stack.md).
 
-User direction 2026-06-20: "+ Status banner on every site" — locked.
+User direction 2026-06-20: "+ Status banner on every site" â€” locked.
 
 ## Why
 
 - **Status pages are useless if visitors don't know to look.** When a
-  user hits an outage on `oriz-blog.oriz.in`, they bounce — they
+  user hits an outage on `oriz-blog.oriz.in`, they bounce â€” they
   don't think "let me check status.oriz.in". An in-page banner
   closes that loop without requiring the user to know the status
   domain.
@@ -65,10 +65,10 @@ User direction 2026-06-20: "+ Status banner on every site" — locked.
 | State | Render | Notes |
 |---|---|---|
 | No active incident | `null` (no DOM) | Zero CLS, zero render cost |
-| `degraded` | `[Degraded] Some features may be slow — details ?` | Yellow background |
-| `partial_outage` | `[Partial outage] Some sites are unreachable — details ?` | Orange background |
-| `major_outage` | `[Major outage] We're working on it — details ?` | Red background |
-| `maintenance` | `[Maintenance] Scheduled work in progress — details ?` | Blue background |
+| `degraded` | `[Degraded] Some features may be slow â€” details ?` | Yellow background |
+| `partial_outage` | `[Partial outage] Some sites are unreachable â€” details ?` | Orange background |
+| `major_outage` | `[Major outage] We're working on it â€” details ?` | Red background |
+| `maintenance` | `[Maintenance] Scheduled work in progress â€” details ?` | Blue background |
 
 The "details ?" link goes to `status.oriz.in` (Better Stack primary)
 with a `?ref=banner-<sitename>` UTM tag for [attribution](../general/utm-attribution-strategy.md).
@@ -107,7 +107,7 @@ export function StatusBanner({ siteId }: { siteId: string }) {
   return (
     <div data-oriz-status={incident.severity}>
       [{labelFor(incident.severity)}] {incident.title}
-      {' — '}
+      {' â€” '}
       <a href={`https://status.oriz.in/?ref=banner-${siteId}`}>details ?</a>
       <button onClick={() => dismiss(incident.id)}>dismiss</button>
     </div>
@@ -119,22 +119,22 @@ export function StatusBanner({ siteId }: { siteId: string }) {
   rendered server-side for the very first paint when an incident is
   ongoing during deploy. Client-side then takes over with 60-second
   polling.
-- **No styles ship from the kit** (per the kit's no-styles invariant) —
+- **No styles ship from the kit** (per the kit's no-styles invariant) â€”
   every site styles via the `[data-oriz-status]` attribute hook to
   its own brand.
 - **Fetched feed is small** (Better Stack RSS is ~5 KB during
   incidents, even smaller when idle); polling at 60 s costs ~1
-  fetch/min × user, negligible at family scale.
-- **Cache.** The polled fetch uses `Cache-Control: max-age=30, stale-while-revalidate=300` — CF edge caches it; a viral page during an incident burns ~30 s of CF requests, not 1-per-user-per-minute.
+  fetch/min Ã— user, negligible at family scale.
+- **Cache.** The polled fetch uses `Cache-Control: max-age=30, stale-while-revalidate=300` â€” CF edge caches it; a viral page during an incident burns ~30 s of CF requests, not 1-per-user-per-minute.
 
 ## Implications
 
 - **Component lands in `@chirag127/oriz-kit`** as `<StatusBanner />`.
   Every site mounts it once at the layout root; one prop = `siteId`.
-- **No new monitoring service required** — rides the existing Better
+- **No new monitoring service required** â€” rides the existing Better
   Stack + Instatus pair. Better Stack's public incidents RSS is
   already enabled by default.
-- **`/feed.rss` shape is the standard public Better Stack RSS** —
+- **`/feed.rss` shape is the standard public Better Stack RSS** â€”
   documented at [Better Stack docs](https://betterstack.com/docs/uptime/api/incidents-rss/).
   No auth required; same surface used by the
   [Better Stack service file](../../../services/monitoring/monitoring/better-stack.md).
@@ -152,6 +152,6 @@ export function StatusBanner({ siteId }: { siteId: string }) {
 - [healthchecks.io (heartbeat fallback)](../../../services/monitoring/monitoring/healthchecks-io.md)
 - [Monitor apex only](../../infrastructure/monitor-apex-only.md)
 - <!-- TODO: broken link, was [oriz-kit glossary](../../../glossary/o-r/oriz-kit.md) -->
-- [UTM attribution strategy](../general/utm-attribution-strategy.md) — `?ref=banner-<sitename>` convention
+- [UTM attribution strategy](../general/utm-attribution-strategy.md) â€” `?ref=banner-<sitename>` convention
 - [No card-on-file rule](../../../rules/interaction/no-card-on-file.md)
 - [Never-hit-quotas rule](../../../rules/interaction/never-hit-quotas.md)

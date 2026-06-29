@@ -24,18 +24,18 @@ related:
 
 
 
-# Notifications — FCM (transport) + Knock (orchestration)
+# Notifications â€” FCM (transport) + Knock (orchestration)
 
 ## Decision
 
 Notifications are split across **two layers**:
 
-- **Orchestration** — [Knock](../../../services/business/push/knock.md). One
+- **Orchestration** â€” [Knock](../../../services/business/push/knock.md). One
   workflow per event type (billing receipt, password change,
   comment reply, feature rollout). Knock owns channel selection,
   delivery order, dedupe windows, digest, per-user preferences, and
   the in-app feed. Free tier: 10,000 notifications/month.
-- **Transport** — [FCM](../../../services/business/push/fcm.md) for web push;
+- **Transport** â€” [FCM](../../../services/business/push/fcm.md) for web push;
   [Resend](../../../services/business/email/resend.md) for email; Knock-bundled
   Twilio/MessageBird for SMS.
 
@@ -53,10 +53,10 @@ providers (no monthly fee).
   [Firebase Spark](../../../services/business/auth/firebase-spark.md) (locked
   forever by [firebase-spark-forever](../../infrastructure/firebase-spark-forever.md)),
   has first-class iOS PWA support, and tokens already live on Firebase
-  Auth user records — letting Knock send web push directly would
+  Auth user records â€” letting Knock send web push directly would
   duplicate that storage and cost extra Knock notifications against
   the 10K cap.
-- **Resend stays as email transport** for the same reason — it's
+- **Resend stays as email transport** for the same reason â€” it's
   already wired for transactional email, free 3K/day, and Knock can
   point its email channel at Resend's SMTP credentials.
 - **No card** required at any layer. Spark + Resend + Knock all
@@ -98,13 +98,13 @@ providers (no monthly fee).
   sites silent until they need notifications.
 - If we hit the cap: digest workflows (Knock supports daily /
   weekly digests natively) collapse multiple events into one
-  notification, dropping volume by 5–10×.
+  notification, dropping volume by 5â€“10Ã—.
 
 ### What we don't do
 
-- **No direct Knock web-push** — every web-push goes through FCM.
-- **No self-hosted Novu** — per <!-- TODO: broken link, was [no-self-host](../../../rules/no-self-host.md) -->.
-- **No Firebase Cloud Functions for notification fan-out** — that
+- **No direct Knock web-push** â€” every web-push goes through FCM.
+- **No self-hosted Novu** â€” per <!-- TODO: broken link, was [no-self-host](../../../rules/no-self-host.md) -->.
+- **No Firebase Cloud Functions for notification fan-out** â€” that
   would force Blaze (paid) to call third parties; Hono Worker on
   Cloudflare handles it free.
 - **No card-on-file** at Knock or Twilio. SMS budget caps configured
@@ -115,9 +115,9 @@ providers (no monthly fee).
 - [Knock service entry](../../../services/business/push/knock.md)
 - [FCM service entry](../../../services/business/push/fcm.md)
 - [push services index](../../../services/business/push/index.md)
-- [Resend — email transport behind Knock](../../../services/business/email/resend.md)
+- [Resend â€” email transport behind Knock](../../../services/business/email/resend.md)
 - [Firebase Spark forever](../../infrastructure/firebase-spark-forever.md)
-- [Hookdeck — webhook reliability](../../infrastructure/hookdeck-for-webhook-reliability.md)
+- [Hookdeck â€” webhook reliability](../../infrastructure/hookdeck-for-webhook-reliability.md)
 - [Never hit quotas rule](../../../rules/interaction/never-hit-quotas.md)
 - [No card-on-file rule](../../../rules/interaction/no-card-on-file.md)
 - <!-- TODO: broken link, was [No self-host rule](../../../rules/no-self-host.md) -->

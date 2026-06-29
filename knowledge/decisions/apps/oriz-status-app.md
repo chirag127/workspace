@@ -32,14 +32,14 @@ related:
 
 
 
-# oriz-status-app — self-hosted status page
+# oriz-status-app â€” self-hosted status page
 
 ## Decision
 
 The oriz.in family's status surface is now a self-hosted app at
 [`status.oriz.in`](https://status.oriz.in), backed by two Cloudflare
 Workers and one KV namespace. UptimeRobot is dropped (commercial-use
-clause added Oct 2024 — incompatible with the family's free-tier
+clause added Oct 2024 â€” incompatible with the family's free-tier
 rule). Better Stack remains optional as a "second opinion" probe
 during the transition but is no longer the source of truth.
 
@@ -47,27 +47,27 @@ during the transition but is no longer the source of truth.
 
 ```
                        +- status.oriz.in (CF Pages, Astro static)
-                       ¦      ¦ fetch /api/status every 60 s
-                       ¦      ?
+                       Â¦      Â¦ fetch /api/status every 60 s
+                       Â¦      ?
   +- oriz-status-ping ---? STATUS_KV ?-- oriz-status-api ?- status-api.oriz.in
-  ¦   (cron */5 min)      (KV namespace)   (read-only)
-  ¦                          ¦
-  ¦                          +-- latest          (current snapshot, no TTL)
-  ¦                          +-- previous        (snapshot from prior tick)
-  ¦                          +-- history:YYYY-MM-DD (per-day rollup, 90d TTL)
-  ¦                          +-- incidents        (last 50 transitions, capped)
-  ¦
+  Â¦   (cron */5 min)      (KV namespace)   (read-only)
+  Â¦                          Â¦
+  Â¦                          +-- latest          (current snapshot, no TTL)
+  Â¦                          +-- previous        (snapshot from prior tick)
+  Â¦                          +-- history:YYYY-MM-DD (per-day rollup, 90d TTL)
+  Â¦                          +-- incidents        (last 50 transitions, capped)
+  Â¦
   +-- on transition ? Telegram bot (TELEGRAM_BOT_TOKEN + TELEGRAM_OPS_CHAT_ID)
 ```
 
-- **Frontend** — Astro static, deployed to CF Pages. SSR placeholders
+- **Frontend** â€” Astro static, deployed to CF Pages. SSR placeholders
   for every target; client-side JS hydrates the dots from the API.
-- **`oriz-status-ping`** — cron Worker, `*/5 * * * *`. Probes every
+- **`oriz-status-ping`** â€” cron Worker, `*/5 * * * *`. Probes every
   target in `workers/targets.ts` (mirrors `FAMILY_*` from
   `@chirag127/astro-shell`). HEAD-first with GET fallback on 405/501.
   Treats >3000 ms as `degraded`. Writes `latest`, rolls `history:`
   for the day, appends to `incidents` on transitions, fires Telegram.
-- **`oriz-status-api`** — read-only Worker. Serves `/api/status`,
+- **`oriz-status-api`** â€” read-only Worker. Serves `/api/status`,
   `/api/uptime?slug=&days=`, `/api/incidents`, `/feed.xml`. 60-sec
   `Cache-Control` and matching `s-maxage` for edge caching.
 
@@ -75,16 +75,16 @@ during the transition but is no longer the source of truth.
 
 | Quota | Limit | Our usage | Headroom |
 |---|---|---|---|
-| Workers Free invocations | 100,000 / day | 288 cron + ~1,440 API reads = ~1,728 | ~58× |
+| Workers Free invocations | 100,000 / day | 288 cron + ~1,440 API reads = ~1,728 | ~58Ã— |
 | Workers Free outbound subrequests | 50 per invocation | 24 targets, batched 25 at a time | OK |
-| KV read | 100,000 / day | ~1,440 API reads × 1-2 KV reads = ~2,880 | ~35× |
-| KV write | 1,000 / day | 288 ticks × ~4 writes = ~1,150 | tight — see note |
-| KV storage | 1 GB | ~10 KB per day rollup × 90 = ~900 KB | massive |
+| KV read | 100,000 / day | ~1,440 API reads Ã— 1-2 KV reads = ~2,880 | ~35Ã— |
+| KV write | 1,000 / day | 288 ticks Ã— ~4 writes = ~1,150 | tight â€” see note |
+| KV storage | 1 GB | ~10 KB per day rollup Ã— 90 = ~900 KB | massive |
 
 KV write headroom note: 1,152 writes/day uses 115% of the 1,000/day
 free quota. Mitigation: batch the four writes into one `latest` blob
 that embeds `previous`, `incidents`, and the per-day rollup keyed
-inside the same JSON — collapses to ~288 writes/day. Implement
+inside the same JSON â€” collapses to ~288 writes/day. Implement
 *before* we cross the limit (we have a 4-day window of headroom).
 Logged as a TODO in `oriz-status-app#issues`.
 
@@ -93,7 +93,7 @@ Logged as a TODO in `oriz-status-app#issues`.
 On every status transition (`up` ? `degraded` ? `down`), the cron
 Worker POSTs a Markdown message to the ops chat. Token + chat-id are
 set via `wrangler secret put` on `oriz-status-ping`; both are
-optional — if missing the alert no-ops. The same Telegram bot serves
+optional â€” if missing the alert no-ops. The same Telegram bot serves
 the wider auto-tracking pipeline.
 
 ## RSS feed

@@ -9,7 +9,7 @@ status: active
 related:
   - rules/development/repo-naming
   - branding/repo-naming-drop-oriz-prefix-2026-06-25
-  - agent-rules/agent-fleet-parity
+  - rules/agent/agent-fleet-parity
 ---
 
 # MCP server repo naming

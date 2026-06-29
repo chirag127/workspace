@@ -25,7 +25,7 @@ related:
 
 
 
-# Forms — trio (Web3Forms primary + Static Forms fallback + Tally for rich)
+# Forms â€” trio (Web3Forms primary + Static Forms fallback + Tally for rich)
 
 ## Decision
 
@@ -33,8 +33,8 @@ The family runs three form services, each with a distinct role:
 
 | Role | Service | Why |
 |---|---|---|
-| Contact form — primary | [Web3Forms](../../../services/business/forms/web3forms.md) | Browser-only, domain-bound key, unlimited free |
-| Contact form — fallback | [Static Forms](../../../services/business/forms/static-forms.md) | Different vendor + edge; auto-swapped by `<ContactForm>` on Web3Forms failure |
+| Contact form â€” primary | [Web3Forms](../../../services/business/forms/web3forms.md) | Browser-only, domain-bound key, unlimited free |
+| Contact form â€” fallback | [Static Forms](../../../services/business/forms/static-forms.md) | Different vendor + edge; auto-swapped by `<ContactForm>` on Web3Forms failure |
 | Rich / multi-step / conditional forms | [Tally](../../../services/business/forms/tally.md) | Logic, conditional branches, payment integration, unlimited free |
 
 [Formspree](../../../services/business/forms/formspree.md) stays documented as a
@@ -42,12 +42,12 @@ second swap target but is **not** in the active rotation.
 
 ## Why three and not one
 
-- **Web3Forms alone** — single-vendor risk; if Web3Forms quotas tighten
+- **Web3Forms alone** â€” single-vendor risk; if Web3Forms quotas tighten
   or has an outage, every contact form on every site goes dark.
-- **Tally for everything** — overkill for a 3-field contact form;
+- **Tally for everything** â€” overkill for a 3-field contact form;
   the embed is heavier and the form lives at `tally.so/...` rather
   than on-domain.
-- **Static Forms alone** — newer / smaller vendor than Web3Forms;
+- **Static Forms alone** â€” newer / smaller vendor than Web3Forms;
   better as a fallback than as the primary.
 
 The trio mirrors the
@@ -63,11 +63,11 @@ cover.
   contact backends. `provider` prop or `onError` handler swaps
   Web3Forms ? Static Forms transparently.
 - **Tally embeds** ship as a separate `<TallyForm formId="...">`
-  component in oriz-kit — no overlap with `<ContactForm>`.
-- **Both contact backends are browser-only** — no API keys leak
+  component in oriz-kit â€” no overlap with `<ContactForm>`.
+- **Both contact backends are browser-only** â€” no API keys leak
   because both use domain-bound access keys; aligns with
   [`rules/development/no-web3forms-server-side.md`](../../../rules/development/no-web3forms-server-side.md).
-- **Anti-bot pairing** — `<ContactForm>` mounts the
+- **Anti-bot pairing** â€” `<ContactForm>` mounts the
   [`<Captcha>`](../../security/captcha-turnstile-plus-hcaptcha.md)
   widget (Turnstile primary, hCaptcha fallback) inline. The token
   travels with the form payload to whichever backend handles the
@@ -79,9 +79,9 @@ cover.
 ## Cross-refs
 
 - [Forms services index](../../../services/business/forms/index.md)
-- [Web3Forms — primary](../../../services/business/forms/web3forms.md)
-- [Static Forms — fallback](../../../services/business/forms/static-forms.md)
-- [Tally — rich forms](../../../services/business/forms/tally.md)
+- [Web3Forms â€” primary](../../../services/business/forms/web3forms.md)
+- [Static Forms â€” fallback](../../../services/business/forms/static-forms.md)
+- [Tally â€” rich forms](../../../services/business/forms/tally.md)
 - [Captcha pair decision](../../security/captcha-turnstile-plus-hcaptcha.md)
 - [No web3forms server-side rule](../../../rules/development/no-web3forms-server-side.md)
 - [No card-on-file rule](../../../rules/interaction/no-card-on-file.md)

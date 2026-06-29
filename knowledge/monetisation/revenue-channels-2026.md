@@ -35,11 +35,11 @@ related:
 
 
 
-# Revenue channels 2026 — fan-out via omni-publish
+# Revenue channels 2026 â€” fan-out via omni-publish
 
 ## Decision summary
 
-Every product the family ships — **26 apps + 17 packages + 5 books + future browser/VS Code extensions + CLIs + MCP servers** — auto-publishes to **as many revenue channels as 2026's API reality allows**. Generated and orchestrated by [`@chirag127/omni-publish`](../packages/omni-publish-package.md) on every tag push (`v*.*.*`) in every repo. AI-generated platform-specific copy uses **NVIDIA NIM** (primary, free 5K req/mo) with **OpenRouter free models** as quota-failure fallback. Channels with dead 2026 APIs (Reddit OAuth closed, X free-tier no public writes, LinkedIn /v2 sunset, Medium tokens deprecated) drop into a single Telegram drafts channel with 4 sections, not auto-posted.
+Every product the family ships â€” **26 apps + 17 packages + 5 books + future browser/VS Code extensions + CLIs + MCP servers** â€” auto-publishes to **as many revenue channels as 2026's API reality allows**. Generated and orchestrated by [`@chirag127/omni-publish`](../packages/omni-publish-package.md) on every tag push (`v*.*.*`) in every repo. AI-generated platform-specific copy uses **NVIDIA NIM** (primary, free 5K req/mo) with **OpenRouter free models** as quota-failure fallback. Channels with dead 2026 APIs (Reddit OAuth closed, X free-tier no public writes, LinkedIn /v2 sunset, Medium tokens deprecated) drop into a single Telegram drafts channel with 4 sections, not auto-posted.
 
 ## Channel matrix per surface type
 
@@ -69,7 +69,7 @@ Every product the family ships — **26 apps + 17 packages + 5 books + future brow
 | packages.oriz.in catalog | own | Auto rebuild on `repository_dispatch` | Indirect (traffic ? app subdomains) | 0% |
 | dev.to + Hashnode release post | as above | Auto | Indirect | n/a |
 | Bluesky + Mastodon announcement | as above | Auto | Indirect | n/a |
-| Awesome lists (manual PR) | github.com/sindresorhus/awesome | [No API — manual PR](https://github.com/sindresorhus/awesome/blob/main/contributing.md) | Indirect | n/a |
+| Awesome lists (manual PR) | github.com/sindresorhus/awesome | [No API â€” manual PR](https://github.com/sindresorhus/awesome/blob/main/contributing.md) | Indirect | n/a |
 
 ### Book
 
@@ -77,11 +77,11 @@ See full pipeline in [book-publish-pipeline.md](../content/book-publish-pipeline
 
 | Channel | URL | 2026 API status | Revenue | Cut |
 |---|---|---|---|---|
-| Leanpub (Markua git push) | leanpub.com | Auto via git push to manuscript branch | [80% royalty - 50¢/sale](https://leanpub.com/help/author_help#section-royalty) | 20% + 50¢ |
+| Leanpub (Markua git push) | leanpub.com | Auto via git push to manuscript branch | [80% royalty - 50Â¢/sale](https://leanpub.com/help/author_help#section-royalty) | 20% + 50Â¢ |
 | Gumroad | gumroad.com | Auto via REST API | 10% flat (Gumroad fee) | 10% |
-| LemonSqueezy | lemonsqueezy.com | Auto via REST API; MoR handles VAT | 5% + 50¢ | 5%+50¢ |
-| Draft2Digital (aggregator ? B&N/Kobo/Apple/Scribd) | draft2digital.com | [No API — manual upload](https://www.draft2digital.com/help/) | ~60% net royalty (channel-dependent) | varies |
-| Amazon KDP | kdp.amazon.com | [No public API ever existed](https://kdp.amazon.com/community/help/topic-list) — browser-uploader bot or manual | 70% (in $2.99-$9.99 range) | 30% |
+| LemonSqueezy | lemonsqueezy.com | Auto via REST API; MoR handles VAT | 5% + 50Â¢ | 5%+50Â¢ |
+| Draft2Digital (aggregator ? B&N/Kobo/Apple/Scribd) | draft2digital.com | [No API â€” manual upload](https://www.draft2digital.com/help/) | ~60% net royalty (channel-dependent) | varies |
+| Amazon KDP | kdp.amazon.com | [No public API ever existed](https://kdp.amazon.com/community/help/topic-list) â€” browser-uploader bot or manual | 70% (in $2.99-$9.99 range) | 30% |
 | Google Play Books Partner Center | play.google.com/books/publish | Manual upload (ISBN-recommended); [no automated publish API](https://support.google.com/books/partner) | 70% | 30% |
 
 ### Extension (browser + VS Code)
@@ -95,16 +95,16 @@ See full pipeline in [book-publish-pipeline.md](../content/book-publish-pipeline
 | Open VSX (JetBrains, Cursor, etc.) | open-vsx.org | Auto via `ovsx publish` | Free | n/a |
 | GitHub Releases (sideload installer) | github.com/<repo>/releases | Auto via `gh release create` | Direct purchase via Gumroad/LemonSqueezy link in README | 0% |
 
-## Dead in 2026 — do NOT propose
+## Dead in 2026 â€” do NOT propose
 
 Documented because earlier prompts kept suggesting these:
 
-- **Reddit OAuth** — closed June 2026; the third-party API access tier was wound down after the [2023 API pricing war](https://www.theverge.com/2023/4/18/23688463/reddit-developer-api-terms-change-monetization-apollo) escalated to full closure for non-Reddit-app accounts.
-- **X API free tier** — [no public writes for free accounts](https://developer.x.com/en/docs/x-api/getting-started/about-x-api) since 2023; "Basic" tier is $100+/mo (paid ? fights `no-card-on-file`).
-- **LinkedIn /v2** — sunset; restricted to Marketing Developer Platform partners only.
-- **Medium integration tokens** — [deprecated 2023, still partly works but unreliable](https://github.com/Medium/medium-api-docs); ship-day surprises common.
-- **Amazon KDP API** — [never existed publicly](https://kdp.amazon.com/community/help/topic-list); only Amazon Marketing Stream + KDP Publisher tools.
-- **Apple iBooks Author** — replaced by Pages, Mac-only, no Linux path (per `linux-ci-only` rule).
+- **Reddit OAuth** â€” closed June 2026; the third-party API access tier was wound down after the [2023 API pricing war](https://www.theverge.com/2023/4/18/23688463/reddit-developer-api-terms-change-monetization-apollo) escalated to full closure for non-Reddit-app accounts.
+- **X API free tier** â€” [no public writes for free accounts](https://developer.x.com/en/docs/x-api/getting-started/about-x-api) since 2023; "Basic" tier is $100+/mo (paid ? fights `no-card-on-file`).
+- **LinkedIn /v2** â€” sunset; restricted to Marketing Developer Platform partners only.
+- **Medium integration tokens** â€” [deprecated 2023, still partly works but unreliable](https://github.com/Medium/medium-api-docs); ship-day surprises common.
+- **Amazon KDP API** â€” [never existed publicly](https://kdp.amazon.com/community/help/topic-list); only Amazon Marketing Stream + KDP Publisher tools.
+- **Apple iBooks Author** â€” replaced by Pages, Mac-only, no Linux path (per `linux-ci-only` rule).
 
 These are listed so future prompts can recognise them as dead ends without re-grilling.
 
@@ -112,10 +112,10 @@ These are listed so future prompts can recognise them as dead ends without re-gr
 
 For X / Reddit / LinkedIn / Medium where automation is gone, omni-publish generates ready-to-paste drafts on every tag push and posts them to **one Telegram channel** (`TELEGRAM_DRAFTS_BOT_TOKEN` + `TELEGRAM_DRAFTS_CHAT_ID`) split into 4 sections by hashtag:
 
-- `#draft-x` — 280-char teaser + URL + 2-3 hashtags
-- `#draft-reddit` — title (=300 chars) + body (markdown) + suggested subreddit list
-- `#draft-linkedin` — long-form post (3-paragraph, line-broken) + URL
-- `#draft-medium` — full canonical article with `<!-- canonical: <url> -->` first-line comment
+- `#draft-x` â€” 280-char teaser + URL + 2-3 hashtags
+- `#draft-reddit` â€” title (=300 chars) + body (markdown) + suggested subreddit list
+- `#draft-linkedin` â€” long-form post (3-paragraph, line-broken) + URL
+- `#draft-medium` â€” full canonical article with `<!-- canonical: <url> -->` first-line comment
 
 User copy-pastes each to its platform when convenient. No automation lies = no shadow-ban risk = no broken-link claims.
 
@@ -123,8 +123,8 @@ User copy-pastes each to its platform when convenient. No automation lies = no s
 
 Platform-specific copy (dev.to title vs Bluesky 300-char teaser vs LinkedIn 3-paragraph) is generated, not hand-written.
 
-- **Primary**: [NVIDIA NIM](https://build.nvidia.com) — 5,000 requests/month free, no card required, models include `meta/llama-3.3-70b-instruct` + `nvidia/llama-3.1-nemotron-70b-instruct`. Env: `NVIDIA_NIM_API_KEY`.
-- **Fallback**: [OpenRouter](https://openrouter.ai) free models — `meta-llama/llama-3.3-70b-instruct:free` + `deepseek/deepseek-r1:free`. Env: `OPENROUTER_API_KEY`. Free tier ~50 requests/day per model; aggregate ~100/day across both.
+- **Primary**: [NVIDIA NIM](https://build.nvidia.com) â€” 5,000 requests/month free, no card required, models include `meta/llama-3.3-70b-instruct` + `nvidia/llama-3.1-nemotron-70b-instruct`. Env: `NVIDIA_NIM_API_KEY`.
+- **Fallback**: [OpenRouter](https://openrouter.ai) free models â€” `meta-llama/llama-3.3-70b-instruct:free` + `deepseek/deepseek-r1:free`. Env: `OPENROUTER_API_KEY`. Free tier ~50 requests/day per model; aggregate ~100/day across both.
 
 omni-publish picks NIM by default; falls back to OpenRouter on HTTP `429` or `5xx`. If both fail, the platform's row goes to the Telegram drafts channel with a `[ai-fallback-needed]` tag instead of being skipped silently.
 
@@ -165,7 +165,7 @@ jobs:
 | `title` | yes | All channels |
 | `body` (or `body_path`) | yes | Long-form channels (dev.to, Hashnode, Medium draft) |
 | `canonical_url` | yes | All channels (sets `<link rel="canonical">` where supported) |
-| `type` | yes | `app` \| `package` \| `book` \| `extension` — selects which channel matrix applies |
+| `type` | yes | `app` \| `package` \| `book` \| `extension` â€” selects which channel matrix applies |
 
 The `type` field determines which row-set from the matrix above fires. A package release never tries Play Store; a book release never tries npm.
 
@@ -173,11 +173,11 @@ The `type` field determines which row-set from the matrix above fires. A package
 
 Status: **planning** (none have manuscripts yet). Locked names + scope in [book-publish-pipeline.md](../content/book-publish-pipeline.md):
 
-1. **Oriz Stack** — Astro 6 + Cloudflare + Firebase Spark family architecture (technical, $19/$39)
-2. **Oriz Paisa: Credit Cards India 2026** — cards-app companion (Indian finance, ?499/?999)
-3. **Oriz PDF: From Browser to Native** — PWA ? PWABuilder ? Play Store walkthrough ($14)
-4. **Oriz Janaushdhi: Generic Medicines India** — janaushdhi-app companion (public health, ?299)
-5. **Oriz Me: 100-Year Strategy** — personal essays from `oriz-cs-me-app` + 100-year-strategy doc ($9 PWYW)
+1. **Oriz Stack** â€” Astro 6 + Cloudflare + Firebase Spark family architecture (technical, $19/$39)
+2. **Oriz Paisa: Credit Cards India 2026** â€” cards-app companion (Indian finance, ?499/?999)
+3. **Oriz PDF: From Browser to Native** â€” PWA ? PWABuilder ? Play Store walkthrough ($14)
+4. **Oriz Janaushdhi: Generic Medicines India** â€” janaushdhi-app companion (public health, ?299)
+5. **Oriz Me: 100-Year Strategy** â€” personal essays from `oriz-cs-me-app` + 100-year-strategy doc ($9 PWYW)
 
 ## Cross-refs
 

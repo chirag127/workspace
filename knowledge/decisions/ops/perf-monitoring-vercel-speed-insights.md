@@ -23,7 +23,7 @@ related:
 
 
 
-# Perf monitoring — Vercel Speed Insights as RUM
+# Perf monitoring â€” Vercel Speed Insights as RUM
 
 ## Decision
 
@@ -33,15 +33,15 @@ as the **Real-User Monitoring (RUM)** layer for Web Vitals. The
 client script (`@vercel/speed-insights`) loads from
 `@chirag127/oriz-kit` behind a per-site env-var toggle
 (`ENABLE_SPEED_INSIGHTS=true|false`). Vercel hosting is **not**
-required — the script works on
+required â€” the script works on
 [Cloudflare Pages](../../../services/infra/hosting/cloudflare-pages.md) (the
 family's primary host).
 
 This pairs with two existing perf signals:
 
-- [Cloudflare Web Analytics](../../../services/monitoring/monitoring/analytics/cloudflare-web-analytics.md) — server-side / edge-measured
-- [Sentry Performance](../../../services/monitoring/monitoring/sentry.md) — sampled API + Worker traces
-- [Lighthouse CI](../../../services/monitoring/a11y/lighthouse-ci.md) — lab-only, in PRs
+- [Cloudflare Web Analytics](../../../services/monitoring/monitoring/analytics/cloudflare-web-analytics.md) â€” server-side / edge-measured
+- [Sentry Performance](../../../services/monitoring/monitoring/sentry.md) â€” sampled API + Worker traces
+- [Lighthouse CI](../../../services/monitoring/a11y/lighthouse-ci.md) â€” lab-only, in PRs
 
 Together = full perf picture.
 
@@ -50,18 +50,18 @@ Together = full perf picture.
 - **Web Vitals are the only perf signal Google ranks SEO on.** Lab
   metrics (Lighthouse) miss real users; edge metrics (Cloudflare)
   miss client-side layout shift and interaction lag.
-- **Speed Insights is RUM** — captures LCP, INP, CLS, FCP, TTFB
+- **Speed Insights is RUM** â€” captures LCP, INP, CLS, FCP, TTFB
   from real visitors on real devices and real networks. The only
   one of our perf tools that does this.
-- **Cloudflare Web Vitals is server-side** — measured at the edge,
+- **Cloudflare Web Vitals is server-side** â€” measured at the edge,
   tells us what the network delivered, not what the user saw. Misses
   CLS entirely (CLS happens after paint).
-- **Sentry Performance** is trace-focused — great for "why is this
+- **Sentry Performance** is trace-focused â€” great for "why is this
   API slow" but its JS Web Vitals capture is sample-based and less
   detailed.
 - **Free** with no card. 10K data points/month per project; per-site
   env-var toggle keeps low-traffic sites silent for headroom.
-- **Vendor-neutral** — the underlying library is `web-vitals` (W3C
+- **Vendor-neutral** â€” the underlying library is `web-vitals` (W3C
   standard), so swapping Speed Insights for a self-rolled endpoint
   is mechanical.
 
@@ -75,7 +75,7 @@ Together = full perf picture.
   project IDs land in [Doppler](../../../services/business/secrets/doppler.md)
   and sync to Cloudflare Pages env vars at build time.
 - `@vercel/speed-insights` registers a CSP `connect-src` entry for
-  `vitals.vercel-insights.com` — added to the
+  `vitals.vercel-insights.com` â€” added to the
   [security-headers preset](../../../services/business/security/cloudflare-headers.md).
 
 ### Quota strategy (never-hit-quotas)
@@ -100,20 +100,20 @@ Together = full perf picture.
 
 ### What we don't do
 
-- **No DebugBear / SpeedCurve / Calibre** — Speed Insights covers
+- **No DebugBear / SpeedCurve / Calibre** â€” Speed Insights covers
   RUM free; lab is covered by Lighthouse CI.
-- **No self-rolled endpoint** — re-implementing dashboards / alerts
+- **No self-rolled endpoint** â€” re-implementing dashboards / alerts
   costs more than the Speed Insights free tier.
-- **No card-on-file** at Vercel — free tier sign-up is GitHub OAuth.
-- **No Vercel hosting** — Cloudflare Pages stays primary host.
+- **No card-on-file** at Vercel â€” free tier sign-up is GitHub OAuth.
+- **No Vercel hosting** â€” Cloudflare Pages stays primary host.
 
 ## Cross-refs
 
 - [Vercel Speed Insights service entry](../../../services/monitoring/monitoring/perf/vercel-speed-insights.md)
 - [perf services index](../../../services/monitoring/monitoring/perf/index.md)
-- [Sentry — error tracking + perf traces](../../../services/monitoring/monitoring/sentry.md)
+- [Sentry â€” error tracking + perf traces](../../../services/monitoring/monitoring/sentry.md)
 - [Cloudflare Web Analytics](../../../services/monitoring/monitoring/analytics/cloudflare-web-analytics.md)
-- [Lighthouse CI — lab-only score in PRs](../../../services/monitoring/a11y/lighthouse-ci.md)
-- [Cloudflare Pages — primary host](../../../services/infra/hosting/cloudflare-pages.md)
+- [Lighthouse CI â€” lab-only score in PRs](../../../services/monitoring/a11y/lighthouse-ci.md)
+- [Cloudflare Pages â€” primary host](../../../services/infra/hosting/cloudflare-pages.md)
 - [Never hit quotas rule](../../../rules/interaction/never-hit-quotas.md)
 - [No card-on-file rule](../../../rules/interaction/no-card-on-file.md)

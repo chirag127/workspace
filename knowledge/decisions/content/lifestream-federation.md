@@ -27,7 +27,7 @@ related:
 
 
 
-# Lifestream federation — mirror to BOTH AT Protocol and ActivityPub
+# Lifestream federation â€” mirror to BOTH AT Protocol and ActivityPub
 
 ## Decision
 
@@ -36,12 +36,12 @@ The canonical
 stays the single source of truth. It is mirrored to **two**
 federated protocols, in parallel, on every cron tick:
 
-1. **AT Protocol** — records published under the family lexicon
+1. **AT Protocol** â€” records published under the family lexicon
    `me.oriz.in.atproto.lifestream.event`, attributed to
    `did:plc:...` bound to the handle `chirag127.oriz.in`. Bluesky
    and any other AT Protocol consumer can subscribe.
    See [`services/business/social/atproto-firehose.md`](../../../services/business/social/atproto-firehose.md).
-2. **ActivityPub** — `Note` objects published to the outbox at
+2. **ActivityPub** â€” `Note` objects published to the outbox at
    `https://me.oriz.in/activitypub/outbox`; actor at
    `me.oriz.in/activitypub/actor`. Mastodon / Pleroma / Misskey /
    the wider Fediverse can follow `@chirag@me.oriz.in` natively.
@@ -49,7 +49,7 @@ federated protocols, in parallel, on every cron tick:
 
 Both mirrors are **derived data**. They are idempotent on the JSONL
 event `id`. If either mirror is wiped, the next rehydrate cycle
-replays the canonical JSONL into it — no data is at risk.
+replays the canonical JSONL into it â€” no data is at risk.
 
 ## Why
 
@@ -60,7 +60,7 @@ replays the canonical JSONL into it — no data is at risk.
   way to be reachable everywhere readers already are.
 - **Single canonical source preserves the
   [100-year strategy](../../content/100-year-strategy-locked.md).** No
-  federation client becomes the source of truth — vendor / protocol
+  federation client becomes the source of truth â€” vendor / protocol
   format risk stays bounded by the
   [JSONL canonical decision](../database/lifestream-jsonl-canonical.md). If
   AT Protocol or ActivityPub disappears in 2046, the JSONL still
@@ -71,7 +71,7 @@ replays the canonical JSONL into it — no data is at risk.
   vendor, no card.
 - **Domain identity stays family-owned.** `chirag127.oriz.in` (AT
   handle, DNS-bound) and `@chirag@me.oriz.in` (ActivityPub actor)
-  both live on the family domain — readers' follow relationships
+  both live on the family domain â€” readers' follow relationships
   survive any provider swap.
 
 ## Implications
@@ -80,9 +80,9 @@ replays the canonical JSONL into it — no data is at risk.
 
 - Two mirror scripts, both reading from `chirag127/oriz-me-data`
   via the [canonical-store-jsonl architecture](../database/canonical-store-jsonl.md):
-  - `scripts/mirror-to-atproto.ts` — pushes new JSONL events as
+  - `scripts/mirror-to-atproto.ts` â€” pushes new JSONL events as
     AT Protocol records.
-  - `scripts/mirror-to-activitypub.ts` — pushes new JSONL events
+  - `scripts/mirror-to-activitypub.ts` â€” pushes new JSONL events
     as ActivityPub `Note`s, signs with HTTP Signatures, delivers
     to follower inboxes.
 - Both run hourly via
@@ -121,18 +121,18 @@ replays the canonical JSONL into it — no data is at risk.
 ### What we don't do
 
 - **No origination on either federation.** Posting directly into
-  Bluesky's web app or a Mastodon client is rejected — the JSONL
+  Bluesky's web app or a Mastodon client is rejected â€” the JSONL
   must always be the origin so the canonical store stays
   authoritative. Replies received via either federation are
   fetched into the JSONL by the same cron, then re-mirrored to
   the other federation.
-- **No Nostr mirror.** Deferred — covered by the AT + AP pair for
+- **No Nostr mirror.** Deferred â€” covered by the AT + AP pair for
   now; revisit when Nostr's reader population shifts.
 - **No paid hosted federation gateway** (Bridgy Fed, micro.blog,
   Buttondown federation). Self-hosting the ActivityPub Worker is
   free.
 - **No federation of journal / age-gated / private events.**
-  Filtered at mirror time — never sent into either protocol.
+  Filtered at mirror time â€” never sent into either protocol.
 
 ## Cross-refs
 
@@ -146,5 +146,5 @@ replays the canonical JSONL into it — no data is at risk.
 - [Hono Worker API umbrella](../compute/hono-worker-api-umbrella.md)
 - [Spaceship registrar + Cloudflare DNS](../../infrastructure/spaceship-registrar-cloudflare-dns.md)
 - [Cloudflare Cron Triggers](../../../services/business/cron/cloudflare-cron-triggers.md)
-- [Doppler — secrets source-of-truth](../../../services/business/secrets/doppler.md)
+- [Doppler â€” secrets source-of-truth](../../../services/business/secrets/doppler.md)
 - [No card-on-file rule](../../../rules/interaction/no-card-on-file.md)

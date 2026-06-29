@@ -34,16 +34,16 @@ related:
 The family's database stack is now four tiers, picked by data
 **shape**:
 
-1. **Documents + auth** — [Firestore on Firebase Spark](../../../services/business/auth/firebase-spark.md)
-2. **Canonical archive** — JSONL in [`chirag127/oriz-me-data`](../../../glossary/i-n/master-repo.md)
-3. **Warm read cache** — [Turso libSQL](../../../services/data/database/turso.md)
-4. **Relational** — [Neon Postgres](../../../services/data/database/neon-postgres.md) (NEW)
+1. **Documents + auth** â€” [Firestore on Firebase Spark](../../../services/business/auth/firebase-spark.md)
+2. **Canonical archive** â€” JSONL in [`chirag127/oriz-me-data`](../../../glossary/i-n/master-repo.md)
+3. **Warm read cache** â€” [Turso libSQL](../../../services/data/database/turso.md)
+4. **Relational** â€” [Neon Postgres](../../../services/data/database/neon-postgres.md) (NEW)
 
 Neon's Free plan is **confirmed no card** (verified from Neon's
 pricing page on 2026-06-20): 100 projects, 100 CU-hours per project
 per month, 0.5 GB storage per project, 5 GB egress / month,
 scale-to-zero after 5 min idle, 6 h instant restore window, branching
-for previews, up to 60K Neon Auth MAU (we don't use Neon Auth — we
+for previews, up to 60K Neon Auth MAU (we don't use Neon Auth â€” we
 stay on Firebase Auth).
 
 ## Why
@@ -53,14 +53,14 @@ document-shaped + event-stream-shaped data well, but **relational
 joins are painful in Firestore and structurally lossy when flattened
 to libSQL**. Concrete near-term workloads need real Postgres:
 
-- `oriz-finance` ledger — joins across accounts / transactions /
+- `oriz-finance` ledger â€” joins across accounts / transactions /
   categories / budgets, with reconciliation queries that need foreign
   keys + transactions across multiple rows.
-- `oriz-cards` relational tags — many-to-many between cards / decks /
+- `oriz-cards` relational tags â€” many-to-many between cards / decks /
   tags / sessions, with set-difference queries.
 
 Neon's free plan covers those workloads with no card, scale-to-zero
-(idle compute mathematically free), and branching for previews — and
+(idle compute mathematically free), and branching for previews â€” and
 its wire-protocol-Postgres surface is portable to any other Postgres
 provider if the cliff hits. Adding it as the 4th tier is cheaper than
 forcing relational shape into Firestore or building denormalized
@@ -72,14 +72,14 @@ read-models in libSQL.
   project, per [`rules/interaction/never-hit-quotas.md`](../../../rules/interaction/never-hit-quotas.md).
   Higher burst would burn the 100 CU-hours / month / project budget
   in days.
-- **One Neon project per relational app** — `oriz-finance`,
-  `oriz-cards`, etc. — so each gets its own 0.5 GB + 100 CU-hours
+- **One Neon project per relational app** â€” `oriz-finance`,
+  `oriz-cards`, etc. â€” so each gets its own 0.5 GB + 100 CU-hours
   envelope. Free plan allows 100 projects; we have plenty of
   headroom.
-- **Branching for preview deploys** — Cloudflare Pages preview jobs
+- **Branching for preview deploys** â€” Cloudflare Pages preview jobs
   create a Neon branch from `main` at deploy, run migrations on the
   branch, tear it down on merge. Zero risk to the main DB.
-- **Connection-management posture** — relational adapters live behind
+- **Connection-management posture** â€” relational adapters live behind
   `apps/<app>/src/db/` so the swap surface is one file per app. The
   Hono umbrella Worker uses connection pooling (Neon's `@neon/serverless` driver
   handles this natively over HTTP, so it works inside `workerd`,
@@ -87,7 +87,7 @@ read-models in libSQL.
 - **Firestore stays document-only.** Adding Neon does NOT shift any
   existing document-shaped workload (auth, app config, lifestream
   events, journal documents).
-- **JSONL stays canonical.** Neon is a cache like libSQL — torn down
+- **JSONL stays canonical.** Neon is a cache like libSQL â€” torn down
   and rebuilt from migrations + JSONL/CSV imports if needed. The
   canonical-store rule from [`lifestream-jsonl-canonical.md`](./lifestream-jsonl-canonical.md)
   is unchanged.
@@ -102,8 +102,8 @@ read-models in libSQL.
 
 - [Neon Postgres service](../../../services/data/database/neon-postgres.md)
 - [Database services index](../../../services/data/database/index.md)
-- [Turso (libSQL) — sibling, warm cache](../../../services/data/database/turso.md)
-- [Firebase Spark — Auth + Firestore](../../../services/business/auth/firebase-spark.md)
+- [Turso (libSQL) â€” sibling, warm cache](../../../services/data/database/turso.md)
+- [Firebase Spark â€” Auth + Firestore](../../../services/business/auth/firebase-spark.md)
 - [firebase-rest-firestore decision (Worker compat)](./firebase-rest-firestore-not-admin.md)
 - [Lifestream JSONL canonical](./lifestream-jsonl-canonical.md)
 - [No card-on-file rule](../../../rules/interaction/no-card-on-file.md)

@@ -24,7 +24,7 @@ These 15 files inline into the agent context on every session. They govern *ever
 @knowledge/rules/agent/globals-derived-from-workspace.md
 @knowledge/rules/agent/agent-fleet-parity.md
 @knowledge/rules/agent/agents-md-three-place-update.md
-@knowledge/agent-rules/okf-lookup-before-acting.md
+@knowledge/rules/agent/okf-lookup-before-acting.md
 
 **Lazy-loaded** — read on first knowledge access, not auto-imported:
 - [`knowledge/rules/agent/agent-minimum-context.md`](./knowledge/rules/agent/agent-minimum-context.md) — meta-protocol for navigating `knowledge/`. Read this BEFORE the first grep/read in `knowledge/` each session.

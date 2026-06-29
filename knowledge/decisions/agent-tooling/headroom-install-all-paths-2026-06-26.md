@@ -19,7 +19,7 @@ Install Headroom proxy with all 3 access paths active: Claude Code (CLI), Script
 
 ## Why
 
-User locked this on 2026-06-26 (Q6). No per-path forking — one config file, three transports. Avoids version drift between Claude-only and browser-only installs.
+User locked this on 2026-06-26 (Q6). No per-path forking â€” one config file, three transports. Avoids version drift between Claude-only and browser-only installs.
 
 ## How to apply
 

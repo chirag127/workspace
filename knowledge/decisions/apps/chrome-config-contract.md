@@ -28,7 +28,7 @@ related:
 
 
 
-# Chrome contract — @chirag127/astro-chrome v0.1
+# Chrome contract â€” @chirag127/astro-chrome v0.1
 
 ## Decision
 
@@ -38,20 +38,20 @@ SEO, Auth, Analytics, Consent, 24 legal pages) lives in
 Per-site differences come from 4 config files in `src/config/`. Zero
 component duplication across the family.
 
-## Component model — GENERIC + CONFIG-driven
+## Component model â€” GENERIC + CONFIG-driven
 
 Components in `astro-chrome/src/components/`:
-- `Stamp.astro` — plain Iosevka Etoile wordmark of the full repo slug. NO SVG stamp. NO `ORIZ ·` prefix. Color `--stamp` on `--ink-0`.
-- `Header.astro` — slim 60px bar. Stamp on left; MultiSearch + AuthButton on right.
-- `Sidebar.astro` — 260px desktop, hamburger drawer below 768px. 3-level tree.
-- `BottomBar.astro` — 32px hairline strip. "// updated YYYY-MM-DD" left · §toc center · ? top right.
-- `Footer.astro` — 2-col (this site pages + family directory) + bottom strip "Built with Astro · 2026".
-- `SEO.astro` — Open Graph + Twitter card + JSON-LD article schema.
-- `Analytics.astro` — 5-tier stack (CFWA + Sentry + PostHog + Clarity + GA4) consent-gated.
-- `Consent.astro` — Klaro 5-category banner, geo-routed.
-- `AuthButton.tsx` — React island. Modal dialog (NOT route) with Email-link + Google + GitHub + Apple visible; Anonymous/Microsoft/Passkeys behind "More options".
-- `MultiSearch.tsx` — React island. Popover + 7 engines.
-- `Layouts/FamilyLayout.astro` — composes Header + Sidebar + BottomBar + Footer with slots for `head`, `sidebar`, `main`, `bottom`.
+- `Stamp.astro` â€” plain Iosevka Etoile wordmark of the full repo slug. NO SVG stamp. NO `ORIZ Â·` prefix. Color `--stamp` on `--ink-0`.
+- `Header.astro` â€” slim 60px bar. Stamp on left; MultiSearch + AuthButton on right.
+- `Sidebar.astro` â€” 260px desktop, hamburger drawer below 768px. 3-level tree.
+- `BottomBar.astro` â€” 32px hairline strip. "// updated YYYY-MM-DD" left Â· Â§toc center Â· ? top right.
+- `Footer.astro` â€” 2-col (this site pages + family directory) + bottom strip "Built with Astro Â· 2026".
+- `SEO.astro` â€” Open Graph + Twitter card + JSON-LD article schema.
+- `Analytics.astro` â€” 5-tier stack (CFWA + Sentry + PostHog + Clarity + GA4) consent-gated.
+- `Consent.astro` â€” Klaro 5-category banner, geo-routed.
+- `AuthButton.tsx` â€” React island. Modal dialog (NOT route) with Email-link + Google + GitHub + Apple visible; Anonymous/Microsoft/Passkeys behind "More options".
+- `MultiSearch.tsx` â€” React island. Popover + 7 engines.
+- `Layouts/FamilyLayout.astro` â€” composes Header + Sidebar + BottomBar + Footer with slots for `head`, `sidebar`, `main`, `bottom`.
 
 Components read everything from `import { site, nav, sidebar, footer } from '~/config'`.
 **Every site has identical chrome at the component level.** Differences
@@ -65,7 +65,7 @@ SECTION (uppercase eyebrow label, non-clickable)
     LEAF (link to sub-page)
 ```
 
-- Group has two affordances: title navigates, chevron collapses (industry standard — GitHub, Linear, Notion).
+- Group has two affordances: title navigates, chevron collapses (industry standard â€” GitHub, Linear, Notion).
 - Collapse state persists in localStorage per site.
 - Mobile (<768px): sidebar disappears; hamburger in header ? full-screen drawer.
 - Tree comes from `src/config/sidebar.ts` in each site.
@@ -85,7 +85,7 @@ Each site has 4 small config files in `src/config/`:
 Total per-site config: ~40 lines. New site = clone starter + edit
 config + run `pnpm build`.
 
-## Shared theme — Datasheet Dark family-wide
+## Shared theme â€” Datasheet Dark family-wide
 
 Tokens locked in `@chirag127/astro-chrome/src/tokens.css`. NO per-site
 accent. Every site uses the same `--ink-*`, `--paper-*`, `--stamp`
@@ -99,7 +99,7 @@ columns). See [`design/datasheet-dark.md`](../../design/datasheet-dark.md).
 - Default visible providers: Email-link + Google + GitHub + Apple.
 - Hidden behind "More options": Anonymous + Microsoft + Passkeys.
 - Sign-in and sign-up are the same flow (Firebase auto-creates).
-- **Logged-out behavior**: sites are FULLY USABLE without auth. Soft paywall after 5 conversions per device (tracked in localStorage, no server cost). Banner reads: "Sign in to keep converting — free, unlocks history + cross-device save."
+- **Logged-out behavior**: sites are FULLY USABLE without auth. Soft paywall after 5 conversions per device (tracked in localStorage, no server cost). Banner reads: "Sign in to keep converting â€” free, unlocks history + cross-device save."
 
 ## Analytics defaults
 
@@ -116,7 +116,7 @@ cookieless + GDPR-safe).
 
 ## JS-disabled fallback
 
-- **Content pages** (blog, legal, about) work no-JS — Astro default.
+- **Content pages** (blog, legal, about) work no-JS â€” Astro default.
 - **Tool islands** gracefully degrade: form visible + banner "This tool runs in your browser; enable JavaScript to use it."
 - SEO-friendly: content stays readable, only tools become unusable.
 
@@ -134,13 +134,13 @@ cookieless + GDPR-safe).
 - Plain English + active voice + sentence case
 - No exclamation marks, no "awesome / amazing / unlock"
 - Labels match action: button "Save changes" produces toast "Changes saved"
-- Errors say what went wrong + how to fix it — never apologize, never vague
+- Errors say what went wrong + how to fix it â€” never apologize, never vague
 - Empty states are invitations to act
 
 Per the frontend-design skill's writing section. Authored copy is design
 material, not decoration.
 
-## Accessibility floor — WCAG 2.2 AA
+## Accessibility floor â€” WCAG 2.2 AA
 
 - Lighthouse Accessibility score = 95 in CI (PR fails below 95)
 - Keyboard navigation for every interactive element, visible focus rings
@@ -155,11 +155,11 @@ Performance score = 80 in CI is the floor. Sites that need more JS
 budget for heavy WASM (pdf-tools, image-tools, video-tools, audio-tools)
 are not blocked by an absolute KB cap.
 
-## Search — hybrid Algolia + Pagefind + MultiSearch
+## Search â€” hybrid Algolia + Pagefind + MultiSearch
 
-- **MultiSearch** (always) — popover in Header, 7 engines (Google/Bing/DDG/Kagi/Brave/Marginalia/Ecosia), runs site-scoped query externally. Already built in `astro-chrome/src/components/MultiSearch.tsx`.
-- **Pagefind** (static index) — for small content sites (lore, ncert, roam, me, janaushdhi). Build-time index, no runtime infra.
-- **Algolia** (hosted) — for big content sites (pages, tabs). Indexed via Crawler add-on, free InstantSearch UI.
+- **MultiSearch** (always) â€” popover in Header, 7 engines (Google/Bing/DDG/Kagi/Brave/Marginalia/Ecosia), runs site-scoped query externally. Already built in `astro-chrome/src/components/MultiSearch.tsx`.
+- **Pagefind** (static index) â€” for small content sites (lore, ncert, roam, me, janaushdhi). Build-time index, no runtime infra.
+- **Algolia** (hosted) â€” for big content sites (pages, tabs). Indexed via Crawler add-on, free InstantSearch UI.
 
 Two surfaces in the search popover: "this site" (Pagefind/Algolia) and
 "the web" (MultiSearch).
@@ -181,7 +181,7 @@ status.
 Privacy text auto-updates when site `package.json` deps change. Updates
 require a chrome version bump + family-wide `pnpm update --recursive`.
 
-## Shared package consumption — pnpm workspace
+## Shared package consumption â€” pnpm workspace
 
 `pnpm-workspace.yaml` lives at the existing `chirag127/workspace`
 umbrella root. Workspace members:
@@ -197,11 +197,11 @@ site. Published to npm on tag.
 
 - [decisions/architecture/per-runtime-framework](./per-runtime-framework.md)
 - [design/datasheet-dark](../../design/datasheet-dark.md)
-- [decisions/architecture/sidebar-4-tier](../frontend/sidebar-4-tier.md) — predecessor (4-tier preset categories, refined here to 3-level depth per node)
+- [decisions/architecture/sidebar-4-tier](../frontend/sidebar-4-tier.md) â€” predecessor (4-tier preset categories, refined here to 3-level depth per node)
 - [decisions/architecture/a11y-three-tools](../stack/a11y-three-tools.md)
-- [decisions/architecture/multi-engine-search-button](../frontend/multi-engine-search-button.md) — MultiSearch component spec
+- [decisions/architecture/multi-engine-search-button](../frontend/multi-engine-search-button.md) â€” MultiSearch component spec
 - [decisions/architecture/analytics-five-tier-stack](../ops/analytics-five-tier-stack.md)
-- [security/multi-provider-auth](../../security/multi-provider-auth.md) — 6-provider Firebase Auth stack
-- [security/consent-management-multi-category](../../security/consent-management-multi-category.md) — Klaro 5-category
+- [security/multi-provider-auth](../../security/multi-provider-auth.md) â€” 6-provider Firebase Auth stack
+- [security/consent-management-multi-category](../../security/consent-management-multi-category.md) â€” Klaro 5-category
 - [rules/astro-version-pin](../../../rules/development/astro-version-pin.md)
 - [runbooks/scaffold-a-new-site](../../../runbooks/workflow/scaffold-a-new-site.md)

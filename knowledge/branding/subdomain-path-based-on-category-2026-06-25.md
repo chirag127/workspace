@@ -1,6 +1,6 @@
 ---
 type: decision
-title: Subdomains — category-based with path routing per tool
+title: Subdomains â€” category-based with path routing per tool
 description: Per-tool subdomains abandoned. Tools at category.oriz.in/tool for SEO
 tags:
 - decision
@@ -19,7 +19,7 @@ related:
 - infrastructure/hosting-split-cf-and-gh-2026-06-25
 ---
 
-# Subdomains — category-based with path routing
+# Subdomains â€” category-based with path routing
 
 ## Decision
 
@@ -27,11 +27,11 @@ Tools no longer get one-subdomain-each. Instead, tools live at `<category>.oriz.
 
 ## Why
 
-- **Topical authority compounds** — every internal link from `/emi` to `/sip` raises both for "finance.oriz.in" in Google's eyes. Per-tool subdomains fragment that signal.
-- **One CF Pages project per category** — fewer projects, less build-quota pressure, simpler analytics rollup.
-- **Better cross-tool UX** — users on the EMI calc see related calculators in the sidebar without crossing domains.
-- **Aligned with category consolidation** — one finance repo serving ten routes is cheaper than ten repos serving one route each.
-- **Subdomain real estate stays focused** — `<category>.oriz.in` reads as a destination ("the finance toolkit") rather than a single-purpose page.
+- **Topical authority compounds** â€” every internal link from `/emi` to `/sip` raises both for "finance.oriz.in" in Google's eyes. Per-tool subdomains fragment that signal.
+- **One CF Pages project per category** â€” fewer projects, less build-quota pressure, simpler analytics rollup.
+- **Better cross-tool UX** â€” users on the EMI calc see related calculators in the sidebar without crossing domains.
+- **Aligned with category consolidation** â€” one finance repo serving ten routes is cheaper than ten repos serving one route each.
+- **Subdomain real estate stays focused** â€” `<category>.oriz.in` reads as a destination ("the finance toolkit") rather than a single-purpose page.
 
 ## Implications
 
@@ -39,5 +39,5 @@ Tools no longer get one-subdomain-each. Instead, tools live at `<category>.oriz.
 - The 11 archived tools (eleven-saturated-archived-2026-06-25) free their subdomains automatically.
 - CF Pages DNS provisioning workflow targets `<category>.oriz.in`, not per-tool.
 - Sitemap-of-sitemaps registers one entry per category subdomain instead of one per tool.
-- Per-app knowledge bundles consolidate too — one knowledge/ folder inside the category repo covers every tool route.
+- Per-app knowledge bundles consolidate too â€” one knowledge/ folder inside the category repo covers every tool route.
 - Where a tool deserves its own subdomain (a major standalone product, not a calculator), it can still claim one. The default is category routing.

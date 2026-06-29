@@ -17,8 +17,8 @@ related:
 
 ## Decision
 
-A single subscription per user — paid through Razorpay, stored at
-`users/{uid}/subscription` in Firestore — unlocks paid features
+A single subscription per user â€” paid through Razorpay, stored at
+`users/{uid}/subscription` in Firestore â€” unlocks paid features
 across every site AND every extension in the family. There are no
 per-site or per-extension subscriptions.
 
@@ -37,9 +37,9 @@ reads the same Firestore doc.
 - Razorpay webhook ? `apps/api/routes/razorpay/webhook.ts` ? writes `users/{uid}/subscription` in Firestore (`status`, `tier`, `current_period_end`, etc.).
 - Each site reads `users/{uid}/subscription` directly via the Firestore client SDK (browser-side) to gate features.
 - Each extension reads it via `chrome.storage.local`-cached ID token + Firestore client (or via `@chirag127/api-client` calling `apps/api/routes/firestore/`).
-- Free-tier features remain on every site/extension regardless of subscription — paid features are additive enhancements, not gates on the core.
+- Free-tier features remain on every site/extension regardless of subscription â€” paid features are additive enhancements, not gates on the core.
 - Note: this does NOT contradict [no-subscriptions-anywhere](./no-subscriptions-anywhere.md) which is about OUR cost, not the user's. We never PAY a subscription; we may COLLECT one from users for premium features.
-- Switching billing providers (Razorpay ? Stripe / Lemon Squeezy / Paddle) is a webhook handler swap — entitlement schema doesn't change.
+- Switching billing providers (Razorpay ? Stripe / Lemon Squeezy / Paddle) is a webhook handler swap â€” entitlement schema doesn't change.
 
 ## Cross-refs
 

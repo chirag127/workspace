@@ -27,33 +27,33 @@ related:
 
 
 
-# SEO — three pillars: sitemap + IndexNow + JSON-LD
+# SEO â€” three pillars: sitemap + IndexNow + JSON-LD
 
 ## Decision
 
 Every chirag127/oriz family site ships **all three** SEO pillars,
 not a subset:
 
-1. **Sitemap** —
+1. **Sitemap** â€”
    [`@astrojs/sitemap`](../../../services/monitoring/monitoring/seo/astrojs-sitemap.md)
    generates `sitemap-index.xml` + `sitemap-0.xml` at `astro build`
    time. Submitted once per property to
    [Google Search Console](../../../services/monitoring/monitoring/seo/google-search-console.md)
    and [Bing Webmaster Tools](../../../services/monitoring/monitoring/seo/bing-webmaster.md).
-2. **IndexNow** — [`/og`-style POST hook](../../../services/monitoring/monitoring/seo/indexnow.md)
+2. **IndexNow** â€” [`/og`-style POST hook](../../../services/monitoring/monitoring/seo/indexnow.md)
    from [`oriz-omnipost`](../../../glossary/o-r/omnipost.md) fires the
    instant a new URL is published / edited / deleted. Notifies Bing
    + Yandex + Seznam + Naver in milliseconds.
-3. **JSON-LD structured data** —
+3. **JSON-LD structured data** â€”
    [`<JsonLd type="..." data={{...}} />`](../../../services/monitoring/monitoring/seo/json-ld-structured-data.md)
    component in <!-- TODO: broken link, was [`@chirag127/oriz-kit`](../../../glossary/o-r/oriz-kit.md) -->
-   (forward reference — lands in oriz-kit's next release) emits
+   (forward reference â€” lands in oriz-kit's next release) emits
    schema.org markup for `Article`, `BreadcrumbList`,
    `Organization`, `WebSite`, and `Person`.
 
-Submitted into both consoles —
+Submitted into both consoles â€”
 [Google Search Console](../../../services/monitoring/monitoring/seo/google-search-console.md)
-+ [Bing Webmaster Tools](../../../services/monitoring/monitoring/seo/bing-webmaster.md) —
++ [Bing Webmaster Tools](../../../services/monitoring/monitoring/seo/bing-webmaster.md) â€”
 which together cover Google + Bing + DuckDuckGo + Yandex.
 
 ## Why
@@ -106,7 +106,7 @@ the family's existing setup:
   for extensions) get added per site as one-off JSON-LD blocks
   using the same `<JsonLd>` component with custom `type=`.
 - **Both consoles** verified at the apex `oriz.in` Domain
-  property — one DNS TXT record covers every subdomain via
+  property â€” one DNS TXT record covers every subdomain via
   [Cloudflare DNS](../../../services/infra/domain/cloudflare-dns.md).
 - **No card** anywhere across the five layers. All five fit the
   [no-card-on-file rule](../../../rules/interaction/no-card-on-file.md) and the
@@ -119,7 +119,7 @@ the family's existing setup:
 - [services/monitoring/monitoring/seo/json-ld-structured-data.md](../../../services/monitoring/monitoring/seo/json-ld-structured-data.md)
 - [services/monitoring/monitoring/seo/google-search-console.md](../../../services/monitoring/monitoring/seo/google-search-console.md)
 - [services/monitoring/monitoring/seo/bing-webmaster.md](../../../services/monitoring/monitoring/seo/bing-webmaster.md)
-- [services/monitoring/monitoring/seo/index.md](../../../services/monitoring/monitoring/seo/index.md) — bucket overview
-- [decisions/architecture/cross-post-engine.md](../general/cross-post-engine.md) — oriz-omnipost fires IndexNow
-- <!-- TODO: broken link, was [glossary/o-r/oriz-kit.md](../../../glossary/o-r/oriz-kit.md) --> — `<JsonLd>` component (forward reference)
+- [services/monitoring/monitoring/seo/index.md](../../../services/monitoring/monitoring/seo/index.md) â€” bucket overview
+- [decisions/architecture/cross-post-engine.md](../general/cross-post-engine.md) â€” oriz-omnipost fires IndexNow
+- <!-- TODO: broken link, was [glossary/o-r/oriz-kit.md](../../../glossary/o-r/oriz-kit.md) --> â€” `<JsonLd>` component (forward reference)
 - [No card-on-file rule](../../../rules/interaction/no-card-on-file.md)

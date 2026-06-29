@@ -20,7 +20,7 @@ status: active
 
 | Looking for | Read |
 |---|---|
-| **How to OPERATE this knowledge bundle as an AI agent** (start here on every session) | [`agent-rules/agent-minimum-context.md`](./agent-rules/agent-minimum-context.md) |
+| **How to OPERATE this knowledge bundle as an AI agent** (start here on every session) | [`rules/agent/agent-minimum-context.md`](./rules/agent/agent-minimum-context.md) |
 | Why we do (or don't do) something | [`rules/`](./rules) |
 | When + why a specific decision was locked | [`decisions/`](./decisions) |
 | Which external services we use + free-tier limits + alternatives | [`services/`](./services) |

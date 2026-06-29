@@ -39,8 +39,8 @@ NCERT publishes per-chapter PDFs on `ncert.nic.in`. Students perpetually want on
 1. GH Action (daily 04:00 IST) walks the NCERT URL tree.
 2. Downloads every chapter PDF per `{class, subject, language}` triple.
 3. Merges via `qpdf --empty --pages a.pdf b.pdf c.pdf -- merged.pdf` (or `pdftk` fallback).
-4. Names output `{class}-{subject}-{en|hi}.pdf` — e.g. `class-9-science-en.pdf`, `class-11-physics-hi.pdf`.
-5. Publishes as **GitHub Release artefacts** under tag `ncert-YYYY-MM-DD`. NOT CF Pages — CF Pages has a 25 MB per-file limit; merged textbooks routinely exceed.
+4. Names output `{class}-{subject}-{en|hi}.pdf` â€” e.g. `class-9-science-en.pdf`, `class-11-physics-hi.pdf`.
+5. Publishes as **GitHub Release artefacts** under tag `ncert-YYYY-MM-DD`. NOT CF Pages â€” CF Pages has a 25 MB per-file limit; merged textbooks routinely exceed.
 
 ## Scope
 

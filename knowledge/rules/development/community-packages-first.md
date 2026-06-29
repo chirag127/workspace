@@ -13,7 +13,7 @@ timestamp: 2026-06-23
 format_version: okf-v0.1
 status: active
 related:
-- agent-rules/grill-on-loc-removal
+- rules/agent/grill-on-loc-removal
 - rules/interaction/match-surrounding-style
 - rules/interaction/never-hit-quotas
 ---

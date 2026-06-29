@@ -7,9 +7,9 @@ timestamp: 2026-06-29
 format_version: okf-v0.1
 status: active
 related:
-  - agent-rules/globals-derived-from-workspace
-  - agent-rules/agent-fleet-parity
-  - agent-rules/mcp-config-single-source-of-truth
+  - rules/agent/globals-derived-from-workspace
+  - rules/agent/agent-fleet-parity
+  - rules/agent/mcp-config-single-source-of-truth
   - decisions/agent-tooling/fleet-cut-to-4-agents-2026-06-29
 ---
 
@@ -23,11 +23,11 @@ related:
 
 Three iterations same turn:
 
-1. **First pass** — locked "workspace-only" (move everything global ? workspace).
-2. **Reality check** — OpenCode's schema differs from Claude Code's; my sync emitted `chirag127: {command:[null]}` and OpenCode rejected the config. User pasted the error.
-3. **Reversal** — user reframed: workspace canonical, globals derived by auto-grill script. "Nothing will be workspace only because the repository should be clean and minimum root folders."
+1. **First pass** â€” locked "workspace-only" (move everything global ? workspace).
+2. **Reality check** â€” OpenCode's schema differs from Claude Code's; my sync emitted `chirag127: {command:[null]}` and OpenCode rejected the config. User pasted the error.
+3. **Reversal** â€” user reframed: workspace canonical, globals derived by auto-grill script. "Nothing will be workspace only because the repository should be clean and minimum root folders."
 
-The reversal is captured here; the original workspace-only rule has been deleted per [`knowledge-deletion-not-supersession`](../../../agent-rules/knowledge-deletion-not-supersession.md). Git history is the audit trail (commit `66f05f7` added it; commit on this trio of changes removes it).
+The reversal is captured here; the original workspace-only rule has been deleted per [`knowledge-deletion-not-supersession`](../../../rules/agent/knowledge-deletion-not-supersession.md). Git history is the audit trail (commit `66f05f7` added it; commit on this trio of changes removes it).
 
 ## What the script does
 
@@ -40,7 +40,7 @@ The reversal is captured here; the original workspace-only rule has been deleted
 | Grill | If new item OR drift ? fire grill-me MCQ (migrate / keep both / delete from workspace) |
 | Write | Apply user's grill answer back to globals + registry |
 
-Note: per-agent propagation (`scripts/sync-mcp-configs.mjs`) is also a separate manual step — `sync-globals.mjs` no longer auto-invokes it.
+Note: per-agent propagation (`scripts/sync-mcp-configs.mjs`) is also a separate manual step â€” `sync-globals.mjs` no longer auto-invokes it.
 
 ## Per-agent schema transform
 
@@ -48,7 +48,7 @@ The script holds adapters per agent (today: Claude Code, OpenCode, Kilo Code, An
 
 ## What got fixed at the same time (OpenCode break)
 
-`sync-mcp-configs.mjs` line that converted `chirag127` remote MCP was broken — emitted `{type:remote, command:[null]}` instead of `{type:remote, url, enabled:true}`. Fixed in the same turn as this decision. Confirmed by `opencode mcp list` showing 7/8 servers connected (`chirag127` itself shows "needs authentication" — that's a Smithery OAuth issue, not a config-schema issue).
+`sync-mcp-configs.mjs` line that converted `chirag127` remote MCP was broken â€” emitted `{type:remote, command:[null]}` instead of `{type:remote, url, enabled:true}`. Fixed in the same turn as this decision. Confirmed by `opencode mcp list` showing 7/8 servers connected (`chirag127` itself shows "needs authentication" â€” that's a Smithery OAuth issue, not a config-schema issue).
 
 ## Override learnings (candidate rules; cumulative across the turn)
 
@@ -56,4 +56,4 @@ The script holds adapters per agent (today: Claude Code, OpenCode, Kilo Code, An
 2. **Cline drop**, fleet = 4 agents ? `fleet-cut-to-4-agents-2026-06-29`
 3. **Workspace-canonical, globals-derived** beats workspace-only ? this file
 4. **Live web search > Haiku-pinned researcher** for landscape questions (researcher claimed Aider has MCP; live search refuted)
-5. **Pre-flight smoke test of OpenCode/Kilo schemas before sync** — silent drift caught the user's terminal, not me. Adding `scripts/test-mcp-servers.mjs` this turn.
+5. **Pre-flight smoke test of OpenCode/Kilo schemas before sync** â€” silent drift caught the user's terminal, not me. Adding `scripts/test-mcp-servers.mjs` this turn.

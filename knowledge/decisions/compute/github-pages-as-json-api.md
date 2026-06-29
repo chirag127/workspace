@@ -38,7 +38,7 @@ write / auth-gated endpoints.
 | Aspect | GitHub Pages | CF Worker |
 |---|---|---|
 | Cost | Free, unlimited repos | Free 100K req/day account-wide |
-| Per-repo isolation | Yes — each repo independent | No — shared account quota |
+| Per-repo isolation | Yes â€” each repo independent | No â€” shared account quota |
 | Custom domain | Yes, one per repo | One per Worker (or via Pages) |
 | Bandwidth | 100 GB/month soft cap | Unlimited |
 | Build time | GH Actions cron, no limit | Build at request time |
@@ -58,25 +58,25 @@ suffix appended to the v6 family naming policy:
 
 | Example | Subdomain | Endpoint |
 |---|---|---|
-| `oriz-mmi-tracker-api` | `mmi.oriz.in` | `/data.json` — market mood index time-series |
-| `oriz-fii-dii-activity-api` | `fii-dii.oriz.in` | `/data.json` — FII/DII flow daily aggregate |
-| `oriz-redirects-api` | `redirects.oriz.in` | `/map.json` — family-wide redirect map |
-| `oriz-family-registry-api` | `family.oriz.in` | `/registry.json` — list of all oriz-* products |
+| `oriz-mmi-tracker-api` | `mmi.oriz.in` | `/data.json` â€” market mood index time-series |
+| `oriz-fii-dii-activity-api` | `fii-dii.oriz.in` | `/data.json` â€” FII/DII flow daily aggregate |
+| `oriz-redirects-api` | `redirects.oriz.in` | `/map.json` â€” family-wide redirect map |
+| `oriz-family-registry-api` | `family.oriz.in` | `/registry.json` â€” list of all oriz-* products |
 
 ## Architecture per `-api` repo
 
 ```
 oriz-<name>-api/
 +-- .github/workflows/
-¦   +-- cron.yml         # scheduled: scrape source ? produce JSON ? commit
-¦   +-- deploy.yml       # on push: deploy /public/ to GitHub Pages
+Â¦   +-- cron.yml         # scheduled: scrape source ? produce JSON ? commit
+Â¦   +-- deploy.yml       # on push: deploy /public/ to GitHub Pages
 +-- src/
-¦   +-- scraper.py       # or .ts — the data producer
+Â¦   +-- scraper.py       # or .ts â€” the data producer
 +-- public/
-¦   +-- data.json        # the API payload, committed
-¦   +-- meta.json        # schema, last-updated, version
-¦   +-- openapi.json     # spec for RapidAPI listing
-¦   +-- index.html       # tiny landing page documenting the API
+Â¦   +-- data.json        # the API payload, committed
+Â¦   +-- meta.json        # schema, last-updated, version
+Â¦   +-- openapi.json     # spec for RapidAPI listing
+Â¦   +-- index.html       # tiny landing page documenting the API
 +-- CNAME                # <subdomain>.oriz.in
 +-- README.md            # docs + RapidAPI link
 +-- LICENSE
@@ -89,10 +89,10 @@ file at `https://<subdomain>.oriz.in/data.json`.
 ## Monetization via RapidAPI + others
 
 Each `-api` repo lists on:
-- **RapidAPI** (per `services/business/data-api/rapidapi.md` — TODO) — free tier
+- **RapidAPI** (per `services/business/data-api/rapidapi.md` â€” TODO) â€” free tier
   + paid tiers monetized via stripe-on-rapidapi (no card on our side).
 - **Apilayer / API Marketplace** as secondary listings.
-- **Direct subdomain access** — free public read.
+- **Direct subdomain access** â€” free public read.
 
 RapidAPI handles auth, rate-limiting, billing; we just expose the
 public subdomain URL.
@@ -107,7 +107,7 @@ public subdomain URL.
 
 ## Cross-refs
 
-- [naming-policy-v6](../../branding/naming-policy-v6.md) — `-api` suffix added
-- [hono-worker-api-umbrella](./hono-worker-api-umbrella.md) — the CF Worker side
-- [multi-target-build](../multi-target-build.md) — release cadence applies
-- [data-canonical-store](../../policy/data-canonical-store.md) — JSONL conventions
+- [naming-policy-v6](../../branding/naming-policy-v6.md) â€” `-api` suffix added
+- [hono-worker-api-umbrella](./hono-worker-api-umbrella.md) â€” the CF Worker side
+- [multi-target-build](../multi-target-build.md) â€” release cadence applies
+- [data-canonical-store](../../policy/data-canonical-store.md) â€” JSONL conventions

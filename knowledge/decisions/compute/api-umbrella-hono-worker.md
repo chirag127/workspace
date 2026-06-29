@@ -20,7 +20,7 @@ related:
 
 
 
-# API umbrella — one Hono Worker
+# API umbrella â€” one Hono Worker
 
 ## Shape
 
@@ -28,16 +28,16 @@ related:
 
 ## Routes layout
 
-- `routes/contact.ts` — contact-form relay
-- `routes/recaptcha.ts` — reCAPTCHA verify
-- `routes/razorpay/` — Razorpay webhooks + order creation
-- `routes/firestore/` — Firestore wrappers
-- `routes/turso/` — Turso warm-cache reads
-- `routes/auth/` — Firebase Auth verify, cross-site session check
+- `routes/contact.ts` â€” contact-form relay
+- `routes/recaptcha.ts` â€” reCAPTCHA verify
+- `routes/razorpay/` â€” Razorpay webhooks + order creation
+- `routes/firestore/` â€” Firestore wrappers
+- `routes/turso/` â€” Turso warm-cache reads
+- `routes/auth/` â€” Firebase Auth verify, cross-site session check
 
 ## Edge-compatible libs (Worker-only)
 
-- Firestore: `firebase-rest-firestore` (NOT `firebase-admin` — needs gRPC)
+- Firestore: `firebase-rest-firestore` (NOT `firebase-admin` â€” needs gRPC)
 - Turso: `@tursodatabase/serverless`
 - Firebase Auth verify: `firebase-auth-cloudflare-workers` + `@hono/firebase-auth`
 - reCAPTCHA verify: plain `fetch`

@@ -29,30 +29,30 @@ related:
 
 
 
-# Local dev tunneling — Wrangler + Astro dev + Cloudflare Tunnel
+# Local dev tunneling â€” Wrangler + Astro dev + Cloudflare Tunnel
 
 ## Decision
 
 Local development across the family runs on **three substrates**,
 picked by surface:
 
-1. **[Wrangler dev](../../../services/infra/dev-tools/wrangler.md)** — for
+1. **[Wrangler dev](../../../services/infra/dev-tools/wrangler.md)** â€” for
    every Cloudflare Worker (the umbrella `api.oriz.in` Hono Worker
    per [`hono-worker-api-umbrella`](./hono-worker-api-umbrella.md),
    the `s.oriz.in` shortener Worker, the `og.oriz.in` Satori
    endpoint). Local mode (`wrangler dev`) runs in workerd; remote
    mode (`wrangler dev --remote`) runs against real Cloudflare
    infrastructure for KV / R2 / Queues / Durable Objects parity.
-2. **Astro dev** — for every site (Astro / Vite stack) per
+2. **Astro dev** â€” for every site (Astro / Vite stack) per
    [`cloudflare-pages-for-all-sites`](../../infrastructure/cloudflare-pages-for-all-sites.md).
    `pnpm dev` boots the Vite dev server with HMR.
-3. **[Cloudflare Tunnel (cloudflared)](../../../services/infra/dev-tools/cloudflare-tunnel.md)** —
+3. **[Cloudflare Tunnel (cloudflared)](../../../services/infra/dev-tools/cloudflare-tunnel.md)** â€”
    for exposing `localhost:<port>` to a public hostname so that
    webhook senders ([Razorpay](../../../services/business/payment/razorpay.md),
    GitHub, Bluesky AT Protocol firehose, EmailOctopus) can reach
    the in-flight Worker / site during development.
 
-ngrok, localtunnel, serveo, and bore — **all REJECTED**.
+ngrok, localtunnel, serveo, and bore â€” **all REJECTED**.
 
 User direction 2026-06-20: "Wrangler + Astro dev locked. ALSO add
 Cloudflare Tunnel (free, CF-native)."
@@ -62,13 +62,13 @@ Cloudflare Tunnel (free, CF-native)."
 - **Cloudflare Tunnel is free, native to the family's stack, and
   has no auth limit.** The family already runs on Cloudflare
   (Pages + Workers + DNS + Email Routing). One more `cloudflared`
-  binary fits without a new vendor surface — no card on file
+  binary fits without a new vendor surface â€” no card on file
   ([`rules/no-card-on-file`](../../../rules/interaction/no-card-on-file.md)),
   no subscription ([`rules/no-subscriptions`](../../../rules/infrastructure/no-subscriptions.md)),
   no anonymous-user TTL.
 - **Persistent hostnames.** A `cloudflared tunnel route dns`
   binding to `dev.oriz.in` survives laptop reboots and dynamic
-  IPs — ngrok's free tier rotates the hostname every session,
+  IPs â€” ngrok's free tier rotates the hostname every session,
   forcing webhook re-registration every dev day.
 - **Wrangler handles Worker runtime parity.** Local-mode workerd
   matches Cloudflare's edge runtime; remote-mode hits real
@@ -86,9 +86,9 @@ Cloudflare Tunnel (free, CF-native)."
 |---|---|
 | ngrok | Free tier rotates hostname every session, forcing webhook re-registration; persistent hostnames require paid plan + card. Anonymous use throttled |
 | localtunnel | Hostname is random subdomain on `loca.lt`, no persistent binding to `*.oriz.in`; OSS but unmaintained |
-| serveo | SSH-tunnel-shaped — no `*.oriz.in` binding; reliability issues over time |
+| serveo | SSH-tunnel-shaped â€” no `*.oriz.in` binding; reliability issues over time |
 | bore / frp / pagekite | Self-host or paid past tiny envelope; the family runs only managed serverless |
-| Tailscale Funnel | Requires Tailscale-installed receiving party — fits internal collaboration, not public-internet webhooks |
+| Tailscale Funnel | Requires Tailscale-installed receiving party â€” fits internal collaboration, not public-internet webhooks |
 | GitHub Codespaces port-forward | Fits a Codespaces workflow; the family develops locally, not in Codespaces |
 
 ## Implications
@@ -108,13 +108,13 @@ Result: `dev.oriz.in` resolves to the tunnel UUID; whatever
 ### Per-session local dev flow
 
 ```bash
-# Terminal 1 — Worker
+# Terminal 1 â€” Worker
 cd packages/oriz-api-worker && wrangler dev --port 8787
 
-# Terminal 2 — Site (one of the 11)
+# Terminal 2 â€” Site (one of the 11)
 cd sites/oriz-blog-site && pnpm dev   # Astro on :3000
 
-# Terminal 3 — public hostname pointing at one of the above
+# Terminal 3 â€” public hostname pointing at one of the above
 cloudflared tunnel run --url http://localhost:8787 dev-oriz
 # now https://dev.oriz.in tunnels to localhost:8787
 ```
@@ -132,13 +132,13 @@ ingress:
 
 ### Webhook testing surfaces
 
-- **Razorpay** — point the dashboard webhook at
+- **Razorpay** â€” point the dashboard webhook at
   `https://dev.oriz.in/webhooks/razorpay` while testing payment
   flows; production points at `api.oriz.in/webhooks/razorpay`
   fronted by [Hookdeck](../../infrastructure/hookdeck-for-webhook-reliability.md).
-- **GitHub** (PR-checks / push events for `oriz-omnipost`) —
+- **GitHub** (PR-checks / push events for `oriz-omnipost`) â€”
   same pattern; dev webhook points at `dev.oriz.in/gh`.
-- **Bluesky AT Protocol firehose** — for the
+- **Bluesky AT Protocol firehose** â€” for the
   [`lifestream-federation`](../general/lifestream-federation.md)
   consumer, run cloudflared during dev to receive jetstream
   events on a public hostname.
@@ -157,11 +157,11 @@ with Doppler without committing them.
 
 - **No ngrok account.** No `NGROK_AUTH_TOKEN` in
   <!-- TODO: broken link, was [`templates/.env.example`](../../../templates/.env.example) -->.
-- **No paid Wrangler / Cloudflare plan** for local dev — Wrangler
+- **No paid Wrangler / Cloudflare plan** for local dev â€” Wrangler
   is free; Cloudflare Tunnel is free; Workers free tier covers
   remote-mode parity testing.
 - **No tunneling for production.** Production traffic hits
-  Cloudflare's edge directly via Pages / Workers — tunnels are
+  Cloudflare's edge directly via Pages / Workers â€” tunnels are
   exclusively a local-dev surface.
 
 ### Failure modes documented
@@ -169,7 +169,7 @@ with Doppler without committing them.
 - `cloudflared` daemon crashes ? restart; tunnel UUID and DNS
   binding are durable on the CF side.
 - Account quota: Cloudflare Tunnel has **no per-user quota** on
-  the free plan — bandwidth and connection counts are unlimited
+  the free plan â€” bandwidth and connection counts are unlimited
   for personal / dev use.
 
 ## Cross-refs
@@ -178,8 +178,8 @@ with Doppler without committing them.
 - [Wrangler service entry](../../../services/infra/dev-tools/wrangler.md)
 - [Dev-tools index](../../../services/infra/dev-tools/index.md)
 - [Cloudflare Pages for all sites](../../infrastructure/cloudflare-pages-for-all-sites.md)
-- [Hono Worker API umbrella](./hono-worker-api-umbrella.md) — primary Worker tested under Wrangler dev
-- [Hookdeck for webhook reliability](../../infrastructure/hookdeck-for-webhook-reliability.md) — production webhook ingress
-- [Secrets management — Doppler](../../security/secrets-management-doppler.md)
+- [Hono Worker API umbrella](./hono-worker-api-umbrella.md) â€” primary Worker tested under Wrangler dev
+- [Hookdeck for webhook reliability](../../infrastructure/hookdeck-for-webhook-reliability.md) â€” production webhook ingress
+- [Secrets management â€” Doppler](../../security/secrets-management-doppler.md)
 - [No card-on-file rule](../../../rules/interaction/no-card-on-file.md)
 - [No subscriptions rule](../../../rules/infrastructure/no-subscriptions.md)

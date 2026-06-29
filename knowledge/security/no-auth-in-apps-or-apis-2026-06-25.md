@@ -1,6 +1,6 @@
 ---
 type: decision
-title: "No auth in apps or APIs — login is a separate project"
+title: "No auth in apps or APIs â€” login is a separate project"
 description: Apps/APIs 100% public, login redirects to dedicated login-manager
 tags: [auth, public, login-manager, simplicity, donations-only]
 timestamp: 2026-06-25
@@ -14,19 +14,19 @@ related:
   - rules/interaction/no-card-on-file
 ---
 
-# No auth in apps or APIs — login is a separate project
+# No auth in apps or APIs â€” login is a separate project
 
 ## Decision
 
-Apps and APIs across the fleet are 100% public. No sign-in UI, no session check, no auth SDK imports in any app shell or API handler. Login functionality moves to a dedicated **login-manager** project (separate repo, separate subdomain) — apps that need an authenticated user redirect to it and never embed the auth flow.
+Apps and APIs across the fleet are 100% public. No sign-in UI, no session check, no auth SDK imports in any app shell or API handler. Login functionality moves to a dedicated **login-manager** project (separate repo, separate subdomain) â€” apps that need an authenticated user redirect to it and never embed the auth flow.
 
 ## Why
 
-- **Simpler shells:** every app drops its auth wiring, session middleware, and user-context plumbing — the shell is just the tool.
+- **Simpler shells:** every app drops its auth wiring, session middleware, and user-context plumbing â€” the shell is just the tool.
 - **Kill cross-repo coupling:** no more shared `@oriz/account-widget` package, no Clerk SDK pinned across 18+ apps, no JWT verifier worker in every API.
-- **Donations-only is coherent without accounts:** donors don't need a logged-in identity to give via BuyMeACoffee / GitHub Sponsors / UPI — auth was solving a problem we don't have.
-- **No paid users yet:** embedded auth is a maintenance tax with zero revenue against it. The minute we charge, login-manager spins up — until then, friction = lost users.
-- **Friction-free for visitors:** the fleet's pitch is "free public tools" — a sign-in wall (even optional) signals lock-in and contradicts the build-gate-vs-paywalled-competitors stance.
+- **Donations-only is coherent without accounts:** donors don't need a logged-in identity to give via BuyMeACoffee / GitHub Sponsors / UPI â€” auth was solving a problem we don't have.
+- **No paid users yet:** embedded auth is a maintenance tax with zero revenue against it. The minute we charge, login-manager spins up â€” until then, friction = lost users.
+- **Friction-free for visitors:** the fleet's pitch is "free public tools" â€” a sign-in wall (even optional) signals lock-in and contradicts the build-gate-vs-paywalled-competitors stance.
 
 ## What this kills
 
@@ -39,23 +39,23 @@ Apps and APIs across the fleet are 100% public. No sign-in UI, no session check,
 
 ## What stays
 
-- The 24 npm packages — none of them assumed auth in the first place.
-- The 18 APIs — already public per Spark plan; just confirm no auth code crept in.
+- The 24 npm packages â€” none of them assumed auth in the first place.
+- The 18 APIs â€” already public per Spark plan; just confirm no auth code crept in.
 
 ## Login-manager project (TBD)
 
 - Lives at TBD subdomain (probably one of: `login.oriz.in`, `accounts.oriz.in`, `id.oriz.in`).
-- Hosted as its own repo (probably `repos/infra/login-manager/` — to be created).
+- Hosted as its own repo (probably `repos/infra/login-manager/` â€” to be created).
 - Apps that need login redirect: `https://login.oriz.in/?return=<encoded-url>` ? callback to app's `/auth/callback` route.
 - Decision deferred: which backend (still TBD, could be Clerk, Lucia, or self-rolled JWT).
 
 ## Implications
 
-- Audit pass: grep every app and API for Clerk/Firebase SDK imports, session middleware, JWT verifier code — strip on sight.
+- Audit pass: grep every app and API for Clerk/Firebase SDK imports, session middleware, JWT verifier code â€” strip on sight.
 - Template repo: remove the auth island and any `useUser()` hooks from the Astro+React baseline.
 - `repos/infra/auth` repo: either delete or rename to `login-manager` as the skeleton for the future separate project.
 - Rate limiting on APIs: switch to IP-based throttling (per `oriz-rate-limit-npm-pkg`) since there's no API key check.
-- Donation footers stay anonymous — no "logged-in donor" tracking.
+- Donation footers stay anonymous â€” no "logged-in donor" tracking.
 - When the login-manager project ships, it'll be a single OAuth/redirect surface; apps never embed it, only redirect to it.
 
 ## Cross-refs

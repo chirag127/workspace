@@ -30,7 +30,7 @@ related:
 
 
 
-# DB admin — console-only, no desktop DB tool
+# DB admin â€” console-only, no desktop DB tool
 
 ## Decision
 
@@ -42,17 +42,17 @@ family-wide.
 
 | Tier | Admin surface |
 |---|---|
-| [Firestore on Firebase Spark](../../../services/business/auth/firebase-spark.md) | [console.firebase.google.com](https://console.firebase.google.com/) — browser |
-| JSONL canonical (in `oriz-me-data`) | A text editor — `git` is the admin layer |
+| [Firestore on Firebase Spark](../../../services/business/auth/firebase-spark.md) | [console.firebase.google.com](https://console.firebase.google.com/) â€” browser |
+| JSONL canonical (in `oriz-me-data`) | A text editor â€” `git` is the admin layer |
 | [Turso libSQL](../../../services/data/database/turso.md) | `turso db shell <name>` (Turso CLI) + `libsql-client` SQL prompts |
-| [Neon Postgres](../../../services/data/database/neon-postgres.md) | [console.neon.tech](https://console.neon.tech/) — browser SQL editor |
+| [Neon Postgres](../../../services/data/database/neon-postgres.md) | [console.neon.tech](https://console.neon.tech/) â€” browser SQL editor |
 
 REJECTED desktop tools:
 
-- **Drizzle Studio** — bundles its own electron-ish runtime; per-machine install; no value-add over Neon Console for ad-hoc queries
-- **Outerbase** — SaaS DB UI; free tier exists but signup adds another vendor surface; capability already covered by vendor consoles
-- **Beekeeper Studio** — desktop OSS GUI; would need to be installed + auth-configured on every dev machine
-- **TablePlus / DataGrip / DBeaver** — paid or per-seat or large install; fights [`rules/infrastructure/no-subscriptions.md`](../../../rules/infrastructure/no-subscriptions.md)
+- **Drizzle Studio** â€” bundles its own electron-ish runtime; per-machine install; no value-add over Neon Console for ad-hoc queries
+- **Outerbase** â€” SaaS DB UI; free tier exists but signup adds another vendor surface; capability already covered by vendor consoles
+- **Beekeeper Studio** â€” desktop OSS GUI; would need to be installed + auth-configured on every dev machine
+- **TablePlus / DataGrip / DBeaver** â€” paid or per-seat or large install; fights [`rules/infrastructure/no-subscriptions.md`](../../../rules/infrastructure/no-subscriptions.md)
 
 ## Why
 
@@ -65,7 +65,7 @@ REJECTED desktop tools:
   Console are bundled with the existing free accounts. A separate
   GUI tool would either be paid (TablePlus / DataGrip) or add
   another vendor surface that needs ongoing
-  permission/billing attention (Outerbase) — both cut against
+  permission/billing attention (Outerbase) â€” both cut against
   [`rules/no-card-on-file.md`](../../../rules/interaction/no-card-on-file.md) +
   [`rules/infrastructure/no-subscriptions.md`](../../../rules/infrastructure/no-subscriptions.md).
 - **Browsers are the family-default surface anyway.** All 11+ sites
@@ -76,31 +76,31 @@ REJECTED desktop tools:
 - **Read-only browsing is rare.** The hot-path dev surface is the
   Hono Worker handlers + the Drizzle / `@neon/serverless` queries
   in `apps/<app>/src/db/`. Ad-hoc inspection lives in the Neon
-  Console SQL editor or `turso db shell` — both fit "I want to
+  Console SQL editor or `turso db shell` â€” both fit "I want to
   poke at a row" workflows.
 
 ## Implications
 
 ### Day-to-day admin
 
-- **Firestore writes / rule edits** — Firebase Console (browser).
-- **Neon ad-hoc SQL / migrations / branch management** — Neon
+- **Firestore writes / rule edits** â€” Firebase Console (browser).
+- **Neon ad-hoc SQL / migrations / branch management** â€” Neon
   Console SQL editor (browser) for one-off queries; programmatic
   migrations live in the app's `apps/<app>/migrations/` folder
   driven by the app's chosen migration tool (e.g. `drizzle-kit`,
   `node-pg-migrate`).
-- **Turso libSQL** — `turso db shell <name>` for ad-hoc; the
+- **Turso libSQL** â€” `turso db shell <name>` for ad-hoc; the
   warm-cache rebuild job runs from a [GitHub Actions
   schedule](../../../services/business/cron/github-actions-schedule.md) per the
   [JSONL canonical decision](./lifestream-jsonl-canonical.md).
-- **JSONL canonical** — `git log` + a text editor. The store IS
+- **JSONL canonical** â€” `git log` + a text editor. The store IS
   source-controlled.
 
 ### Tooling that stays even though we don't use desktop GUIs
 
 - Drizzle ORM stays in app code as the type-safe query layer for
   Neon / libSQL. **Drizzle Studio specifically (the optional UI) is
-  REJECTED** — Drizzle ORM's CLI (`drizzle-kit`) for migrations
+  REJECTED** â€” Drizzle ORM's CLI (`drizzle-kit`) for migrations
   stays.
 - `psql` and `sqlite3` CLIs are fine to install ad-hoc on a dev
   machine for one-off scripting, but neither is required tooling
@@ -109,9 +109,9 @@ REJECTED desktop tools:
 ### Security
 
 - Admin auth follows each vendor's existing flow:
-  - Firebase Console — Google account on the `oriz-app` Firebase project
-  - Neon Console — Google account / GitHub account
-  - Turso CLI — `turso auth login` (browser-redirect OAuth)
+  - Firebase Console â€” Google account on the `oriz-app` Firebase project
+  - Neon Console â€” Google account / GitHub account
+  - Turso CLI â€” `turso auth login` (browser-redirect OAuth)
 - No DB credentials live on developer machines beyond the dev
   `.env` for `pnpm dev`. The umbrella Hono Worker reads connection
   strings from
@@ -120,7 +120,7 @@ REJECTED desktop tools:
 
 ### What we don't do
 
-- **No desktop GUI tool installed on any dev machine** — see the
+- **No desktop GUI tool installed on any dev machine** â€” see the
   REJECTED list above.
 - **No web-hosted DB GUI added** to the stack on top of vendor
   consoles (Outerbase / Arctype-style tools).
@@ -133,9 +133,9 @@ REJECTED desktop tools:
 - [4-tier DB stack decision](./db-add-neon-postgres.md)
 - [Neon Postgres service](../../../services/data/database/neon-postgres.md)
 - [Turso libSQL service](../../../services/data/database/turso.md)
-- [Firebase Spark — Auth + Firestore](../../../services/business/auth/firebase-spark.md)
+- [Firebase Spark â€” Auth + Firestore](../../../services/business/auth/firebase-spark.md)
 - [firebase-rest-firestore decision (Worker compat)](./firebase-rest-firestore-not-admin.md)
 - [Lifestream JSONL canonical](./lifestream-jsonl-canonical.md)
-- [Markdown-in-repo only — same minimal-tool posture](../general/cms-markdown-in-repo-only.md)
+- [Markdown-in-repo only â€” same minimal-tool posture](../general/cms-markdown-in-repo-only.md)
 - [No card-on-file rule](../../../rules/interaction/no-card-on-file.md)
 - [No subscriptions rule](../../../rules/infrastructure/no-subscriptions.md)

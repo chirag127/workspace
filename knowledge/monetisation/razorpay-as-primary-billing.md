@@ -23,7 +23,7 @@ not an architectural one.
 
 ## Why
 
-Razorpay supports UPI, which Stripe still doesn't in 2026 — and UPI
+Razorpay supports UPI, which Stripe still doesn't in 2026 â€” and UPI
 is the dominant payment rail for the primary user market (India).
 The same Firestore-webhook integration pattern that works for Stripe
 works for Razorpay, so we don't lose architecture flexibility by

@@ -50,5 +50,5 @@ If a key is suspected leaked, **revoke first, regenerate upstream second, paste 
 ## Related
 
 - Decision: `decisions/agent-tooling/mcp-server-registry-2026-06-27.md`
-- Rule: `agent-rules/preferences/rules-mcp-no-key-in-repo-keyed-in-smithery.md` (to be added)
+- Rule: `rules/agent/preferences/rules-mcp-no-key-in-repo-keyed-in-smithery.md` (to be added)
 - In-repo no-key entries: `.mcp.json` at umbrella root.

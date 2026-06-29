@@ -26,16 +26,16 @@ related:
 
 
 
-# Image CDN — chained 3-tier fallback (Cloudflare Images ? wsrv.nl ? ImageKit)
+# Image CDN â€” chained 3-tier fallback (Cloudflare Images ? wsrv.nl ? ImageKit)
 
 ## Decision
 
 Every image in the family resolves through a **3-tier chained
 fallback**:
 
-1. **[Cloudflare Images](../../../services/media/image-cdn/cloudflare-images.md)** — primary. Same edge as our Pages deploys, bundled with the free Pages plan, no extra signup.
-2. **[wsrv.nl](../../../services/media/image-cdn/wsrv-nl.md)** — fallback 1. Public URL-transform proxy, no signup, no auth — survives outages of any authenticated provider.
-3. **[ImageKit](../../../services/media/image-cdn/imagekit.md)** — fallback 2. 20 GB/mo + DAM, email-only signup.
+1. **[Cloudflare Images](../../../services/media/image-cdn/cloudflare-images.md)** â€” primary. Same edge as our Pages deploys, bundled with the free Pages plan, no extra signup.
+2. **[wsrv.nl](../../../services/media/image-cdn/wsrv-nl.md)** â€” fallback 1. Public URL-transform proxy, no signup, no auth â€” survives outages of any authenticated provider.
+3. **[ImageKit](../../../services/media/image-cdn/imagekit.md)** â€” fallback 2. 20 GB/mo + DAM, email-only signup.
 
 The chain is implemented as the `<Image>` component wrapper inside
 <!-- TODO: broken link, was [`@chirag127/oriz-kit`](../../../glossary/o-r/oriz-kit.md) -->. On image
@@ -50,7 +50,7 @@ the `src` to the next rung's URL and retries.
   is deliberately the no-account middle rung so the chain survives even
   when an authenticated provider is the failure mode.
 - **Cost control.** All three rungs are free at our scale. No card on
-  file is required at any rung — see
+  file is required at any rung â€” see
   [`rules/no-card-on-file.md`](../../../rules/interaction/no-card-on-file.md).
 - **Latency-first ordering.** Cloudflare Images sits on the same edge
   as our Pages sites, so it has the lowest p50 latency. We try fast
@@ -80,7 +80,7 @@ export function Image({ src, ...opts }) {
 }
 ```
 
-The Astro variant follows the same shape — `is:inline` script swaps
+The Astro variant follows the same shape â€” `is:inline` script swaps
 `src` on `error`. The kit owns this logic so individual sites are
 unaware of the chain.
 
@@ -88,12 +88,12 @@ unaware of the chain.
 
 - Three separate accounts to provision: Cloudflare (already exists),
   wsrv.nl (no account), ImageKit (email-only signup).
-- All image upload flows still target a single canonical home — see
+- All image upload flows still target a single canonical home â€” see
   [`object-storage-split.md`](../database/object-storage-split.md). The CDN
   chain only governs **delivery**, not storage.
 - `<picture>` / `srcset` and width-set generation must repeat per
   rung so each tier gets the correct transform syntax. The kit
-  helper handles this — sites don't see it.
+  helper handles this â€” sites don't see it.
 - Older [`services/business/tooling/imagekit.md`](../../../services/business/tooling/imagekit.md)
   and [`services/business/tooling/cloudinary.md`](../../../services/business/tooling/cloudinary.md)
   entries continue to document those services in the **tooling**

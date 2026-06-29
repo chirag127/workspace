@@ -1,6 +1,6 @@
 ---
 type: decision
-title: "Anti-bot — defense in depth (CF WAF + Turnstile + Hono rate-limit)"
+title: "Anti-bot â€” defense in depth (CF WAF + Turnstile + Hono rate-limit)"
 description: 'Bot defense: CF WAF + Turnstile + Hono rate-limit. All free'
 tags: [security, anti-bot, decisions, defense-in-depth, cloudflare, turnstile, hono]
 timestamp: 2026-06-20
@@ -17,7 +17,7 @@ related:
   - rules/no-card-on-file
 ---
 
-# Anti-bot — defense in depth (CF WAF + Turnstile + Hono rate-limit)
+# Anti-bot â€” defense in depth (CF WAF + Turnstile + Hono rate-limit)
 
 ## Decision
 
@@ -37,17 +37,17 @@ the family is already using.
 The user's direction was *"+ Turnstile (already locked)"*. The two
 sibling layers (WAF + rate-limit) ride alongside because:
 
-- **Each catches what the other misses** — WAF can't see per-route
+- **Each catches what the other misses** â€” WAF can't see per-route
   intent (everything looks like the same zone); Turnstile only fires
   on form-submit (most API endpoints aren't form-submits); Hono
   rate-limit can't see traffic the WAF already dropped at the edge.
-- **Each is on different substrate** — a misconfiguration / outage /
+- **Each is on different substrate** â€” a misconfiguration / outage /
   quota cliff on one layer is recoverable from the other two:
   WAF down ? Turnstile + rate-limit still gate; Turnstile rejected
   by region ? hCaptcha takes over; Worker over-quota ? WAF still
   drops the floor.
 - **All three are free** on the family's existing Cloudflare account
-  — zero incremental cost, zero new vendors.
+  â€” zero incremental cost, zero new vendors.
 
 This is the same defense-in-depth pattern as the
 [double security-headers audit](./security-headers-strategy.md)
@@ -69,13 +69,13 @@ primary + hCaptcha fallback).
 
 - The shared `<Captcha>` component in
   <!-- TODO: broken link, was [`@chirag127/oriz-kit`](../../glossary/o-r/oriz-kit.md) --> gates every
-  unauthenticated POST surface — `<ContactForm>`, sign-up, comment
-  boxes — per the locked
+  unauthenticated POST surface â€” `<ContactForm>`, sign-up, comment
+  boxes â€” per the locked
   [Turnstile + hCaptcha pair decision](./captcha-turnstile-plus-hcaptcha.md).
 - The Worker verifies the token server-side via
   `challenges.cloudflare.com/turnstile/v0/siteverify` (or hCaptcha's
   equivalent) before reading the form payload.
-- App Check + reCAPTCHA Enterprise still front Firestore writes —
+- App Check + reCAPTCHA Enterprise still front Firestore writes â€”
   different attack surface, different layer; not affected by this
   decision.
 
@@ -84,14 +84,14 @@ primary + hCaptcha fallback).
 - Fine-grained per-route, per-IP, sliding-window throttle.
 - Lives in `@chirag127/oriz-kit/server` so every Worker route
   imports the same middleware.
-- Backed by Workers KV — runs on existing Worker + KV free tier per
+- Backed by Workers KV â€” runs on existing Worker + KV free tier per
   the [worker quota mitigation playbook](../architecture/cf-worker-quota-mitigation.md).
 - Each route declares its own budget (`10/min` for contact,
   `100/min` for OG, `1000/min` for feed reads).
 
 ## Implications
 
-- **Every site** inherits all three layers automatically — they ride
+- **Every site** inherits all three layers automatically â€” they ride
   on shared infrastructure (Cloudflare zone, oriz-kit, api.oriz.in
   Worker), no per-site configuration beyond mounting `<Captcha>` in
   forms.
@@ -99,18 +99,18 @@ primary + hCaptcha fallback).
   [`_headers` preset](../../services/business/security/cloudflare-headers.md)
   already permits `challenges.cloudflare.com` (Turnstile) and
   hCaptcha origin; no per-site CSP exception.
-- **Observability** — the api.oriz.in Worker logs rate-limit
+- **Observability** â€” the api.oriz.in Worker logs rate-limit
   trip events to [Axiom](../../services/business/tooling/axiom.md); Cloudflare
   WAF event log is queryable in the dashboard. PR-time alarms not
   yet wired (TODO).
-- **Incident playbook** — if a flood breaks through (bypasses all
+- **Incident playbook** â€” if a flood breaks through (bypasses all
   three layers), the response is:
   1. Tighten Hono rate-limit on the affected route in oriz-kit, ship.
   2. Add a Cloudflare custom WAF rule (free plan: up to 5) for the
      observed pattern.
   3. Flip the affected form's `<Captcha>` to `interactive` mode
      (Turnstile interactive challenge) instead of invisible.
-- **No card-on-file** — none of the three layers requires the
+- **No card-on-file** â€” none of the three layers requires the
   Cloudflare Workers Paid plan, Cloudflare Pro plan, or any other
   paid Cloudflare product. The family stays on the
   [free-plan posture](../../rules/interaction/no-card-on-file.md).
@@ -119,10 +119,10 @@ primary + hCaptcha fallback).
 
 - [Cloudflare WAF service](../../services/business/security/cloudflare-waf.md)
 - [Cloudflare Turnstile service](../../services/business/security/cloudflare-turnstile.md)
-- [hCaptcha service — Turnstile fallback](../../services/business/security/hcaptcha.md)
+- [hCaptcha service â€” Turnstile fallback](../../services/business/security/hcaptcha.md)
 - [Hono rate-limit service](../../services/business/security/hono-rate-limit.md)
-- [Captcha pair decision (Turnstile + hCaptcha)](./captcha-turnstile-plus-hcaptcha.md) — sibling
-- [Security headers strategy decision](./security-headers-strategy.md) — adjacent layer
+- [Captcha pair decision (Turnstile + hCaptcha)](./captcha-turnstile-plus-hcaptcha.md) â€” sibling
+- [Security headers strategy decision](./security-headers-strategy.md) â€” adjacent layer
 - [Umbrella Hono Worker decision](../architecture/hono-worker-api-umbrella.md)
 - [CF Worker quota mitigation playbook](../architecture/cf-worker-quota-mitigation.md)
 - [No card-on-file rule](../../rules/interaction/no-card-on-file.md)

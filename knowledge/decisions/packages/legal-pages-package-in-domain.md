@@ -26,7 +26,7 @@ related:
 
 
 
-# Legal pages package — in-domain mount
+# Legal pages package â€” in-domain mount
 
 ## Decision
 
@@ -74,7 +74,7 @@ import BaseLayout from '~/layouts/BaseLayout.astro';
 </BaseLayout>
 ```
 
-~12 LOC per legal page per app × 8 pages × 26 apps = ~2,500 LOC of mount boilerplate. Acceptable — single-write per app, then auto-updated as package version bumps.
+~12 LOC per legal page per app Ã— 8 pages Ã— 26 apps = ~2,500 LOC of mount boilerplate. Acceptable â€” single-write per app, then auto-updated as package version bumps.
 
 ## Initial draft via Termly/iubenda
 

@@ -44,14 +44,14 @@ The original NIM-primary + OpenRouter-fallback two-tier picked here is now subsu
 
 ## Search
 
-**Static-first apps** (home, blog, lore, ncert, me-app, tabs-cards): **Pagefind** — built at deploy time via `astro-pagefind` integration. Zero infra cost.
+**Static-first apps** (home, blog, lore, ncert, me-app, tabs-cards): **Pagefind** â€” built at deploy time via `astro-pagefind` integration. Zero infra cost.
 **Dynamic-data apps** (janaushdhi, paisa-finance, packages-catalog): **Algolia free** (10K records + 100K searches/mo + InstantSearch UI). No card on signup.
 **Hybrid:** apps with both static and dynamic content use both side-by-side.
 
 ## Error tracking
 
 **Sentry** free tier (5K errors/mo + 50 replays/mo) with GitHub social login (no card on signup). Apply for OSS tier on 2026-06-23 (now that MIT relicense is locked) to unlock 50K errors + 500 replays + 100K transactions.
-**One Sentry project per repo** (51 projects) — group via Sentry's Project Settings; cross-project search works.
+**One Sentry project per repo** (51 projects) â€” group via Sentry's Project Settings; cross-project search works.
 **SDK:** `@sentry/astro` for web apps, `@sentry/node` for CF Workers (where supported).
 
 ## Uptime monitoring
@@ -69,10 +69,10 @@ The original NIM-primary + OpenRouter-fallback two-tier picked here is now subsu
 
 **Firestore only.** Free Spark tier (1 GB storage + 50K reads/day + 20K writes/day + 20K deletes/day).
 **Collections:**
-- `users/{uid}` — profile + subscription tier
-- `users/{uid}/sync/<app>` — per-app sync data (history, bookmarks, themes, etc.)
-- `users/{uid}/subscriptions` — billing state (synced from Razorpay/Paddle webhooks via CF Pages Functions)
-**No Postgres.** If relational becomes critical later, revisit (Neon / Supabase / Turso candidates — all free no-card on signup).
+- `users/{uid}` â€” profile + subscription tier
+- `users/{uid}/sync/<app>` â€” per-app sync data (history, bookmarks, themes, etc.)
+- `users/{uid}/subscriptions` â€” billing state (synced from Razorpay/Paddle webhooks via CF Pages Functions)
+**No Postgres.** If relational becomes critical later, revisit (Neon / Supabase / Turso candidates â€” all free no-card on signup).
 
 ## I18n
 
@@ -95,9 +95,9 @@ The original NIM-primary + OpenRouter-fallback two-tier picked here is now subsu
 ## Backup
 
 **Multi-rail backup, weekly cron** (Friday 03:30 IST per existing mirror cron, EXTENDED to cover non-git data):
-1. **Git mirror to 4 hosts** (GitLab + Codeberg + Bitbucket + GitFlic.ru) — already in place per `mirror-to-4-git-hosts.md`.
-2. **Firestore export** to CF R2 free 10GB tier — weekly GH Action.
-3. **Restic snapshot** of master + critical configs to Backblaze B2 free 10GB tier — weekly.
+1. **Git mirror to 4 hosts** (GitLab + Codeberg + Bitbucket + GitFlic.ru) â€” already in place per `mirror-to-4-git-hosts.md`.
+2. **Firestore export** to CF R2 free 10GB tier â€” weekly GH Action.
+3. **Restic snapshot** of master + critical configs to Backblaze B2 free 10GB tier â€” weekly.
 4. **Stats dashboard:** new project `oriz-backup-status-app` (post-MVP) that shows: total backed-up bytes, per-rail health, last-success timestamps, per-source breakdown.
 
 ## Cross-refs

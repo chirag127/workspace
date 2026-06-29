@@ -30,7 +30,7 @@ The lifestream's authoritative store is JSONL files in the
 `chirag127/oriz-me-data` git repo, sharded one file per year
 (`events-2026.jsonl`), with a year-file shardable into month-files
 once it crosses 10 MB pre-compression. Turso libSQL is a warm cache
-rebuilt from the JSONL on every deploy — it is NOT a source of
+rebuilt from the JSONL on every deploy â€” it is NOT a source of
 truth and may be wiped without data loss.
 
 ## Why
@@ -52,11 +52,11 @@ store.
 - Astro builds read from Turso for static page generation. Live data on the home page hits Turso through the read-only token at request time, edge-cached 60s.
 - Year-files declare their own schema-version field so a 2076 reader can parse a 2026 line correctly.
 - If Turso dies: rebuild the cache from git on next deploy. If GitHub dies: `git clone` the data repo to a new host.
-- Old `src/lib/lifestream/` files in oriz-me get rewritten — Turso becomes cache-only, `src/lib/lifestream/jsonl.ts` handles the canonical I/O.
+- Old `src/lib/lifestream/` files in oriz-me get rewritten â€” Turso becomes cache-only, `src/lib/lifestream/jsonl.ts` handles the canonical I/O.
 
 ## Cross-refs
 
-- [100-year strategy locked](../../content/100-year-strategy-locked.md) — §10–§11 set the canonical-store contract
+- [100-year strategy locked](../../content/100-year-strategy-locked.md) â€” Â§10â€“Â§11 set the canonical-store contract
 - [Canonical store JSONL architecture](canonical-store-jsonl.md)
 - [Turso service entry](../../../services/data/database/turso.md)
 - Superseded predecessor: `oriz-me/knowledge/decisions/why-firestore-not-turso.md` (kept as historical context)

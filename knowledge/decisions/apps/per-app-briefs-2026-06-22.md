@@ -31,15 +31,15 @@ related:
 
 # Per-app briefs (canonical, 2026-06-22)
 
-## 1. home-app — oriz.in
+## 1. home-app â€” oriz.in
 
 - Marketing landing: hero + 5-section grid (/apps, /tools, /books, /packages, /me) + newsletter signup
-- **Family-wide unified search bar** at top — searches across 26 apps + 5 books + 22 packages (Pagefind + Algolia hybrid)
+- **Family-wide unified search bar** at top â€” searches across 26 apps + 5 books + 22 packages (Pagefind + Algolia hybrid)
 - Footer mega-sitemap (package-served, identical everywhere)
 - All 4 nav surfaces (Header per-app, Sidebar family-nav slot, BottomBar 5 actions, Footer consolidated)
 - v0 priority: SHIP FIRST
 
-## 2. oriz-janaushdhi-app — janaushdhi.oriz.in
+## 2. oriz-janaushdhi-app â€” janaushdhi.oriz.in
 
 - Browse all generic medicines from data.gov.in scrape (filterable table)
 - Per-product page with price-history chart (ECharts lazy)
@@ -48,7 +48,7 @@ related:
 - NO ads (public-health ethics)
 - v0 priority: SHIP FIRST
 
-## 3. oriz-ncert-app — ncert.oriz.in
+## 3. oriz-ncert-app â€” ncert.oriz.in
 
 - **3-step picker:** Class ? Subject ? Language
 - **Dual-mode download per book:** (1) pre-merged GH Release PDF; (2) client-side on-the-fly merger via pdf-lib; (3) individual chapter links
@@ -57,7 +57,7 @@ related:
 - Annual cron (June 1 IST) re-scrape
 - v0 priority: SHIP FIRST
 
-## 4. oriz-pages-blog-app — blog.oriz.in
+## 4. oriz-pages-blog-app â€” blog.oriz.in
 
 - MDX daily posts at `src/content/blog/<YYYY-MM-DD-slug>/index.mdx`
 - Series grouping via tag (`/series/<slug>`)
@@ -66,16 +66,16 @@ related:
 - RSS + Atom + JSON Feed
 - v0 priority: SHIP FIRST
 
-## 5. oriz-lore-app — lore.oriz.in (RENAMED from oriz-lore-app)
+## 5. oriz-lore-app â€” lore.oriz.in (RENAMED from oriz-lore-app)
 
-- **Renamed 2026-06-22.** User mandate: "change the name of the app to lore — it should contain the content only for this which are knowledgeable like documentary and all"
+- **Renamed 2026-06-22.** User mandate: "change the name of the app to lore â€” it should contain the content only for this which are knowledgeable like documentary and all"
 - **Broader scope:** book summaries + course summaries + documentary summaries + lecture series notes + podcast summaries + research-paper digests
 - Each entry: type, title, source, key takeaways, my notes, rating, link to original
 - Browse by: type / by-year / by-rating / by-topic / by-author
 - Pagefind search across all entries
 - v1 priority: ship AFTER the 4 priority apps
 
-## 6. oriz-financial-cards-app — financial-cards.oriz.in
+## 6. oriz-financial-cards-app â€” financial-cards.oriz.in
 
 - India financial card intelligence (credit + debit + prepaid + travel/forex + corporate + business)
 - 750+ credit card profiles live; debit/prepaid/travel/corporate seeded with sample data
@@ -83,7 +83,7 @@ related:
 - JSON-on-disk catalog at `data/cards/<type>/<bank>/<card>.json`
 - v1 priority
 
-## 7. oriz-roam-journal-app — journal.oriz.in
+## 7. oriz-roam-journal-app â€” journal.oriz.in
 
 - Personal Roam-style journal with [[backlinks]]
 - Tags + mood tracking
@@ -92,22 +92,22 @@ related:
 - Auth required for write
 - v1 priority
 
-## 8. oriz-cs-me-app — me.oriz.in (a.k.a. cs.oriz.in alias)
+## 8. oriz-cs-me-app â€” me.oriz.in (a.k.a. cs.oriz.in alias)
 
 - Standard portfolio: resume + projects + writing + contact
 - Life log section: /now (monthly update), /uses (tech stack), /reading, /watching, /listening, /movies
 - **Pulls from roam-journal RSS** for life-log entries
-- "Whatever there can be told about me" — maximum canon
+- "Whatever there can be told about me" â€” maximum canon
 - v1 priority
 
-## 9. oriz-omni-post-app — omni-post.oriz.in
+## 9. oriz-omni-post-app â€” omni-post.oriz.in
 
 - Admin dashboard for the omni-publish package
 - Read-only public catalog of cross-posts at root
 - /admin (auth-gated) for retry / edit / queue management
 - v1 priority
 
-## 10. oriz-packages-catalog-app — packages.oriz.in
+## 10. oriz-packages-catalog-app â€” packages.oriz.in
 
 - Auto-discovery of every `chirag127/*-npm-pkg` GitHub repo
 - Embed each README + npm + GH + bundlephobia metadata
@@ -115,7 +115,7 @@ related:
 - Daily cron + on-tag rebuild
 - v0 priority: SHIP FIRST (alongside the 4)
 
-## 11-26. Tools apps (16 total) — *.oriz.in
+## 11-26. Tools apps (16 total) â€” *.oriz.in
 
 Per `tools-shape-and-priority.md`: 16 separate subdomains, each is its own repo + CF Pages project.
 
@@ -138,15 +138,15 @@ Per `tools-shape-and-priority.md`: 16 separate subdomains, each is its own repo 
 | **reel-video** | video.oriz.in | Video trim/convert/extract-audio/compress/GIF (ffmpeg.wasm) |
 | **echo-audio** | audio.oriz.in | Audio convert/trim/extract/pitch/speed |
 | **pivot-data** | data.oriz.in | CSV/JSON/Excel converter + sort/filter/group/pivot |
-| **\<one more\>** | TBD | TBD — 16th slot pending name |
+| **\<one more\>** | TBD | TBD â€” 16th slot pending name |
 
 ## Apps NOT shipping in v0 (slug-reservation only)
 
-- oriz-lore-app (was lore-book-summaries) — v1
-- oriz-financial-cards-app — v1
-- oriz-roam-journal-app — v1
-- oriz-cs-me-app — v1
-- oriz-omni-post-app — v1
+- oriz-lore-app (was lore-book-summaries) â€” v1
+- oriz-financial-cards-app â€” v1
+- oriz-roam-journal-app â€” v1
+- oriz-cs-me-app â€” v1
+- oriz-omni-post-app â€” v1
 
 ## Total
 

@@ -1,6 +1,6 @@
 ---
 type: decision
-title: "Family deploy architecture — DNS, gating, releases, dashboards"
+title: "Family deploy architecture â€” DNS, gating, releases, dashboards"
 description: 'Per-app GH Actions: main to prod, PR to preview, tags to APK/EXE'
 tags: [architecture, deploy, ci, dns, sentry, sitemap, robots, dashboard, posthog, comments, monetization]
 timestamp: 2026-06-21
@@ -16,7 +16,7 @@ related: [branding/naming-policy-v6, decisions/architecture/release-cadence, dec
 Each `-app` repo's GH Actions workflow checks Cloudflare on first push:
 if `<subdomain>.oriz.in` CNAME doesn't exist, the workflow creates it
 pointing at `<repo>.pages.dev`. Uses `CLOUDFLARE_API_TOKEN` org secret.
-Self-healing — missing DNS records get auto-provisioned.
+Self-healing â€” missing DNS records get auto-provisioned.
 
 ```yaml
 # .github/workflows/deploy.yml (per app)
@@ -132,7 +132,7 @@ on every app's `/admin` route as a small embedded widget.
 
 ## Forks
 
-Forks always keep the upstream slug — both locally and on the
+Forks always keep the upstream slug â€” both locally and on the
 remote. Local submodule path mirrors upstream slug. No `-fork` suffix.
 Upstream attribution stays unambiguous; rename only happens if the
 fork diverges hard enough to become a distinct product (rare).
@@ -148,10 +148,10 @@ fork diverges hard enough to become a distinct product (rare).
   every tool app shows the last 50 ops as cards; click a card to
   re-run with the same params.
 - **Cross-app Firestore sync** via the single Firebase project.
-  Family-wide sync — sign in on one app, preferences + history
+  Family-wide sync â€” sign in on one app, preferences + history
   available on all apps.
 - **Firestore layout**: single project, subcollections per data
-  type — `users/<uid>/operations/`, `users/<uid>/preferences/`,
+  type â€” `users/<uid>/operations/`, `users/<uid>/preferences/`,
   `users/<uid>/profile/`. Operations are the op-log entries;
   preferences are theme / units / locale; profile is the optional
   public profile payload.
@@ -169,7 +169,7 @@ fork diverges hard enough to become a distinct product (rare).
 - **English-only v1**. i18n via Weblate stays deferred per
   `branding/i18n-weblate-when-ready.md`.
 - **Hand-written SEO content** per tool page (300-500 words each).
-  ~80 tools × ~400 words = ~32K words. NOT AI-generated. Search
+  ~80 tools Ã— ~400 words = ~32K words. NOT AI-generated. Search
   ranking + user trust both reward original copy.
 - **Per-tool OG image** via Satori at build time, edge-cached.
   ~80 OG images, generated once per release, cached at the CF edge.
@@ -180,7 +180,7 @@ fork diverges hard enough to become a distinct product (rare).
 ## Registrar + domain posture
 
 - **Spaceship registrar.** No registrar swap; oriz.in stays on Spaceship.
-- **Stick with `oriz.in` only** — don't buy `oriz.app`. One apex,
+- **Stick with `oriz.in` only** â€” don't buy `oriz.app`. One apex,
   many subdomains.
 
 ## Home vs me role split, CV link, support modal
@@ -192,12 +192,12 @@ fork diverges hard enough to become a distinct product (rare).
   Lemon Squeezy.
 - **Two sites, role split**: `home` = brand + bio + grid;
   `me` = lifelog. `me` is still one site with internal sections
-  (see [`oriz-me-single-site-not-split`](./oriz-me-single-site-not-split.md)) —
+  (see [`oriz-me-single-site-not-split`](./oriz-me-single-site-not-split.md)) â€”
   the home/me boundary is sharp.
 - **Home hero gets an explicit "See my full work" CV button**
   linking to `me.oriz.in/cv`. One click from apex to long-form CV.
 - **Subtle BottomBar "support" link** opens a modal listing all
-  donation rails. No standalone `/support` page on every site — the
+  donation rails. No standalone `/support` page on every site â€” the
   modal is the surface.
 
 ## Email, observability, artifact hosting
@@ -216,10 +216,10 @@ fork diverges hard enough to become a distinct product (rare).
 
 Captured in full at [`release-cadence`](./release-cadence.md).
 
-- **Weekly release train cadence — Wednesday.**
+- **Weekly release train cadence â€” Wednesday.**
 - **Wednesday 9 AM IST cron** triggers tag + release of changed
   apps (skip unchanged).
-- **Hot-fix** via `[hotfix]` in commit message — bypasses the
+- **Hot-fix** via `[hotfix]` in commit message â€” bypasses the
   weekly train, immediate deploy.
 - **CalVer per app** (`v2026.06.21`). Year.month.day from the tag
   date; multiple releases on the same day get a `.N` suffix.
@@ -271,20 +271,20 @@ The `monetisation/no-subscriptions-anywhere.md` constraint binds:
 Apps can ship Google-style Free / Pro / Ultra / Max subscription tiers
 to their users via Razorpay / Lemon Squeezy. See
 [`monetisation/no-subscriptions-anywhere.md`](../monetisation/no-subscriptions-anywhere.md)
-§ Scope clarification.
+Â§ Scope clarification.
 
 ## Games + kids-games suffixes
 
 Two suffix categories alongside the app family:
 
-- **`-game`** — adult / general-audience games. Multi-target (web + PWA + APK + EXE via Phaser 3). AdMob standard ads on free tier; one-time-unlock paid tier.
-- **`-kids-game`** — COPPA + DPDP-Children + Play Families compliant. AdMob Kids-Approved ads only; no PII analytics (Sentry errors only, no PostHog / Clarity / GA4). No auth required (anonymous play). One-time unlock paid tier (no subscriptions per Play Families).
+- **`-game`** â€” adult / general-audience games. Multi-target (web + PWA + APK + EXE via Phaser 3). AdMob standard ads on free tier; one-time-unlock paid tier.
+- **`-kids-game`** â€” COPPA + DPDP-Children + Play Families compliant. AdMob Kids-Approved ads only; no PII analytics (Sentry errors only, no PostHog / Clarity / GA4). No auth required (anonymous play). One-time unlock paid tier (no subscriptions per Play Families).
 
 ## Play Store enrollment
 
 Play Store enrollment fee ($25 Google Play Developer) paid as a one-time
 exception. Currently in Play Store verification. See
-[`rules/no-card-on-file.md`](../../rules/interaction/no-card-on-file.md) § One-time
+[`rules/no-card-on-file.md`](../../rules/interaction/no-card-on-file.md) Â§ One-time
 fees paid.
 
 ## Cross-refs
@@ -295,4 +295,4 @@ fees paid.
 - [decisions/architecture/oriz-me-single-site-not-split](./oriz-me-single-site-not-split.md)
 - [monetisation/adsense-apex-application](../monetisation/adsense-apex-application.md)
 - [decisions/architecture/notifications-fcm-plus-knock](./notifications-fcm-plus-knock.md)
-- [rules/keep-knowledge-fresh](../../agent-rules/keep-knowledge-fresh.md)
+- [rules/keep-knowledge-fresh](../../rules/agent/keep-knowledge-fresh.md)

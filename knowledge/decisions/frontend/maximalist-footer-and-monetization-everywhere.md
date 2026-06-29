@@ -48,7 +48,7 @@ related:
 | **Packages** | All 22 packages |
 | **Legal** | Privacy / Terms / Contact / About / Refunds / Disclaimer / Security.txt / Sitemap |
 | **Family** | Newsletter / Status / Changelog / Sponsors / Feedback |
-| **Brand** | Oriz wordmark + 1-line bio + © year |
+| **Brand** | Oriz wordmark + 1-line bio + Â© year |
 
 Mobile: collapses into accordion sections.
 
@@ -56,7 +56,7 @@ Mobile: collapses into accordion sections.
 
 **Earlier (`rules/ads-allowed-everywhere-except.md`):** "AdSense + AdMob on every app EXCEPT oriz-cs-me-app (personal site) and oriz-janaushdhi-app (public-health ethics)."
 
-**REVERSED 2026-06-22 evening:** Every app shows ads + pricing tiers — including janaushdhi (public-health) and cs-me (personal).
+**REVERSED 2026-06-22 evening:** Every app shows ads + pricing tiers â€” including janaushdhi (public-health) and cs-me (personal).
 
 **User mandate verbatim:** "Every app we are making should have proper monetization. It doesn't matter that it is a medical website or something like that, it should have proper monetization. Like just like how you did with the Janoji website that you remove the monetization, it should not be the case. Every app should have the monetization."
 
@@ -65,8 +65,8 @@ Mobile: collapses into accordion sections.
 - **Free tier:** AdSense web ads + AdMob in AAB (per `ads-allowed-everywhere-except` formerly-rule, now generalized). Standard ad placements: 1 above-the-fold + 1 inline + 1 sticky footer.
 - **Ad-free tier:** `Pro` or `Max` subscription removes ads.
 - **Pricing page** mounted at `/pricing` on every app (via `@chirag127/astro-billing` Pricing component).
-- **Tier 1 Pro:** ?99/mo · ?799/yr (no lifetime)
-- **Tier 2 Max:** ?299/mo · ?2,499/yr
+- **Tier 1 Pro:** ?99/mo Â· ?799/yr (no lifetime)
+- **Tier 2 Max:** ?299/mo Â· ?2,499/yr
 
 ## Specific app updates
 
@@ -74,12 +74,12 @@ Mobile: collapses into accordion sections.
 |---|---|---|
 | `oriz-janaushdhi-app` | NO ads (public-health) | Ads enabled + /pricing mounted |
 | `oriz-cs-me-app` | NO ads (personal) | Ads enabled + /pricing mounted |
-| All other 23 apps | Ads enabled | UNCHANGED — ads enabled |
+| All other 23 apps | Ads enabled | UNCHANGED â€” ads enabled |
 
 ## SUPERSEDES
 
-- `rules/ads-allowed-everywhere-except.md` — fully reversed. The "except" carve-out is removed.
-- `decisions/architecture/shared-vs-divergent-matrix.md` (Footer row) — footer is now SHARED, not divergent.
+- `rules/ads-allowed-everywhere-except.md` â€” fully reversed. The "except" carve-out is removed.
+- `decisions/architecture/shared-vs-divergent-matrix.md` (Footer row) â€” footer is now SHARED, not divergent.
 
 ## Cross-refs
 

@@ -39,17 +39,17 @@ worst outcome is "service stops" and never "card gets charged thousands".
   the failure mode "service stops at quota" is acceptable; the failure
   mode "card gets charged thousands due to abuse / bug / DDoS" is not.
 - **Fail-closed graceful degradation.** When a quota wall is hit:
-  - Cloudflare Pages serves HTTP 1027 — fine.
-  - Workers Free returns 429 — site falls back to GitHub Pages mirror
+  - Cloudflare Pages serves HTTP 1027 â€” fine.
+  - Workers Free returns 429 â€” site falls back to GitHub Pages mirror
     static content.
-  - Firestore Spark returns `resource-exhausted` — site renders cached
+  - Firestore Spark returns `resource-exhausted` â€” site renders cached
     UI without user-specific data; "try again tomorrow" message.
   - The site never appears "broken"; it appears "degraded".
 - **Architect for headroom.** Per [never-hit-quotas](../../rules/interaction/never-hit-quotas.md):
   add a second cache layer, switch to a different free provider, push
   work to GitHub Actions build time, before the wall is in sight.
 - **Subscription billing for users is allowed.** Razorpay charges
-  *users* for the family's product — that does NOT put a card on
+  *users* for the family's product â€” that does NOT put a card on
   *Chirag's* file with a pay-as-you-go service. The family takes
   payments; the family does not pay platform bills.
 - **Survival fallback host.** Every site has a GitHub Pages mirror so
@@ -58,7 +58,7 @@ worst outcome is "service stops" and never "card gets charged thousands".
 
 ## Exceptions
 
-- **Microsoft Azure for Students** — free credits, time-limited. May
+- **Microsoft Azure for Students** â€” free credits, time-limited. May
   be used for build-time ML / data tasks (e.g. computer-vision API
   calls during image-tools build). Production hosting stays on
   Cloudflare Pages.
@@ -71,13 +71,13 @@ worst outcome is "service stops" and never "card gets charged thousands".
 
 ## Annual review
 
-Not on the annual cycle — re-evaluate on free-tier policy change
+Not on the annual cycle â€” re-evaluate on free-tier policy change
 announcements from any provider in the catalog. AGENTS.md service
 catalog is the live record.
 
 ## Cross-refs
 
-- [`../rules/no-card-on-file.md`](../../rules/interaction/no-card-on-file.md) — the foundational rule
-- [`../rules/interaction/never-hit-quotas.md`](../../rules/interaction/never-hit-quotas.md) — the architectural posture this policy enforces
-- [`../architecture/layer-3-auth-firebase-spark.md`](../architecture/layer-3-auth-firebase-spark.md) — the canonical "Spark forever, never Blaze" application
-- [`../monetisation/no-subscriptions-anywhere.md`](../monetisation/no-subscriptions-anywhere.md) — the decision-version of this policy
+- [`../rules/no-card-on-file.md`](../../rules/interaction/no-card-on-file.md) â€” the foundational rule
+- [`../rules/interaction/never-hit-quotas.md`](../../rules/interaction/never-hit-quotas.md) â€” the architectural posture this policy enforces
+- [`../architecture/layer-3-auth-firebase-spark.md`](../architecture/layer-3-auth-firebase-spark.md) â€” the canonical "Spark forever, never Blaze" application
+- [`../monetisation/no-subscriptions-anywhere.md`](../monetisation/no-subscriptions-anywhere.md) â€” the decision-version of this policy

@@ -1,6 +1,6 @@
 ---
 type: decision
-title: "Keep oriz-org alive — recruiter-visibility solved via pinned repos, not migration"
+title: "Keep oriz-org alive â€” recruiter-visibility solved via pinned repos, not migration"
 description: Recruiter visibility via pinning oriz-org repos, not migration
 tags: [decision, branding, recruiter, github-pinning, oriz-org, status-quo]
 timestamp: 2026-06-24
@@ -13,7 +13,7 @@ related:
   - security/sops-plus-doppler-hybrid
 ---
 
-# Keep oriz-org alive — recruiter visibility ? migration
+# Keep oriz-org alive â€” recruiter visibility ? migration
 
 ## Decision
 
@@ -37,12 +37,12 @@ The pinned repos already include 3 oriz-org entries today:
 ## Recommended pin list (6 of 6)
 
 Priority order:
-1. **`oriz-org/workspace`** — the umbrella shows monorepo scale (78 submodules) and engineering discipline (knowledge bundle, OKF, CI). Highest-signal pin for any engineering recruiter.
-2. **`oriz-org/oriz-roam-journal-app`** — flagship Pro/Max app, Astro + React + Firebase, production-grade PWA. Demonstrates full-stack shipping skill.
-3. **`oriz-org/oriz-paisa-finance-tools-app`** OR **`oriz-org/oriz-slice-pdf-tools-app`** — pick the one that visually shows "I ship products people use" best. Both are public-facing apps with concrete UX.
-4. **`chirag127/OmniPublish-Content-Distribution-Platform-Python-Lib`** — pre-existing chirag127 work, shows your range beyond oriz.
-5. **`oriz-org/userscripts`** — your userscript monorepo, low-LOC but high-signal for browser engineering.
-6. **`oriz-org/freellmapi`** or **`oriz-org/omniroute`** — one of the LLM aggregator forks, shows AI/agent engineering interest.
+1. **`oriz-org/workspace`** â€” the umbrella shows monorepo scale (78 submodules) and engineering discipline (knowledge bundle, OKF, CI). Highest-signal pin for any engineering recruiter.
+2. **`oriz-org/oriz-roam-journal-app`** â€” flagship Pro/Max app, Astro + React + Firebase, production-grade PWA. Demonstrates full-stack shipping skill.
+3. **`oriz-org/oriz-paisa-finance-tools-app`** OR **`oriz-org/oriz-slice-pdf-tools-app`** â€” pick the one that visually shows "I ship products people use" best. Both are public-facing apps with concrete UX.
+4. **`chirag127/OmniPublish-Content-Distribution-Platform-Python-Lib`** â€” pre-existing chirag127 work, shows your range beyond oriz.
+5. **`oriz-org/userscripts`** â€” your userscript monorepo, low-LOC but high-signal for browser engineering.
+6. **`oriz-org/freellmapi`** or **`oriz-org/omniroute`** â€” one of the LLM aggregator forks, shows AI/agent engineering interest.
 
 ## Why not move everything back
 
@@ -50,10 +50,10 @@ Captured in [[rules/recruiter-strategy]] (2026-06-24) and the 4-stream research 
 
 - **GitHub redirects + pinned repos ALREADY mean recruiters reach oriz-org from chirag127.** The visibility problem is imagined, not measured.
 - **78 repos worth of mechanical work** (transfers + .gitmodules rewrites + .git/modules moves + worktree config) for cosmetic gain.
-- **61 org-level secrets are lost.** Personal accounts can't hold org-level secrets — every repo becomes a per-repo secret-management job.
+- **61 org-level secrets are lost.** Personal accounts can't hold org-level secrets â€” every repo becomes a per-repo secret-management job.
 - **Doppler's GitHub Actions sync has no `user` target**, only `org` or `repo`. Personal-only forces per-repo syncs and hits the 5-sync free-tier cap; Team plan is $252/year and violates `[[no-card-on-file]]`.
-- **Permanent namespace retirement** — once `oriz-org/<slug>` is deleted (or the org itself is), the repo path is **permanently retired** for any repo with >100 clones in the prior week. Brand-on-GitHub identity is closed.
-- **Rollback path is thin** — `oriz-org` could be squatted within hours of deletion (same fate that already hit `oriz` and `oriz-in`).
+- **Permanent namespace retirement** â€” once `oriz-org/<slug>` is deleted (or the org itself is), the repo path is **permanently retired** for any repo with >100 clones in the prior week. Brand-on-GitHub identity is closed.
+- **Rollback path is thin** â€” `oriz-org` could be squatted within hours of deletion (same fate that already hit `oriz` and `oriz-in`).
 
 ## When to revisit
 
@@ -62,12 +62,12 @@ ONLY revisit if a **specific named recruiter conversation** explicitly mentions 
 ## What was changed today
 
 - Identity: noreply email locked across global + umbrella + 72 submodule configs (see [[rules/git-identity-chirag127-noreply]])
-- Credential prompt: deleted oriz-co, oriz-org, x-access-token entries from Windows Credential Manager — only chirag127 remains
+- Credential prompt: deleted oriz-co, oriz-org, x-access-token entries from Windows Credential Manager â€” only chirag127 remains
 - Pinned-repo recommendation: 3 slots already used; recommended list above for the remaining 3
 - chirag127 README: unchanged (already has the oriz-org cross-link from earlier in this session)
 
 ## Cross-refs
 
-- [[rules/recruiter-strategy]] — pinned + graph > repo list
-- [[rules/profile-readme-cross-link]] — chirag127 ? oriz-org always cross-linked
-- [[rules/storage-decision-needs-explicit-grill]] — grill on the concern, don't preemptively dismantle
+- [[rules/recruiter-strategy]] â€” pinned + graph > repo list
+- [[rules/profile-readme-cross-link]] â€” chirag127 ? oriz-org always cross-linked
+- [[rules/storage-decision-needs-explicit-grill]] â€” grill on the concern, don't preemptively dismantle

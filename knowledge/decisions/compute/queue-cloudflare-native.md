@@ -22,13 +22,13 @@ related:
 
 
 
-# Queue — Cloudflare Queues, picked for stack cohesion
+# Queue â€” Cloudflare Queues, picked for stack cohesion
 
 ## Decision
 
 The family uses [Cloudflare Queues](../../../services/data/queue/cloudflare-queues.md)
 as its sole durable message queue. The user direction was *"unsure,
-no recommendation given"* — this decision file records the
+no recommendation given"* â€” this decision file records the
 reasoning behind the recommendation.
 
 [Upstash QStash](../../../services/data/queue/upstash-qstash.md) and
@@ -40,14 +40,14 @@ the programming model becomes a constraint.
 
 The justification is **stack cohesion, not feature richness**:
 
-- Every other layer of the family runs on Cloudflare — Pages, Workers,
+- Every other layer of the family runs on Cloudflare â€” Pages, Workers,
   DNS, Registrar, KV (used by the [s.oriz.in shortener](../../../services/business/short-link/cloudflare-worker.md)).
   See [`cloudflare-pages-for-all-sites.md`](../../infrastructure/cloudflare-pages-for-all-sites.md).
-- Cloudflare Queues binds **natively** from a Worker — no HTTP hop, no
+- Cloudflare Queues binds **natively** from a Worker â€” no HTTP hop, no
   separate credentials surface, no extra DNS resolution. Producer
   and consumer share the same `wrangler.toml`.
 - Same account ? same billing surface (and same `no-card-on-file`
-  posture — see [`rules/no-card-on-file.md`](../../../rules/interaction/no-card-on-file.md)).
+  posture â€” see [`rules/no-card-on-file.md`](../../../rules/interaction/no-card-on-file.md)).
 - 1,000,000 ops/month free is an order of magnitude above realistic
   family traffic.
 
@@ -63,7 +63,7 @@ credentials surface, and an HTTP hop.
   same queue as a consumer binding.
 - Upstream of the queue, [Hookdeck](../../../services/business/tooling/hookdeck.md)
   remains the webhook-reliability layer for external producers
-  (Razorpay etc.) — Hookdeck's retry-and-replay precedes the queue,
+  (Razorpay etc.) â€” Hookdeck's retry-and-replay precedes the queue,
   the queue handles back-pressure within the Worker.
 - If the 1M ops/month cap is approached, revisit and consider QStash
   for low-volume bursts or Inngest if multi-step durable workflows

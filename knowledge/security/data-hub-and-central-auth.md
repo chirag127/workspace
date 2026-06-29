@@ -32,7 +32,7 @@ related:
 
 ## data.oriz.in aggregator
 
-NEW app `oriz-data-aggregator-app` at `c:/D/oriz/repos/oriz/own/prod/apps/content/oriz-data-aggregator-app/`. Hosted on Cloudflare Pages (one-level subdomain — Universal SSL works).
+NEW app `oriz-data-aggregator-app` at `c:/D/oriz/repos/oriz/own/prod/apps/content/oriz-data-aggregator-app/`. Hosted on Cloudflare Pages (one-level subdomain â€” Universal SSL works).
 
 ### Scope
 
@@ -81,7 +81,7 @@ NEW app `oriz-data-aggregator-app` at `c:/D/oriz/repos/oriz/own/prod/apps/conten
 Firebase Phone Auth is **technically enabled** in the Console (per user request: Google + GitHub + Email + Phone all on). BUT:
 
 - Firebase charges $0.05 per SMS in India (~?4/SMS)
-- Free tier doesn't include free SMS — every SMS costs from day 1
+- Free tier doesn't include free SMS â€” every SMS costs from day 1
 - If we expose Phone to Free users, 100 sign-ins = ~?400 unbudgeted
 
 ### Tier-gated UI

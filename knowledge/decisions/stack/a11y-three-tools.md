@@ -23,17 +23,17 @@ related:
 
 
 
-# Accessibility — three-tool stack (axe + Pa11y + Lighthouse CI)
+# Accessibility â€” three-tool stack (axe + Pa11y + Lighthouse CI)
 
 ## Decision
 
 Every site's per-PR CI runs **all three** a11y tools in parallel:
 
-1. [axe-core](../../../services/monitoring/a11y/axe-core.md) — Deque's static
+1. [axe-core](../../../services/monitoring/a11y/axe-core.md) â€” Deque's static
    rule engine, run via `@axe-core/playwright`.
-2. [Pa11y](../../../services/monitoring/a11y/pa11y.md) — dynamic runner with the
+2. [Pa11y](../../../services/monitoring/a11y/pa11y.md) â€” dynamic runner with the
    HTMLCS ruleset (and axe runner alongside).
-3. [Lighthouse CI](../../../services/monitoring/a11y/lighthouse-ci.md) — score
+3. [Lighthouse CI](../../../services/monitoring/a11y/lighthouse-ci.md) â€” score
    + perf budget, posted as a PR comment.
 
 PR fails on any **new** violation in any of the three tools. The
@@ -54,7 +54,7 @@ are free, OSS, no card.
   violations (good for a fix-list); Lighthouse posts a PR comment
   with a score (good for reviewer at-a-glance). Both views matter.
 - **Aligns with the [code-quality stack](../../process/code-quality-stack.md)**
-  — that decision locks the family on layered tooling
+  â€” that decision locks the family on layered tooling
   (Dependabot + biome + CodeRabbit + Sonarcloud); a11y deserves the
   same defensive layering.
 
@@ -63,44 +63,44 @@ are free, OSS, no card.
 ### Architecture
 
 - Three GitHub Actions jobs in each site's `ci.yml`:
-  - `a11y-axe` — runs Playwright + `@axe-core/playwright` over the
+  - `a11y-axe` â€” runs Playwright + `@axe-core/playwright` over the
     site's key routes.
-  - `a11y-pa11y` — runs `pa11y-ci` against the Cloudflare Pages
+  - `a11y-pa11y` â€” runs `pa11y-ci` against the Cloudflare Pages
     preview URL.
-  - `lighthouse-ci` — runs `treosh/lighthouse-ci-action@v11` and
+  - `lighthouse-ci` â€” runs `treosh/lighthouse-ci-action@v11` and
     posts the score as a PR comment.
 - All three jobs depend on the Cloudflare Pages preview deploy
   job; they can run in parallel after the preview is up.
 - Tests live under `tests/a11y/` per site; the kit ships a baseline
   spec at `@chirag127/oriz-kit/testing/a11y.spec.ts` that each site
   imports + extends with its own routes.
-- `lighthouserc.json` per site sets the assertions — a11y minScore
+- `lighthouserc.json` per site sets the assertions â€” a11y minScore
   1.0 (required), perf 0.9, best-practices 0.95, SEO 1.0.
 
 ### Per-PR gating
 
-- **Any** violation fails the PR — no warnings, no exceptions. If
+- **Any** violation fails the PR â€” no warnings, no exceptions. If
   a finding is a known false positive, it's silenced via the tool's
   config (axe: `disableRules`; Pa11y: `ignore`; Lighthouse: per-rule
   `assertions: off`) and a comment in the config explains why.
 - The Sonarcloud quality gate (from the code-quality stack) treats
-  these as separate jobs — they don't collapse into one score.
+  these as separate jobs â€” they don't collapse into one score.
 
 ### Why fail-on-any vs warn-only
 
 - The family's site count (11+) makes "warn-only" indistinguishable
-  from "off" — no one chases a long warning list across 11 PRs.
-- All three tools are tunable via config — false positives become
+  from "off" â€” no one chases a long warning list across 11 PRs.
+- All three tools are tunable via config â€” false positives become
   documented `ignore` entries, not silent passes.
 - Aligns with the `never-hit-quotas` philosophy applied to quality:
   fail loudly, never drift silently.
 
 ### What we don't do
 
-- **No paid a11y tools** — accessibility-checker (IBM) is OSS but
+- **No paid a11y tools** â€” accessibility-checker (IBM) is OSS but
   smaller community; WAVE API is paid past its free tier; Axe DevTools
   Pro is paid. Three free tools cover us.
-- **No manual a11y review as the only check** — manual review still
+- **No manual a11y review as the only check** â€” manual review still
   happens for keyboard-nav and screen-reader UX (per
   <!-- TODO: broken link, was [`design/family-rules.md`](../../../design/family-rules.md) --> if it
   exists in the family rules), but the automated trio is the floor.

@@ -93,7 +93,7 @@ Worker.
 The [security headers strategy](../../security/security-headers-strategy.md)
 already uses `_headers`. Apply the same posture to redirects.
 
-### 4. Split Workers by domain — each gets its own 100K/day quota
+### 4. Split Workers by domain â€” each gets its own 100K/day quota
 
 The free-tier quota is **per Worker**, not per account. Splitting a
 single monolithic Worker into per-domain Workers multiplies the
@@ -105,14 +105,14 @@ effective family-wide quota:
 - per-extension Worker subdomains ? 100K/day each
 
 The [umbrella Hono Worker decision](./hono-worker-api-umbrella.md)
-keeps the API surface single — but routes that have their own
+keeps the API surface single â€” but routes that have their own
 domain (OG, short-link) are deployed as separate Workers and
 inherit independent quotas.
 
 ### 5. Use HTML Rewriter for cheap edge transforms
 
 The `HTMLRewriter` API streams the upstream response through one or
-more transformers and counts as a **single** request — not
+more transformers and counts as a **single** request â€” not
 "upstream + transform" billed separately. Use it for header
 injection, content rewrites, A/B variant swaps, and feature-flag
 gating instead of fetching, parsing, and re-emitting in Worker
@@ -120,7 +120,7 @@ JavaScript (which would burn CPU).
 
 ### 6. CDN-cache OG images at the edge
 
-The Satori OG endpoint returns a 1200×630 PNG keyed by parameter
+The Satori OG endpoint returns a 1200Ã—630 PNG keyed by parameter
 hash. Combined with #1 and #2, the Worker generates each unique
 title/theme combination **once**; every other request from any edge
 node is served from cache. With `immutable` cache headers, the
@@ -138,8 +138,8 @@ is per namespace; split namespaces per domain (same logic as #4).
 ### 8. Cron Triggers don't count against request quota
 
 CF Cron Triggers run a Worker on a schedule and consume from a
-**separate** 1,000/day quota. Background work — RSS poll, idempotency
-sweep, cache rebuild, federation outbox flush — belongs on Cron
+**separate** 1,000/day quota. Background work â€” RSS poll, idempotency
+sweep, cache rebuild, federation outbox flush â€” belongs on Cron
 Triggers, not on user-request handlers. The
 [cron split decision](./cron-split-cf-vs-gh.md) already routes long /
 build-shaped jobs to GitHub Actions; CF Cron Triggers handle in-Worker
@@ -147,15 +147,15 @@ periodic tasks.
 
 ## Fail-safes (apply on top of the playbook)
 
-- **Per-Worker request budget alarm** — Worker emits a metric to
+- **Per-Worker request budget alarm** â€” Worker emits a metric to
   [Axiom](../../../services/business/tooling/axiom.md) on every request; alert
   fires at 70K/day (70% of cap), giving 24h headroom before the
   quota actually trips.
-- **Quota-trip fallback** — when a Worker fails-closed, the
+- **Quota-trip fallback** â€” when a Worker fails-closed, the
   consumer (oriz-kit `<Image>` chain, short-link consumer, etc.)
   has a documented swap target. Worker quota cliffs are recoverable
   per-site, not catastrophic.
-- **No card-on-file** — quota fail-closed is a feature; the family
+- **No card-on-file** â€” quota fail-closed is a feature; the family
   never enables CF Workers Paid plan because that would put a card
   on the account in violation of
   [`rules/no-card-on-file.md`](../../../rules/interaction/no-card-on-file.md).
@@ -163,11 +163,11 @@ periodic tasks.
 ## Cross-refs
 
 - [Cloudflare Workers service](../../../services/infra/compute/cloudflare-workers.md)
-- [URL shortener Worker (s.oriz.in)](../../../services/business/short-link/cloudflare-worker.md) — original cache-trick example this generalises
+- [URL shortener Worker (s.oriz.in)](../../../services/business/short-link/cloudflare-worker.md) â€” original cache-trick example this generalises
 - [Satori OG Worker (api.oriz.in/og)](../../../services/business/social/satori-og-cards.md)
 - [Umbrella Hono Worker decision](./hono-worker-api-umbrella.md)
 - [Cron split decision](./cron-split-cf-vs-gh.md)
-- [Security headers strategy — uses `_headers`](../../security/security-headers-strategy.md)
+- [Security headers strategy â€” uses `_headers`](../../security/security-headers-strategy.md)
 - [Never hit quotas rule](../../../rules/interaction/never-hit-quotas.md)
 - [No card-on-file rule](../../../rules/interaction/no-card-on-file.md)
-- [Layer 5 — compute architecture (Tier 2 = CF Workers)](../general/layer-5-compute.md)
+- [Layer 5 â€” compute architecture (Tier 2 = CF Workers)](../general/layer-5-compute.md)

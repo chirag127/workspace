@@ -26,7 +26,7 @@ related:
 
 
 
-# Release cadence — weekly Wednesday train + hot-fix bypass
+# Release cadence â€” weekly Wednesday train + hot-fix bypass
 
 ## Decision
 
@@ -42,7 +42,7 @@ new commits:
 3. Tags the commit, pushes the tag, and triggers the per-app deploy
    workflow (per [multi-target-build](../multi-target-build.md)).
 
-Apps with no new commits since the last tag are **skipped** — the train
+Apps with no new commits since the last tag are **skipped** â€” the train
 doesn't drag dead cars.
 
 ## The five sub-locks
@@ -73,7 +73,7 @@ triggered by the tag push, not by this cron directly. Manual dispatch
 
 Any commit message containing the literal token `[hotfix]` (in the
 subject or body) triggers an immediate tag + deploy on push to `main`.
-The weekly train still runs — it just finds the hot-fix app already
+The weekly train still runs â€” it just finds the hot-fix app already
 tagged and skips it.
 
 ```bash
@@ -91,11 +91,11 @@ unsuffixed): `v2026.06.21`, `v2026.06.21.2`, `v2026.06.21.3`.
 CalVer over SemVer because:
 - Solo-dev family scale doesn't need SemVer's compatibility contract.
 - CalVer makes "when did this ship?" a one-glance answer.
-- Apps don't have an API surface — they're end-user apps; the version
+- Apps don't have an API surface â€” they're end-user apps; the version
   is for the developer's audit trail, not consumer dependency
   resolution.
 
-NPM packages stay on **SemVer** — they have an API surface; CalVer
+NPM packages stay on **SemVer** â€” they have an API surface; CalVer
 would break consumer version-range pins.
 
 ### git-cliff auto-changelog
@@ -107,10 +107,10 @@ the workspace). Runs in the release workflow before the tag is pushed,
 so the changelog lands with the tag.
 
 No hand-written changelogs. If a commit isn't a conventional-commit,
-it won't show up in the changelog — that's the forcing function.
+it won't show up in the changelog â€” that's the forcing function.
 
 ## Cross-refs
 
-- [multi-target-build](../multi-target-build.md) — per-app deploy workflow that the tag triggers
-- [naming-policy-v6](../../branding/naming-policy-v6.md) — `-app` suffix is what the cron filter selects on
-- [rules/keep-knowledge-fresh](../../../agent-rules/keep-knowledge-fresh.md)
+- [multi-target-build](../multi-target-build.md) â€” per-app deploy workflow that the tag triggers
+- [naming-policy-v6](../../branding/naming-policy-v6.md) â€” `-app` suffix is what the cron filter selects on
+- [rules/keep-knowledge-fresh](../../../rules/agent/keep-knowledge-fresh.md)

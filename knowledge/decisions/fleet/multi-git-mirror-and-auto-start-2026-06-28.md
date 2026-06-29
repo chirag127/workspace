@@ -8,17 +8,17 @@ format_version: okf-v0.1
 status: active
 related:
   - runbooks/platform/mirror-all-hosts-setup
-  - agent-rules/preferences/dont-recreate-what-exists-freely
-  - agent-rules/preferences/always-search-twice-before-deciding
+  - rules/agent/preferences/dont-recreate-what-exists-freely
+  - rules/agent/preferences/always-search-twice-before-deciding
 ---
 
-# Master plan — multi-Git mirror + auto-start + dataset queue
+# Master plan â€” multi-Git mirror + auto-start + dataset queue
 
 ## 1. Multi-Git mirror
 
 **Goal**: every public `oriz-org/*` and `chirag127/*` repo gets pushed to N Git providers automatically. If one provider goes down or DMCAs us, the others stand.
 
-**Targets (locked 2026-06-28)** — every **managed** (non-self-hosted) Git host. Account creation needed on each:
+**Targets (locked 2026-06-28)** â€” every **managed** (non-self-hosted) Git host. Account creation needed on each:
 
 | # | Provider | URL pattern | Notes |
 |---|---|---|---|
@@ -40,14 +40,14 @@ related:
 
 **Scope of mirroring**:
 - ? Only repos under `repos/own/*` in the umbrella (originals we authored)
-- ? NOT `repos/frk/*` (forks — upstream already exists elsewhere)
+- ? NOT `repos/frk/*` (forks â€” upstream already exists elsewhere)
 - ? NOT private content (per public-only rule)
 
 **Skipped (and why)**:
 
-- Self-hosted Gitea / Forgejo / GitLab CE — we don't run servers (per `cloud-dbs-as-caches` + no-self-host bias)
-- Radicle (P2P) — too niche, no web URL means no jsDelivr equivalent
-- PikaCode — dead since ~2017
+- Self-hosted Gitea / Forgejo / GitLab CE â€” we don't run servers (per `cloud-dbs-as-caches` + no-self-host bias)
+- Radicle (P2P) â€” too niche, no web URL means no jsDelivr equivalent
+- PikaCode â€” dead since ~2017
 
 ## 1a. API documentation + landing page
 
@@ -57,12 +57,12 @@ Goal: every API repo has a real **docs page** and the fleet has a **landing page
 |---|---|---|
 | **Fleet landing** | `oriz.in` or `api.oriz.in` | List of all live APIs (Bhagavad Gita link to upstream, RTO, constants, ragas, dynasties, countries-plus), feature highlights, how-to-use, "free forever" pitch |
 | **Per-API docs** | `<slug>.oriz.in` root | Auto-generated from JSON Schema + manual examples. Endpoint list, sample responses, jsDelivr alt URL, license, contribute link |
-| **API explorer** | `<slug>.oriz.in/explorer` | Interactive UI: pick a code ? see JSON response live (similar to Swagger but lighter — just a `<select>` + `fetch()` + pretty-print) |
+| **API explorer** | `<slug>.oriz.in/explorer` | Interactive UI: pick a code ? see JSON response live (similar to Swagger but lighter â€” just a `<select>` + `fetch()` + pretty-print) |
 
 **Build pattern**: each API repo contains a `_site/` (Pages output) with:
-- `index.html` — landing for that API (Astro page or hand-rolled HTML)
-- `/codes/...json` — the actual data files (existing layout)
-- Same Pages deploy serves both — `https://rto.oriz.in/` is HTML, `https://rto.oriz.in/codes/MH-12.json` is the API
+- `index.html` â€” landing for that API (Astro page or hand-rolled HTML)
+- `/codes/...json` â€” the actual data files (existing layout)
+- Same Pages deploy serves both â€” `https://rto.oriz.in/` is HTML, `https://rto.oriz.in/codes/MH-12.json` is the API
 
 **Fleet-level landing** lives in `oriz-org/api-fleet-landing` ? deploys to `api.oriz.in` (or replaces the placeholder at `oriz.in` directly).
 
@@ -84,8 +84,8 @@ Goal: every API repo has a real **docs page** and the fleet has a **landing page
 |---|---|---|
 | Headroom Docker container | Hr?hai?Bedrock chain on `localhost:8787` | the AI agent fails if `:8787` is down |
 | cavemem worker | local SQLite worker on `:37777` | Background memory writes need it |
-| RTK hook | Per-session via the AI agent hook (already wired) | n/a — fires on demand |
-| MCP servers | Per-session via the AI agent MCP config | n/a — the AI agent starts them |
+| RTK hook | Per-session via the AI agent hook (already wired) | n/a â€” fires on demand |
+| MCP servers | Per-session via the AI agent MCP config | n/a â€” the AI agent starts them |
 
 So actually only **Headroom + cavemem** truly need Task Scheduler. RTK + MCP run inside the AI agent.
 
@@ -94,17 +94,17 @@ So actually only **Headroom + cavemem** truly need Task Scheduler. RTK + MCP run
 2. Registers a Scheduled Task `Oriz-Cavemem-Login` running `cavemem start` at user logon
 3. Both with "Run only when user is logged on" + "Run with highest privileges"
 
-## 3. Dataset queue — build order
+## 3. Dataset queue â€” build order
 
 Verified gaps from 2026-06-28 audit (no free OSS API exists for any of these):
 
 | # | Dataset | Subdomain | Effort estimate | Time-to-ship | Status |
 |---|---|---|---|---|---|
 | 1 | Indian RTO codes | `rto.oriz.in` | Trivial | ~2 hours | ? Shipped 2026-06-28 (`oriz-org/rto-api`, 1299 codes, 35 states) |
-| 2 | Physics constants (CODATA 2022) | `constants.oriz.in` | Trivial — one-shot CODATA parse, ~150 constants | ~2 hours | Queued |
-| 3 | Indian classical music ragas | `ragas.oriz.in` | Moderate — schema exists at OpenRaga/ragajson, no hosted API; merge Hindustani+Carnatic data | ~1 day | Queued |
-| 4 | Indian dynasties timeline | `dynasties.oriz.in` | Moderate — Wikipedia scrape + reconciliation across articles | ~1 day | Queued |
-| 5 | RestCountries extension (mottos, founding dates, former capitals) | `countries-plus.oriz.in` | Moderate — Wikipedia infobox parse + merge with existing RestCountries shape | ~1 day | Queued |
+| 2 | Physics constants (CODATA 2022) | `constants.oriz.in` | Trivial â€” one-shot CODATA parse, ~150 constants | ~2 hours | Queued |
+| 3 | Indian classical music ragas | `ragas.oriz.in` | Moderate â€” schema exists at OpenRaga/ragajson, no hosted API; merge Hindustani+Carnatic data | ~1 day | Queued |
+| 4 | Indian dynasties timeline | `dynasties.oriz.in` | Moderate â€” Wikipedia scrape + reconciliation across articles | ~1 day | Queued |
+| 5 | RestCountries extension (mottos, founding dates, former capitals) | `countries-plus.oriz.in` | Moderate â€” Wikipedia infobox parse + merge with existing RestCountries shape | ~1 day | Queued |
 
 **Build order rationale**: Constants next (trivial, fastest validation of the rto-api pattern on a different dataset). Then ragas/dynasties/countries-plus in parallel if time allows.
 
@@ -112,18 +112,18 @@ Verified gaps from 2026-06-28 audit (no free OSS API exists for any of these):
 - One repo `oriz-org/<slug>-api`
 - jsDelivr URL immediately works after first push
 - CF Pages subdomain `<slug>.oriz.in` wired after `wrangler login` (done as of 2026-06-28)
-- Auto-mirrored to GitLab/Codeberg/Bitbucket per §1
+- Auto-mirrored to GitLab/Codeberg/Bitbucket per Â§1
 
 ## 4. Sequence to execute
 
 1. **Deploy `rto.oriz.in`** to CF Pages now (wrangler is authed; 5-10 min)
 2. **Lock auto-start rule** + write `install-auto-start.cmd`
-3. **Set up mirror automation** — create org accounts on GitLab/Codeberg/Bitbucket, generate PATs, store as GH org secrets, write the reusable workflow
+3. **Set up mirror automation** â€” create org accounts on GitLab/Codeberg/Bitbucket, generate PATs, store as GH org secrets, write the reusable workflow
 4. **Ship Physics Constants API** (next dataset)
 5. **Ship the remaining 3 datasets** one by one
-6. **Backfill mirrors** — once §3 works, run a one-time backfill to push every existing oriz-org/* and chirag127/* public repo to all mirrors
+6. **Backfill mirrors** â€” once Â§3 works, run a one-time backfill to push every existing oriz-org/* and chirag127/* public repo to all mirrors
 
-Step 1 can happen this session. §2-§6 likely need multiple sessions; this plan is the durable spec.
+Step 1 can happen this session. Â§2-Â§6 likely need multiple sessions; this plan is the durable spec.
 
 ## 5. Cost (verified 2x via web search)
 

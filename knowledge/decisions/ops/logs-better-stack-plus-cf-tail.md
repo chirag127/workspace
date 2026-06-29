@@ -31,48 +31,48 @@ related:
 
 
 
-# Logs — Better Stack Logs + CF Workers Tail
+# Logs â€” Better Stack Logs + CF Workers Tail
 
 ## Decision
 
 The family runs **two log layers**, picked by retention horizon:
 
-1. **Live tail (= 5 min)** —
+1. **Live tail (= 5 min)** â€”
    [Cloudflare Workers Tail](../../../services/monitoring/monitoring/cloudflare-workers-tail.md).
    Free, included with Cloudflare Workers. Streams every Worker
    `console.log` / `console.error` over WebSocket via
-   `wrangler tail <worker>`. Used during active debugging — "what
+   `wrangler tail <worker>`. Used during active debugging â€” "what
    does this Worker actually log when I curl it?"
-2. **Aggregation + alerts (= 30 days)** —
+2. **Aggregation + alerts (= 30 days)** â€”
    [Better Stack Logs](../../../services/monitoring/monitoring/better-stack-logs.md).
    Free 3 GB/mo + 30-day retention + searchable + alertable.
    Same vendor as our existing
    [status page](../../../services/monitoring/monitoring/better-stack.md) + uptime
-   monitors — three Better Stack products on one account.
+   monitors â€” three Better Stack products on one account.
 
 Errors continue to flow through
 [Sentry](../../../services/monitoring/monitoring/sentry.md). Logs and errors are
-**different observability planes** — exceptions go to Sentry; structured
+**different observability planes** â€” exceptions go to Sentry; structured
 operational logs go to Better Stack Logs.
 
 ## Why
 
 - **The 5-min "what's it doing right now?" question.** Every Worker
-  in the family — `s.oriz.in`, `api.oriz.in`, the OG card route, the
-  cross-post engine endpoints — needs a way to see live `console.log`
+  in the family â€” `s.oriz.in`, `api.oriz.in`, the OG card route, the
+  cross-post engine endpoints â€” needs a way to see live `console.log`
   output during debugging. Cloudflare ships this for free as
   `wrangler tail`. No log sink to configure, no aggregation cost,
   no retention tradeoff. It's also the *only* tool that gives sub-100ms
   delivery from a Worker request to a developer's terminal.
 - **The "what happened yesterday at 03:14 UTC?" question.** Workers
-  Tail's retention is effectively the WebSocket session — once you
+  Tail's retention is effectively the WebSocket session â€” once you
   disconnect, the data is gone. Better Stack Logs answers the
   retroactive question: HTTP-pushed log lines, 30-day retention,
   search-by-field, alert-on-pattern. Free 3 GB/mo is a 100x buffer
   over the family's realistic load.
 - **Same Better Stack account = no new vendor surface.** Better Stack
   hosts our [primary status page](../../../services/monitoring/monitoring/better-stack.md),
-  our 10 uptime monitors, AND our log aggregation — three products,
+  our 10 uptime monitors, AND our log aggregation â€” three products,
   one account, one
   [Doppler](../../../services/business/secrets/doppler.md) source token. The
   redundant status page mirror at
@@ -119,19 +119,19 @@ this prevents a runaway log loop on one Worker from burning the
 family-wide budget. Documented under
 [`rules/interaction/never-hit-quotas.md`](../../../rules/interaction/never-hit-quotas.md).
 
-### Three observability planes — distinct, not stacked
+### Three observability planes â€” distinct, not stacked
 
 | Plane | Tool | Free tier | What goes here |
 |---|---|---|---|
 | Errors / exceptions / traces | [Sentry](../../../services/monitoring/monitoring/sentry.md) | 5K events/mo | Uncaught exceptions, hand-instrumented `Sentry.captureException`, performance traces |
-| Operational / structured logs | [Better Stack Logs](../../../services/monitoring/monitoring/better-stack-logs.md) | 3 GB/mo, 30-day retention | `log({ level: 'info', msg: 'razorpay webhook received', payment_id })` — the kind of thing you'd `tail -f` on a server |
+| Operational / structured logs | [Better Stack Logs](../../../services/monitoring/monitoring/better-stack-logs.md) | 3 GB/mo, 30-day retention | `log({ level: 'info', msg: 'razorpay webhook received', payment_id })` â€” the kind of thing you'd `tail -f` on a server |
 | Live console (active debugging) | [Cloudflare Workers Tail](../../../services/monitoring/monitoring/cloudflare-workers-tail.md) | Unlimited, ~5 min retention | `console.log` from a Worker; visible only while `wrangler tail` is connected |
 
 The earlier
 [Axiom service entry](../../../services/business/tooling/axiom.md) stays in the
 catalog; quota alarms keep posting there per the
 [CF Worker quota mitigation playbook](../compute/cf-worker-quota-mitigation.md).
-Axiom and Better Stack Logs are not redundant — Axiom is metrics-shaped
+Axiom and Better Stack Logs are not redundant â€” Axiom is metrics-shaped
 event ingest with dashboards; Better Stack Logs is log-line-shaped
 text search + alerts. Different shapes, different destinations.
 
@@ -139,7 +139,7 @@ text search + alerts. Different shapes, different destinations.
 
 The
 [two-status-page redundancy](../../../services/monitoring/monitoring/instatus.md)
-exists because the status page IS the comms channel for an outage —
+exists because the status page IS the comms channel for an outage â€”
 it must survive its own vendor going down. Logs don't have that
 property: if Better Stack Logs is down, we still have Workers Tail
 and Sentry; we lose a few minutes of historical aggregation, not a
@@ -148,7 +148,7 @@ critical comms channel. So we don't run a redundant log sink.
 ### What we don't add
 
 - **No Logtail / Datadog / Loggly / Papertrail.** All require card on
-  file at family scale (or are paid past trial — fights
+  file at family scale (or are paid past trial â€” fights
   [`rules/no-card-on-file.md`](../../../rules/interaction/no-card-on-file.md) +
   [`rules/infrastructure/no-subscriptions.md`](../../../rules/infrastructure/no-subscriptions.md)).
 - **No self-hosted log stack** (Loki / Promtail, ELK). Self-host fights
@@ -163,11 +163,11 @@ critical comms channel. So we don't run a redundant log sink.
 
 - [Cloudflare Workers Tail service](../../../services/monitoring/monitoring/cloudflare-workers-tail.md)
 - [Better Stack Logs service](../../../services/monitoring/monitoring/better-stack-logs.md)
-- [Better Stack — status page + uptime (same account)](../../../services/monitoring/monitoring/better-stack.md)
-- [Instatus — redundant status page mirror](../../../services/monitoring/monitoring/instatus.md)
-- [Sentry — error / exception plane](../../../services/monitoring/monitoring/sentry.md)
-- [healthchecks.io — heartbeat plane](../../../services/monitoring/monitoring/healthchecks-io.md)
-- [Axiom — metrics-shaped events](../../../services/business/tooling/axiom.md)
+- [Better Stack â€” status page + uptime (same account)](../../../services/monitoring/monitoring/better-stack.md)
+- [Instatus â€” redundant status page mirror](../../../services/monitoring/monitoring/instatus.md)
+- [Sentry â€” error / exception plane](../../../services/monitoring/monitoring/sentry.md)
+- [healthchecks.io â€” heartbeat plane](../../../services/monitoring/monitoring/healthchecks-io.md)
+- [Axiom â€” metrics-shaped events](../../../services/business/tooling/axiom.md)
 - [API umbrella Hono Worker](../compute/api-umbrella-hono-worker.md)
 - [CF Worker quota mitigation playbook](../compute/cf-worker-quota-mitigation.md)
 - [Never hit quotas rule](../../../rules/interaction/never-hit-quotas.md)

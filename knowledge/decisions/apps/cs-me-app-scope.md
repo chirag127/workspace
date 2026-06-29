@@ -28,7 +28,7 @@ related:
 
 ## Domains
 
-`me.oriz.in` AND `cs.oriz.in` — both DNS-aliased to the same site (`repos/c127/own/prod/apps/personal/cs-me-app/`). Two URLs, one app, identical content. `me.oriz.in` is the canonical; `cs.oriz.in` is the personal-initials variant.
+`me.oriz.in` AND `cs.oriz.in` â€” both DNS-aliased to the same site (`repos/c127/own/prod/apps/personal/cs-me-app/`). Two URLs, one app, identical content. `me.oriz.in` is the canonical; `cs.oriz.in` is the personal-initials variant.
 
 ## What lives here
 

@@ -26,7 +26,7 @@ User locked this on 2026-06-26 (Q11). Task Scheduler gets the user's HKCU env va
 - Task name: `Headroom Proxy (oriz)`.
 - Trigger: "At log on of <user>".
 - Action: `wt.exe` (or hidden cmd) invoking the Headroom binary with `--persistent` flag.
-- Settings: "If the task fails, restart every 1 minute" — up to 3 restarts.
+- Settings: "If the task fails, restart every 1 minute" â€” up to 3 restarts.
 - Run only when logged on (no need for SYSTEM execution).
 - Install script lives in the Headroom repo's `scripts/install-windows.ps1`.
 

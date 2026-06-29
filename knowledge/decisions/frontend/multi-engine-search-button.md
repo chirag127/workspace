@@ -27,14 +27,14 @@ related:
 ## Decision
 
 Every site in the chirag127/oriz family ships a single **"Search the
-web"** button — in the header OR footer per [the family design
-rules](../../design/_family-rules.md) — that opens a popover listing
+web"** button â€” in the header OR footer per [the family design
+rules](../../design/_family-rules.md) â€” that opens a popover listing
 multiple web search engines. Clicking an engine launches that engine's
 search for the page's **contextual query** (page title, current
 selection, or last-clicked card title) in a new tab.
 
 The component lives in <!-- TODO: broken link, was [`@chirag127/oriz-kit`](../../../glossary/o-r/oriz-kit.md) -->
-as `<MultiSearch />` and is consumed by every site verbatim — no
+as `<MultiSearch />` and is consumed by every site verbatim â€” no
 per-site forks.
 
 ## Why
@@ -44,18 +44,18 @@ users prefer different engines for different reasons (Kagi for
 quality, DuckDuckGo for privacy, Marginalia for indie web,
 Bing/Google for breadth). A multi-engine launcher honours that
 preference without us hosting search infrastructure or making a
-political choice. It's also a low-cost UX win — visitors who land on
+political choice. It's also a low-cost UX win â€” visitors who land on
 a long-tail page (an old book review, an extension's privacy page)
 often want to follow up by searching the topic broadly.
 
-This is **distinct from on-site search** — Algolia / Pagefind
+This is **distinct from on-site search** â€” Algolia / Pagefind
 (see [services/data/search/](../../../services/data/search/index.md)) handle the
 in-site search box. `<MultiSearch />` handles the explicit "leave
 this site and search the web" gesture.
 
 ## Implications
 
-- **Component**: `<MultiSearch />` exported from `@chirag127/oriz-kit`. No styles — uses `[data-oriz-multisearch]` attribute hooks per [family design rules](../../design/_family-rules.md), every site applies its own visual identity.
+- **Component**: `<MultiSearch />` exported from `@chirag127/oriz-kit`. No styles â€” uses `[data-oriz-multisearch]` attribute hooks per [family design rules](../../design/_family-rules.md), every site applies its own visual identity.
 - **Default engine list** (configured in oriz-kit, overrideable per site via prop):
   - Google (`https://www.google.com/search?q={q}`)
   - DuckDuckGo (`https://duckduckgo.com/?q={q}`)
@@ -67,16 +67,16 @@ this site and search the web" gesture.
 - **Contextual query resolution** (in priority order):
   1. Current `window.getSelection().toString()` if non-empty
   2. Last-clicked card title (if site uses oriz-kit's card primitives, which set `data-oriz-card-title` on the wrapper)
-  3. `document.title` minus the family suffix (e.g. " — oriz-blog")
+  3. `document.title` minus the family suffix (e.g. " â€” oriz-blog")
 - **Placement**: header on big-content sites (oriz-blog, oriz-books, oriz-book-lore, oriz-pdf-tools), footer on app-style sites (oriz-finance, oriz-cards, oriz-me, oriz-image-tools, oriz-urls-to-md, oriz-journal, oriz-home). Each site's design brief specifies which.
 - **Accessibility**: button labelled "Search the web", popover is a Radix Popover, engines are `<a target="_blank" rel="noopener">` links. Keyboard navigable, screen-reader announced.
-- **Analytics**: optional click event emitted via the family's existing analytics hook (Cloudflare Web Analytics + PostHog) — no per-engine tracking beyond a count.
+- **Analytics**: optional click event emitted via the family's existing analytics hook (Cloudflare Web Analytics + PostHog) â€” no per-engine tracking beyond a count.
 - **No backend**: every engine link opens directly in a new tab; the family never proxies the search request.
 
 ## Cross-refs
 
 - <!-- TODO: broken link, was [oriz-kit glossary](../../../glossary/o-r/oriz-kit.md) -->
 - [Family design rules](../../design/_family-rules.md)
-- [Algolia](../../../services/data/search/algolia.md) — on-site search, large corpora
-- [Pagefind](../../../services/data/search/pagefind.md) — on-site search, small sites
-- [AGENTS.md](../../../../AGENTS.md) — referenced under "Where to look in knowledge"
+- [Algolia](../../../services/data/search/algolia.md) â€” on-site search, large corpora
+- [Pagefind](../../../services/data/search/pagefind.md) â€” on-site search, small sites
+- [AGENTS.md](../../../../AGENTS.md) â€” referenced under "Where to look in knowledge"

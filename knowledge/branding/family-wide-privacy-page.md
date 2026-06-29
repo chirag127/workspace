@@ -19,8 +19,8 @@ related:
 
 The master site at the apex (`oriz.in`) publishes **one** canonical
 privacy policy at `oriz.in/privacy`. Every other surface in the
-family — every site (`*.oriz.in`), every browser / VS Code
-extension, every Cloudflare Worker, every CLI — links to that URL
+family â€” every site (`*.oriz.in`), every browser / VS Code
+extension, every Cloudflare Worker, every CLI â€” links to that URL
 as the legal source of truth and adds a per-surface addendum only
 where the surface introduces new disclosures (e.g. extension
 permission lists, site-specific data flows).
@@ -41,15 +41,15 @@ is **refined** by this decision, not superseded:
 The user's direction was: *"+ family-wide /privacy on oriz.in"*.
 Three reasons make it the right shape:
 
-1. **One operator, one policy** — every family surface is operated
+1. **One operator, one policy** â€” every family surface is operated
    by the same person; data-flow patterns are common (Firebase Auth
    + Firestore + Cloudflare Pages); rewriting boilerplate per
    surface means drift.
-2. **One URL to update** — when GDPR / DPDP / CCPA disclosure
+2. **One URL to update** â€” when GDPR / DPDP / CCPA disclosure
    requirements change (annual review per existing policy),
    updating `oriz.in/privacy` propagates the change family-wide
    without re-deploying every site / extension / worker.
-3. **Cleaner store-listings** — Chrome Web Store / Firefox / Edge /
+3. **Cleaner store-listings** â€” Chrome Web Store / Firefox / Edge /
    VS Code Marketplace each demand a privacy URL on the listing.
    Pointing at `oriz.in/privacy/extension/<name>` (an addendum) is
    accurate and store-policy-compliant; the addendum links back to
@@ -60,22 +60,22 @@ Three reasons make it the right shape:
 ```
 oriz.in/privacy                          ? canonical, family-wide
 +-- /privacy/<site>                      ? per-site addendum (when needed)
-¦   e.g. /privacy/blog, /privacy/me
+Â¦   e.g. /privacy/blog, /privacy/me
 +-- /privacy/extension/<name>            ? per-extension addendum
-¦   e.g. /privacy/extension/oriz-bookmarks
+Â¦   e.g. /privacy/extension/oriz-bookmarks
 +-- /privacy/worker/<name>               ? per-worker addendum (when needed)
-¦   e.g. /privacy/worker/api, /privacy/worker/s
+Â¦   e.g. /privacy/worker/api, /privacy/worker/s
 +-- /privacy/cli/<name>                  ? per-CLI addendum (when needed)
 ```
 
 Addenda exist only when the surface has surface-specific
 disclosures. A purely-local extension that makes no network
-requests does not need an addendum — the family boilerplate
+requests does not need an addendum â€” the family boilerplate
 covers it.
 
 ## Implications
 
-- **`oriz.in/privacy` ships before any external launch** — every
+- **`oriz.in/privacy` ships before any external launch** â€” every
   site / extension / worker references it; missing page = broken
   links across the family.
 - **Source of truth** lives in
@@ -90,14 +90,14 @@ covers it.
   (absolute URL, not relative) so even sites at non-oriz.in domains
   resolve to the canonical page.
 - **Store listings** point at `oriz.in/privacy/extension/<name>`
-  (addendum URL) — the addendum is the surface-specific page; the
+  (addendum URL) â€” the addendum is the surface-specific page; the
   store-required disclosures live there with a link back to the
   family policy.
 - **Annual review** (per
   [`policy/privacy-policy-per-extension.md`](../policy/privacy-policy-per-extension.md))
   re-reads Chrome / Firefox / Edge / VS Code policies + GDPR / DPDP
   / CCPA, updates `oriz.in/privacy` once, propagates by reference.
-- **Cookie + analytics disclosure** lives on the family page —
+- **Cookie + analytics disclosure** lives on the family page â€”
   references the [5-tier analytics stack](../architecture/analytics-five-tier-stack.md)
   and the [Klaro cookie banner](../security/cookie-banner-policy.md)
   so the consent surface and the policy stay aligned.
@@ -105,9 +105,9 @@ covers it.
 ## Cross-refs
 
 - [Family privacy page service](../../services/business/legal/privacy-page.md)
-- [Per-extension privacy policy policy](../policy/privacy-policy-per-extension.md) — refined by this decision
+- [Per-extension privacy policy policy](../policy/privacy-policy-per-extension.md) â€” refined by this decision
 - [Public/private line policy](../policy/public-private-line.md)
 - [Cookie banner policy decision](../security/cookie-banner-policy.md)
 - [5-tier analytics stack decision](../architecture/analytics-five-tier-stack.md)
-- [oriz-me added to family](./oriz-me-added-to-family.md) — apex hosts master /privacy
+- [oriz-me added to family](./oriz-me-added-to-family.md) â€” apex hosts master /privacy
 - [No card-on-file rule](../../rules/interaction/no-card-on-file.md)

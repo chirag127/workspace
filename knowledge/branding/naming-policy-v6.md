@@ -1,6 +1,6 @@
 ---
 type: decision
-title: "Naming policy v6 — family brand + product brand + category + suffix"
+title: "Naming policy v6 â€” family brand + product brand + category + suffix"
 description: 'Repos: oriz-<product>-<category>-<suffix>. Forks exempt'
 tags: [naming, repo, suffix, family, branding, v6, oriz, single-brand]
 timestamp: 2026-06-21
@@ -112,7 +112,7 @@ Suffixes name the runtime/role of the repo:
 
 - **Google-style branding wins recognition.** A user who knows "Oriz" recognises every Oriz product on sight.
 - **Cross-product link-building** is stronger with one family brand. `oriz.in` linking to every `oriz-*-app` repo accumulates domain authority faster.
-- **Recruiter scanning** still works — the suffix tells the type, the category tells the function, the `oriz-` prefix tells the family.
+- **Recruiter scanning** still works â€” the suffix tells the type, the category tells the function, the `oriz-` prefix tells the family.
 - **No brand-naming bikeshedding per new repo.** New tool ships? `oriz-<product-brand>-<category>-<suffix>`. Quick decisions.
 
 ## Exceptions
@@ -148,7 +148,7 @@ Forks of upstream repos keep their original GitHub name. No `-fork` suffix. No `
 
 The category portion behaves differently per repo type:
 
-### Tool apps — keep category in slug for SEO
+### Tool apps â€” keep category in slug for SEO
 
 Tool apps benefit from the category word being searchable. Google ranks `oriz-pdf-tools` for "pdf tools" the way it ranks "Google Images" for "images." Pattern: `oriz-<product-brand>-<category>-<suffix>`.
 
@@ -159,11 +159,11 @@ Tool apps benefit from the category word being searchable. Google ranks `oriz-pd
 | `oriz-paisa-finance-tools-app` | "finance tools / calculators" |
 | `oriz-forge-dev-tools-app` | "developer tools" |
 
-### Games — game-name + suffix (no category word)
+### Games â€” game-name + suffix (no category word)
 
-Games don't benefit from a generic category word — the GAME NAME itself is what users search for. Pattern: `oriz-<game-name>-game`.
+Games don't benefit from a generic category word â€” the GAME NAME itself is what users search for. Pattern: `oriz-<game-name>-game`.
 
-### Content apps — product-brand + function + suffix
+### Content apps â€” product-brand + function + suffix
 
 Content apps where the function name carries the brand:
 
@@ -190,7 +190,7 @@ Is the repo a tool app where users search for "X tools"?
 
 Some repos ship BOTH a server-side API (Cloudflare Worker / Function /
 scheduled job) AND a public-facing website (examples: `tickertape-mmi`,
-`fii-dii-tracker` — both scrape Indian financial data, expose a REST
+`fii-dii-tracker` â€” both scrape Indian financial data, expose a REST
 endpoint, AND host a small dashboard site showing the same data).
 
 Pattern: **primary = the artifact that drives revenue / users.**
@@ -226,7 +226,7 @@ For envpact specifically, the 7 repos keep their `envpact-*` prefix but add the 
 
 ## Cross-refs
 
-- <!-- TODO: broken link, was [naming-policy-v5](./naming-policy-v5.md) --> — predecessor (status: superseded by v6)
-- [multi-target-build](../architecture/multi-target-build.md) — release cadence, deploy gating, sentry, sitemap, dashboard locks
-- [per-runtime-framework](../architecture/per-runtime-framework.md) — framework matrix per runtime
-- [keep-knowledge-fresh](../../agent-rules/keep-knowledge-fresh.md) — meta-rule
+- <!-- TODO: broken link, was [naming-policy-v5](./naming-policy-v5.md) --> â€” predecessor (status: superseded by v6)
+- [multi-target-build](../architecture/multi-target-build.md) â€” release cadence, deploy gating, sentry, sitemap, dashboard locks
+- [per-runtime-framework](../architecture/per-runtime-framework.md) â€” framework matrix per runtime
+- [keep-knowledge-fresh](../../rules/agent/keep-knowledge-fresh.md) â€” meta-rule

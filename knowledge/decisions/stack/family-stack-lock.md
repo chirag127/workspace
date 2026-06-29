@@ -1,6 +1,6 @@
 ---
 type: decision
-title: "Family stack lock — Astro 6 + React 19 islands + Tailwind v4 + pnpm + Biome"
+title: "Family stack lock â€” Astro 6 + React 19 islands + Tailwind v4 + pnpm + Biome"
 description: Same stack all sites. CF Pages monetised, GH Pages info-only
 tags: [architecture, stack, hosting, astro, tailwind]
 timestamp: 2026-06-20
@@ -30,11 +30,11 @@ made deserves the better SLA + bandwidth**.
 
 | Site type | Primary host | Why |
 |---|---|---|
-| **Tool sites** (15) — pdf, image, finance, dev, text, convert, qr, data, audio, video, seo, crypto, health, random, print | Cloudflare Pages **only** | On-page monetisation (AdSense, affiliate). Need unlimited bandwidth + lowest TTFB. NO GH Pages mirror — divided traffic dilutes ad RPM. |
-| **Catalog sites** — books, ncert, cards | Cloudflare Pages | On-page affiliate / ad monetisation. CF only. |
-| **Longform sites** — blog, journal, me | Cloudflare Pages | On-page ads / affiliate. CF only. |
-| **Hub site** — oriz-site (apex) | Cloudflare Pages | Front door of the brand. CF only. |
-| **Info / legal sites** for products monetised elsewhere — extension landing pages, package landing pages, status, archived 301-redirect sites | GitHub Pages | Free 100GB/mo bandwidth is plenty for traffic that's already converted; no ads on the page; cheaper to run. |
+| **Tool sites** (15) â€” pdf, image, finance, dev, text, convert, qr, data, audio, video, seo, crypto, health, random, print | Cloudflare Pages **only** | On-page monetisation (AdSense, affiliate). Need unlimited bandwidth + lowest TTFB. NO GH Pages mirror â€” divided traffic dilutes ad RPM. |
+| **Catalog sites** â€” books, ncert, cards | Cloudflare Pages | On-page affiliate / ad monetisation. CF only. |
+| **Longform sites** â€” blog, journal, me | Cloudflare Pages | On-page ads / affiliate. CF only. |
+| **Hub site** â€” oriz-site (apex) | Cloudflare Pages | Front door of the brand. CF only. |
+| **Info / legal sites** for products monetised elsewhere â€” extension landing pages, package landing pages, status, archived 301-redirect sites | GitHub Pages | Free 100GB/mo bandwidth is plenty for traffic that's already converted; no ads on the page; cheaper to run. |
 
 ## Cost ceiling
 
@@ -50,9 +50,9 @@ GH Pages free tier (per repo):
 - 1GB repo size, 10 builds / hour
 - Public repos only
 
-Per `rules/never-hit-a-free-tier-quota.md`: builds budget allows 500/30 ˜
+Per `rules/never-hit-a-free-tier-quota.md`: builds budget allows 500/30 Ëœ
 16 deploys per project per day. Over 15 tool sites that's 240 deploys/day
-ceiling — more than enough since deploys are gated by main-branch pushes.
+ceiling â€” more than enough since deploys are gated by main-branch pushes.
 
 ## Tooling per site
 

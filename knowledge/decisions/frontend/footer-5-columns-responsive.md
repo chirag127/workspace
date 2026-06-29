@@ -35,7 +35,7 @@ Every app's footer = 5 columns total:
 | 1 | **Legal** | /privacy /terms /contact /about /refunds /disclaimer (6 standard links) | per-app file; same 6 link names everywhere |
 | 2 | **Family** | Individual links to other oriz apps + tools + books + packages (mini sitemap) | per-app rendered from FAMILY_APPS/BOOKS/PACKAGES |
 | 3 | **Connect** | Newsletter / RSS / GitHub / Sponsors / Telegram channels | per-app brand-specific |
-| 4 | **Brand** | Wordmark + 1-line bio + © year + back-to-top | per-app brand-specific |
+| 4 | **Brand** | Wordmark + 1-line bio + Â© year + back-to-top | per-app brand-specific |
 | 5 | **Per-app** | App-specific content: blog gets Categories/Recent/Tags; ncert gets Classes; janaushdhi gets Browse; tools get Tool categories; cs-me gets life-log; etc. | fully per-app |
 
 ## Responsive
@@ -52,7 +52,7 @@ Per `final-per-app-visual-shared-behavior.md`: each app draws its own footer com
 
 ## Family column rendering
 
-The Family column on every app renders links to OTHER apps (mini sitemap). Data source: `@chirag127/astro-shell/family-data` (which exports `FAMILY_APPS`, `FAMILY_BOOKS`, `FAMILY_PACKAGES`, `FAMILY_TOOLS` arrays — kept shared per the FINAL decision because data is data, not visual). Each app's footer imports the data + renders it in its own visual treatment.
+The Family column on every app renders links to OTHER apps (mini sitemap). Data source: `@chirag127/astro-shell/family-data` (which exports `FAMILY_APPS`, `FAMILY_BOOKS`, `FAMILY_PACKAGES`, `FAMILY_TOOLS` arrays â€” kept shared per the FINAL decision because data is data, not visual). Each app's footer imports the data + renders it in its own visual treatment.
 
 ## Implementation
 
@@ -87,7 +87,7 @@ import { FAMILY_APPS, FAMILY_BOOKS, FAMILY_PACKAGES, FAMILY_TOOLS } from '@chira
     <!-- Column 4: Brand -->
     <section><h3>Oriz</h3>
       <p class="bio">A self-built family.</p>
-      <p>© 2026</p>
+      <p>Â© 2026</p>
       <a href="#top">? Top</a>
     </section>
     <!-- Column 5: Per-app -->

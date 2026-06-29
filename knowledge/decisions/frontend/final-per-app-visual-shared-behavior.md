@@ -33,7 +33,7 @@ supersedes:
 related:
 - rules/design/per-app-distinctive-frontend-design
 - rules/design/frontend-design-skill-baked-in
-- agent-rules/grill-on-loc-removal
+- rules/agent/grill-on-loc-removal
 ---
 
 
@@ -79,7 +79,7 @@ Translation: NOTHING visual is shipped from a shared package. Each app draws eve
 | BottomBar | own `src/components/BottomBar.astro` (or omit if not mobile-heavy) |
 | Wordmark | own `src/components/Wordmark.astro` |
 | Layout wrapper | own `src/layouts/BaseLayout.astro` |
-| CSS tokens | own `src/styles/tokens.css` (NAMES can differ — `--paper` here / `--bg` there) |
+| CSS tokens | own `src/styles/tokens.css` (NAMES can differ â€” `--paper` here / `--bg` there) |
 | Color palette | own |
 | Type stack | own |
 | Hero composition | own |
@@ -102,8 +102,8 @@ Each app's footer designs these 6 links however fits its brief. The 6 routes the
 
 ## Packages reduced or deprecated
 
-- **`@chirag127/astro-chrome`** — was the Header/Footer/Wordmark/Sidebar/BottomBar/legal home. **Deprecated**: future v0.1.8 strips out visual exports; package becomes empty (or absorbed into astro-shell). Existing v0.1.0–0.1.7 versions remain on npm for audit but no app should import from them after migration.
-- **`@chirag127/astro-shell`** — was tokens.css + shell() config + family-data + react integration. **Reduced**: drops tokens.css export; keeps shell() Astro defineConfig helper + family-data (FAMILY_APPS arrays) + types. The family-data arrays are data, not visual.
+- **`@chirag127/astro-chrome`** â€” was the Header/Footer/Wordmark/Sidebar/BottomBar/legal home. **Deprecated**: future v0.1.8 strips out visual exports; package becomes empty (or absorbed into astro-shell). Existing v0.1.0â€“0.1.7 versions remain on npm for audit but no app should import from them after migration.
+- **`@chirag127/astro-shell`** â€” was tokens.css + shell() config + family-data + react integration. **Reduced**: drops tokens.css export; keeps shell() Astro defineConfig helper + family-data (FAMILY_APPS arrays) + types. The family-data arrays are data, not visual.
 
 ## Migration sweep
 
@@ -118,11 +118,11 @@ For each of 5 priority apps (home, blog, ncert, janaushdhi, packages-catalog):
 5. Move shared `astro-shell/tokens.css` into the app's own `src/styles/tokens.css`
 6. Same migration for the 16 tools apps (once their v0 lands)
 
-Total LOC migrated: roughly equal to the 4,000 LOC dedup'd in earlier sweeps. Per Rule 12 (=50 LOC threshold), grill BEFORE migrating — this decision file IS that grill.
+Total LOC migrated: roughly equal to the 4,000 LOC dedup'd in earlier sweeps. Per Rule 12 (=50 LOC threshold), grill BEFORE migrating â€” this decision file IS that grill.
 
 ## Why this final shape
 
-The shared-package experiment failed three times because the apps are genuinely different products, not skins of one product. Trying to share visual code FORCED the apps to look the same OR forced complex slot APIs that became LARGER than per-app code. Per the frontend-design Rule 13: each app needs its own distinctive identity — the brief calls for differentiation.
+The shared-package experiment failed three times because the apps are genuinely different products, not skins of one product. Trying to share visual code FORCED the apps to look the same OR forced complex slot APIs that became LARGER than per-app code. Per the frontend-design Rule 13: each app needs its own distinctive identity â€” the brief calls for differentiation.
 
 Shared utility/behavior packages remain because they encode TRUE family contracts (one Firebase project, one pricing model, one analytics stack, one AI fallback ladder). Those contracts don't fight the visual brief.
 
@@ -130,11 +130,11 @@ Shared utility/behavior packages remain because they encode TRUE family contract
 
 This decision SUPERSEDES (entirely or in critical part):
 
-- `decisions/architecture/four-nav-surfaces-every-app.md` — all 4 surfaces still required, but each PER-APP (not from package)
-- `decisions/architecture/shared-vs-divergent-matrix.md` — the SHARED column shrinks; visual columns all move to DIVERGENT
-- `decisions/architecture/maximalist-footer-and-monetization-everywhere.md` — footer was "same visual"; now "same legal link semantics, per-app visual"
-- `decisions/architecture/footer-per-app-with-universal-legal.md` — the `<LegalFooter />` shared sub-component is dropped; each app's footer is fully its own
-- `decisions/architecture/legal-pages-package-in-domain.md` — `astro-chrome/legal/*` package is deprecated; each app owns its legal pages
+- `decisions/architecture/four-nav-surfaces-every-app.md` â€” all 4 surfaces still required, but each PER-APP (not from package)
+- `decisions/architecture/shared-vs-divergent-matrix.md` â€” the SHARED column shrinks; visual columns all move to DIVERGENT
+- `decisions/architecture/maximalist-footer-and-monetization-everywhere.md` â€” footer was "same visual"; now "same legal link semantics, per-app visual"
+- `decisions/architecture/footer-per-app-with-universal-legal.md` â€” the `<LegalFooter />` shared sub-component is dropped; each app's footer is fully its own
+- `decisions/architecture/legal-pages-package-in-domain.md` â€” `astro-chrome/legal/*` package is deprecated; each app owns its legal pages
 
 ## Cross-refs
 

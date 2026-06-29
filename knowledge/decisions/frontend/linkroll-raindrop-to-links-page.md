@@ -25,7 +25,7 @@ related:
 
 
 
-# Linkroll — Raindrop.io is source of truth, blog.oriz.in/links built at deploy time
+# Linkroll â€” Raindrop.io is source of truth, blog.oriz.in/links built at deploy time
 
 ## Decision
 
@@ -46,7 +46,7 @@ during the day surface without a manual push.
 
 For each linkroll item, the build also mints (or reuses) an
 `s.oriz.in/<slug>` short URL via the
-[Cloudflare Worker shortener](../../../services/business/short-link/cloudflare-worker.md) —
+[Cloudflare Worker shortener](../../../services/business/short-link/cloudflare-worker.md) â€”
 that's the URL `oriz-omnipost` cross-posts when sharing links to
 aggregator platforms.
 
@@ -84,7 +84,7 @@ aggregator platforms.
   mapping or creates one if absent (idempotent on the Raindrop item
   ID). This is the URL `oriz-omnipost` cross-posts.
 - A daily JSON export of the collection lands in
-  `oriz-me-data/exports/raindrop-<date>.json` as a backup —
+  `oriz-me-data/exports/raindrop-<date>.json` as a backup â€”
   Raindrop is canonical operationally but the family keeps a
   rebuilt-from-git snapshot in case of vendor disappearance.
 
@@ -105,5 +105,5 @@ aggregator platforms.
 - [URL-shortener quota mitigation decision](../general/url-shortener-quota-mitigation.md)
 - [Cloudflare Pages](../../../services/infra/hosting/cloudflare-pages.md)
 - [GitHub Actions schedule](../../../services/business/cron/github-actions-schedule.md)
-- [Cross-post engine — consumer of the s.oriz.in mints](../general/cross-post-engine.md)
+- [Cross-post engine â€” consumer of the s.oriz.in mints](../general/cross-post-engine.md)
 - [No card-on-file rule](../../../rules/interaction/no-card-on-file.md)

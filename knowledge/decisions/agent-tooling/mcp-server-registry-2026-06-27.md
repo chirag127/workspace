@@ -1,16 +1,16 @@
 ---
 type: decision
-title: 'MCP server registry — 11 servers installed 2026-06-27'
+title: 'MCP server registry â€” 11 servers installed 2026-06-27'
 description: Final MCP set after audit. Searxng, github Docker, npx/uvx tools, chirag127 toolbox
 tags: [mcp, claude-code, registry, agent-tooling]
 timestamp: 2026-06-27
 format_version: okf-v0.1
 status: active
 related:
-  - agent-rules/single-claude-config-always-hr
+  - rules/agent/single-claude-config-always-hr
 ---
 
-# MCP server registry — 11 servers
+# MCP server registry â€” 11 servers
 
 ## Connected (verified via `claude mcp list`)
 
@@ -26,11 +26,11 @@ related:
 | 8 | time | uvx mcp-server-time | Timezone / scheduling |
 | 9 | git | uvx mcp-server-git | Local git ops |
 | 10 | github | docker run ghcr.io/github/github-mcp-server | Full GitHub API (official) |
-| 11 | chirag127 (toolbox) | HTTP mcp.smithery.run | Hosted Smithery registry — no ?mode=smart |
+| 11 | chirag127 (toolbox) | HTTP mcp.smithery.run | Hosted Smithery registry â€” no ?mode=smart |
 
 ## Removed
 
-- `chrome-devtools` MCP — superseded by `agent-browser` skill (Rust CLI, Chrome CDP)
+- `chrome-devtools` MCP â€” superseded by `agent-browser` skill (Rust CLI, Chrome CDP)
 
 ## Install commands (audit-trail)
 
@@ -42,7 +42,7 @@ npx-based:
     claude mcp add --scope user context7 -- npx -y @upstash/context7-mcp
     claude mcp add --scope user playwright -- npx -y @playwright/mcp@latest
 
-uvx-based (Python) — requires uv from https://astral.sh/uv/install.ps1:
+uvx-based (Python) â€” requires uv from https://astral.sh/uv/install.ps1:
 
     claude mcp add --scope user fetch -- uvx mcp-server-fetch
     claude mcp add --scope user time -- uvx mcp-server-time
@@ -64,7 +64,7 @@ github via Docker (needs PAT, anonymous cred config):
       -- "C:\\Program Files\\Docker\\Docker\\resources\\bin\\docker.exe" run -i --rm \
          -e GITHUB_PERSONAL_ACCESS_TOKEN ghcr.io/github/github-mcp-server
 
-toolbox (Smithery hosted) — full schema, no smart-mode:
+toolbox (Smithery hosted) â€” full schema, no smart-mode:
 
     claude mcp add --transport http chirag127 "https://mcp.smithery.run/chirag127"
 

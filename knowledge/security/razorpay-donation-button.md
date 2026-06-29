@@ -31,7 +31,7 @@ related:
 
 Mount a Razorpay-hosted donation button (button ID `pl_T4iEPIDcALKLPk`)
 across the family as a one-click donation primitive. Separate from the
-subscription flow — donations are **one-time**, not recurring.
+subscription flow â€” donations are **one-time**, not recurring.
 
 ## Button ID
 
@@ -47,7 +47,7 @@ handles the hosted donation page.
 
 | Surface | Where |
 |---|---|
-| Every app | `/sponsors` route (universal — every app exposes this) |
+| Every app | `/sponsors` route (universal â€” every app exposes this) |
 | `oriz-cs-me-app` | Footer (personal lifestream gets a permanent footer mount) |
 | `chirag127.github.io` profile README | Embedded as a link to `oriz.in/sponsors` |
 
@@ -59,7 +59,7 @@ handles the hosted donation page.
 4. Payment completes on Razorpay's side
 5. Webhook fires to our `razorpay-webhook-worker` for analytics + receipt
 
-## Implementation — shared component
+## Implementation â€” shared component
 
 Lives in `@chirag127/astro-billing` package as `SponsorButton.astro`:
 
@@ -88,12 +88,12 @@ import { SponsorButton } from '@chirag127/astro-billing';
 
 ## Why separate from subscription flow
 
-- **One-time vs recurring** — donations are gift-shaped, subs are
+- **One-time vs recurring** â€” donations are gift-shaped, subs are
   service-shaped. Different mental model + different Razorpay product
   IDs.
-- **No paywall lift** — donating doesn't unlock features. Subscription
+- **No paywall lift** â€” donating doesn't unlock features. Subscription
   does ([[decisions/ops/subscription-flow]]).
-- **Independent abuse surface** — donation fraud (chargebacks) has
+- **Independent abuse surface** â€” donation fraud (chargebacks) has
   different mitigation than subscription fraud (card-testing).
 
 ## Geo
@@ -113,7 +113,7 @@ Geo auto-detected via CF `cf-ipcountry` header by default.
 
 ## Cross-refs
 
-- [[decisions/ops/subscription-flow]] — the recurring billing path
-- [[monetisation/max-payment-methods]] — the full international rail
-- [[architecture/the-23-packages]] — `astro-billing` is package #7
-- [[runbooks/razorpay-end-to-end-setup]] — Razorpay account setup + key management
+- [[decisions/ops/subscription-flow]] â€” the recurring billing path
+- [[monetisation/max-payment-methods]] â€” the full international rail
+- [[architecture/the-23-packages]] â€” `astro-billing` is package #7
+- [[runbooks/razorpay-end-to-end-setup]] â€” Razorpay account setup + key management

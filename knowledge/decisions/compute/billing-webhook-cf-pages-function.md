@@ -74,7 +74,7 @@ User lookup: provider passes customer email at checkout. Pages Function queries 
 Each app's BaseLayout pulls `users/{uid}/subscriptions/*` on auth state change (Firestore client SDK, real-time listener). On change:
 - If any `subscription.tier === 'pro'` AND `status === 'active'`: enable Pro features (offline / sync / themes / priority support badge)
 - If any `subscription.tier === 'ad-free'` AND `status === 'active'`: hide AdSense/AdMob snippet
-- Else: free tier — show ads, no Pro features
+- Else: free tier â€” show ads, no Pro features
 
 Cross-app SSO via Firebase Auth means a single subscription unlocks all apps.
 

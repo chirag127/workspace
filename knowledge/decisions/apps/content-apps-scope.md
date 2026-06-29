@@ -47,7 +47,7 @@ All three:
 
 ## Ship after Wave 1
 
-These ship AFTER janaushdhi + ncert + blog + home-app land (per [[decisions/apps/ship-order-2026q3]]). Reason: Wave 1 has measurable public utility (price scrape, textbook merge, daily blog). Wave 3 is personal-creative — landing them first would feel like a personal site stretched too thin.
+These ship AFTER janaushdhi + ncert + blog + home-app land (per [[decisions/apps/ship-order-2026q3]]). Reason: Wave 1 has measurable public utility (price scrape, textbook merge, daily blog). Wave 3 is personal-creative â€” landing them first would feel like a personal site stretched too thin.
 
 ## journal sub-decisions
 

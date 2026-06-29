@@ -1,6 +1,6 @@
 ---
 type: decision
-title: "Code quality stack — Dependabot + biome + CodeRabbit + Sonarcloud"
+title: "Code quality stack â€” Dependabot + biome + CodeRabbit + Sonarcloud"
 description: 'Code quality: Dependabot, biome, CodeRabbit, Sonarcloud. Free OSS'
 tags: [decisions, process, code-quality, ci, oss]
 timestamp: 2026-06-20
@@ -15,16 +15,16 @@ related:
   - rules/repos-work-independently
 ---
 
-# Code quality stack — Dependabot + biome + CodeRabbit + Sonarcloud
+# Code quality stack â€” Dependabot + biome + CodeRabbit + Sonarcloud
 
 ## Decision
 
 Adopt a 4-layer code-quality stack across every repo in the chirag127/oriz family:
 
-1. **Dependabot** — automated dependency / security update PRs (GitHub-native).
-2. **biome** — lint + format on every commit and in CI (already in place).
-3. **CodeRabbit** — AI code review on every pull request (free for OSS).
-4. **Sonarcloud** — deeper static analysis (SAST, code smells, complexity, duplication, coverage) on merge to `main` (free for OSS).
+1. **Dependabot** â€” automated dependency / security update PRs (GitHub-native).
+2. **biome** â€” lint + format on every commit and in CI (already in place).
+3. **CodeRabbit** â€” AI code review on every pull request (free for OSS).
+4. **Sonarcloud** â€” deeper static analysis (SAST, code smells, complexity, duplication, coverage) on merge to `main` (free for OSS).
 
 ## Why
 

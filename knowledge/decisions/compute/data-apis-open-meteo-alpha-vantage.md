@@ -28,23 +28,23 @@ related:
 
 
 
-# Data APIs — Open-Meteo (weather) + Alpha Vantage (finance)
+# Data APIs â€” Open-Meteo (weather) + Alpha Vantage (finance)
 
 ## Decision
 
 The family adopts two **read-only external data APIs**:
 
-- **[Open-Meteo](../../../services/business/data-api/open-meteo.md)** —
+- **[Open-Meteo](../../../services/business/data-api/open-meteo.md)** â€”
   weather (forecast / current / historical). Unlimited free, no
   auth, no API key, no card.
-- **[Alpha Vantage](../../../services/business/data-api/alpha-vantage.md)** —
+- **[Alpha Vantage](../../../services/business/data-api/alpha-vantage.md)** â€”
   finance (stocks / forex / crypto / macro / technical
   indicators). 25 requests/day + 5 requests/minute free, free
   API key (email signup), no card.
 
 Both are fronted by the
 [umbrella Hono Worker](./hono-worker-api-umbrella.md) at
-`api.oriz.in`. Browsers never call them directly — every request
+`api.oriz.in`. Browsers never call them directly â€” every request
 goes through Worker routes that apply
 [Workers KV](../../../services/infra/compute/cloudflare-workers.md) caching
 per the
@@ -52,7 +52,7 @@ per the
 
 | Surface | TTL | Why this TTL |
 |---|---|---|
-| Weather forecast | 1 hour | Forecasts update every ~3h upstream; 1h is fresh enough for UI, cuts load 60× |
+| Weather forecast | 1 hour | Forecasts update every ~3h upstream; 1h is fresh enough for UI, cuts load 60Ã— |
 | Weather historical | 24 hours | Historical data is immutable; 24h TTL is conservative |
 | Finance EOD | 24 hours | End-of-day data is immutable post-close; 24h covers the trading day |
 | Finance intraday | 5 minutes | Intraday data needs freshness, 5m balances UX vs the 25/day cap |
@@ -60,18 +60,18 @@ per the
 ## Why
 
 - **Open-Meteo unlimited free + no auth** is the lowest-friction
-  weather API the family found — no key to rotate, no card,
+  weather API the family found â€” no key to rotate, no card,
   multi-model ensemble forecast. Beats OpenWeatherMap (1K/day,
   key required), WeatherAPI (1M/mo, key), Tomorrow.io (card
   past trial), Visual Crossing (card past trial).
-- **Alpha Vantage broadest free coverage on one key** — stocks
+- **Alpha Vantage broadest free coverage on one key** â€” stocks
   + forex + crypto + commodities + macro indicators + technical
   indicators. 25/day cap is tight, but mitigated by KV cache +
   cron-driven warm-cache for top tickers. Beats Twelve Data
   (card past free), Finnhub (card past trial), IEX Cloud (no
   free tier), Polygon.io (US-only + card).
-- **Both no-card** — fits [no-card-on-file](../../../rules/interaction/no-card-on-file.md).
-- **Both fronted by the umbrella Worker** — keeps the API key
+- **Both no-card** â€” fits [no-card-on-file](../../../rules/interaction/no-card-on-file.md).
+- **Both fronted by the umbrella Worker** â€” keeps the API key
   (Alpha Vantage) on the server, lets KV caching amortise
   burns, lets per-route quota alarms fire via
   [Axiom](../../../services/business/tooling/axiom.md) at 70% of cap (per
@@ -93,28 +93,28 @@ per the
   callers never see the key.
 - **Cron-driven warm-cache job** (CF Cron Trigger per
   [cron-split-cf-vs-gh](./cron-split-cf-vs-gh.md)) pre-populates
-  KV with top-50 tickers at 18:00 UTC daily. Burns ~10–15 of
+  KV with top-50 tickers at 18:00 UTC daily. Burns ~10â€“15 of
   the 25 daily Alpha Vantage requests on a deterministic
-  schedule, leaving 10–15 for ad-hoc lookups.
+  schedule, leaving 10â€“15 for ad-hoc lookups.
 - **Per-Worker quota alarm** at 20 of 25 daily Alpha Vantage
   requests (separate from the 100K Worker request cap) fires
-  via Axiom + Better Stack incident — gives a 5-request buffer
+  via Axiom + Better Stack incident â€” gives a 5-request buffer
   before fail-closed.
 
 ### Volume budget
 
 - **Open-Meteo**: realistic family-wide load with 1h cache is
-  in the low hundreds of fetches/day at the soft cap of 10K —
+  in the low hundreds of fetches/day at the soft cap of 10K â€”
   ~2% of the envelope. Locked headroom for if a future site
   goes viral with a weather widget.
-- **Alpha Vantage**: 25/day cap minus 10–15 warm-cache burns =
-  10–15 ad-hoc lookups/day. Sufficient for the in-flight
+- **Alpha Vantage**: 25/day cap minus 10â€“15 warm-cache burns =
+  10â€“15 ad-hoc lookups/day. Sufficient for the in-flight
   `oriz-finance` site at family scale; if usage outgrows this,
   the swap target is Twelve Data (800/day, also no card).
 
 ### Geocoding NOT in this decision
 
-[Geocoding stays deferred](../general/geocoding-deferred.md) — separate
+[Geocoding stays deferred](../general/geocoding-deferred.md) â€” separate
 decision, separate concept file. None of the 11 sites need
 address ? coordinate translation today. `CF-IPCountry` header
 covers every current geo-routing need.
@@ -124,12 +124,12 @@ covers every current geo-routing need.
 - **No browser-side calls** to either API. All traffic flows
   through the umbrella Worker so KV caching applies and the
   Alpha Vantage key stays server-side.
-- **No paid tiers** at either provider — fail-closed on quota
+- **No paid tiers** at either provider â€” fail-closed on quota
   is preferable to card-on-file.
 - **No standalone weather / finance app** is in scope from this
   decision. The APIs are reusable infrastructure for whatever
   feature lands first.
-- **No long-term archive** of either API's data — both
+- **No long-term archive** of either API's data â€” both
   upstreams keep history. The family caches at the edge for
   performance, not storage.
 
@@ -140,8 +140,8 @@ covers every current geo-routing need.
 - [Data APIs index](../../../services/business/data-api/index.md)
 - [CF Worker quota mitigation playbook](./cf-worker-quota-mitigation.md)
 - [Umbrella Hono Worker decision](./hono-worker-api-umbrella.md)
-- [Cron split decision — drives the warm-cache job](./cron-split-cf-vs-gh.md)
-- [Secrets management — Alpha Vantage key in Doppler](../../security/secrets-management-doppler.md)
+- [Cron split decision â€” drives the warm-cache job](./cron-split-cf-vs-gh.md)
+- [Secrets management â€” Alpha Vantage key in Doppler](../../security/secrets-management-doppler.md)
 - [Geocoding deferred decision](../general/geocoding-deferred.md)
 - [No card-on-file rule](../../../rules/interaction/no-card-on-file.md)
 - [Never hit quotas rule](../../../rules/interaction/never-hit-quotas.md)

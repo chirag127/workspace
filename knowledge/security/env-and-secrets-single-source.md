@@ -1,6 +1,6 @@
 ---
 type: decision
-title: "Env keys + GH Actions secrets — single source of truth, two delivery tracks"
+title: "Env keys + GH Actions secrets â€” single source of truth, two delivery tracks"
 description: 'Two-track env: public .env.example, private GH Secrets at org'
 tags: [decisions, security, env, dotenv, secrets, doppler, github, org-level, sync, drift]
 timestamp: 2026-06-20
@@ -20,7 +20,7 @@ related:
   - runbooks/rotate-leaked-secret
 ---
 
-# Env keys + GH Actions secrets — single source of truth, two delivery tracks
+# Env keys + GH Actions secrets â€” single source of truth, two delivery tracks
 
 ## Decision
 
@@ -28,7 +28,7 @@ Manage every environment-variable surface in the family on a
 **two-track model**, each with a single source of truth. Per-repo
 hand-edits are forbidden on both tracks; CI catches drift.
 
-- **Track A — `.env.example` files (public key surface, no values).**
+- **Track A â€” `.env.example` files (public key surface, no values).**
   The canonical file is
   <!-- TODO: broken link, was [`templates/.env.example`](../../../templates/.env.example) --> at the
   master `chirag127/oriz` repo. Every other repo's `.env.example`
@@ -38,7 +38,7 @@ hand-edits are forbidden on both tracks; CI catches drift.
   Local dev runs `cp .env.example .env` then fills in values from
   [Doppler](../../services/business/secrets/doppler.md). Locked by
   [`rules/security/env-example-synced-from-master.md`](../../rules/security/env-example-synced-from-master.md).
-- **Track B — GitHub Actions runtime secrets (private, real values).**
+- **Track B â€” GitHub Actions runtime secrets (private, real values).**
   Set ONCE at the `chirag127` ORG level with
   `gh secret set <NAME> --org chirag127 --visibility all`. Every
   repo's CI inherits them automatically. Doppler stays the canonical
@@ -85,20 +85,20 @@ level."* Two locks land in the same conversation:
 
 ```
                     .env.example (PUBLIC, key names only)
-                              ¦
+                              Â¦
 templates/.env.example  ------?  sync-env-example.sh  ------?  every repo's .env.example
    (master, edited here)              (sync)                     (verbatim copy)
-                                                                       ¦
-                                                                       ¦ cp .env.example .env
+                                                                       Â¦
+                                                                       Â¦ cp .env.example .env
                                                                        ?
                                                               local dev .env (gitignored)
                                                               filled from Doppler
 
                     GitHub Actions secrets (PRIVATE, real values)
-                              ¦
+                              Â¦
 Doppler (source of truth)  --?  set-org-secrets-from-doppler.sh  --?  chirag127 org-level GH secrets
    (humans write here)              (sync)                            (visibility: all)
-                                                                            ¦
+                                                                            Â¦
                                                                             ?
                                                                   every repo's CI
                                                                   reads via secrets.<NAME>
@@ -112,7 +112,7 @@ Doppler (source of truth)  --?  set-org-secrets-from-doppler.sh  --?  chirag127 
   `.env.example` against `templates/.env.example` from master. Any
   non-empty diff fails the PR. The same script runs on master CI,
   diffing every submodule's `.env.example` against the master
-  template — single source of truth, validated bidirectionally.
+  template â€” single source of truth, validated bidirectionally.
 - **Track B drift (org-level).** Quarterly cron-job runbook (script
   TBD, lives at `scripts/audit-org-secrets-vs-doppler.sh` when
   written) diffs Doppler's secret list against `gh secret list
@@ -131,7 +131,7 @@ Doppler (source of truth)  --?  set-org-secrets-from-doppler.sh  --?  chirag127 
   one keystroke each.
 - **Removing a key.** Symmetric: drop from
   `templates/.env.example`, sync, then
-  `gh secret delete <NAME> --org chirag127` (with care — make sure
+  `gh secret delete <NAME> --org chirag127` (with care â€” make sure
   no in-flight CI run still references it).
 - **Rotation.** Per
   [`runbooks/security/rotate-leaked-secret.md`](../../runbooks/security/rotate-leaked-secret.md),
@@ -140,7 +140,7 @@ Doppler (source of truth)  --?  set-org-secrets-from-doppler.sh  --?  chirag127 
   with one CI run per affected repo. Direct writes to per-repo
   secrets are forbidden, same as before.
 - **Bootstrap.** The one credential that gets planted by hand is
-  `DOPPLER_SERVICE_TOKEN` — it's the token the sync script uses to
+  `DOPPLER_SERVICE_TOKEN` â€” it's the token the sync script uses to
   read from Doppler. Set it at org level via
   `gh secret set DOPPLER_SERVICE_TOKEN --org chirag127 --visibility
   all` once, rotate carefully.
@@ -159,24 +159,24 @@ Doppler (source of truth)  --?  set-org-secrets-from-doppler.sh  --?  chirag127 
   [`rules/security/no-hardcoded-secrets.md`](../../rules/security/no-hardcoded-secrets.md),
   unchanged.
 - **Doesn't supersede <!-- TODO: broken link, was [`rules/single-env-example-per-repo.md`](../../rules/single-env-example-per-repo.md) -->
-  in spirit** — every repo still ships its own `.env.example` with
+  in spirit** â€” every repo still ships its own `.env.example` with
   the full family superset. It supersedes the **mechanism**: hand
   edits per repo ? sync from master.
 
 ## Cross-refs
 
-- [`../../rules/security/env-example-synced-from-master.md`](../../rules/security/env-example-synced-from-master.md) — Track A rule
-- [`../../rules/security/github-org-level-secrets.md`](../../rules/security/github-org-level-secrets.md) — Track B rule
-- <!-- TODO: broken link, was [`../../rules/single-env-example-per-repo.md`](../../rules/single-env-example-per-repo.md) --> — superseded prior rule (kept, status flipped)
-- [`../../rules/security/no-hardcoded-secrets.md`](../../rules/security/no-hardcoded-secrets.md) — values never in source
-- [`../../rules/interaction/never-hit-quotas.md`](../../rules/interaction/never-hit-quotas.md) — drift = silent CI failure class we refuse to ship into
-- [`../../services/business/secrets/doppler.md`](../../services/business/secrets/doppler.md) — upstream source of truth for values
-- [`../../services/business/secrets/github-secrets.md`](../../services/business/secrets/github-secrets.md) — runtime mirror service entry
-- [`./secrets-management-doppler.md`](./secrets-management-doppler.md) — earlier decision this builds on
-- [`../../runbooks/workflow/sync-env-example-to-all-repos.md`](../../runbooks/workflow/sync-env-example-to-all-repos.md) — Track A runbook
-- [`../../runbooks/security/set-github-org-level-secrets.md`](../../runbooks/security/set-github-org-level-secrets.md) — Track B runbook
-- [`../../runbooks/security/rotate-leaked-secret.md`](../../runbooks/security/rotate-leaked-secret.md) — rotation flow uses Track B sync
-- <!-- TODO: broken link, was [`../../../templates/.env.example`](../../../templates/.env.example) --> — the master superset
+- [`../../rules/security/env-example-synced-from-master.md`](../../rules/security/env-example-synced-from-master.md) â€” Track A rule
+- [`../../rules/security/github-org-level-secrets.md`](../../rules/security/github-org-level-secrets.md) â€” Track B rule
+- <!-- TODO: broken link, was [`../../rules/single-env-example-per-repo.md`](../../rules/single-env-example-per-repo.md) --> â€” superseded prior rule (kept, status flipped)
+- [`../../rules/security/no-hardcoded-secrets.md`](../../rules/security/no-hardcoded-secrets.md) â€” values never in source
+- [`../../rules/interaction/never-hit-quotas.md`](../../rules/interaction/never-hit-quotas.md) â€” drift = silent CI failure class we refuse to ship into
+- [`../../services/business/secrets/doppler.md`](../../services/business/secrets/doppler.md) â€” upstream source of truth for values
+- [`../../services/business/secrets/github-secrets.md`](../../services/business/secrets/github-secrets.md) â€” runtime mirror service entry
+- [`./secrets-management-doppler.md`](./secrets-management-doppler.md) â€” earlier decision this builds on
+- [`../../runbooks/workflow/sync-env-example-to-all-repos.md`](../../runbooks/workflow/sync-env-example-to-all-repos.md) â€” Track A runbook
+- [`../../runbooks/security/set-github-org-level-secrets.md`](../../runbooks/security/set-github-org-level-secrets.md) â€” Track B runbook
+- [`../../runbooks/security/rotate-leaked-secret.md`](../../runbooks/security/rotate-leaked-secret.md) â€” rotation flow uses Track B sync
+- <!-- TODO: broken link, was [`../../../templates/.env.example`](../../../templates/.env.example) --> â€” the master superset
 
 ## Naming conventions
 
@@ -206,17 +206,17 @@ column must NEVER be re-introduced; CI greps for them.
 ### Rules of thumb
 
 - **Prefix Cloudflare service keys with `CLOUDFLARE_`** for account/zone/API
-  resources. The exception is `CF_TURNSTILE_*` — Turnstile is a discrete
+  resources. The exception is `CF_TURNSTILE_*` â€” Turnstile is a discrete
   product surface and its keys have always shipped under the `CF_` short
   form upstream (matches Cloudflare's own dashboard/SDK conventions).
 - **No underscores inside vendor names** that ship as a single word in
   their own docs: `LEMONSQUEEZY_`, `EMAILOCTOPUS_`, `DEVTO_`,
-  `WEB3FORMS_` — match the vendor's branding, not English spacing.
+  `WEB3FORMS_` â€” match the vendor's branding, not English spacing.
 - **`PUBLIC_` prefix is reserved for browser-shipped keys** read via
   `import.meta.env` / Vite/Astro/Next public env. Server-only secrets
   never carry it. When both a browser-side and a server-side variant
   legitimately exist (e.g. Firebase, GA4 Measurement ID, Algolia index
-  name), ship both as separate keys — never overload one name.
+  name), ship both as separate keys â€” never overload one name.
 - **Distinguish API-key vs ingestion-token** for services that ship both
   (e.g. `BETTER_STACK_TOKEN` ingests logs; `BETTER_STACK_API_KEY` drives
   the management API). They hit different endpoints; one name is wrong.

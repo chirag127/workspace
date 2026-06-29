@@ -30,7 +30,7 @@ all subdomains inherit), and concentrates DNS / DDoS / WAF
 configuration in one Cloudflare zone. Spreading across multiple
 apex domains would require duplicate AdSense applications, separate
 Cloudflare zones, separate DNS records, separate domain renewal
-tracking — all without a brand benefit since the family is already
+tracking â€” all without a brand benefit since the family is already
 tightly themed.
 
 ## Implications
@@ -38,7 +38,7 @@ tightly themed.
 - DNS lives in one Cloudflare zone (`oriz.in`); sub-records added per site/extension/service.
 - Cloudflare WAF rules apply uniformly to `*.oriz.in`.
 - AdSense apex application at `oriz.in` covers every subdomain (see [adsense-apex-application](../monetisation/adsense-apex-application.md)).
-- Auth domain is `auth.oriz.in` so Firebase Auth's hosted handlers are first-party from every site's perspective — no third-party-cookie issues.
+- Auth domain is `auth.oriz.in` so Firebase Auth's hosted handlers are first-party from every site's perspective â€” no third-party-cookie issues.
 - The domain is registered with Cloudflare Registrar at-cost, in 10-year increments where supported (per the 100-year strategy).
 - Sub-subdomains are allowed where useful (e.g. `staging.api.oriz.in`) but discouraged for production routes.
 

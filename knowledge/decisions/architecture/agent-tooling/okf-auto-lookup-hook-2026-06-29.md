@@ -7,9 +7,9 @@ timestamp: 2026-06-29
 format_version: okf-v0.1
 status: active
 related:
-  - agent-rules/okf-lookup-before-acting.md
-  - agent-rules/agent-fleet-parity.md
-  - agent-rules/agent-minimum-context.md
+  - rules/agent/okf-lookup-before-acting.md
+  - rules/agent/agent-fleet-parity.md
+  - rules/agent/agent-minimum-context.md
 ---
 
 # OKF auto-lookup via UserPromptSubmit hook
@@ -47,7 +47,7 @@ Audited 5 other agents 2026-06-29:
 - **MiMoCode** — no public hook documentation. Treated as no-support.
 - **ZCode** — GUI-driven, no hook config.
 
-For the 5 unsupported agents, the [`okf-lookup-before-acting`](../../../agent-rules/okf-lookup-before-acting.md) rule mandates the agent run the script itself at task start. Manual instead of automatic, but the rule lives in `AGENTS.md` and is loaded by every agent.
+For the 5 unsupported agents, the [`okf-lookup-before-acting`](../../../rules/agent/okf-lookup-before-acting.md) rule mandates the agent run the script itself at task start. Manual instead of automatic, but the rule lives in `AGENTS.md` and is loaded by every agent.
 
 ## Implementation
 

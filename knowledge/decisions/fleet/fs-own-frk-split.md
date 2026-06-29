@@ -1,6 +1,6 @@
 ---
 type: decision
-title: "Own/frk split — two buckets on top of flat repos/"
+title: "Own/frk split â€” two buckets on top of flat repos/"
 description: Repos split into repos/own/ (originals) and repos/frk/ (forks)
 tags: [filesystem, fleet, forks]
 timestamp: 2026-06-25
@@ -17,9 +17,9 @@ Two-folder split: `repos/own/<slug>/` for repos I created, `repos/frk/<slug>/` f
 - Forks have different release semantics (upstream sync, PRs back) that originals don't.
 - Forks have different license-credit obligations.
 - 15 own + 5 frk fits naturally; the categorize-once-per-repo rule isn't violated (fork-status is a hard binary, not a soft category).
-- Muscle memory still works inside each bucket — `cd repos/own/<slug>/` and `cd repos/frk/<slug>/` are both predictable.
+- Muscle memory still works inside each bucket â€” `cd repos/own/<slug>/` and `cd repos/frk/<slug>/` are both predictable.
 
-**Supersedes:** [`fs-own-frk-split`](../../../agent-rules/preferences/fs-own-frk-split.md) (locked 3h earlier same day).
+**Supersedes:** [`fs-own-frk-split`](../../../rules/agent/preferences/fs-own-frk-split.md) (locked 3h earlier same day).
 
 **The 4 forks (2026-06-29; was 5 before claude-notifications-cli deletion):**
 - ai-rewrite-bs-ext (parent: SupratimRK/Ai-rewrite)
@@ -32,4 +32,4 @@ Two-folder split: `repos/own/<slug>/` for repos I created, `repos/frk/<slug>/` f
 - New repo I fork ? `repos/frk/<slug>/`
 - Slug suffixes (`-api`, `-bs-ext`, etc.) still encode functional category.
 
-**Related:** [`fs-own-frk-split`](../../../agent-rules/preferences/fs-own-frk-split.md) (superseded), [`github-repo-names-are-brand-identity`](../../../agent-rules/preferences/github-repo-names-are-brand-identity.md), [`scope-cut-2026-06-25`](./scope-cut-2026-06-25.md).
+**Related:** [`fs-own-frk-split`](../../../rules/agent/preferences/fs-own-frk-split.md) (superseded), [`github-repo-names-are-brand-identity`](../../../rules/agent/preferences/github-repo-names-are-brand-identity.md), [`scope-cut-2026-06-25`](./scope-cut-2026-06-25.md).

@@ -47,32 +47,32 @@ typeable):
 ```
 repos/
 +-- oriz/                              ? owner (oriz-org on GitHub)
-¦   +-- own/                           ? we authored
-¦   ¦   +-- prod/                      ? products: user-facing artifacts
-¦   ¦   ¦   +-- apps/                  ? Astro / SvelteKit / etc. sites
-¦   ¦   ¦   ¦   +-- content/<repo>/    ? (existing sub-bucket inside apps)
-¦   ¦   ¦   ¦   +-- hub/<repo>/
-¦   ¦   ¦   ¦   +-- personal/<repo>/
-¦   ¦   ¦   ¦   +-- tools/<repo>/
-¦   ¦   ¦   +-- bs-ext/<repo>/         ? browser extensions
-¦   ¦   ¦   +-- ide-ext/<repo>/        ? VS Code / IDE extensions
-¦   ¦   ¦   +-- clis/<repo>/           ? renamed from py-pkg-cli/
-¦   ¦   +-- svc/                       ? services: server-side runtimes
-¦   ¦   ¦   +-- api/<repo>/            ? HTTP APIs (CF Workers)
-¦   ¦   ¦   +-- workers/<repo>/        ? non-API workers
-¦   ¦   ¦   +-- mcp/<repo>/            ? MCP servers
-¦   ¦   +-- lib/                       ? libraries: reusable published code
-¦   ¦   ¦   +-- npm/<repo>/            ? npm packages
-¦   ¦   +-- content/                   ? non-runnable assets
-¦   ¦       +-- books/<repo>/
-¦   ¦       +-- rules/<repo>/
-¦   ¦       +-- skills/<repo>/
-¦   ¦       +-- data/<repo>/
-¦   +-- frk/                              ? forks maintained for the brand
-¦       +-- {prod,svc,lib,content}/<category>/<repo>/
+Â¦   +-- own/                           ? we authored
+Â¦   Â¦   +-- prod/                      ? products: user-facing artifacts
+Â¦   Â¦   Â¦   +-- apps/                  ? Astro / SvelteKit / etc. sites
+Â¦   Â¦   Â¦   Â¦   +-- content/<repo>/    ? (existing sub-bucket inside apps)
+Â¦   Â¦   Â¦   Â¦   +-- hub/<repo>/
+Â¦   Â¦   Â¦   Â¦   +-- personal/<repo>/
+Â¦   Â¦   Â¦   Â¦   +-- tools/<repo>/
+Â¦   Â¦   Â¦   +-- bs-ext/<repo>/         ? browser extensions
+Â¦   Â¦   Â¦   +-- ide-ext/<repo>/        ? VS Code / IDE extensions
+Â¦   Â¦   Â¦   +-- clis/<repo>/           ? renamed from py-pkg-cli/
+Â¦   Â¦   +-- svc/                       ? services: server-side runtimes
+Â¦   Â¦   Â¦   +-- api/<repo>/            ? HTTP APIs (CF Workers)
+Â¦   Â¦   Â¦   +-- workers/<repo>/        ? non-API workers
+Â¦   Â¦   Â¦   +-- mcp/<repo>/            ? MCP servers
+Â¦   Â¦   +-- lib/                       ? libraries: reusable published code
+Â¦   Â¦   Â¦   +-- npm/<repo>/            ? npm packages
+Â¦   Â¦   +-- content/                   ? non-runnable assets
+Â¦   Â¦       +-- books/<repo>/
+Â¦   Â¦       +-- rules/<repo>/
+Â¦   Â¦       +-- skills/<repo>/
+Â¦   Â¦       +-- data/<repo>/
+Â¦   +-- frk/                              ? forks maintained for the brand
+Â¦       +-- {prod,svc,lib,content}/<category>/<repo>/
 +-- c127/                              ? owner: chirag127 personal account
     +-- own/                           ? personal projects (cs-me-app, etc.)
-    ¦   +-- {prod,svc,lib,content}/<category>/<repo>/
+    Â¦   +-- {prod,svc,lib,content}/<category>/<repo>/
     +-- frk/                           ? drive-by forks (most forks land here)
         +-- {prod,svc,lib,content}/<category>/<repo>/
 ```
@@ -97,12 +97,12 @@ chirag127 stays populated so the personal account doesn't look dead.
 Shape B grouping chosen over Shape A (flat 12 categories). The 4
 buckets are the standard industry partition:
 
-- **products/** — anything a user opens. Apps, browser extensions,
+- **products/** â€” anything a user opens. Apps, browser extensions,
   IDE extensions, CLIs. Stuff with a UX surface.
-- **services/** — server-side runtimes. APIs, workers, MCP servers.
+- **services/** â€” server-side runtimes. APIs, workers, MCP servers.
   No UX of their own; consumed by products.
-- **libraries/** — reusable code we publish. npm packages.
-- **content/** — non-runnable assets. Books, rules, skills, data.
+- **libraries/** â€” reusable code we publish. npm packages.
+- **content/** â€” non-runnable assets. Books, rules, skills, data.
 
 If a new category arrives (e.g. mobile apps), it slots into one of
 these 4 buckets without rethinking the hierarchy.
@@ -134,16 +134,16 @@ of `forks/`.
 
 ## What this does NOT change
 
-- Repo slug naming — still follows [`repo-naming-suffixes`](../branding/repo-naming-suffixes.md)
-- Submodule discipline — still 74 submodules pinned to commits in
+- Repo slug naming â€” still follows [`repo-naming-suffixes`](../branding/repo-naming-suffixes.md)
+- Submodule discipline â€” still 74 submodules pinned to commits in
   the umbrella; no switch to subtree or manifest
-- Fork discipline — still minimum-diff, see [`rules/fork-discipline`](../../rules/development/fork-discipline.md)
+- Fork discipline â€” still minimum-diff, see [`rules/fork-discipline`](../../rules/development/fork-discipline.md)
 
 ## Migration cost
 
 - ~74 `.gitmodules` `path =` entries rewritten
 - `git submodule sync` to propagate new paths to `.git/config`
 - ~243 hardcoded `repos/<cat>/` refs in `scripts/`, `knowledge/`,
-  root `*.md` files — sed-rewritten in one pass
+  root `*.md` files â€” sed-rewritten in one pass
 - Windows file locks on `apis/`, `apps/`, `npm-packages/` from VS
-  Code watchers and dev servers — close watchers before migration
+  Code watchers and dev servers â€” close watchers before migration

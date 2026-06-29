@@ -31,7 +31,7 @@ related:
 
 
 
-# Health checks — cron heartbeats + HTTP uptime, split
+# Health checks â€” cron heartbeats + HTTP uptime, split
 
 ## Decision
 
@@ -45,13 +45,13 @@ they verify:
 
 Both are adopted as of 2026-06-20. They don't overlap: heartbeat
 verifies *the runner ran*, uptime verifies *the URL responds*. A
-silent cron failure produces no failed HTTP probe — only the
+silent cron failure produces no failed HTTP probe â€” only the
 heartbeat misses. A live URL responding 500s produces a heartbeat
-ping (the cron ran) — only the uptime probe fails.
+ping (the cron ran) â€” only the uptime probe fails.
 
 ## Why both, not one
 
-The user direction was: *"BOTH — healthchecks.io + Better Stack
+The user direction was: *"BOTH â€” healthchecks.io + Better Stack
 heartbeats."*
 
 Different failure modes:
@@ -67,7 +67,7 @@ Different failure modes:
 Vendor-redundancy posture also helps: if Better Stack itself is the
 outage, healthchecks.io's heartbeat miss can post directly to
 [Instatus](../../../services/monitoring/monitoring/instatus.md) as a manual
-incident — same fallback path documented in the
+incident â€” same fallback path documented in the
 [two-status-page redundancy strategy](../../../services/monitoring/monitoring/index.md#two-status-page-redundancy-strategy).
 
 ## Implications
@@ -77,7 +77,7 @@ incident — same fallback path documented in the
   [cron split](./cron-split-cf-vs-gh.md). Convention: `curl
   -fsS --retry 3 $HC_URL` as the LAST step of every cron workflow.
 - **Cron coverage table** lives at
-  [`services/monitoring/monitoring/healthchecks-io.md`](../../../services/monitoring/monitoring/healthchecks-io.md) —
+  [`services/monitoring/monitoring/healthchecks-io.md`](../../../services/monitoring/monitoring/healthchecks-io.md) â€”
   each scheduled job (Wakatime daily, CF Analytics daily, restic
   backup, oriz-omnipost cron, Raindrop linkroll re-deploy, etc.) has
   its own check URL.
@@ -88,19 +88,19 @@ incident — same fallback path documented in the
 - **Quota math:** ~10 GH Actions cron jobs + ~3 CF Cron Triggers =
   13 of 20 free healthchecks slots = 35% headroom. ~12 active
   monitors envisioned (11 sites + `api.oriz.in`) at the 10-monitor
-  Better Stack cap — apex-only keeps it at exactly 10. Per
+  Better Stack cap â€” apex-only keeps it at exactly 10. Per
   [`rules/never-hit-quotas`](../../../rules/interaction/never-hit-quotas.md), if
   Better Stack monitor count crosses 10 we add a second free
   account, not a paid plan.
-- **Auto-only posture** — both tools verify auto-tracked surfaces
+- **Auto-only posture** â€” both tools verify auto-tracked surfaces
   without human polling, in line with
   [`auto-only-tracking`](../../../rules/interaction/auto-only-tracking.md). The
   alert routes (Slack / email) themselves are auto.
 - **Better Stack heartbeat-monitor mode is also on** alongside the
-  HTTP probes — the same Better Stack account already in use for
+  HTTP probes â€” the same Better Stack account already in use for
   uptime, status page, and Better Stack Logs (per the
   [logs-better-stack-plus-cf-tail decision](../ops/logs-better-stack-plus-cf-tail.md))
-  — but healthchecks.io stays the **primary** for cron heartbeats
+  â€” but healthchecks.io stays the **primary** for cron heartbeats
   (dedicated dead-man-switch UX, generous free tier, vendor split).
 
 ## Cross-refs
@@ -110,7 +110,7 @@ incident — same fallback path documented in the
 - [Monitoring services index](../../../services/monitoring/monitoring/index.md)
 - [Cron split decision](./cron-split-cf-vs-gh.md)
 - [Lifestream auto-event sources](../general/lifestream-auto-event-sources.md)
-- [Logs — Better Stack + CF Tail](../ops/logs-better-stack-plus-cf-tail.md) — same Better Stack account
+- [Logs â€” Better Stack + CF Tail](../ops/logs-better-stack-plus-cf-tail.md) â€” same Better Stack account
 - [Apex-only monitoring decision](../../infrastructure/monitor-apex-only.md)
-- [Auto-only-tracking rule](../../../rules/interaction/auto-only-tracking.md) (forward ref — being added in parallel)
+- [Auto-only-tracking rule](../../../rules/interaction/auto-only-tracking.md) (forward ref â€” being added in parallel)
 - [Never hit quotas rule](../../../rules/interaction/never-hit-quotas.md)

@@ -16,9 +16,9 @@ format_version: okf-v0.1
 status: active
 related:
 - rules/interaction/communication-stt-friendly
-- agent-rules/confirm-knowledge-deltas
-- agent-rules/keep-knowledge-fresh
-- agent-rules/grill-to-knowledge
+- rules/agent/confirm-knowledge-deltas
+- rules/agent/keep-knowledge-fresh
+- rules/agent/grill-to-knowledge
 ---
 
 

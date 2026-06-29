@@ -10,27 +10,27 @@ status: active
 
 # Analytics stack: no card, no self-host
 
-Two hard constraints: (1) no card on file (matches the no-card rule across the fleet), (2) no self-hosting (we don't run servers for analytics — too much ops for a donations-only project). That eliminates a lot of the field. What remains is the industry-standard hosted free tier set.
+Two hard constraints: (1) no card on file (matches the no-card rule across the fleet), (2) no self-hosting (we don't run servers for analytics â€” too much ops for a donations-only project). That eliminates a lot of the field. What remains is the industry-standard hosted free tier set.
 
-## Stack — the 6 tools we ship
+## Stack â€” the 6 tools we ship
 
-1. **Google Analytics 4 (GA4)** — baseline session + event analytics; the lingua franca everyone reads.
-2. **Cloudflare Web Analytics** — privacy-friendly pageviews, no cookies, free with CF Pages hosting.
-3. **Microsoft Clarity** — session replay + heatmaps, free unlimited tier.
-4. **PostHog Cloud** — product analytics, funnels, feature flags; free tier on hosted cloud.
-5. **Fathom Lite** — free tier of the privacy-first analytics product.
-6. **GoatCounter** — free OSS-hosted plan (we use their hosting, not ours).
+1. **Google Analytics 4 (GA4)** â€” baseline session + event analytics; the lingua franca everyone reads.
+2. **Cloudflare Web Analytics** â€” privacy-friendly pageviews, no cookies, free with CF Pages hosting.
+3. **Microsoft Clarity** â€” session replay + heatmaps, free unlimited tier.
+4. **PostHog Cloud** â€” product analytics, funnels, feature flags; free tier on hosted cloud.
+5. **Fathom Lite** â€” free tier of the privacy-first analytics product.
+6. **GoatCounter** â€” free OSS-hosted plan (we use their hosting, not ours).
 
 ## Considered and rejected
 
-- **Plausible** — would require self-hosting to stay free ? rejected (no self-host rule).
-- **Umami** — same self-host blocker ? rejected.
-- **Mixpanel** — needs card on file for any meaningful tier ? rejected.
-- **Amplitude** — card required ? rejected.
-- **Heap** — card required ? rejected.
-- **Hotjar** — card required ? rejected.
-- **FullStory** — card required ? rejected.
+- **Plausible** â€” would require self-hosting to stay free ? rejected (no self-host rule).
+- **Umami** â€” same self-host blocker ? rejected.
+- **Mixpanel** â€” needs card on file for any meaningful tier ? rejected.
+- **Amplitude** â€” card required ? rejected.
+- **Heap** â€” card required ? rejected.
+- **Hotjar** â€” card required ? rejected.
+- **FullStory** â€” card required ? rejected.
 
 Related:
-- [`atomic-packages-lazy`](../../../agent-rules/preferences/atomic-packages-lazy.md) — analytics stays inline; no in-house wrapper package (embed vendor snippets directly).
-- [`no-card-on-file-prepaid-escape`](../../../rules/interaction/no-card-on-file-prepaid-escape.md) — the card-rule this enforces
+- [`atomic-packages-lazy`](../../../rules/agent/preferences/atomic-packages-lazy.md) â€” analytics stays inline; no in-house wrapper package (embed vendor snippets directly).
+- [`no-card-on-file-prepaid-escape`](../../../rules/interaction/no-card-on-file-prepaid-escape.md) â€” the card-rule this enforces

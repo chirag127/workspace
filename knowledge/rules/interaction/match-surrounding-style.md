@@ -11,7 +11,7 @@ timestamp: 2026-06-20
 format_version: okf-v0.1
 status: active
 related:
-- agent-rules/read-before-edit
+- rules/agent/read-before-edit
 - rules/design/no-emoji-in-chrome
 ---
 

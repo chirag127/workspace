@@ -30,7 +30,7 @@ related:
 
 ## Data sources
 
-- **Primary scrape:** `https://www.janaushadhi.gov.in/productportfolio/ProductmrpList` — daily GH Action, 04:00 IST.
+- **Primary scrape:** `https://www.janaushadhi.gov.in/productportfolio/ProductmrpList` â€” daily GH Action, 04:00 IST.
 - **Output:** `data/YYYY-MM-DD.csv` + `data/YYYY-MM-DD.json` committed to the app repo each run. Daily-history is the canonical store; CSV for spreadsheets, JSON for the site build.
 - **Store locator data:** `data.gov.in` state-wise Jan Aushadhi Kendra dataset, fetched separately, refreshed weekly.
 
@@ -44,7 +44,7 @@ related:
 | Store locator | Map of Kendras per state, filterable by district + pincode |
 | Savings calculator | "I take X mg of Y daily" ? annual ? saved switching brand ? generic |
 
-## Monetisation — strict
+## Monetisation â€” strict
 
 - **Free + sponsor footer ONLY.** Public health ethics override revenue.
 - **NO** ads (no AdSense, Ezoic, Mediavine slots).
@@ -55,15 +55,15 @@ See [[policy/monetisation-channel-matrix]] for the family-wide matrix that locks
 
 ## License + legal
 
-- Government data: open by default (Government Open Data License – India 1.0).
-- Brand ? generic substitute mapping is editorial — every mapping cites its source (CDSCO list, manufacturer disclosure, etc.). Disclaimer banner: "Consult a licensed physician before switching medications. This site is informational, not medical advice."
+- Government data: open by default (Government Open Data License â€“ India 1.0).
+- Brand ? generic substitute mapping is editorial â€” every mapping cites its source (CDSCO list, manufacturer disclosure, etc.). Disclaimer banner: "Consult a licensed physician before switching medications. This site is informational, not medical advice."
 - App code: MIT (per family rule).
 
 ## Tech
 
 - Astro + CF Pages (per family hosting rule).
-- GH Action does the scrape (not a CF Worker — scrape uses `node-fetch` + `cheerio`, runs once a day, no quota concern).
-- Per-state store map via Leaflet + OpenStreetMap tiles (no Mapbox token — see [[decisions/ops/geocoding-deferred]]).
+- GH Action does the scrape (not a CF Worker â€” scrape uses `node-fetch` + `cheerio`, runs once a day, no quota concern).
+- Per-state store map via Leaflet + OpenStreetMap tiles (no Mapbox token â€” see [[decisions/ops/geocoding-deferred]]).
 
 ## Cross-refs
 

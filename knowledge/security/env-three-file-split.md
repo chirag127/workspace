@@ -1,6 +1,6 @@
 ---
 type: decision
-title: "Three-env file split — .env / .env.development / .env.production"
+title: "Three-env file split â€” .env / .env.development / .env.production"
 description: Three env files per NODE_ENV. Sops-encrypted. Loaded via Vite/Astro
 tags: [decision, env, secrets, sops, razorpay, vite, astro]
 timestamp: 2026-06-22
@@ -48,7 +48,7 @@ Vite (Astro / SvelteKit / etc.) and Next.js both implement dotenv-chain:
 
 1. `.env` loaded first
 2. `.env.<NODE_ENV>` loaded second (overrides keys from step 1)
-3. `.env.local` loaded third (gitignored, per-developer overrides — optional)
+3. `.env.local` loaded third (gitignored, per-developer overrides â€” optional)
 
 No app code changes needed; Vite/Astro/Next do this automatically.
 
@@ -60,7 +60,7 @@ with a naming convention so apps can key-resolve at CI time:
 | Source file | Org secret name |
 |---|---|
 | `.env` (shared key `FOO`) | `FOO` |
-| `.env.development` key `FOO` | `FOO` (same — development is the default) |
+| `.env.development` key `FOO` | `FOO` (same â€” development is the default) |
 | `.env.production` key `FOO` | `FOO_PROD` (production override) |
 
 CI workflows reading secrets at build time pick the right one based on
@@ -73,13 +73,13 @@ env:
 
 ## Why the split
 
-- **Single namespace** — apps don't branch on env names; same `process.env.X` works
-- **Clear test vs. live separation** — no risk of pushing test Razorpay keys to prod
-- **SOPS-friendly** — each file encrypted independently; rotate one env without re-encrypting the others
-- **CI-friendly** — `NODE_ENV` is the only switch CI needs to flip
+- **Single namespace** â€” apps don't branch on env names; same `process.env.X` works
+- **Clear test vs. live separation** â€” no risk of pushing test Razorpay keys to prod
+- **SOPS-friendly** â€” each file encrypted independently; rotate one env without re-encrypting the others
+- **CI-friendly** â€” `NODE_ENV` is the only switch CI needs to flip
 
 ## Cross-refs
 
-- [[security/env-and-secrets-single-source]] — the upstream "two-track" decision
-- [[security/secrets-management-doppler]] — Doppler is upstream of all .env files
-- [[rules/org-level-secrets-only-no-per-repo]] — org-level sync target
+- [[security/env-and-secrets-single-source]] â€” the upstream "two-track" decision
+- [[security/secrets-management-doppler]] â€” Doppler is upstream of all .env files
+- [[rules/org-level-secrets-only-no-per-repo]] â€” org-level sync target

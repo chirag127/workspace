@@ -9,7 +9,7 @@ status: active
 supersedes:
   - (the 5-agent fleet implicit in AGENTS.md prior to 2026-06-29)
 related:
-  - agent-rules/agent-fleet-parity
+  - rules/agent/agent-fleet-parity
   - decisions/agent-tooling/nothing-global-rule-2026-06-29
 ---
 
@@ -30,7 +30,7 @@ Failover order if Claude Code is unavailable: **OpenCode ? Kilo Code ? Antigravi
 
 - **Cline dropped.** Was 5th in the fleet. Reason: overlaps Kilo Code (both VS Code extensions, both MCP-native, both card-free). Keeping both meant 2 sync targets for the same workflow surface.
 - **`.agents/cline/` removed** along with `cline` rows in AGENTS.md table and `sync-mcp-configs.mjs` target list.
-- **`.vscode/mcp.json` kept** — that's VS Code-native MCP config, not Cline-specific. Kilo Code uses `.kilocode/mcp.json`.
+- **`.vscode/mcp.json` kept** â€” that's VS Code-native MCP config, not Cline-specific. Kilo Code uses `.kilocode/mcp.json`.
 
 ## What's NOT in the fleet (live-search verified, 2026-06-29)
 
@@ -55,5 +55,5 @@ The 60-agent registry from the `chirag127/skills` path table is **reference-only
 
 ## Cross-refs
 
-- [`agent-fleet-parity`](../../../agent-rules/agent-fleet-parity.md) — rule that mandates equal config across the 4
-- [`nothing-global-rule-2026-06-29`](./nothing-global-rule-2026-06-29.md) — companion decision (workspace-only default)
+- [`agent-fleet-parity`](../../../rules/agent/agent-fleet-parity.md) â€” rule that mandates equal config across the 4
+- [`nothing-global-rule-2026-06-29`](./nothing-global-rule-2026-06-29.md) â€” companion decision (workspace-only default)

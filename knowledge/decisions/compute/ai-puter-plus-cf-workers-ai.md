@@ -24,7 +24,7 @@ related:
 
 
 
-# AI split — Puter.js (browser) + Cloudflare Workers AI (server)
+# AI split â€” Puter.js (browser) + Cloudflare Workers AI (server)
 
 ## Decision
 
@@ -47,14 +47,14 @@ A single AI provider can't cover both surfaces well:
   user, so the family ships nothing per request. But the API key
   can't ride into a Worker without exposing it.
 - **Server-only providers** (Workers AI) bind natively to a Worker
-  and run on the same edge node — best p50 of any inference path —
+  and run on the same edge node â€” best p50 of any inference path â€”
   but can't be called from a static Cloudflare Pages page without a
   relay.
 
 Splitting by surface keeps each free tier reserved for its intended
 workload, so neither cliff hits prematurely. Cloudflare Workers AI
 also fits the family's stack-cohesion posture (same as
-[`queue-cloudflare-native.md`](./queue-cloudflare-native.md) — same
+[`queue-cloudflare-native.md`](./queue-cloudflare-native.md) â€” same
 account, same `wrangler.toml`, same no-card billing surface).
 
 ## Implications
@@ -75,11 +75,11 @@ account, same `wrangler.toml`, same no-card billing surface).
 - **Quota headroom** per [`rules/interaction/never-hit-quotas.md`](../../../rules/interaction/never-hit-quotas.md):
   the Hono Worker tracks neurons consumed per day in KV; trips a soft
   cap at 50% (5,000 neurons) to flag approach. Browser-side AI never
-  burns the server budget — it goes through Puter.js.
+  burns the server budget â€” it goes through Puter.js.
 - **Encapsulation**: server-side AI calls live in
   `apps/api/src/ai/` so the swap surface to OpenAI / Anthropic /
   Hugging Face is one file if Workers AI's catalog ever falls short.
-- **Documentation must clarify the split** — a future contributor
+- **Documentation must clarify the split** â€” a future contributor
   must not pull the Puter.js SDK into the Worker (it won't work) or
   call Workers AI's binding from the browser (no binding exists).
 
@@ -89,6 +89,6 @@ account, same `wrangler.toml`, same no-card billing surface).
 - [Cloudflare Workers AI service](../../../services/business/ai/cloudflare-workers-ai.md)
 - [AI services index](../../../services/business/ai/index.md)
 - [Hono Worker API umbrella](./hono-worker-api-umbrella.md)
-- [Queue — Cloudflare native (sibling stack-cohesion decision)](./queue-cloudflare-native.md)
+- [Queue â€” Cloudflare native (sibling stack-cohesion decision)](./queue-cloudflare-native.md)
 - [No card-on-file rule](../../../rules/interaction/no-card-on-file.md)
 - [Never hit quotas rule](../../../rules/interaction/never-hit-quotas.md)

@@ -39,7 +39,7 @@ Each `chirag127/*-npm-pkg` repo gets a detail page with:
 
 | Block | Source |
 |---|---|
-| Live demo iframe | `https://stackblitz.com/edit/<slug>?embed=1&file=index.tsx` — pre-seeded with a minimal usage example pulled from the package's `examples/basic.tsx` if present |
+| Live demo iframe | `https://stackblitz.com/edit/<slug>?embed=1&file=index.tsx` â€” pre-seeded with a minimal usage example pulled from the package's `examples/basic.tsx` if present |
 | Copy-paste install snippet | `pnpm add @chirag127/<slug>` (with copy-button) |
 | Badge wall | npm version + downloads + bundle size (bundlephobia) + license + GH stars + last commit (Shields.io) |
 | README embed | GitHub README live-fetched at build time, MDX-rendered, 24h cache |
@@ -57,7 +57,7 @@ GH Action runs daily at 04:00 IST + on `repository_dispatch` from any `*-npm-pkg
 
 ## Why Starlight not custom
 
-Starlight (Astro's docs theme) gives sidebar nav + search + dark mode + breadcrumbs for free. Customising for catalog use means swapping the home page hero + the per-page top section to embed the showcase blocks — everything else stays default.
+Starlight (Astro's docs theme) gives sidebar nav + search + dark mode + breadcrumbs for free. Customising for catalog use means swapping the home page hero + the per-page top section to embed the showcase blocks â€” everything else stays default.
 
 ## Cross-refs
 

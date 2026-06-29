@@ -62,7 +62,7 @@ automatically tracked no manual tracking."*
 
 - **Manual tracking decays.** See
   [`rules/interaction/auto-only-tracking.md`](../../../rules/interaction/auto-only-tracking.md)
-  §"Why" for the full argument.
+  Â§"Why" for the full argument.
 - **Dishonest data is worse than no data.** A manually-fudged
   metric produces wrong decisions; an untracked gap is at least
   honest about being a gap.
@@ -78,7 +78,7 @@ automatically tracked no manual tracking."*
   + GA4 + [PostHog](../../../services/monitoring/monitoring/analytics/posthog.md) +
   [Clarity](../../../services/monitoring/monitoring/analytics/microsoft-clarity.md)), CI
   status ([GitHub Actions](../../../services/business/cron/github-actions-schedule.md)).
-  Time tracking was the only manual outlier — Toggl walk-back
+  Time tracking was the only manual outlier â€” Toggl walk-back
   closes that gap. See
   [`time-tracking-wakatime-only`](../ops/time-tracking-wakatime-only.md).
 
@@ -110,12 +110,12 @@ require the user to do anything beyond their normal work.
   via dedup key. The Wakatime IDE plugin is the only piece the
   user installs once; from there it's automatic.
 - **Site visits ? already auto via CF Web Analytics.** No
-  additional ingest path needed for the per-visit signal — CF
+  additional ingest path needed for the per-visit signal â€” CF
   Web Analytics' dashboard already aggregates server-side. A
   daily cron pulls the previous day's aggregates from CF's
   GraphQL Analytics API (free tier) and appends a single
   daily-rollup JSONL row per site (count, top paths, top
-  countries) — this gives the lifestream visibility into "the
+  countries) â€” this gives the lifestream visibility into "the
   site got visits" without burning JSONL volume on per-pageview
   rows. Idempotent on `(date, site)`.
 - **Builds ? JSONL line per workflow run.** GitHub Actions
@@ -143,14 +143,14 @@ manual fallback.
   CONTENT, not metrics. Manual writing is intentional and
   expected. See
   [`rules/interaction/auto-only-tracking.md`](../../../rules/interaction/auto-only-tracking.md)
-  §"When NOT to apply this rule".
+  Â§"When NOT to apply this rule".
 - **Markdown blog posts, design briefs, knowledge bundle
-  entries** — also content. Not subject to this decision.
+  entries** â€” also content. Not subject to this decision.
 - **Code itself** is content.
 
 ### Walk-backs locked alongside this decision
 
-- **[Toggl Track REJECTED](../../../services/business/productivity/toggl-track.md)** —
+- **[Toggl Track REJECTED](../../../services/business/productivity/toggl-track.md)** â€”
   manual timer violates this principle. Walked back same day
   it was adopted. See
   [`time-tracking-wakatime-only`](../ops/time-tracking-wakatime-only.md).
@@ -163,28 +163,28 @@ manual fallback.
 
 - **Hookdeck quota** (50K events/mo free, per
   [`distribution-and-queues-locked`](../compute/distribution-and-queues-locked.md))
-  — at family scale, commits + builds + npm publishes total
-  well under 1K events/mo, ~50× headroom.
-- **CF Worker 100K req/day** — every ingest endpoint sits
+  â€” at family scale, commits + builds + npm publishes total
+  well under 1K events/mo, ~50Ã— headroom.
+- **CF Worker 100K req/day** â€” every ingest endpoint sits
   behind the [CF Worker quota mitigation playbook](../compute/cf-worker-quota-mitigation.md);
   ingest is write-shaped (no caching) but well under the cap.
-- **Wakatime API rate limit** — daily cron pulls a single
+- **Wakatime API rate limit** â€” daily cron pulls a single
   summary endpoint per day; no concern.
-- **CF Web Analytics GraphQL** — also free; daily pull only.
-- **Webhook delivery failures** — Hookdeck retries with
+- **CF Web Analytics GraphQL** â€” also free; daily pull only.
+- **Webhook delivery failures** â€” Hookdeck retries with
   exponential backoff + manual replay surface; same posture as
   Razorpay webhook flow.
 
 ## Cross-refs
 
-- [Auto-only-tracking rule](../../../rules/interaction/auto-only-tracking.md) — the rule version of this principle
-- [Time-tracking — Wakatime only](../ops/time-tracking-wakatime-only.md) — Toggl walk-back driven by this decision
-- [Lifestream JSONL canonical](../database/lifestream-jsonl-canonical.md) — the durable store the auto sources feed
-- [oriz-me added to family](../../branding/oriz-me-added-to-family.md) — the lifestream-bearing site
-- [Hookdeck for webhook reliability](../../infrastructure/hookdeck-for-webhook-reliability.md) — webhook ingress layer
+- [Auto-only-tracking rule](../../../rules/interaction/auto-only-tracking.md) â€” the rule version of this principle
+- [Time-tracking â€” Wakatime only](../ops/time-tracking-wakatime-only.md) â€” Toggl walk-back driven by this decision
+- [Lifestream JSONL canonical](../database/lifestream-jsonl-canonical.md) â€” the durable store the auto sources feed
+- [oriz-me added to family](../../branding/oriz-me-added-to-family.md) â€” the lifestream-bearing site
+- [Hookdeck for webhook reliability](../../infrastructure/hookdeck-for-webhook-reliability.md) â€” webhook ingress layer
 - [CF Worker quota mitigation playbook](../compute/cf-worker-quota-mitigation.md)
-- [Wakatime — sole time-tracking pick](../../../services/business/productivity/wakatime.md)
+- [Wakatime â€” sole time-tracking pick](../../../services/business/productivity/wakatime.md)
 - [Cloudflare Web Analytics](../../../services/monitoring/monitoring/analytics/cloudflare-web-analytics.md)
-- [Sentry — auto error capture](../../../services/monitoring/monitoring/sentry.md)
+- [Sentry â€” auto error capture](../../../services/monitoring/monitoring/sentry.md)
 - [GitHub Actions cron schedule](../../../services/business/cron/github-actions-schedule.md)
 - [Future overrides past rule](../../../rules/interaction/future-overrides-past.md)

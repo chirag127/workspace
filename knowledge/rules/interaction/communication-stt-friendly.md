@@ -7,7 +7,7 @@ timestamp: 2026-06-21
 format_version: okf-v0.1
 status: active
 related:
-  - agent-rules/grill-to-knowledge
+  - rules/agent/grill-to-knowledge
   - rules/interaction/future-overrides-past
 ---
 

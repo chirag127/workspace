@@ -23,7 +23,7 @@ supersedes: decisions/architecture/books-publishing-shape (the 'first book = Ori
 related:
 - decisions/content/books-publishing-shape
 - decisions/content/book-publish-pipeline
-- agent-rules/confirm-knowledge-deltas
+- rules/agent/confirm-knowledge-deltas
 ---
 
 
@@ -32,7 +32,7 @@ related:
 
 ## Decision
 
-The first book to draft fully is **"My Learnings from the Oriz Project family"** (working title; final TBD). Memoir + manual hybrid. Documents building the oriz family — the 17 packages, the 26 apps, the rules + decisions + tradeoffs encoded in `knowledge/`, the no-card-on-file discipline, the cross-post engine, the design-system journey.
+The first book to draft fully is **"My Learnings from the Oriz Project family"** (working title; final TBD). Memoir + manual hybrid. Documents building the oriz family â€” the 17 packages, the 26 apps, the rules + decisions + tradeoffs encoded in `knowledge/`, the no-card-on-file discipline, the cross-post engine, the design-system journey.
 
 This **replaces** the Oriz Me / Oriz Stack / Oriz Paisa picks from 2026-06-21 as the first book. The other 4 books in the catalog stay (chapter outlines only initially).
 
@@ -40,11 +40,11 @@ This **replaces** the Oriz Me / Oriz Stack / Oriz Paisa picks from 2026-06-21 as
 
 User explicit request: "I want the books to be very good in nature." Quality bar:
 
-- **Original lived material** — every chapter is something the author actually built or decided. No filler, no AI-generated chapter padding.
-- **Specific** — names tools, prices, free-tier limits, real-world tradeoffs (e.g. "Firebase Functions need Blaze plan which requires card-on-file, so we use CF Pages Functions instead — here's why").
-- **Reproducible** — every claim is backed by a real file in the `chirag127/oriz*` repos. The book reads like a guided tour of an actual codebase.
-- **Honest** — failures, dead ends, supersession trail (per the `keep-knowledge-fresh` rule).
-- **Useful immediately** — readers can clone the family templates and ship their own variant by chapter end.
+- **Original lived material** â€” every chapter is something the author actually built or decided. No filler, no AI-generated chapter padding.
+- **Specific** â€” names tools, prices, free-tier limits, real-world tradeoffs (e.g. "Firebase Functions need Blaze plan which requires card-on-file, so we use CF Pages Functions instead â€” here's why").
+- **Reproducible** â€” every claim is backed by a real file in the `chirag127/oriz*` repos. The book reads like a guided tour of an actual codebase.
+- **Honest** â€” failures, dead ends, supersession trail (per the `keep-knowledge-fresh` rule).
+- **Useful immediately** â€” readers can clone the family templates and ship their own variant by chapter end.
 
 ## Outline (preliminary)
 
@@ -94,11 +94,11 @@ ISBNs: D2D gives one free. KDP gives a free ASIN (Amazon's internal ID) and an o
 
 ## Status of the other 4 books
 
-- **Oriz Stack** ($19/$39) — chapter outline only
-- **Oriz Paisa** (?499/?999 India CC) — chapter outline only
-- **Oriz Me** (PWYW $9 personal) — chapter outline only; lower priority now
-- **Oriz PDF** ($14 PDF Tools manual) — chapter outline only
-- **Oriz Janaushdhi** (?299 generic-medicine guide) — chapter outline only
+- **Oriz Stack** ($19/$39) â€” chapter outline only
+- **Oriz Paisa** (?499/?999 India CC) â€” chapter outline only
+- **Oriz Me** (PWYW $9 personal) â€” chapter outline only; lower priority now
+- **Oriz PDF** ($14 PDF Tools manual) â€” chapter outline only
+- **Oriz Janaushdhi** (?299 generic-medicine guide) â€” chapter outline only
 
 ## Cross-refs
 

@@ -39,15 +39,15 @@ related:
 `oriz.in/stats` is a single, public, transparent dashboard that
 aggregates **everything** the family auto-tracks:
 
-- **Visitor stats** — every site's CF Web Analytics summary
+- **Visitor stats** â€” every site's CF Web Analytics summary
   (pageviews / unique visitors / top paths / top referrers), all 11
   sites in one table
-- **Code stats** — every repo's metrics: line counts (Tokei),
+- **Code stats** â€” every repo's metrics: line counts (Tokei),
   contributor counts (GitHub Insights), commit cadence, coverage
   (Codecov), maintainability grade (Code Climate), open issues / PRs
-- **Coding time** — Wakatime public dashboard data (last 7d / 30d
+- **Coding time** â€” Wakatime public dashboard data (last 7d / 30d
   totals, language breakdown)
-- **Lifestream summary** — counts derived from the
+- **Lifestream summary** â€” counts derived from the
   [oriz-me JSONL](../database/lifestream-jsonl-canonical.md) by `kind` (git
   events / coding days logged / visitor day-summaries)
 
@@ -58,24 +58,24 @@ fetches; cached at the Cloudflare edge with 1h `s-maxage`. A
 crons at 01:00 IST) re-deploys `oriz-in-site` so the dashboard
 refreshes nightly without manual intervention.
 
-User direction: *"family-wide /stats on oriz.in"* — locked.
+User direction: *"family-wide /stats on oriz.in"* â€” locked.
 
 ## Why family-wide, not per-site
 
 - A per-site `/stats` per repo would duplicate 11 build pipelines
   for the same dashboard component.
-- The interesting comparison is **across** the family — which site
+- The interesting comparison is **across** the family â€” which site
   ships fastest, which has the most contributors, total LOC,
-  cross-site engagement — and that view only exists at the apex.
+  cross-site engagement â€” and that view only exists at the apex.
 - One public stats URL is also the cleanest answer to "show me what
-  you build" — recruiters, OSS contributors, and curious readers
+  you build" â€” recruiters, OSS contributors, and curious readers
   hit a single transparent page.
 
 ## Implications
 
 - **`<FamilyStatsDashboard />` component** lands in
   <!-- TODO: broken link, was [`@chirag127/oriz-kit`](../../../glossary/o-r/oriz-kit.md) --> (forward
-  reference — kit shim split per
+  reference â€” kit shim split per
   <!-- TODO: broken link, was [oriz-ui-split-into-5-packages](../oriz-ui-split-into-5-packages.md) -->).
   Single component embedded in `oriz-in-site/src/pages/stats.astro`.
   Per the
@@ -87,30 +87,30 @@ User direction: *"family-wide /stats on oriz.in"* — locked.
   - `GitHub REST API` ? per-repo `/stats/contributors`,
     `/stats/commit_activity`, `/stats/code_frequency`, repo metadata
     (stars / forks / open issues)
-  - [Tokei](../../../services/code/code-quality/tokei.md) JSON output —
+  - [Tokei](../../../services/code/code-quality/tokei.md) JSON output â€”
     consumed from each repo's CI artefact (or re-run inline if the
     repo is shallow-cloned at build)
   - [Wakatime](../../../services/business/productivity/wakatime.md) public
-    summary endpoint — no auth needed for public dashboard scope
-- **Daily refresh cron** — GH Actions schedule `0 2 * * *` (02:00
+    summary endpoint â€” no auth needed for public dashboard scope
+- **Daily refresh cron** â€” GH Actions schedule `0 2 * * *` (02:00
   IST = 20:30 UTC previous day) re-deploys `oriz-in-site`. Pings
   [healthchecks.io](../../../services/monitoring/monitoring/healthchecks-io.md)
   per
   [`health-check-cron-plus-uptime`](../compute/health-check-cron-plus-uptime.md).
-- **Caching** — page emits `Cache-Control: public, s-maxage=3600,
+- **Caching** â€” page emits `Cache-Control: public, s-maxage=3600,
   stale-while-revalidate=86400` so the CF edge serves it for free
   per the
   [CF Worker quota mitigation playbook](../compute/cf-worker-quota-mitigation.md).
-- **API tokens** — CF Analytics, GitHub, Wakatime API tokens in
+- **API tokens** â€” CF Analytics, GitHub, Wakatime API tokens in
   [Doppler](../../../services/business/secrets/doppler.md), GH Secrets at build
   time only. No tokens shipped to client.
-- **Auto-tracked end-to-end** — the page exists *because* every
+- **Auto-tracked end-to-end** â€” the page exists *because* every
   upstream is already auto-tracked per
   [`auto-only-tracking`](../../../rules/interaction/auto-only-tracking.md) and the
   forward-referenced
   [`auto-tracking-everywhere` decision](../general/auto-tracking-everywhere.md).
   No manual data entry anywhere.
-- **Privacy posture** — every metric on the page is already public
+- **Privacy posture** â€” every metric on the page is already public
   upstream (CF Web Analytics is cookie-less aggregate data, GitHub
   Insights is repo-public, Wakatime public dashboard is opted-in).
   No PII surfaces. Falls under the family-wide
@@ -128,6 +128,6 @@ User direction: *"family-wide /stats on oriz.in"* — locked.
 - [GitHub Insights service](../../../services/code/code-quality/github-insights.md)
 - [Tokei service](../../../services/code/code-quality/tokei.md)
 - [Wakatime service](../../../services/business/productivity/wakatime.md)
-- [Auto-only-tracking rule](../../../rules/interaction/auto-only-tracking.md) (forward ref — being added in parallel)
-- [Auto-tracking everywhere decision](../general/auto-tracking-everywhere.md) (forward ref — being added in parallel)
+- [Auto-only-tracking rule](../../../rules/interaction/auto-only-tracking.md) (forward ref â€” being added in parallel)
+- [Auto-tracking everywhere decision](../general/auto-tracking-everywhere.md) (forward ref â€” being added in parallel)
 - [Family-wide privacy page decision](../../branding/family-wide-privacy-page.md)

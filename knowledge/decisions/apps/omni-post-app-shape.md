@@ -29,11 +29,11 @@ related:
 
 ## Two surfaces, one app
 
-### `omni-post.oriz.in/` — public
+### `omni-post.oriz.in/` â€” public
 
 Read-only catalog. "Where I post" list: every channel the oriz family auto-publishes to (dev.to / Hashnode / Bluesky / Mastodon / Threads / Medium / X / Reddit / LinkedIn / Substack). One card per channel: handle, last-post timestamp, post count, profile URL. Useful for readers who want to follow on their preferred platform.
 
-### `omni-post.oriz.in/admin` — auth-gated dashboard
+### `omni-post.oriz.in/admin` â€” auth-gated dashboard
 
 | Panel | What it does |
 |---|---|
@@ -44,7 +44,7 @@ Read-only catalog. "Where I post" list: every channel the oriz family auto-publi
 
 ## Auth
 
-`/admin` requires Firebase Auth sign-in + admin-email allowlist. Allowlist is a constant in `src/lib/admins.ts` (single source: the user's primary email + one backup). No multi-tenant — this is a single-user tool.
+`/admin` requires Firebase Auth sign-in + admin-email allowlist. Allowlist is a constant in `src/lib/admins.ts` (single source: the user's primary email + one backup). No multi-tenant â€” this is a single-user tool.
 
 ## Wraps `@chirag127/omni-publish`
 
@@ -55,7 +55,7 @@ The app is a UI shell; all platform logic lives in the package. The app calls th
 The package alone covers automated publishing. The dashboard exists for:
 
 - Surfacing the **manual-channel drafts queue** (otherwise GH Issues is the only UI, which is fine for occasional use but bad for daily triage)
-- Edit-before-publish — better as a rich textarea + image picker than as `gh issue edit`
+- Edit-before-publish â€” better as a rich textarea + image picker than as `gh issue edit`
 - At-a-glance health check ("did anything fail in the last day?")
 
 ## Cross-refs

@@ -34,20 +34,20 @@ Per-book page renders: cover image, title, subtitle, short blurb, price (per geo
 
 ## First book to draft fully
 
-**Oriz Me** — PWYW $9, personal essays, biographical. Status: drafts fully across Q3 2026.
+**Oriz Me** â€” PWYW $9, personal essays, biographical. Status: drafts fully across Q3 2026.
 
 Why Oriz Me first:
 
-- Lowest research overhead — it's personal essays, the user is the source.
-- PWYW from $0 — accessible reach, low conversion friction.
+- Lowest research overhead â€” it's personal essays, the user is the source.
+- PWYW from $0 â€” accessible reach, low conversion friction.
 - Tests the publishing pipeline (Markua ? Pandoc ? EPUB/PDF/MOBI via [[decisions/content/book-publish-pipeline]]) on the lowest-stakes book.
 
 ## Other 4: chapter outlines only initially
 
-- **Oriz Stack** — Astro + CF + Firebase architecture, $19 / $39 Pro
-- **Oriz Paisa** — Credit Cards India 2026, ?499 / ?999
-- **Oriz PDF** — From Browser to Native (PWABuilder), $14
-- **Oriz Janaushdhi** — Generic Medicines India, ?299
+- **Oriz Stack** â€” Astro + CF + Firebase architecture, $19 / $39 Pro
+- **Oriz Paisa** â€” Credit Cards India 2026, ?499 / ?999
+- **Oriz PDF** â€” From Browser to Native (PWABuilder), $14
+- **Oriz Janaushdhi** â€” Generic Medicines India, ?299
 
 Each gets a 1-page chapter outline committed to its repo. Full drafting deferred to Q4 2026 once Oriz Me proves the pipeline.
 
@@ -57,7 +57,7 @@ Locked in [[decisions/content/book-publish-pipeline]]. Summary: each book ships 
 
 ## Newsletter integration
 
-Sample chapters drop via Substack — the family newsletter platform per [[decisions/stack/newsletter-substack]]. Free chapter PDF + "buy the full book" CTA per drop.
+Sample chapters drop via Substack â€” the family newsletter platform per [[decisions/stack/newsletter-substack]]. Free chapter PDF + "buy the full book" CTA per drop.
 
 ## Cross-refs
 

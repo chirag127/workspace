@@ -1,6 +1,6 @@
 ---
 type: decision
-title: "Per-surface monetisation recommendations — what rail to use where"
+title: "Per-surface monetisation recommendations â€” what rail to use where"
 description: Payment rail per distribution surface (Play, MS Store, web, etc.)
 tags: [decision, monetisation, per-surface, recommendations, playbook]
 timestamp: 2026-06-22
@@ -25,7 +25,7 @@ Lookup-table view of [`playbook-no-card-rails.md`](./playbook-no-card-rails.md).
 | 2nd | Free app + single-base-plan subscription via Play Billing (Digital Goods API in TWA) | Recurring revenue without needing our own MoR | 15% |
 | 3rd | Free app + AdSense on the underlying web PWA + Play just as a distribution shell | Avoids AdMob-in-TWA policy risk; ad rev comes from `*.oriz.in` traffic | AdSense rev share |
 
-Hard caveat: **multi-base-plan subscriptions are not supported in TWA** — keep one base plan per product.
+Hard caveat: **multi-base-plan subscriptions are not supported in TWA** â€” keep one base plan per product.
 
 ## Microsoft Store apps (MSIX built via PWABuilder)
 
@@ -37,7 +37,7 @@ Hard caveat: **multi-base-plan subscriptions are not supported in TWA** — keep o
 
 ## Chrome Web Store extensions
 
-CWS Payments shut down in 2020 — no in-store paid extensions possible.
+CWS Payments shut down in 2020 â€” no in-store paid extensions possible.
 
 | Pick | Rail | Why | Cut |
 |---|---|---|---|
@@ -57,7 +57,7 @@ AMO does not support paid extensions natively. Add a "Contribute" button to the 
 
 ## Microsoft Edge Add-ons
 
-Same as AMO — no native payments. Donation-link only. Same three picks.
+Same as AMO â€” no native payments. Donation-link only. Same three picks.
 
 ## Web PWA on `*.oriz.in` (free + Pro tier)
 
@@ -67,14 +67,14 @@ Already locked by [`max-payment-methods.md`](./max-payment-methods.md). Quick re
 |---|---|---|
 | Primary (IN buyer) | Razorpay Payment Pages | UPI + cards + netbanking + wallets; no-code hosted pages |
 | Primary (RoW buyer) | Lemon Squeezy | MoR handles VAT for no-entity seller |
-| OSS sponsor (any geo) | Polar.sh | 4% + 40¢; GitHub-native |
+| OSS sponsor (any geo) | Polar.sh | 4% + 40Â¢; GitHub-native |
 | Donations grid | GH Sponsors + Ko-fi + BMC + Liberapay + Open Collective + PayPal.me + UPI QR + crypto | Maximum donor choice |
 
 ## Books
 
 | Pick | Rail | Why | Cut |
 |---|---|---|---|
-| Primary | Leanpub (git push from manuscript repo) | 80% royalty, lifetime updates, MEAP-style early access | 20% + 50¢ |
+| Primary | Leanpub (git push from manuscript repo) | 80% royalty, lifetime updates, MEAP-style early access | 20% + 50Â¢ |
 | 2nd | Gumroad | Instant payout, weekly Friday transfer; same checkout as Pro-tier app unlocks | 10% |
 | 3rd | Amazon KDP | Reach + discoverability; pays via wire to Indian bank in INR | 30% |
 | Fan-out | Draft2Digital ? B&N/Kobo/Scribd | Single upload ? multiple stores | ~40% (channel-dependent) |

@@ -29,19 +29,19 @@ status: active
 
 | File | Description |
 |---|---|
-| [`agent-minimum-context`](./agent-rules/agent-minimum-context.md) | How any AI agent operates on this repo with minimum upfront token cost. |
-| [`agents-md-2025-discipline`](./agent-rules/agents-md-2025-discipline.md) | User locked the 2025 mindset on 2026-06-23: AGENTS.md stays short +\ |
-| [`auto-grill-on-architectural-decisions`](./agent-rules/auto-grill-on-architectural-decisions.md) | Before any multi-file architectural choice (storage, auth, deploy, payments,\ |
-| [`cc-settings-balance`](./agent-rules/preferences/cc-settings-balance.md) | All 12 Claude Code settings.json picks from 2026-06-29 grill: Opus default + always-thinking floor + adaptive on + 85% compact + agent teams on. Max-quality posture since Bedrock-through-Hr is corp-paid. |
-| [`confirm-knowledge-deltas`](./agent-rules/confirm-knowledge-deltas.md) | Whenever the user's latest message contradicts, narrows, widens, or reverses |
-| [`grill-on-loc-removal`](./agent-rules/grill-on-loc-removal.md) | TIGHTENED 2026-06-22 evening: threshold dropped from 1000 LOC \u2192\ |
-| [`grill-to-knowledge`](./agent-rules/grill-to-knowledge.md) | When the user invokes grill-me or runs a sequence of design questions, |
-| [`keep-knowledge-fresh`](./agent-rules/keep-knowledge-fresh.md) | Every session reads knowledge before acting, writes decisions into knowledge |
-| [`knowledge-deletion-not-supersession`](./agent-rules/knowledge-deletion-not-supersession.md) | When a decision is superseded, git rm the old file in the same commit that adds the new one. Audit trail lives in git history. |
-| [`keep-knowledge-fresh`](./agent-rules/keep-knowledge-fresh.md) | Every session reads knowledge before acting, writes decisions as CURRENT TRUTH, |
-| [`read-before-edit`](./agent-rules/read-before-edit.md) | Always Read a file in the current session before calling Edit. The harness\ |
-| [`okf-lookup-before-acting`](./agent-rules/okf-lookup-before-acting.md) | Every agent runs scripts/okf-prompt-lookup.py (CC via hook; others manually) to surface top-3 OKF files before answering. |
-| [`self-update-rule`](./agent-rules/self-update-rule.md) | Every durable architectural / naming / stack / external-fact decision\ |
+| [`agent-minimum-context`](./rules/agent/agent-minimum-context.md) | How any AI agent operates on this repo with minimum upfront token cost. |
+| [`agents-md-2025-discipline`](./rules/agent/agents-md-2025-discipline.md) | User locked the 2025 mindset on 2026-06-23: AGENTS.md stays short +\ |
+| [`auto-grill-on-architectural-decisions`](./rules/agent/auto-grill-on-architectural-decisions.md) | Before any multi-file architectural choice (storage, auth, deploy, payments,\ |
+| [`cc-settings-balance`](./rules/agent/preferences/cc-settings-balance.md) | All 12 Claude Code settings.json picks from 2026-06-29 grill: Opus default + always-thinking floor + adaptive on + 85% compact + agent teams on. Max-quality posture since Bedrock-through-Hr is corp-paid. |
+| [`confirm-knowledge-deltas`](./rules/agent/confirm-knowledge-deltas.md) | Whenever the user's latest message contradicts, narrows, widens, or reverses |
+| [`grill-on-loc-removal`](./rules/agent/grill-on-loc-removal.md) | TIGHTENED 2026-06-22 evening: threshold dropped from 1000 LOC \u2192\ |
+| [`grill-to-knowledge`](./rules/agent/grill-to-knowledge.md) | When the user invokes grill-me or runs a sequence of design questions, |
+| [`keep-knowledge-fresh`](./rules/agent/keep-knowledge-fresh.md) | Every session reads knowledge before acting, writes decisions into knowledge |
+| [`knowledge-deletion-not-supersession`](./rules/agent/knowledge-deletion-not-supersession.md) | When a decision is superseded, git rm the old file in the same commit that adds the new one. Audit trail lives in git history. |
+| [`keep-knowledge-fresh`](./rules/agent/keep-knowledge-fresh.md) | Every session reads knowledge before acting, writes decisions as CURRENT TRUTH, |
+| [`read-before-edit`](./rules/agent/read-before-edit.md) | Always Read a file in the current session before calling Edit. The harness\ |
+| [`okf-lookup-before-acting`](./rules/agent/okf-lookup-before-acting.md) | Every agent runs scripts/okf-prompt-lookup.py (CC via hook; others manually) to surface top-3 OKF files before answering. |
+| [`self-update-rule`](./rules/agent/self-update-rule.md) | Every durable architectural / naming / stack / external-fact decision\ |
 
 ### Design (5)
 
@@ -144,7 +144,7 @@ status: active
 
 | File | Status | Description |
 |---|---|---|
-| [`atomic-packages-lazy`](./agent-rules/preferences/atomic-packages-lazy.md) | active | Community-first; extract atomic `@oriz/*` packages only when ≥2 apps need the same logic. Analytics stays inline in `BaseLayout.astro`. Supersedes the prior "zero in-house packages" blanket rule. |
+| [`atomic-packages-lazy`](./rules/agent/preferences/atomic-packages-lazy.md) | active | Community-first; extract atomic `@oriz/*` packages only when ≥2 apps need the same logic. Analytics stays inline in `BaseLayout.astro`. Supersedes the prior "zero in-house packages" blanket rule. |
 
 ### Packages (9)
 

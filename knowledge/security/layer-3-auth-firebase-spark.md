@@ -23,13 +23,13 @@ related:
 
 
 
-# Layer 3 — auth on Firebase Spark forever
+# Layer 3 â€” auth on Firebase Spark forever
 
 ## Concept
 
 The family runs ONE Firebase project (`oriz-app`) on the Spark plan,
 forever. Never Blaze. Spark's failure mode is "service stops at quota"
-— the only failure mode without a financial ceiling. Custom auth
+â€” the only failure mode without a financial ceiling. Custom auth
 domain `auth.oriz.in` lets the same Firebase user sign in across every
 `*.oriz.in` site and every extension.
 
@@ -54,7 +54,7 @@ domain `auth.oriz.in` lets the same Firebase user sign in across every
 ## Why this shape
 
 The 5-figure Firebase bill-shock incidents documented in 2025-2026
-(simmer.io ~$98K, Tamara ~$70K, €54K Gemini key) all required Blaze.
+(simmer.io ~$98K, Tamara ~$70K, â‚¬54K Gemini key) all required Blaze.
 Cloud Spend Caps from Cloud Next '26 are private preview AND don't
 cover Firestore / Storage / Hosting. The Cyclenerd Terraform killswitch
 lags hours-to-days behind actual spend. Spark is the only Firebase tier

@@ -23,13 +23,13 @@ related:
 
 
 
-# Feature flags — deferred
+# Feature flags â€” deferred
 
 ## Decision
 
 We are NOT adding a feature-flag system to the oriz family right now. Not Flagsmith, not Cloudflare Flagship, not OpenFeature, not a `flags.json` file, not a `flag()` helper in `astro-shell`. Nothing.
 
-This is locked. When an agent or future-me proposes "let's add feature flags so we can…" — read this file first.
+This is locked. When an agent or future-me proposes "let's add feature flags so we canâ€¦" â€” read this file first.
 
 ## Why YAGNI here
 
@@ -87,11 +87,11 @@ This is NOT a feature flag system. It's per-user authorization. Different proble
 
 If you find yourself doing any of these, STOP and read this file again:
 
-- Adding `flag('whatever')` calls in app code — there's no `flag()` function and there shouldn't be
-- Creating a `data/flags.json` — git is not a flag database
-- Adding a `FLAG_*` env var convention — env vars are config, not flags
-- Installing the OpenFeature SDK — premature
-- Signing up for Flagsmith / LaunchDarkly / Flagship — premature
+- Adding `flag('whatever')` calls in app code â€” there's no `flag()` function and there shouldn't be
+- Creating a `data/flags.json` â€” git is not a flag database
+- Adding a `FLAG_*` env var convention â€” env vars are config, not flags
+- Installing the OpenFeature SDK â€” premature
+- Signing up for Flagsmith / LaunchDarkly / Flagship â€” premature
 
 If you genuinely need a flag-shaped solution, one of the three triggers above must have fired. Otherwise: tier check via Firebase claim, OR a git push.
 

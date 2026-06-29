@@ -1,6 +1,6 @@
 ---
 type: concept
-title: 'Headroom AI — how it works internally'
+title: 'Headroom AI â€” how it works internally'
 description: 3-layer compression proxy for LLM agents. CacheAligner, ContentRouter, SmartCrusher per-type
 tags: [headroom, compression, proxy, ccr, mcp, cache-aligner]
 timestamp: 2026-06-27
@@ -58,15 +58,15 @@ The reversible layer. Original content stored in local content-addressed cache. 
 
 ## 3 deployment shapes
 
-1. **Library** — `compress(messages, model=...)` inline (Python/TS).
-2. **Proxy** — `headroom proxy --port 8787` — OpenAI-compatible; zero code changes.
-3. **MCP server** — exposes `headroom_compress`, `headroom_retrieve`, `headroom_stats`.
+1. **Library** â€” `compress(messages, model=...)` inline (Python/TS).
+2. **Proxy** â€” `headroom proxy --port 8787` â€” OpenAI-compatible; zero code changes.
+3. **MCP server** â€” exposes `headroom_compress`, `headroom_retrieve`, `headroom_stats`.
 
 ## Output token reduction
 
 Hr also trims what the model writes back (output costs 5x input on Opus). Two mechanisms:
-- **Verbosity steering** — appends 'be terse, don't restate' to system prompt (cache-safe at end).
-- **Effort routing** — on tool-result resumes (file reads, passing tests), dials thinking effort down. New questions / errors keep full effort.
+- **Verbosity steering** â€” appends 'be terse, don't restate' to system prompt (cache-safe at end).
+- **Effort routing** â€” on tool-result resumes (file reads, passing tests), dials thinking effort down. New questions / errors keep full effort.
 
 Enable: `HEADROOM_OUTPUT_SHAPER=1 headroom proxy --port 8787`. Measure with 10% holdout: `HEADROOM_OUTPUT_HOLDOUT=0.1`.
 
@@ -78,7 +78,7 @@ Plugins hook these via `on_pipeline_event(...)`.
 
 ## Backend support (Hr 0.27+)
 
-`--backend anthropic | bedrock | openrouter | anyllm | litellm-*`. Hr 0.19 (installed here) supports `anthropic` only — direct Anthropic.com API shape. For SAP `hai` proxy (Bedrock-shape), Hr 0.27 needed (`--backend bedrock`). Build requires MSVC + Rust on Windows.
+`--backend anthropic | bedrock | openrouter | anyllm | litellm-*`. Hr 0.19 (installed here) supports `anthropic` only â€” direct Anthropic.com API shape. For SAP `hai` proxy (Bedrock-shape), Hr 0.27 needed (`--backend bedrock`). Build requires MSVC + Rust on Windows.
 
 ## How requests flow when wrapped
 

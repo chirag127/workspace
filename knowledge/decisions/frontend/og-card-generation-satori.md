@@ -25,21 +25,21 @@ related:
 
 
 
-# OG card generation — Satori on `api.oriz.in/og` + ray.so for code
+# OG card generation â€” Satori on `api.oriz.in/og` + ray.so for code
 
 ## Decision
 
 The family generates Open Graph card images via **two routes,
 picked by post shape**:
 
-1. **Non-code posts (default)** —
+1. **Non-code posts (default)** â€”
    [Satori on the api.oriz.in Hono Worker](../../../services/business/social/satori-og-cards.md)
    at `https://api.oriz.in/og?title=<...>&theme=<...>&site=<...>`.
    `@vercel/og` (MIT) renders JSX themes from
    <!-- TODO: broken link, was [`@chirag127/oriz-kit`](../../../glossary/o-r/oriz-kit.md) --> to a
-   1200×630 PNG. Free unlimited on the Cloudflare Workers free tier
+   1200Ã—630 PNG. Free unlimited on the Cloudflare Workers free tier
    (100K req/day cap, well above family scale after edge caching).
-2. **Code-heavy posts** — [Ray.so](../../../services/business/social/ray-so.md)
+2. **Code-heavy posts** â€” [Ray.so](../../../services/business/social/ray-so.md)
    continues to render syntax-highlighted code-screenshot PNGs.
 
 Sites set `<meta property="og:image">` to the appropriate URL; the
@@ -51,13 +51,13 @@ public, max-age=31536000, immutable`, ETag = parameter hash).
 - **Templating wins for non-code posts.** Hand-drawn or
   per-post-baked OGs don't scale to 11+ sites worth of pages.
   Satori takes a JSX theme + post params and renders deterministic
-  PNGs — same look across the family, no manual step per post.
+  PNGs â€” same look across the family, no manual step per post.
 - **Ray.so wins for code.** Syntax highlighting + window chrome is
   what ray.so already does for free; rebuilding it inside Satori
   would duplicate it.
 - **Stack cohesion.** Satori runs on the existing api.oriz.in Hono
   umbrella Worker per
-  [`hono-worker-api-umbrella.md`](../compute/hono-worker-api-umbrella.md) —
+  [`hono-worker-api-umbrella.md`](../compute/hono-worker-api-umbrella.md) â€”
   no new deployment, no new credentials, billing surface stays one.
 - **Free unlimited** at family scale. The CF Workers free tier
   is 100K req/day; static cache headers reduce real load to
@@ -92,13 +92,13 @@ public, max-age=31536000, immutable`, ETag = parameter hash).
   runs on the family's existing CF account.
 - **Cross-poster awareness**: [`oriz-omnipost`](../general/cross-post-engine.md)
   forwards the canonical `<meta property="og:image">` URL to each
-  cross-post target — no per-platform OG override.
+  cross-post target â€” no per-platform OG override.
 
 ## Cross-refs
 
-- [services/business/social/satori-og-cards.md](../../../services/business/social/satori-og-cards.md) — the service entry
-- [services/business/social/ray-so.md](../../../services/business/social/ray-so.md) — code-post path
-- [decisions/architecture/hono-worker-api-umbrella.md](../compute/hono-worker-api-umbrella.md) — the Worker the route lives on
-- [decisions/architecture/cross-post-engine.md](../general/cross-post-engine.md) — omnipost forwards canonical OG URL
-- <!-- TODO: broken link, was [glossary/o-r/oriz-kit.md](../../../glossary/o-r/oriz-kit.md) --> — themes live in the kit
+- [services/business/social/satori-og-cards.md](../../../services/business/social/satori-og-cards.md) â€” the service entry
+- [services/business/social/ray-so.md](../../../services/business/social/ray-so.md) â€” code-post path
+- [decisions/architecture/hono-worker-api-umbrella.md](../compute/hono-worker-api-umbrella.md) â€” the Worker the route lives on
+- [decisions/architecture/cross-post-engine.md](../general/cross-post-engine.md) â€” omnipost forwards canonical OG URL
+- <!-- TODO: broken link, was [glossary/o-r/oriz-kit.md](../../../glossary/o-r/oriz-kit.md) --> â€” themes live in the kit
 - [No card-on-file rule](../../../rules/interaction/no-card-on-file.md)

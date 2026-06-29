@@ -32,7 +32,7 @@ related:
 
 
 
-# Payment architecture — direct platform links via CF Worker click-tracker
+# Payment architecture â€” direct platform links via CF Worker click-tracker
 
 ## Decision
 
@@ -60,7 +60,7 @@ button click
 ```
 
 ~1 Worker invocation per checkout click. With realistic checkout
-volume the burn is ~5K/day at peak — **20x headroom** on the
+volume the burn is ~5K/day at peak â€” **20x headroom** on the
 100K/day free envelope ([`cf-worker-quota-mitigation.md`](../compute/cf-worker-quota-mitigation.md)).
 
 ## Per-region routing
@@ -91,7 +91,7 @@ volume the burn is ~5K/day at peak — **20x headroom** on the
 
 ## Cross-refs
 
-- [`no-card-on-file.md`](../../../rules/interaction/no-card-on-file.md) — the funding constraint
-- [`no-firebase-functions.md`](../general/no-firebase-functions.md) — why CF Workers, not Functions
-- [`cf-worker-quota-mitigation.md`](../compute/cf-worker-quota-mitigation.md) — Worker free-tier headroom math
-- [`max-payment-methods.md`](../../monetisation/max-payment-methods.md) — full payment-provider catalog
+- [`no-card-on-file.md`](../../../rules/interaction/no-card-on-file.md) â€” the funding constraint
+- [`no-firebase-functions.md`](../general/no-firebase-functions.md) â€” why CF Workers, not Functions
+- [`cf-worker-quota-mitigation.md`](../compute/cf-worker-quota-mitigation.md) â€” Worker free-tier headroom math
+- [`max-payment-methods.md`](../../monetisation/max-payment-methods.md) â€” full payment-provider catalog

@@ -38,7 +38,7 @@ without compromising the primary path.
 - Primary path: `chrome.identity.launchWebAuthFlow()` opens `auth.oriz.in`, ID token returned to extension, stored in `chrome.storage.local`. Same Firebase user works on every site and every extension.
 - License-key path: user pays via Razorpay (or whichever billing provider), receives a key by email, pastes into the extension settings. Extension calls `apps/api/routes/auth/verify-license` to validate.
 - Firestore stores both: `users/{uid}/subscription` for Firebase users, and `licenses/{key}` for license-key holders. Same entitlement check covers both via the API.
-- The license-key flow does NOT support cross-device sync (no Firestore user attached) — paranoid users accept that trade-off.
+- The license-key flow does NOT support cross-device sync (no Firestore user attached) â€” paranoid users accept that trade-off.
 - Extension UI shows both options at sign-in: "Sign in with Google" (default) and "Use license key" (advanced).
 
 ## Cross-refs
@@ -46,4 +46,4 @@ without compromising the primary path.
 - [Firebase Spark forever](./firebase-spark-forever.md)
 - [ONE subscription unlocks everything](../monetisation/one-subscription-unlocks-all.md)
 - [Chrome extensions as submodules](./chrome-extensions-as-submodules.md)
-- [Layer 3 — Firebase Spark architecture](../architecture/security/layer-3-auth-firebase-spark.md)
+- [Layer 3 â€” Firebase Spark architecture](../architecture/security/layer-3-auth-firebase-spark.md)

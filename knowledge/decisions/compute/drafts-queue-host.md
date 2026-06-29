@@ -62,7 +62,7 @@ GH Issues advantages:
 
 ## Env requirements
 
-- `OMNI_DRAFTS_GH_PAT` — GitHub PAT with `repo` scope on the private `chirag127/oriz-drafts` repo. Stored at chirag127 org level secrets (`gh secret set OMNI_DRAFTS_GH_PAT --org chirag127 --visibility selected --repos oriz`).
+- `OMNI_DRAFTS_GH_PAT` â€” GitHub PAT with `repo` scope on the private `chirag127/oriz-drafts` repo. Stored at chirag127 org level secrets (`gh secret set OMNI_DRAFTS_GH_PAT --org chirag127 --visibility selected --repos oriz`).
 
 ## Read surface
 

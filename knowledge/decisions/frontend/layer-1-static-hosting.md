@@ -20,14 +20,14 @@ related:
 
 
 
-# Layer 1 — static hosting on Cloudflare Pages
+# Layer 1 â€” static hosting on Cloudflare Pages
 
 ## Concept
 
 Cloudflare Pages free is the foundation host for every public surface
 in the family. All 11 sites plus the future extensions catalog deploy
 to Pages. The choice is dictated by the unlimited-bandwidth + no-card
-combination — no other free tier matches both.
+combination â€” no other free tier matches both.
 
 ## How it works
 
@@ -50,7 +50,7 @@ Cloudflare Pages is the only free static host with truly unlimited
 bandwidth AND no-card-required onboarding. GitHub Pages has bandwidth
 caps; Vercel and Netlify free have bandwidth caps and edge-function
 metering; Render and Surge limit project count. Pages also fails-closed
-at quota with a clean HTTP 1027 — no surprise bill, no card to charge.
+at quota with a clean HTTP 1027 â€” no surprise bill, no card to charge.
 
 ## Cross-refs
 

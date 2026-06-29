@@ -36,7 +36,7 @@ related:
 
 Packages and apps are surfaced to users in **TWO complementary locations**:
 
-### Location 1 — `oriz.in` (home-app)
+### Location 1 â€” `oriz.in` (home-app)
 
 Marketing-flavoured overview. 5 new section routes added to `home-app`:
 
@@ -44,11 +44,11 @@ Marketing-flavoured overview. 5 new section routes added to `home-app`:
 |---|---|
 | `oriz.in/apps` | All 26 apps as cards (per category: hub / personal / content / tools). Each card: brand wordmark + 1-line purpose + subdomain link + 'View packages on packages.oriz.in/<name>' cross-link |
 | `oriz.in/packages` | All 17 npm packages grouped by purpose (5 groups). Each card: name + 1-liner + 'Full docs ? packages.oriz.in/<name>' button. Catalog-light. |
-| `oriz.in/mobile` | Per-app rows showing Play Store + sideload-APK channel buttons. 'Coming soon — Android via PWABuilder' badge for unreleased apps. |
+| `oriz.in/mobile` | Per-app rows showing Play Store + sideload-APK channel buttons. 'Coming soon â€” Android via PWABuilder' badge for unreleased apps. |
 | `oriz.in/desktop` | Per-app rows showing Microsoft Store + direct-download MSIX/dmg/AppImage channel buttons. 'Coming soon' badges for unreleased channels. |
 | `oriz.in/extensions` | Chrome Web Store + Firefox Add-ons + Edge Add-ons + VS Code Marketplace + Open VSX channel buttons per extension repo. |
 
-### Location 2 — `packages.oriz.in` (standalone Astro Starlight)
+### Location 2 â€” `packages.oriz.in` (standalone Astro Starlight)
 
 Developer-facing technical catalog at a separate subdomain. Auto-discovers every `chirag127/*-npm-pkg` repo on GitHub. Per-package detail page embeds the live README + npm/GitHub/bundlephobia metadata. 5-group sidebar (Astro foundation / UI & widgets / Data & auth / Distribution / Testing). Standalone CF Pages project, separate submodule.
 
@@ -63,7 +63,7 @@ Conflating the two would force one design to do both badly. Splitting respects t
 
 Single `home-app/src/data/apps.ts` TypeScript constant maintains the manual portion of per-app channel URLs (subdomain, store IDs, etc). Build-time auto-discovery from GitHub Releases API populates the dynamic portion (latest MSIX / APK / dmg / AppImage asset URLs).
 
-`AppMeta` shape includes a `channels: Partial<Record<Channel, string>>` map. When a channel is undefined OR an empty string, the card shows a "Coming soon — via PWABuilder" badge instead of an active link.
+`AppMeta` shape includes a `channels: Partial<Record<Channel, string>>` map. When a channel is undefined OR an empty string, the card shows a "Coming soon â€” via PWABuilder" badge instead of an active link.
 
 ## Realistic "publishable" channels
 
@@ -95,13 +95,13 @@ So: every "Coming soon" channel on oriz.in will require some manual first-publis
 
 Both sites rebuild on:
 
-- **Daily cron** at 04:00 IST — picks up new package versions + new GitHub Releases
+- **Daily cron** at 04:00 IST â€” picks up new package versions + new GitHub Releases
 - **Push to master** of the respective submodule
-- **`repository_dispatch`** type `package-published` — triggered from any chirag127/*-npm-pkg repo's `release.yml` after a new version publishes. Rebuilds both `oriz.in` AND `packages.oriz.in`.
+- **`repository_dispatch`** type `package-published` â€” triggered from any chirag127/*-npm-pkg repo's `release.yml` after a new version publishes. Rebuilds both `oriz.in` AND `packages.oriz.in`.
 
 ## Why both, not just one
 
-Tried earlier to do path-only under `oriz.in/packages` (no separate subdomain). The user revised: **want both**. Reason: the catalog is dense + technical (READMEs, metadata, search) — Starlight-friendly. The oriz.in overview is sparse + marketing-flavoured (cards, screenshots, store badges) — home-app's existing theme is the right wrapper. Different audiences, different design, two surfaces.
+Tried earlier to do path-only under `oriz.in/packages` (no separate subdomain). The user revised: **want both**. Reason: the catalog is dense + technical (READMEs, metadata, search) â€” Starlight-friendly. The oriz.in overview is sparse + marketing-flavoured (cards, screenshots, store badges) â€” home-app's existing theme is the right wrapper. Different audiences, different design, two surfaces.
 
 ## Cross-refs
 

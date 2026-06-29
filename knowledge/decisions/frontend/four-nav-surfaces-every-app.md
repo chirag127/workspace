@@ -21,7 +21,7 @@ status: active
 related:
 - decisions/architecture/single-pricing-page-package.md
 - rules/design/design-divergence-vs-dedup
-- agent-rules/confirm-knowledge-deltas
+- rules/agent/confirm-knowledge-deltas
 ---
 
 
@@ -32,10 +32,10 @@ related:
 
 Every app in the oriz family ships ALL FOUR navigation surfaces. No app is allowed to drop any of them. The set:
 
-1. **Header** (top of page) — narrow, very few buttons. Wordmark + login chip + 2-3 critical links only.
-2. **Footer** (bottom of page, end of content) — mega-sitemap. Every app, every book, every package, support, newsletter.
-3. **Sidebar** (left or right, collapsible) — per-app nav (sections, chapters, tools). On mobile: hidden under hamburger drawer.
-4. **BottomBar** (bottom-fixed, mobile-only) — primary actions for the current app (4-5 icons). Hidden on desktop.
+1. **Header** (top of page) â€” narrow, very few buttons. Wordmark + login chip + 2-3 critical links only.
+2. **Footer** (bottom of page, end of content) â€” mega-sitemap. Every app, every book, every package, support, newsletter.
+3. **Sidebar** (left or right, collapsible) â€” per-app nav (sections, chapters, tools). On mobile: hidden under hamburger drawer.
+4. **BottomBar** (bottom-fixed, mobile-only) â€” primary actions for the current app (4-5 icons). Hidden on desktop.
 
 User mandate: "It doesn't matter just to include everything into every website. The header will be including only few buttons."
 
@@ -45,8 +45,8 @@ The 4 surfaces are *family-wide structure* but *content divergence is per-app*. 
 
 | Surface | Structural source | Content source | Divergence level |
 |---|---|---|---|
-| **Header** | none — fully per-app | `<app>/src/components/Header.astro` | FULLY DIVERGENT (hub's broadsheet, blog's HeaderControls, tools' tabs all unique) |
-| **Wordmark** | none — fully per-app | `<app>/src/components/Wordmark.astro` | FULLY DIVERGENT |
+| **Header** | none â€” fully per-app | `<app>/src/components/Header.astro` | FULLY DIVERGENT (hub's broadsheet, blog's HeaderControls, tools' tabs all unique) |
+| **Wordmark** | none â€” fully per-app | `<app>/src/components/Wordmark.astro` | FULLY DIVERGENT |
 | **Sidebar** | `@chirag127/astro-chrome/Sidebar.astro` (drawer + responsive CSS) | `<app>/src/components/AppSidebarContent.astro` (slotted in) | structure identical, content per-app |
 | **Footer** | `@chirag127/astro-chrome/Footer.astro` | same component | FULLY CONSOLIDATED (mega-sitemap is identical everywhere) |
 | **BottomBar** | `@chirag127/astro-chrome/BottomBar.astro` (56px mobile shell) | `<app>/src/data/bottombar-actions.ts` (4-5 actions) | structure identical, actions per-app |
@@ -72,11 +72,11 @@ The per-app content for each app (from sweep #5):
 
 ## Why
 
-Maximum navigation paths. Users can reach every surface from any page via any of the 4 surfaces. Different users prefer different navigation styles (top-nav, sidebar, mobile tab-bar) — give them all.
+Maximum navigation paths. Users can reach every surface from any page via any of the 4 surfaces. Different users prefer different navigation styles (top-nav, sidebar, mobile tab-bar) â€” give them all.
 
 ## Architecture (post sweep #5)
 
-Apps compose chrome **explicitly** in `BaseLayout.astro` rather than mounting a single `<Layout>` wrapper from the package — that single wrapper forced the Header to also be shared, which broke the per-app divergence rule.
+Apps compose chrome **explicitly** in `BaseLayout.astro` rather than mounting a single `<Layout>` wrapper from the package â€” that single wrapper forced the Header to also be shared, which broke the per-app divergence rule.
 
 Per-app BaseLayout pattern:
 
@@ -105,12 +105,12 @@ import ConsentBanner from '@chirag127/astro-chrome/ConsentBanner.astro'
 Total BaseLayout file: ~100-160 lines per app (head section + chrome composition).
 
 Package exports (`@chirag127/astro-chrome@0.1.5`):
-- `./Header.astro` — exists but **NOT used by apps after sweep #5** (kept for potential micro-sites that opt-in to a generic header)
-- `./Footer.astro` — used by every app
-- `./Sidebar.astro` — used as shell by every app; slot filled with per-app content
-- `./BottomBar.astro` — used as shell by every app; `actions` prop is per-app
-- `./Layout.astro` — exists but **NOT used by apps after sweep #5** (it implicitly mounts the package Header)
-- `./MultiSearch`, `./StatusBanner`, `./AccountPanel`, `./FinishSignIn`, `./ConsentBanner.astro` — React-island / dialog primitives, opt-in per app
+- `./Header.astro` â€” exists but **NOT used by apps after sweep #5** (kept for potential micro-sites that opt-in to a generic header)
+- `./Footer.astro` â€” used by every app
+- `./Sidebar.astro` â€” used as shell by every app; slot filled with per-app content
+- `./BottomBar.astro` â€” used as shell by every app; `actions` prop is per-app
+- `./Layout.astro` â€” exists but **NOT used by apps after sweep #5** (it implicitly mounts the package Header)
+- `./MultiSearch`, `./StatusBanner`, `./AccountPanel`, `./FinishSignIn`, `./ConsentBanner.astro` â€” React-island / dialog primitives, opt-in per app
 
 ## Responsive behaviour
 
@@ -128,5 +128,5 @@ None. Even `oriz-cs-me-app` and `oriz-janaushdhi-app` (no ads) get all 4 surface
 ## Cross-refs
 
 - Single pricing page package ? [[decisions/packages/single-pricing-page-package]]
-- Design divergence rule (NOT applicable here — chrome is family-wide consolidated, per-app divergence is for in-content design) ? [[rules/design-divergence-vs-dedup]]
+- Design divergence rule (NOT applicable here â€” chrome is family-wide consolidated, per-app divergence is for in-content design) ? [[rules/design-divergence-vs-dedup]]
 - Confirmed via knowledge-delta rule in 2026-06-22 conversation ? [[rules/confirm-knowledge-deltas]]

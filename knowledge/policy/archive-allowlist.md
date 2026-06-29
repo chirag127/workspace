@@ -18,8 +18,8 @@ related:
 
 This allowlist is checked before any `gh repo archive` operation by any
 script under [`scripts/`](../../scripts/). Anything listed here is
-load-bearing in the `chirag127/oriz*` family — submodule, npm-published
-package, or critical dev tooling — and MUST NOT be archived even if
+load-bearing in the `chirag127/oriz*` family â€” submodule, npm-published
+package, or critical dev tooling â€” and MUST NOT be archived even if
 GitHub stats (zero stars, no recent push) would otherwise mark it as a
 cleanup candidate.
 
@@ -55,7 +55,7 @@ real even if recoverable.
 - `chirag127/pdf-tools-site`
 - `chirag127/me`
 
-`oriz-urls-to-md-site` is currently an empty slug reservation — see
+`oriz-urls-to-md-site` is currently an empty slug reservation â€” see
 <!-- TODO: broken link, was [`branding/oriz-urls-to-md-site-empty-placeholder.md`](../branding/oriz-urls-to-md-site-empty-placeholder.md) -->.
 Empty does not mean abandoned.
 
@@ -76,10 +76,10 @@ Empty does not mean abandoned.
 
 ### MCP servers + dev tooling (npm-published, load-bearing across the family)
 
-- `chirag127/envpact-mcp` — secrets MCP server, listed in `.mcp.json` everywhere
-- `chirag127/envpact-cli` — secrets CLI, used by the env-example sync workflow
-- `chirag127/secenv-mcp` — predecessor MCP server for secrets, kept for back-compat
-- `chirag127/agentflow` — parallel agent orchestrator used in dev
+- `chirag127/envpact-mcp` â€” secrets MCP server, listed in `.mcp.json` everywhere
+- `chirag127/envpact-cli` â€” secrets CLI, used by the env-example sync workflow
+- `chirag127/secenv-mcp` â€” predecessor MCP server for secrets, kept for back-compat
+- `chirag127/agentflow` â€” parallel agent orchestrator used in dev
 
 ### Brand / org-level
 
@@ -88,18 +88,18 @@ Empty does not mean abandoned.
 
 ## How to update this file
 
-When a new repo joins the family — becomes a submodule, gets
-npm-published under `chirag127`, or becomes a critical dev-tool —
+When a new repo joins the family â€” becomes a submodule, gets
+npm-published under `chirag127`, or becomes a critical dev-tool â€”
 add it here in the **same chat / same PR** that introduces the
 dependency. The
-[self-update rule](../../agent-rules/self-update-rule.md) applies.
+[self-update rule](../../rules/agent/self-update-rule.md) applies.
 
 The
 <!-- TODO: broken link, was [`scripts/archive-stale-2021-2022.sh`](../../scripts/archive-stale-2021-2022.sh) -->
 script (and any future archive scripts) reads this file as input by
 grepping for `chirag127/<name>` bullets, taking the union of every
 slug found, and refusing to archive anything in that set. Adding a
-new bullet here is the only way to extend the allowlist — there is no
+new bullet here is the only way to extend the allowlist â€” there is no
 secondary list inside the script.
 
 ## Defense in depth
@@ -121,8 +121,8 @@ authorising user message.
 
 ## Cross-refs
 
-- <!-- TODO: broken link, was [`../branding/oriz-urls-to-md-site-empty-placeholder.md`](../branding/oriz-urls-to-md-site-empty-placeholder.md) --> — canonical "empty but reserved" example
-- [`../rules/interaction/never-delete-empty-placeholder-repos.md`](../../rules/interaction/never-delete-empty-placeholder-repos.md) — sibling rule, deletion side
-- [`../rules/development/push-by-default.md`](../../rules/development/push-by-default.md) — outward-effect carve-out that gates `gh repo archive`
-- [`../branding/repo-naming-suffixes.md`](../branding/repo-naming-suffixes.md) — slug taxonomy this allowlist is built around
-- <!-- TODO: broken link, was [`../../scripts/archive-stale-2021-2022.sh`](../../scripts/archive-stale-2021-2022.sh) --> — first script that reads this file
+- <!-- TODO: broken link, was [`../branding/oriz-urls-to-md-site-empty-placeholder.md`](../branding/oriz-urls-to-md-site-empty-placeholder.md) --> â€” canonical "empty but reserved" example
+- [`../rules/interaction/never-delete-empty-placeholder-repos.md`](../../rules/interaction/never-delete-empty-placeholder-repos.md) â€” sibling rule, deletion side
+- [`../rules/development/push-by-default.md`](../../rules/development/push-by-default.md) â€” outward-effect carve-out that gates `gh repo archive`
+- [`../branding/repo-naming-suffixes.md`](../branding/repo-naming-suffixes.md) â€” slug taxonomy this allowlist is built around
+- <!-- TODO: broken link, was [`../../scripts/archive-stale-2021-2022.sh`](../../scripts/archive-stale-2021-2022.sh) --> â€” first script that reads this file

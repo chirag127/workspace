@@ -18,7 +18,7 @@ related:
 
 ## Scope clarification
 
-This rule applies to **developer-facing services that the family consumes** — the cloud / API / tool subscriptions the developer themself would pay for to run the family. It does NOT apply to **user-facing subscriptions** that the apps offer to their visitors.
+This rule applies to **developer-facing services that the family consumes** â€” the cloud / API / tool subscriptions the developer themself would pay for to run the family. It does NOT apply to **user-facing subscriptions** that the apps offer to their visitors.
 
 | Direction | Subscription allowed? |
 |---|---|
@@ -43,16 +43,16 @@ forever." A subscription is a recurring liability with cancellation
 risk and price-hike risk; its failure mode is "the family stops
 working when the card expires." Free tiers fail closed at quota,
 which is the acceptable failure mode. This rule complements the
-no-card-on-file rule — together they make the stack's cost ceiling
+no-card-on-file rule â€” together they make the stack's cost ceiling
 zero by construction.
 
 ## Implications
 
-- Service catalog entries must state the free-tier limit and the "we never hit this because…" justification.
-- New services that don't have a free tier are rejected during selection, period — no pilots, no "we'll downgrade later".
+- Service catalog entries must state the free-tier limit and the "we never hit this becauseâ€¦" justification.
+- New services that don't have a free tier are rejected during selection, period â€” no pilots, no "we'll downgrade later".
 - Services that move FROM free to paid get replaced via the package-isolation rule (e.g. swap `@chirag127/email-send` from Resend to AhaSend with a package version bump).
 - Build-time GitHub Actions cron and browser-side compute become the preferred placement for any heavy work, since both are free.
-- This rule applies to AI inference too: only OpenRouter free models, Pollinations.AI, Puter.js, etc. — never paid OpenAI/Anthropic API direct.
+- This rule applies to AI inference too: only OpenRouter free models, Pollinations.AI, Puter.js, etc. â€” never paid OpenAI/Anthropic API direct.
 
 ## Cross-refs
 
@@ -61,4 +61,4 @@ zero by construction.
 - [Firebase Spark forever](../infrastructure/firebase-spark-forever.md)
 - [Cloudflare Pages for all sites](../infrastructure/cloudflare-pages-for-all-sites.md)
 - [AGENTS.md service catalog](../../../AGENTS.md)
-- [No paid tier policy](../policy/no-paid-tier.md) — the policy-version of this decision
+- [No paid tier policy](../policy/no-paid-tier.md) â€” the policy-version of this decision

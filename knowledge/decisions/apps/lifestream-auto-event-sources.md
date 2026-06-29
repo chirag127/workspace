@@ -31,7 +31,7 @@ related:
 
 
 
-# Lifestream auto-event sources — three streams
+# Lifestream auto-event sources â€” three streams
 
 ## Decision
 
@@ -49,7 +49,7 @@ lines into `chirag127/oriz-me-data/events-<YYYY>.jsonl`.
 
 This locks in the
 [`auto-only-tracking`](../../../rules/interaction/auto-only-tracking.md) posture for
-the lifestream itself — every event in oriz-me arrives without a
+the lifestream itself â€” every event in oriz-me arrives without a
 human pressing "log this".
 
 ## Source 1: GitHub webhooks
@@ -60,7 +60,7 @@ ingress (retries + replay + dead-letter) ? CF Worker route at
 
 Subscribed events:
 
-- `push` (any branch — but family is `main`-only per
+- `push` (any branch â€” but family is `main`-only per
   [`one-branch-only`](../../../rules/development/one-branch-only.md))
 - `pull_request` opened
 - `release` published
@@ -83,7 +83,7 @@ replay-safe.
 `https://wakatime.com/api/v1/users/current/summaries?start=YYYY-MM-DD&end=YYYY-MM-DD`,
 maps to one JSONL line per day, appends.
 
-Stored only at **day-grain**, not minute-grain — keeps PII low and
+Stored only at **day-grain**, not minute-grain â€” keeps PII low and
 sidesteps Wakatime's rolling 2-week free history (per the
 [wakatime service file](../../../services/business/productivity/wakatime.md)) by
 exporting every day before it ages out.
@@ -110,7 +110,7 @@ JSONL line shape:
 {"ts": "2026-06-20T18:30:00Z", "kind": "visitors", "date": "2026-06-20", "site": "blog.oriz.in", "pageviews": 1142, "unique": 318, "top_paths": [{"path": "/post/foo", "pv": 412}, {"path": "/", "pv": 287}]}
 ```
 
-Eleven sites × one line per day = 11 JSONL events / day. Negligible
+Eleven sites Ã— one line per day = 11 JSONL events / day. Negligible
 file growth at the [JSONL canonical](../database/lifestream-jsonl-canonical.md)
 "~10 MB/year" envelope.
 
@@ -118,8 +118,8 @@ CF API token (read-only Analytics scope) in Doppler.
 
 ## Why these three only
 
-The user direction was: *"ALL THREE — GitHub webhooks + Wakatime
-daily-summary + CF Web Analytics summary all stream to JSONL"* — and
+The user direction was: *"ALL THREE â€” GitHub webhooks + Wakatime
+daily-summary + CF Web Analytics summary all stream to JSONL"* â€” and
 nothing else. Each source covers a distinct surface:
 
 - **Git** = what code changed and when (the family's primary durable
@@ -139,12 +139,12 @@ JSONL because it requires a human action.
 ## Implications
 
 - **Hookdeck connection** for GitHub webhooks rides on the existing
-  free 50K events/mo tier — current family commit volume is
+  free 50K events/mo tier â€” current family commit volume is
   ~thousands/mo, well inside envelope.
 - **Two daily GH Actions cron jobs** (Wakatime + CF Analytics) at
-  01:00 IST. Idempotent on `(date, source)` — re-runs replace, not
+  01:00 IST. Idempotent on `(date, source)` â€” re-runs replace, not
   duplicate.
-- **Health-check coverage** — both daily crons ping
+- **Health-check coverage** â€” both daily crons ping
   [healthchecks.io](../../../services/monitoring/monitoring/healthchecks-io.md) on
   success per
   [`health-check-cron-plus-uptime`](../compute/health-check-cron-plus-uptime.md);
@@ -167,11 +167,11 @@ JSONL because it requires a human action.
 
 - [Lifestream JSONL canonical decision](../database/lifestream-jsonl-canonical.md)
 - [Lifestream federation (AT Protocol + ActivityPub mirrors)](./lifestream-federation.md)
-- [Cron split — CF Cron vs GH Actions](../compute/cron-split-cf-vs-gh.md)
+- [Cron split â€” CF Cron vs GH Actions](../compute/cron-split-cf-vs-gh.md)
 - [Hookdeck (queue ingress)](../../../services/data/queue/hookdeck.md)
 - [Wakatime service](../../../services/business/productivity/wakatime.md)
 - [Cloudflare Web Analytics service](../../../services/monitoring/monitoring/analytics/cloudflare-web-analytics.md)
-- [healthchecks.io — heartbeat coverage](../../../services/monitoring/monitoring/healthchecks-io.md)
-- [Auto-only-tracking rule](../../../rules/interaction/auto-only-tracking.md) (forward ref — being added in parallel)
-- [Auto-tracking everywhere decision](./auto-tracking-everywhere.md) (forward ref — being added in parallel)
-- <!-- TODO: broken link, was [Time-tracking split (Toggl manual + Wakatime auto)](../time-tracking-toggl-plus-wakatime.md) --> — Toggl's manual stream is intentionally NOT a lifestream source
+- [healthchecks.io â€” heartbeat coverage](../../../services/monitoring/monitoring/healthchecks-io.md)
+- [Auto-only-tracking rule](../../../rules/interaction/auto-only-tracking.md) (forward ref â€” being added in parallel)
+- [Auto-tracking everywhere decision](./auto-tracking-everywhere.md) (forward ref â€” being added in parallel)
+- <!-- TODO: broken link, was [Time-tracking split (Toggl manual + Wakatime auto)](../time-tracking-toggl-plus-wakatime.md) --> â€” Toggl's manual stream is intentionally NOT a lifestream source

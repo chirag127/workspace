@@ -1,6 +1,6 @@
 ---
 type: decision
-title: "Captcha — Turnstile primary + hCaptcha fallback (both, regional auto-detect)"
+title: "Captcha â€” Turnstile primary + hCaptcha fallback (both, regional auto-detect)"
 description: Turnstile primary, hCaptcha fallback. Single Captcha component
 tags: [decisions, security, captcha, turnstile, hcaptcha]
 timestamp: 2026-06-20
@@ -14,7 +14,7 @@ related:
   - security/multi-provider-auth
 ---
 
-# Captcha — Turnstile primary + hCaptcha fallback (both, regional auto-detect)
+# Captcha â€” Turnstile primary + hCaptcha fallback (both, regional auto-detect)
 
 ## Decision
 
@@ -40,7 +40,7 @@ documented swap target the kit reaches for automatically.
   primary-on-failure pattern the family uses for image CDN, status
   pages, and DNS resolvers.
 - **No paid tier touched.** Turnstile is unlimited free; hCaptcha
-  Publisher is 1M/mo free — well above family traffic.
+  Publisher is 1M/mo free â€” well above family traffic.
 - **Regional / network failure modes are real.** Turnstile is
   occasionally blocked by corporate proxies and a few national
   network filters; hCaptcha's different edge keeps the form
@@ -85,19 +85,19 @@ extended directive by default.
 [reCAPTCHA Enterprise](../../services/business/auth/recaptcha-enterprise.md)
 continue to gate Firestore writes (provider-agnostic, server-side
 attestation). The Turnstile + hCaptcha pair gates the **public
-Worker API** — different attack surfaces, different providers, no
+Worker API** â€” different attack surfaces, different providers, no
 overlap. Bot defense remains layered.
 
 ### What we don't do
 
-- **No reCAPTCHA v2/v3 on public forms** — Google fingerprinting
+- **No reCAPTCHA v2/v3 on public forms** â€” Google fingerprinting
   cookies fight the family's privacy-friendly analytics posture and
   add a render-blocking script to every page.
-- **No honeypot-only or proof-of-work-only captcha** — leaks under
+- **No honeypot-only or proof-of-work-only captcha** â€” leaks under
   modest bot pressure; documented only as last-ditch escape hatch.
-- **No paid Friendly Captcha / Cap.js** — adequately covered by the
+- **No paid Friendly Captcha / Cap.js** â€” adequately covered by the
   free tiers above.
-- **No per-site overrides** that disable the captcha — feature
+- **No per-site overrides** that disable the captcha â€” feature
   flags can swap providers but cannot turn off captcha on a public
   POST surface.
 
@@ -106,10 +106,10 @@ overlap. Bot defense remains layered.
 - [Cloudflare Turnstile service entry](../../services/business/security/cloudflare-turnstile.md)
 - [hCaptcha service entry](../../services/business/security/hcaptcha.md)
 - [security services index](../../services/business/security/index.md)
-- [Cloudflare _headers — CSP coupling](../../services/business/security/cloudflare-headers.md)
-- [App Check — Firestore bot defense, complementary layer](../../services/business/auth/app-check-firebase.md)
-- [reCAPTCHA Enterprise — App Check provider, different role](../../services/business/auth/recaptcha-enterprise.md)
+- [Cloudflare _headers â€” CSP coupling](../../services/business/security/cloudflare-headers.md)
+- [App Check â€” Firestore bot defense, complementary layer](../../services/business/auth/app-check-firebase.md)
+- [reCAPTCHA Enterprise â€” App Check provider, different role](../../services/business/auth/recaptcha-enterprise.md)
 - [Multi-provider auth decision](./multi-provider-auth.md)
-- [Doppler — secrets source-of-truth](../../services/business/secrets/doppler.md)
+- [Doppler â€” secrets source-of-truth](../../services/business/secrets/doppler.md)
 - <!-- TODO: broken link, was [oriz-kit glossary](../../glossary/o-r/oriz-kit.md) -->
 - [No card-on-file rule](../../rules/interaction/no-card-on-file.md)

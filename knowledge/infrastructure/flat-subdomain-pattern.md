@@ -37,20 +37,20 @@ Every repo with a public landing page gets `<slug>.oriz.in` where `<slug>` is it
 
 ## Why flat
 
-1. **CF SSL** — Free Universal SSL covers `*.oriz.in` (one level only). Paid Advanced Cert needed for `*.<sub>.oriz.in`.
-2. **Memorability** — `journal.oriz.in` reads better than `pkg.journal.oriz.in` or `app.journal.oriz.in`.
-3. **No type prefix needed** — the URL doesn't need to encode whether it's an app, package, or book. The landing page does.
+1. **CF SSL** â€” Free Universal SSL covers `*.oriz.in` (one level only). Paid Advanced Cert needed for `*.<sub>.oriz.in`.
+2. **Memorability** â€” `journal.oriz.in` reads better than `pkg.journal.oriz.in` or `app.journal.oriz.in`.
+3. **No type prefix needed** â€” the URL doesn't need to encode whether it's an app, package, or book. The landing page does.
 
 ## Why not grouped (pkg.<slug>.oriz.in)
 
 - Violates Rule 16 (one-level subdomain only)
-- Requires Advanced Cert ($10/mo per zone) — kills no-card rule
-- 19 APIs are already 2-level (`<sub>.api.oriz.in`) as a grandfathered exception via GH Pages Let's Encrypt — those work because GH Pages, not CF, terminates SSL there
+- Requires Advanced Cert ($10/mo per zone) â€” kills no-card rule
+- 19 APIs are already 2-level (`<sub>.api.oriz.in`) as a grandfathered exception via GH Pages Let's Encrypt â€” those work because GH Pages, not CF, terminates SSL there
 
 ## What this kills
 
 - Type-prefixed subdomains like `pkg.astro-shell.oriz.in`
-- Long-form like `package-astro-shell.oriz.in` — too noisy
+- Long-form like `package-astro-shell.oriz.in` â€” too noisy
 
 ## Risk: namespace pollution
 

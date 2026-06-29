@@ -1,6 +1,6 @@
 # Weekly upstream sync for oriz-org forks (auto-PR, auto-merge on clean).
 #
-# Per knowledge/agent-rules/fork-thin-upstream-tracking.md (revised 2026-06-29):
+# Per knowledge/rules/agent/fork-thin-upstream-tracking.md (revised 2026-06-29):
 # - oriz-org/freellmapi         main tracks tashfeenahmed/freellmapi  main
 # - oriz-org/omniroute          main tracks diegosouzapw/OmniRoute    main
 # - oriz-org/ai-rewrite-bs-ext  main tracks SupratimRK/Ai-rewrite     main
@@ -76,7 +76,7 @@ jobs:
           - Upstream: \`${UPSTREAM}@${BRANCH}\` -> \`${UPSTREAM_SHA}\`
           - Fork:     \`oriz-org/${FORK}@${BRANCH}\` -> \`${FORK_SHA}\`
 
-          Per [fork-thin-upstream-tracking](https://github.com/oriz-org/workspace/blob/main/knowledge/agent-rules/fork-thin-upstream-tracking.md): oriz work never lands on fork main. This PR brings the fork's main back in step with upstream."
+          Per [fork-thin-upstream-tracking](https://github.com/oriz-org/workspace/blob/main/knowledge/rules/agent/fork-thin-upstream-tracking.md): oriz work never lands on fork main. This PR brings the fork's main back in step with upstream."
 
           EXISTING=$(gh pr list --repo "oriz-org/${FORK}" --head "${SYNC_BRANCH}" --json number --jq '.[0].number' || echo "")
           if [ -z "${EXISTING}" ]; then

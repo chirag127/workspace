@@ -43,10 +43,10 @@ The cost of correcting the name is small and shrinks fast:
 
 - **Git remotes in already-cloned repos** must be updated locally
   (`git remote set-url`). The umbrella's `.gitmodules` is the source
-  of truth — once that's sed-rewritten and committed, fresh clones
+  of truth â€” once that's sed-rewritten and committed, fresh clones
   pick up the new URL.
 - **GitHub Actions org-level secrets** belong to the org, so they
-  follow the rename automatically — no re-push of 61 secrets needed.
+  follow the rename automatically â€” no re-push of 61 secrets needed.
 - **Membership invitations** issued before the rename may show the
   old name in pending state; resend if needed.
 
@@ -63,11 +63,11 @@ The cost of correcting the name is small and shrinks fast:
 
 ## What's NOT renamed
 
-- Repo slugs themselves — `oriz-co/oriz-cipher-crypto-tools-app`
+- Repo slugs themselves â€” `oriz-co/oriz-cipher-crypto-tools-app`
   becomes `oriz-org/oriz-cipher-crypto-tools-app`. Repo slugs keep
   the `oriz-` prefix because the *brand* didn't change; only the
   org-name suffix did.
-- npm scope — packages stay scoped `@chirag127/*` per
+- npm scope â€” packages stay scoped `@chirag127/*` per
   [`repo-naming-suffixes`](repo-naming-suffixes.md). No move to
   `@oriz/*` or `@oriz-org/*` in this change.
 - The `oriz-cs-me-app` repo is moved separately to `chirag127/cs-me-app`
@@ -85,5 +85,5 @@ a recruiter who lands on either surface sees both.
 ## Rollback path
 
 If the rename causes downstream breakage, `oriz-co` can be reclaimed
-within 90 days (GitHub holds renamed org names) — re-rename in the
+within 90 days (GitHub holds renamed org names) â€” re-rename in the
 UI. Re-sed the 23 references. ~10 min total.

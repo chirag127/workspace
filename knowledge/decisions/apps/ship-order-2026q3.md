@@ -1,6 +1,6 @@
 ---
 type: decision
-title: "Q3 2026 ship order — home + janaushdhi + ncert + blog first, then 16 tools, books in parallel"
+title: "Q3 2026 ship order â€” home + janaushdhi + ncert + blog first, then 16 tools, books in parallel"
 description: Q3 2026 ship order. Home, janaushdhi, ncert, blog FIRST. 16 tool subdomains. 5 books
 tags: [decision, roadmap, q3-2026, ship-order, priority]
 timestamp: 2026-06-21
@@ -22,22 +22,22 @@ related:
 
 ## The order
 
-**Wave 1 — flagship four (block everything else):**
+**Wave 1 â€” flagship four (block everything else):**
 
-1. `home-app` — `oriz.in` marketing landing + 5-section grid
-2. `janaushdhi-app` — `janaushdhi.oriz.in` daily price scrape + substitute finder
-3. `ncert-app` — `ncert.oriz.in` merged-PDF catalog
-4. `pages-blog-app` — `blog.oriz.in` daily post + omni-publish fan-out
+1. `home-app` â€” `oriz.in` marketing landing + 5-section grid
+2. `janaushdhi-app` â€” `janaushdhi.oriz.in` daily price scrape + substitute finder
+3. `ncert-app` â€” `ncert.oriz.in` merged-PDF catalog
+4. `pages-blog-app` â€” `blog.oriz.in` daily post + omni-publish fan-out
 
-**Wave 2 — 16 tools in this exact order:**
+**Wave 2 â€” 16 tools in this exact order:**
 
 paisa-finance, slice-pdf, scribe-text, pixie-image, grid-qr, forge-dev, shift-convert, dice-random, cipher-crypto, paper-print, vitals-health, rank-seo, reel-video, echo-audio, pivot-data, then any remainder.
 
-**Wave 3 — content apps (after Wave 1 + 2):**
+**Wave 3 â€” content apps (after Wave 1 + 2):**
 
 tabs-cards-app, roam-journal-app, lore-book-summaries-app. See [[decisions/apps/content-apps-scope]].
 
-**Parallel track — 5 books drafted concurrently with Wave 1:**
+**Parallel track â€” 5 books drafted concurrently with Wave 1:**
 
 Oriz Me drafts FULLY. Other 4 (Stack, Paisa, PDF, Janaushdhi) chapter outlines only. See [[decisions/content/books-publishing-shape]].
 

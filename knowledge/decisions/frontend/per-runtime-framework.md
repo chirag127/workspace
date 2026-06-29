@@ -46,11 +46,11 @@ the family picks ONE framework and uses it everywhere.
 
 ## Why this split
 
-- **Astro everywhere on sites** — same `@chirag127/astro-shell` + `astro-chrome` packages reused. One fix lands across 25+ sites with `pnpm update --recursive`.
-- **WXT for extensions** — vite-based, manifest-v3-aware, ships hot reload + cross-browser builds. Astro can't generate `manifest.json` or compile to `chrome-extension://`. WXT wins over Plasmo on freshness + Vite-native DX.
-- **esbuild for VSC extensions** — VS Code extension host runs Node + the VS Code API. No DOM, no React, no Astro. esbuild directly for tight control.
-- **tsup for CLIs and MCP servers** — wraps esbuild for npm-publishable packages with bin entries. Stable, zero-config common case, 1000+ npm packages.
-- **Astro for doc/companion pages** — every CLI, MCP server, and VS Code extension still needs a public landing page. That page is Astro just like the other 25 sites.
+- **Astro everywhere on sites** â€” same `@chirag127/astro-shell` + `astro-chrome` packages reused. One fix lands across 25+ sites with `pnpm update --recursive`.
+- **WXT for extensions** â€” vite-based, manifest-v3-aware, ships hot reload + cross-browser builds. Astro can't generate `manifest.json` or compile to `chrome-extension://`. WXT wins over Plasmo on freshness + Vite-native DX.
+- **esbuild for VSC extensions** â€” VS Code extension host runs Node + the VS Code API. No DOM, no React, no Astro. esbuild directly for tight control.
+- **tsup for CLIs and MCP servers** â€” wraps esbuild for npm-publishable packages with bin entries. Stable, zero-config common case, 1000+ npm packages.
+- **Astro for doc/companion pages** â€” every CLI, MCP server, and VS Code extension still needs a public landing page. That page is Astro just like the other 25 sites.
 
 ## VSC extension companion site mechanics
 
@@ -86,8 +86,8 @@ Nine integrations ship as peer-deps; every consumer adds them at workspace level
 
 ## Rejected
 
-- **Next.js 16** — App Router overkill for static sites; ~50× bigger bundle.
-- **SvelteKit / Solid.js islands** — lose React ecosystem (react-pdf, react-firebase-hooks).
-- **Vite + React SPA for sites** — loses Astro's zero-JS-by-default win.
-- **Plasmo** for extensions — less Vite-native than WXT.
-- **Deno for CLIs** — switching cost real, family is Node + pnpm.
+- **Next.js 16** â€” App Router overkill for static sites; ~50Ã— bigger bundle.
+- **SvelteKit / Solid.js islands** â€” lose React ecosystem (react-pdf, react-firebase-hooks).
+- **Vite + React SPA for sites** â€” loses Astro's zero-JS-by-default win.
+- **Plasmo** for extensions â€” less Vite-native than WXT.
+- **Deno for CLIs** â€” switching cost real, family is Node + pnpm.

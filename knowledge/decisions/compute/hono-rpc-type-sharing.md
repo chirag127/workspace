@@ -33,7 +33,7 @@ Calls have full IntelliSense on payload + response shape.
 
 ## Build flow
 
-The Worker's `AppType` flows through the workspace boundary like any other type — no codegen, no `.d.ts` emit, no OpenAPI spec. Master matrix deploy publishes the Worker and `@chirag127/api-client` in lockstep so consumers never see type drift. A route signature change on the Worker breaks `tsc` in every consumer at the next CI run.
+The Worker's `AppType` flows through the workspace boundary like any other type â€” no codegen, no `.d.ts` emit, no OpenAPI spec. Master matrix deploy publishes the Worker and `@chirag127/api-client` in lockstep so consumers never see type drift. A route signature change on the Worker breaks `tsc` in every consumer at the next CI run.
 
 ## Cross-refs
 

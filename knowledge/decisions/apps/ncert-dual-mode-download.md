@@ -35,9 +35,9 @@ related:
 
 Each book card offers THREE download paths:
 
-1. **Pre-merged PDF** (recommended) — links to GitHub Release asset `class-9-maths-en.pdf`. Fastest, single download, no compute on user device.
-2. **Build-my-book on-the-fly** — JS button "Build PDF". Browser fetches all chapter PDFs from ncert.nic.in CORS-permitted URLs, merges client-side using **pdf-lib** (npm `pdf-lib`, MIT, ~200 KB gzip, WASM-backed). User gets a download blob. Zero server storage for this path.
-3. **Individual chapters** — collapsible list of per-chapter ncert.nic.in URLs. Users wanting only Ch 5 can grab it.
+1. **Pre-merged PDF** (recommended) â€” links to GitHub Release asset `class-9-maths-en.pdf`. Fastest, single download, no compute on user device.
+2. **Build-my-book on-the-fly** â€” JS button "Build PDF". Browser fetches all chapter PDFs from ncert.nic.in CORS-permitted URLs, merges client-side using **pdf-lib** (npm `pdf-lib`, MIT, ~200 KB gzip, WASM-backed). User gets a download blob. Zero server storage for this path.
+3. **Individual chapters** â€” collapsible list of per-chapter ncert.nic.in URLs. Users wanting only Ch 5 can grab it.
 
 ## Why both pre-merged + on-the-fly
 
@@ -53,10 +53,10 @@ If ncert.nic.in blocks CORS, fallback only to pre-merged path. We test on first 
 
 ## Storage math (defends GH Release path)
 
-- 12 classes × ~10 subjects × ~15 chapters × 2 languages ˜ 3,600 chapter PDFs upstream
+- 12 classes Ã— ~10 subjects Ã— ~15 chapters Ã— 2 languages Ëœ 3,600 chapter PDFs upstream
 - Average chapter PDF: 5 MB ? 18 GB total upstream
-- Merged books: ~600 books × ~50 MB avg = 30 GB
-- **GitHub Releases: unlimited bandwidth, ~2 GB per file limit** — fits.
+- Merged books: ~600 books Ã— ~50 MB avg = 30 GB
+- **GitHub Releases: unlimited bandwidth, ~2 GB per file limit** â€” fits.
 - CF R2 free 10 GB: doesn't fit.
 - CF Pages 25 MB per file: doesn't fit.
 
@@ -80,7 +80,7 @@ async function mergeOnTheFly(chapterUrls: string[]) {
 }
 ```
 
-~80 LOC of code in `oriz-ncert-app/src/components/BuildMyBook.tsx`. Lazy-loaded only when user clicks "Build PDF" — pdf-lib's 200 KB gzip doesn't hit non-merge pages.
+~80 LOC of code in `oriz-ncert-app/src/components/BuildMyBook.tsx`. Lazy-loaded only when user clicks "Build PDF" â€” pdf-lib's 200 KB gzip doesn't hit non-merge pages.
 
 ## Scraping mechanism phased rollout
 

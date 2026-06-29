@@ -1,6 +1,6 @@
 ---
 type: decision
-title: Donations only — no Pro tier, no ads, no Razorpay checkout
+title: Donations only â€” no Pro tier, no ads, no Razorpay checkout
 description: 'Donations only: BuyMeACoffee, GH Sponsors, UPI'
 tags:
 - decision
@@ -23,7 +23,7 @@ related:
 supersedes: security/monetization-centralized-on-oriz-in
 ---
 
-# Donations only — no Pro tier, no ads
+# Donations only â€” no Pro tier, no ads
 
 ## Decision
 
@@ -31,18 +31,18 @@ The oriz family is donation-funded only. Three rails: **Buy Me a Coffee**, **Git
 
 ## Why
 
-- **No-card-on-file rule** stays clean — donation rails never auto-charge, payment gateways stay out of the runtime path.
-- **Free hosting tier compatibility** — donation links satisfy BOTH Cloudflare Pages and GitHub Pages free-tier ToS (commercial subscription/checkout flows do not satisfy GH Pages).
-- **One Razorpay merchant ID was a single point of failure** — removing checkout removes that risk and the per-app webhook/signature plumbing.
-- **Single mental model** — same widget on every app, no per-app pricing copy, no tier-gated features to maintain.
-- **India-first friendly** — UPI is the dominant rail for the home audience; BuyMeACoffee handles INR + global; GitHub Sponsors picks up the developer audience.
-- **No subscriptions, anywhere** — the family-wide rule now applies in both directions (developer?service and app?user).
+- **No-card-on-file rule** stays clean â€” donation rails never auto-charge, payment gateways stay out of the runtime path.
+- **Free hosting tier compatibility** â€” donation links satisfy BOTH Cloudflare Pages and GitHub Pages free-tier ToS (commercial subscription/checkout flows do not satisfy GH Pages).
+- **One Razorpay merchant ID was a single point of failure** â€” removing checkout removes that risk and the per-app webhook/signature plumbing.
+- **Single mental model** â€” same widget on every app, no per-app pricing copy, no tier-gated features to maintain.
+- **India-first friendly** â€” UPI is the dominant rail for the home audience; BuyMeACoffee handles INR + global; GitHub Sponsors picks up the developer audience.
+- **No subscriptions, anywhere** â€” the family-wide rule now applies in both directions (developer?service and app?user).
 
 ## Implications
 
-- Delete `oriz.in/pricing`, the Razorpay webhook CF Pages Function, the 4 launch promo codes, the 15% referral program, the 7-day refund flow, and the GitHub Student Pack STUDENT50 path — all from the 2026-06-22 evening lock.
+- Delete `oriz.in/pricing`, the Razorpay webhook CF Pages Function, the 4 launch promo codes, the 15% referral program, the 7-day refund flow, and the GitHub Student Pack STUDENT50 path â€” all from the 2026-06-22 evening lock.
 - Drop AdSense Auto Ads from every app (was previously on all apps except home + me).
-- Tier-gated features must be re-evaluated — any "Pro only" feature either ships free for everyone or gets cut.
+- Tier-gated features must be re-evaluated â€” any "Pro only" feature either ships free for everyone or gets cut.
 - New `@oriz/donate` shared package owns the widget; renders BuyMeACoffee + GitHub Sponsors + UPI QR + intent links. Mounted via universal account widget slot.
 - Firestore `users/{uid}.tier` field is unused; can be removed once stale paths are cleaned.
-- Sign-in remains useful (cross-app sync, history, profile) but never gates a feature behind a paywall — it only personalises the experience.
+- Sign-in remains useful (cross-app sync, history, profile) but never gates a feature behind a paywall â€” it only personalises the experience.

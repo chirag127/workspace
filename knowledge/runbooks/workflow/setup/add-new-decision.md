@@ -12,7 +12,7 @@ timestamp: 2026-06-20
 format_version: okf-v0.1
 status: active
 related:
-- agent-rules/self-update-rule
+- rules/agent/self-update-rule
 - _okf
 - log
 - decisions/process/okf-as-canonical-format
@@ -24,7 +24,7 @@ related:
 
 Every architectural, naming, or stack decision the user makes in chat
 must land as a concept file in `knowledge/` **in the same
-conversation**. This is the [self-update rule](../../agent-rules/self-update-rule.md)
+conversation**. This is the [self-update rule](../../rules/agent/self-update-rule.md)
 made operational.
 
 ## Steps
@@ -102,6 +102,6 @@ preserved as history.
 ## See also
 
 - [`../_okf.md`](../../_okf.md) — the full OKF contract
-- [`../agent-rules/self-update-rule.md`](../../agent-rules/self-update-rule.md)
+- [`../rules/agent/self-update-rule.md`](../../rules/agent/self-update-rule.md)
 - <!-- TODO: broken link, was [`../log.md`](../../log.md) -->
 - [`../decisions/process/okf-as-canonical-format.md`](../../decisions/process/okf-as-canonical-format.md) — the decision that locks OKF v0.1 as the format used by this runbook

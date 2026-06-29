@@ -1,6 +1,6 @@
 ---
 type: decision
-title: "GitHub repo naming best practices — consolidated rules for the family"
+title: "GitHub repo naming best practices â€” consolidated rules for the family"
 description: Single source for all naming rules v5+v6+best practices
 tags: [naming, repo, branding, best-practices, github, seo]
 timestamp: 2026-06-21
@@ -19,12 +19,12 @@ Every new repo slug must pass ALL of these checks:
 |---|---|---|
 | 1 | **lowercase kebab-case** | `pdf-tools-app` ? `PdfToolsApp` ? `PDF_Tools_App` ? |
 | 2 | **No special chars** | letters + digits + hyphens only. No `.`, `_`, `/`, `@`. |
-| 3 | **No version numbers in slug** | `oriz-pdf-tools-app` ? `oriz-pdf-tools-app-v2` ? — version lives in tags |
+| 3 | **No version numbers in slug** | `oriz-pdf-tools-app` ? `oriz-pdf-tools-app-v2` ? â€” version lives in tags |
 | 4 | **Brand prefix** | `oriz-` for family repos (per v6). Exceptions: `workspace`, `agents-md`, `setup`, `envpact-*`, `astro-*-npm-pkg`, forks. |
 | 5 | **Category in slug for SEO** | tool apps keep "tools" (`oriz-pdf-tools-app`); games drop category (`oriz-2048-game`); content apps name the function (`oriz-blog-app`). |
 | 6 | **Role/runtime suffix** | from the locked v5 matrix: `-app`, `-game`, `-kids-game`, `-api`, `-npm-pkg`, `-py-pkg`, `-rs-crate`, `-go-mod`, `-npm-cli`, `-py-cli`, `-rs-cli`, `-browser-ext`, `-vsc-ext`, `-mcp-server`, `-worker`, `-fn`, `-data`, `-skill`, `-rules`, `-dotfiles`, `-gh-action`. |
 | 7 | **Max 60 chars** | GitHub allows 100; UI truncates ~60. Keep under 60 for clean listings. |
-| 8 | **Descriptive — not cute** | Recruiter / future-me / agents must understand the role from the slug. |
+| 8 | **Descriptive â€” not cute** | Recruiter / future-me / agents must understand the role from the slug. |
 | 9 | **No abbreviation past 2 letters** | `oriz-img-tools-app` ? `oriz-image-tools-app` ? (exception: well-known acronyms like `pdf`, `qr`, `fii`, `dii`, `mmi`). |
 | 10 | **Description ALWAYS set** | Every `gh repo create` includes `--description "..."` naming the tech + role + positioning. |
 | 11 | **Topics (5-10) ALWAYS set** | `gh repo edit --add-topic ...` for discoverability. Family-wide topics: `oriz`, `chirag127`, plus per-repo techs (`astro`, `react`, `typescript`, `firebase`, `cloudflare-pages`). |
@@ -55,7 +55,7 @@ Examples by category (see [`naming-policy-v6.md`](./naming-policy-v6.md) for the
 | CF Worker | `oriz-<name>-worker` | `oriz-api-worker` (future) |
 | Cloud Function | `oriz-<name>-fn` | `oriz-og-image-fn` (future) |
 | Data repo | `oriz-<name>-data` | `oriz-redirects-data` (future) |
-| Agent skill | `<name>-skill` | `grill-me-skill` (no oriz- prefix — skills aren't oriz-family products) |
+| Agent skill | `<name>-skill` | `grill-me-skill` (no oriz- prefix â€” skills aren't oriz-family products) |
 | Agent rules | `<name>-rules` | `family-rules` (no oriz- prefix) |
 | Dotfiles | `<name>-dotfiles` or bare `setup` | `setup` (vendor convention) |
 | GH Action | `<name>-gh-action` | `envpact-gh-action` |
@@ -95,6 +95,6 @@ Set via `gh repo edit chirag127/<repo> --add-topic oriz --add-topic chirag127 --
 
 ## Cross-refs
 
-- [naming-policy-v6](./naming-policy-v6.md) — the canonical sixth-pass naming policy
-- [github-pages-as-json-api](../architecture/github-pages-as-json-api.md) — `-api` suffix usage
-- [keep-knowledge-fresh](../../agent-rules/keep-knowledge-fresh.md) — meta-rule that triggered consolidating this file
+- [naming-policy-v6](./naming-policy-v6.md) â€” the canonical sixth-pass naming policy
+- [github-pages-as-json-api](../architecture/github-pages-as-json-api.md) â€” `-api` suffix usage
+- [keep-knowledge-fresh](../../rules/agent/keep-knowledge-fresh.md) â€” meta-rule that triggered consolidating this file

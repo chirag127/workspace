@@ -26,14 +26,14 @@ related:
 
 
 
-# Voice / SMS — deferred; route via Knock when needed
+# Voice / SMS â€” deferred; route via Knock when needed
 
 ## Decision
 
 The family adopts **no standalone voice or SMS provider** today. No
 Twilio account, no Vonage account, no MessageBird account stands on
 its own. If/when an SMS-shaped need lands, it is dispatched through
-[Knock](../../../services/business/push/knock.md)'s bundled SMS channel — already
+[Knock](../../../services/business/push/knock.md)'s bundled SMS channel â€” already
 locked as the family's multi-channel notification orchestrator at
 [notifications-fcm-plus-knock](./notifications-fcm-plus-knock.md).
 
@@ -46,10 +46,10 @@ appears.
 - **Twilio + Vonage both fight the [no-card-on-file rule](../../../rules/interaction/no-card-on-file.md).**
   Twilio's free trial is time-bound and credit-bound and converts to
   a paid account requiring a card on file. Vonage's free trial is
-  similar — both providers expect a card to graduate beyond the
+  similar â€” both providers expect a card to graduate beyond the
   evaluation envelope. The family does not put a card on file
   anywhere, so adopting either as a primary fights an existing rule.
-- **Knock already bundles SMS** — Knock's SMS channel multiplexes
+- **Knock already bundles SMS** â€” Knock's SMS channel multiplexes
   Twilio / MessageBird under the hood and bills on a pay-per-SMS
   basis with no monthly fee, paid via Knock's own balance (prepaid).
   Routing through Knock means one consent surface, one workflow,
@@ -60,7 +60,7 @@ appears.
   (per [multi-provider-auth](../../security/multi-provider-auth.md));
   notifications fan out via in-app + email + web push (per
   [notifications-fcm-plus-knock](./notifications-fcm-plus-knock.md)).
-- **Deferred is honest** — the question gets revisited if a
+- **Deferred is honest** â€” the question gets revisited if a
   feature appears (account-recovery SMS, billing-receipt SMS,
   appointment reminders for a future site). At that point Knock is
   already in place; the lift is enabling a workflow's SMS channel
@@ -75,7 +75,7 @@ appears.
 - **No Vonage / MessageBird / Plivo account.** Not adopted, not
   documented under `services/`.
 - **No standalone SMS provider** of any kind. SMS, when it lands,
-  goes through Knock — same posture as
+  goes through Knock â€” same posture as
   [Resend behind Knock for email](../../../services/business/email/resend.md).
 - **No voice / IVR / outbound-call** capability anywhere. If a
   future site needs voice, this decision gets reopened.
@@ -102,20 +102,20 @@ a card-on-file), document the workflow in
 ### What stays
 
 - [Knock](../../../services/business/push/knock.md) as the multi-channel
-  orchestrator — already active for in-app + email + web push.
+  orchestrator â€” already active for in-app + email + web push.
   SMS is one more channel away, not a new vendor.
-- [FCM web push](../../../services/business/push/fcm.md) for ambient pings —
+- [FCM web push](../../../services/business/push/fcm.md) for ambient pings â€”
   free unlimited on Spark, covers the majority of "ping the user
   now" needs without SMS.
-- Email-link sign-in and passkeys for auth — no SMS-2FA needed
+- Email-link sign-in and passkeys for auth â€” no SMS-2FA needed
   for the family's auth posture.
 
 ## Cross-refs
 
-- [Knock service entry — bundled SMS via Twilio / MessageBird](../../../services/business/push/knock.md)
+- [Knock service entry â€” bundled SMS via Twilio / MessageBird](../../../services/business/push/knock.md)
 - [Notifications: FCM + Knock decision](./notifications-fcm-plus-knock.md)
 - [push services index](../../../services/business/push/index.md)
 - [No card-on-file rule](../../../rules/interaction/no-card-on-file.md)
 - [No subscriptions rule](../../../rules/infrastructure/no-subscriptions.md)
 - [No-paid-tier rule (no-subscriptions-anywhere)](../../monetisation/no-subscriptions-anywhere.md)
-- [Multi-provider auth — passkeys + email-link instead of SMS-2FA](../../security/multi-provider-auth.md)
+- [Multi-provider auth â€” passkeys + email-link instead of SMS-2FA](../../security/multi-provider-auth.md)

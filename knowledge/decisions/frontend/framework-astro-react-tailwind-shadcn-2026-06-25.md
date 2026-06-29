@@ -1,6 +1,6 @@
 ---
 type: decision
-title: Frontend default stack — Astro + React islands + Tailwind + shadcn/ui
+title: Frontend default stack â€” Astro + React islands + Tailwind + shadcn/ui
 description: 'Default stack: Astro + React + Tailwind + shadcn/ui. Per-repo design pass sets palette, typography, signature'
 tags:
 - decision
@@ -20,7 +20,7 @@ related:
 - decisions/frontend/final-per-app-visual-shared-behavior
 ---
 
-# Frontend default stack — Astro + React + Tailwind + shadcn/ui
+# Frontend default stack â€” Astro + React + Tailwind + shadcn/ui
 
 ## Decision
 
@@ -28,18 +28,18 @@ Every new repo defaults to: **Astro** as the shell (zero-JS by default, fast sta
 
 ## Why
 
-- **Astro shell** ships the smallest JS bundle by default — perfect for landing pages and tool surfaces where most pixels are static.
+- **Astro shell** ships the smallest JS bundle by default â€” perfect for landing pages and tool surfaces where most pixels are static.
 - **React for islands** keeps the developer-pool deep; every contributor / agent knows React.
 - **Tailwind** removes the per-app CSS-naming bikeshed and pairs cleanly with shadcn/ui copy-paste components.
-- **shadcn/ui** is copy-into-repo, not a runtime dependency — no version lock, no upstream-break risk.
+- **shadcn/ui** is copy-into-repo, not a runtime dependency â€” no version lock, no upstream-break risk.
 - **Per-repo design pass** prevents the family from looking like a single template farm. Palette + type + signature touch = recognisable, but the chrome (header / footer / widget slots) stays uniform.
-- **Uniform stack = uniform tooling** — same Vite config, same Tailwind config, same lint rules, same `@oriz/ui` import path.
+- **Uniform stack = uniform tooling** â€” same Vite config, same Tailwind config, same lint rules, same `@oriz/ui` import path.
 
 ## Implications
 
 - The `frontend-design` skill runs on every new repo before the first commit beyond scaffolding.
 - `@oriz/ui` (shared package) wraps shadcn primitives with family defaults; per-repo overrides are explicit.
-- React Server Components are NOT on the table — Astro islands cover the SSR-interactive seam without RSC complexity.
-- Replaces ad-hoc "Astro + SvelteKit + per-runtime framework" tolerance from earlier decisions — Svelte is out as a default; can still be used in a one-off repo if a clear reason exists.
+- React Server Components are NOT on the table â€” Astro islands cover the SSR-interactive seam without RSC complexity.
+- Replaces ad-hoc "Astro + SvelteKit + per-runtime framework" tolerance from earlier decisions â€” Svelte is out as a default; can still be used in a one-off repo if a clear reason exists.
 - shadcn/ui's headless-Radix base makes a11y gates (WCAG 2.2 AA, LH = 95 a11y) easier to hit.
-- Per-app dark+light theme toggle lives in `@oriz/ui` — one implementation, every app inherits it.
+- Per-app dark+light theme toggle lives in `@oriz/ui` â€” one implementation, every app inherits it.

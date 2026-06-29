@@ -41,11 +41,11 @@ related:
 
 Books are written in `.md` files using **Markua-flavoured Markdown** (a Leanpub-friendly Markdown superset). The new npm package [`@chirag127/oriz-book-build`](https://www.npmjs.com/package/@chirag127/oriz-book-build) (v0.1.0, 17th family package) wraps **Pandoc** to emit **EPUB3 + PDF + MOBI** from `manuscript/*.md` into `dist/`. On every tag push (`v*.*.*`) in a book repo, [`@chirag127/omni-publish`](../packages/omni-publish-package.md) takes the dist artefacts and fans out to 5 channels:
 
-1. **Leanpub** — Markua git push to manuscript branch, [80% royalty - 50¢/sale](https://leanpub.com/help/author_help#section-royalty)
-2. **Draft2Digital** — aggregator distributing to B&N / Kobo / Apple Books / Scribd; [no API — manual upload, documented in book.json](https://www.draft2digital.com/help/)
-3. **Gumroad** — REST API automated, 10% flat fee
-4. **LemonSqueezy** — REST API automated, 5% + 50¢ Merchant-of-Record (handles EU VAT)
-5. **Amazon KDP** — [no public API ever existed](https://kdp.amazon.com/community/help/topic-list); browser-uploader bot via Playwright on Linux CI
+1. **Leanpub** â€” Markua git push to manuscript branch, [80% royalty - 50Â¢/sale](https://leanpub.com/help/author_help#section-royalty)
+2. **Draft2Digital** â€” aggregator distributing to B&N / Kobo / Apple Books / Scribd; [no API â€” manual upload, documented in book.json](https://www.draft2digital.com/help/)
+3. **Gumroad** â€” REST API automated, 10% flat fee
+4. **LemonSqueezy** â€” REST API automated, 5% + 50Â¢ Merchant-of-Record (handles EU VAT)
+5. **Amazon KDP** â€” [no public API ever existed](https://kdp.amazon.com/community/help/topic-list); browser-uploader bot via Playwright on Linux CI
 
 Plus **Google Play Books Partner Center** (manual upload, ISBN-recommended; tracked in book.json but flagged as manual, not auto).
 
@@ -56,15 +56,15 @@ Standard layout for every `chirag127/<slug>-book` repo:
 ```
 <slug>-book/
 +-- manuscript/
-¦   +-- 00-frontmatter.md
-¦   +-- 01-introduction.md
-¦   +-- 02-chapter-one.md
-¦   +-- ...
-¦   +-- 99-backmatter.md
+Â¦   +-- 00-frontmatter.md
+Â¦   +-- 01-introduction.md
+Â¦   +-- 02-chapter-one.md
+Â¦   +-- ...
+Â¦   +-- 99-backmatter.md
 +-- assets/
-¦   +-- cover-2560x1600.png
-¦   +-- cover-1600x2560.jpg     # KDP front cover
-¦   +-- figures/
+Â¦   +-- cover-2560x1600.png
+Â¦   +-- cover-1600x2560.jpg     # KDP front cover
+Â¦   +-- figures/
 +-- book.json                    # metadata + per-channel publish toggles
 +-- LICENSE                      # CC-BY-NC-ND 4.0 (prose) + MIT (code samples)
 +-- README.md                    # cover + sample chapter excerpt + buy links
@@ -100,9 +100,9 @@ Standard layout for every `chirag127/<slug>-book` repo:
 
 **Mixed by audience.** Three patterns are valid:
 
-1. **Brand-first (`Oriz <Topic>`)** — tool-companion and family-aligned books. The 5 locked first books all use this.
-2. **Descriptive** — general SEO-bait books not tied to the Oriz brand. Reserved for future.
-3. **Author-first** — personal essays. Currently unused; could surface in future.
+1. **Brand-first (`Oriz <Topic>`)** â€” tool-companion and family-aligned books. The 5 locked first books all use this.
+2. **Descriptive** â€” general SEO-bait books not tied to the Oriz brand. Reserved for future.
+3. **Author-first** â€” personal essays. Currently unused; could surface in future.
 
 For now: **all 5 locked books are brand-first.**
 
@@ -138,14 +138,14 @@ PWYW handled by Gumroad's "pay what you want" toggle + LemonSqueezy custom prici
 - **Subject**: cards-app companion. Card reviews, reward optimisation, fee-waiver tactics, RBI rules, NCB / SBI / HDFC / Amex landscape
 - **Audience**: Indian consumers
 - **Pricing**: ?499 base / ?999 Pro (includes spreadsheet templates + monthly card-rec email)
-- **Channels**: KDP (primary — Amazon India dominant) + Gumroad (UPI support) + D2D (international Indian-diaspora via B&N/Kobo/Apple) + Google Play Books (large in India)
+- **Channels**: KDP (primary â€” Amazon India dominant) + Gumroad (UPI support) + D2D (international Indian-diaspora via B&N/Kobo/Apple) + Google Play Books (large in India)
 - **Repo**: `chirag127/oriz-paisa-book` ? `repos/oriz/own/content/books/oriz-paisa-book/`
 
 ### 3. Oriz PDF: From Browser to Native
 
 - **Subject**: PWA ? PWABuilder ? Play Store walkthrough using the actual `oriz-pdf-tools-app` as the running example. Includes Bubblewrap TWA, asset-link verification, Play Console first-publish gotchas
 - **Audience**: developers shipping their first PWA-as-native
-- **Pricing**: $14 (single-tier; deliberately cheaper than Oriz Stack — narrower scope)
+- **Pricing**: $14 (single-tier; deliberately cheaper than Oriz Stack â€” narrower scope)
 - **Channels**: Leanpub + Gumroad + LemonSqueezy + KDP
 - **Repo**: `chirag127/oriz-pdf-book` ? `repos/oriz/own/content/books/oriz-pdf-book/`
 
@@ -153,7 +153,7 @@ PWYW handled by Gumroad's "pay what you want" toggle + LemonSqueezy custom prici
 
 - **Subject**: janaushdhi-app companion; PMBJP scheme, generic vs branded pricing, finding nearest Kendra, prescription-reading tips for substitution
 - **Audience**: Indian patients / caregivers, particularly Tier-2/3 cities
-- **Pricing**: ?299 single-tier (deliberately cheap — public-health utility)
+- **Pricing**: ?299 single-tier (deliberately cheap â€” public-health utility)
 - **Channels**: KDP (Amazon India) + Gumroad (UPI) + Google Play Books
 - **Repo**: `chirag127/oriz-janaushdhi-book` ? `repos/oriz/own/content/books/oriz-janaushdhi-book/`
 
@@ -162,12 +162,12 @@ PWYW handled by Gumroad's "pay what you want" toggle + LemonSqueezy custom prici
 - **Subject**: personal essays sourced from `oriz-cs-me-app` lifestream content + the 100-year-strategy decision doc. Tone: philosophical, archival, written to be read in 2126 as much as today
 - **Audience**: longform-essay readers, lifestream-curious devs, friends + family
 - **Pricing**: $9 PWYW from $0 floor (free if requested; suggested $9)
-- **Channels**: Gumroad + LemonSqueezy + Leanpub + Substack (manual mirror — Substack has no automated publish API for paid posts)
+- **Channels**: Gumroad + LemonSqueezy + Leanpub + Substack (manual mirror â€” Substack has no automated publish API for paid posts)
 - **Repo**: `chirag127/oriz-me-book` ? `repos/oriz/own/content/books/oriz-me-book/`
 
 ## License
 
-**Dual license — CC-BY-NC-ND 4.0 (prose) + MIT (code samples).** Source-available for transparency; commercial rights retained on prose. Code samples are MIT so readers can copy them into their own projects without further attribution beyond the standard MIT notice.
+**Dual license â€” CC-BY-NC-ND 4.0 (prose) + MIT (code samples).** Source-available for transparency; commercial rights retained on prose. Code samples are MIT so readers can copy them into their own projects without further attribution beyond the standard MIT notice.
 
 LICENSE file format:
 
@@ -182,7 +182,7 @@ Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International
 
 ## Code samples (any fenced code block, plus examples/**)
 
-MIT License — Copyright (c) 2026 Chirag Singhal
+MIT License â€” Copyright (c) 2026 Chirag Singhal
 <https://opensource.org/licenses/MIT>
 ```
 
@@ -191,8 +191,8 @@ MIT License — Copyright (c) 2026 Chirag Singhal
 [`@chirag127/oriz-book-build`](https://www.npmjs.com/package/@chirag127/oriz-book-build) v0.1.0 stub published 2026-06-21 alongside this decision.
 
 - Bin entries:
-  - `oriz-book build` — reads `manuscript/`, writes EPUB3 + PDF + MOBI to `dist/`
-  - `oriz-book preview` — local dev with live-reload of HTML preview
+  - `oriz-book build` â€” reads `manuscript/`, writes EPUB3 + PDF + MOBI to `dist/`
+  - `oriz-book preview` â€” local dev with live-reload of HTML preview
 - Wraps **Pandoc** with Markua-flavoured input + opinionated presets:
   - EPUB3: `--toc --toc-depth=2 --css=.../epub.css --embed-fonts`
   - PDF: LaTeX via `tectonic` (Linux-only, no MacTeX/MikTeX); A5 page, Iosevka body

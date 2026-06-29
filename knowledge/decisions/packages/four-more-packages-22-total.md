@@ -1,6 +1,6 @@
 ---
 type: decision
-title: "Add 4 packages to family — oriz-rate-limit, oriz-analytics, oriz-seo, oriz-consent (22 packages total)"
+title: "Add 4 packages to family â€” oriz-rate-limit, oriz-analytics, oriz-seo, oriz-consent (22 packages total)"
 description: 'Family expands 18 to 22 packages: rate-limit, analytics, seo, consent'
 tags: [decision, packages, expansion, 22-packages, rate-limit, analytics, seo, consent]
 timestamp: 2026-06-22

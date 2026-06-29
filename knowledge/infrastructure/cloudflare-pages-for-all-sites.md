@@ -24,10 +24,10 @@ Every website and every app in the family deploys to Cloudflare Pages free. No e
 
 Cloudflare Pages free has unlimited bandwidth, unlimited
 static-asset requests, 100 repos/account (soft cap), 100 custom
-domains/project, 500 builds/month — well above the family's needs
+domains/project, 500 builds/month â€” well above the family's needs
 indefinitely. It fails closed with HTTP 1027 at quota, no card
 required ever. Firebase Hosting offered no advantage over this and
-came tied to the same Firebase project we're keeping on Spark —
+came tied to the same Firebase project we're keeping on Spark â€”
 running both was needless surface area.
 
 ## Implications
@@ -36,7 +36,7 @@ running both was needless surface area.
 - Deploy command: `pnpm wrangler pages deploy dist`.
 - Master matrix workflow at `chirag127/oriz/.github/workflows/deploy.yml` runs deploys (one job per site) on master pointer-bump commits.
 - Each site also builds a static GitHub Pages mirror per [github-pages-mirror-per-site](./github-pages-mirror-per-site.md) for survival fallback.
-- Firebase project usage is now exclusively Auth + Firestore + App Check + (future) Storage — never Hosting.
+- Firebase project usage is now exclusively Auth + Firestore + App Check + (future) Storage â€” never Hosting.
 - DNS: `*.oriz.in` subdomains resolve to Cloudflare Pages projects via Cloudflare DNS free.
 
 ## Cross-refs
@@ -45,4 +45,4 @@ running both was needless surface area.
 - [No subscriptions anywhere](../monetisation/no-subscriptions-anywhere.md)
 - [GitHub Pages mirror per site](./github-pages-mirror-per-site.md)
 - [Cloudflare Pages service entry](../../services/infra/hosting/cloudflare-pages.md)
-- [Layer 1 — Static hosting architecture](../architecture/frontend/layer-1-static-hosting.md)
+- [Layer 1 â€” Static hosting architecture](../architecture/frontend/layer-1-static-hosting.md)

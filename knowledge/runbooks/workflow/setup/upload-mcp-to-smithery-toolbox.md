@@ -7,8 +7,8 @@ timestamp: 2026-06-29
 format_version: okf-v0.1
 status: active
 related:
-  - agent-rules/globals-derived-from-workspace
-  - agent-rules/mcp-config-single-source-of-truth
+  - rules/agent/globals-derived-from-workspace
+  - rules/agent/mcp-config-single-source-of-truth
   - services/mcp-smithery-toolbox
 ---
 
@@ -91,6 +91,6 @@ Otherwise: consolidating gains a smaller `.mcp.json`, fewer stdio processes per 
 
 ## Cross-refs
 
-- [`mcp-config-single-source-of-truth`](../../agent-rules/mcp-config-single-source-of-truth.md)
-- [`globals-derived-from-workspace`](../../agent-rules/globals-derived-from-workspace.md)
+- [`mcp-config-single-source-of-truth`](../../rules/agent/mcp-config-single-source-of-truth.md)
+- [`globals-derived-from-workspace`](../../rules/agent/globals-derived-from-workspace.md)
 - Smithery CLI: https://smithery.ai/docs/cli

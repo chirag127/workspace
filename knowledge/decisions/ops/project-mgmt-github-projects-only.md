@@ -25,7 +25,7 @@ related:
 
 
 
-# Project management — GitHub Projects only
+# Project management â€” GitHub Projects only
 
 ## Decision
 
@@ -36,7 +36,7 @@ Done`), **table** (sortable / filterable across all custom fields),
 and **roadmap** (Gantt-style timeline grouped by `Iteration`).
 
 Notion, Obsidian Tasks, Linear, ClickUp, Asana, Trello, Monday.com,
-Height, Basecamp, Todoist — **all REJECTED**.
+Height, Basecamp, Todoist â€” **all REJECTED**.
 
 The split between knowledge artifacts and tasks is firm:
 
@@ -46,13 +46,13 @@ The split between knowledge artifacts and tasks is firm:
 - **Tasks / sprint plans / roadmap / status** lives in the GitHub
   Projects board on the same master repo.
 
-User direction 2026-06-20: "GitHub Projects only — locked,
+User direction 2026-06-20: "GitHub Projects only â€” locked,
 decision file only."
 
 ## Why
 
 - **Free, GitHub-native, no card.** Projects v2 is part of every
-  GitHub account at zero cost — no quota cliff at family scale,
+  GitHub account at zero cost â€” no quota cliff at family scale,
   no card on file ([`rules/no-card-on-file`](../../../rules/interaction/no-card-on-file.md) +
   [`rules/no-subscriptions`](../../../rules/infrastructure/no-subscriptions.md)).
 - **Lives next to the code + issues.** Issues filed per
@@ -60,7 +60,7 @@ decision file only."
   attach directly to project items via the same web UI;
   cross-repo issues feed into one board without API plumbing.
 - **One source of truth for "what's next".** The user has one
-  brain working across 11 sites + N extensions + N packages —
+  brain working across 11 sites + N extensions + N packages â€”
   one board. No Notion-vs-Linear-vs-Obsidian fragmentation.
 - **OKF bundle covers documentation.** Per
   [`okf-as-canonical-format`](../../process/okf-as-canonical-format.md),
@@ -79,7 +79,7 @@ decision file only."
 |---|---|
 | Notion | Free Personal tier caps blocks / file uploads; Team tier requires card; second editorial surface that drifts vs. the OKF `knowledge/` bundle |
 | Obsidian Tasks | Local-vault-first model fights the everything-public-OSS posture; sync requires Obsidian Sync subscription or third-party plugin reliability |
-| Linear | Same rejection as in [`bug-tracker-github-issues-only`](./bug-tracker-github-issues-only.md) — caps + card + duplicate tracker |
+| Linear | Same rejection as in [`bug-tracker-github-issues-only`](./bug-tracker-github-issues-only.md) â€” caps + card + duplicate tracker |
 | ClickUp | Card past free; UI overhead; second source of truth |
 | Asana / Monday.com | Both card-required at family scale |
 | Trello | Card-shaped, no issue-link, no roadmap view on free tier |
@@ -112,13 +112,13 @@ decision file only."
 
 ### Views
 
-- **Kanban** (default) — grouped by `Status`, filtered to current
+- **Kanban** (default) â€” grouped by `Status`, filtered to current
   `Iteration`.
-- **Table** — full sortable / filterable grid; the spreadsheet
+- **Table** â€” full sortable / filterable grid; the spreadsheet
   view for triage sweeps.
-- **Roadmap** — grouped by `Iteration`, scaled by `Effort`,
+- **Roadmap** â€” grouped by `Iteration`, scaled by `Effort`,
   Gantt-style timeline.
-- **By site** — table view filtered to one `Site` for site-specific
+- **By site** â€” table view filtered to one `Site` for site-specific
   status checks.
 
 ### Automation
@@ -127,15 +127,15 @@ decision file only."
   with `Status: Backlog` (workflow file in `chirag127/oriz/.github/workflows/`).
 - PR opened ? auto-added with `Status: In review`.
 - PR merged ? linked issue auto-set to `Status: Done`.
-- All automations use built-in GitHub Projects workflows — no
+- All automations use built-in GitHub Projects workflows â€” no
   third-party action, no external script.
 
 ### What we don't do
 
-- **No second project tool** — even for "personal" / "scratch" /
+- **No second project tool** â€” even for "personal" / "scratch" /
   "ideas". The board's `Backlog` is the single inbox.
 - **No external roadmap site** (Productboard / Canny / Trello) for
-  public roadmap surfacing — the GitHub Projects board itself is
+  public roadmap surfacing â€” the GitHub Projects board itself is
   shareable as a public URL when the user opts to make it public.
   Until then, roadmap stays internal-but-everyone's-an-internal
   given the OSS posture.
@@ -172,10 +172,10 @@ Until then, GitHub Projects is the answer.
 
 ## Cross-refs
 
-- [Bug tracker — GitHub Issues only](./bug-tracker-github-issues-only.md)
-- [CMS markdown-in-repo only](./cms-markdown-in-repo-only.md) — sister "no SaaS sidecar" decision for content
-- [OKF as canonical format](../../process/okf-as-canonical-format.md) — `knowledge/` bundle covers docs
-- [Per-repo CI workflows](../../process/per-repo-ci-workflows.md) — workflows live in each repo, not a central scheduler
-- <!-- TODO: broken link, was [Time tracking — Toggl + Wakatime](../time-tracking-toggl-plus-wakatime.md) --> — separate concern, separate tools
+- [Bug tracker â€” GitHub Issues only](./bug-tracker-github-issues-only.md)
+- [CMS markdown-in-repo only](./cms-markdown-in-repo-only.md) â€” sister "no SaaS sidecar" decision for content
+- [OKF as canonical format](../../process/okf-as-canonical-format.md) â€” `knowledge/` bundle covers docs
+- [Per-repo CI workflows](../../process/per-repo-ci-workflows.md) â€” workflows live in each repo, not a central scheduler
+- <!-- TODO: broken link, was [Time tracking â€” Toggl + Wakatime](../time-tracking-toggl-plus-wakatime.md) --> â€” separate concern, separate tools
 - [No card-on-file rule](../../../rules/interaction/no-card-on-file.md)
 - [No subscriptions rule](../../../rules/infrastructure/no-subscriptions.md)

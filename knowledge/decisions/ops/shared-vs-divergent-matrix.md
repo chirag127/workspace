@@ -29,30 +29,30 @@ related:
 
 
 
-# Shared vs divergent — definitive family matrix
+# Shared vs divergent â€” definitive family matrix
 
 ## Fully shared (via packages)
 
 ### SHARED ROUTES (every app must have these at the same path)
 
 Required:
-- `/` — each app's home page (route same; content per-app)
-- `/privacy` — `@chirag127/astro-chrome/legal/Privacy.astro`
-- `/terms` — `@chirag127/astro-chrome/legal/Terms.astro`
-- `/contact` — `@chirag127/astro-chrome/legal/Contact.astro`
-- `/about` — `@chirag127/astro-chrome/legal/About.astro` (slot for app-specific copy)
-- `/refunds` — `@chirag127/astro-chrome/legal/Refunds.astro`
-- `/disclaimer` — `@chirag127/astro-chrome/legal/Disclaimer.astro`
-- `/pricing` — `@chirag127/astro-billing/Pricing.astro` (3-tier table, same prices)
-- `/sign-in` — `@chirag127/auth-core/SignIn.astro`
-- `/sign-out` — `@chirag127/auth-core/SignOut.astro`
-- `/account` — `@chirag127/auth-core/Account.astro` (subscription state, profile)
+- `/` â€” each app's home page (route same; content per-app)
+- `/privacy` â€” `@chirag127/astro-chrome/legal/Privacy.astro`
+- `/terms` â€” `@chirag127/astro-chrome/legal/Terms.astro`
+- `/contact` â€” `@chirag127/astro-chrome/legal/Contact.astro`
+- `/about` â€” `@chirag127/astro-chrome/legal/About.astro` (slot for app-specific copy)
+- `/refunds` â€” `@chirag127/astro-chrome/legal/Refunds.astro`
+- `/disclaimer` â€” `@chirag127/astro-chrome/legal/Disclaimer.astro`
+- `/pricing` â€” `@chirag127/astro-billing/Pricing.astro` (3-tier table, same prices)
+- `/sign-in` â€” `@chirag127/auth-core/SignIn.astro`
+- `/sign-out` â€” `@chirag127/auth-core/SignOut.astro`
+- `/account` â€” `@chirag127/auth-core/Account.astro` (subscription state, profile)
 
 Optional but recommended (same code everywhere when present):
-- `/changelog` — auto from git tags + GH releases
-- `/status` — embedded UptimeRobot status badge
-- `/feedback` — form ? posts to GH Issues
-- `/sponsors` — Ko-fi / GH Sponsors / BMC links
+- `/changelog` â€” auto from git tags + GH releases
+- `/status` â€” embedded UptimeRobot status badge
+- `/feedback` â€” form ? posts to GH Issues
+- `/sponsors` â€” Ko-fi / GH Sponsors / BMC links
 
 ### SHARED SHELL + INFRASTRUCTURE
 
@@ -67,7 +67,7 @@ Optional but recommended (same code everywhere when present):
 | **Analytics wrapper** | `@chirag127/oriz-analytics` | One init call per app |
 | **Rate limit checks** | `@chirag127/oriz-rate-limit` | Same Free/Pro/Max caps |
 | **AI provider chain** | `@chirag127/oriz-ai-providers` | Same fallback ladder |
-| **Token API (CSS custom property NAMES)** | `@chirag127/astro-shell/tokens.css` | Same semantic tokens (`--color-bg`, `--color-fg`, `--space-1` … `--space-8`, `--motion-fast/medium/slow`, `--type-display/body/utility`) |
+| **Token API (CSS custom property NAMES)** | `@chirag127/astro-shell/tokens.css` | Same semantic tokens (`--color-bg`, `--color-fg`, `--space-1` â€¦ `--space-8`, `--motion-fast/medium/slow`, `--type-display/body/utility`) |
 | **Footer DATA** | `@chirag127/astro-shell/family-data` | `FAMILY_APPS`/`BOOKS`/`PACKAGES` arrays |
 
 ## Divergent per-app (each app's own)
@@ -82,14 +82,14 @@ User clarified (final, 2026-06-22 evening): every app has all 4 nav surfaces (He
 |---|---|---|
 | Header | YES | DIFFERENT per app (bespoke design) |
 | Footer | YES | DIFFERENT per app (bespoke design) |
-| Sidebar | YES | DIFFERENT per app (drawer/column/dock — per content) |
+| Sidebar | YES | DIFFERENT per app (drawer/column/dock â€” per content) |
 | BottomBar | YES | DIFFERENT per app (icons + style per content) |
 
 The legal pages, /pricing, /sign-in etc. routes are mounted on every app per the SAME-routes list above. The 4 surfaces wrap all of them.
 
 ## Footer is DIFFERENT per app (not shared)
 
-Reversal: footer is NOT shared. Each app draws its own footer with its own theme. The `FAMILY_APPS`/`BOOKS`/`PACKAGES` arrays are still available from `@chirag127/astro-shell/family-data` for apps that want to surface family-wide links — but the visual is each app's own choice.
+Reversal: footer is NOT shared. Each app draws its own footer with its own theme. The `FAMILY_APPS`/`BOOKS`/`PACKAGES` arrays are still available from `@chirag127/astro-shell/family-data` for apps that want to surface family-wide links â€” but the visual is each app's own choice.
 
 ## Theme tokens: NAMES same, VALUES per-app
 
@@ -115,7 +115,7 @@ Each app OVERRIDES the values per its design brief (subject-driven palette + typ
 
 
 | **Theme** | ONE forced theme per app (no toggle) | Per `per-app-distinctive-frontend-design` |
-| **Color palette** | 4–6 hex per app (overrides token VALUES; keeps token NAMES) | Per content domain |
+| **Color palette** | 4â€“6 hex per app (overrides token VALUES; keeps token NAMES) | Per content domain |
 | **Type stack** | Display + body + utility chosen per-app | Per content domain |
 | **Header design** | Per-app composition | Per content domain |
 | **Wordmark** | Per-app typographic treatment | Per content domain |
@@ -155,8 +155,8 @@ Optional per content domain:
 
 ## SUPERSEDES
 
-- `decisions/architecture/four-nav-surfaces-every-app.md` — the "all 4 surfaces required" mandate is reversed; surfaces are now conditional
-- `decisions/architecture/auth-billing-polish-locks-2026-06-22-evening.md` — the dark+light theme toggle section is reversed; ONE forced theme per app
+- `decisions/architecture/four-nav-surfaces-every-app.md` â€” the "all 4 surfaces required" mandate is reversed; surfaces are now conditional
+- `decisions/architecture/auth-billing-polish-locks-2026-06-22-evening.md` â€” the dark+light theme toggle section is reversed; ONE forced theme per app
 
 ## Cross-refs
 

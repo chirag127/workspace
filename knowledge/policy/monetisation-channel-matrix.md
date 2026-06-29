@@ -1,6 +1,6 @@
 ---
 type: policy
-title: "Monetisation channel matrix — per-channel revenue + ethics rules"
+title: "Monetisation channel matrix â€” per-channel revenue + ethics rules"
 description: 'Canonical matrix: monetisation per publish channel'
 tags: [policy, monetisation, channel-matrix, affiliate, ethics, public-health]
 timestamp: 2026-06-21
@@ -38,7 +38,7 @@ Single source of truth for what monetisation is allowed where. If a channel-app 
 | App | Ads | Affiliate | Sponsor | Notes |
 |---|---|---|---|---|
 | **janaushdhi-app** | NO | NO | Footer only | Public-health ethics; no exceptions |
-| **vitals-health tool** | NO | NO | Footer only | Health-adjacent — same ethics |
+| **vitals-health tool** | NO | NO | Footer only | Health-adjacent â€” same ethics |
 | **ncert-app** | NO | NO | Footer only | Education resource for students |
 | **scribe-text tool** | NO | YES (Amazon book affiliate OK on writing tool) | Footer | Affiliate ethically clean here |
 | **paisa-finance tool** | NO | YES (where disclosed; bank/card affiliate networks) | Footer | Disclosure mandatory |
@@ -48,13 +48,13 @@ Single source of truth for what monetisation is allowed where. If a channel-app 
 
 - **No ads on health/data sites.** janaushdhi + vitals-health + ncert never run AdSense/Ezoic/Mediavine.
 - **No affiliate where subreddit rules / platform TOS forbid.** Reddit and the organic-only social channels (Bluesky, Mastodon, Threads) are organic-only.
-- **Anonymous-first auth** is the family default — no monetisation may gate functionality behind sign-in unless the user opts in.
-- **No card-on-file required for any monetised feature on the user side** (orthogonal to merchant card — that's [[monetisation/max-payment-methods]]).
+- **Anonymous-first auth** is the family default â€” no monetisation may gate functionality behind sign-in unless the user opts in.
+- **No card-on-file required for any monetised feature on the user side** (orthogonal to merchant card â€” that's [[monetisation/max-payment-methods]]).
 - **Disclosure mandatory** on every affiliate link (FTC + Indian ASCI requirements).
 
-## Newsletter — single, Substack
+## Newsletter â€” single, Substack
 
-One newsletter at `chirag127.substack.com` (or brand-aligned name). Free tier (Substack takes 10% on any future paid tier — accepted vs the marginal cost of running our own ESM stack). Daily blog feed + weekly digest + book drop announcements. One newsletter for the whole family, NOT per-app. Embed signup form on home-app + every content app footer. See [[decisions/stack/newsletter-substack]].
+One newsletter at `chirag127.substack.com` (or brand-aligned name). Free tier (Substack takes 10% on any future paid tier â€” accepted vs the marginal cost of running our own ESM stack). Daily blog feed + weekly digest + book drop announcements. One newsletter for the whole family, NOT per-app. Embed signup form on home-app + every content app footer. See [[decisions/stack/newsletter-substack]].
 
 ## Cross-refs
 

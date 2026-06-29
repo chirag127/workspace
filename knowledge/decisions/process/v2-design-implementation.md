@@ -26,7 +26,7 @@ site's v2 implementation; those references now resolve.
 
 The design briefs at `design-briefs/_FAMILY-RULES.md` and
 `design-briefs/oriz-<site>.md` had been written months before the
-sites caught up to them — many design-brief cross-links pointed at
+sites caught up to them â€” many design-brief cross-links pointed at
 v2 components that didn't yet exist on disk. Landing v2 across all
 11 sites in one push closes that gap. Every brief's "see
 implementation at..." link now points at a real file in the
@@ -36,7 +36,7 @@ design-quality bar.
 ## Implications
 
 - All 11 site submodules now ship v2-design React components per their `design-briefs/oriz-<site>.md` (now `knowledge/design/oriz-<site>.md`) brief.
-- The family rules at `knowledge/design/_family-rules.md` (formerly `design-briefs/_FAMILY-RULES.md`) — surface diversity, type budget, accent distribution, no-compromise briefs — are now enforced uniformly.
+- The family rules at `knowledge/design/_family-rules.md` (formerly `design-briefs/_FAMILY-RULES.md`) â€” surface diversity, type budget, accent distribution, no-compromise briefs â€” are now enforced uniformly.
 - Future design refreshes happen as v3+ briefs; v2 is the locked baseline.
 - Per-site visual identity is preserved (each site picks its own accent / typography from the family rules); the kit ships no styles.
 - This decision is the "this fixes the broken cross-link many design briefs reference" milestone the OKF migration relies on.

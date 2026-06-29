@@ -1,6 +1,6 @@
 ---
 type: decision
-title: Finance — one repo, ten routes at finance.oriz.in
+title: Finance â€” one repo, ten routes at finance.oriz.in
 description: 10 finance calculators into single repo. Shared @oriz/finance package
 tags:
 - decision
@@ -19,7 +19,7 @@ related:
 - decisions/frontend/framework-astro-react-tailwind-shadcn-2026-06-25
 ---
 
-# Finance — one repo, ten routes
+# Finance â€” one repo, ten routes
 
 ## Decision
 
@@ -42,17 +42,17 @@ Math primitives live in the `@oriz/finance` shared npm package. Reverses the ear
 
 ## Why
 
-- **Shared chrome and primitives** — header, footer, account widget, theme toggle, currency formatter, INR locale handling all reused across ten routes for free.
-- **SEO compounds** — internal links between calculators (e.g. EMI page links to FD and lumpsum) build authority for `finance.oriz.in` as a destination.
+- **Shared chrome and primitives** â€” header, footer, account widget, theme toggle, currency formatter, INR locale handling all reused across ten routes for free.
+- **SEO compounds** â€” internal links between calculators (e.g. EMI page links to FD and lumpsum) build authority for `finance.oriz.in` as a destination.
 - **One deploy workflow, one CF Pages project** instead of ten.
-- **Maintenance ratio** — a dependency bump touches one repo, not ten.
+- **Maintenance ratio** â€” a dependency bump touches one repo, not ten.
 - **Aligned with category subdomain routing** (subdomain-path-based-on-category-2026-06-25).
 - **`@oriz/finance` package** isolates the math so the same primitives can power a CLI or an MCP server later without re-implementing.
 
 ## Implications
 
 - The ten reserved per-calculator repos either get archived (saturated case) or merged into `finance`. Slug squat: keep their names on the org as redirects until any inbound links die.
-- Internal navigation across the ten routes is built once in `finance` — sidebar links between siblings, footer cross-links.
+- Internal navigation across the ten routes is built once in `finance` â€” sidebar links between siblings, footer cross-links.
 - Per-tool SEO content (300-500 words each) lives at the route level, not as a separate repo.
 - Tests, lint, and CI run once over the consolidated repo.
 - Same pattern is the template for any future category (e.g. text utilities, dev tools): one repo, many routes, shared package for primitives.

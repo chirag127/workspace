@@ -25,7 +25,7 @@ related:
 
 
 
-# Object storage split — GitHub Releases for binaries, Backblaze B2 for blobs; Cloudflare R2 rejected
+# Object storage split â€” GitHub Releases for binaries, Backblaze B2 for blobs; Cloudflare R2 rejected
 
 ## Decision
 
@@ -64,7 +64,7 @@ exclusion" of Backblaze B2 (see
 ## Reversal of prior B2 rejection
 
 The previous file at [`services/backblaze-b2.md`](../../../services/backblaze-b2.md)
-recorded B2 as `status: rejected — user policy`. That status was
+recorded B2 as `status: rejected â€” user policy`. That status was
 reversed on 2026-06-20 in light of the R2 rejection. The historical
 file remains in place for the record; the live B2 entry is at
 [`services/data/storage/backblaze-b2.md`](../../../services/data/storage/backblaze-b2.md).
@@ -80,7 +80,7 @@ file remains in place for the record; the live B2 entry is at
 - Worker code never imports the `R2` binding; existing code in the
   api.oriz.in Worker that did so is to be migrated. The stale
   `services/infra/compute/cloudflare-r2.md` entry remains as `status:
-  active` and should be flipped in a follow-up sweep — flagged in
+  active` and should be flipped in a follow-up sweep â€” flagged in
   [`services/data/storage/cloudflare-r2.md`](../../../services/data/storage/cloudflare-r2.md).
 
 ## Cross-refs

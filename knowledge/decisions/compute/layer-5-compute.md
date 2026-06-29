@@ -24,7 +24,7 @@ related:
 
 
 
-# Layer 5 — compute, in three tiers
+# Layer 5 â€” compute, in three tiers
 
 ## Concept
 
@@ -35,7 +35,7 @@ sees enough load to threaten its quota.
 
 ## How it works
 
-### Tier 1 — GitHub Actions cron
+### Tier 1 â€” GitHub Actions cron
 
 - Free for public repos; 2000 min/month on private
 - Daily rebuild of JSON snapshots from external APIs (Last.fm, GitHub,
@@ -45,7 +45,7 @@ sees enough load to threaten its quota.
 - On-push CI runs typecheck/lint/build for every site
 - Per-repo CI workflows live in each submodule's `.github/workflows/`
 
-### Tier 2 — Cloudflare Workers Free
+### Tier 2 â€” Cloudflare Workers Free
 
 - 100K req/day account-wide, fails-closed
 - ONE Hono Worker at `api.oriz.in` (see [api-umbrella-hono-worker.md](../compute/api-umbrella-hono-worker.md))
@@ -54,7 +54,7 @@ sees enough load to threaten its quota.
 - Most reads are CACHED to Cloudflare KV / read from static JSON, so
   100K req/day covers high traffic
 
-### Tier 3 — browser runtime
+### Tier 3 â€” browser runtime
 
 - Free, scales infinitely with users
 - Firestore client SDK direct from browser for per-user reads/writes
