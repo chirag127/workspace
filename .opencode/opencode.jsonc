@@ -72,6 +72,14 @@
       "type": "remote",
       "url": "https://mcp.smithery.run/chirag127",
       "enabled": true
+    },
+    "agent-browser": {
+      "type": "local",
+      "command": [
+        "agent-browser",
+        "mcp"
+      ],
+      "enabled": true
     }
   }
 }
