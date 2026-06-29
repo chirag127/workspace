@@ -61,6 +61,12 @@
       "command": [
         "C:/Users/C5420321/AppData/Local/Programs/codebase-memory-mcp/codebase-memory-mcp.exe"
       ]
+    },
+    "chirag127": {
+      "type": "remote",
+      "command": [
+        null
+      ]
     }
   }
 }

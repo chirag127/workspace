@@ -54,6 +54,10 @@
     "codebase-memory": {
       "command": "C:/Users/C5420321/AppData/Local/Programs/codebase-memory-mcp/codebase-memory-mcp.exe",
       "args": []
+    },
+    "chirag127": {
+      "type": "http",
+      "url": "https://mcp.smithery.run/chirag127"
     }
   }
 }

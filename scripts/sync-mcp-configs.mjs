@@ -3,8 +3,11 @@
  * sync-mcp-configs.mjs
  *
  * Single source of truth: .mcp.json
- * Syncs to: .kilocode/mcp.json, .vscode/mcp.json, .antigravity/mcp.json
- * (identical format) and merges into .opencode/opencode.jsonc (different format).
+ * Fleet (2026-06-29 onward, 4 agents):
+ *   - Claude Code  → .mcp.json (canonical, no copy needed)
+ *   - Kilo Code    → .kilocode/mcp.json   (direct copy)
+ *   - Antigravity  → .antigravity/mcp.json (direct copy)
+ *   - OpenCode     → .opencode/opencode.jsonc (format-transformed)
  *
  * Run: node scripts/sync-mcp-configs.mjs
  */
@@ -45,7 +48,6 @@ console.log(`📦 Read ${count} MCP servers from .mcp.json`);
 // ── Sync identical-format targets ─────────────────────────────────
 const identicalTargets = [
   join(ROOT, '.kilocode', 'mcp.json'),
-  join(ROOT, '.vscode', 'mcp.json'),
   join(ROOT, '.antigravity', 'mcp.json'),
 ];
 
@@ -80,4 +82,4 @@ if (!existsSync(opencodePath)) {
   console.log(`  ✅ Synced ${count} servers → .opencode/opencode.jsonc`);
 }
 
-console.log(`\n🎉 All ${count} MCP servers synced to all 5 agents.`);
+console.log(`\n🎉 All ${count} MCP servers synced to the 4-agent fleet.`);
