@@ -83,32 +83,62 @@ function copyRecursive(src, dst) {
 }
 
 const PER_AGENT_INSTALL = {
-  'claude-code-config': `# install Claude Code globally
+  'claude-code-config': `# CORP-LAPTOP-ONLY. Claude Code requires $20/mo Pro (no free tier).
+# This config assumes a Hr->hai->Bedrock corp proxy chain (also corp-only).
+# For personal/free use, see opencode-config or antigravity-config below.
+
+# install Claude Code (paid Pro required to actually run it)
 npm i -g @anthropic-ai/claude-code
 
 # mirror the global rules
 cp CLAUDE.md ~/.claude/CLAUDE.md
 
 # copy the settings template, then set ANTHROPIC_AUTH_TOKEN in ~/.claude/settings.local.json
+# settings.template.json points at Hr proxy on :8787 — adjust for direct Anthropic API or remove the BASE_URL line
 cp settings.template.json ~/.claude/settings.json`,
-  'opencode-config': `# install OpenCode CLI
+  'opencode-config': `# Personal-laptop friendly. OpenCode is free OSS (172K stars, surpassed CC on GitHub).
+
+# install OpenCode CLI
 npm i -g opencode-ai
 
 # point OpenCode at this config
 cp opencode.jsonc ~/.config/opencode/opencode.jsonc
-cp AGENTS.md ~/.config/opencode/AGENTS.md`,
-  'kilocode-config': `# install Kilo Code in VS Code
+cp AGENTS.md ~/.config/opencode/AGENTS.md
+
+# free providers to wire up (any one is enough):
+# - OpenRouter free tier (~50 free models, one OAuth, no card)
+# - Z.ai coding plan free tier (GLM-4.5-air, GLM-4.6 free)
+# - Google AI Studio (Gemini 2.0/2.5 free with rate limits)`,
+  'kilocode-config': `# Personal-laptop friendly. Free VS Code extension (replaces Roo Code, archived May 2026).
+
+# install Kilo Code in VS Code
 code --install-extension kilocode.Kilo-Code
 
 # copy into your project's .kilocode/
-mkdir -p .kilocode && cp -r rules mcp.json .kilocode/`,
-  'antigravity-config': `# install Antigravity IDE manually from https://antigravity.google.com/
+mkdir -p .kilocode && cp -r rules mcp.json .kilocode/
+
+# configure a free provider via Kilo Code's settings UI:
+# OpenRouter free, Z.ai free, Google AI Studio, or local (Ollama/LM Studio)`,
+  'antigravity-config': `# Personal-laptop primary. Google's free CLI/IDE: 1000 reqs/day, free Google account, no card.
+# Antigravity replaced Gemini CLI on 2026-05-19 (Google I/O); Gemini CLI sunset 2026-06-18.
+
+# install Antigravity IDE manually from https://antigravity.google.com/
 # then copy this config into your workspace
-mkdir -p .antigravity && cp AGENTS.md mcp.json .antigravity/`,
+mkdir -p .antigravity && cp AGENTS.md mcp.json .antigravity/
+
+# login with Google account on first launch — Gemini 3 free tier auto-applied`,
+}
+
+const PER_AGENT_BADGE = {
+  'claude-code-config': '> ⚠️ **Corp-laptop only.** Claude Code has no free tier (Pro = $20/mo as of 2026-06-29). This config assumes a corp Hr → hai → Bedrock proxy chain. For personal/free use see [opencode-config](https://github.com/oriz-org/opencode-config) or [antigravity-config](https://github.com/oriz-org/antigravity-config).',
+  'opencode-config': '> ✅ **Personal-laptop friendly.** OpenCode is free OSS. Pair with OpenRouter / Z.ai / Google AI Studio free tiers — no card required.',
+  'kilocode-config': '> ✅ **Personal-laptop friendly.** Free VS Code extension. Configure any free provider.',
+  'antigravity-config': '> ✅ **Personal-laptop primary.** Google free tier = 1000 reqs/day with a Google account, no card.',
 }
 
 const README_TEMPLATE = (agent) => {
   const installCmds = PER_AGENT_INSTALL[agent.name] || ''
+  const badge = PER_AGENT_BADGE[agent.name] || ''
   const filesList = [
     ...agent.copy.map(([s, d]) => `- \`${d}\` — mirrored from \`${s}\` in the canonical workspace`),
     ...(agent.extraFiles ? Object.keys(agent.extraFiles).map(f => `- \`${f}\` — scrubbed global config (secrets and absolute paths replaced with placeholders)`) : []),
@@ -119,12 +149,15 @@ const README_TEMPLATE = (agent) => {
 
 ${agent.desc}
 
+${badge}
+
 > **Canonical source:** [oriz-org/workspace](https://github.com/oriz-org/workspace) — this repo is a one-way mirror, edits here will be overwritten on next sync.
 
 ## Table of contents
 
 - [What's in this repo](#whats-in-this-repo)
 - [Quick install](#quick-install)
+- [Free vs paid](#free-vs-paid)
 - [Architecture](#architecture)
 - [Roadmap](#roadmap)
 - [Sync](#sync)
@@ -147,6 +180,19 @@ gh auth login
 git clone https://github.com/oriz-org/workspace.git C:/D/oriz --recurse-submodules
 \`\`\`
 
+## Free vs paid
+
+This fleet runs on two physical machines with different cost profiles:
+
+| Machine | Active agents | Provider |
+|---|---|---|
+| **Corp laptop** | Claude Code (primary) + OpenCode + Kilo Code + Antigravity | Anthropic via Hr → hai → Bedrock (corp-paid) |
+| **Personal laptop** | OpenCode + Kilo Code + Antigravity (no CC) | Free only: OpenRouter / Z.ai / Google AI Studio |
+
+**Hard rule:** [no card-on-file ever](https://github.com/oriz-org/workspace/blob/main/knowledge/rules/interaction/no-card-on-file.md). Claude Code's $20/mo Pro minimum (no free tier as of 2026-06-29) is therefore impossible on personal laptop and stays corp-only.
+
+Full split: [\`corp-vs-personal-laptop-split-2026-06-29\`](https://github.com/oriz-org/workspace/blob/main/knowledge/decisions/architecture/agent-tooling/corp-vs-personal-laptop-split-2026-06-29.md).
+
 ## Architecture
 
 Part of a 4-agent fleet (Claude Code, OpenCode, Kilo Code, Antigravity) sharing:
@@ -155,16 +201,13 @@ Part of a 4-agent fleet (Claude Code, OpenCode, Kilo Code, Antigravity) sharing:
 - **Canonical MCP servers** in [\`.mcp.json\`](https://github.com/oriz-org/workspace/blob/main/.mcp.json), synced to all 4 agents via [\`scripts/sync-mcp-configs.mjs\`](https://github.com/oriz-org/workspace/blob/main/scripts/sync-mcp-configs.mjs).
 - **Skills monorepo** at [\`oriz-org/agent-skills\`](https://github.com/oriz-org/agent-skills) — auto-discovered by all fleet agents via junctions.
 - **Knowledge base** at [\`knowledge/\`](https://github.com/oriz-org/workspace/tree/main/knowledge) — 793 OKF concept files (decisions, runbooks, services, rules, glossary).
-- **Headroom proxy chain** for input compression: \`agent → :8787 (Hr) → :6655 (hai) → Bedrock\`.
 
 Discipline (auto-loaded every session):
 
 - **Ponytail** — lazy senior dev ladder; reuse > stdlib > installed dep > one line > minimum code.
 - **Caveman** — terse prose, drop articles + filler + hedging.
 - **Output-minimalism** — no preamble, no restatement, answer-first ordering.
-- **Delegate-to-subagents-by-default** — \`researcher\` (Haiku) for fan-out reads.
-
-All free tier or corp-paid (Bedrock via SAP). **No card-on-file** ever — [hard rule](https://github.com/oriz-org/workspace/blob/main/knowledge/rules/interaction/no-card-on-file.md).
+- **Delegate-to-subagents-by-default** — \`researcher\` (Haiku) for fan-out reads (corp-laptop only; CC subagent).
 
 ## Roadmap
 
@@ -172,13 +215,14 @@ This mirror is being simplified around three directions:
 
 1. **Workspace-canonical, mirrors derived.** This repo is a one-way mirror of the workspace; never edit it directly. Source of truth: [\`oriz-org/workspace\`](https://github.com/oriz-org/workspace).
 2. **MCP fan-out via single canonical \`.mcp.json\`.** One file, synced to all 4 agents by a script. No per-agent MCP drift. Future: investigate [MCPProxy](https://github.com/TBXark/mcp-proxy) for lazy tool loading + a single MCP HTTP endpoint.
-3. **Headroom → hai → Bedrock chain stays opaque to the agent.** Local Hr proxy compresses input before upstream. Single \`ANTHROPIC_BASE_URL\`, no agent-level model routing complexity.
+3. **Free-only on personal, corp-paid only on corp.** No mixing. Claude Code stays corp-only; personal stack pivots on OpenCode + Antigravity free tier.
 
 ### Recent transitions
 
-- **2026-06-29.** Cline dropped from the fleet — overlapped Kilo Code (both VS Code, both MCP-native). See [\`fleet-cut-to-4-agents-2026-06-29\`](https://github.com/oriz-org/workspace/blob/main/knowledge/decisions/architecture/agent-tooling/fleet-cut-to-4-agents-2026-06-29.md).
-- **2026-06-29.** Locked workspace-canonical + derived-globals rule with \`scripts/sync-globals.mjs\` (manual-trigger). Global agent state (\`~/.claude/\`, \`~/.opencode/\`) regenerated from workspace on demand.
-- **2026-06-29.** Spun out these 4 mirror repos for discoverability.
+- **2026-06-29.** Locked corp-vs-personal split — CC + Bedrock chain corp-only, personal stack on OpenCode + Antigravity + free providers (OpenRouter / Z.ai / Google AI Studio).
+- **2026-06-29.** Cline dropped from the fleet — overlapped Kilo Code (both VS Code, both MCP-native).
+- **2026-06-29.** Locked workspace-canonical + derived-globals rule with \`scripts/sync-globals.mjs\` (manual-trigger).
+- **2026-06-29.** Spun out these 4 mirror repos for discoverability, inspired by [5kahoisaac/opencode-configs](https://github.com/5kahoisaac/opencode-configs).
 - **2026-06-28.** Ponytail + Caveman locked at ULTRA level — biggest token-savings discipline of the year.
 
 ## Sync
@@ -197,12 +241,13 @@ Inside this mirror, \`make help\` lists the available targets (one-liner shims a
 
 - **Canonical workspace:** https://github.com/oriz-org/workspace
 - **All 4 fleet agent mirrors:**
-  - [oriz-org/claude-code-config](https://github.com/oriz-org/claude-code-config)
-  - [oriz-org/opencode-config](https://github.com/oriz-org/opencode-config)
-  - [oriz-org/kilocode-config](https://github.com/oriz-org/kilocode-config)
-  - [oriz-org/antigravity-config](https://github.com/oriz-org/antigravity-config)
+  - [oriz-org/claude-code-config](https://github.com/oriz-org/claude-code-config) — corp-laptop only
+  - [oriz-org/opencode-config](https://github.com/oriz-org/opencode-config) — free-friendly
+  - [oriz-org/kilocode-config](https://github.com/oriz-org/kilocode-config) — free-friendly
+  - [oriz-org/antigravity-config](https://github.com/oriz-org/antigravity-config) — free-friendly, personal primary
 - **Skills monorepo:** https://github.com/oriz-org/agent-skills
 - **OKF spec:** https://github.com/oriz-org/workspace/blob/main/knowledge/_okf.md
+- **Corp vs personal split:** [\`corp-vs-personal-laptop-split-2026-06-29\`](https://github.com/oriz-org/workspace/blob/main/knowledge/decisions/architecture/agent-tooling/corp-vs-personal-laptop-split-2026-06-29.md)
 - **Inspiration:** [5kahoisaac/opencode-configs](https://github.com/5kahoisaac/opencode-configs) — README structure (TOC, Roadmap, Recent transitions) borrowed; agent-personas + paid model routing skipped (free-only constraint).
 
 ## License
