@@ -1,19 +1,20 @@
 ---
 type: rule
-title: 'Claude Code latency: keep cache hot, route through Hr, no mid-session switches'
-description: Per Anthropic's prompt-caching docs and April 2026 incident postmortem. Pick model + effort at session start, don't change mid-task. Route through Headroom. Use skill triggers (slash commands) over prose discussion.
+title: 'Claude Code latency: keep cache hot, route through Hr, balance speed/accuracy/cost'
+description: Per Anthropic's prompt-caching docs, April 2026 incident postmortem, and 2026-06-29 grill-me settings rebalance. Pick model + effort at session start, don't change mid-task. Route through Headroom. Use skill triggers (slash commands) over prose discussion.
 tags: [latency, speed, claude-code, prompt-caching, headroom, hard-rule]
-timestamp: 2026-06-27
+timestamp: 2026-06-29
 format_version: okf-v0.1
 status: active
 related:
   - rules/agent/ponytail
   - rules/agent/caveman
+  - rules/agent/preferences/cc-settings-balance
 ---
 
 # Claude Code latency optimization
 
-Goal: minimize turn-time (NOT cost). Per [Anthropic prompt-caching docs](https://code.claude.com/docs/en/prompt-caching) and the [April 2026 postmortem](https://www.aakashx.com/blog/claude-code-slow-causes-fixes/).
+Goal: balance turn-time, output quality, and cost. Per [Anthropic prompt-caching docs](https://code.claude.com/docs/en/prompt-caching), the [April 2026 postmortem](https://www.aakashx.com/blog/claude-code-slow-causes-fixes/), and the [2026-06-29 settings-balance grill-me session](../../../knowledge/rules/agent/preferences/cc-settings-balance.md).
 
 ## The cache model (must understand to optimize)
 
@@ -47,37 +48,49 @@ DON'T do these mid-task unless absolutely necessary:
 
 Reserve `/compact` for natural breaks between tasks, not mid-task.
 
-## Settings.json for speed
+## Settings.json — current pin (2026-06-29 rebalance)
 
-`~/.claude/settings.json` (already restored 2026-06-27):
+`~/.claude/settings.json`:
 
 ```json
 {
   "env": {
-    "ANTHROPIC_BASE_URL": "http://localhost:8787",
+    "ANTHROPIC_BASE_URL": "http://127.0.0.1:8787",
     "ANTHROPIC_MODEL": "claude-opus-latest",
     "ANTHROPIC_DEFAULT_HAIKU_MODEL": "claude-haiku-latest",
     "ANTHROPIC_DEFAULT_OPUS_MODEL": "claude-opus-latest",
     "ANTHROPIC_DEFAULT_SONNET_MODEL": "claude-sonnet-latest",
-    "CLAUDE_CODE_DISABLE_EXPERIMENTAL_BETAS": "1",
     "CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC": "1",
+    "CLAUDE_CODE_USE_POWERSHELL_TOOL": "1",
+    "CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS": "1",
+    "CLAUDE_AUTOCOMPACT_PCT_OVERRIDE": "85",
     "DISABLE_ERROR_REPORTING": "1",
     "DISABLE_TELEMETRY": "1",
     "ENABLE_TOOL_SEARCH": "auto"
   },
-  "alwaysThinkingEnabled": false,
+  "model": "claude-opus-latest",
   "effortLevel": "high",
-  "model": "claude-opus-latest"
+  "alwaysThinkingEnabled": true,
+  "showThinkingSummaries": true,
+  "autoMemoryEnabled": true,
+  "switchModelsOnFlag": true
 }
 ```
 
-Why each line matters for latency:
-- `ANTHROPIC_BASE_URL=http://localhost:8787` — routes through Headroom which compresses chat/file context before model sees it. Less input = faster TTFT.
-- `CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC=1` — skips background analytics HTTP calls during a session.
-- `DISABLE_TELEMETRY=1`, `DISABLE_ERROR_REPORTING=1` — same; cuts background HTTP fan-out.
+Auth token lives in `~/.claude/settings.local.json` (gitignored).
+
+Why each line matters:
+- `ANTHROPIC_BASE_URL=http://127.0.0.1:8787` — routes through Headroom which compresses chat/file context. Less input = faster TTFT.
+- `CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC=1` — skips background analytics HTTP. Faster TTFT.
+- `CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS=1` — auto-fanout 2-3 subagents on architecture/research tasks. Costs 2-3× tokens for wall-clock win.
+- `CLAUDE_AUTOCOMPACT_PCT_OVERRIDE=85` — compact context at 85% (default-ish). Trades rare cache rebuilds for fewer summarization passes.
 - `ENABLE_TOOL_SEARCH=auto` — defers MCP tool definitions out of the cache prefix. Connecting/disconnecting MCP servers no longer invalidates cache.
-- `effortLevel=high`, `model=claude-opus-latest` — pinned. No mid-session switches = no cache rebuilds.
-- `alwaysThinkingEnabled=false` — saves "thinking" tokens on simple turns; high effort kicks in only when needed.
+- `effortLevel=high` — Anthropic's pre-March-2026 default. Strong reasoning without xhigh's cost. `/effort xhigh` per-task when needed.
+- `alwaysThinkingEnabled=true` — forces non-zero think tokens every turn. Prevents the Feb-2026 zero-think-tokens bug (AMD's 6852-session analysis, Boris Cherny HN confirmation).
+- **Adaptive thinking is left ENABLED** (default). Combined with `alwaysThinkingEnabled=true`, this gives: floor>0 always, depth auto-tuned per turn. Cheaper than always-xhigh, safer than adaptive-alone. The balanced position.
+- `showThinkingSummaries=true` — reasoning visible in terminal. Catches bad paths early.
+- `model=claude-opus-latest` — daily driver. Opus through Hr (corp Bedrock) means cost is downstream concern. `/fast` switches to Sonnet on mechanical work.
+- `switchModelsOnFlag=true` — makes `/fast` actually switch models.
 
 ## Skill triggers > free-form prose
 
