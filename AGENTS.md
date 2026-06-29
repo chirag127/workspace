@@ -20,7 +20,7 @@ These 12 files inline into the agent context on every session. They govern *ever
 @knowledge/rules/interaction/future-overrides-past.md
 @knowledge/rules/interaction/communication-stt-friendly.md
 @knowledge/rules/agent/mcp-config-single-source-of-truth.md
-@knowledge/rules/agent/no-global-config-without-grilling.md
+@knowledge/rules/agent/globals-derived-from-workspace.md
 @knowledge/rules/agent/agent-fleet-parity.md
 
 **Lazy-loaded** — read on first knowledge access, not auto-imported:
@@ -167,7 +167,8 @@ Grouped by subdirectory of `knowledge/rules/`. The full table with descriptions 
 - `keep-knowledge-fresh` — read before acting, write decisions back same session.
 - `knowledge-deletion-not-supersession` — `git rm` superseded files; git history is the audit trail.
 - `knowledge-first` — durable info goes to `knowledge/`, never README/AGENTS.
-- `no-global-config-without-grilling` — workspace-only is default; every global config item needs grilling.
+- `no-global-config-without-grilling` superseded 2026-06-29 by `globals-derived-from-workspace` (workspace canonical, globals derived by script; deleted file recoverable via `git log --follow`).
+- `globals-derived-from-workspace` — workspace canonical; globals written by `scripts/sync-globals.mjs`; script grill-mes on drift.
 - `read-before-edit` — always Read before Edit; harness enforces.
 - `self-update-rule` — every locked decision = concept file + log line + commit in the same conversation.
 - `agents-md-2025-discipline` — AGENTS.md short, sharp; bulk in `knowledge/`.

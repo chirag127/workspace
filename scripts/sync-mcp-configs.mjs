@@ -65,13 +65,24 @@ if (!existsSync(opencodePath)) {
   if (!opencode.mcp) opencode.mcp = {};
 
   for (const [name, cfg] of Object.entries(servers)) {
-    opencode.mcp[name] = {
-      type: cfg.type === 'http' ? 'remote' : 'local',
-      command: [cfg.command, ...(cfg.args ?? [])],
-      ...(cfg.env && Object.keys(cfg.env).length > 0
-        ? { environment: cfg.env }
-        : {}),
-    };
+    if (cfg.type === 'http' || cfg.type === 'sse') {
+      // Remote MCP: OpenCode wants { type, url, enabled }
+      opencode.mcp[name] = {
+        type: 'remote',
+        url: cfg.url,
+        enabled: true,
+      };
+    } else {
+      // Local MCP: OpenCode wants { type: 'local', command, environment? }
+      opencode.mcp[name] = {
+        type: 'local',
+        command: [cfg.command, ...(cfg.args ?? [])],
+        enabled: true,
+        ...(cfg.env && Object.keys(cfg.env).length > 0
+          ? { environment: cfg.env }
+          : {}),
+      };
+    }
   }
 
   // Write back as JSONC (no comments preserved — they're instructions, not config)

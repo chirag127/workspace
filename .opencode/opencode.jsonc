@@ -10,7 +10,8 @@
       "command": [
         "uvx",
         "mcp-server-fetch"
-      ]
+      ],
+      "enabled": true
     },
     "searxng": {
       "type": "local",
@@ -19,6 +20,7 @@
         "-y",
         "mcp-searxng"
       ],
+      "enabled": true,
       "environment": {
         "SEARXNG_URL": "https://baresearch.org"
       }
@@ -30,6 +32,7 @@
         "-y",
         "open-websearch"
       ],
+      "enabled": true,
       "environment": {
         "MODE": "stdio",
         "DEFAULT_SEARCH_ENGINE": "duckduckgo"
@@ -40,7 +43,8 @@
       "command": [
         "node",
         "./scripts/crawl-mcp/server.js"
-      ]
+      ],
+      "enabled": true
     },
     "serena": {
       "type": "local",
@@ -54,19 +58,20 @@
         "ide-assistant",
         "--project",
         "."
-      ]
+      ],
+      "enabled": true
     },
     "codebase-memory": {
       "type": "local",
       "command": [
         "C:/Users/C5420321/AppData/Local/Programs/codebase-memory-mcp/codebase-memory-mcp.exe"
-      ]
+      ],
+      "enabled": true
     },
     "chirag127": {
       "type": "remote",
-      "command": [
-        null
-      ]
+      "url": "https://mcp.smithery.run/chirag127",
+      "enabled": true
     }
   }
 }
