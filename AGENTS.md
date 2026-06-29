@@ -8,7 +8,7 @@
 
 ## Always-loaded rules (auto-imported every session)
 
-These 12 files inline into the agent context on every session. They govern *every* response. Everything else in `knowledge/` is on-demand — read when the topic comes up, via `knowledge/index.md`.
+These 13 files inline into the agent context on every session. They govern *every* response. Everything else in `knowledge/` is on-demand — read when the topic comes up, via `knowledge/index.md`.
 
 @knowledge/rules/agent/ponytail.md
 @knowledge/rules/agent/caveman.md
@@ -22,6 +22,7 @@ These 12 files inline into the agent context on every session. They govern *ever
 @knowledge/rules/agent/mcp-config-single-source-of-truth.md
 @knowledge/rules/agent/globals-derived-from-workspace.md
 @knowledge/rules/agent/agent-fleet-parity.md
+@knowledge/rules/agent/agents-md-three-place-update.md
 
 **Lazy-loaded** — read on first knowledge access, not auto-imported:
 - [`knowledge/rules/agent/agent-minimum-context.md`](./knowledge/rules/agent/agent-minimum-context.md) — meta-protocol for navigating `knowledge/`. Read this BEFORE the first grep/read in `knowledge/` each session.
@@ -153,22 +154,23 @@ Full rationale: [`knowledge/decisions/architecture/infrastructure/workspace-flat
 
 ---
 
-## Rules (75 total) — non-negotiable
+## Rules (78 total) — non-negotiable
 
-Grouped by subdirectory of `knowledge/rules/`. The full table with descriptions lives in [`knowledge/index.md`](./knowledge/index.md#rules-75-total).
+Grouped by subdirectory of `knowledge/rules/`. The full table with descriptions lives in [`knowledge/index.md`](./knowledge/index.md#rules-78-total).
 
-### Agent behaviour (14) — `knowledge/rules/agent/`
+### Agent behaviour (16) — `knowledge/rules/agent/`
 - `agent-fleet-parity` — same rules + MCPs across all 4 fleet agents (CC, OpenCode, Kilo Code, Antigravity).
 - `agent-minimum-context` — operate on this repo with minimum upfront token cost.
+- `agents-md-three-place-update` — adding a rule lands in 3 places: concept file + AGENTS.md table + count bump, same commit.
 - `auto-grill-on-architectural-decisions` — before any multi-file architectural choice, grill first.
 - `confirm-knowledge-deltas` — when user contradicts/narrows/reverses knowledge, confirm before writing.
+- `globals-derived-from-workspace` — workspace canonical; globals written by `scripts/sync-globals.mjs`; script grill-mes on drift.
 - `grill-on-loc-removal` — ≥50 LOC delete needs a grill-me MCQ first.
 - `grill-to-knowledge` — every locked grill answer lands in `knowledge/`.
+- `junctions-on-windows` — use `mklink /J` on Windows, `ln -s` on Unix for shared-content links.
 - `keep-knowledge-fresh` — read before acting, write decisions back same session.
 - `knowledge-deletion-not-supersession` — `git rm` superseded files; git history is the audit trail.
 - `knowledge-first` — durable info goes to `knowledge/`, never README/AGENTS.
-- `no-global-config-without-grilling` superseded 2026-06-29 by `globals-derived-from-workspace` (workspace canonical, globals derived by script; deleted file recoverable via `git log --follow`).
-- `globals-derived-from-workspace` — workspace canonical; globals written by `scripts/sync-globals.mjs`; script grill-mes on drift.
 - `read-before-edit` — always Read before Edit; harness enforces.
 - `self-update-rule` — every locked decision = concept file + log line + commit in the same conversation.
 - `agents-md-2025-discipline` — AGENTS.md short, sharp; bulk in `knowledge/`.
@@ -181,8 +183,8 @@ Grouped by subdirectory of `knowledge/rules/`. The full table with descriptions 
 - `no-emoji-in-chrome` — no emoji in nav, headers, footers, wordmarks, `<title>`.
 - `per-app-distinctive-frontend-design` — each app gets its own palette/type/signature.
 
-### Development (20) — `knowledge/rules/development/`
-- `always-latest-deps`, `astro-version-pin`, `community-packages-first`, `conventional-commits`, `env-example-mirrors-env-with-steps` (per-repo `.env.example` + `.env` in lock-step; every var documented with how-to-obtain steps), `fork-discipline`, `git-identity-chirag127-noreply`, `mcp-repo-naming-suffix` (`<name>-mcp` suffix for own MCP server repos), `no-force-push-to-main`, `no-rebuilding-free-software`, `no-web3forms-server-side`, `one-branch-only`, `playwright-persistent-sessions`, `push-by-default`, `readme-star-badge-required`, `repo-naming`, `repos-work-independently`, `tests-parallel-and-master-install`, `use-pnpm`, `userscript-author-handle`.
+### Development (21) — `knowledge/rules/development/`
+- `always-latest-deps`, `astro-version-pin`, `community-packages-first`, `conventional-commits`, `env-example-mirrors-env-with-steps` (per-repo `.env.example` + `.env` in lock-step; every var documented with how-to-obtain steps), `fork-discipline`, `git-identity-chirag127-noreply`, `mcp-fork-pattern-in-frk` (MCP forks live in `repos/frk/<name>-mcp/`; fix in fork → PR upstream), `mcp-repo-naming-suffix` (`<name>-mcp` suffix for own MCP server repos), `no-force-push-to-main`, `no-rebuilding-free-software`, `no-web3forms-server-side`, `one-branch-only`, `playwright-persistent-sessions`, `push-by-default`, `readme-star-badge-required`, `repo-naming`, `repos-work-independently`, `tests-parallel-and-master-install`, `use-pnpm`, `userscript-author-handle`.
 
 ### Infrastructure (10) — `knowledge/rules/infrastructure/`
 - `aws-lambda-exception` (3rd-rail fallback), `cloudflare-pages-apps-only`, `cloudflare-pages-only`, `free-tier-with-cost-controls` (cards OK only with hard caps), `no-firebase-admin-in-workers`, `no-firebase-functions-blaze`, `no-paid-self-hosting-only`, `no-subscriptions`, `one-level-subdomain-only`, `shared-tenant-by-default` (one Sentry/GA4/Clarity family-wide).
