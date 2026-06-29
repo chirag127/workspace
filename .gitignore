@@ -56,3 +56,13 @@ logs
 
 # Knowledge graph index — local-only, regenerated via mcp__codebase-memory__index_repository
 .codebase-memory/
+
+# Junctions/symlinks to repos/own/infra/agent-skills — content lives there, not here
+.agents/skills
+.claude/skills
+.kilocode/skills
+.opencode/skills
+.gemini/
+
+# Local scratch / staging — not source
+.staging/
