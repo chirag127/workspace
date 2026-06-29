@@ -1,19 +1,20 @@
-# Hourly sync of oriz-org forks from their upstreams.
+# Weekly upstream sync for oriz-org forks (auto-PR, auto-merge on clean).
 #
-# Per knowledge/rules/agent/fork-thin-upstream-tracking.md:
-# - oriz-org/freellmapi  main MUST equal tashfeenahmed/freellmapi  main exactly
-# - oriz-org/omniroute   main MUST equal diegosouzapw/OmniRoute    main exactly
-# - All oriz work happens via PRs FROM chirag127 personal forks (not from oriz-org)
-# - Forks stay 100% upstream-clean. No oriz files on fork main, ever.
+# Per knowledge/agent-rules/fork-thin-upstream-tracking.md (revised 2026-06-29):
+# - oriz-org/freellmapi  main tracks tashfeenahmed/freellmapi  main
+# - oriz-org/omniroute   main tracks diegosouzapw/OmniRoute    main
+# - Sync model: weekly cron opens a PR; auto-merge on clean fast-forward, human review on conflict.
+# - Oriz work still never touches fork main; lives on `oriz/<topic>` branches or
+#   the chirag127 personal fork per the rule. Force-push of fork main is no longer used.
 #
-# This workflow runs hourly from the UMBRELLA repo so the forks themselves
-# carry zero oriz files. Each fork gets force-pushed to match upstream.
+# Schedule rationale: Sunday 03:00 IST = 21:30 UTC Saturday = quiet hours,
+# weekend gives time to triage Monday morning before workweek.
 
 name: oriz-sync-forks
 
 on:
   schedule:
-    - cron: '17 * * * *'  # hourly at :17 to dodge GHA queue peaks
+    - cron: '30 21 * * 6'  # Sun 03:00 IST = Sat 21:30 UTC
   workflow_dispatch:
 
 permissions:
@@ -33,7 +34,7 @@ jobs:
         env:
           # SYNC_TOKEN must be a PAT (classic, repo scope) stored in
           # oriz-org/workspace > Settings > Secrets and variables > Actions.
-          # The default GITHUB_TOKEN cannot push to OTHER repos.
+          # The default GITHUB_TOKEN cannot push to OTHER repos or open cross-repo PRs.
           GH_TOKEN: ${{ secrets.SYNC_TOKEN }}
           FORK: ${{ matrix.fork.name }}
           UPSTREAM: ${{ matrix.fork.upstream }}
@@ -45,20 +46,52 @@ jobs:
             exit 1
           fi
 
-          # Clone upstream shallowly + add fork as second remote.
-          git clone --depth=50 "https://github.com/${UPSTREAM}.git" work
+          # Clone the FORK (not upstream) — we need to push branches + open PRs against it.
+          git clone "https://x-access-token:${GH_TOKEN}@github.com/oriz-org/${FORK}.git" work
           cd work
-          git remote add fork "https://x-access-token:${GH_TOKEN}@github.com/oriz-org/${FORK}.git"
-          git fetch fork "${BRANCH}" || true
+          git config user.name  "oriz-sync-bot"
+          git config user.email "noreply@oriz.in"
 
-          # Hard-reset fork to match upstream exactly.
-          UPSTREAM_SHA=$(git rev-parse HEAD)
-          FORK_SHA=$(git rev-parse "fork/${BRANCH}" 2>/dev/null || echo "none")
+          git remote add upstream "https://github.com/${UPSTREAM}.git"
+          git fetch upstream "${BRANCH}"
+
+          UPSTREAM_SHA=$(git rev-parse "upstream/${BRANCH}")
+          FORK_SHA=$(git rev-parse "${BRANCH}")
           if [ "${UPSTREAM_SHA}" = "${FORK_SHA}" ]; then
             echo "${FORK}: already in sync (sha=${UPSTREAM_SHA::7})"
             exit 0
           fi
 
-          echo "${FORK}: upstream=${UPSTREAM_SHA::7}, fork=${FORK_SHA::7} — force-pushing"
-          git push --force fork "HEAD:${BRANCH}"
-          echo "::notice::${FORK} synced to ${UPSTREAM_SHA::7}"
+          # Create a sync branch from upstream and push it.
+          SYNC_BRANCH="upstream-sync/$(date -u +%Y-%m-%d)"
+          git checkout -b "${SYNC_BRANCH}" "upstream/${BRANCH}"
+          git push -f origin "${SYNC_BRANCH}"
+
+          # Open (or reuse) a PR from sync branch into fork main.
+          PR_TITLE="chore: sync from upstream ${UPSTREAM} @ ${UPSTREAM_SHA::7}"
+          PR_BODY="Automated weekly sync.
+
+          - Upstream: \`${UPSTREAM}@${BRANCH}\` -> \`${UPSTREAM_SHA}\`
+          - Fork:     \`oriz-org/${FORK}@${BRANCH}\` -> \`${FORK_SHA}\`
+
+          Per [fork-thin-upstream-tracking](https://github.com/oriz-org/workspace/blob/main/knowledge/agent-rules/fork-thin-upstream-tracking.md): oriz work never lands on fork main. This PR brings the fork's main back in step with upstream."
+
+          EXISTING=$(gh pr list --repo "oriz-org/${FORK}" --head "${SYNC_BRANCH}" --json number --jq '.[0].number' || echo "")
+          if [ -z "${EXISTING}" ]; then
+            gh pr create \
+              --repo "oriz-org/${FORK}" \
+              --base "${BRANCH}" \
+              --head "${SYNC_BRANCH}" \
+              --title "${PR_TITLE}" \
+              --body  "${PR_BODY}"
+          else
+            echo "${FORK}: reusing existing PR #${EXISTING}"
+          fi
+
+          # Enable auto-merge (merge commit, since this is a tracking branch).
+          # If the PR is already mergeable + checks pass, this merges immediately.
+          # If conflicts exist, auto-merge waits for a human to resolve.
+          gh pr merge --repo "oriz-org/${FORK}" --auto --merge "${SYNC_BRANCH}" || \
+            echo "::warning::${FORK}: auto-merge could not be enabled; PR awaiting human review"
+
+          echo "::notice::${FORK}: PR open for ${UPSTREAM_SHA::7} (was ${FORK_SHA::7})"
