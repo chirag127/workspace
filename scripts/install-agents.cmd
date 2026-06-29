@@ -5,8 +5,8 @@ REM
 REM  Installs the 4 free coding agents wired to this workspace:
 REM    - Claude Code   (already installed; verifies only)
 REM    - OpenCode      (npm i -g opencode-ai)
-REM    - Cline         (VS Code ext saoudrizwan.claude-dev)
 REM    - Kilo Code     (VS Code ext kilocode.Kilo-Code)
+REM    - Antigravity   (manual install from https://antigravity.google.com/)
 REM
 REM  Workspace-only. Touches NO global config files.
 REM  All stubs are inside C:\D\oriz\.agents\

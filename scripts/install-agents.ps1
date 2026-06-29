@@ -108,8 +108,8 @@ if (Have opencode) {
   }
 }
 
-# ── 4. VS Code + Cline + Kilo Code ────────────────────────────────────────
-Step '4. VS Code + extensions'
+# ── 4. VS Code + Kilo Code ────────────────────────────────────────────────
+Step '4. VS Code + Kilo Code'
 
 # VS Code installs go to either system-wide or user-local. Check both.
 $vsCodeBins = @(
@@ -130,9 +130,8 @@ if (-not (Have code)) {
 
 if (Have code) {
   Ok ('code: ' + ((code --version 2>&1) | Select-Object -First 1 | Out-String).Trim())
-  Invoke-Native 'code --install-extension saoudrizwan.claude-dev --force' | Out-Null
   Invoke-Native 'code --install-extension kilocode.Kilo-Code --force'     | Out-Null
-  Ok 'Cline + Kilo Code installed via VS Code'
+  Ok 'Kilo Code installed via VS Code'
 } else {
   Warn ("code CLI not on PATH. Looked in:`n     " + ($vsCodeBins -join "`n     ") + "`n  Open a new cmd window (PATH refresh) and re-run if VS Code was just installed.")
 }
@@ -180,8 +179,8 @@ Write-Host ''
 Write-Host '  Agents wired:'
 Write-Host '    - Claude Code (reads C:\D\oriz\CLAUDE.md + AGENTS.md)' -ForegroundColor Green
 Write-Host '    - OpenCode    (reads C:\D\oriz\AGENTS.md)'             -ForegroundColor Green
-Write-Host '    - Cline       (reads C:\D\oriz\AGENTS.md)'             -ForegroundColor Green
 Write-Host '    - Kilo Code   (reads C:\D\oriz\.kilocode\rules\)'      -ForegroundColor Green
+Write-Host '    - Antigravity (install manually; reads C:\D\oriz\AGENTS.md)' -ForegroundColor Green
 Write-Host ''
 Write-Host '  No global files were modified.' -ForegroundColor DarkGray
 Write-Host ''
