@@ -300,6 +300,6 @@ To be decided. Candidates: `oriz-color-palette-tools-app` (color picker, palette
 
 ## Cross-refs
 
-- Per-app briefs ? [[decisions/architecture/per-app-briefs-2026-06-22]]
-- Minimal UI lib set ? [[decisions/architecture/minimal-ui-library-set]]
-- Charts (ECharts lazy) ? [[decisions/architecture/charts-echarts-lazy]]
+- Per-app briefs ? [[decisions/apps/per-app-briefs-2026-06-22]]
+- Minimal UI lib set ? [[decisions/ops/maximum-libraries-policy]]
+- Charts (ECharts lazy) ? [[decisions/frontend/charts-echarts-lazy]]

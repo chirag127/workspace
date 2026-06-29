@@ -63,9 +63,9 @@ See [[policy/monetisation-channel-matrix]] for the family-wide matrix that locks
 
 - Astro + CF Pages (per family hosting rule).
 - GH Action does the scrape (not a CF Worker — scrape uses `node-fetch` + `cheerio`, runs once a day, no quota concern).
-- Per-state store map via Leaflet + OpenStreetMap tiles (no Mapbox token — see [[decisions/architecture/geocoding-deferred]]).
+- Per-state store map via Leaflet + OpenStreetMap tiles (no Mapbox token — see [[decisions/ops/geocoding-deferred]]).
 
 ## Cross-refs
 
-- Q3 priority ? [[decisions/architecture/ship-order-2026q3]]
+- Q3 priority ? [[decisions/apps/ship-order-2026q3]]
 - Monetisation lock ? [[policy/monetisation-channel-matrix]]

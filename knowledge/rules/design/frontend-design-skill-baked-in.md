@@ -87,4 +87,4 @@ Words appear in a design for one reason: to make it easier to understand and the
 ## Cross-refs
 
 - Per-app distinctive design → [[rules/per-app-distinctive-frontend-design]]
-- Shared-vs-divergent matrix → [[decisions/architecture/shared-vs-divergent-matrix]]
+- Shared-vs-divergent matrix → [[decisions/ops/shared-vs-divergent-matrix]]

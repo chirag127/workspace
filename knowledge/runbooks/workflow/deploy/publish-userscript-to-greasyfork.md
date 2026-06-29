@@ -110,5 +110,5 @@ Skip: Sleazyfork (NSFW-only), ScriptCat (CJK market — only relevant if your sc
 
 ## Cross-refs
 
-- The Tweeks-to-userscript prototype workflow: [[decisions/architecture/userscript-prototype-via-tweeks]]
+- The Tweeks-to-userscript prototype workflow: [[decisions/apps/userscript-prototype-via-tweeks]]
 - Userscripts monorepo location: `repos/oriz/own/prod/userscripts/`

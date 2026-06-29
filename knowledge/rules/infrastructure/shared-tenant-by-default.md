@@ -98,4 +98,4 @@ Default = shared. Per-app = exceptional.
 - Org-level secrets rule → [[rules/org-level-secrets-only-no-per-repo]]
 - Never hit quotas → [[rules/never-hit-quotas]]
 - No card on file → [[rules/no-card-on-file]]
-- Stack picks → [[decisions/architecture/stack-picks-2026-06-22]]
+- Stack picks → [[decisions/stack/stack-picks-2026-06-22]]

@@ -96,7 +96,7 @@ Added to `templates/.env.example` as DOCUMENTED env vars (with comments explaini
 
 ## Cross-refs
 
-- Single pricing page ? [[decisions/architecture/single-pricing-page-package]]
-- Payment architecture ? [[decisions/architecture/payment-architecture-direct-links]]
+- Single pricing page ? [[decisions/packages/single-pricing-page-package]]
+- Payment architecture ? [[security/payment-architecture-direct-links]]
 - Two-tier pricing ? [[monetisation/pricing/two-tier-ad-free-plus-pro]]
 - No Firebase Functions ? [[rules/no-firebase-functions-blaze]]

@@ -102,5 +102,5 @@ Delete from CF Pages dashboard any project that isn't on the 26 list above. Spec
 
 - Cloudflare Pages hosts every website and app (memory) → [[memory/hosting-split-cf-and-github-pages]] (now refined: apps-only)
 - One-level subdomain rule → [[rules/one-level-subdomain-only]]
-- API hosting triple-rail → [[decisions/architecture/api-hosting-triple-rail]]
-- Monetization centralized → [[decisions/architecture/monetization-centralized-on-oriz-in]]
+- API hosting triple-rail → [[decisions/compute/api-hosting-triple-rail]]
+- Monetization centralized → [[monetisation/monetization-centralized-on-oriz-in]]

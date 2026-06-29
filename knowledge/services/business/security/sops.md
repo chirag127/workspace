@@ -89,4 +89,4 @@ Pin to the latest stable. Currently v3.13.1. Check `getsops/sops/releases` quart
 - **Encrypting whole files** instead of values (use `git-crypt` if you want that; SOPS deliberately doesn't).
 - **Per-submodule different age keys.** Defeats the single-key recovery; see [[rules/submodule-env-files-three-file-pattern]].
 - **Storing the age key in any repo.** Bitwarden CLI only.
-- **Using SOPS for blob backups.** Use B2 instead — see [[decisions/architecture/backup-channels-alternative]].
+- **Using SOPS for blob backups.** Use B2 instead — see [[decisions/ops/backup-channels-alternative]].

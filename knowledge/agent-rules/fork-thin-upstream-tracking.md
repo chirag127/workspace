@@ -11,7 +11,6 @@ supersedes:
 related:
   - rules/development/fork-discipline
   - decisions/fleet/fleet-owner-oriz-org
-  - decisions/fleet/aggregator-strategy-side-by-side
 ---
 
 # Fork model
@@ -89,4 +88,3 @@ Saved as `archive/pre-2026-06-27` branch on `oriz-org/freellmapi`. Old work surv
 - `no-dual-remote-backup` — companion: GitHub IS the backup
 - `fork-discipline` — what stays in fork branches (`deploy/`, `docs/oriz/`, `.github/workflows/oriz-*`) + the minimum-diff principle
 - `fleet-owner-oriz-org` — ownership lives at org level
-- `aggregator-strategy-side-by-side` — OmniRoute + freellmapi side-by-side eval; both currently localhost-only at `:20128` and `:8123`

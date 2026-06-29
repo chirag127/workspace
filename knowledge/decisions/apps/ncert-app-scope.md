@@ -58,7 +58,7 @@ NCERT publishes per-chapter PDFs on `ncert.nic.in`. Students perpetually want on
 
 ## Why GH Releases not CF Pages
 
-CF Pages = 25 MB per asset. Merged Class 11 Physics in Hindi alone = ~80 MB. GH Releases = 2 GB per asset, unlimited download bandwidth, free for public repos. Compliant with [[rules/cloudflare-pages-only]] for the CATALOG (which IS on CF Pages); the storage for large binaries follows the existing rule in [[decisions/architecture/object-storage-split]].
+CF Pages = 25 MB per asset. Merged Class 11 Physics in Hindi alone = ~80 MB. GH Releases = 2 GB per asset, unlimited download bandwidth, free for public repos. Compliant with [[rules/cloudflare-pages-only]] for the CATALOG (which IS on CF Pages); the storage for large binaries follows the existing rule in [[decisions/database/object-storage-split]].
 
 ## Monetisation
 
@@ -66,5 +66,5 @@ Free + sponsor footer per family default. No ads on an education resource servin
 
 ## Cross-refs
 
-- GH Releases for large binaries ? [[decisions/architecture/object-storage-split]]
-- Q3 priority ? [[decisions/architecture/ship-order-2026q3]]
+- GH Releases for large binaries ? [[decisions/database/object-storage-split]]
+- Q3 priority ? [[decisions/apps/ship-order-2026q3]]

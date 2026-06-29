@@ -82,6 +82,6 @@ First-draft legal text generated via Termly free, refined manually, committed to
 
 ## Cross-refs
 
-- Shared-vs-divergent matrix ? [[decisions/architecture/shared-vs-divergent-matrix]]
-- Single pricing page ? [[decisions/architecture/single-pricing-page-package]]
+- Shared-vs-divergent matrix ? [[decisions/ops/shared-vs-divergent-matrix]]
+- Single pricing page ? [[decisions/packages/single-pricing-page-package]]
 - Per-app distinctive design ? [[rules/per-app-distinctive-frontend-design]]

@@ -8,7 +8,7 @@
 
 ## Always-loaded rules (auto-imported every session)
 
-These 14 files inline into the agent context on every session. They govern *every* response. Everything else in `knowledge/` is on-demand — read when the topic comes up, via `knowledge/index.md`.
+These 15 files inline into the agent context on every session. They govern *every* response. Everything else in `knowledge/` is on-demand — read when the topic comes up, via `knowledge/index.md`.
 
 @knowledge/rules/agent/ponytail.md
 @knowledge/rules/agent/caveman.md
@@ -24,6 +24,7 @@ These 14 files inline into the agent context on every session. They govern *ever
 @knowledge/rules/agent/globals-derived-from-workspace.md
 @knowledge/rules/agent/agent-fleet-parity.md
 @knowledge/rules/agent/agents-md-three-place-update.md
+@knowledge/agent-rules/okf-lookup-before-acting.md
 
 **Lazy-loaded** — read on first knowledge access, not auto-imported:
 - [`knowledge/rules/agent/agent-minimum-context.md`](./knowledge/rules/agent/agent-minimum-context.md) — meta-protocol for navigating `knowledge/`. Read this BEFORE the first grep/read in `knowledge/` each session.
@@ -65,18 +66,24 @@ Full details: `repos/own/backup/README.md` (private repo).
 
 ## Coding agents wired to this workspace
 
-Four agents are supported (Cline dropped 2026-06-29 — see [`fleet-cut-to-4-agents-2026-06-29`](./knowledge/decisions/architecture/agent-tooling/fleet-cut-to-4-agents-2026-06-29.md)). All read this file (`C:\D\oriz\AGENTS.md`) as the workspace source of truth via a per-agent stub at `C:\D\oriz\.agents\<agent>/`:
+Six agents are supported. Configs live in this repo (canonical only — no generated/junction content in root per [`knowledge/rules/infrastructure/workspace-root-cleanliness.md`](./knowledge/rules/infrastructure/workspace-root-cleanliness.md)):
 
-| Agent | Type | Install | Workspace stub | MCP config | Synced from `.mcp.json` |
-|---|---|---|---|---|---|
-| **Claude Code** | CLI (primary) | (already installed) | `.agents/claude/CLAUDE.md` | `.mcp.json` | ✅ Source of truth |
-| **OpenCode** | CLI | `npm i -g opencode-ai` | `.agents/opencode/AGENTS.md` | `.opencode/opencode.jsonc` | 🔄 Transformed |
-| **Kilo Code** | VS Code ext | `code --install-extension kilocode.Kilo-Code` | `.agents/kilocode/rules/00-pointer.md` | `.kilocode/mcp.json` | ✅ Direct copy |
-| **Antigravity** | Standalone IDE | https://antigravity.google.com/ (manual) | `.agents/antigravity/AGENTS.md` | `.antigravity/mcp.json` | ✅ Direct copy |
+| Agent | Type | Machine | Install | Workspace stub | MCP config | Synced from `.mcp.json` |
+|---|---|---|---|---|---|---|
+| **Claude Code** | CLI (primary) | Corp | (already installed) | `.agents/claude/CLAUDE.md` | `.mcp.json` | ✅ Source of truth |
+| **ZCode** | GUI IDE | Both | https://zcode.z.ai/ (manual) | `.agents/zcode/ZCODE.md` | GUI (Settings → MCP Servers) | 🧑 Configuration guide |
+| **OpenCode** | CLI | Personal | `npm i -g opencode-ai` | `.agents/opencode/AGENTS.md` | `.opencode/opencode.jsonc` | 🔄 Transformed |
+| **Kilo Code** | VS Code ext | Both | `code --install-extension kilocode.Kilo-Code` | `.agents/kilocode/rules/00-pointer.md` | `.kilocode/mcp.json` | ✅ Direct copy |
+| **Antigravity** | Standalone IDE | Personal | https://antigravity.google.com/ (manual) | `.agents/antigravity/AGENTS.md` | `.antigravity/mcp.json` | ✅ Direct copy |
+| **MiMoCode (mimo)** | CLI | Personal | `curl -fsSL https://mimo.xiaomi.com/install \| bash` (Git Bash) | `.agents/mimo/AGENTS.md` | `.mimocode/mimocode.json` | 🔄 Transformed |
 
-Failover order if Claude Code is unavailable: **OpenCode → Kilo Code → Antigravity**.
+> **mimo PATH caveat:** Installed to `~/.mimocode/bin/mimo.exe`. The install script adds `export PATH=$HOME/.mimocode/bin:$PATH` to `~/.bashrc` (Git Bash). Not visible in PowerShell by default. Run from Git Bash, or add to PowerShell profile: `$env:Path += ";$env:USERPROFILE\.mimocode\bin"`.
 
-Install the 3 CLI/extension agents at once: `C:\D\oriz\scripts\install-agents.cmd`. Idempotent, workspace-only (no global changes). Antigravity is a standalone IDE — install manually from Google's site.
+Failover order if Claude Code is unavailable: **ZCode → OpenCode → MiMoCode → Kilo Code → Antigravity**.
+
+Skill junctions live in user-global dirs (`~/.claude/skills/`, `~/.config/opencode/skills/`, `~/.kilocode/skills/`, `~/.zcode/skills/`) — never in workspace root. Run `node scripts/wire-agent-skills-junctions.mjs` to create them.
+
+Install the 4 CLI/extension agents at once: `C:\D\oriz\scripts\install-agents.cmd`. Idempotent, workspace-only (no global changes). ZCode + Antigravity are standalone GUI apps — install manually.
 
 Adding a new agent to the fleet requires a grill-me session per [`agent-fleet-parity`](./knowledge/rules/agent/agent-fleet-parity.md) + [`no-global-config-without-grilling`](./knowledge/rules/agent/no-global-config-without-grilling.md).
 
@@ -155,11 +162,11 @@ Full rationale: [`knowledge/decisions/architecture/infrastructure/workspace-flat
 
 ---
 
-## Rules (79 total) — non-negotiable
+## Rules (80 total) — non-negotiable
 
 Grouped by subdirectory of `knowledge/rules/`. The full table with descriptions lives in [`knowledge/index.md`](./knowledge/index.md#rules-78-total).
 
-### Agent behaviour (17) — `knowledge/rules/agent/`
+### Agent behaviour (18) — `knowledge/rules/agent/`
 - `agent-fleet-parity` — same rules + MCPs across all 4 fleet agents (CC, OpenCode, Kilo Code, Antigravity).
 - `agent-minimum-context` — operate on this repo with minimum upfront token cost.
 - `agents-md-three-place-update` — adding a rule lands in 3 places: concept file + AGENTS.md table + count bump, same commit.
@@ -172,11 +179,12 @@ Grouped by subdirectory of `knowledge/rules/`. The full table with descriptions 
 - `keep-knowledge-fresh` — read before acting, write decisions back same session.
 - `knowledge-deletion-not-supersession` — `git rm` superseded files; git history is the audit trail.
 - `knowledge-first` — durable info goes to `knowledge/`, never README/AGENTS.
+- `okf-lookup-before-acting` — every agent runs `scripts/okf-prompt-lookup.py` (CC via hook; others manually) to surface top-3 OKF files before answering. Fixes the discoverability gap.
 - `read-before-edit` — always Read before Edit; harness enforces.
 - `read-the-file-not-just-grep` — every external-issue / PR / public claim about another project's behaviour must be backed by a Read, not a grep alone. Cite file:line.
 - `self-update-rule` — every locked decision = concept file + log line + commit in the same conversation.
 - `agents-md-2025-discipline` — AGENTS.md short, sharp; bulk in `knowledge/`.
-- `mcp-config-single-source-of-truth` — `.mcp.json` is canonical; sync to all 4 agents via `node scripts/sync-mcp-configs.mjs`. Never edit per-agent MCP files directly.
+- `mcp-config-single-source-of-truth` — `.mcp.json` is canonical; sync to all 5 CLI/extension agents via `node scripts/sync-mcp-configs.mjs`. ZCode uses GUI. Never edit per-agent MCP files directly.
 
 ### Design (5) — `knowledge/rules/design/`
 - `design-divergence-vs-dedup` — per-app variants where it matters; shared where it doesn't.
@@ -188,8 +196,8 @@ Grouped by subdirectory of `knowledge/rules/`. The full table with descriptions 
 ### Development (21) — `knowledge/rules/development/`
 - `always-latest-deps`, `astro-version-pin`, `community-packages-first`, `conventional-commits`, `env-example-mirrors-env-with-steps` (per-repo `.env.example` + `.env` in lock-step; every var documented with how-to-obtain steps), `fork-discipline`, `git-identity-chirag127-noreply`, `mcp-fork-pattern-in-frk` (MCP forks live in `repos/frk/<name>-mcp/`; fix in fork → PR upstream), `mcp-repo-naming-suffix` (`<name>-mcp` suffix for own MCP server repos), `no-force-push-to-main`, `no-rebuilding-free-software`, `no-web3forms-server-side`, `one-branch-only`, `playwright-persistent-sessions`, `push-by-default`, `readme-star-badge-required`, `repo-naming`, `repos-work-independently`, `tests-parallel-and-master-install`, `use-pnpm`, `userscript-author-handle`.
 
-### Infrastructure (10) — `knowledge/rules/infrastructure/`
-- `aws-lambda-exception` (3rd-rail fallback), `cloudflare-pages-apps-only`, `cloudflare-pages-only`, `free-tier-with-cost-controls` (cards OK only with hard caps), `no-firebase-admin-in-workers`, `no-firebase-functions-blaze`, `no-paid-self-hosting-only`, `no-subscriptions`, `one-level-subdomain-only`, `shared-tenant-by-default` (one Sentry/GA4/Clarity family-wide).
+### Infrastructure (11) — `knowledge/rules/infrastructure/`
+- `aws-lambda-exception` (3rd-rail fallback), `cloudflare-pages-apps-only`, `cloudflare-pages-only`, `free-tier-with-cost-controls` (cards OK only with hard caps), `no-firebase-admin-in-workers`, `no-firebase-functions-blaze`, `no-paid-self-hosting-only`, `no-subscriptions`, `one-level-subdomain-only`, `shared-tenant-by-default` (one Sentry/GA4/Clarity family-wide), `workspace-root-cleanliness` (workspace root is canonical-config-only; no junctions/derived/generated content in root).
 
 ### User interaction (21) — `knowledge/rules/interaction/`
 - `auto-only-tracking`, `communication-stt-friendly`, `future-overrides-past`, `linux-ci-only`, `match-surrounding-style`, `never-delete-empty-placeholder-repos`, `never-hit-quotas` (≥10× headroom, alert at 60%), `no-card-on-file`, `openai-compat-for-all-ai-providers`, `parallel-by-default`, `parallel-fan-out-by-default`, `parse-mcq-other-for-context`, `profile-readme-cross-link`, `recruiter-strategy`, `telegram-channels-and-roles`, `user-prefers-atomic-split`, `user-prefers-deletion-over-archive`, `user-prefers-pure-tool-brand`, `user-prefers-same-name-repo-and-npm`, `user-prefers-strict-no-toggle`, `user-prefers-wider-coverage`.
@@ -328,7 +336,7 @@ Family vocabulary under [`knowledge/glossary/`](./knowledge/glossary/) — split
 
 ## Skills available
 
-Skills live at `repos/own/infra/agent-skills/<skill>/SKILL.md` (canonical) and are symlinked into `~/.claude/skills/` and `~/.agents/skills/`. The current set on this machine:
+Skills live at `repos/own/infra/agent-skills/<skill>/SKILL.md` (canonical). Junctions are wired into **user-global dirs only** (`~/.claude/skills/`, `~/.config/opencode/skills/`, `~/.kilocode/skills/`, `~/.zcode/skills/`) — never into workspace root. Run `node scripts/wire-agent-skills-junctions.mjs` to wire them on a fresh machine. The current set on this machine:
 
 | Skill | Purpose |
 |---|---|
@@ -358,25 +366,7 @@ Full skills inventory: [`knowledge/decisions/architecture/general/agent-skills-m
 - **`playwright-cli`** skill for browser automation (signed binaries pass Defender ASR).
 - **`sops` + `age`** for `.env.enc` ↔ `.env` decryption.
 - **`restic`** + Backblaze B2 for backup (`runbooks/security/restic-backup-setup.md`).
-- **`node scripts/sync-mcp-configs.mjs`** after every `.mcp.json` change — syncs MCP servers to all 4 agents (`.kilocode/`, `.antigravity/`, `.opencode/`; Claude Code reads `.mcp.json` directly).
-- **`make sync-showcases`** writes the 4 public per-agent mirror repos (see below).
-
----
-
-## Public showcase mirrors
-
-Inspired by [5kahoisaac/opencode-configs](https://github.com/5kahoisaac/opencode-configs) — a single-purpose, easy-to-star, copy-paste-friendly mirror per agent. **One-way mirrors**, this workspace remains canonical.
-
-| Mirror | Contents | Sync via |
-|---|---|---|
-| [`oriz-org/claude-code-config`](https://github.com/oriz-org/claude-code-config) | `CLAUDE.md` global rules, `settings.template.json` (scrubbed), `.mcp.json`, per-agent rules, 13 auto-loaded universal rules | `make sync-showcases` |
-| [`oriz-org/opencode-config`](https://github.com/oriz-org/opencode-config) | `AGENTS.md`, `opencode.jsonc` | same |
-| [`oriz-org/kilocode-config`](https://github.com/oriz-org/kilocode-config) | rules, `mcp.json` | same |
-| [`oriz-org/antigravity-config`](https://github.com/oriz-org/antigravity-config) | `AGENTS.md`, `mcp.json` | same |
-
-Each mirror has its own README (TOC + Roadmap + Recent Transitions + Reference Links) and Makefile (`make help`, `make sync`).
-
-Sync script: [`scripts/sync-config-showcases.mjs`](./scripts/sync-config-showcases.mjs). Runs manual-only — same discipline as [`globals-derived-from-workspace`](./knowledge/rules/agent/globals-derived-from-workspace.md). Scrubs `ANTHROPIC_AUTH_TOKEN` + per-user absolute paths before pushing.
+- **`node scripts/sync-mcp-configs.mjs`** after every `.mcp.json` change — syncs MCP servers to all 5 agents (`.kilocode/`, `.antigravity/`, `.opencode/`, `.mimocode/`; Claude Code reads `.mcp.json` directly; ZCode uses GUI).
 
 ---
 

@@ -161,6 +161,6 @@ Optional per content domain:
 ## Cross-refs
 
 - Per-app distinctive frontend design rule ? [[rules/per-app-distinctive-frontend-design]]
-- Single pricing page package ? [[decisions/architecture/single-pricing-page-package]]
-- Payment architecture ? [[decisions/architecture/payment-architecture-direct-links]]
+- Single pricing page package ? [[decisions/packages/single-pricing-page-package]]
+- Payment architecture ? [[security/payment-architecture-direct-links]]
 - No card on file ? [[rules/no-card-on-file]]

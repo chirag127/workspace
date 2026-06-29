@@ -25,7 +25,7 @@ status: active
 
 ## Agent-rules (70 total)
 
-### Agent behaviour (12)
+### Agent behaviour (13)
 
 | File | Description |
 |---|---|
@@ -40,6 +40,7 @@ status: active
 | [`knowledge-deletion-not-supersession`](./agent-rules/knowledge-deletion-not-supersession.md) | When a decision is superseded, git rm the old file in the same commit that adds the new one. Audit trail lives in git history. |
 | [`keep-knowledge-fresh`](./agent-rules/keep-knowledge-fresh.md) | Every session reads knowledge before acting, writes decisions as CURRENT TRUTH, |
 | [`read-before-edit`](./agent-rules/read-before-edit.md) | Always Read a file in the current session before calling Edit. The harness\ |
+| [`okf-lookup-before-acting`](./agent-rules/okf-lookup-before-acting.md) | Every agent runs scripts/okf-prompt-lookup.py (CC via hook; others manually) to surface top-3 OKF files before answering. |
 | [`self-update-rule`](./agent-rules/self-update-rule.md) | Every durable architectural / naming / stack / external-fact decision\ |
 
 ### Design (5)

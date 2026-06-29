@@ -37,5 +37,5 @@ The Worker's `AppType` flows through the workspace boundary like any other type 
 
 ## Cross-refs
 
-- Why ? [[decisions/architecture/hono-rpc-for-type-sharing]]
+- Why ? [[decisions/compute/hono-rpc-for-type-sharing]]
 - API umbrella ? [[architecture/api-umbrella-hono-worker]]

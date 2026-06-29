@@ -40,7 +40,7 @@ Why Oriz Me first:
 
 - Lowest research overhead — it's personal essays, the user is the source.
 - PWYW from $0 — accessible reach, low conversion friction.
-- Tests the publishing pipeline (Markua ? Pandoc ? EPUB/PDF/MOBI via [[decisions/architecture/book-publish-pipeline]]) on the lowest-stakes book.
+- Tests the publishing pipeline (Markua ? Pandoc ? EPUB/PDF/MOBI via [[decisions/content/book-publish-pipeline]]) on the lowest-stakes book.
 
 ## Other 4: chapter outlines only initially
 
@@ -53,14 +53,14 @@ Each gets a 1-page chapter outline committed to its repo. Full drafting deferred
 
 ## Channels per book
 
-Locked in [[decisions/architecture/book-publish-pipeline]]. Summary: each book ships to 5 channels (Leanpub + Gumroad + LemonSqueezy + D2D-aggregator + KDP). Google Play Books Partner Center is manual. Per-book `book.json` toggles channels.
+Locked in [[decisions/content/book-publish-pipeline]]. Summary: each book ships to 5 channels (Leanpub + Gumroad + LemonSqueezy + D2D-aggregator + KDP). Google Play Books Partner Center is manual. Per-book `book.json` toggles channels.
 
 ## Newsletter integration
 
-Sample chapters drop via Substack — the family newsletter platform per [[decisions/architecture/newsletter-substack]]. Free chapter PDF + "buy the full book" CTA per drop.
+Sample chapters drop via Substack — the family newsletter platform per [[decisions/stack/newsletter-substack]]. Free chapter PDF + "buy the full book" CTA per drop.
 
 ## Cross-refs
 
-- Pipeline tech (Markua + Pandoc + omni-publish) ? [[decisions/architecture/book-publish-pipeline]]
-- Single newsletter at Substack ? [[decisions/architecture/newsletter-substack]]
-- Q3 priority (books drafted parallel to Wave 1) ? [[decisions/architecture/ship-order-2026q3]]
+- Pipeline tech (Markua + Pandoc + omni-publish) ? [[decisions/content/book-publish-pipeline]]
+- Single newsletter at Substack ? [[decisions/stack/newsletter-substack]]
+- Q3 priority (books drafted parallel to Wave 1) ? [[decisions/apps/ship-order-2026q3]]

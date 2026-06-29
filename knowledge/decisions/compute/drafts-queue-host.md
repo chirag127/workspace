@@ -66,11 +66,11 @@ GH Issues advantages:
 
 ## Read surface
 
-The `omni-post-app` `/admin` dashboard reads this queue via the GH Issues API and renders it as a triage UI. See [[decisions/architecture/omni-post-app-shape]].
+The `omni-post-app` `/admin` dashboard reads this queue via the GH Issues API and renders it as a triage UI. See [[decisions/apps/omni-post-app-shape]].
 
 ## Cross-refs
 
 - Telegram-banned-India rule ? [[rules/no-telegram-india-banned]]
-- omni-publish package ? [[decisions/architecture/omni-publish-package]]
-- Dashboard reading this queue ? [[decisions/architecture/omni-post-app-shape]]
-- Cross-post strategy referencing this queue ? [[decisions/architecture/blog-cross-post-strategy]]
+- omni-publish package ? [[decisions/packages/omni-publish-package]]
+- Dashboard reading this queue ? [[decisions/apps/omni-post-app-shape]]
+- Cross-post strategy referencing this queue ? [[decisions/content/blog-cross-post-strategy]]

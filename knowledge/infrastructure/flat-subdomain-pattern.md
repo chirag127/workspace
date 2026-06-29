@@ -60,4 +60,4 @@ We'll have ~85 entries in DNS. CF allows unlimited records on a free plan. Risk 
 
 - One-level subdomain rule ? [[rules/one-level-subdomain-only]]
 - CF Pages apps-only ? [[rules/hosting-split-cf-and-github-pages]]
-- API triple-rail ? [[decisions/architecture/api-hosting-triple-rail]]
+- API triple-rail ? [[decisions/compute/api-hosting-triple-rail]]

@@ -93,6 +93,6 @@ If `account.oriz.in` signs into Firebase project A and a different app reads fro
 
 ## Cross-refs
 
-- Monetization sign-in surface → [[decisions/architecture/monetization-centralized-on-oriz-in]]
+- Monetization sign-in surface → [[monetisation/monetization-centralized-on-oriz-in]]
 - Family chrome (where the read happens) → `repos/oriz/own/lib/npm/astro-shell-npm-pkg/src/components/FamilyChrome.astro`
 - Cookie write → `repos/oriz/own/prod/apps/hub/oriz-auth-app/src/lib/firebase.ts` `startCookieSync`

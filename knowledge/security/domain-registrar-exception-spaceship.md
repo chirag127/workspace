@@ -1,4 +1,4 @@
-﻿---
+---
 type: decision
 title: "Domain registrar exception: Spaceship card-on-file auto-renew (oriz.in)"
 description: 'Spaceship exception to no-card rule: oriz.in auto-renew only'
@@ -21,7 +21,7 @@ related:
 - Losing `oriz.in` would invalidate the entire family (26 apps + 5 books + 17 packages cross-link the domain). Catastrophic.
 - All registrars require either:
   - A card-on-file for auto-renewal, OR
-  - Manual annual top-up that can be missed (and `.in` TLDs have aggressive deletion timelines after expiry — 30 days then auctioned).
+  - Manual annual top-up that can be missed (and `.in` TLDs have aggressive deletion timelines after expiry � 30 days then auctioned).
 - The risk of missing a manual renewal > the risk of one card-on-file at one registrar for one product.
 
 ## Bounds of this exception
@@ -32,7 +32,7 @@ related:
 
 ## Operational notes
 
-- Set a calendar reminder for 60 days before renewal — verify card still valid.
+- Set a calendar reminder for 60 days before renewal � verify card still valid.
 - Keep Spaceship account email synced to a primary inbox you monitor.
 - If Spaceship raises card requirements (e.g. requires CVV recheck), document the new constraint here and revisit.
 
@@ -42,5 +42,5 @@ If a no-card-on-file registrar offering `.in` TLD emerges (Cloudflare Registrar 
 
 ## Cross-refs
 
-- The rule this excepts → [[rules/no-card-on-file]]
-- The stack-picks decision that references this → [[decisions/architecture/stack-picks-2026-06-22]]
+- The rule this excepts ? [[rules/no-card-on-file]]
+- The stack-picks decision that references this ? [[decisions/stack/stack-picks-2026-06-22]]

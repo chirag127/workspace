@@ -109,5 +109,5 @@ related:
 
 - Cost-controls rule ? [[rules/free-tier-with-cost-controls]]
 - AWS Lambda exception ? [[rules/aws-lambda-exception]]
-- Hono portability ? [[decisions/architecture/hono-write-once-deploy-all-rails]]
+- Hono portability ? [[decisions/compute/hono-write-once-deploy-all-rails]]
 - 4-rail chain ? [[runbooks/free-hosting-providers/serverless-functions]]

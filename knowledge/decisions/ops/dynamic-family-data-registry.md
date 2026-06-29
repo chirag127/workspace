@@ -102,7 +102,7 @@ If a value changes frequently AND lives in multiple apps ? it goes in family-dat
 
 ## Cross-refs
 
-- FINAL per-app visual policy ? [[decisions/architecture/final-per-app-visual-shared-behavior]]
-- Footer 5-column structure ? [[decisions/architecture/footer-5-columns-responsive]]
-- Stats + feeds + versioning + template ? [[decisions/architecture/stats-feeds-versioning-template]]
+- FINAL per-app visual policy ? [[decisions/frontend/final-per-app-visual-shared-behavior]]
+- Footer 5-column structure ? [[decisions/frontend/footer-5-columns-responsive]]
+- Stats + feeds + versioning + template ? [[decisions/content/stats-feeds-versioning-template]]
 - Never hit quotas ? [[rules/never-hit-quotas]]

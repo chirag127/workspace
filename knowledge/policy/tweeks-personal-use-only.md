@@ -24,7 +24,7 @@ related:
 - **Download the .crx via `scripts/download-cws-extension.mjs`** for personal study + reverse engineering on YOUR machine.
 - **Modify the extracted bundle locally** at `C:/D/Tweeks-Customize-Any-Website-Chrome-Web-Store/` (or anywhere on YOUR disk) and load it as an unpacked extension in YOUR browser.
 - **Store the modified bundle in a PRIVATE single-repo** under chirag127 or oriz-org IF that repo is NOT part of the umbrella's submodule tree (the umbrella mirrors to 6 public hosts every Friday, which would publish proprietary code). Set the repo to private + NOT a submodule + name it something like `chirag127/tweeks-personal-mods` (not a public-facing slug).
-- **Use Tweeks unmodified** for prototyping userscript ideas (per [[decisions/architecture/userscript-prototype-via-tweeks]]).
+- **Use Tweeks unmodified** for prototyping userscript ideas (per [[decisions/apps/userscript-prototype-via-tweeks]]).
 - **Replicate functionality from scratch** — observation of behavior is fine; the API surface and ideas are not protected.
 
 ## What is NOT allowed
@@ -37,7 +37,7 @@ related:
 
 Build a USERSCRIPT that does the specific thing you wanted Tweeks to do. Userscripts (Tampermonkey / Violentmonkey / ScriptCat) cover most of what Tweeks does, are 100% your code, and live in the `repos/oriz/own/prod/userscripts/` monorepo with full Greasefork distribution rights.
 
-Per [[decisions/architecture/userscript-prototype-via-tweeks]], you can still prototype using Tweeks' AI generator AS LONG AS you copy out the generated JS and reshape it into your own .user.js. The generated JS is yours — it was generated against your prompt against your DOM. The Tweeks extension itself is not.
+Per [[decisions/apps/userscript-prototype-via-tweeks]], you can still prototype using Tweeks' AI generator AS LONG AS you copy out the generated JS and reshape it into your own .user.js. The generated JS is yours — it was generated against your prompt against your DOM. The Tweeks extension itself is not.
 
 ## Where local mods can live
 
@@ -50,5 +50,5 @@ If NextByte open-sources Tweeks (announces on tweeks.io or github.com/nextbyte-*
 ## Cross-refs
 
 - General forked-extension CWS policy: [[policy/forked-extension-cws-rules]]
-- Userscript prototype flow (Tweeks ? portable .user.js): [[decisions/architecture/userscript-prototype-via-tweeks]]
+- Userscript prototype flow (Tweeks ? portable .user.js): [[decisions/apps/userscript-prototype-via-tweeks]]
 - Fork discipline (applies only to OSS forks): [[rules/fork-discipline]]

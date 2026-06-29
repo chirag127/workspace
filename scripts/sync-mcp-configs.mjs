@@ -3,11 +3,13 @@
  * sync-mcp-configs.mjs
  *
  * Single source of truth: .mcp.json
- * Fleet (2026-06-29 onward, 4 agents):
+ * Fleet (6 agents):
  *   - Claude Code  → .mcp.json (canonical, no copy needed)
- *   - Kilo Code    → .kilocode/mcp.json   (direct copy)
- *   - Antigravity  → .antigravity/mcp.json (direct copy)
- *   - OpenCode     → .opencode/opencode.jsonc (format-transformed)
+ *   - ZCode        → GUI only (Settings → MCP Servers) — see knowledge/runbooks/hosting/zcode-mcp-setup.md
+ *   - Kilo Code    → .kilocode/mcp.json            (direct copy)
+ *   - Antigravity  → .antigravity/mcp.json         (direct copy)
+ *   - OpenCode     → .opencode/opencode.jsonc      (format-transformed)
+ *   - MiMoCode     → .mimo/mimocode.json           (format-transformed, same as OpenCode)
  *
  * Run: node scripts/sync-mcp-configs.mjs
  */
@@ -21,11 +23,12 @@ const ROOT = join(__dirname, '..');
 
 function readJSON(path) {
   const raw = readFileSync(path, 'utf-8');
-  // Strip JSONC comments only (not // in URLs)
+  // Strip JSONC comments + trailing commas
   const stripped = raw
     .replace(/^\s*\/\/.*$/gm, '')           // line comments at line start
     .replace(/,\s*\/\/[^"]*$/gm, '')        // trailing commas before line-end comments
-    .replace(/\/\*[\s\S]*?\*\//g, '');      // block comments
+    .replace(/\/\*[\s\S]*?\*\//g, '')       // block comments
+    .replace(/,\s*([}\]])/g, '$1');          // trailing commas before ] or }
   return JSON.parse(stripped);
 }
 
@@ -56,41 +59,39 @@ for (const target of identicalTargets) {
   console.log(`  ✅ Synced ${count} servers → ${target.replace(ROOT, '.')}`);
 }
 
-// ── Sync OpenCode (different format) ──────────────────────────────
-const opencodePath = join(ROOT, '.opencode', 'opencode.jsonc');
-if (!existsSync(opencodePath)) {
-  console.warn('  ⚠️  .opencode/opencode.jsonc not found, skipping OpenCode');
-} else {
-  const opencode = readJSON(opencodePath);
-  if (!opencode.mcp) opencode.mcp = {};
-
-  for (const [name, cfg] of Object.entries(servers)) {
-    if (cfg.type === 'http' || cfg.type === 'sse') {
-      // Remote MCP: OpenCode wants { type, url, enabled }
-      opencode.mcp[name] = {
-        type: 'remote',
-        url: cfg.url,
-        enabled: true,
-      };
-    } else {
-      // Local MCP: OpenCode wants { type: 'local', command, environment? }
-      opencode.mcp[name] = {
-        type: 'local',
-        command: [cfg.command, ...(cfg.args ?? [])],
-        enabled: true,
-        ...(cfg.env && Object.keys(cfg.env).length > 0
-          ? { environment: cfg.env }
-          : {}),
-      };
-    }
+// ── Transform: .mcp.json server entry → OpenCode/MiMoCode MCP entry ─────
+function mcpEntryForAgent(name, cfg) {
+  if (cfg.type === 'http' || cfg.type === 'sse') {
+    return { type: 'remote', url: cfg.url, enabled: true };
   }
-
-  // Write back as JSONC (no comments preserved — they're instructions, not config)
-  writeFileSync(
-    opencodePath,
-    JSON.stringify(opencode, null, 2) + '\n',
-  );
-  console.log(`  ✅ Synced ${count} servers → .opencode/opencode.jsonc`);
+  return {
+    type: 'local',
+    command: [cfg.command, ...(cfg.args ?? [])],
+    enabled: true,
+    ...(cfg.env && Object.keys(cfg.env).length > 0
+      ? { environment: cfg.env }
+      : {}),
+  };
 }
 
-console.log(`\n🎉 All ${count} MCP servers synced to the 4-agent fleet.`);
+function syncMcpField(targetPath, label) {
+  if (!existsSync(targetPath)) {
+    console.warn(`  ⚠️  ${label} not found, skipping`);
+    return;
+  }
+  const config = readJSON(targetPath);
+  if (!config.mcp) config.mcp = {};
+  for (const [name, cfg] of Object.entries(servers)) {
+    config.mcp[name] = mcpEntryForAgent(name, cfg);
+  }
+  writeFileSync(targetPath, JSON.stringify(config, null, 2) + '\n');
+  console.log(`  ✅ Synced ${count} servers → ${label}`);
+}
+
+// ── Sync OpenCode (mcp field in opencode.jsonc) ─────────────────
+syncMcpField(join(ROOT, '.opencode', 'opencode.jsonc'), '.opencode/opencode.jsonc');
+
+// ── Sync MiMoCode (mcp field in .mimo/mimocode.json) ────────────
+syncMcpField(join(ROOT, '.mimo', 'mimocode.json'), '.mimo/mimocode.json');
+
+console.log(`\n🎉 All ${count} MCP servers synced to the 6-agent fleet.`);

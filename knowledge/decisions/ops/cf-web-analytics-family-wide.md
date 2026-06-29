@@ -91,7 +91,7 @@ PUBLIC_ENABLE_CF_WEB_ANALYTICS=true                                # kill-switch
 
 ## Cross-refs
 
-- 5-tier analytics ? [[decisions/architecture/analytics-five-tier-stack]]
+- 5-tier analytics ? [[decisions/ops/analytics-five-tier-stack]]
 - Shared-tenant ? [[rules/shared-tenant-by-default]]
 - CF Pages apps-only ? [[rules/hosting-split-cf-and-github-pages]]
 - CFWA service profile ? [[services/monitoring/monitoring/analytics/cloudflare-web-analytics]]

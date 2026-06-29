@@ -81,6 +81,6 @@ User mandate: "But the legal pages will also be specified specifically for all o
 
 ## Cross-refs
 
-- Maximalist-footer reversal ? [[decisions/architecture/maximalist-footer-and-monetization-everywhere]]
-- Legal pages package ? [[decisions/architecture/legal-pages-package-in-domain]]
+- Maximalist-footer reversal ? [[decisions/frontend/maximalist-footer-and-monetization-everywhere]]
+- Legal pages package ? [[decisions/packages/legal-pages-package-in-domain]]
 - Per-app distinctive design ? [[rules/per-app-distinctive-frontend-design]]

@@ -65,6 +65,6 @@ Where data MUST be live (intraday market data, live counters), apps lazy-fetch f
 
 ## Cross-refs
 
-- Market data per-repo pattern ? [[decisions/architecture/market-data-per-repo]]
-- janaushdhi app scope ? [[decisions/architecture/janaushdhi-app-scope]]
-- ncert combined PDF directory ? [[decisions/architecture/ncert-combined-pdf-directory]]
+- Market data per-repo pattern ? [[decisions/ops/market-data-per-repo]]
+- janaushdhi app scope ? [[decisions/apps/janaushdhi-app-scope]]
+- ncert combined PDF directory ? [[decisions/apps/ncert-combined-pdf-directory]]

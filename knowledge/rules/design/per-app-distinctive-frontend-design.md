@@ -120,7 +120,7 @@ The design agent runs this brief through the frontend-design skill, generates th
 
 ## Cross-refs
 
-- 4-nav surfaces (structural family-wide; visual now per-app) → [[decisions/architecture/four-nav-surfaces-every-app]]
-- Minimal UI library set (primitives stay; brand differs) → [[decisions/architecture/minimal-ui-library-set]]
+- 4-nav surfaces (structural family-wide; visual now per-app) → [[decisions/frontend/four-nav-surfaces-every-app]]
+- Minimal UI library set (primitives stay; brand differs) → [[decisions/ops/maximum-libraries-policy]]
 - Design divergence rule → [[rules/design-divergence-vs-dedup]]
-- Per-app briefs → [[decisions/architecture/per-app-briefs-2026-06-22]]
+- Per-app briefs → [[decisions/apps/per-app-briefs-2026-06-22]]

@@ -110,7 +110,7 @@ This avoids:
 
 ## Cross-refs
 
-- API hosting triple-rail ? [[decisions/architecture/api-hosting-triple-rail]]
-- Stack picks ? [[decisions/architecture/stack-picks-2026-06-22]]
+- API hosting triple-rail ? [[decisions/compute/api-hosting-triple-rail]]
+- Stack picks ? [[decisions/stack/stack-picks-2026-06-22]]
 - 3-tier pricing ? [[monetisation/pricing/three-tier-free-pro-max]]
 - One-level subdomain rule ? [[rules/one-level-subdomain-only]]

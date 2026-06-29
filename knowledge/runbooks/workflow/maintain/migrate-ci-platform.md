@@ -35,7 +35,7 @@ If only the FREE TIER changes (e.g. capped), the migration may be partial — he
 
 ## Pre-requisites
 
-- The weekly mirror cron at `c:/D/oriz/.github/workflows/mirror-all.yml` has already been running (see [[decisions/architecture/mirror-to-4-git-hosts]]). Every repo's history is on **GitLab.com / Codeberg.org / Bitbucket / GitFlic.ru** already.
+- The weekly mirror cron at `c:/D/oriz/.github/workflows/mirror-all.yml` has already been running (see [[decisions/ops/mirror-to-4-git-hosts]]). Every repo's history is on **GitLab.com / Codeberg.org / Bitbucket / GitFlic.ru** already.
 - Org-level GH secrets are mirrored to the new platform's secret store (separate one-time setup per platform).
 - The fallback CI platform account is set up in advance (don't wait for the emergency):
   - GitLab.com — free signup, no card
@@ -216,10 +216,10 @@ CircleCI equivalent: similar `cimg/node` image + npm publish step gated by `filt
 
 ## Long-term plan
 
-If GitHub Actions becomes unusable for >2 weeks, **make GitLab CI the primary** and run a reverse mirror (GitLab → GitHub) instead. Update [[decisions/architecture/mirror-to-4-git-hosts]] accordingly.
+If GitHub Actions becomes unusable for >2 weeks, **make GitLab CI the primary** and run a reverse mirror (GitLab → GitHub) instead. Update [[decisions/ops/mirror-to-4-git-hosts]] accordingly.
 
 ## Cross-refs
 
-- The mirror decision → [[decisions/architecture/mirror-to-4-git-hosts]]
+- The mirror decision → [[decisions/ops/mirror-to-4-git-hosts]]
 - The Linux-runner rule → [[rules/linux-ci-only]]
 - The catalog of CI platforms → [[services/easy-free-tier]] §"CI/CD platforms"

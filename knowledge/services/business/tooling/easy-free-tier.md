@@ -262,9 +262,9 @@ If a single mirror push fails, others still succeed. If GitHub itself disappears
 
 ## Cross-refs
 
-- The MIT license decision → [[decisions/architecture/mit-license-all-repos]]
+- The MIT license decision → [[decisions/ops/mit-license-all-repos]]
 - The Linux-CI-only rule → [[rules/linux-ci-only]]
-- The mirror cron → [[decisions/architecture/mirror-to-4-git-hosts]] + [[runbooks/master-mirror-cron]]
+- The mirror cron → [[decisions/ops/mirror-to-4-git-hosts]] + [[runbooks/master-mirror-cron]]
 - The migration plan if GitHub Actions becomes unusable → [[runbooks/migrate-ci-platform]]
 - GitHub Apps install runbook → [[runbooks/install-easy-github-apps]]
 - The 169 existing per-vendor service files → [[services/index]]

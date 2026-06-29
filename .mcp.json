@@ -59,5 +59,12 @@
       "type": "http",
       "url": "https://mcp.smithery.run/chirag127"
     },
+    "one-search-mcp": {
+      "command": "npx",
+      "args": ["-y", "one-search-mcp"],
+      "env": {
+        "SEARCH_PROVIDER": "local"
+      }
+    },
   }
 }

@@ -96,6 +96,6 @@ ALL classes (Pre-K + 1-5 + 6-10 + 11-12) in English + Hindi. ~600 books. Full la
 
 ## Cross-refs
 
-- Combined PDF directory decision ? [[decisions/architecture/ncert-combined-pdf-directory]]
+- Combined PDF directory decision ? [[decisions/apps/ncert-combined-pdf-directory]]
 - Never hit quotas ? [[rules/never-hit-quotas]]
 - No card on file ? [[rules/no-card-on-file]]

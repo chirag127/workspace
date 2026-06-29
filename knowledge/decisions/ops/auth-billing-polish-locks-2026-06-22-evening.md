@@ -107,7 +107,7 @@ Created in Razorpay dashboard ? **Subscriptions ? Coupons**. Each gets a coupon 
 ## Cross-refs
 
 - 3-tier pricing ? [[monetisation/pricing/three-tier-free-pro-max]]
-- Billing webhook ? [[decisions/architecture/billing-webhook-cf-pages-function]]
-- Stack picks ? [[decisions/architecture/stack-picks-2026-06-22]]
+- Billing webhook ? [[decisions/compute/billing-webhook-cf-pages-function]]
+- Stack picks ? [[decisions/stack/stack-picks-2026-06-22]]
 - Razorpay/Paddle setup runbook ? [[runbooks/razorpay-paddle-subscriptions-setup]]
 - No card on file ? [[rules/no-card-on-file]]

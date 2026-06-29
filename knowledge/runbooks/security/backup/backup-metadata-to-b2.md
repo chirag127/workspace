@@ -227,7 +227,7 @@ jobs:
 
 ## Cross-refs
 
-- backup channels catalog: [[decisions/architecture/backup-channels-alternative]]
+- backup channels catalog: [[decisions/ops/backup-channels-alternative]]
 - 9-host code mirror: [[decisions/ops/mirror-to-9-popular-alternatives-2026-06-28]]
 - existing mirror workflow: `.github/workflows/mirror-all.yml`
 - existing setup runbook: [[runbooks/mirror-all-hosts-setup]]

@@ -93,6 +93,6 @@ Whenever the user later pastes a Free LLM API schema, list, or table — incorpo
 
 ## Cross-refs
 
-- The package decision → [[decisions/architecture/oriz-ai-providers-package]]
+- The package decision → [[decisions/packages/oriz-ai-providers-package]]
 - Never hit quotas → [[rules/never-hit-quotas]]
 - 17 (soon 18) packages → [[architecture/the-23-packages]]

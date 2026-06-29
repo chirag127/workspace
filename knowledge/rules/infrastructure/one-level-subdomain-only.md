@@ -73,5 +73,5 @@ Prefix instead of subdomain-nesting.
 
 - No card on file → [[rules/no-card-on-file]]
 - Never hit quotas → [[rules/never-hit-quotas]]
-- API hosting triple-rail → [[decisions/architecture/api-hosting-triple-rail]]
+- API hosting triple-rail → [[decisions/compute/api-hosting-triple-rail]]
 - CF DNS runbook → [[runbooks/cf-dns-add-api-subdomain]]

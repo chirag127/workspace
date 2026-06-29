@@ -1,0 +1,1 @@
+Build the project and report the outcome. Run `pnpm build` (or the package-specific build command). Show: build duration, output bundle sizes, any TypeScript type errors (file:line), any warnings that should be reviewed. If the build fails, show the first error clearly with the full error message and file reference. Do not suppress warnings.

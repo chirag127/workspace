@@ -51,10 +51,10 @@ Sections pull from the family `knowledge/` bundle where the data exists there (e
 
 ## Treat as personal canon
 
-This is the "everything about me, in one place" site. When in doubt about whether some personal-data surface belongs on cs-me-app vs a dedicated subdomain ? **default to cs-me-app**, per [[decisions/architecture/oriz-me-single-site-not-split]] and the wider-coverage taste preference [[rules/user-prefers-wider-coverage]].
+This is the "everything about me, in one place" site. When in doubt about whether some personal-data surface belongs on cs-me-app vs a dedicated subdomain ? **default to cs-me-app**, per [[decisions/apps/oriz-me-single-site-not-split]] and the wider-coverage taste preference [[rules/user-prefers-wider-coverage]].
 
 ## Cross-refs
 
-- The single-site-not-split lock ? [[decisions/architecture/oriz-me-single-site-not-split]]
-- home-app links here as section 5 of the grid ? [[decisions/architecture/home-app-shape]]
+- The single-site-not-split lock ? [[decisions/apps/oriz-me-single-site-not-split]]
+- home-app links here as section 5 of the grid ? [[decisions/apps/home-app-shape]]
 - Per-app knowledge bundle for this app (richest in the family) ? `repos/c127/own/prod/apps/personal/cs-me-app/knowledge/`

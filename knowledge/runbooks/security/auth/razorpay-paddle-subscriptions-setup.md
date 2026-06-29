@@ -255,6 +255,6 @@ After completing both setups:
 ## Cross-refs
 
 - 3-tier pricing → [[monetisation/pricing/three-tier-free-pro-max]]
-- Payment architecture → [[decisions/architecture/payment-architecture-direct-links]]
-- Billing webhook → [[decisions/architecture/billing-webhook-cf-pages-function]]
+- Payment architecture → [[security/payment-architecture-direct-links]]
+- Billing webhook → [[decisions/compute/billing-webhook-cf-pages-function]]
 - No card on file (paying customers, not us) → [[rules/no-card-on-file]]

@@ -83,6 +83,6 @@ Mobile: collapses into accordion sections.
 
 ## Cross-refs
 
-- Shared-vs-divergent matrix ? [[decisions/architecture/shared-vs-divergent-matrix]]
+- Shared-vs-divergent matrix ? [[decisions/ops/shared-vs-divergent-matrix]]
 - 3-tier pricing ? [[monetisation/pricing/three-tier-free-pro-max]]
-- Legal pages package ? [[decisions/architecture/legal-pages-package-in-domain]]
+- Legal pages package ? [[decisions/packages/legal-pages-package-in-domain]]

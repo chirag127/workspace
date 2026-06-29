@@ -121,6 +121,6 @@ For each new package:
 
 - Now `the-22-packages.md` (rename from `the-23-packages.md` after migration completes)
 - Three-tier pricing (rate-limit enforces tiers) ? [[monetisation/pricing/three-tier-free-pro-max]]
-- SEO decision ? [[decisions/architecture/seo-a11y-cdn-ssl]]
+- SEO decision ? [[decisions/ops/seo-a11y-cdn-ssl]]
 - Consent management ? [[security/consent-management-multi-category]]
 - Family inventory ? [[services/family-inventory]]

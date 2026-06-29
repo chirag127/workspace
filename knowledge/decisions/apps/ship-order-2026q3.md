@@ -35,17 +35,17 @@ paisa-finance, slice-pdf, scribe-text, pixie-image, grid-qr, forge-dev, shift-co
 
 **Wave 3 — content apps (after Wave 1 + 2):**
 
-tabs-cards-app, roam-journal-app, lore-book-summaries-app. See [[decisions/architecture/content-apps-scope]].
+tabs-cards-app, roam-journal-app, lore-book-summaries-app. See [[decisions/apps/content-apps-scope]].
 
 **Parallel track — 5 books drafted concurrently with Wave 1:**
 
-Oriz Me drafts FULLY. Other 4 (Stack, Paisa, PDF, Janaushdhi) chapter outlines only. See [[decisions/architecture/books-publishing-shape]].
+Oriz Me drafts FULLY. Other 4 (Stack, Paisa, PDF, Janaushdhi) chapter outlines only. See [[decisions/content/books-publishing-shape]].
 
 ## Constraints baked into the order
 
 - **Per-channel monetisation matrix** governs revenue everywhere ? [[policy/monetisation-channel-matrix]]
 - **STT-friendly question rounds** when grilling ? [[rules/communication-stt-friendly]]
-- **No Telegram for India-resident user** ? drafts queue on GH Issues ? [[rules/no-telegram-india-banned]] + [[decisions/architecture/drafts-queue-host]]
+- **No Telegram for India-resident user** ? drafts queue on GH Issues ? [[rules/no-telegram-india-banned]] + [[decisions/compute/drafts-queue-host]]
 
 ## Why this order
 
@@ -53,5 +53,5 @@ home + janaushdhi + ncert + blog are the four surfaces that anchor the brand pub
 
 ## Cross-refs
 
-- Books-app stays static catalog ? [[decisions/architecture/books-publishing-shape]]
-- Tools shape + priority ? [[decisions/architecture/tools-shape-and-priority]]
+- Books-app stays static catalog ? [[decisions/content/books-publishing-shape]]
+- Tools shape + priority ? [[decisions/stack/tools-shape-and-priority]]

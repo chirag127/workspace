@@ -54,10 +54,10 @@ Single source of truth for what monetisation is allowed where. If a channel-app 
 
 ## Newsletter — single, Substack
 
-One newsletter at `chirag127.substack.com` (or brand-aligned name). Free tier (Substack takes 10% on any future paid tier — accepted vs the marginal cost of running our own ESM stack). Daily blog feed + weekly digest + book drop announcements. One newsletter for the whole family, NOT per-app. Embed signup form on home-app + every content app footer. See [[decisions/architecture/newsletter-substack]].
+One newsletter at `chirag127.substack.com` (or brand-aligned name). Free tier (Substack takes 10% on any future paid tier — accepted vs the marginal cost of running our own ESM stack). Daily blog feed + weekly digest + book drop announcements. One newsletter for the whole family, NOT per-app. Embed signup form on home-app + every content app footer. See [[decisions/stack/newsletter-substack]].
 
 ## Cross-refs
 
-- Full channel API status 2026 ? [[decisions/architecture/revenue-channels-2026]]
-- Drafts queue (manual channels) ? [[decisions/architecture/drafts-queue-host]]
+- Full channel API status 2026 ? [[monetisation/revenue-channels-2026]]
+- Drafts queue (manual channels) ? [[decisions/compute/drafts-queue-host]]
 - No-subscriptions rule ? [[monetisation/no-subscriptions-anywhere]]

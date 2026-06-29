@@ -61,7 +61,7 @@ Switch to GH-Issues-only drafts (still dual-written, just stop reading TG). The 
 
 ## Cross-refs
 
-- Drafts queue host → [[decisions/architecture/drafts-queue-host]]
-- Newsletter (Substack stays) → [[decisions/architecture/newsletter-substack]]
-- Omni-publish fan-out → [[decisions/architecture/omni-publish-package]]
+- Drafts queue host → [[decisions/compute/drafts-queue-host]]
+- Newsletter (Substack stays) → [[decisions/stack/newsletter-substack]]
+- Omni-publish fan-out → [[decisions/packages/omni-publish-package]]
 - The superseded ban rule → [[rules/no-telegram-india-banned]]

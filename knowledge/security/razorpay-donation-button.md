@@ -92,7 +92,7 @@ import { SponsorButton } from '@chirag127/astro-billing';
   service-shaped. Different mental model + different Razorpay product
   IDs.
 - **No paywall lift** — donating doesn't unlock features. Subscription
-  does ([[decisions/architecture/subscription-flow]]).
+  does ([[decisions/ops/subscription-flow]]).
 - **Independent abuse surface** — donation fraud (chargebacks) has
   different mitigation than subscription fraud (card-testing).
 
@@ -113,7 +113,7 @@ Geo auto-detected via CF `cf-ipcountry` header by default.
 
 ## Cross-refs
 
-- [[decisions/architecture/subscription-flow]] — the recurring billing path
+- [[decisions/ops/subscription-flow]] — the recurring billing path
 - [[monetisation/max-payment-methods]] — the full international rail
 - [[architecture/the-23-packages]] — `astro-billing` is package #7
 - [[runbooks/razorpay-end-to-end-setup]] — Razorpay account setup + key management

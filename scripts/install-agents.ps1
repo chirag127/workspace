@@ -1,7 +1,8 @@
 ﻿<#
 .SYNOPSIS
-  Install 4 coding agents wired to this workspace. WORKSPACE-ONLY.
-  Touches NO global config files (no ~/.claude/, no ~/.config/, no ~/.gemini/).
+  Install coding agents wired to this workspace.
+  Also wires user-global skill junctions for all 6 agents.
+  Workspace root is NOT modified (workspace-root-cleanliness rule).
   All rules live in C:\D\oriz\AGENTS.md.
 #>
 [CmdletBinding()]
@@ -148,7 +149,6 @@ if (-not (Test-Path $kilocodeDir)) {
   New-Item -ItemType Directory -Path $kilocodeDir -Force | Out-Null
 }
 if (Test-Path $kilocodeRules) {
-  # If it's already a symlink to the right target, leave it.
   $item = Get-Item $kilocodeRules -Force
   if ($item.LinkType -eq 'SymbolicLink' -and $item.Target -eq $agentsKiloRules) {
     Ok 'Symlink already correct'
@@ -160,8 +160,6 @@ if (Test-Path $kilocodeRules) {
     New-Item -ItemType SymbolicLink -Path $kilocodeRules -Target $agentsKiloRules -ErrorAction Stop | Out-Null
     Ok ('symlinked .kilocode\rules -> .agents\kilocode\rules')
   } catch {
-    # Symlinks need admin or developer mode; we self-elevated, so this should work.
-    # If it still fails, fall back to a directory junction (works without dev mode).
     & cmd /c mklink /J "$kilocodeRules" "$agentsKiloRules" 2>&1 | Out-Host
     if (Test-Path $kilocodeRules) {
       Ok ('directory junction created .kilocode\rules -> .agents\kilocode\rules')
@@ -171,16 +169,61 @@ if (Test-Path $kilocodeRules) {
   }
 }
 
-# ── 6. Summary ────────────────────────────────────────────────────────────
-Step '6. Done'
+# ── 6. ZCode — verify install + wire ~/.zcode/AGENTS.md ───────────────────
+Step '6. ZCode (verify + setup)'
+$zcodeAgentsDir = Join-Path $env:USERPROFILE '.zcode'
+$zcodeAgentsMd  = Join-Path $zcodeAgentsDir 'AGENTS.md'
+if (-not (Test-Path $zcodeAgentsDir)) {
+  New-Item -ItemType Directory -Path $zcodeAgentsDir -Force | Out-Null
+}
+# Link global AGENTS.md so ZCode picks up workspace rules cross-project.
+if (-not (Test-Path $zcodeAgentsMd)) {
+  $src = Join-Path $Workspace 'AGENTS.md'
+  try {
+    New-Item -ItemType HardLink -Path $zcodeAgentsMd -Target $src -ErrorAction Stop | Out-Null
+    Ok "Linked ~/.zcode/AGENTS.md -> $src"
+  } catch {
+    Copy-Item $src $zcodeAgentsMd
+    Ok "Copied AGENTS.md to ~/.zcode/AGENTS.md (hard-link failed; update manually when AGENTS.md changes)"
+  }
+} else {
+  Ok '~/.zcode/AGENTS.md already exists'
+}
+# Check if ZCode is installed (it's a GUI app — no CLI to check, look for the exe)
+$zcodeExes = @(
+  (Join-Path $env:LOCALAPPDATA 'Programs\ZCode\ZCode.exe'),
+  (Join-Path $env:ProgramFiles  'ZCode\ZCode.exe')
+)
+$zcodeFound = $zcodeExes | Where-Object { Test-Path $_ }
+if ($zcodeFound) {
+  Ok "ZCode found at: $($zcodeFound | Select-Object -First 1)"
+} else {
+  Warn 'ZCode not found. Install manually from https://zcode.z.ai/ then re-run this script.'
+}
+
+# ── 7. Wire user-global skill junctions (all 6 agents) ────────────────────
+Step '7. Wire user-global skill junctions'
+node (Join-Path $Workspace 'scripts\wire-agent-skills-junctions.mjs')
+if ($LASTEXITCODE -eq 0) {
+  Ok 'Skill junctions wired'
+} else {
+  Warn 'Some skill junctions failed — check output above'
+}
+
+# ── 8. Summary ────────────────────────────────────────────────────────────
+Step '8. Done'
 Write-Host ''
 Write-Host '  Workspace source of truth: C:\D\oriz\AGENTS.md' -ForegroundColor Green
 Write-Host ''
 Write-Host '  Agents wired:'
-Write-Host '    - Claude Code (reads C:\D\oriz\CLAUDE.md + AGENTS.md)' -ForegroundColor Green
-Write-Host '    - OpenCode    (reads C:\D\oriz\AGENTS.md)'             -ForegroundColor Green
-Write-Host '    - Kilo Code   (reads C:\D\oriz\.kilocode\rules\)'      -ForegroundColor Green
-Write-Host '    - Antigravity (install manually; reads C:\D\oriz\AGENTS.md)' -ForegroundColor Green
+Write-Host '    - Claude Code (reads C:\D\oriz\CLAUDE.md + AGENTS.md)'         -ForegroundColor Green
+Write-Host '    - ZCode       (reads ~/.zcode/AGENTS.md + C:\D\oriz\AGENTS.md)' -ForegroundColor Green
+Write-Host '    - OpenCode    (reads C:\D\oriz\AGENTS.md)'                      -ForegroundColor Green
+Write-Host '    - Kilo Code   (reads C:\D\oriz\.kilocode\rules\)'               -ForegroundColor Green
+Write-Host '    - MiMoCode    (reads C:\D\oriz\AGENTS.md + CLAUDE.md)'          -ForegroundColor Green
+Write-Host '    - Antigravity (install manually; reads C:\D\oriz\AGENTS.md)'    -ForegroundColor Green
 Write-Host ''
-Write-Host '  No global files were modified.' -ForegroundColor DarkGray
+Write-Host '  Skill junctions (user-global, not in workspace root):' -ForegroundColor DarkGray
+Write-Host '    ~/.claude/skills/, ~/.config/opencode/skills/, ~/.kilocode/skills/' -ForegroundColor DarkGray
+Write-Host '    ~/.zcode/skills/, ~/.config/mimocode/skills/, ~/.gemini/skills/' -ForegroundColor DarkGray
 Write-Host ''

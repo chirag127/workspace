@@ -182,9 +182,9 @@ Status: **planning** (none have manuscripts yet). Locked names + scope in [book-
 ## Cross-refs
 
 - The 17 packages this catalog covers ? [[architecture/the-23-packages]]
-- The MIT relicense that unlocks free-for-OSS distribution perks ? [[decisions/architecture/mit-license-all-repos]]
-- The PWA ? native pipeline behind Play / Microsoft Store rows ? [[decisions/architecture/pwabuilder-as-primary-converter]]
-- The blog-post fan-out engine ? [[decisions/architecture/cross-post-engine]]
-- The npm package that orchestrates this ? [[decisions/architecture/omni-publish-package]]
-- The catalog hub at packages.oriz.in ? [[decisions/architecture/packages-oriz-in-catalog]]
-- Full book pipeline ? [[decisions/architecture/book-publish-pipeline]]
+- The MIT relicense that unlocks free-for-OSS distribution perks ? [[decisions/ops/mit-license-all-repos]]
+- The PWA ? native pipeline behind Play / Microsoft Store rows ? [[decisions/frontend/pwabuilder-as-primary-converter]]
+- The blog-post fan-out engine ? [[decisions/content/cross-post-engine]]
+- The npm package that orchestrates this ? [[decisions/packages/omni-publish-package]]
+- The catalog hub at packages.oriz.in ? [[decisions/packages/packages-oriz-in-catalog]]
+- Full book pipeline ? [[decisions/content/book-publish-pipeline]]

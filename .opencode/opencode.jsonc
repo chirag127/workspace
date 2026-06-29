@@ -73,5 +73,17 @@
       "url": "https://mcp.smithery.run/chirag127",
       "enabled": true
     },
+    "one-search-mcp": {
+      "type": "local",
+      "command": [
+        "npx",
+        "-y",
+        "one-search-mcp"
+      ],
+      "enabled": true,
+      "environment": {
+        "SEARCH_PROVIDER": "local"
+      }
+    }
   }
 }

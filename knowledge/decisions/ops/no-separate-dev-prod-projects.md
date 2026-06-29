@@ -190,7 +190,7 @@ So local dev still demands one brief `wrangler deploy` sanity check per cron-fir
 - No card on file ? [[rules/no-card-on-file]]
 - Never hit quotas ? [[rules/never-hit-quotas]]
 - Org-level secrets only ? [[rules/org-level-secrets-only-no-per-repo]]
-- Data hub + central auth ? [[decisions/architecture/data-hub-and-central-auth]]
+- Data hub + central auth ? [[security/data-hub-and-central-auth]]
 - Databases free tiers ? [[runbooks/free-hosting-providers/databases]]
 
 ## Sources

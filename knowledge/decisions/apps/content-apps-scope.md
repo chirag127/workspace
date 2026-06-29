@@ -43,18 +43,18 @@ All three:
 - **Anonymous-first auth** per family default. No sign-in required to read.
 - **Free + opt-in sponsor footer.** Per [[policy/monetisation-channel-matrix]].
 - **Astro on CF Pages** per family hosting rule.
-- **Markdown-in-repo content** per [[decisions/architecture/cms-markdown-in-repo-only]]. No CMS.
+- **Markdown-in-repo content** per [[decisions/content/cms-markdown-in-repo-only]]. No CMS.
 
 ## Ship after Wave 1
 
-These ship AFTER janaushdhi + ncert + blog + home-app land (per [[decisions/architecture/ship-order-2026q3]]). Reason: Wave 1 has measurable public utility (price scrape, textbook merge, daily blog). Wave 3 is personal-creative — landing them first would feel like a personal site stretched too thin.
+These ship AFTER janaushdhi + ncert + blog + home-app land (per [[decisions/apps/ship-order-2026q3]]). Reason: Wave 1 has measurable public utility (price scrape, textbook merge, daily blog). Wave 3 is personal-creative — landing them first would feel like a personal site stretched too thin.
 
 ## journal sub-decisions
 
-The Roam-style mining of references (Day One + Bear + Notion + Obsidian + Logseq) was locked separately in [[decisions/architecture/journal-site-sources]]. That file's reference-app analysis applies here.
+The Roam-style mining of references (Day One + Bear + Notion + Obsidian + Logseq) was locked separately in [[decisions/content/journal-site-sources]]. That file's reference-app analysis applies here.
 
 ## Cross-refs
 
-- Q3 priority ? [[decisions/architecture/ship-order-2026q3]]
+- Q3 priority ? [[decisions/apps/ship-order-2026q3]]
 - Monetisation default for content apps ? [[policy/monetisation-channel-matrix]]
-- Journal reference apps ? [[decisions/architecture/journal-site-sources]]
+- Journal reference apps ? [[decisions/content/journal-site-sources]]

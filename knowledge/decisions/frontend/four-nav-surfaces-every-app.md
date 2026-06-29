@@ -127,6 +127,6 @@ None. Even `oriz-cs-me-app` and `oriz-janaushdhi-app` (no ads) get all 4 surface
 
 ## Cross-refs
 
-- Single pricing page package ? [[decisions/architecture/single-pricing-page-package]]
+- Single pricing page package ? [[decisions/packages/single-pricing-page-package]]
 - Design divergence rule (NOT applicable here — chrome is family-wide consolidated, per-app divergence is for in-content design) ? [[rules/design-divergence-vs-dedup]]
 - Confirmed via knowledge-delta rule in 2026-06-22 conversation ? [[rules/confirm-knowledge-deltas]]

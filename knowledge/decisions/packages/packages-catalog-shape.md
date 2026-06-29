@@ -31,7 +31,7 @@ related:
 
 Auto-discovery Starlight catalog. Lives in `oriz-packages-catalog-app` submodule, deployed to CF Pages at `packages.oriz.in`.
 
-This file is the SHOWCASE-PAGE shape companion to [[decisions/architecture/packages-oriz-in-catalog]] (which locked the dual-surface split between `oriz.in/packages` overview and `packages.oriz.in` deep catalog).
+This file is the SHOWCASE-PAGE shape companion to [[decisions/packages/packages-oriz-in-catalog]] (which locked the dual-surface split between `oriz.in/packages` overview and `packages.oriz.in` deep catalog).
 
 ## Per-package showcase page
 
@@ -61,6 +61,6 @@ Starlight (Astro's docs theme) gives sidebar nav + search + dark mode + breadcru
 
 ## Cross-refs
 
-- Dual-location decision (this catalog vs oriz.in/packages overview) ? [[decisions/architecture/packages-oriz-in-catalog]]
-- home-app links to this catalog ? [[decisions/architecture/home-app-shape]]
+- Dual-location decision (this catalog vs oriz.in/packages overview) ? [[decisions/packages/packages-oriz-in-catalog]]
+- home-app links to this catalog ? [[decisions/apps/home-app-shape]]
 - Hosting lock ? [[rules/cloudflare-pages-only]]

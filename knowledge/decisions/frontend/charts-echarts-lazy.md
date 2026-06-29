@@ -110,6 +110,6 @@ Handles: lazy load, fallback SVG, ARIA labels, theme integration with `astro-she
 
 ## Cross-refs
 
-- Minimal UI library set ? [[decisions/architecture/minimal-ui-library-set]]
-- SEO + a11y + perf ? [[decisions/architecture/seo-a11y-cdn-ssl]]
+- Minimal UI library set ? [[decisions/ops/maximum-libraries-policy]]
+- SEO + a11y + perf ? [[decisions/ops/seo-a11y-cdn-ssl]]
 - Never hit quotas ? [[rules/never-hit-quotas]]

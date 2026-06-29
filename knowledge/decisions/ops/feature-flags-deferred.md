@@ -99,4 +99,4 @@ If you genuinely need a flag-shaped solution, one of the three triggers above mu
 
 - Community packages first ? [[rules/community-packages-first]] (this is the case where "don't reach for the dep" wins)
 - Free-tier rule ? [[rules/free-tier-with-cost-controls]] (still need cost controls if we ever add Flagsmith)
-- Monetization ? [[decisions/architecture/monetization-centralized-on-oriz-in]] (tier claim definition)
+- Monetization ? [[monetisation/monetization-centralized-on-oriz-in]] (tier claim definition)

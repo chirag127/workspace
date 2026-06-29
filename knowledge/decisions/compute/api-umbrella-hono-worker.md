@@ -44,6 +44,6 @@ related:
 
 ## Cross-refs
 
-- Why we picked this shape ? [[decisions/architecture/hono-worker-api-umbrella]]
+- Why we picked this shape ? [[decisions/compute/hono-worker-api-umbrella]]
 - Type-safe RPC clients ? [[architecture/hono-rpc-type-sharing]]
 - Routes-per-service convention ? [[architecture/api-routes-structure]]

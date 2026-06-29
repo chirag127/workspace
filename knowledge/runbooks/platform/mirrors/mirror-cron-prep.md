@@ -18,7 +18,7 @@ related:
 One-time setup required before the Friday 03:30 IST mirror cron at
 `c:/D/oriz/.github/workflows/mirror-all.yml` can run successfully.
 The mirror itself is documented in
-[[decisions/architecture/mirror-to-4-git-hosts]] — this runbook is
+[[decisions/ops/mirror-to-4-git-hosts]] — this runbook is
 just the pre-flight steps to make it work.
 
 ## When to run
@@ -151,13 +151,13 @@ After the first real run, check each host's web UI for the repo's commit list �
 |---|---|---|
 | `403 Forbidden` on push | Token lacks `write_repository` scope | Regenerate with correct scope (step 1) |
 | `404 Not Found` on push | Mirror repo missing on host | Re-run step 2 for that host |
-| GitFlic returns 451 (sanctions) | Geographic block | Accept loss for now; document in [[decisions/architecture/mirror-to-4-git-hosts]] |
+| GitFlic returns 451 (sanctions) | Geographic block | Accept loss for now; document in [[decisions/ops/mirror-to-4-git-hosts]] |
 | Cron runs but Telegram silent | Mirror webhook secret missing | Add `TELEGRAM_BOT_TOKEN` + `TELEGRAM_CHAT_ID` to org secrets |
 | One host fails 3 weeks in a row | Auto-issue in master | Triage in `chirag127/oriz` issues |
 
 ## See also
 
-- The mirror decision itself → [[decisions/architecture/mirror-to-4-git-hosts]]
+- The mirror decision itself → [[decisions/ops/mirror-to-4-git-hosts]]
 - The migration runbook if GH itself becomes unusable → [[runbooks/migrate-ci-platform]]
 - Org-level GH secrets pattern → [[runbooks/set-github-org-level-secrets]] + [[rules/github-org-level-secrets]]
 - Env keys mirrored to `templates/.env.example` per [[runbooks/sync-env-example-to-all-repos]]

@@ -58,8 +58,8 @@ USD via Paddle (auto-converted): Pro ~$1.19/mo · $9.59/yr · Max ~$3.59/mo · $30/
 ## Cross-refs
 
 - Replaces two-tier ? [[monetisation/pricing/two-tier-ad-free-plus-pro]]
-- Single pricing page ? [[decisions/architecture/single-pricing-page-package]]
-- Payment architecture ? [[decisions/architecture/payment-architecture-direct-links]]
-- Billing webhooks ? [[decisions/architecture/billing-webhook-cf-pages-function]]
-- AI providers ? [[decisions/architecture/oriz-ai-providers-package]]
+- Single pricing page ? [[decisions/packages/single-pricing-page-package]]
+- Payment architecture ? [[security/payment-architecture-direct-links]]
+- Billing webhooks ? [[decisions/compute/billing-webhook-cf-pages-function]]
+- AI providers ? [[decisions/packages/oriz-ai-providers-package]]
 - No card on file ? [[rules/no-card-on-file]]

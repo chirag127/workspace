@@ -77,7 +77,7 @@ Free user hits 5/day cap ? "Upgrade to Pro for unlimited uploads" ? redirects to
 
 ## Cross-refs
 
-- 5-host image pipeline ? [[decisions/architecture/journal-photo-pipeline]]
-- Centralized monetization ? [[decisions/architecture/monetization-centralized-on-oriz-in]]
+- 5-host image pipeline ? [[decisions/content/journal-photo-pipeline]]
+- Centralized monetization ? [[monetisation/monetization-centralized-on-oriz-in]]
 - 3-tier pricing ? [[monetisation/pricing/three-tier-free-pro-max]]
 - Image CDN free tiers ? [[runbooks/free-hosting-providers/image-cdn]]

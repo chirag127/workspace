@@ -95,6 +95,6 @@ All three loaded via Klaro consent gating in EU/UK; default-on elsewhere.
 
 ## Cross-refs
 
-- Stack picks ? [[decisions/architecture/stack-picks-2026-06-22]]
-- 4-nav-surfaces ? [[decisions/architecture/four-nav-surfaces-every-app]]
+- Stack picks ? [[decisions/stack/stack-picks-2026-06-22]]
+- 4-nav-surfaces ? [[decisions/frontend/four-nav-surfaces-every-app]]
 - Consent (Klaro) ? [[security/consent-management-multi-category]]

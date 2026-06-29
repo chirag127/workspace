@@ -51,7 +51,7 @@ related:
 
 Exactly the order above: paisa ? slice ? scribe ? pixie ? grid ? forge ? shift ? dice ? cipher ? paper ? vitals ? rank ? reel ? echo ? pivot ? remainder.
 
-Wave 2 starts after Wave 1 (home + janaushdhi + ncert + blog) per [[decisions/architecture/ship-order-2026q3]].
+Wave 2 starts after Wave 1 (home + janaushdhi + ncert + blog) per [[decisions/apps/ship-order-2026q3]].
 
 ## Per-tool monetisation
 
@@ -68,11 +68,11 @@ All 16: anonymous-first auth, free, opt-in sponsor footer.
 
 - Portfolio-of-products framing (one slug = one brand surface)
 - Each tool ranks independently on its subdomain
-- Maintenance cost is mitigated by shared chrome + shared `@chirag127/astro-tools` package (see [[decisions/architecture/the-23-packages]] or current package set)
+- Maintenance cost is mitigated by shared chrome + shared `@chirag127/astro-tools` package (see [[decisions/packages/the-23-packages]] or current package set)
 
 ## Cross-refs
 
-- Q3 priority ? [[decisions/architecture/ship-order-2026q3]]
-- Original tools split (15-repos) ? [[decisions/architecture/tools-site-15-repos]]
-- Tool category roadmap (Tier 1/2/3) ? [[decisions/architecture/tool-categories-roadmap]]
+- Q3 priority ? [[decisions/apps/ship-order-2026q3]]
+- Original tools split (15-repos) ? [[decisions/stack/tools-site-15-repos]]
+- Tool category roadmap (Tier 1/2/3) ? [[decisions/stack/tool-categories-roadmap]]
 - Monetisation matrix ? [[policy/monetisation-channel-matrix]]

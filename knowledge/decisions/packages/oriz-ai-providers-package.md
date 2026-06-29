@@ -146,7 +146,7 @@ Adding this package brings the family count to **18 packages** (was 17 per `the-
 ## Cross-refs
 
 - The 18-package family ? [[architecture/the-23-packages]]
-- Stack picks (superseded-in-part) ? [[decisions/architecture/stack-picks-2026-06-22]]
+- Stack picks (superseded-in-part) ? [[decisions/stack/stack-picks-2026-06-22]]
 - Never hit quotas ? [[rules/never-hit-quotas]]
 - No card on file ? [[rules/no-card-on-file]]
 - Source list reference: [awesome-free-llm-apis](https://github.com/mnfst/awesome-free-llm-apis) + [free-llm-api-resources](https://github.com/cheahjs/free-llm-api-resources)

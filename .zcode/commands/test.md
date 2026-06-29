@@ -1,0 +1,1 @@
+Run the full test suite for the affected packages with coverage reporting. Use `pnpm` (never `npm`). Run tests in parallel where possible. Report: which tests passed, which failed, coverage percentage per package, and any flaky tests detected. If tests fail, show the first error with file:line reference.

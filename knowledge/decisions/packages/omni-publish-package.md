@@ -112,7 +112,7 @@ Cross-platform retry + scheduling deferred to v0.2+. v0.x is fire-and-forget per
 
 For X, Reddit, LinkedIn, Medium — `omni-publish` generates per-platform AI-rewritten drafts and posts them to a Telegram channel for the user to review + post by hand.
 
-- **AI**: routed through `@chirag127/oriz-ai-providers` v0.1.0+ — 20-provider fallback chain (OVHcloud / LLM7 / Pollinations anonymous first, then Cerebras / Groq / NIM / OpenRouter / etc). See [[decisions/architecture/oriz-ai-providers-package]]. Replaces the v0.1.2-era NIM-primary + OpenRouter-fallback two-tier.
+- **AI**: routed through `@chirag127/oriz-ai-providers` v0.1.0+ — 20-provider fallback chain (OVHcloud / LLM7 / Pollinations anonymous first, then Cerebras / Groq / NIM / OpenRouter / etc). See [[decisions/packages/oriz-ai-providers-package]]. Replaces the v0.1.2-era NIM-primary + OpenRouter-fallback two-tier.
 - **Required env vars**: `TELEGRAM_DRAFTS_BOT_TOKEN` + `TELEGRAM_DRAFTS_CHAT_ID` + any subset of the env vars listed in the `oriz-ai-providers` data repo (`env-vars.json`); the chain skips providers without a configured key.
 - Per-platform prompts in `src/adapters/ai-draft.ts` (X = 280 char, Reddit = full body w/ TL;DR, LinkedIn = professional, Medium = 1-paragraph blurb).
 
@@ -167,7 +167,7 @@ The drafts route now writes to BOTH Telegram (4 per-platform messages) AND a Git
 
 ## Cross-refs
 
-- The original cross-post decision ? [[decisions/architecture/cross-post-engine]]
-- The MIT license decision that makes this freely usable ? [[decisions/architecture/mit-license-all-repos]]
+- The original cross-post decision ? [[decisions/content/cross-post-engine]]
+- The MIT license decision that makes this freely usable ? [[decisions/ops/mit-license-all-repos]]
 - The catalog of which env vars set which platforms ? [[templates/.env.example]] + [[services/easy-free-tier]]
 - The oriz-omni-post-app submodule ? `repos/oriz/own/prod/apps/content/oriz-omni-post-app/`

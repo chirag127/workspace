@@ -37,7 +37,7 @@ Read-only catalog. "Where I post" list: every channel the oriz family auto-publi
 
 | Panel | What it does |
 |---|---|
-| Pending drafts queue | Reads GH Issues from `chirag127/oriz-drafts` (per [[decisions/architecture/drafts-queue-host]]); lists by label `platform:*` |
+| Pending drafts queue | Reads GH Issues from `chirag127/oriz-drafts` (per [[decisions/compute/drafts-queue-host]]); lists by label `platform:*` |
 | Cross-post history | Per platform: last N posts, success/failure status, response URLs |
 | Retry per platform | Manual re-fire of a failed adapter (after rate-limit cache cleared) |
 | Edit-before-publish UI | For drafts (manual channels): rewrite copy, attach image, mark "posted" ? closes the GH issue |
@@ -60,6 +60,6 @@ The package alone covers automated publishing. The dashboard exists for:
 
 ## Cross-refs
 
-- The package being wrapped ? [[decisions/architecture/omni-publish-package]]
-- The drafts queue read source ? [[decisions/architecture/drafts-queue-host]]
-- Personal site uses similar Firebase Auth + admin allowlist ? [[decisions/architecture/cs-me-app-scope]]
+- The package being wrapped ? [[decisions/packages/omni-publish-package]]
+- The drafts queue read source ? [[decisions/compute/drafts-queue-host]]
+- Personal site uses similar Firebase Auth + admin allowlist ? [[decisions/apps/cs-me-app-scope]]

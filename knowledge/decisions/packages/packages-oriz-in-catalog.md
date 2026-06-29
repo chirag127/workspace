@@ -106,8 +106,8 @@ Tried earlier to do path-only under `oriz.in/packages` (no separate subdomain). 
 ## Cross-refs
 
 - The 18-package set both surfaces catalog ? [[architecture/the-23-packages]]
-- The MIT relicense that enables free-for-OSS perks both surfaces tout ? [[decisions/architecture/mit-license-all-repos]]
-- PWABuilder is the native-publish path the 'Coming soon' badges reference ? [[decisions/architecture/pwabuilder-as-primary-converter]]
+- The MIT relicense that enables free-for-OSS perks both surfaces tout ? [[decisions/ops/mit-license-all-repos]]
+- PWABuilder is the native-publish path the 'Coming soon' badges reference ? [[decisions/frontend/pwabuilder-as-primary-converter]]
 - iOS PWA-only context (no Mac App Store) ? memory [[ios-pwa-only-no-mac]]
 - The catalog's add-package workflow ? [[runbooks/add-package-to-catalog]]
 - The hosting lock ? [[rules/cloudflare-pages-only]]

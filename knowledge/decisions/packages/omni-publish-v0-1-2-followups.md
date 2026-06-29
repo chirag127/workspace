@@ -62,5 +62,5 @@ Threshold for the cache: **max 1 auto-post per channel per day per repo** per [`
 
 ## Cross-refs
 
-- Parent package decision ? [[decisions/architecture/omni-publish-package]]
-- Channel matrix using the package ? [[decisions/architecture/revenue-channels-2026]]
+- Parent package decision ? [[decisions/packages/omni-publish-package]]
+- Channel matrix using the package ? [[monetisation/revenue-channels-2026]]

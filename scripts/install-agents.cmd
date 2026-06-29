@@ -6,17 +6,14 @@ REM  Installs the 4 free coding agents wired to this workspace:
 REM    - Claude Code   (already installed; verifies only)
 REM    - OpenCode      (npm i -g opencode-ai)
 REM    - Kilo Code     (VS Code ext kilocode.Kilo-Code)
+REM    - ZCode         (GUI IDE; verifies install + wires skills)
 REM    - Antigravity   (manual install from https://antigravity.google.com/)
 REM
-REM  Workspace-only. Touches NO global config files.
-REM  All stubs are inside C:\D\oriz\.agents\
+REM  Also wires user-global skill junctions for all 6 agents.
+REM  Workspace root is NOT modified (workspace-root-cleanliness rule).
 REM  All rules live in C:\D\oriz\AGENTS.md (workspace source of truth)
 REM
 REM  Idempotent. Self-elevates.
-REM
-REM  After completion: window stays open 30 s so you can read the
-REM  output. Press any key to close immediately, or wait for the
-REM  timeout. No beep on completion.
 REM ============================================================
 setlocal
 

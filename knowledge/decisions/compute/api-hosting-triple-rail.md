@@ -128,7 +128,7 @@ This is a NARROW exception to the `cloudflare-pages-only.md` rule — applies ONLY
 
 ## Cross-refs
 
-- Market data per-repo (existing pattern) ? [[decisions/architecture/market-data-per-repo]]
-- Dynamic family-data registry ? [[decisions/architecture/dynamic-family-data-registry]]
-- PWABuilder as primary converter ? [[decisions/architecture/pwabuilder-as-primary-converter]]
+- Market data per-repo (existing pattern) ? [[decisions/ops/market-data-per-repo]]
+- Dynamic family-data registry ? [[decisions/ops/dynamic-family-data-registry]]
+- PWABuilder as primary converter ? [[decisions/frontend/pwabuilder-as-primary-converter]]
 - Cloudflare Pages only (narrow API exception) ? [[rules/cloudflare-pages-only]]

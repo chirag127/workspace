@@ -102,6 +102,6 @@ ISBNs: D2D gives one free. KDP gives a free ASIN (Amazon's internal ID) and an o
 
 ## Cross-refs
 
-- The previous first-book pick (Oriz Me) ? [[decisions/architecture/books-publishing-shape]]
-- The book publish pipeline (Pandoc, Markua, Leanpub) ? [[decisions/architecture/book-publish-pipeline]]
+- The previous first-book pick (Oriz Me) ? [[decisions/content/books-publishing-shape]]
+- The book publish pipeline (Pandoc, Markua, Leanpub) ? [[decisions/content/book-publish-pipeline]]
 - The knowledge-delta rule that surfaced this change ? [[rules/confirm-knowledge-deltas]]

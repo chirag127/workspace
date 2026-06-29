@@ -82,6 +82,6 @@ Deferred to v1: Urdu (some books), Sanskrit (some books), regional translations.
 
 ## Cross-refs
 
-- Original scope file ? [[decisions/architecture/ncert-app-scope]]
-- 4-nav surfaces (this app has all 4) ? [[decisions/architecture/four-nav-surfaces-every-app]]
+- Original scope file ? [[decisions/apps/ncert-app-scope]]
+- 4-nav surfaces (this app has all 4) ? [[decisions/frontend/four-nav-surfaces-every-app]]
 - No card on file ? [[rules/no-card-on-file]]

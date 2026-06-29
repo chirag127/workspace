@@ -63,6 +63,6 @@ All 5 rails are free-no-card tier. R2: 10 GB egress + 10 GB storage free. B2: 10
 
 ## Cross-refs
 
-- 4-host git mirror (rail 1) ? [[decisions/architecture/mirror-to-4-git-hosts]]
-- Stack picks ? [[decisions/architecture/stack-picks-2026-06-22]]
+- 4-host git mirror (rail 1) ? [[decisions/ops/mirror-to-4-git-hosts]]
+- Stack picks ? [[decisions/stack/stack-picks-2026-06-22]]
 - No card on file ? [[rules/no-card-on-file]]

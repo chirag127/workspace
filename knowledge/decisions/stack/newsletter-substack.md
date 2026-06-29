@@ -42,11 +42,11 @@ related:
 
 - **Daily blog feed** — auto-cross-posted from `blog.oriz.in` RSS (Substack supports RSS-to-newsletter import on free)
 - **Weekly digest** — manual write-up summarising the week
-- **Book drop announcements** — when a new book or sample chapter ships per [[decisions/architecture/books-publishing-shape]]
+- **Book drop announcements** — when a new book or sample chapter ships per [[decisions/content/books-publishing-shape]]
 
 ## Why Substack (vs Buttondown + EmailOctopus split)
 
-This decision **supersedes** [[decisions/architecture/newsletter-split-buttondown-emailoctopus]] (which split by audience: Buttondown for tech, EmailOctopus for marketing). Two ESPs = double the surface area for ~zero benefit at our scale.
+This decision **supersedes** [[decisions/content/newsletter-split-buttondown-emailoctopus]] (which split by audience: Buttondown for tech, EmailOctopus for marketing). Two ESPs = double the surface area for ~zero benefit at our scale.
 
 Substack:
 
@@ -68,7 +68,7 @@ Signup form embedded on:
 
 ## Cross-refs
 
-- Supersedes the Buttondown/EmailOctopus split ? [[decisions/architecture/newsletter-split-buttondown-emailoctopus]]
-- Blog cross-post strategy (RSS feed ? Substack) ? [[decisions/architecture/blog-cross-post-strategy]]
-- Book drops shipped via newsletter ? [[decisions/architecture/books-publishing-shape]]
+- Supersedes the Buttondown/EmailOctopus split ? [[decisions/content/newsletter-split-buttondown-emailoctopus]]
+- Blog cross-post strategy (RSS feed ? Substack) ? [[decisions/content/blog-cross-post-strategy]]
+- Book drops shipped via newsletter ? [[decisions/content/books-publishing-shape]]
 - Monetisation matrix slot ? [[policy/monetisation-channel-matrix]]

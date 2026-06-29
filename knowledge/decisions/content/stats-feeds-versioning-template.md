@@ -119,6 +119,6 @@ Update on each new app/book/package. Astro-shell version bump triggers all apps 
 
 ## Cross-refs
 
-- Backup everywhere ? [[decisions/architecture/backup-everywhere-weekly]]
-- Stack picks ? [[decisions/architecture/stack-picks-2026-06-22]]
+- Backup everywhere ? [[decisions/ops/backup-everywhere-weekly]]
+- Stack picks ? [[decisions/stack/stack-picks-2026-06-22]]
 - No PAID self-hosting (free is fine) ? [[rules/no-paid-self-hosting-only]]

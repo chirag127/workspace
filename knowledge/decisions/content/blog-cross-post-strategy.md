@@ -46,7 +46,7 @@ Why: Google de-dupes by canonical, attributes ranking to `oriz.in`, mirrors are 
 
 ## Drafts queue replaces Telegram
 
-Telegram is banned in India. User cannot reliably access Telegram bots. Drafts go to **GitHub Issues in a private repo** (`chirag127/oriz-drafts`). Full mechanics in [[decisions/architecture/drafts-queue-host]] + [[rules/no-telegram-india-banned]].
+Telegram is banned in India. User cannot reliably access Telegram bots. Drafts go to **GitHub Issues in a private repo** (`chirag127/oriz-drafts`). Full mechanics in [[decisions/compute/drafts-queue-host]] + [[rules/no-telegram-india-banned]].
 
 ## Channel matrix link
 
@@ -54,5 +54,5 @@ The full monetisation + posting rules per channel live in [[policy/monetisation-
 
 ## Cross-refs
 
-- omni-publish parent ? [[decisions/architecture/omni-publish-package]]
-- Revenue channels 2026 ? [[decisions/architecture/revenue-channels-2026]]
+- omni-publish parent ? [[decisions/packages/omni-publish-package]]
+- Revenue channels 2026 ? [[monetisation/revenue-channels-2026]]

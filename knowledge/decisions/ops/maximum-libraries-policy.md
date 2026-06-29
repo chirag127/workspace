@@ -130,8 +130,8 @@ Every `@chirag127/oriz-*` and `@chirag127/astro-*` package wraps community libra
 
 ## Cross-refs
 
-- Superseded minimal-libs ? [[decisions/architecture/minimal-ui-library-set]]
-- Earlier "max libs" first reversal ? [[decisions/architecture/max-ui-library-set]]
-- The 4 new packages ? [[decisions/architecture/four-more-packages-22-total]]
+- Superseded minimal-libs ? [[decisions/ops/maximum-libraries-policy]]
+- Earlier "max libs" first reversal ? [[decisions/ops/maximum-libraries-policy]]
+- The 4 new packages ? [[decisions/packages/four-more-packages-22-total]]
 - Never hit quotas ? [[rules/never-hit-quotas]]
 - No card on file ? [[rules/no-card-on-file]]

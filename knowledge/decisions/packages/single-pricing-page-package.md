@@ -77,6 +77,6 @@ Every other app mounts the package-served `/pricing` route.
 ## Cross-refs
 
 - Channel monetisation matrix ? [[policy/monetisation-channel-matrix]]
-- Payment architecture (direct links) ? [[decisions/architecture/payment-architecture-direct-links]]
+- Payment architecture (direct links) ? [[security/payment-architecture-direct-links]]
 - Ads rule ? [[rules/ads-allowed-everywhere-except]]
-- No Firebase Functions ? [[decisions/architecture/no-firebase-functions]]
+- No Firebase Functions ? [[decisions/compute/no-firebase-functions]]

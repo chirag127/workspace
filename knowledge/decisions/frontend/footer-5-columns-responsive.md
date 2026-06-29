@@ -115,5 +115,5 @@ Mobile: replace `<section>` with `<details>` + `<summary>` for accordion.
 
 ## Cross-refs
 
-- FINAL per-app visual policy ? [[decisions/architecture/final-per-app-visual-shared-behavior]]
+- FINAL per-app visual policy ? [[decisions/frontend/final-per-app-visual-shared-behavior]]
 - Per-app distinctive design ? [[rules/per-app-distinctive-frontend-design]]

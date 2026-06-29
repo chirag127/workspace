@@ -42,7 +42,7 @@ related:
 ## What it is NOT
 
 - NOT a dashboard. No logged-in stats, no charts, no "your activity".
-- NOT a personal home. The personal site is `me.oriz.in` — see [[decisions/architecture/cs-me-app-scope]].
+- NOT a personal home. The personal site is `me.oriz.in` — see [[decisions/apps/cs-me-app-scope]].
 - NOT a status page. Status lives at `status.oriz.in` via Better Stack.
 - NOT a search interface. Search is per-app via Pagefind.
 
@@ -52,5 +52,5 @@ First-time visitors arrive via "what is oriz?". They need 5 seconds to a portfol
 
 ## Cross-refs
 
-- Personal site is a sibling, not folded into home ? [[decisions/architecture/cs-me-app-scope]]
-- Packages get their own subdomain ? [[decisions/architecture/packages-oriz-in-catalog]]
+- Personal site is a sibling, not folded into home ? [[decisions/apps/cs-me-app-scope]]
+- Packages get their own subdomain ? [[decisions/packages/packages-oriz-in-catalog]]

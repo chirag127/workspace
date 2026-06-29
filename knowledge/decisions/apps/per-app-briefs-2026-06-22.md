@@ -166,12 +166,12 @@ Rename `oriz-lore-app` ? `oriz-lore-app`:
 
 ## Cross-refs
 
-- ncert combined directory ? [[decisions/architecture/ncert-combined-pdf-directory]]
-- ncert dual-mode download ? [[decisions/architecture/ncert-dual-mode-download]]
-- janaushdhi scope ? [[decisions/architecture/janaushdhi-app-scope]]
-- blog cross-post ? [[decisions/architecture/blog-cross-post-strategy]]
-- home-app shape ? [[decisions/architecture/home-app-shape]]
-- content apps scope ? [[decisions/architecture/content-apps-scope]]
-- cs-me scope ? [[decisions/architecture/cs-me-app-scope]]
-- tools shape ? [[decisions/architecture/tools-shape-and-priority]]
+- ncert combined directory ? [[decisions/apps/ncert-combined-pdf-directory]]
+- ncert dual-mode download ? [[decisions/apps/ncert-dual-mode-download]]
+- janaushdhi scope ? [[decisions/apps/janaushdhi-app-scope]]
+- blog cross-post ? [[decisions/content/blog-cross-post-strategy]]
+- home-app shape ? [[decisions/apps/home-app-shape]]
+- content apps scope ? [[decisions/apps/content-apps-scope]]
+- cs-me scope ? [[decisions/apps/cs-me-app-scope]]
+- tools shape ? [[decisions/stack/tools-shape-and-priority]]
 - family inventory (counts) ? [[services/family-inventory]]

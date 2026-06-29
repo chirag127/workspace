@@ -34,7 +34,7 @@ related:
 
 ## AI inference
 
-**Superseded by [[decisions/architecture/oriz-ai-providers-package]] (2026-06-22).**
+**Superseded by [[decisions/packages/oriz-ai-providers-package]] (2026-06-22).**
 
 The original NIM-primary + OpenRouter-fallback two-tier picked here is now subsumed by the new `@chirag127/oriz-ai-providers` aggregator package, which fans out across **20** free LLM APIs with a richer priority chain (anonymous OVHcloud / LLM7 / Pollinations first, then Cerebras / Groq / NIM / OpenRouter / Google AI Studio / etc keyed).
 
@@ -105,5 +105,5 @@ The original NIM-primary + OpenRouter-fallback two-tier picked here is now subsu
 - Never hit quotas ? [[rules/never-hit-quotas]]
 - No card on file (with domain exception noted) ? [[rules/no-card-on-file]]
 - Auto-only tracking (Sentry is auto) ? [[rules/auto-only-tracking]]
-- Mirror to 4 git hosts ? [[decisions/architecture/mirror-to-4-git-hosts]]
+- Mirror to 4 git hosts ? [[decisions/ops/mirror-to-4-git-hosts]]
 - Consent management ? [[security/consent-management-multi-category]]

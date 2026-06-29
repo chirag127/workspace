@@ -32,7 +32,7 @@ After the standard scaffold:
 - Repo name MUST end with `-npm-pkg`
 - Repo MUST NOT be archived
 - Package MUST be published on npm under `@chirag127/<short-name>` (matching the repo prefix)
-- `LICENSE` MUST be valid (MIT per [[decisions/architecture/mit-license-all-repos]])
+- `LICENSE` MUST be valid (MIT per [[decisions/ops/mit-license-all-repos]])
 
 **That's it.** The catalog's daily cron (04:00 IST) auto-discovers via GitHub API and rebuilds. Within 24h, the new package appears on `packages.oriz.in` in the appropriate sidebar group.
 
@@ -98,6 +98,6 @@ If a published-on-npm package is unpublished, the catalog page renders with stal
 
 ## Cross-refs
 
-- The catalog decision → [[decisions/architecture/packages-oriz-in-catalog]]
+- The catalog decision → [[decisions/packages/packages-oriz-in-catalog]]
 - The 17-package family list → [[architecture/the-23-packages]]
 - The catalog repo → [`chirag127/oriz-packages-catalog-app`](https://github.com/chirag127/oriz-packages-catalog-app)

@@ -106,13 +106,13 @@ Per [[rules/self-update-rule]], when a chat-decision lands, the knowledge file l
 | Patch a fork's code | [[rules/development/fork-discipline]] |
 | Merge upstream into our forks | scripts/merge-upstreams.mjs pattern (see this rule's runbook section below) |
 | Add an env / secret | [[security/sops-plus-doppler-hybrid]] ? [[rules/git-identity-chirag127-noreply]] |
-| Change repo / folder layout | [[decisions/architecture/projects-owner-own-forks-layout]] |
+| Change repo / folder layout | [[infrastructure/projects-owner-own-forks-layout]] |
 | Decide where a repo lives (owner / brand vs personal) | [[branding/keep-oriz-org-recruiter-via-pinning]] ? [[rules/recruiter-strategy]] |
-| Mirror / back up code or metadata | [[decisions/ops/mirror-to-7-popular-alternatives-2026-06-28]] ? [[runbooks/backup-metadata-to-b2]] ? [[decisions/architecture/backup-channels-alternative]] |
-| Write a userscript | [[decisions/architecture/userscript-prototype-via-tweeks]] ? develop-userscripts skill |
+| Mirror / back up code or metadata | [[decisions/ops/mirror-to-7-popular-alternatives-2026-06-28]] ? [[runbooks/backup-metadata-to-b2]] ? [[decisions/ops/backup-channels-alternative]] |
+| Write a userscript | [[decisions/apps/userscript-prototype-via-tweeks]] ? develop-userscripts skill |
 | Download a Chrome extension's source | `scripts/download-cws-extension.mjs <EXT_ID>` |
-| Decide which AI / LLM provider for a feature | [[decisions/architecture/ai-puter-plus-cf-workers-ai]] + scan `services/llm/*` |
-| Set up payments | [[monetisation/max-payment-methods]] ? [[decisions/architecture/razorpay-donation-button]] |
+| Decide which AI / LLM provider for a feature | [[decisions/compute/ai-puter-plus-cf-workers-ai]] + scan `services/llm/*` |
+| Set up payments | [[monetisation/max-payment-methods]] ? [[security/razorpay-donation-button]] |
 | Pick a hosting target | [[rules/hosting-split-cf-and-github-pages]] + scan `services/infra/hosting/*` |
 | Name a new repo | [[branding/repo-naming-suffixes]] |
 
