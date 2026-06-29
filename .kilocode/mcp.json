@@ -26,7 +26,10 @@
         "-y",
         "open-websearch"
       ],
-      "env": {}
+      "env": {
+        "MODE": "stdio",
+        "DEFAULT_SEARCH_ENGINE": "duckduckgo"
+      }
     },
     "mcp-crawl": {
       "type": "stdio",

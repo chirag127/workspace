@@ -1,5 +1,3 @@
-// OpenCode workspace config. See https://opencode.ai/docs/config
-// Reads AGENTS.md from workspace root automatically.
 {
   "$schema": "https://opencode.ai/config.json",
   "instructions": [
@@ -31,7 +29,11 @@
         "npx",
         "-y",
         "open-websearch"
-      ]
+      ],
+      "environment": {
+        "MODE": "stdio",
+        "DEFAULT_SEARCH_ENGINE": "duckduckgo"
+      }
     },
     "mcp-crawl": {
       "type": "local",

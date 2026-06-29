@@ -1,5 +1,5 @@
 {
-  "$schema": "https://raw.githubusercontent.com/cline/cline/main/src/schemas/mcp.json",
+  "$schema": "https://raw.githubusercontent.com/Kilo-Org/kilocode/main/schemas/mcp-settings.json",
   "mcpServers": {
     "fetch": {
       "type": "stdio",
@@ -26,7 +26,10 @@
         "-y",
         "open-websearch"
       ],
-      "env": {}
+      "env": {
+        "MODE": "stdio",
+        "DEFAULT_SEARCH_ENGINE": "duckduckgo"
+      }
     },
     "mcp-crawl": {
       "type": "stdio",

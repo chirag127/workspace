@@ -1,31 +1,53 @@
 # Per-agent stub: Antigravity
 
-Antigravity is Google's agent-first IDE (VS Code fork). Reads `AGENTS.md` natively.
+> **Read [`../../AGENTS.md`](../../AGENTS.md) first.** That file is the workspace source of truth. This file has Antigravity-specific overrides and environment notes.
 
-## Where this stub lives
+Antigravity is Google's agent-first development platform. As of Google I/O 2026 (May), it ships three surfaces:
 
-`.agents/antigravity/AGENTS.md` (this file). Antigravity reads the workspace's root `AGENTS.md` directly when you open `C:\D\oriz\` as a project. This per-agent stub exists for symmetry with the other 4 agents and to hold Antigravity-specific overrides.
+- **Antigravity IDE** (2.0) — standalone desktop app with Editor (synchronous IDE) + Manager (async agent orchestration)
+- **Antigravity CLI** — terminal-native agent, lightweight alternative to Gemini CLI
+- **Antigravity SDK** — programmatic harness for building custom agents
 
 ## Antigravity-specific notes
 
-- Free public preview as of 2026-05 with personal Gmail account. No card-on-file required.
-- Standalone IDE: install from https://antigravity.google.com/.
-- Two views: **Editor** (synchronous AI-powered IDE) and **Manager** (agent workflows).
-- Default model: Gemini 3 Flash via Google account. Bring your own Anthropic API key for Claude models.
+- **Free public preview** with personal Gmail account. No card-on-file required.
+- **Models:** Gemini 3 Pro/Flash via Google account (free tier). Can add Anthropic/OpenAI BYOK.
+- **Windows path:** `C:\Users\C5420321\AppData\Local\Google\Antigravity\`
+- **Config directory:** `%APPDATA%\Google\Antigravity\`
+
+## Install
+
+```bash
+# IDE: download from https://antigravity.google.com/download
+# CLI: antigravity auth login (links Google account)
+```
 
 ## MCP servers
 
-Antigravity reads MCP config from `.antigravity/mcp.json` when present. We DO NOT auto-create this file because Antigravity install is manual (one-off IDE install, not a CLI).
-
-When you install Antigravity and want the workspace MCPs:
+Antigravity reads MCP config from `.antigravity/mcp.json`. This file is synced from `.mcp.json` (single source of truth) via:
 
 ```bash
-# Copy the same MCP config Claude Code uses
-cp .mcp.json .antigravity/mcp.json
+node scripts/sync-mcp-configs.mjs
 ```
 
-This keeps Antigravity in sync with the rest of the workspace.
+Run this after any change to `.mcp.json` to keep all agents in sync.
 
-## No overrides
+## Free coding agent alternatives (research, June 2026)
+
+If you need a Claude Code alternative with free API or easy MCP setup:
+
+| Agent | License | Runtime | MCP | Free tier | Model support |
+|---|---|---|---|---|---|
+| **Crab Code** | Apache 2.0 | Rust | stdio/SSE/WS | BYOK | Any provider |
+| **free-code** | MIT | Bun | LSP | 50K tokens/day | Qwen, BYOK |
+| **SideCar** | MIT | VS Code ext | stdio/HTTP/SSE | BYOK + local | Any + Ollama |
+| **gocode** | Apache 2.0 | Go | client+server | BYOK | 200+ models |
+| **Codeep** | Apache 2.0 | Node | marketplace | BYOK | Any provider |
+| **Coddy** | Apache 2.0 | Go | merge configs | BYOK | Any provider |
+| **Claurst** | Apache 2.0 | Rust | ACP | BYOK + free mode | Any provider |
+
+All support BYOK (bring your own API key) with zero markup — you pay your provider directly.
+
+## Overrides
 
 (none yet)

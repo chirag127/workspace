@@ -8,7 +8,7 @@
 
 ## Always-loaded rules (auto-imported every session)
 
-These 9 files inline into the agent context on every session. They govern *every* response. Everything else in `knowledge/` is on-demand — read when the topic comes up, via `knowledge/index.md`.
+These 10 files inline into the agent context on every session. They govern *every* response. Everything else in `knowledge/` is on-demand — read when the topic comes up, via `knowledge/index.md`.
 
 @knowledge/rules/agent/ponytail.md
 @knowledge/rules/agent/caveman.md
@@ -19,6 +19,7 @@ These 9 files inline into the agent context on every session. They govern *every
 @knowledge/rules/agent/preferences/edit-mode-prefs.md
 @knowledge/rules/interaction/future-overrides-past.md
 @knowledge/rules/interaction/communication-stt-friendly.md
+@knowledge/rules/agent/mcp-config-single-source-of-truth.md
 
 **Lazy-loaded** — read on first knowledge access, not auto-imported:
 - [`knowledge/rules/agent/agent-minimum-context.md`](./knowledge/rules/agent/agent-minimum-context.md) — meta-protocol for navigating `knowledge/`. Read this BEFORE the first grep/read in `knowledge/` each session.
@@ -48,6 +49,12 @@ If you're setting up oriz on a fresh Windows machine:
 4. `.\bootstrap.ps1`
 
 The script installs all software + Docker + Hr + MCPs + decrypts env (needs age key from Bitwarden).
+
+**After bootstrap**, sync MCP configs to all agents:
+```cmd
+node scripts/sync-mcp-configs.mjs
+```
+
 Full details: `repos/own/backup/README.md` (private repo).
 
 ---
@@ -56,13 +63,13 @@ Full details: `repos/own/backup/README.md` (private repo).
 
 Five agents are supported. All read this file (`C:\D\oriz\AGENTS.md`) as the workspace source of truth via a per-agent stub at `C:\D\oriz\.agents\<agent>/`:
 
-| Agent | Type | Install | Workspace stub | MCP config |
-|---|---|---|---|---|
-| **Claude Code** | CLI | (already installed) | `.agents/claude/CLAUDE.md` | `.mcp.json` |
-| **OpenCode** | CLI | `npm i -g opencode-ai` | `.agents/opencode/AGENTS.md` | `.opencode/opencode.jsonc` |
-| **Kilo Code** | VS Code ext | `code --install-extension kilocode.Kilo-Code` | `.agents/kilocode/rules/00-pointer.md` | `.kilocode/mcp.json` |
-| **Cline** | VS Code ext | `code --install-extension saoudrizwan.claude-dev` | `.agents/cline/AGENTS.md` | `.vscode/mcp.json` |
-| **Antigravity** | Standalone IDE | https://antigravity.google.com/ (manual) | `.agents/antigravity/AGENTS.md` | `.antigravity/mcp.json` (manual copy) |
+| Agent | Type | Install | Workspace stub | MCP config | Synced from `.mcp.json` |
+|---|---|---|---|---|---|
+| **Claude Code** | CLI | (already installed) | `.agents/claude/CLAUDE.md` | `.mcp.json` | ✅ Source of truth |
+| **OpenCode** | CLI | `npm i -g opencode-ai` | `.agents/opencode/AGENTS.md` | `.opencode/opencode.jsonc` | 🔄 Transformed |
+| **Kilo Code** | VS Code ext | `code --install-extension kilocode.Kilo-Code` | `.agents/kilocode/rules/00-pointer.md` | `.kilocode/mcp.json` | ✅ Direct copy |
+| **Cline** | VS Code ext | `code --install-extension saoudrizwan.claude-dev` | `.agents/cline/AGENTS.md` | `.vscode/mcp.json` | ✅ Direct copy |
+| **Antigravity** | Standalone IDE | https://antigravity.google.com/ (manual) | `.agents/antigravity/AGENTS.md` | `.antigravity/mcp.json` | ✅ Direct copy |
 
 Install the 4 CLI/extension agents at once: `C:\D\oriz\scripts\install-agents.cmd`. Idempotent, workspace-only (no global changes). Antigravity is a standalone IDE — install manually from Google's site.
 
@@ -157,6 +164,7 @@ Grouped by subdirectory of `knowledge/rules/`. The full table with descriptions 
 - `read-before-edit` — always Read before Edit; harness enforces.
 - `self-update-rule` — every locked decision = concept file + log line + commit in the same conversation.
 - `agents-md-2025-discipline` — AGENTS.md short, sharp; bulk in `knowledge/`.
+- `mcp-config-single-source-of-truth` — `.mcp.json` is canonical; sync to all 5 agents via `node scripts/sync-mcp-configs.mjs`. Never edit per-agent MCP files directly.
 
 ### Design (5) — `knowledge/rules/design/`
 - `design-divergence-vs-dedup` — per-app variants where it matters; shared where it doesn't.
@@ -338,6 +346,7 @@ Full skills inventory: [`knowledge/decisions/architecture/general/agent-skills-m
 - **`playwright-cli`** skill for browser automation (signed binaries pass Defender ASR).
 - **`sops` + `age`** for `.env.enc` ↔ `.env` decryption.
 - **`restic`** + Backblaze B2 for backup (`runbooks/security/restic-backup-setup.md`).
+- **`node scripts/sync-mcp-configs.mjs`** after every `.mcp.json` change — syncs MCP servers to all 5 agents (`.kilocode/`, `.vscode/`, `.antigravity/`, `.opencode/`).
 
 ---
 
