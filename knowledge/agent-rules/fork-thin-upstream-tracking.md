@@ -21,15 +21,19 @@ related:
 ### Fork ownership
 - All forks live under `oriz-org` on GitHub (per existing `fleet-owner-oriz-org` rule).
 - Local checkouts: `repos/frk/<name>/`.
-- Current matrix (audited 2026-06-29): `freellmapi`, `omniroute`. Two real upstream trackers.
-  `ai-rewrite-bs-ext` lives under `repos/frk/` but origin already points to `oriz-org` — it's an own-repo placed there for organisation, not an upstream tracker, so it's NOT in the sync matrix.
+- Current matrix (audited 2026-06-29, revised): `freellmapi`, `omniroute`, `ai-rewrite-bs-ext`. Three upstream trackers.
+  - `freellmapi` ← `tashfeenahmed/freellmapi`
+  - `omniroute` ← `diegosouzapw/OmniRoute`
+  - `ai-rewrite-bs-ext` ← `SupratimRK/Ai-rewrite` (added 2026-06-29 — was missed in the 2026-06-29 morning audit because it uses the standard remote model, which the audit script didn't check)
 
-### Remote naming (THE FLIP)
+### Remote naming — STANDARD model
 Default Git remote names in each local fork clone:
-- `origin` → upstream (e.g. `tashfeenahmed/freellmapi.git`)
-- `fork`   → oriz-org (e.g. `oriz-org/freellmapi.git`)
+- `origin`   → oriz-org fork  (e.g. `oriz-org/freellmapi.git`)
+- `upstream` → source         (e.g. `tashfeenahmed/freellmapi.git`)
 
-So `git pull` and `git fetch` work against upstream by default. `git push fork <branch>` is the explicit verb to push to our fork.
+This matches GitHub default, `gh repo fork`, IDE assumptions, and the broader git ecosystem. `git pull` pulls from your fork by default. To pull upstream: `git pull upstream main`. Add a local alias if you want a shorter verb.
+
+**What changed 2026-06-29 (evening):** Earlier the same day, this rule documented an INVERTED model where `origin`=upstream + `fork`=oriz-org. That model was used by freellmapi + omniroute but not ai-rewrite-bs-ext (which used the standard model). User chose to standardise on the standard model. freellmapi and omniroute local remotes were flipped via `git remote rename origin upstream && git remote rename fork origin`.
 
 ### Fork main = upstream main, eventually consistent
 Fork's `main` branch tracks upstream `main`. Drift is allowed for up to 1 week (between cron runs) and during the lifetime of an open sync PR. Oriz work never lands on fork main, so the only legitimate divergence between syncs is when upstream itself moves.
@@ -76,6 +80,7 @@ Saved as `archive/pre-2026-06-27` branch on `oriz-org/freellmapi`. Old work surv
 - ❌ PR upstream from `oriz-org:branch` (use `chirag127:branch`)
 - ❌ Let fork main drift from upstream main for > 1 week (cron handles this; if you see longer drift, the cron is broken — investigate)
 - ❌ Force-push fork main from the cron (the 2026-06-27 model; replaced 2026-06-29)
+- ❌ Use the inverted remote model (`origin`=upstream, `fork`=oriz-org) — was tried 2026-06-29 morning, reverted same evening
 - ❌ Add a `backup` remote to forks (per `no-dual-remote-backup`)
 - ❌ `git clone https://github.com/oriz-org/<repo>` and treat that as primary — clone from upstream
 
