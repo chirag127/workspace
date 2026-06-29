@@ -649,7 +649,6 @@ status: active
 
 | File | Status | Description |
 |---|---|---|
-| [`browser-mcp-chrome-devtools`](./decisions/tooling/browser-mcp-chrome-devtools.md) | active | Use Google's official chrome-devtools-mcp (npx chrome-devtools-mcp@latest) as the single browser-control MCP. Chrome DevTools Protocol gives lower-level access (network log, console errors, performance traces) than browsermcp's high-leve... |
 
 ## Runbooks (49 total)
 

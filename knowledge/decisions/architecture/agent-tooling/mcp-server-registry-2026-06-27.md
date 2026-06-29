@@ -30,7 +30,7 @@ related:
 
 ## Removed
 
-- `chrome-devtools` MCP — superseded by playwright skill family (per playwright-over-chrome-devtools-mcp rule)
+- `chrome-devtools` MCP — superseded by `agent-browser` skill (Rust CLI, Chrome CDP)
 
 ## Install commands (audit-trail)
 

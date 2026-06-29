@@ -7,8 +7,8 @@ timestamp: 2026-06-28
 format_version: okf-v0.1
 status: active
 related:
-  - rules/agent/preferences/playwright-over-chrome-devtools-mcp
 ---
+
 
 # Skills in .agents/skills/ workspace-scoped
 
@@ -70,10 +70,11 @@ New-Item -ItemType SymbolicLink -Path 'C:\Users\C5420321\.claude\skills' -Target
 
 No git submodule init required. No bootstrap script. Just copy + 4 junction commands.
 
-## Layout (21 skills as of 2026-06-28)
+## Layout (19 skills)
 
 ```
 .agents/skills/
+├── agent-browser/                    # Browser automation (Rust, Chrome CDP)
 ├── cloudflare/                       # Cloudflare platform reference
 ├── cloudflare-email-service/         # CF Email Sending + Routing
 ├── develop-userscripts/              # Tampermonkey/ScriptCat
@@ -86,13 +87,11 @@ No git submodule init required. No bootstrap script. Just copy + 4 junction comm
 ├── obsidian-defuddle/                # Markdown extraction
 ├── obsidian-json-canvas/             # .canvas files
 ├── obsidian-markdown/                # Obsidian Flavored Markdown
-├── playwright-cli/                   # Browser automation
-├── playwright-persistent-sessions/   # Persistent browser sessions
 ├── secure-linux-web-hosting/         # Linux server hardening
 ├── smithery-ai-cli/                  # Smithery toolbox CLI
 ├── use-my-browser/                   # Live browser session driver
 ├── web-design-reviewer/              # UX/A11Y review
-├── webapp-testing/                   # Playwright app testing
+├── webapp-testing/                   # Web app testing workflows
 ├── workers-best-practices/           # CF Workers patterns
 └── wrangler/                         # CF Wrangler CLI
 ```
@@ -110,5 +109,4 @@ The old submodule [`oriz-org/agent-skills`](https://github.com/oriz-org/agent-sk
 
 ## Related
 
-- [[playwright-over-chrome-devtools-mcp]] — playwright-cli + playwright-persistent-sessions are workspace-scoped skills, not MCPs
 - [[grill-me-default]] — the grill-me discipline is one of the skills here

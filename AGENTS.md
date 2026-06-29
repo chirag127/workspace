@@ -8,7 +8,7 @@
 
 ## Always-loaded rules (auto-imported every session)
 
-These 13 files inline into the agent context on every session. They govern *every* response. Everything else in `knowledge/` is on-demand — read when the topic comes up, via `knowledge/index.md`.
+These 14 files inline into the agent context on every session. They govern *every* response. Everything else in `knowledge/` is on-demand — read when the topic comes up, via `knowledge/index.md`.
 
 @knowledge/rules/agent/ponytail.md
 @knowledge/rules/agent/caveman.md
@@ -19,6 +19,7 @@ These 13 files inline into the agent context on every session. They govern *ever
 @knowledge/rules/agent/preferences/edit-mode-prefs.md
 @knowledge/rules/interaction/future-overrides-past.md
 @knowledge/rules/interaction/communication-stt-friendly.md
+@knowledge/rules/agent/karpathy-guidelines.md
 @knowledge/rules/agent/mcp-config-single-source-of-truth.md
 @knowledge/rules/agent/globals-derived-from-workspace.md
 @knowledge/rules/agent/agent-fleet-parity.md
@@ -154,11 +155,11 @@ Full rationale: [`knowledge/decisions/architecture/infrastructure/workspace-flat
 
 ---
 
-## Rules (78 total) — non-negotiable
+## Rules (79 total) — non-negotiable
 
 Grouped by subdirectory of `knowledge/rules/`. The full table with descriptions lives in [`knowledge/index.md`](./knowledge/index.md#rules-78-total).
 
-### Agent behaviour (16) — `knowledge/rules/agent/`
+### Agent behaviour (17) — `knowledge/rules/agent/`
 - `agent-fleet-parity` — same rules + MCPs across all 4 fleet agents (CC, OpenCode, Kilo Code, Antigravity).
 - `agent-minimum-context` — operate on this repo with minimum upfront token cost.
 - `agents-md-three-place-update` — adding a rule lands in 3 places: concept file + AGENTS.md table + count bump, same commit.
@@ -172,6 +173,7 @@ Grouped by subdirectory of `knowledge/rules/`. The full table with descriptions 
 - `knowledge-deletion-not-supersession` — `git rm` superseded files; git history is the audit trail.
 - `knowledge-first` — durable info goes to `knowledge/`, never README/AGENTS.
 - `read-before-edit` — always Read before Edit; harness enforces.
+- `read-the-file-not-just-grep` — every external-issue / PR / public claim about another project's behaviour must be backed by a Read, not a grep alone. Cite file:line.
 - `self-update-rule` — every locked decision = concept file + log line + commit in the same conversation.
 - `agents-md-2025-discipline` — AGENTS.md short, sharp; bulk in `knowledge/`.
 - `mcp-config-single-source-of-truth` — `.mcp.json` is canonical; sync to all 4 agents via `node scripts/sync-mcp-configs.mjs`. Never edit per-agent MCP files directly.
