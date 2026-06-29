@@ -1,9 +1,7 @@
 ---
 type: rule
 title: Tests in parallel + master `pnpm install -r` is THE install command
-description: Vitest + Playwright + Storybook per app and per package; master CI matrix-fans
-  all suites in parallel. Always work from c:/D/oriz/ (the umbrella). One install
-  command from master covers every submodule.
+description: "Tests parallel, pnpm install -r from master"
 tags:
 - rule
 - tests
@@ -17,7 +15,7 @@ status: active
 related:
 - rules/interaction/parallel-fan-out-by-default
 - rules/interaction/linux-ci-only
-- runbooks/operations/install-and-bootstrap
+- runbooks/workflow/install-and-bootstrap
 ---
 
 

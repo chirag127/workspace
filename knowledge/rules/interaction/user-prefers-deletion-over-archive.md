@@ -1,8 +1,7 @@
 ---
 type: rule
 title: User prefers deletion over archive for superseded repos (same-day migration)
-description: When a repo is superseded by another within the same day or migration
-  session, delete it rather than archive. Cleaner repo listing, no zombie repos.
+description: "User prefers deletion over archive for superseded repos"
 tags:
 - taste
 - mcq-learned

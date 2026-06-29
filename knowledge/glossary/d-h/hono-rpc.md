@@ -1,7 +1,7 @@
----
+﻿---
 type: glossary
 title: "Hono RPC"
-description: "The type-safe API client pattern: hc<AppType> from @hono/client."
+description: Type-safe API client pattern: hc<AppType> from @hono/client
 tags: [glossary, hono, api, types]
 timestamp: 2026-06-20
 format_version: okf-v0.1

@@ -1,7 +1,7 @@
----
+﻿---
 type: glossary
 title: "App Check"
-description: "Firebase's bot-defence layer that gates every Firestore call to verified clients."
+description: Firebase bot-defence layer, gates Firestore calls to verified clients
 tags: [glossary, firebase, security]
 timestamp: 2026-06-20
 format_version: okf-v0.1

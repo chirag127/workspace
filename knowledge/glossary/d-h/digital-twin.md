@@ -1,7 +1,7 @@
----
+﻿---
 type: glossary
 title: "digital twin"
-description: "The broader concept lifestream implements: a public-facing mirror of one person's consumption and activity."
+description: Broader concept lifestream implements: public-facing mirror of one person consumption
 tags: [glossary, digital-twin, lifestream]
 timestamp: 2026-06-20
 format_version: okf-v0.1

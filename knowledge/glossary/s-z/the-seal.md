@@ -1,7 +1,7 @@
----
+﻿---
 type: glossary
 title: "the seal"
-description: "oriz-journal's signature animation (the only motion in the app), the encryption metaphor."
+description: oriz-journal signature animation (only motion in app), encryption metaphor
 tags: [glossary, design, oriz-journal]
 timestamp: 2026-06-20
 format_version: okf-v0.1

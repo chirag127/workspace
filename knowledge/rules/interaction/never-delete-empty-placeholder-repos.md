@@ -1,10 +1,7 @@
 ---
 type: rule
 title: Never delete an empty placeholder repo without explicit user authorisation
-description: An empty repo in the chirag127/oriz* family is a deliberate slug reservation,
-  NOT a cleanup candidate. Before running gh repo delete (or any destructive remote
-  action) against any family repo, even an empty one, the agent MUST get an explicit,
-  repo-named confirmation from the user.
+description: "Never delete empty placeholder repos without user OK"
 tags:
 - rule
 - repo
@@ -17,11 +14,11 @@ timestamp: 2026-06-20
 format_version: okf-v0.1
 status: active
 related:
-- decisions/branding/oriz-urls-to-md-site-empty-placeholder
-- decisions/branding/repo-naming-suffixes
+- branding/oriz-urls-to-md-site-empty-placeholder
+- branding/repo-naming-suffixes
 - rules/development/push-by-default
 - rules/development/repo-naming
-- runbooks/operations/rename-repo
+- runbooks/workflow/rename-repo
 ---
 
 
@@ -51,7 +48,7 @@ Empty in this family means **reserved**, not **dead**.
   link is dead, and the GitHub auto-redirect for renamed-then-deleted
   URLs evaporates.
 - **The family treats empty repos as deliberate.** See
-  <!-- TODO: broken link, was [`decisions/branding/oriz-urls-to-md-site-empty-placeholder.md`](../../decisions/branding/oriz-urls-to-md-site-empty-placeholder.md) -->
+  <!-- TODO: broken link, was [`branding/oriz-urls-to-md-site-empty-placeholder.md`](../../branding/oriz-urls-to-md-site-empty-placeholder.md) -->
   for the canonical example: `oriz-urls-to-md-site` is empty today,
   reserved for a URL → Markdown scraper feature that hasn't shipped
   yet, and explicitly named "do not delete" by the user.
@@ -117,9 +114,9 @@ When in doubt, fall back to archive (`gh repo archive`) instead of delete.
 
 ## Cross-references
 
-- <!-- TODO: broken link, was [oriz-urls-to-md-site empty placeholder decision](../../decisions/branding/oriz-urls-to-md-site-empty-placeholder.md) --> — the canonical empty-but-reserved repo
-- [Repo naming suffixes](../../decisions/branding/repo-naming-suffixes.md) — the slug taxonomy this rule defends
+- <!-- TODO: broken link, was [oriz-urls-to-md-site empty placeholder decision](../../branding/oriz-urls-to-md-site-empty-placeholder.md) --> — the canonical empty-but-reserved repo
+- [Repo naming suffixes](../../branding/repo-naming-suffixes.md) — the slug taxonomy this rule defends
 - [Push-by-default rule](../development/push-by-default.md) — outward-effect carve-out this rule narrows
 - [Repo naming rule](../development/repo-naming.md) — audit before publish; audit before delete is the symmetric ask
-- [Rename repo runbook](../../runbooks/operations/rename-repo.md) — the right way to retire a slug (rename, don't delete)
-- [Archive allowlist](../../decisions/policy/archive-allowlist.md) — sibling protection on the archive side; same set of repos, same logic
+- [Rename repo runbook](../../runbooks/workflow/rename-repo.md) — the right way to retire a slug (rename, don't delete)
+- [Archive allowlist](../../policy/archive-allowlist.md) — sibling protection on the archive side; same set of repos, same logic

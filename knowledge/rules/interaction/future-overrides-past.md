@@ -1,13 +1,13 @@
 ---
 type: rule
 title: Future decisions override past decisions
-description: When chat contradicts a knowledge file or AGENTS.md, chat wins; file updated in same turn.
+description: "Chat contradicts file → chat wins, update same turn"
 tags: [rules, agent, knowledge, authority]
 timestamp: 2026-06-20
 format_version: okf-v0.1
 status: active
 related:
-  - rules/agent/self-update-rule
+  - agent-rules/self-update-rule
 ---
 
 # Future decisions override past decisions

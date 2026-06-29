@@ -1,7 +1,7 @@
----
+﻿---
 type: glossary
 title: "parallel fan-out"
-description: "Spawning N subagents simultaneously for independent work."
+description: Spawning N subagents simultaneously for independent work
 tags: [glossary, agents, parallel]
 timestamp: 2026-06-20
 format_version: okf-v0.1

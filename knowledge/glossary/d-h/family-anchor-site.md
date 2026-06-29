@@ -1,7 +1,7 @@
----
+﻿---
 type: glossary
 title: "family anchor site"
-description: "oriz-home, the site whose v2 design defines patterns the other 10 reuse."
+description: oriz-home: v2 design defines patterns other 10 sites reuse
 tags: [glossary, design, oriz-home]
 timestamp: 2026-06-20
 format_version: okf-v0.1

@@ -1,7 +1,7 @@
 ---
 type: runbook
 title: "Free hosting — monitoring (Better Stack, UptimeRobot, Healthchecks, Sentry, Axiom)"
-description: "Provider-by-provider free-tier numbers for uptime monitoring, error tracking, logs, and traces. Better Stack is the commercial-OK winner (UptimeRobot's free is personal/OSS only since Oct 2024). Sentry Developer + Axiom Personal cover errors + logs."
+description: "Monitoring free-tier: Better Stack, Sentry, Axiom"
 tags: [runbook, hosting, free-tier, monitoring, uptime, sentry, better-stack, axiom]
 timestamp: 2026-06-22
 format_version: okf-v0.1

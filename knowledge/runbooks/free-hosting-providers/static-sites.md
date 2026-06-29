@@ -1,7 +1,7 @@
 ---
 type: runbook
 title: "Free hosting — static sites (CF Pages, GH Pages, Netlify, Vercel, Surge, Render, Neocities, Bunny, Fleek)"
-description: "Provider-by-provider free-tier numbers for static site hosting. Cloudflare Pages stays the family primary; GitHub Pages is the mirror. Verdict column distinguishes KEEP / EVALUATE / DROP for a 50+ project fleet under the no-card-on-file rule."
+description: "Static site free tiers: CF Pages primary, GH Pages mirror"
 tags: [runbook, hosting, free-tier, static-sites, cloudflare-pages, github-pages, netlify, vercel]
 timestamp: 2026-06-22
 format_version: okf-v0.1

@@ -1,7 +1,7 @@
 ---
 type: runbook
 title: "Free hosting — queues + pub-sub (CF Queues, Upstash QStash, Inngest, Trigger.dev, Pusher)"
-description: "Provider-by-provider free-tier numbers for async message queues, scheduled jobs, pub-sub, and durable execution. Cloudflare Queues went GA in Workers Free on 2026-02-04 — biggest 2026 unlock. Upstash QStash + Inngest are the durable-job picks."
+description: "Queues + pub-sub free tiers: CF, QStash, Inngest"
 tags: [runbook, hosting, free-tier, queues, pubsub, cloudflare-queues, upstash-qstash, inngest]
 timestamp: 2026-06-22
 format_version: okf-v0.1

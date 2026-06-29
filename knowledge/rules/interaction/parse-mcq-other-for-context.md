@@ -2,13 +2,7 @@
 type: rule
 title: Always parse 'Other' answers in MCQs for additional context beyond the literal
   question
-description: "When the user selects 'Other' on an multi-choice question prompt MCQ and adds free-text,\
-  \ that free-text may carry context unrelated to the specific question being asked\
-  \ \u2014 instructions, constraints, requests, new decisions. The agent MUST parse\
-  \ the free-text for ALL meaningful directives, not just answer the literal question.\
-  \ If the free-text contains a new directive or constraint, the agent must (1) acknowledge\
-  \ it explicitly, (2) write it to knowledge if durable, (3) act on it, AND (4) still\
-  \ record an answer to the original question."
+description: "Parse MCQ 'Other' answers for extra directives"
 tags:
 - rule
 - communication
@@ -22,9 +16,9 @@ format_version: okf-v0.1
 status: active
 related:
 - rules/interaction/communication-stt-friendly
-- rules/agent/confirm-knowledge-deltas
-- rules/agent/keep-knowledge-fresh
-- rules/agent/grill-to-knowledge
+- agent-rules/confirm-knowledge-deltas
+- agent-rules/keep-knowledge-fresh
+- agent-rules/grill-to-knowledge
 ---
 
 

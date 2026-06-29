@@ -1,10 +1,7 @@
 ---
 type: rule
 title: Telegram channels and roles (restored 2026-06-22)
-description: 'Telegram restored in India 2026-06-22. Four channels in the Oriz namespace:
-  @oriz_announcements (public broadcast), @oriz_drafts (private drafts queue), @oriz_ops
-  (private errors+CI), @oriz_paisa (public India finance). Drafts dual-write to TG
-  + GH Issues for redundancy. Pairs with Substack for long-form newsletter (both used).'
+description: "4 Telegram channels in Oriz namespace"
 tags:
 - rule
 - telegram
@@ -18,9 +15,9 @@ format_version: okf-v0.1
 status: active
 supersedes: rules/no-telegram-india-banned
 related:
-- decisions/architecture/compute/drafts-queue-host
-- decisions/architecture/stack/newsletter-substack
-- decisions/architecture/packages/omni-publish-package
+- decisions/compute/drafts-queue-host
+- decisions/stack/newsletter-substack
+- decisions/packages/omni-publish-package
 ---
 
 

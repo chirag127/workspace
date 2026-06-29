@@ -1,8 +1,7 @@
 ---
 type: rule
 title: "No hardcoded secrets \u2014 everything via envpact"
-description: Secrets never live in source. All secrets come from chirag127/envpact-secrets,
-  pulled at dev/build/CI time.
+description: "No hardcoded secrets, envpact provides at runtime"
 tags:
 - rules
 - secrets
@@ -12,7 +11,7 @@ timestamp: 2026-06-20
 format_version: okf-v0.1
 status: active
 related:
-- services/tooling/envpact
+- services/business/tooling/envpact
 - runbooks/security/auth-setup
 ---
 
@@ -56,7 +55,7 @@ without a code change.
   safe in the client by Firebase design — they identify, they don't
   authorize. Still pulled via envpact for consistency.
 - Worker secrets in Cloudflare Secrets Store (per
-  [`apps/api`](../../decisions/architecture/compute/api-umbrella-hono-worker.md)) — the
+  [`apps/api`](../../decisions/compute/api-umbrella-hono-worker.md)) — the
   Worker reads from the binding at runtime; envpact populates the
   binding at deploy time.
 
@@ -76,5 +75,5 @@ None.
 ## See also
 
 - AGENTS.md "Secrets" section
-- [`../services/tooling/envpact.md`](../../services/tooling/envpact.md)
+- [`../services/business/tooling/envpact.md`](../../services/business/tooling/envpact.md)
 - [`../runbooks/security/auth-setup.md`](../../runbooks/security/auth-setup.md)

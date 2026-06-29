@@ -1,7 +1,7 @@
----
+﻿---
 type: glossary
 title: "-ext suffix"
-description: "The -ext suffix on Chrome extension repo names (oriz-<name>-ext)."
+description: -ext suffix on Chrome extension repo names (oriz-<name>-ext)
 tags: [glossary, naming, extensions]
 timestamp: 2026-06-20
 format_version: okf-v0.1

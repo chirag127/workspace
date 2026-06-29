@@ -1,14 +1,7 @@
 ---
 type: rule
 title: Cloudflare Pages = apps only. Everything else = GitHub Pages
-description: "Locked 2026-06-23. CF Pages hosts the 25 apps under repos/oriz/own/prod/apps/\
-  \ ONLY (content + hub + personal + tools). All other surface area \u2014 npm package\
-  \ READMEs, API JSON catalogs, books, extensions, skills, forks \u2014 uses GitHub\
-  \ Pages with the repo's CNAME pointing to its <repo>.github.io target. Any subdomain\
-  \ that surfaces 'more information' style content for a non-app links to oriz.in.\
-  \ Removes confusion about which CF Pages projects should exist; bounds the 100-project\
-  \ CF Pages soft cap; matches the 'subdomain per app, GH Pages for everything else'\
-  \ shape."
+description: "CF Pages for apps, GH Pages for everything else"
 tags:
 - rule
 - hosting
@@ -22,8 +15,8 @@ status: active
 related:
 - rules/hosting-split-cf-and-github-pages
 - rules/infrastructure/one-level-subdomain-only
-- decisions/architecture/compute/api-hosting-triple-rail
-- decisions/architecture/security/monetization-centralized-on-oriz-in
+- decisions/compute/api-hosting-triple-rail
+- security/monetization-centralized-on-oriz-in
 ---
 
 

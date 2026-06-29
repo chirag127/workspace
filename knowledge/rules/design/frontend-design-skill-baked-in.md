@@ -1,13 +1,7 @@
 ---
 type: rule
 title: 'Frontend-design skill: distinctive intentional visual design for every UI'
-description: "Permanently baked into knowledge per user mandate 2026-06-22 evening.\
-  \ This is the agent's design philosophy when building or reshaping any UI. Ground\
-  \ design in the subject. Hero is a thesis. Typography carries personality. Structure\
-  \ is information. Motion is deliberate. Match complexity to vision. Avoid AI-cluster\
-  \ defaults. Brainstorm-explore-plan-critique-build-critique-again. Restraint + self-critique\
-  \ (remove one accessory before publishing). Writing is design material \u2014 active\
-  \ voice, end-user side of screen, name by what people control."
+description: "Distinctive intentional visual design for every UI"
 tags:
 - rule
 - design
@@ -20,7 +14,7 @@ format_version: okf-v0.1
 status: active
 related:
 - rules/design/per-app-distinctive-frontend-design
-- decisions/architecture/general/shared-vs-divergent-matrix
+- decisions/ops/shared-vs-divergent-matrix
 ---
 
 

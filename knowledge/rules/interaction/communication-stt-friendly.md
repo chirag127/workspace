@@ -1,13 +1,13 @@
 ---
 type: rule
 title: Communication is STT-friendly — accept transcription noise, infer intent
-description: User uses speech-to-text. Ask short-labelled MCQs (≤4 per call), infer intent from typos, when ambiguous pick most-likely interpretation + state it + proceed. Never ask user to re-transcribe.
+description: "STT-friendly communication, infer intent, ≤4 MCQ options"
 tags: [rule, communication, stt, askuserquestion, ambiguity-handling]
 timestamp: 2026-06-21
 format_version: okf-v0.1
 status: active
 related:
-  - rules/agent/grill-to-knowledge
+  - agent-rules/grill-to-knowledge
   - rules/interaction/future-overrides-past
 ---
 

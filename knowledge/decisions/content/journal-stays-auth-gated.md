@@ -1,7 +1,7 @@
----
+﻿---
 type: decision
 title: "me.oriz.in does NOT publish journal; journal stays auth-gated"
-description: "The public site me.oriz.in surfaces only NUMERIC aggregates from the journal. Entry text lives at journal.oriz.in behind Firebase Auth — never publicly indexed."
+description: 'Journal: numeric aggregates public, text auth-gated'
 tags: [journal, privacy, public-private, lifestream]
 timestamp: 2026-06-19
 format_version: okf-v0.1

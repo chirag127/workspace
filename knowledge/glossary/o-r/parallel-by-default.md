@@ -1,7 +1,7 @@
----
+﻿---
 type: glossary
 title: "parallel by default"
-description: "The family rule: any work that can be parallelised MUST be fanned out via subagents."
+description: Family rule: parallelisable work MUST fan out via subagents
 tags: [glossary, rule, agents]
 timestamp: 2026-06-20
 format_version: okf-v0.1

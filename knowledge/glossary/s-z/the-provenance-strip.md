@@ -1,7 +1,7 @@
----
+﻿---
 type: glossary
 title: "the provenance strip"
-description: "oriz-me's signature element, the live build manifest at the top of every page."
+description: oriz-me signature element: live build manifest at top of every page
 tags: [glossary, design, oriz-me, lifestream]
 timestamp: 2026-06-20
 format_version: okf-v0.1

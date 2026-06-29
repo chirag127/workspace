@@ -1,7 +1,7 @@
----
+﻿---
 type: decision
 title: "Keep extensions.oriz.in catalog AS WELL AS per-extension subdomains"
-description: "Both surfaces exist: a central catalog at extensions.oriz.in for browsing/discovery and individual <slug>.oriz.in subdomains for each extension's deep website."
+description: Central catalog + per-extension subdomains
 tags: [extensions, catalog, subdomain, navigation]
 timestamp: 2026-06-20
 format_version: okf-v0.1

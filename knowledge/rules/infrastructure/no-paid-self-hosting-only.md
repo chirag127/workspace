@@ -1,10 +1,7 @@
 ---
 type: rule
 title: "No PAID self-hosting \u2014 free + no-card-on-file providers are fine"
-description: 'Reversal 2026-06-22: self-hosting is FINE as long as the provider is
-  free / no-card-on-file. The hard constraint is ''no card on file'', not ''no servers''.
-  This rule is now effectively merged with no-card-on-file.md and kept as a thin pointer
-  + provider allowlist.'
+description: "Self-hosting OK on free / no-card providers"
 tags:
 - rule
 - hosting
@@ -20,7 +17,7 @@ related:
 - rules/interaction/no-card-on-file
 - rules/infrastructure/cloudflare-pages-only
 - rules/infrastructure/no-subscriptions
-- decisions/architecture/compute/cf-worker-quota-mitigation
+- decisions/compute/cf-worker-quota-mitigation
 ---
 
 

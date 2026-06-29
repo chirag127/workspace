@@ -1,7 +1,7 @@
 ---
 type: runbook
 title: "Free hosting — web services (Render, Fly, Railway, Koyeb, Replit, Cyclic, Glitch)"
-description: "Provider-by-provider free-tier numbers for hosting always-on or sleep-tolerant web services and containers. Most providers in this category collapsed their free tiers in 2024–2026; the survivors are Render (with sleep) and Koyeb (1 nano)."
+description: "Web services free tiers: Render (sleep) and Koyeb (1 nano)"
 tags: [runbook, hosting, free-tier, web-services, render, koyeb, fly-io, railway]
 timestamp: 2026-06-22
 format_version: okf-v0.1

@@ -1,7 +1,7 @@
----
+﻿---
 type: glossary
 title: "family"
-description: "The chirag127/oriz-* family of sites + extensions + packages: 11 sites + N extensions + 6 packages + 1 API."
+description: chirag127/oriz-* family: 11 sites + N extensions + 6 packages + 1 API
 tags: [glossary, family, structure]
 timestamp: 2026-06-20
 format_version: okf-v0.1

@@ -1,11 +1,7 @@
 ---
 type: rule
 title: "No Firebase Cloud Functions \u2014 Blaze requires a card on file"
-description: 'Firebase Cloud Functions only run on the Blaze pay-as-you-go plan, which
-  requires a card on file. Per the no-card-on-file rule, Functions are hard-banned
-  family-wide. Replacements: GitHub Actions cron, Cloudflare Workers REST APIs, CF
-  Pages Functions per-page logic, and Firestore client SDK direct from the browser.
-  Firebase Auth + Firestore stay (Spark free, no card).'
+description: "No Firebase Functions — Blaze requires card"
 tags:
 - rule
 - firebase
@@ -18,9 +14,9 @@ format_version: okf-v0.1
 status: active
 related:
 - rules/interaction/no-card-on-file
-- decisions/architecture/general/no-firebase-functions
-- decisions/architecture/compute/cf-worker-quota-mitigation
-- decisions/architecture/compute/hono-worker-api-umbrella
+- decisions/compute/no-firebase-functions
+- decisions/compute/cf-worker-quota-mitigation
+- decisions/compute/hono-worker-api-umbrella
 ---
 
 
@@ -42,7 +38,7 @@ no card and cover the family's auth + persistence needs.
    minutes on public repos.
 2. **Cloudflare Workers** — REST APIs, webhook receivers, edge logic.
    100K req/day free per Worker (split per domain for headroom — see
-   [`cf-worker-quota-mitigation.md`](../../decisions/architecture/compute/cf-worker-quota-mitigation.md)).
+   [`cf-worker-quota-mitigation.md`](../../decisions/compute/cf-worker-quota-mitigation.md)).
 3. **Cloudflare Pages Functions** — per-page server logic on a Pages
    site. Shared 100K/day envelope with Workers.
 4. **Firestore client SDK** — read/write directly from the browser with
@@ -58,6 +54,6 @@ and do not cover Functions. The only real defense is "no Blaze, ever".
 ## Cross-refs
 
 - [`no-card-on-file.md`](../interaction/no-card-on-file.md) — parent rule
-- [`no-firebase-functions.md`](../../decisions/architecture/general/no-firebase-functions.md) — full decision artefact
-- [`cf-worker-quota-mitigation.md`](../../decisions/architecture/compute/cf-worker-quota-mitigation.md) — Worker free-tier playbook
-- [`hono-worker-api-umbrella.md`](../../decisions/architecture/compute/hono-worker-api-umbrella.md) — the API replacement
+- [`no-firebase-functions.md`](../../decisions/compute/no-firebase-functions.md) — full decision artefact
+- [`cf-worker-quota-mitigation.md`](../../decisions/compute/cf-worker-quota-mitigation.md) — Worker free-tier playbook
+- [`hono-worker-api-umbrella.md`](../../decisions/compute/hono-worker-api-umbrella.md) — the API replacement

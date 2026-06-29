@@ -1,7 +1,7 @@
 ---
 type: runbook
 title: "Free hosting — image CDN + transforms + durability replication (Cloudinary, ImageKit, imgbb, GitHub Releases, Uploadcare)"
-description: "4-host replicate-everywhere image strategy: Cloudinary + ImageKit + imgbb + GitHub Releases. Image compressed once at upload (optimisation only — original never stored), then replicated across all 4 hosts. Client tries each in order; first 200 wins. Cloudinary + ImageKit are CDN-fast with transforms; imgbb is no-signup durability; GH Releases is cold storage."
+description: "4-host replicate-everywhere image CDN strategy"
 tags: [runbook, hosting, free-tier, image-cdn, cloudinary, imagekit, imgbb, github-releases, replication]
 timestamp: 2026-06-22
 format_version: okf-v0.1

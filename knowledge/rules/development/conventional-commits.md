@@ -1,8 +1,7 @@
 ---
 type: rule
 title: Conventional commits
-description: 'Every commit message uses a Conventional Commits prefix: feat, fix,
-  chore, docs, refactor, test.'
+description: "Conventional Commits prefixes for every commit"
 tags:
 - rules
 - git

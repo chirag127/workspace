@@ -1,10 +1,7 @@
 ---
 type: rule
 title: "Profile README must cross-link chirag127 \u2194 oriz-org"
-description: "The chirag127 GitHub profile README must include a one-line cross-link\
-  \ to oriz-org (the brand org), and the oriz-org profile README must include a 'Founded\
-  \ by Chirag Singhal' line linking back. Both surfaces \u2014 personal account and\
-  \ brand org \u2014 must lead a visitor to the other in one click."
+description: "chirag127 ↔ oriz-org cross-link in profile READMEs"
 tags:
 - rule
 - branding
@@ -17,7 +14,7 @@ format_version: okf-v0.1
 status: active
 related:
 - rules/interaction/recruiter-strategy
-- decisions/branding/oriz-org-rename-from-co
+- branding/oriz-org-rename-from-co
 - decisions/architecture/general/projects-owner-own-forks-layout
 ---
 

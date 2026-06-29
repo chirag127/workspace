@@ -1,12 +1,7 @@
 ---
 type: rule
 title: "Env vars live at GitHub ORG level only \u2014 per-repo secrets FORBIDDEN"
-description: 'User mandate 2026-06-22 evening: ''Don''t hit the GitHub API so many
-  times. Requests have to be made only on the organization level, not to the individual
-  repositories. The CI/CD pipelines will use the global environment variables only.''
-  Per-repo secret writes are forbidden (cause 2,730+ API calls per sync; hit 5K/hr
-  rate limit). Migration to GH Org `oriz-org` COMPLETED 2026-06-22 (76 repos transferred,
-  61 org secrets pushed). Repository destination: github.com/oriz-org/<slug>.'
+description: "Env vars live at org level only"
 tags:
 - rule
 - env
@@ -18,9 +13,9 @@ tags:
 timestamp: 2026-06-22
 format_version: okf-v0.1
 status: active (migration COMPLETED 2026-06-22)
-supersedes_in_part: decisions/security/env-single-source-auto-push
+supersedes_in_part: security/env-single-source-auto-push
 related:
-- decisions/security/env-single-source-auto-push
+- security/env-single-source-auto-push
 - rules/security/github-org-level-secrets
 - rules/interaction/never-hit-quotas
 - rules/interaction/no-card-on-file
@@ -83,7 +78,7 @@ Picked `oriz-org` after `oriz` and `oriz-in` were both taken on 2026-06-22 eveni
 
 ## Cross-refs
 
-- Env single-source auto-push (decision, original) → [[decisions/security/env-single-source-auto-push]]
+- Env single-source auto-push (decision, original) → [[security/env-single-source-auto-push]]
 - GitHub org-level secrets rule → [[rules/github-org-level-secrets]]
 - Never hit quotas → [[rules/never-hit-quotas]]
 - No card on file → [[rules/no-card-on-file]]

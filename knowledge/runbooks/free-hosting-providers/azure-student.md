@@ -1,7 +1,7 @@
 ---
 type: runbook
 title: "Free hosting — Azure for Students (student-verified, NO card at signup)"
-description: "User has an active Azure for Students subscription (offer code MS-AZR-0170P). $100/yr credit, renewable while enrolled, NO credit card required at signup (student-verified instead). Documents what's free, what's USEFUL for the family, what we'll use vs SKIP, and the commercial-use caveat."
+description: "Azure for Students: $100/yr, no card, student-verified"
 tags: [runbook, hosting, free-tier, azure, azure-students, student-account, no-card-on-file]
 timestamp: 2026-06-22
 format_version: okf-v0.1

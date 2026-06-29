@@ -1,7 +1,7 @@
----
+﻿---
 type: glossary
 title: "package isolation"
-description: "Wrapping every external service in a typed package so swapping providers is a version bump, not a rewrite."
+description: Wrap external service in typed package; swapping providers = version bump, not rewrite
 tags: [glossary, rule, packages]
 timestamp: 2026-06-20
 format_version: okf-v0.1

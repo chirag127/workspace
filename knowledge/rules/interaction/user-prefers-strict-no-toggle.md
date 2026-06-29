@@ -1,9 +1,7 @@
 ---
 type: rule
 title: User prefers strict-no-toggle interpretation of locked rules
-description: When a family-wide rule (dark mode, no auth, no card) is offered as 'strict'
-  vs 'with opt-in toggle', user picks strict. No light-mode toggle. No card-on-file
-  even with opt-in. The rule is the rule.
+description: "User prefers strict-no-toggle for locked rules"
 tags:
 - taste
 - mcq-learned

@@ -1,7 +1,7 @@
----
+﻿---
 type: glossary
 title: "Firestore Spark"
-description: "Firebase's free tier; the family never upgrades to Blaze."
+description: Firebase free tier; family never upgrades to Blaze
 tags: [glossary, firebase, billing, rule]
 timestamp: 2026-06-20
 format_version: okf-v0.1

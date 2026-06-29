@@ -1,12 +1,7 @@
 ---
 type: rule
 title: "Fork discipline \u2014 minimum diff, rebase-friendly, upstream-aligned"
-description: "All forks live under oriz-org/<upstream-name> on GitHub and repos/oriz/frk/<bucket>/<category>/<upstream-name>/\
-  \ on disk. Reason: org-level secrets only propagate within the org; forks on personal\
-  \ accounts can't inherit them. Slug + disk folder = upstream name by default, unless\
-  \ the fork ships as a distinct product (CWS / store / npm) \u2014 then rename to\
-  \ a `<purpose>-bs-ext` / `-cli` / etc. compliant slug. All code changes minimum-diff,\
-  \ marked with per-fork `<slug>:` comments, documented in per-fork knowledge/divergence.md."
+description: "Minimum-diff forks, rebase-friendly, upstream-aligned"
 tags:
 - rule
 - forks
@@ -58,7 +53,7 @@ SHOULD be renamed to a convention-compliant slug (e.g.
 - Store listings reject duplicate names anyway.
 - A distinct slug communicates "this is our shipped variant" to anyone
   landing on the GitHub repo or store page.
-- The family naming convention ([`repo-naming-suffixes`](../../decisions/branding/repo-naming-suffixes.md))
+- The family naming convention ([`repo-naming-suffixes`](../../branding/repo-naming-suffixes.md))
   applies to forks too: browser extensions get `-bs-ext`, CLIs get
   `-cli`, etc. Lowercase, hyphenated, role-suffixed.
 - Upstream rebase still works — set `upstream` to the original repo
@@ -144,4 +139,4 @@ and opens an issue.
 ## Cross-refs
 
 - [`repo-naming.md`](./repo-naming.md) — non-fork naming rules
-- [`decisions/architecture/submodule-pattern.md`](../../decisions/architecture/ops/submodule-pattern.md) — submodule discipline
+- [`decisions/architecture/submodule-pattern.md`](../../decisions/ops/submodule-pattern.md) — submodule discipline

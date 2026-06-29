@@ -1,14 +1,7 @@
 ---
 type: rule
 title: "One-level subdomains only \u2014 never two levels deep below oriz.in"
-description: "Locked 2026-06-22 evening. Family subdomains live AT MOST one level\
-  \ deep below oriz.in. ALLOWED: blog.oriz.in / paisa.oriz.in / fii-dii-api.oriz.in.\
-  \ FORBIDDEN: <name>.api.oriz.in (two levels), <name>.<group>.oriz.in. Reason: Cloudflare\
-  \ Universal SSL free tier covers *.oriz.in only (one-level wildcard). Two-level\
-  \ requires paid ACM ($10/mo) which violates no-card-on-file rule. Current violation:\
-  \ 19 *.api.oriz.in subdomains \u2014 workaround: CF DNS-only (grey cloud), GH Pages\
-  \ handles SSL at 2 levels via Let's Encrypt. NEW APIs must use `<name>-api.oriz.in`\
-  \ one-level pattern."
+description: "One-level subdomains only below oriz.in"
 tags:
 - rule
 - subdomain
@@ -23,8 +16,8 @@ status: active
 related:
 - rules/interaction/no-card-on-file
 - rules/interaction/never-hit-quotas
-- decisions/architecture/compute/api-hosting-triple-rail
-- runbooks/hosting/cf-dns-add-api-subdomain
+- decisions/compute/api-hosting-triple-rail
+- runbooks/platform/cf-dns-add-api-subdomain
 ---
 
 

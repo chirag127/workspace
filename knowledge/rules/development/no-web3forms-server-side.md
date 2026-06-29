@@ -1,8 +1,7 @@
 ---
 type: rule
 title: Never call Web3Forms from server-side code
-description: Web3Forms server-side calls require their paid plan plus an IP allow-list.
-  Cloudflare Workers' egress IPs rotate. Always submit Web3Forms from the browser.
+description: "Web3Forms browser-only, never server-side"
 tags:
 - rules
 - web3forms
@@ -13,7 +12,7 @@ timestamp: 2026-06-20
 format_version: okf-v0.1
 status: active
 related:
-- services/forms/web3forms
+- services/business/forms/web3forms
 - architecture/compute/api-umbrella-hono-worker
 - rules/interaction/no-card-on-file
 ---
@@ -60,5 +59,5 @@ None.
 
 ## See also
 
-- [`web3forms.md`](../../services/forms/web3forms.md)
+- [`web3forms.md`](../../services/business/forms/web3forms.md)
 - [`no-card-on-file.md`](../interaction/no-card-on-file.md)

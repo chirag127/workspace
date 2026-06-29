@@ -1,8 +1,7 @@
 ---
 type: rule
 title: Never hit a free-tier quota
-description: Architect for headroom. Surprise quota walls are a design failure, not
-  a billing event.
+description: "Architect for headroom, never hit quotas"
 tags:
 - rules
 - quotas
@@ -40,7 +39,7 @@ The layered defense:
 3. **Push work to build-time GitHub Actions** when possible — cron-rebuilt
    static JSON files have effectively infinite read quota.
 4. **Spread load across data-shape-specific stores** so no single
-   quota becomes the bottleneck (see [layer-4](../../decisions/architecture/general/layer-4-database-by-shape.md)).
+   quota becomes the bottleneck (see [layer-4](../../decisions/database/layer-4-database-by-shape.md)).
 5. **Monitor approach to quotas**, not just hits. If usage crosses 50%
    of any free-tier ceiling, that's the trigger to add the next layer.
 

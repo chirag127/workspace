@@ -1,7 +1,7 @@
 ---
 type: runbook
 title: "Rotate Cloudflare + npm tokens, set as org-level GH secrets"
-description: "End-to-end: rotate CLOUDFLARE_API_TOKEN and NPM_TOKEN, choose between least-privilege and max-permission scopes, store at chirag127 org level via gh secret set --org."
+description: "Rotate Cloudflare + npm tokens; store at chirag127 org level"
 tags: [security, credentials, cloudflare, npm, github-actions]
 timestamp: 2026-06-20
 related: [env-and-secrets-single-source]
@@ -21,7 +21,7 @@ related: [env-and-secrets-single-source]
 - Logged in to npmjs.com as `chirag127`.
 - `gh` CLI authenticated (`gh auth status` shows green).
 - Doppler CLI authenticated (optional — only if Doppler is the upstream
-  source of truth per `decisions/security/secrets-management-doppler.md`).
+  source of truth per `security/secrets-management-doppler.md`).
 
 ## Step 1 — Cloudflare token
 

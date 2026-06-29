@@ -1,12 +1,7 @@
 ---
 type: rule
 title: Shared-tenant-by-default for every 3rd-party service
-description: "Locked 2026-06-22 evening. For every 3rd-party SaaS (Sentry / GA4 /\
-  \ Microsoft Clarity / PostHog / UptimeRobot / Algolia / etc.) create ONE tenant\
-  \ family-wide. Apps separate via tags / labels / custom-dimensions / project-properties.\
-  \ NEVER create per-app accounts/projects when a tag-based shared tenant works. Prevents\
-  \ N\xD7M signup burden (26 apps \xD7 8 services = 208 manual setups \u2192 8 setups)\
-  \ and consolidates billing/limits."
+description: "Single shared tenant for every 3rd-party service"
 tags:
 - rule
 - shared-tenant
@@ -21,7 +16,7 @@ related:
 - rules/security/org-level-secrets-only-no-per-repo
 - rules/interaction/never-hit-quotas
 - rules/interaction/no-card-on-file
-- decisions/architecture/stack/stack-picks-2026-06-22
+- decisions/stack/stack-picks-2026-06-22
 ---
 
 

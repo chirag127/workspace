@@ -1,9 +1,7 @@
 ---
 type: rule
 title: No emoji in site chrome
-description: Never use emoji in nav, headers, footers, wordmarks, or page <title>.
-  Use real SVG icons or typographic glyphs. Family-wide design rule across every oriz
-  site.
+description: "No emoji in site chrome — SVG icons only"
 tags:
 - rules
 - design
@@ -29,7 +27,7 @@ content rather than being the content.
 
 ## Why
 
-Per the family design briefs ([design/_family-rules](../../decisions/design/_family-rules.md))
+Per the family design briefs ([design/_family-rules](../../design/_family-rules.md))
 the visual identity across every `oriz-*` site is "quiet, typographic,
 considered". Emoji break that on multiple axes:
 
@@ -64,4 +62,4 @@ README files (those aren't site chrome).
 
 ## See also
 
-- [`_family-rules.md`](../../decisions/design/_family-rules.md)
+- [`_family-rules.md`](../../design/_family-rules.md)

@@ -1,7 +1,7 @@
----
+﻿---
 type: glossary
 title: "cache rebuild"
-description: "The GitHub Actions job that reads JSONL canonical and re-populates the Turso warm cache."
+description: GitHub Actions job reads JSONL canonical, re-populates Turso warm cache
 tags: [glossary, ci, lifestream, turso]
 timestamp: 2026-06-20
 format_version: okf-v0.1

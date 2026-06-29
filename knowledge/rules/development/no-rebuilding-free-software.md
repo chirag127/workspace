@@ -1,7 +1,7 @@
 ---
 type: rule
 title: "Don't rebuild software that already exists completely free"
-description: "Family-wide constraint: do NOT build a userscript / extension / tool that replicates existing free software. Only exception: the existing free version paywalls a feature we want behind a payment. Save the build budget for things that don't exist yet OR have a real moat."
+description: "Don't rebuild software that exists free"
 tags: [rule, scope, build-or-buy, anti-reinvention]
 timestamp: 2026-06-25
 format_version: okf-v0.1

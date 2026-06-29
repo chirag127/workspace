@@ -1,14 +1,14 @@
 ---
 type: rule
 title: "Obsidian vault: minimal plugin set"
-description: "The vault runs three community plugins only: Terminal, Templater, Dataview. No more without grill. Vanilla-first; every plugin is a maintenance + sync-conflict surface."
+description: "Only 3 Obsidian plugins: Terminal, Templater, Dataview"
 tags: [rules, obsidian, pkm, plugins, vault, minimalism]
 timestamp: 2026-06-27
 format_version: okf-v0.1
 status: active
 related:
-  - decisions/architecture/security/personal-notes-public-discipline-2026-06-27
-  - rules/agent/kepano-obsidian-skills-global
+  - security/personal-notes-public-discipline-2026-06-27
+  - agent-rules/kepano-obsidian-skills-global
 ---
 
 # Obsidian vault: minimal plugin set
@@ -35,5 +35,5 @@ User locked this on 2026-06-27 (Q12). Obsidian's plugin ecosystem is a known tim
 
 ## Related
 
-- [`personal-notes-public-discipline-2026-06-27`](../../decisions/architecture/security/personal-notes-public-discipline-2026-06-27.md)
+- [`personal-notes-public-discipline-2026-06-27`](../../security/personal-notes-public-discipline-2026-06-27.md)
 - [`kepano-obsidian-skills-global`](../agent/kepano-obsidian-skills-global.md)

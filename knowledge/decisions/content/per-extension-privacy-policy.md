@@ -1,7 +1,7 @@
----
+﻿---
 type: decision
 title: "Each extension has its own /privacy page; family boilerplate at oriz.in/privacy-base"
-description: "Per-extension /privacy pages on each extension's subdomain. Common family-wide boilerplate lives once at oriz.in/privacy-base and is inlined / linked from per-extension pages."
+description: Per-extension /privacy. Boilerplate at oriz.in/privacy-base
 tags: [extensions, privacy, policy, legal]
 timestamp: 2026-06-20
 format_version: okf-v0.1

@@ -1,12 +1,7 @@
 ---
 type: rule
 title: "Community packages first \u2014 prefer external dependencies over hand-rolling"
-description: 'Locked 2026-06-23. Default to a well-maintained community library/package
-  over hand-rolling. Reasons: less code we maintain, fewer bugs, more eyeballs on
-  the dep. Caveats: dep must be MIT/Apache/ISC-licensed, have >100 stars OR be from
-  a known-good org (Cloudflare, Vercel, Astro, Anthropic, Firebase, Hono, TanStack),
-  and not pull in 50+ transitive deps. Override the prior ''lazy-third-party-first''
-  uncertainty: yes, reach for the dep.'
+description: "Prefer well-maintained community packages over hand-rolling"
 tags:
 - rule
 - dependencies
@@ -18,7 +13,7 @@ timestamp: 2026-06-23
 format_version: okf-v0.1
 status: active
 related:
-- rules/agent/grill-on-loc-removal
+- agent-rules/grill-on-loc-removal
 - rules/interaction/match-surrounding-style
 - rules/interaction/never-hit-quotas
 ---

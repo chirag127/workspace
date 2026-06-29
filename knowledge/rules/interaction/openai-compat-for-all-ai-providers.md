@@ -1,12 +1,7 @@
 ---
 type: rule
 title: Every AI provider adapter must be OpenAI-compatible (SDK schema)
-description: Every adapter in @chirag127/oriz-ai-providers must use the OpenAI SDK
-  schema (`chat.completions.create({model, messages, ...})`, `completions.create()`,
-  etc.) so we have minimum code per provider and a single calling convention. Providers
-  that don't natively support the OpenAI schema (e.g. Ollama Cloud's native API) get
-  a thin shim that translates the OpenAI request shape to the provider's native shape.
-  No bespoke per-provider request shapes.
+description: "Every AI adapter uses OpenAI SDK schema"
 tags:
 - rule
 - ai
@@ -18,7 +13,7 @@ timestamp: 2026-06-22
 format_version: okf-v0.1
 status: active
 related:
-- decisions/architecture/packages/oriz-ai-providers-package
+- decisions/packages/oriz-ai-providers-package
 - architecture/packages/the-23-packages
 - rules/interaction/never-hit-quotas
 ---

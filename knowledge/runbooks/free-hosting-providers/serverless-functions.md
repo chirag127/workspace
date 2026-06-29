@@ -1,7 +1,7 @@
 ---
 type: runbook
 title: "Free hosting — serverless functions + edge (CF Workers, Deno Deploy, AWS Lambda EXCEPTION, Render, Koyeb, Val.town, HF Spaces, Modal — 2026-06-23 audit)"
-description: "Provider-by-provider free-tier numbers for serverless functions and edge runtimes, adversarially verified against official pricing pages on 2026-06-23. The family's 4-rail fallback chain is CF Workers → Deno Deploy → AWS Lambda → Render. Koyeb sits as the 5th candidate. Fly.io free tier is now dead. Cloudflare Containers is paid-only. Vercel Hobby still bans commercial use. Netlify is credit-based. Azure Functions accessible via Student account only."
+description: "Serverless free tiers: CF Workers → Deno → Lambda → Render"
 tags: [runbook, hosting, free-tier, serverless, edge, cloudflare-workers, deno-deploy, aws-lambda, render, koyeb, hugging-face, modal, val-town]
 timestamp: 2026-06-23
 format_version: okf-v0.1

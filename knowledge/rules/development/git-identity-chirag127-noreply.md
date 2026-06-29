@@ -1,12 +1,7 @@
 ---
 type: rule
 title: "Git identity \u2014 always use chirag127's GitHub noreply email"
-description: Every commit on this machine attributes to chirag127 via the noreply
-  email 76880977+chirag127@users.noreply.github.com. Set globally + locally + in every
-  submodule. Past commits with chirag@oriz.in stay (history rewrites cost more than
-  the cosmetic win). Going forward, no public email leak in .git history, no chance
-  of attribution drift, and GitHub's Select-an-account dialog can't pick a different
-  identity.
+description: "chirag127 noreply email for all commits"
 tags:
 - rule
 - git

@@ -1,9 +1,7 @@
 ---
 type: rule
 title: No ad-slot rectangles reserved in markup
-description: "Don't reserve empty `<div class=\"ad-slot\">` boxes in HTML. AdSense,\
-  \ Ezoic, and Mediavine inject ads at runtime around organic content \u2014 pre-reserved\
-  \ slots hurt CLS, layout, and ad fill rate."
+description: "No reserved ad-slot divs in markup"
 tags:
 - rules
 - ads
@@ -53,7 +51,7 @@ Reserving empty rectangles in markup hurts on every axis:
 
 - Write the page as if there were no ads.
 - Let the ad-network script (loaded via the family monetisation pattern
-  — see [policy/monetisation](../../decisions/policy/monetisation.md)) choose
+  — see [policy/monetisation](../../policy/monetisation.md)) choose
   insertion points.
 - If a specific section must never carry ads (legal pages, billing
   flows), mark it via the network's documented opt-out attribute
@@ -67,4 +65,4 @@ verifying script behaviour.
 
 ## See also
 
-- [`monetisation.md`](../../decisions/policy/monetisation.md)
+- [`monetisation.md`](../../policy/monetisation.md)

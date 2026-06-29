@@ -1,12 +1,7 @@
 ---
 type: rule
 title: Design divergence is NOT duplication
-description: "Per-app design-brief variants (Header, Wordmark, blog's MultiSearch,\
-  \ blog's astro.config) are intentionally divergent across apps and must NOT be forced\
-  \ into generic slot-based components. Footer is the ONE exception: it's a family-wide\
-  \ mega-sitemap and IS consolidated. The 25-lines \xD7 3-apps dedup threshold applies\
-  \ to TRUE duplicates, not to components that share a name but implement different\
-  \ design briefs."
+description: "Per-app design divergence, not duplication"
 tags:
 - rules
 - design-system
@@ -18,8 +13,8 @@ format_version: okf-v0.1
 status: active
 related:
 - decisions/architecture/the-23-packages
-- decisions/architecture/frontend/four-nav-surfaces-every-app
-- decisions/design/datasheet-dark
+- decisions/frontend/four-nav-surfaces-every-app
+- design/datasheet-dark
 - rules/interaction/match-surrounding-style
 ---
 
@@ -42,7 +37,7 @@ related:
 The dedup-sweep threshold for extracting shared code into an
 `@chirag127/*` package is **≥25 lines duplicated across ≥3 consumers
 AND no community library covers it** (see
-[`the-23-packages`](../../decisions/architecture/packages/the-23-packages.md)).
+[`the-23-packages`](../../decisions/packages/the-23-packages.md)).
 
 That threshold applies to **TRUE duplicates** — byte-identical or
 trivially-parameterisable code. It does NOT apply to components that
@@ -53,7 +48,7 @@ share a *name* but implement a different *design brief* per app.
 | Component | Why divergent |
 |---|---|
 | `Header` | Each app's nav, logo treatment, and mode (sticky / static / translucent) is part of its design brief. hub's broadsheet, blog's HeaderControls, tools' category tabs are all different. |
-| `Wordmark` | Per-app brand stamp ("ORIZ · pdf", "ORIZ · paisa", etc.) per [datasheet-dark](../../decisions/design/datasheet-dark.md) |
+| `Wordmark` | Per-app brand stamp ("ORIZ · pdf", "ORIZ · paisa", etc.) per [datasheet-dark](../../design/datasheet-dark.md) |
 | `AppSidebarContent` | The Sidebar drawer/CSS comes from the package, but the *content* slotted into it is per-app (finance nav, PDF tools list, hub family mega-nav, etc.) |
 | `bottomBarActions` | The BottomBar shell comes from the package, but the 4-5 `actions` are per-app |
 | blog's `MultiSearch` | Blog-specific search providers + result formatting; not a fit for the kit's generic `<MultiSearch />` |
@@ -89,6 +84,6 @@ the variants.
 
 ## See also
 
-- [`the-23-packages`](../../decisions/architecture/packages/the-23-packages.md) — the 25 × 3 threshold for true duplicates
-- [`datasheet-dark`](../../decisions/design/datasheet-dark.md) — family-wide tokens stay shared; per-app chrome stays per-app
+- [`the-23-packages`](../../decisions/packages/the-23-packages.md) — the 25 × 3 threshold for true duplicates
+- [`datasheet-dark`](../../design/datasheet-dark.md) — family-wide tokens stay shared; per-app chrome stays per-app
 - [`match-surrounding-style`](../interaction/match-surrounding-style.md) — sibling rule for style discipline per file

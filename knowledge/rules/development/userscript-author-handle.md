@@ -1,7 +1,7 @@
 ---
 type: rule
 title: "Userscript @author metadata uses GitHub handle `chirag127`"
-description: "All userscripts in the family use `// @author chirag127` (the GitHub handle), not `Chirag Singhal` or any other variant. Keeps attribution consistent with the noreply git identity and the @namespace URL."
+description: "Userscript @author = chirag127"
 tags: [rule, userscript, metadata, attribution]
 timestamp: 2026-06-25
 format_version: okf-v0.1

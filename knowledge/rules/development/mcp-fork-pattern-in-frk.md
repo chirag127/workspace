@@ -1,7 +1,7 @@
 ---
 type: rule
 title: 'MCP forks live in repos/frk/<name>-mcp/; fixes go upstream via PR'
-description: 'When we want to use an MCP server but need to lock or modify it, fork to `repos/frk/<name>-mcp/`, work on the fork, and PR fixes back to the upstream. Forks stay in sync with upstream. Smithery uploads use our fork URL.'
+description: "Fork MCP servers to frk/ and PR upstream"
 tags: [mcp, fork, frk, upstream, pr, hard-rule]
 timestamp: 2026-06-29
 format_version: okf-v0.1
@@ -9,7 +9,7 @@ status: active
 related:
   - rules/development/fork-discipline
   - rules/development/mcp-repo-naming-suffix
-  - rules/agent/agent-fleet-parity
+  - agent-rules/agent-fleet-parity
 ---
 
 # MCP forks in `repos/frk/`
@@ -87,4 +87,4 @@ If both conditions fail, use Smithery's hosted version of upstream. No fork need
 - [`fork-discipline`](../development/fork-discipline.md) — general fork rules
 - [`mcp-repo-naming-suffix`](../development/mcp-repo-naming-suffix.md) — naming
 - [`agent-fleet-parity`](./agent-fleet-parity.md) — Smithery toolbox role
-- Runbook: [`upload-mcp-to-smithery-toolbox`](../../runbooks/operations/upload-mcp-to-smithery-toolbox.md)
+- Runbook: [`upload-mcp-to-smithery-toolbox`](../../runbooks/workflow/upload-mcp-to-smithery-toolbox.md)

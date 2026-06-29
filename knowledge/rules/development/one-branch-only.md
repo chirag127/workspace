@@ -1,8 +1,7 @@
 ---
 type: rule
 title: "One branch only \u2014 main"
-description: Only the main branch exists, in the master oriz repo and in every submodule
-  under sites/, packages/, extensions/.
+description: "Only main branch across all repos"
 tags:
 - rules
 - git

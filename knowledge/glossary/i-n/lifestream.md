@@ -1,7 +1,7 @@
----
+﻿---
 type: glossary
 title: "lifestream"
-description: "The public daily-rebuilt event store concept that powers me.oriz.in."
+description: Public daily-rebuilt event store concept powers me.oriz.in
 tags: [glossary, lifestream, me-oriz-in]
 timestamp: 2026-06-20
 format_version: okf-v0.1

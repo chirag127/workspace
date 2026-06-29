@@ -1,7 +1,7 @@
 ---
 type: rule
 title: "No subscriptions \u2014 no service requiring a recurring paid plan"
-description: Family monetisation constraint. See the decision file for full rationale.
+description: "No recurring paid subscriptions"
 tags:
 - rule
 - no-subscriptions
@@ -11,7 +11,7 @@ timestamp: 2026-06-21
 format_version: okf-v0.1
 status: active
 related:
-- decisions/monetisation/no-subscriptions-anywhere
+- monetisation/no-subscriptions-anywhere
 - rules/interaction/no-card-on-file
 ---
 
@@ -21,4 +21,4 @@ related:
 
 The family does not adopt any service that requires a recurring subscription (monthly/yearly paid plan). Free tiers only. One-time fees (e.g., $5 Chrome Web Store, $25 Play Store dev account) are evaluated separately.
 
-Full rationale + scope + free-trial clauses: [[decisions/monetisation/no-subscriptions-anywhere]].
+Full rationale + scope + free-trial clauses: [[monetisation/no-subscriptions-anywhere]].

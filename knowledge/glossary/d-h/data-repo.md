@@ -1,7 +1,7 @@
----
+﻿---
 type: glossary
 title: "data repo"
-description: "chirag127/oriz-me-data, the authoritative JSONL store for the me.oriz.in lifestream."
+description: chirag127/oriz-me-data: authoritative JSONL store for me.oriz.in lifestream
 tags: [glossary, data, lifestream]
 timestamp: 2026-06-20
 format_version: okf-v0.1

@@ -1,8 +1,7 @@
 ---
 type: rule
 title: Match the surrounding code style
-description: When editing existing files, match the file's existing comment density,
-  naming idioms, semicolon use, and import order. Don't impose a new style mid-file.
+description: "Match surrounding code style when editing"
 tags:
 - rules
 - style
@@ -12,7 +11,7 @@ timestamp: 2026-06-20
 format_version: okf-v0.1
 status: active
 related:
-- rules/agent/read-before-edit
+- agent-rules/read-before-edit
 - rules/design/no-emoji-in-chrome
 ---
 

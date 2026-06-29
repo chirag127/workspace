@@ -1,9 +1,7 @@
 ---
 type: rule
 title: Auto-only tracking
-description: Every tracked metric in the chirag127/oriz family must be automatically
-  captured. Manual entry, manual timer, manual journal not allowed for anything that's
-  a system metric. Manual = decay; auto = honest. Applies to METRICS, not content.
+description: "Auto-only tracking for system metrics"
 tags:
 - rules
 - tracking
@@ -17,12 +15,12 @@ status: active
 related:
 - rules/interaction/never-hit-quotas
 - rules/interaction/no-card-on-file
-- decisions/architecture/general/auto-tracking-everywhere
-- decisions/architecture/ops/time-tracking-wakatime-only
-- decisions/architecture/database/lifestream-jsonl-canonical
-- services/productivity/wakatime
-- services/analytics/cloudflare-web-analytics
-- services/monitoring/sentry
+- decisions/ops/auto-tracking-everywhere
+- decisions/ops/time-tracking-wakatime-only
+- decisions/database/lifestream-jsonl-canonical
+- services/business/productivity/wakatime
+- services/monitoring/monitoring/analytics/cloudflare-web-analytics
+- services/monitoring/monitoring/sentry
 ---
 
 
@@ -68,13 +66,13 @@ not fall back to manual.
 
 | Metric | Auto source |
 |---|---|
-| Coding time | [Wakatime](../../services/productivity/wakatime.md) IDE plugin (heartbeat on file activity) |
-| Page views | [Cloudflare Web Analytics](../../services/analytics/cloudflare-web-analytics.md) + [GA4](../../services/analytics/index.md) + [Microsoft Clarity](../../services/analytics/microsoft-clarity.md) |
-| Errors / exceptions | [Sentry](../../services/monitoring/sentry.md) SDK |
-| Operational logs | [Cloudflare Workers Tail](../../services/monitoring/cloudflare-workers-tail.md) (live) + [Better Stack Logs](../../services/monitoring/better-stack-logs.md) (aggregation) |
-| Uptime | [Better Stack](../../services/monitoring/better-stack.md) + [Instatus](../../services/monitoring/instatus.md) auto pings |
+| Coding time | [Wakatime](../../services/business/productivity/wakatime.md) IDE plugin (heartbeat on file activity) |
+| Page views | [Cloudflare Web Analytics](../../services/monitoring/monitoring/analytics/cloudflare-web-analytics.md) + [GA4](../../services/monitoring/monitoring/analytics/index.md) + [Microsoft Clarity](../../services/monitoring/monitoring/analytics/microsoft-clarity.md) |
+| Errors / exceptions | [Sentry](../../services/monitoring/monitoring/sentry.md) SDK |
+| Operational logs | [Cloudflare Workers Tail](../../services/monitoring/monitoring/cloudflare-workers-tail.md) (live) + [Better Stack Logs](../../services/monitoring/monitoring/better-stack-logs.md) (aggregation) |
+| Uptime | [Better Stack](../../services/monitoring/monitoring/better-stack.md) + [Instatus](../../services/monitoring/monitoring/instatus.md) auto pings |
 | Lifestream events | JSONL append on git events / npm publish events / CI events (auto webhook → CF Worker → JSONL) |
-| Build success / fail | [GitHub Actions](../../services/cron/github-actions-schedule.md) workflow status |
+| Build success / fail | [GitHub Actions](../../services/business/cron/github-actions-schedule.md) workflow status |
 | Spending | Would be manual → therefore the family does not spend money. The [no-card-on-file rule](./no-card-on-file.md) enforces this from the other direction. |
 
 ## When NOT to apply this rule
@@ -97,9 +95,9 @@ user want to say?" → content, manual is fine and expected.
 
 - **Toggl Track REJECTED** as of 2026-06-20 (same day it was
   adopted). Manual timer = manual data entry. See
-  [`services/productivity/toggl-track`](../../services/productivity/toggl-track.md)
+  [`services/business/productivity/toggl-track`](../../services/business/productivity/toggl-track.md)
   for the audit trail and
-  [`decisions/architecture/time-tracking-wakatime-only`](../../decisions/architecture/ops/time-tracking-wakatime-only.md)
+  [`decisions/architecture/time-tracking-wakatime-only`](../../decisions/ops/time-tracking-wakatime-only.md)
   for the walk-back narrative.
 - **Wakatime stays** as the sole time-tracking pick — auto via
   IDE plugin, fits the rule.
@@ -114,9 +112,9 @@ None for metrics. Content is not subject to this rule (see
 
 ## See also
 
-- [`decisions/architecture/auto-tracking-everywhere.md`](../../decisions/architecture/general/auto-tracking-everywhere.md) — the family-wide decision that locks this principle, with concrete auto-event source list for the lifestream
-- [`decisions/architecture/time-tracking-wakatime-only.md`](../../decisions/architecture/ops/time-tracking-wakatime-only.md) — the walk-back of Toggl
-- [`decisions/architecture/lifestream-jsonl-canonical.md`](../../decisions/architecture/database/lifestream-jsonl-canonical.md) — the JSONL stream that consumes auto sources
+- [`decisions/architecture/auto-tracking-everywhere.md`](../../decisions/ops/auto-tracking-everywhere.md) — the family-wide decision that locks this principle, with concrete auto-event source list for the lifestream
+- [`decisions/architecture/time-tracking-wakatime-only.md`](../../decisions/ops/time-tracking-wakatime-only.md) — the walk-back of Toggl
+- [`decisions/architecture/lifestream-jsonl-canonical.md`](../../decisions/database/lifestream-jsonl-canonical.md) — the JSONL stream that consumes auto sources
 - [`rules/interaction/never-hit-quotas.md`](./never-hit-quotas.md) — paired rule on the architecture-not-survival posture
 - [`rules/no-card-on-file.md`](./no-card-on-file.md) — auto-tracking spending = no spending
 - [`rules/interaction/future-overrides-past.md`](./future-overrides-past.md) — why this rule supersedes the earlier "Toggl + Wakatime both" direction from the same day

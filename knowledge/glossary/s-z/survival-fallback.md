@@ -1,7 +1,7 @@
----
+﻿---
 type: glossary
 title: "survival fallback"
-description: "The §16 layer that survives if every primary service dies (GitHub Pages mirrors + git-canonical data repo)."
+description: Layer surviving if all primary services die (GitHub Pages mirrors + git-canonical data repo)
 tags: [glossary, survival, hosting, 100-year-strategy]
 timestamp: 2026-06-20
 format_version: okf-v0.1

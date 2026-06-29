@@ -1,10 +1,7 @@
 ---
 type: rule
 title: "Linux/Ubuntu only on CI runners \u2014 never Windows or macOS"
-description: "Every CI workflow in every chirag127/oriz* repo runs on Linux/Ubuntu\
-  \ runners. macOS and Windows runners are forbidden unless explicitly justified for\
-  \ native build that can't be done another way. PWABuilder handles all native packaging\
-  \ from a Linux runner via the deployed PWA URL \u2014 no macOS/Windows runner needed."
+description: "Linux/Ubuntu only on CI runners"
 tags:
 - rule
 - ci
@@ -17,7 +14,7 @@ status: active
 related:
 - rules/interaction/never-hit-quotas
 - rules/interaction/no-card-on-file
-- decisions/architecture/frontend/pwabuilder-as-primary-converter
+- decisions/frontend/pwabuilder-as-primary-converter
 - services/easy-free-tier
 ---
 

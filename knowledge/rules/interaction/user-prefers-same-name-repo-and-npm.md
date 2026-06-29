@@ -1,8 +1,7 @@
 ---
 type: rule
 title: User prefers same name across GitHub repo and npm package
-description: When a project ships as a GitHub repo + npm package, the slugs match
-  (modulo @chirag127/ scope). No divergence. Subdomains stay independent.
+description: "Same slug across GitHub repo and npm package"
 tags:
 - taste
 - mcq-learned

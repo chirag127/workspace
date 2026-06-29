@@ -2,16 +2,7 @@
 type: rule
 title: "Per-app distinctive frontend design \u2014 adopt the frontend-design skill\
   \ principles family-wide"
-description: 'Reversal of the ''family-wide chrome'' decision (sweeps #3-#5). Each
-  app gets a distinctive visual identity per the frontend-design skill: name the subject
-  + audience + page''s single job; ground design in the subject''s world; pick a deliberate
-  display+body+utility type stack PER APP; signature element; avoid AI-cluster defaults
-  (cream/serif/terracotta, near-black + acid-green, broadsheet-with-hairlines unless
-  brief calls for it); maximalist needs elaborate execution, minimal needs precision.
-  CRITICAL: same things stay same family-wide (auth/billing/SEO/footer-data/tokens-base/8
-  navigation patterns); DIFFERENT things differ per-app (header chrome design, hero
-  composition, type, palette, signature element, sidebar visual style). 4-nav surfaces
-  decision STAYS structurally; visual design DIVERGES per-app.'
+description: "Each app gets distinctive visual identity, same chrome stays family-wide"
 tags:
 - rule
 - design
@@ -25,10 +16,10 @@ status: active
 supersedes_in_part: decisions/architecture/minimal-ui-library-set (we still use shadcn+Radix
   as primitives, but per-app brand differs)
 related:
-- decisions/architecture/frontend/four-nav-surfaces-every-app
+- decisions/frontend/four-nav-surfaces-every-app
 - decisions/architecture/minimal-ui-library-set
 - rules/design/design-divergence-vs-dedup
-- decisions/architecture/apps/per-app-briefs-2026-06-22
+- decisions/apps/per-app-briefs-2026-06-22
 ---
 
 

@@ -1,7 +1,7 @@
 ---
 type: rule
 title: "iOS is PWA-only — user has no Mac"
-description: "User has no Apple devices and cannot test iOS apps. iOS support is always PWA-only via Safari \"Add to Home Screen\". Never propose Apple Developer Program ($99/yr) or App Store distribution unless this changes."
+description: "iOS PWA-only, no Apple devices"
 tags: [user-identity, ios, pwa, distribution]
 timestamp: 2026-06-21
 format_version: okf-v0.1

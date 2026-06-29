@@ -1,10 +1,7 @@
 ---
 type: rule
 title: Every repo in the family must work independently when cloned alone
-description: Cloning any single oriz submodule directly must give a fully working
-  dev environment. The umbrella oriz repo orchestrates; it does not own the code.
-  A solo clone of any site must pnpm install + pnpm build successfully without the
-  master repo.
+description: "Every repo works independently when cloned alone"
 tags:
 - rule
 - repos
@@ -17,7 +14,7 @@ status: active
 related:
 - rules/development/use-pnpm
 - rules/development/one-branch-only
-- runbooks/operations/clean-install
+- runbooks/workflow/clean-install
 ---
 
 
@@ -129,5 +126,5 @@ should make sense without the family bundle.
 
 - [`use-pnpm.md`](./use-pnpm.md) — the install command this rule presumes
 - [`one-branch-only.md`](./one-branch-only.md) — every submodule's `main` is the canonical branch
-- [`../runbooks/operations/clean-install.md`](../../runbooks/operations/clean-install.md) — full-family bootstrap that doesn't violate this rule
+- [`../runbooks/workflow/clean-install.md`](../../runbooks/workflow/clean-install.md) — full-family bootstrap that doesn't violate this rule
 - [`../_okf.md`](../../_okf.md) — OKF conventions, including per-site bundle layout

@@ -1,9 +1,7 @@
 ---
 type: rule
 title: Parallel fan-out by default (background subagents)
-description: "Any work that can be parallelised MUST be fanned out via background\
-  \ subagents. Operational HOW for the parallel-by-default rule \u2014 keeps the orchestrator\
-  \ under context-window limits and the wall-clock low."
+description: "Parallel fan-out via background subagents"
 tags:
 - rules
 - agent
@@ -16,9 +14,9 @@ format_version: okf-v0.1
 status: active
 related:
 - parallel-by-default.md
-- ../runbooks/operations/clean-install.md
-- ../runbooks/operations/add-new-site-to-family.md
-- ../runbooks/operations/bump-submodule-pointer.md
+- ../runbooks/workflow/clean-install.md
+- ../runbooks/workflow/add-new-site-to-family.md
+- ../runbooks/workflow/bump-submodule-pointer.md
 ---
 
 
@@ -127,12 +125,12 @@ description: "sequential because step 2 depends on step 1 output."
   (21 files), `policy/` (11 files), `glossary/` (28 files); a sixth
   rebuilt `rules/` (12 files). See <!-- TODO: broken link, was [`../log.md`](../../log.md) -->.
 - **Clean install across 11 sites**: see
-  [`../runbooks/operations/clean-install.md`](../../runbooks/operations/clean-install.md).
+  [`../runbooks/workflow/clean-install.md`](../../runbooks/workflow/clean-install.md).
 - **Bump submodule pointer**: when bumping multiple, fan out — see
-  [`../runbooks/operations/bump-submodule-pointer.md`](../../runbooks/operations/bump-submodule-pointer.md).
+  [`../runbooks/workflow/bump-submodule-pointer.md`](../../runbooks/workflow/bump-submodule-pointer.md).
 - **Add new site to family**: bootstrap steps that don't depend on
   each other (workflows, secrets, DNS, submodule add) are fan-outable
-  — see [`../runbooks/operations/add-new-site-to-family.md`](../../runbooks/operations/add-new-site-to-family.md).
+  — see [`../runbooks/workflow/add-new-site-to-family.md`](../../runbooks/workflow/add-new-site-to-family.md).
 
 ## See also
 

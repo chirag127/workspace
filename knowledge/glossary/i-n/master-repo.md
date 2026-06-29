@@ -1,7 +1,7 @@
----
+﻿---
 type: glossary
 title: "master repo"
-description: "chirag127/oriz, the umbrella repo that holds every submodule plus knowledge/ and design/."
+description: chirag127/oriz: umbrella repo holding every submodule + knowledge/ + design/
 tags: [glossary, git, structure]
 timestamp: 2026-06-20
 format_version: okf-v0.1

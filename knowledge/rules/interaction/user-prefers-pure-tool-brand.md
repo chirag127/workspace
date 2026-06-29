@@ -1,8 +1,7 @@
 ---
 type: rule
 title: User prefers per-product brand over family chrome
-description: When tools live at dedicated subdomains, the user picks pure per-tool
-  brand over Oriz family chrome. Maximum SEO per category, accept brand fragmentation.
+description: "User prefers per-tool brand over family chrome"
 tags:
 - taste
 - mcq-learned

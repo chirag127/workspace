@@ -1,10 +1,7 @@
 ---
 type: runbook
 title: Set / update GitHub Actions secrets at the chirag127 org level
-description: Pull a secret value from Doppler, push it to the chirag127-org-level
-  GitHub Actions secrets list with `gh secret set --org chirag127 --visibility all`,
-  then verify with `gh secret list`. Idempotent. Used after adding a new key to templates/.env.example,
-  after a rotation, and on the quarterly audit cadence.
+description: Pull secret from Doppler, push to chirag127 org-level GH secrets via gh CLI
 tags:
 - runbook
 - github
@@ -19,12 +16,12 @@ status: active
 related:
 - rules/security/github-org-level-secrets
 - rules/security/env-example-synced-from-master
-- decisions/security/env-and-secrets-single-source
-- decisions/security/secrets-management-doppler
-- runbooks/operations/sync-env-example-to-all-repos
+- security/env-and-secrets-single-source
+- security/secrets-management-doppler
+- runbooks/workflow/sync-env-example-to-all-repos
 - runbooks/security/rotate-leaked-secret
-- services/secrets/doppler
-- services/secrets/github-secrets
+- services/business/secrets/doppler
+- services/business/secrets/github-secrets
 ---
 
 
@@ -32,11 +29,11 @@ related:
 # Set / update GitHub Actions secrets at the chirag127 org level
 
 One-page procedure for pushing a secret value from
-[Doppler](../../services/secrets/doppler.md) to the
+[Doppler](../../services/business/secrets/doppler.md) to the
 `chirag127`-org-level GitHub Actions secrets list. Implements
 [`rules/security/github-org-level-secrets.md`](../../rules/security/github-org-level-secrets.md)
 and the Track B half of
-[`decisions/security/env-and-secrets-single-source.md`](../../decisions/security/env-and-secrets-single-source.md).
+[`security/env-and-secrets-single-source.md`](../../security/env-and-secrets-single-source.md).
 
 ## When to run
 
@@ -177,11 +174,11 @@ Append a one-liner to <!-- TODO: broken link, was [`knowledge/log.md`](../../log
 
 - [`../rules/security/github-org-level-secrets.md`](../../rules/security/github-org-level-secrets.md)
 - [`../rules/security/env-example-synced-from-master.md`](../../rules/security/env-example-synced-from-master.md)
-- [`../decisions/security/env-and-secrets-single-source.md`](../../decisions/security/env-and-secrets-single-source.md)
-- [`../decisions/security/secrets-management-doppler.md`](../../decisions/security/secrets-management-doppler.md)
+- [`../security/env-and-secrets-single-source.md`](../../security/env-and-secrets-single-source.md)
+- [`../security/secrets-management-doppler.md`](../../security/secrets-management-doppler.md)
 - [`./sync-env-example-to-all-repos.md`](../operations/sync-env-example-to-all-repos.md)
 - [`./rotate-leaked-secret.md`](./rotate-leaked-secret.md)
-- [`../services/secrets/doppler.md`](../../services/secrets/doppler.md)
-- [`../services/secrets/github-secrets.md`](../../services/secrets/github-secrets.md)
+- [`../services/business/secrets/doppler.md`](../../services/business/secrets/doppler.md)
+- [`../services/business/secrets/github-secrets.md`](../../services/business/secrets/github-secrets.md)
 - <!-- TODO: broken link, was [`../../templates/.env.example`](../../templates/.env.example) -->
 - <!-- TODO: broken link, was [`../../scripts/set-org-secrets-from-doppler.sh`](../../scripts/set-org-secrets-from-doppler.sh) -->

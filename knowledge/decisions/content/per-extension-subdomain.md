@@ -1,7 +1,7 @@
 ---
 type: decision
 title: "Each Chrome extension gets its own subdomain on oriz.in"
-description: "Every published extension gets a dedicated subdomain (e.g. <slug>.oriz.in) hosting its big website, in addition to its slot in the extensions catalog."
+description: Each extension gets dedicated *.oriz.in subdomain + catalog slot
 tags: [extensions, dns, hosting, subdomain]
 timestamp: 2026-06-20
 format_version: okf-v0.1
@@ -10,7 +10,7 @@ related:
   - decisions/content/extensions-catalog-and-subdomains
   - decisions/content/big-website-per-extension
   - decisions/content/per-extension-privacy-policy
-  - decisions/infrastructure/subdomains-under-oriz-in
+  - infrastructure/subdomains-under-oriz-in
 ---
 
 # Each Chrome extension gets its own subdomain on oriz.in

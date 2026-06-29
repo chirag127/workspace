@@ -1,9 +1,7 @@
 ---
 type: rule
 title: Always install the latest version of every dependency
-description: "When adding or refreshing a dependency in any oriz repo, install the\
-  \ latest published version. Old deps eventually reach end-of-life and may go paid\
-  \ \u2014 staying current is a never-hit-quotas requirement, not a preference."
+description: "Always install latest version of every dependency"
 tags:
 - rule
 - pnpm
@@ -16,7 +14,7 @@ status: active
 related:
 - rules/development/use-pnpm
 - rules/interaction/never-hit-quotas
-- runbooks/operations/clean-install
+- runbooks/workflow/clean-install
 ---
 
 
@@ -132,4 +130,4 @@ you do it yearly. Pick weekly.
 - [`use-pnpm.md`](./use-pnpm.md) — the package manager that enforces this
 - [`never-hit-quotas.md`](../interaction/never-hit-quotas.md) — the bigger constraint this serves
 - [`no-card-on-file.md`](../interaction/no-card-on-file.md) — why deprecated free tiers are a real risk
-- [`../runbooks/operations/clean-install.md`](../../runbooks/operations/clean-install.md) — first-install procedure
+- [`../runbooks/workflow/clean-install.md`](../../runbooks/workflow/clean-install.md) — first-install procedure

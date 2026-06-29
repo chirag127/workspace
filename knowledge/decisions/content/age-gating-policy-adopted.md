@@ -1,7 +1,7 @@
----
+﻿---
 type: decision
 title: "Age-gating policy adopted for adult-content sections"
-description: "Tracked items carrying adult-content metadata (movies, anime, possibly others) render behind an 18+ confirmation gate, not silently published or silently hidden."
+description: Adult-content items behind 18+ gate
 tags: [age-gating, policy, content, privacy, compliance]
 timestamp: 2026-06-19
 format_version: okf-v0.1

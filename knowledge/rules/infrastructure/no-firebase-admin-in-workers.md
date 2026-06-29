@@ -1,8 +1,7 @@
 ---
 type: rule
 title: No firebase-admin inside Cloudflare Workers
-description: Cloudflare's workerd runtime does not fully support gRPC, which firebase-admin
-  requires. Use firebase-rest-firestore (REST + Web SDK) instead inside any Worker.
+description: "No firebase-admin in CF Workers, use REST"
 tags:
 - rules
 - cloudflare
@@ -15,7 +14,7 @@ format_version: okf-v0.1
 status: active
 related:
 - architecture/compute/api-umbrella-hono-worker
-- services/auth/firebase-spark
+- services/business/auth/firebase-spark
 - rules/interaction/never-hit-quotas
 ---
 
@@ -37,7 +36,7 @@ needs. The Workers compatibility flags get close but never close
 enough; even when the bundler succeeds, requests time out or hang.
 
 The family runs its single API surface
-([api-umbrella-hono-worker](../../decisions/architecture/compute/api-umbrella-hono-worker.md))
+([api-umbrella-hono-worker](../../decisions/compute/api-umbrella-hono-worker.md))
 as a Cloudflare Worker. That means the rule is enforced everywhere
 shared backend code lives.
 
@@ -60,5 +59,5 @@ None inside Workers. `firebase-admin` is fine in Node-runtime contexts
 
 ## See also
 
-- [`api-umbrella-hono-worker.md`](../../decisions/architecture/compute/api-umbrella-hono-worker.md)
-- [`firebase-spark.md`](../../services/auth/firebase-spark.md)
+- [`api-umbrella-hono-worker.md`](../../decisions/compute/api-umbrella-hono-worker.md)
+- [`firebase-spark.md`](../../services/business/auth/firebase-spark.md)

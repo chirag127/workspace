@@ -1,7 +1,7 @@
 ---
 type: runbook
 title: "Free hosting — databases (Firestore, Supabase, Neon, Turso, Mongo, CockroachDB, Upstash, D1, KV)"
-description: "Provider-by-provider free-tier numbers for relational + document + edge-SQL + KV databases. Family is heavy on Firebase Firestore (default), Cloudflare D1 + KV (edge), and Neon (Postgres when we need SQL). PlanetScale + Xata dropped after 2024–2025 free-tier kills."
+description: "DB free-tier numbers for Firestore, Neon, D1, Turso, KV"
 tags: [runbook, hosting, free-tier, databases, firestore, neon, supabase, turso, cloudflare-d1, upstash]
 timestamp: 2026-06-22
 format_version: okf-v0.1

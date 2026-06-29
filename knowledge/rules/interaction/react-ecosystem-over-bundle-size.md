@@ -1,7 +1,7 @@
 ---
 type: rule
 title: "React > Preact — ecosystem over bundle size"
-description: "User picks React over Preact when offered. Values ecosystem compatibility over the ~42 KB bundle savings."
+description: "React over Preact — ecosystem over bundle size"
 tags: [user-identity, frontend, framework]
 timestamp: 2026-06-25
 format_version: okf-v0.1

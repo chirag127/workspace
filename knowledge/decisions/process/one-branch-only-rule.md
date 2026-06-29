@@ -1,7 +1,7 @@
----
+﻿---
 type: decision
 title: "One-branch-only rule: main branch only"
-description: "Every repo in the family — master, sites, packages, extensions — uses only the main branch. No feature, fix, or chore branches anywhere."
+description: 'All repos: main branch only. No feature/fix/chore branches'
 tags: [git, branches, workflow, rule]
 timestamp: 2026-06-19
 format_version: okf-v0.1

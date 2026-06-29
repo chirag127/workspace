@@ -1,7 +1,7 @@
----
+﻿---
 type: decision
 title: "Each extension gets a rich website, not a small landing page"
-description: "Per-extension subdomains host full marketing/docs/changelog/support sites, not single-page landings."
+description: Per-extension full marketing/docs/changelog/support sites
 tags: [extensions, website, marketing, content]
 timestamp: 2026-06-20
 format_version: okf-v0.1

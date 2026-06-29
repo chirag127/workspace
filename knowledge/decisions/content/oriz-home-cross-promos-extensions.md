@@ -1,7 +1,7 @@
----
+﻿---
 type: decision
 title: "oriz-home portal also lists extensions"
-description: "The oriz.in home portal renders the extensions catalog as a section so visitors arriving at the apex see both sites and extensions."
+description: oriz.in home shows extensions catalog section for cross-promo
 tags: [extensions, home, portal, cross-promo]
 timestamp: 2026-06-20
 format_version: okf-v0.1

@@ -1,9 +1,7 @@
 ---
 type: rule
 title: User prefers wider topical coverage over narrow SEO concentration
-description: 'When a content-site scope question offers narrow-but-deep vs wide-but-shallow,
-  the user picks wide. Cost: more content to write. Benefit: domain owns a category,
-  not a niche. Apply as default.'
+description: "User prefers wider topical coverage over narrow SEO"
 tags:
 - meta
 - taste
@@ -27,7 +25,7 @@ On 2026-06-20, the `cards-site` scope question:
 - Recommended: "Credit cards only, India" (highest SEO concentration)
 - Chosen: **"All financial cards, India"** (credit + debit + forex + prepaid + travel)
 
-User chose to own "cards" as a category vs just "credit cards", accepting lower per-page rank for a wider topical net. See [cards-site-scope.md](../../decisions/architecture/apps/cards-site-scope.md).
+User chose to own "cards" as a category vs just "credit cards", accepting lower per-page rank for a wider topical net. See [cards-site-scope.md](../../decisions/apps/cards-site-scope.md).
 
 ## How to apply
 

@@ -1,7 +1,7 @@
----
+﻿---
 type: glossary
 title: "submodule pointer"
-description: "The master oriz repo's recorded SHA for each submodule; the production state contract."
+description: Master oriz repo recorded SHA per submodule; production state contract
 tags: [glossary, git, submodule]
 timestamp: 2026-06-20
 format_version: okf-v0.1

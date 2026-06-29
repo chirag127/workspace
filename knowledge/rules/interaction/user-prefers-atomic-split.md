@@ -1,8 +1,7 @@
 ---
 type: rule
 title: User prefers atomic split over consolidation
-description: When given a choice between fewer-bigger-units and more-smaller-units,
-  the user consistently picks more-smaller. Apply as default when the choice is open.
+description: "User prefers atomic split over consolidation"
 tags:
 - meta
 - taste
@@ -22,9 +21,9 @@ When a decision involves picking between "consolidate into N bigger units" vs "s
 
 Three independent decisions on 2026-06-20 all picked the more-aggressive split over the recommendation:
 
-1. **Tools shape** (recommended: 1 tools-site monorepo with 15 subdomain builds; chosen: **15 separate repos**). [tools-site-15-repos.md](../../decisions/architecture/stack/tools-site-15-repos.md).
+1. **Tools shape** (recommended: 1 tools-site monorepo with 15 subdomain builds; chosen: **15 separate repos**). [tools-site-15-repos.md](../../decisions/stack/tools-site-15-repos.md).
 2. **Package count** (recommended: 5 packages; chosen: **14 atomic packages**). <!-- TODO: broken link, was [packages-14-atomic.md](../../decisions/architecture/packages-14-atomic.md) -->.
-3. **Day-1 tool scope** (recommended: ship Tier 1 only as 8 repos, scaffold rest; chosen: **all 15 repos + Pages projects on day 1**). [tool-categories-roadmap.md](../../decisions/architecture/stack/tool-categories-roadmap.md).
+3. **Day-1 tool scope** (recommended: ship Tier 1 only as 8 repos, scaffold rest; chosen: **all 15 repos + Pages projects on day 1**). [tool-categories-roadmap.md](../../decisions/stack/tool-categories-roadmap.md).
 
 That's not a one-off — it's the third time in one session, on three independent decisions. It's a **taste**.
 
@@ -40,9 +39,9 @@ When designing the next AskUserQuestion:
 
 The taste isn't unconditional. It's about *structural* splits — repos, packages, subdomains, knowledge files. It's NOT about:
 
-- **Operational complexity** — the user still wants ONE Hono Worker at api.oriz.in, not one per route. ([cf-worker-quota-mitigation.md](../../decisions/architecture/compute/cf-worker-quota-mitigation.md).)
-- **External services** — the user picks the FEWEST services that meet the need, not the most. ([analytics-five-tier-stack.md](../../decisions/architecture/ops/analytics-five-tier-stack.md).)
-- **Auth surfaces** — single sign-in, single account, single subscription unlocks all. ([max-payment-methods.md](../../decisions/monetisation/max-payment-methods.md) — one sub unlocks all sites.)
+- **Operational complexity** — the user still wants ONE Hono Worker at api.oriz.in, not one per route. ([cf-worker-quota-mitigation.md](../../decisions/compute/cf-worker-quota-mitigation.md).)
+- **External services** — the user picks the FEWEST services that meet the need, not the most. ([analytics-five-tier-stack.md](../../decisions/ops/analytics-five-tier-stack.md).)
+- **Auth surfaces** — single sign-in, single account, single subscription unlocks all. ([max-payment-methods.md](../../monetisation/max-payment-methods.md) — one sub unlocks all sites.)
 
 The pattern: split the *artifacts* (code + repos + content), unify the *runtime* (auth + workers + accounts).
 

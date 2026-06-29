@@ -1,7 +1,7 @@
 ---
 type: runbook
 title: "Scaffold a new chirag127 tool site (Astro + dark theme + CI)"
-description: "Bootstrap any of the 15 tool sites from stub README to deployable Astro app: package.json, astro.config, tsconfig, tailwind, biome, deploy.yml, Cloudflare Pages connect."
+description: "Bootstrap tool site from stub README to deployable Astro app"
 tags: [scaffolding, astro, sites, tools]
 timestamp: 2026-06-20
 related: [family-stack-lock, sidebar-4-tier]

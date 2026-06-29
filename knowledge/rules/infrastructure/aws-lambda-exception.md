@@ -1,11 +1,7 @@
 ---
 type: rule
 title: AWS Lambda EXCEPTION to no-card-on-file rule
-description: "User-approved exception. AWS Lambda is the 3rd-rail fallback in the\
-  \ serverless chain (promoted from 4th on 2026-06-23). AWS account requires a card\
-  \ at signup (identity verification) and account MUST be on Paid Plan to keep the\
-  \ perpetual 1M req/mo + 400K GB-sec quota past 6 months (Free Plan auto-closes).\
-  \ Lambda ONLY \u2014 no other AWS services covered."
+description: "AWS Lambda exception to no-card rule"
 tags:
 - rules
 - billing

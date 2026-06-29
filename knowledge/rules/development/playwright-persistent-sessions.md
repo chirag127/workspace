@@ -1,7 +1,7 @@
 ---
 type: rule
 title: Playwright Persistent Browser Context Rules
-description: Constraints and instructions for running browser automation with persistent authentication, handling cookie encryption, and preventing memory leaks in long loops.
+description: "Playwright persistent auth, cookie encryption, memory leak prevention"
 tags:
 - rule
 - automation

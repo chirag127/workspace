@@ -1,9 +1,7 @@
 ---
 type: rule
 title: Apply the role suffix to every new repo, and audit before publish
-description: "Every chirag127/oriz* repo slug must end in -site, -ext, -vsc-ext, -cli,\
-  \ -worker, -fn, -data \u2014 or be a clean npm-package name. Audit the slug before\
-  \ the first push to a new repo."
+description: "Role suffix on every repo slug"
 tags:
 - rules
 - naming
@@ -14,9 +12,9 @@ timestamp: 2026-06-20
 format_version: okf-v0.1
 status: active
 related:
-- decisions/branding/repo-naming-suffixes
+- branding/repo-naming-suffixes
 - rules/no-push-without-say-so
-- runbooks/operations/rename-repo
+- runbooks/workflow/rename-repo
 ---
 
 
@@ -24,7 +22,7 @@ related:
 # Apply the role suffix to every new repo, and audit before publish
 
 When creating any new repo under `chirag127/oriz*`, apply the role
-suffix from [`decisions/branding/repo-naming-suffixes.md`](../../decisions/branding/repo-naming-suffixes.md):
+suffix from [`branding/repo-naming-suffixes.md`](../../branding/repo-naming-suffixes.md):
 `-site` for websites, `-ext` for browser extensions, `-vsc-ext` for
 VS Code extensions, `-cli` for command-line tools, `-worker` for
 Cloudflare Workers, `-fn` for Firebase Cloud Functions, `-data` for
@@ -34,13 +32,13 @@ disambiguates them. **Audit before publish: every `git push` to a
 new repo URL must verify the repo slug ends in one of those suffixes,
 OR is a clean npm-package name (no suffix).** A slug that doesn't
 match is a naming mistake — rename via
-[`runbooks/operations/rename-repo.md`](../../runbooks/operations/rename-repo.md) before the
+[`runbooks/workflow/rename-repo.md`](../../runbooks/workflow/rename-repo.md) before the
 first push, not after, because GitHub repo redirects only fire after
 the rename and won't retroactively rewrite a wrong name that was
 already cloned.
 
 ## See also
 
-- [`decisions/branding/repo-naming-suffixes.md`](../../decisions/branding/repo-naming-suffixes.md) — the full suffix table and migration plan
-- [`runbooks/operations/rename-repo.md`](../../runbooks/operations/rename-repo.md) — how to rename safely
+- [`branding/repo-naming-suffixes.md`](../../branding/repo-naming-suffixes.md) — the full suffix table and migration plan
+- [`runbooks/workflow/rename-repo.md`](../../runbooks/workflow/rename-repo.md) — how to rename safely
 - <!-- TODO: broken link, was [`no-push-without-say-so.md`](../no-push-without-say-so.md) --> — the audit happens *before* the user-authorised push

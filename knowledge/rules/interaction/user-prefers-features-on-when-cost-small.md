@@ -1,7 +1,7 @@
 ---
 type: rule
 title: 'User prefers features-on when cost is small'
-description: When grilled with a Recommended "disable feature X" vs 2nd-choice "enable feature X", and the cost of enabling is small (Qdrant container, telemetry data, etc.), user systematically picks Enable. Underlying preference is maximum-features-on, even when reversing a prior explicit decision.
+description: "User prefers features-on when cost is small"
 tags: [user-identity, preference, defaults, feedback, learn-from-answers]
 timestamp: 2026-06-28
 format_version: okf-v0.1

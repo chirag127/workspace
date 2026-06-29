@@ -1,15 +1,15 @@
 ---
 type: rule
 title: 'MCP server repo naming: <name>-mcp suffix'
-description: Own MCP server repos use the `<name>-mcp` suffix pattern (e.g. `fetch-mcp`, `codebase-memory-mcp`). Matches the existing `-bs-ext`, `-vsc-ext`, `-api`, `-app`, `-book` category-suffix convention used across `oriz-org/*`.
+description: "MCP repos use <name>-mcp suffix"
 tags: [mcp, repo-naming, convention, suffix]
 timestamp: 2026-06-29
 format_version: okf-v0.1
 status: active
 related:
   - rules/development/repo-naming
-  - decisions/architecture/branding/repo-naming-drop-oriz-prefix-2026-06-25
-  - rules/agent/agent-fleet-parity
+  - branding/repo-naming-drop-oriz-prefix-2026-06-25
+  - agent-rules/agent-fleet-parity
 ---
 
 # MCP server repo naming
@@ -56,5 +56,5 @@ If the MCP server is JS/TS and gets published:
 ## Cross-refs
 
 - [`repo-naming`](./repo-naming.md) — general repo naming rule
-- [`repo-naming-drop-oriz-prefix-2026-06-25`](../../decisions/architecture/branding/repo-naming-drop-oriz-prefix-2026-06-25.md) — drop-prefix decision this builds on
+- [`repo-naming-drop-oriz-prefix-2026-06-25`](../../branding/repo-naming-drop-oriz-prefix-2026-06-25.md) — drop-prefix decision this builds on
 - [`atomic-packages-lazy`](../agent/preferences/atomic-packages-lazy.md) — when to extract a new package

@@ -1,9 +1,7 @@
 ---
 id: push-by-default
 title: "Push to main by default \u2014 no explicit say-so needed"
-description: 'Standing authorisation: agents commit AND push to main immediately after
-  every change. Removes the prior "no push without explicit user say-so" rule. Outward-effect
-  actions still require confirmation.'
+description: "Push to main by default without explicit say-so"
 tags:
 - rule
 - git

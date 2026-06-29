@@ -1,7 +1,7 @@
----
+﻿---
 type: glossary
 title: "the spine"
-description: "oriz-blog's typographic series indicator (●─●─○─○)."
+description: oriz-blog typographic series indicator
 tags: [glossary, design, oriz-blog]
 timestamp: 2026-06-20
 format_version: okf-v0.1

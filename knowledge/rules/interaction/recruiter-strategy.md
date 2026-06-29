@@ -2,12 +2,7 @@
 type: rule
 title: 'Recruiter strategy: optimize pinned repos + contribution graph, not the repo
   list'
-description: "GitHub recruiters skim a profile in 30\u201360 seconds: pinned repos\
-  \ (you choose them), contribution graph (greens from any owned/contributed repo),\
-  \ bio. They rarely scroll the Repositories tab. Layout decisions should optimize\
-  \ for that \u2014 keep the personal account populated and cross-linked to the brand\
-  \ org, but don't reorganize the world around the assumption that recruiters browse\
-  \ repo lists."
+description: "Optimize pinned repos + contribution graph for recruiters"
 tags:
 - rule
 - branding
@@ -20,8 +15,8 @@ format_version: okf-v0.1
 status: active
 related:
 - rules/interaction/profile-readme-cross-link
-- decisions/branding/oriz-org-rename-from-co
-- decisions/branding/cs-me-app-moved-to-chirag127
+- branding/oriz-org-rename-from-co
+- branding/cs-me-app-moved-to-chirag127
 - decisions/architecture/general/projects-owner-own-forks-layout
 ---
 
@@ -66,7 +61,7 @@ After those, decreasing in importance:
   personal work under `chirag127/`. Each surface tells the right
   story.
 - Moving `oriz-cs-me-app` off the brand org back to chirag127
-  (<!-- TODO: broken link, was [`cs-me-app-moved-to-chirag127`](../../decisions/branding/cs-me-app-moved-to-chirag127.md) -->)
+  (<!-- TODO: broken link, was [`cs-me-app-moved-to-chirag127`](../../branding/cs-me-app-moved-to-chirag127.md) -->)
   — the personal account needs 5–10 real repos to look alive.
 
 ## Sources of evidence

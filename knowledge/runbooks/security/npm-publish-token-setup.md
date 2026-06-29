@@ -1,9 +1,7 @@
 ---
 type: runbook
 title: "npm publish \u2014 token setup for chirag127/* packages"
-description: How to generate an npm Granular Access Token with publish + unpublish
-  bypass-2FA, store it in c:/D/oriz/.env as NPM_TOKEN, and use it for unattended publish/unpublish
-  across the family's @chirag127/* packages.
+description: Generate npm Granular Access Token; store as NPM_TOKEN for unattended publish/unpublish
 tags:
 - runbook
 - npm
@@ -17,7 +15,7 @@ status: active
 related:
 - architecture/packages/the-23-packages
 - rules/security/no-hardcoded-secrets
-- decisions/security/env-and-secrets-single-source
+- security/env-and-secrets-single-source
 ---
 
 

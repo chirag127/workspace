@@ -1,8 +1,7 @@
 ---
 type: rule
 title: Never force-push to main
-description: "Force-push to main requires a separate, explicit user instruction \u2014\
-  \ distinct from a normal push instruction."
+description: "Force-push to main needs explicit user instruction"
 tags:
 - rules
 - git

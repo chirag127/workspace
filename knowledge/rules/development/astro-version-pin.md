@@ -1,9 +1,7 @@
 ---
 type: rule
 title: 'Astro version pin: major in package.json, auto-update minors weekly'
-description: Every package.json across the family pins Astro at the current major
-  via caret. Minors+patches auto-update weekly. Major upgrades happen via single workspace-wide
-  PR.
+description: "Astro pinned at major, minors auto-update weekly"
 tags:
 - rules
 - astro
@@ -15,8 +13,8 @@ format_version: okf-v0.1
 status: active
 related:
 - rules/development/always-latest-deps
-- decisions/architecture/general/per-runtime-framework
-- decisions/architecture/stack/family-stack-lock
+- decisions/frontend/per-runtime-framework
+- decisions/stack/family-stack-lock
 ---
 
 

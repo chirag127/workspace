@@ -1,11 +1,7 @@
 ---
 type: rule
 title: "GitHub Actions secrets live at chirag127 org level \u2014 never per-repo"
-description: "Every GitHub Actions secret used by any chirag127/oriz* repo is set\
-  \ ONCE at the chirag127 org level with `gh secret set --org chirag127 --visibility\
-  \ all`. Per-repo secret writes are forbidden \u2014 they cause drift the same way\
-  \ per-repo .env.example edits do. Doppler stays the source of truth; org-level GH\
-  \ secrets are the runtime mirror."
+description: "GH Actions secrets at org level, never per-repo"
 tags:
 - rules
 - github
@@ -23,10 +19,10 @@ related:
 - rules/interaction/never-hit-quotas
 - rules/interaction/no-card-on-file
 - rules/security/no-hardcoded-secrets
-- services/secrets/doppler
-- services/secrets/github-secrets
-- decisions/security/env-and-secrets-single-source
-- decisions/security/secrets-management-doppler
+- services/business/secrets/doppler
+- services/business/secrets/github-secrets
+- security/env-and-secrets-single-source
+- security/secrets-management-doppler
 - runbooks/security/set-github-org-level-secrets
 - runbooks/security/rotate-leaked-secret
 ---
@@ -72,9 +68,9 @@ related:
    --repos <comma list>` is acceptable). Document the repo list in
    the runbook, not in this rule.
 6. **Doppler stays upstream.**
-   [Doppler](../../services/secrets/doppler.md) is the canonical source
+   [Doppler](../../services/business/secrets/doppler.md) is the canonical source
    of truth per
-   [`decisions/security/secrets-management-doppler.md`](../../decisions/security/secrets-management-doppler.md).
+   [`security/secrets-management-doppler.md`](../../security/secrets-management-doppler.md).
    Org-level GH secrets are the **downstream runtime mirror** for
    CI. Values flow Doppler → GH org secrets via
    <!-- TODO: broken link, was [`scripts/set-org-secrets-from-doppler.sh`](../../scripts/set-org-secrets-from-doppler.sh) -->
@@ -130,7 +126,7 @@ related:
   but not in org secrets (CI will fail), or keys in org secrets but
   not in the example (orphan, possibly stale). Audit cadence
   documented in the
-  [decision file](../../decisions/security/env-and-secrets-single-source.md).
+  [decision file](../../security/env-and-secrets-single-source.md).
 - **Visibility-`selected` exceptions.** When a key is genuinely
   repo-narrow:
 
@@ -152,7 +148,7 @@ related:
 ## What this rule does NOT mean
 
 - **Not** "Doppler is replaced." Doppler stays canonical per
-  [`decisions/security/secrets-management-doppler.md`](../../decisions/security/secrets-management-doppler.md).
+  [`security/secrets-management-doppler.md`](../../security/secrets-management-doppler.md).
   Org-level GH secrets are the runtime mirror, not a second source
   of truth.
 - **Not** "every secret in Doppler is auto-synced to GH." Only the
@@ -175,9 +171,9 @@ related:
 - [`./never-hit-quotas.md`](../interaction/never-hit-quotas.md) — per-repo drift = surprise CI failure = customer-visible outage class
 - [`./no-card-on-file.md`](../interaction/no-card-on-file.md) — GH org secrets free unlimited, no card
 - [`./no-hardcoded-secrets.md`](./no-hardcoded-secrets.md) — values never in source
-- [`../services/secrets/doppler.md`](../../services/secrets/doppler.md) — upstream source of truth
-- [`../services/secrets/github-secrets.md`](../../services/secrets/github-secrets.md) — runtime mirror service entry
-- [`../decisions/security/env-and-secrets-single-source.md`](../../decisions/security/env-and-secrets-single-source.md) — two-track model decision
-- [`../decisions/security/secrets-management-doppler.md`](../../decisions/security/secrets-management-doppler.md) — Doppler decision
+- [`../services/business/secrets/doppler.md`](../../services/business/secrets/doppler.md) — upstream source of truth
+- [`../services/business/secrets/github-secrets.md`](../../services/business/secrets/github-secrets.md) — runtime mirror service entry
+- [`../security/env-and-secrets-single-source.md`](../../security/env-and-secrets-single-source.md) — two-track model decision
+- [`../security/secrets-management-doppler.md`](../../security/secrets-management-doppler.md) — Doppler decision
 - [`../runbooks/security/set-github-org-level-secrets.md`](../../runbooks/security/set-github-org-level-secrets.md) — set-secrets runbook
 - [`../runbooks/security/rotate-leaked-secret.md`](../../runbooks/security/rotate-leaked-secret.md) — rotation flow gains an org-level step

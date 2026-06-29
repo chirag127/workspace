@@ -1,7 +1,7 @@
----
+﻿---
 type: glossary
 title: "concept file"
-description: "One OKF unit — a single markdown file with YAML frontmatter representing one fact, decision, or rule."
+description: One OKF unit: markdown + YAML frontmatter, one fact/decision/rule
 tags: [glossary, okf, format]
 timestamp: 2026-06-20
 format_version: okf-v0.1

@@ -10,10 +10,10 @@ This is `c:\D\oriz\knowledge\` opened as an Obsidian vault. Mixed-purpose:
 | `services/` | Per-service entries — free-tier, swap-cost, role (171 files) |
 | `glossary/` | Term definitions (27 entries) |
 | `log/` | Decision audit trail by date |
-| `concepts/` | Concept files (OKF/Headroom/etc.) |
-| `playbooks/` | Multi-step procedures across runbooks |
+| `core-concepts/` | Concept files (OKF/Headroom/etc.) |
+| `runbooks/` | Multi-step procedures across runbooks |
 | `personal/` | **PKM** — journal, daily, uses, now, resume, projects |
-| `inbox/` | New-note dropzone (Obsidian default) |
+| `personal/inbox/` | New-note dropzone (Obsidian default) |
 | `archive/` | Old/superseded personal notes (knowledge-deletion-not-supersession applies to OKF only) |
 
 ## Obsidian setup

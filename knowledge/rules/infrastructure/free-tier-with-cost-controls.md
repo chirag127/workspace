@@ -1,12 +1,7 @@
 ---
 type: rule
 title: Card-on-file allowed BUT only on free-tier-safe providers with hard cost controls
-description: "REVERSED 2026-06-23. Card-on-file is permitted, but ONLY with providers\
-  \ that (a) have a real perpetual free tier, (b) support a hard $0 spending cap or\
-  \ budget that auto-shuts-down on overshoot, (c) don't auto-charge for quota overages\
-  \ with no opt-out. The goal isn't card-avoidance \u2014 it's avoiding any bill we\
-  \ didn't plan to pay. AWS Lambda exception remains active. Supersedes the absolute\
-  \ no-card-on-file rule."
+description: "Card-on-file OK with hard $0 spend cap"
 tags:
 - rules
 - billing

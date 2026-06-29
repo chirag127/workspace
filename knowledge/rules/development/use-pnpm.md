@@ -1,9 +1,7 @@
 ---
 type: rule
 title: pnpm is the package manager for every JS repo in the family
-description: pnpm is mandatory across the oriz family. Its content-addressable global
-  store at ~/.pnpm-store is what makes the 'no duplication' goal achievable when 11+
-  sites share dependencies.
+description: "pnpm mandatory across oriz family"
 tags:
 - rule
 - pnpm
@@ -16,7 +14,7 @@ status: active
 related:
 - rules/development/always-latest-deps
 - rules/development/repos-work-independently
-- runbooks/operations/clean-install
+- runbooks/workflow/clean-install
 ---
 
 
@@ -67,5 +65,5 @@ single site's deps, not 11×.
 
 - [`always-latest-deps.md`](./always-latest-deps.md) — install policy that pairs with this rule
 - [`repos-work-independently.md`](./repos-work-independently.md) — each repo runs `pnpm install` standalone
-- [`../runbooks/operations/clean-install.md`](../../runbooks/operations/clean-install.md) — bootstrap procedure
+- [`../runbooks/workflow/clean-install.md`](../../runbooks/workflow/clean-install.md) — bootstrap procedure
 - [`../_okf.md`](../../_okf.md) — OKF conventions

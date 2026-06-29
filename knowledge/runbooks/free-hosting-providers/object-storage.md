@@ -1,7 +1,7 @@
 ---
 type: runbook
 title: "Free hosting — object storage (R2, B2, IDrive, Filebase, Storj, Wasabi)"
-description: "Provider-by-provider free-tier numbers for S3-compatible object storage and IPFS pinning. Cloudflare R2 has the best zero-egress economics but REQUIRES a card to activate the R2 service. Backblaze B2 is the pure no-card winner. Storj covers decentralized."
+description: "Object storage free tiers: R2, B2, Storj"
 tags: [runbook, hosting, free-tier, object-storage, cloudflare-r2, backblaze-b2, storj]
 timestamp: 2026-06-22
 format_version: okf-v0.1
