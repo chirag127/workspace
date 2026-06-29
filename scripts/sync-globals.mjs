@@ -13,6 +13,8 @@
  *   - ~/.claude/settings.json                            (only if template exists; merge)
  *
  * Behaviour:
+ *   - MANUAL invocation only — never wire to a hook, cron, or session-start trigger.
+ *     Per user instruction 2026-06-29: sync runs only when explicitly invoked.
  *   - Silent when workspace and globals already match.
  *   - Prints diff + fires grill-me prompt when drift is detected.
  *   - `--bootstrap` skips the grill on every new item (used on a fresh clone).
@@ -26,7 +28,6 @@
 import { readFileSync, writeFileSync, existsSync } from 'fs';
 import { homedir } from 'os';
 import { join } from 'path';
-import { execSync } from 'child_process';
 import readline from 'readline';
 
 const ROOT = process.cwd().replace(/\\/g, '/');
@@ -147,10 +148,5 @@ writeJSON(sourceMCP, source);
 writeJSON(globalClaude, global);
 
 if (!DRY) {
-  console.log('\n✅ Synced. Re-run scripts/sync-mcp-configs.mjs to propagate to per-agent files.');
-  try {
-    execSync('node scripts/sync-mcp-configs.mjs', { stdio: 'inherit' });
-  } catch (e) {
-    console.warn('  ⚠️  per-agent sync failed; run it manually:', e.message);
-  }
+  console.log('\n✅ Synced. Run `node scripts/sync-mcp-configs.mjs` manually to propagate to per-agent files.');
 }

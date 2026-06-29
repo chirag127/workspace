@@ -33,9 +33,9 @@ You never edit a global file directly. The script reads workspace → writes glo
 
 ## When the script runs
 
-1. **On detected drift or new item** — primary path. Script diffs workspace vs global; if matched, exit silent.
-2. **Manually** — `node scripts/sync-globals.mjs` or `oriz sync-globals`.
-3. **Wired hook** — CC `SessionStart` hook calls it. Tied to session, not cron (avoids stale-cron drift).
+**Manual only.** User invokes explicitly: `node scripts/sync-globals.mjs`. No auto-trigger from session start, no cron, no hook. Per user instruction 2026-06-29: "don't sync automatically or anyway anything for now i will do it individually."
+
+If/when auto-sync is wanted, grill-me first to decide trigger shape (session-start hook vs cron vs file-watcher).
 
 ## How grill-me fires
 
