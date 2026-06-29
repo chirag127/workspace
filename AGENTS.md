@@ -141,11 +141,11 @@ Full rationale: [`knowledge/decisions/architecture/infrastructure/workspace-flat
 
 ---
 
-## Rules (71 total) — non-negotiable
+## Rules (72 total) — non-negotiable
 
-Grouped by subdirectory of `knowledge/rules/`. The full table with descriptions lives in [`knowledge/index.md`](./knowledge/index.md#rules-71-total).
+Grouped by subdirectory of `knowledge/rules/`. The full table with descriptions lives in [`knowledge/index.md`](./knowledge/index.md#rules-72-total).
 
-### Agent behaviour (11) — `knowledge/rules/agent/`
+### Agent behaviour (12) — `knowledge/rules/agent/`
 - `agent-minimum-context` — operate on this repo with minimum upfront token cost.
 - `auto-grill-on-architectural-decisions` — before any multi-file architectural choice, grill first.
 - `confirm-knowledge-deltas` — when user contradicts/narrows/reverses knowledge, confirm before writing.

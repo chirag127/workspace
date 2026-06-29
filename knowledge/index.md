@@ -20,15 +20,16 @@ status: active
 - **Services** - one entry per service we depend on (free tier, swap cost, role).
 - **Glossary** - term definitions.
 
-## Rules (71 total)
+## Rules (72 total)
 
-### Agent behaviour (11)
+### Agent behaviour (12)
 
 | File | Description |
 |---|---|
 | [`agent-minimum-context`](./rules/agent/agent-minimum-context.md) | How any AI agent operates on this repo with minimum upfront token cost. |
 | [`agents-md-2025-discipline`](./rules/agent/agents-md-2025-discipline.md) | User locked the 2025 mindset on 2026-06-23: AGENTS.md stays short +\ |
 | [`auto-grill-on-architectural-decisions`](./rules/agent/auto-grill-on-architectural-decisions.md) | Before any multi-file architectural choice (storage, auth, deploy, payments,\ |
+| [`cc-settings-balance`](./rules/agent/preferences/cc-settings-balance.md) | All 12 Claude Code settings.json picks from 2026-06-29 grill: Opus default + always-thinking floor + adaptive on + 85% compact + agent teams on. Max-quality posture since Bedrock-through-Hr is corp-paid. |
 | [`confirm-knowledge-deltas`](./rules/agent/confirm-knowledge-deltas.md) | Whenever the user's latest message contradicts, narrows, widens, or reverses |
 | [`grill-on-loc-removal`](./rules/agent/grill-on-loc-removal.md) | TIGHTENED 2026-06-22 evening: threshold dropped from 1000 LOC \u2192\ |
 | [`grill-to-knowledge`](./rules/agent/grill-to-knowledge.md) | When the user invokes grill-me or runs a sequence of design questions, |
