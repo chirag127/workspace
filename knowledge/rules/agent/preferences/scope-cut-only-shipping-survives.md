@@ -25,7 +25,7 @@ Surviving repos (~20):
 - blog, journal, me, home
 - oriz-ncert-app, oriz-lore-app, oriz-janaushdhi-app
 - ai-rewrite-bs-ext, bookmark-mind-bs-ext, dearrow-plus-bs-ext, sops-lens-vsc-ext
-- claude-notifications-cli, clear-thought-mcp-server (kept on review)
+- clear-thought-mcp-server (kept on review)
 - userscripts, agent-skills
 - freellmapi, omniroute
 - oriz-janaushdhi-book, oriz-me-book, oriz-stack-book (kept on review)

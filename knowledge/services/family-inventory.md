@@ -100,11 +100,10 @@ All browser-extension repo slugs follow the `-bs-ext` suffix per [`repo-naming-s
 
 - `sops-lens-vsc-ext` — VS Code extension that renders SOPS-encrypted file values in-editor (CodeLens / hover / ghost-text). Decrypts via the `sops` CLI in-memory, never writes plaintext to disk. **Original (not a fork)**, MIT. Submodule under `repos/oriz/own/prod/ide-ext/sops-lens-vsc-ext/`. Repo: `oriz-org/sops-lens-vsc-ext`.
 
-## Other forks — 3 total
+## Other forks — 2 total
 
-CLI + service-API forks (not browser extensions):
+Service-API forks (not browser extensions):
 
-- `claude-notifications-cli` — Go CLI for the AI agent notifications. **Personal fork** of `777genius/claude-notifications-go` (GPL-3.0). Submodule under `repos/oriz/frk/prod/clis/claude-notifications-cli/`. Repo: `oriz-org/claude-notifications-cli`. Renamed from `-go` (language) to `-cli` (role) per [[decisions/branding/repo-naming-suffixes]].
 - `freellmapi` — OpenAI-compatible aggregator of 16 free LLM provider tiers. **Personal fork** of `tashfeenahmed/freellmapi` (MIT). Submodule under `repos/oriz/frk/svc/api/freellmapi/`. Repo: `oriz-org/freellmapi`. Slug unchanged (MIT product brand).
 - `omniroute` — AI gateway / router across 231 providers, 50+ free. **Personal fork** of `diegosouzapw/OmniRoute` (MIT). Submodule under `repos/oriz/frk/svc/api/omniroute/`. Repo: `oriz-org/omniroute` (renamed lowercase per family convention).
 
@@ -121,7 +120,7 @@ After the 2026-06-25 scope-cut, `.gitmodules` is being swept to remove the 33 ar
 - 3 bs-ext forks — `ai-rewrite-bs-ext`, `dearrow-plus-bs-ext` (`chathub-bs-ext` archived 2026-06-25).
 - 1 bs-ext original — `bookmark-mind-bs-ext`.
 - 1 IDE extension original — `sops-lens-vsc-ext`.
-- 1 CLI fork — `claude-notifications-cli`.
+- 1 CLI fork — *(none — `claude-notifications-cli` deleted 2026-06-29)*.
 - 1 MCP server — `clear-thought-mcp-server` *(kept on review)*.
 - 2 API forks — `freellmapi`, `omniroute`.
 - 1 backup repo — `backup` (restic config + RECOVERY.md per [[backup-keys-repo-oriz-org-backup]]).

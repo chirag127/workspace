@@ -31,9 +31,6 @@
 [submodule "repos/userscripts"]
 	path = repos/own/userscripts
 	url = https://github.com/oriz-org/userscripts.git
-[submodule "repos/claude-notifications-cli"]
-	path = repos/frk/claude-notifications-cli
-	url = https://github.com/oriz-org/claude-notifications-cli.git
 [submodule "repos/freellmapi"]
 	path = repos/frk/freellmapi
 	url = https://github.com/oriz-org/freellmapi.git

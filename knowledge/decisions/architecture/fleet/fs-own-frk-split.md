@@ -21,9 +21,8 @@ Two-folder split: `repos/own/<slug>/` for repos I created, `repos/frk/<slug>/` f
 
 **Supersedes:** [`fs-own-frk-split`](../../../rules/agent/preferences/fs-own-frk-split.md) (locked 3h earlier same day).
 
-**The 5 forks (2026-06-25):**
+**The 4 forks (2026-06-29; was 5 before claude-notifications-cli deletion):**
 - ai-rewrite-bs-ext (parent: SupratimRK/Ai-rewrite)
-- claude-notifications-cli (parent: 777genius/claude-notifications-go)
 - dearrow-plus-bs-ext (parent: ajayyy/DeArrow)
 - freellmapi (parent: tashfeenahmed/freellmapi)
 - omniroute (parent: diegosouzapw/OmniRoute)
