@@ -58,6 +58,12 @@
     "chirag127": {
       "type": "http",
       "url": "https://mcp.smithery.run/chirag127"
+    },
+    "agent-browser": {
+      "command": "agent-browser",
+      "args": [
+        "mcp"
+      ]
     }
   }
 }
