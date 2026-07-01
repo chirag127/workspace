@@ -91,7 +91,7 @@ Cut list (15): `oriz-air-quality-india-api`, `oriz-currency-rates-api`, `oriz-fl
 
 All browser-extension repo slugs follow the `-bs-ext` suffix per [`repo-naming-suffixes`](../branding/repo-naming-suffixes.md) (revised 2026-06-24).
 
-- `ai-rewrite-bs-ext` — Chrome extension, AI-powered text rewriting via Gemini. **Personal fork** of `SupratimRK/Ai-rewrite` (GPL-3.0). Submodule under `repos/oriz/frk/prod/bs-ext/ai-rewrite-bs-ext/`. Repo: `oriz-org/ai-rewrite-bs-ext`.
+- `ai-rewrite-bs-ext` — Chrome extension, AI-powered text rewriting via Gemini. **Personal fork** of `SupratimRK/Ai-rewrite` (GPL-3.0). Submodule under `repos/oriz/frk/prod/bs-ext/ai-rewrite-bs-ext/`. Repo: `chirag127/Ai-rewrite`.
 - `dearrow-plus-bs-ext` — Chrome extension replacing YouTube titles + thumbnails with crowdsourced alternatives. **Personal fork** of `ajayyy/DeArrow` (GPL-3.0), renamed for distinct CWS listing. Submodule under `repos/oriz/frk/prod/bs-ext/dearrow-plus-bs-ext/`. Repo: `oriz-org/dearrow-plus-bs-ext`. Divergence: `showOriginalAlongsideTitle` toggle.
 - `chathub-bs-ext` — Multi-LLM chat browser extension. **Personal fork** of `chathub-dev/chathub` (GPL-3.0). Submodule under `repos/oriz/frk/prod/bs-ext/chathub-bs-ext/`. Repo: `oriz-org/chathub-bs-ext`. Divergence: `ALWAYS_PREMIUM=true` (personal-use only — NOT distributed to CWS).
 - `bookmark-mind-bs-ext` — Browser extension that auto-categorizes bookmarks via Gemini / Groq / other LLMs; snapshot/undo + model-performance dashboard. **Original** (not a fork). CC BY-NC 4.0. Submodule under `repos/oriz/own/prod/bs-ext/bookmark-mind-bs-ext/`. Repo: `oriz-org/bookmark-mind-bs-ext` (transferred from `chirag127` + renamed from `BookmarkMind-AI-Bookmark-Categorizer-Browser-Extension` on 2026-06-25).
@@ -104,8 +104,8 @@ All browser-extension repo slugs follow the `-bs-ext` suffix per [`repo-naming-s
 
 Service-API forks (not browser extensions):
 
-- `freellmapi` — OpenAI-compatible aggregator of 16 free LLM provider tiers. **Personal fork** of `tashfeenahmed/freellmapi` (MIT). Submodule under `repos/oriz/frk/svc/api/freellmapi/`. Repo: `oriz-org/freellmapi`. Slug unchanged (MIT product brand).
-- `omniroute` — AI gateway / router across 231 providers, 50+ free. **Personal fork** of `diegosouzapw/OmniRoute` (MIT). Submodule under `repos/oriz/frk/svc/api/omniroute/`. Repo: `oriz-org/omniroute` (renamed lowercase per family convention).
+- `freellmapi` — OpenAI-compatible aggregator of 16 free LLM provider tiers. **Personal fork** of `tashfeenahmed/freellmapi` (MIT). Submodule under `repos/oriz/frk/svc/api/freellmapi/`. Repo: `chirag127/freellmapi`. Slug unchanged (MIT product brand).
+- `omniroute` — AI gateway / router across 231 providers, 50+ free. **Personal fork** of `diegosouzapw/OmniRoute` (MIT). Submodule under `repos/oriz/frk/svc/api/omniroute/`. Repo: `chirag127/OmniRoute`.
 
 ## Submodules — ~20 active (post-cut)
 

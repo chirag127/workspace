@@ -42,7 +42,7 @@ Priority order:
 3. **`oriz-org/oriz-paisa-finance-tools-app`** OR **`oriz-org/oriz-slice-pdf-tools-app`** — pick the one that visually shows "I ship products people use" best. Both are public-facing apps with concrete UX.
 4. **`chirag127/OmniPublish-Content-Distribution-Platform-Python-Lib`** — pre-existing chirag127 work, shows your range beyond oriz.
 5. **`oriz-org/userscripts`** — your userscript monorepo, low-LOC but high-signal for browser engineering.
-6. **`oriz-org/freellmapi`** or **`oriz-org/omniroute`** — one of the LLM aggregator forks, shows AI/agent engineering interest.
+6. **`chirag127/freellmapi`** or **`chirag127/OmniRoute`** — one of the LLM aggregator forks (owned personally after 2026-07-01 migration; see [`fork-thin-upstream-tracking`](../rules/agent/fork-thin-upstream-tracking.md)), shows AI/agent engineering interest.
 
 ## Why not move everything back
 

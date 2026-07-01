@@ -8,7 +8,7 @@
 
 ## Always-loaded rules (auto-imported every session)
 
-These 15 files inline into the agent context on every session. They govern *every* response. Everything else in `knowledge/` is on-demand — read when the topic comes up, via `knowledge/index.md`.
+These 19 files inline into the agent context on every session. They govern *every* response. Everything else in `knowledge/` is on-demand — read when the topic comes up, via `knowledge/index.md`.
 
 @knowledge/rules/agent/ponytail.md
 @knowledge/rules/agent/caveman.md
@@ -25,6 +25,10 @@ These 15 files inline into the agent context on every session. They govern *ever
 @knowledge/rules/agent/agent-fleet-parity.md
 @knowledge/rules/agent/agents-md-three-place-update.md
 @knowledge/rules/agent/okf-lookup-before-acting.md
+@knowledge/rules/agent/no-fork-divergence.md
+@knowledge/rules/agent/fork-thin-upstream-tracking.md
+@knowledge/rules/agent/forks-as-submodules.md
+@knowledge/rules/agent/knowledge-everything-caveman.md
 
 **Lazy-loaded** — read on first knowledge access, not auto-imported:
 - [`knowledge/rules/agent/agent-minimum-context.md`](./knowledge/rules/agent/agent-minimum-context.md) — meta-protocol for navigating `knowledge/`. Read this BEFORE the first grep/read in `knowledge/` each session.
@@ -66,7 +70,9 @@ Full details: `repos/own/backup/README.md` (private repo).
 
 ## Coding agents wired to this workspace
 
-Six agents are supported. Configs live in this repo (canonical only — no generated/junction content in root per [`knowledge/rules/infrastructure/workspace-root-cleanliness.md`](./knowledge/rules/infrastructure/workspace-root-cleanliness.md)):
+Ten agents are supported (8 installed + 2 pending prerequisites). Configs live in this repo (canonical only — no generated/junction content in root per [`knowledge/rules/infrastructure/workspace-root-cleanliness.md`](./knowledge/rules/infrastructure/workspace-root-cleanliness.md)):
+
+### Fleet (installed)
 
 | Agent | Type | Machine | Install | Workspace stub | MCP config | Synced from `.mcp.json` |
 |---|---|---|---|---|---|---|
@@ -77,15 +83,26 @@ Six agents are supported. Configs live in this repo (canonical only — no gener
 | **Antigravity** | Standalone IDE | Personal | https://antigravity.google.com/ (manual) | `.agents/antigravity/AGENTS.md` | `.antigravity/mcp.json` | ✅ Direct copy |
 | **MiMoCode (mimo)** | CLI | Personal | `curl -fsSL https://mimo.xiaomi.com/install \| bash` (Git Bash) | `.agents/mimo/AGENTS.md` | `.mimocode/mimocode.json` | 🔄 Transformed |
 
+### Pending prerequisites
+
+| Agent | Blocker |
+|---|---|
+| **Crab Code** | Needs Rust/Cargo (`cargo build --release`). Reads AGENTS.md natively. MCP via TOML. |
+| **free-code** | Linux/macOS only (Bun + install.sh). No Windows support. |
+
+> **Fleet cut 2026-07-01:** Removed gocode, Codeep, Claurst, Coddy. Small ecosystems, low daily usage, and each added sync/PATH tax without differentiating value. Details + closed upstream issues: [`decisions/agent-tooling/fleet-cut-gocode-2026-07-01`](./knowledge/decisions/agent-tooling/fleet-cut-gocode-2026-07-01.md).
+
 > **mimo PATH caveat:** Installed to `~/.mimocode/bin/mimo.exe`. The install script adds `export PATH=$HOME/.mimocode/bin:$PATH` to `~/.bashrc` (Git Bash). Not visible in PowerShell by default. Run from Git Bash, or add to PowerShell profile: `$env:Path += ";$env:USERPROFILE\.mimocode\bin"`.
 
 Failover order if Claude Code is unavailable: **ZCode → OpenCode → MiMoCode → Kilo Code → Antigravity**.
 
 Skill junctions live in user-global dirs (`~/.claude/skills/`, `~/.config/opencode/skills/`, `~/.kilocode/skills/`, `~/.zcode/skills/`) — never in workspace root. Run `node scripts/wire-agent-skills-junctions.mjs` to create them.
 
-Install the 4 CLI/extension agents at once: `C:\D\oriz\scripts\install-agents.cmd`. Idempotent, workspace-only (no global changes). ZCode + Antigravity are standalone GUI apps — install manually.
+Install the CLI/extension agents at once: `C:\D\oriz\scripts\install-agents.cmd`. Idempotent, workspace-only (no global changes). ZCode + Antigravity are standalone GUI apps — install manually.
 
 Adding a new agent to the fleet requires a grill-me session per [`agent-fleet-parity`](./knowledge/rules/agent/agent-fleet-parity.md) + [`no-global-config-without-grilling`](./knowledge/rules/agent/no-global-config-without-grilling.md).
+
+> **Note:** free-code and Crab Code are documented above but not currently installable. Crab Code needs Rust/Cargo; free-code has no Windows support.
 
 When working in this workspace, every agent picks up this file. Agent-specific overrides go in the per-agent stub, never here.
 
@@ -162,12 +179,12 @@ Full rationale: [`knowledge/decisions/architecture/infrastructure/workspace-flat
 
 ---
 
-## Rules (80 total) — non-negotiable
+## Rules (81 total) — non-negotiable
 
 Grouped by subdirectory of `knowledge/rules/`. The full table with descriptions lives in [`knowledge/index.md`](./knowledge/index.md#rules-78-total).
 
-### Agent behaviour (18) — `knowledge/rules/agent/`
-- `agent-fleet-parity` — same rules + MCPs across all 4 fleet agents (CC, OpenCode, Kilo Code, Antigravity).
+### Agent behaviour (19) — `knowledge/rules/agent/`
+- `agent-fleet-parity` — same rules + MCPs across all fleet agents.
 - `agent-minimum-context` — operate on this repo with minimum upfront token cost.
 - `agents-md-three-place-update` — adding a rule lands in 3 places: concept file + AGENTS.md table + count bump, same commit.
 - `auto-grill-on-architectural-decisions` — before any multi-file architectural choice, grill first.
@@ -178,6 +195,7 @@ Grouped by subdirectory of `knowledge/rules/`. The full table with descriptions 
 - `junctions-on-windows` — use `mklink /J` on Windows, `ln -s` on Unix for shared-content links.
 - `keep-knowledge-fresh` — read before acting, write decisions back same session.
 - `knowledge-deletion-not-supersession` — `git rm` superseded files; git history is the audit trail.
+- `knowledge-everything-caveman` — all durable facts in `knowledge/` as OKF files, written in caveman style (terse, no filler, facts first). No exceptions.
 - `knowledge-first` — durable info goes to `knowledge/`, never README/AGENTS.
 - `okf-lookup-before-acting` — every agent runs `scripts/okf-prompt-lookup.py` (CC via hook; others manually) to surface top-3 OKF files before answering. Fixes the discoverability gap.
 - `read-before-edit` — always Read before Edit; harness enforces.

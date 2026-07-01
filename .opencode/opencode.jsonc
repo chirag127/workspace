@@ -84,6 +84,19 @@
       "environment": {
         "SEARCH_PROVIDER": "local"
       }
+    },
+    "resend": {
+      "type": "local",
+      "command": [
+        "npx",
+        "-y",
+        "resend-mcp"
+      ],
+      "enabled": true,
+      "environment": {
+        "RESEND_API_KEY": "${RESEND_API_KEY}",
+        "SENDER_EMAIL_ADDRESS": "chirag@oriz.in"
+      }
     }
   }
 }
