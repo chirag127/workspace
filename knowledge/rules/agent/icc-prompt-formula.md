@@ -47,6 +47,32 @@ Model output quality is bounded by prompt information density. Missing:
 - Context → generic, non-specific advice
 - Constraints → sprawling, un-actionable
 
+## Constraints describe BEHAVIOR, not code
+
+The most common ICC failure: writing constraints that prescribe HOW the code should look instead of HOW the feature should BEHAVE.
+
+Wrong (prescribes code):
+- ❌ "Use useState for the counter"
+- ❌ "Don't use setTimeout — use setInterval"
+- ❌ "Import from lodash"
+
+Right (prescribes behavior):
+- ✅ "If anything is unclear, ask before implementing."
+- ✅ "Do not expose any secrets in the mobile app."
+- ✅ "Keep the existing Stream audio flow intact — don't touch its listeners."
+- ✅ "Preserve the existing UI exactly. Do not change component names."
+- ✅ "After a successful sign-in, navigate to the home route."
+- ✅ "If a required env var is missing, fail fast with a clear error."
+
+Why: AI writes better code than us. What we know better is what the FEATURE should DO in the presence of other features + edge cases + protected state. Constraints should encode:
+
+- **What's already working that should stay the same.**
+- **What's allowed to change.**
+- **What's off-limits (security, external API, protected UI).**
+- **Ambiguity resolution rule** ("if unclear, ask" — prevents silent assumptions).
+
+Think like a product engineer, not a code reviewer.
+
 ## When to relax
 
 - Follow-up prompt in same session — context is already there
