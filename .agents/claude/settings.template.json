@@ -89,6 +89,10 @@
           {
             "type": "command",
             "command": "node C:/Users/C5420321/AppData/Roaming/npm/node_modules/cavemem/dist/index.js hook run session-start --ide claude-code"
+          },
+          {
+            "type": "command",
+            "command": "node C:/D/oriz/scripts/memory-pull.mjs"
           }
         ]
       }
@@ -99,6 +103,10 @@
           {
             "type": "command",
             "command": "node C:/Users/C5420321/AppData/Roaming/npm/node_modules/cavemem/dist/index.js hook run stop --ide claude-code"
+          },
+          {
+            "type": "command",
+            "command": "node C:/D/oriz/scripts/memory-push.mjs"
           }
         ]
       }

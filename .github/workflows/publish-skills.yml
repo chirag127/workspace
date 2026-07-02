@@ -1,0 +1,56 @@
+name: Publish skills to skills.oriz.in
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'repos/own/infra/agent-skills/**'
+      - '.github/workflows/publish-skills.yml'
+      - 'scripts/build-skills-site.mjs'
+  workflow_dispatch: {}
+
+concurrency:
+  group: publish-skills
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+  deployments: write
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          submodules: recursive
+          fetch-depth: 1
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v6
+
+      - name: Setup Node
+        uses: actions/setup-node@v6
+        with:
+          node-version: 22
+          cache: pnpm
+
+      - name: Install
+        run: pnpm install --frozen-lockfile=false
+
+      - name: Build skills site
+        run: |
+          # Knowledge site build produces style.css that skills reuses
+          node scripts/build-knowledge-site.mjs
+          node scripts/build-skills-site.mjs
+        env:
+          SITE_URL: https://skills.oriz.in
+
+      - name: Deploy to Cloudflare Pages
+        uses: cloudflare/pages-action@v1
+        with:
+          apiToken: ${{ secrets.CF_API_TOKEN }}
+          accountId: ${{ secrets.CF_ACCOUNT_ID }}
+          projectName: skills-oriz-in
+          directory: dist/skills
+          gitHubToken: ${{ secrets.GITHUB_TOKEN }}
