@@ -76,3 +76,6 @@
 [submodule "repos/frk/youtube"]
 	path = repos/frk/youtube
 	url = https://github.com/chirag127/youtube.git
+[submodule "repos/own/infra/hermes-config"]
+	path = repos/own/infra/hermes-config
+	url = https://github.com/chirag127/hermes-config.git
