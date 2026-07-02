@@ -1,0 +1,5 @@
+steps:
+  ci:
+    image: registry.dagger.io/engine:latest
+    commands:
+      - dagger call ci --source=.

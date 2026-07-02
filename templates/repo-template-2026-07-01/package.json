@@ -1,0 +1,15 @@
+{
+  "name": "@oriz/<repo-name>",
+  "version": "0.0.1",
+  "type": "module",
+  "scripts": {
+    "lint": "docker run --rm -v $PWD:/tmp/lint ghcr.io/oxsecurity/megalinter:v9",
+    "lint:fix": "docker run --rm -e APPLY_FIXES=all -v $PWD:/tmp/lint ghcr.io/oxsecurity/megalinter:v9",
+    "test": "echo 'add tests'",
+    "build": "echo 'add build'",
+    "ci": "pnpm lint && pnpm test && pnpm build",
+    "dagger:ci": "dagger call ci --source=."
+  },
+  "packageManager": "pnpm@11.9.0",
+  "engines": { "node": ">=22" }
+}

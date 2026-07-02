@@ -1,0 +1,6 @@
+ci:
+  image: registry.dagger.io/engine:latest
+  services:
+    - docker:dind
+  script:
+    - dagger call ci --source=.

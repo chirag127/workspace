@@ -1,0 +1,6 @@
+APPLY_FIXES: none  # 'all' to auto-commit fixes; keep 'none' by default
+DISABLE_LINTERS:
+  - COPYPASTE_JSCPD  # too noisy for small repos
+SHOW_ELAPSED_TIME: true
+FAIL_IF_UPDATED_SOURCES: false
+LOG_LEVEL: INFO
