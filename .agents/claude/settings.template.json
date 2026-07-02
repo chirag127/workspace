@@ -4,7 +4,7 @@
     "ANTHROPIC_DEFAULT_HAIKU_MODEL": "claude-haiku-latest",
     "ANTHROPIC_DEFAULT_OPUS_MODEL": "claude-opus-latest",
     "ANTHROPIC_DEFAULT_SONNET_MODEL": "claude-sonnet-latest",
-    "ANTHROPIC_MODEL": "claude-sonnet-latest",
+    "ANTHROPIC_MODEL": "claude-opus-latest",
     "ANTHROPIC_SMALL_FAST_MODEL": "auto/best-coding",
     "CLAUDE_AUTOCOMPACT_PCT_OVERRIDE": "85",
     "CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC": "1",
@@ -141,7 +141,7 @@
     }
   },
   "alwaysThinkingEnabled": true,
-  "effortLevel": "low",
+  "effortLevel": "high",
   "autoMemoryEnabled": true,
   "showThinkingSummaries": true,
   "skipDangerousModePermissionPrompt": true,
