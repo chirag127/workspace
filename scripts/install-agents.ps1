@@ -1,9 +1,15 @@
 ﻿<#
 .SYNOPSIS
   Install coding agents wired to this workspace.
-  Also wires user-global skill junctions for all 6 agents.
+  Also wires user-global skill junctions for all agents.
   Workspace root is NOT modified (workspace-root-cleanliness rule).
   All rules live in C:\D\oriz\AGENTS.md.
+
+  Fleet (10 agents, 8 installed + 2 pending):
+    - Claude Code, ZCode, OpenCode, Kilo Code, Antigravity, MiMoCode
+    - Codeep, Claurst, gocode, Coddy (new free CLI/TUI agents)
+    - Crab Code (pending: needs Rust/Cargo)
+    - free-code (pending: Linux/macOS only)
 #>
 [CmdletBinding()]
 param()
@@ -201,8 +207,72 @@ if ($zcodeFound) {
   Warn 'ZCode not found. Install manually from https://zcode.z.ai/ then re-run this script.'
 }
 
-# ── 7. Wire user-global skill junctions (all 6 agents) ────────────────────
-Step '7. Wire user-global skill junctions'
+# ── 7. Codeep ──────────────────────────────────────────────────────────
+Step '7. Codeep'
+if (-not (Have codeep)) {
+  Invoke-Native 'npm install -g codeep@latest' | Out-Null
+}
+if (Have codeep) {
+  Ok ('codeep: ' + ((codeep --version 2>&1) | Out-String).Trim())
+} else {
+  Warn 'codeep install failed'
+}
+
+# ── 8. Claurst ──────────────────────────────────────────────────────────
+Step '8. Claurst'
+if (-not (Have claurst)) {
+  Invoke-Native 'npm install -g claurst' | Out-Null
+}
+if (Have claurst) {
+  Ok ('claurst: ' + ((claurst --version 2>&1) | Out-String).Trim())
+} else {
+  Warn 'claurst install failed'
+}
+
+# ── 9. gocode (binary to ~/bin) ─────────────────────────────────────────
+Step '9. gocode'
+$gocodeExe = Join-Path $env:USERPROFILE 'bin\gocode.exe'
+if (-not (Have gocode) -and -not (Test-Path $gocodeExe)) {
+  $gocodeZip = Join-Path $env:TEMP 'gocode.zip'
+  $gocodeUrl = 'https://github.com/AlleyBo55/gocode/releases/download/v0.9.0/gocode_0.9.0_windows_amd64.zip'
+  Write-Host '  Downloading gocode...' -ForegroundColor DarkGray
+  Invoke-WebRequest -UseBasicParsing -Uri $gocodeUrl -OutFile $gocodeZip
+  Expand-Archive -Path $gocodeZip -DestinationPath (Join-Path $env:USERPROFILE 'bin') -Force
+  Remove-Item $gocodeZip -Force
+  # Refresh PATH
+  $env:PATH = "$env:USERPROFILE\bin;$env:PATH"
+}
+if (Have gocode) {
+  Ok ('gocode: ' + ((gocode --version 2>&1) | Out-String).Trim())
+} elseif (Test-Path $gocodeExe) {
+  Ok "gocode installed at $gocodeExe (restart terminal if not on PATH)"
+} else {
+  Warn 'gocode install failed'
+}
+
+# ── 10. Coddy (binary to ~/bin) ──────────────────────────────────────────
+Step '10. Coddy'
+$coddyExe = Join-Path $env:USERPROFILE 'bin\coddy.exe'
+if (-not (Have coddy) -and -not (Test-Path $coddyExe)) {
+  $coddyZip = Join-Path $env:TEMP 'coddy.zip'
+  $coddyUrl = 'https://github.com/coddy-project/coddy-agent/releases/download/0.9.26/coddy_0.9.26_windows_amd64.zip'
+  Write-Host '  Downloading Coddy...' -ForegroundColor DarkGray
+  Invoke-WebRequest -UseBasicParsing -Uri $coddyUrl -OutFile $coddyZip
+  Expand-Archive -Path $coddyZip -DestinationPath (Join-Path $env:USERPROFILE 'bin') -Force
+  Remove-Item $coddyZip -Force
+  # Refresh PATH
+  $env:PATH = "$env:USERPROFILE\bin;$env:PATH"
+}
+if (Have coddy) {
+  Ok ('coddy: ' + ((coddy --version 2>&1) | Out-String).Trim())
+} elseif (Test-Path $coddyExe) {
+  Ok "coddy installed at $coddyExe (restart terminal if not on PATH)"
+} else {
+  Warn 'coddy install failed'
+}
+
+# ── 11. Wire user-global skill junctions (all agents) ───────────────────
+Step '11. Wire user-global skill junctions'
 node (Join-Path $Workspace 'scripts\wire-agent-skills-junctions.mjs')
 if ($LASTEXITCODE -eq 0) {
   Ok 'Skill junctions wired'
@@ -210,18 +280,25 @@ if ($LASTEXITCODE -eq 0) {
   Warn 'Some skill junctions failed — check output above'
 }
 
-# ── 8. Summary ────────────────────────────────────────────────────────────
-Step '8. Done'
+# ── 12. Summary ───────────────────────────────────────────────────────────
+Step '12. Done'
 Write-Host ''
 Write-Host '  Workspace source of truth: C:\D\oriz\AGENTS.md' -ForegroundColor Green
 Write-Host ''
-Write-Host '  Agents wired:'
+Write-Host '  Agents wired (10 total, 8 installed + 2 pending):'
 Write-Host '    - Claude Code (reads C:\D\oriz\CLAUDE.md + AGENTS.md)'         -ForegroundColor Green
 Write-Host '    - ZCode       (reads ~/.zcode/AGENTS.md + C:\D\oriz\AGENTS.md)' -ForegroundColor Green
 Write-Host '    - OpenCode    (reads C:\D\oriz\AGENTS.md)'                      -ForegroundColor Green
 Write-Host '    - Kilo Code   (reads C:\D\oriz\.kilocode\rules\)'               -ForegroundColor Green
 Write-Host '    - MiMoCode    (reads C:\D\oriz\AGENTS.md + CLAUDE.md)'          -ForegroundColor Green
 Write-Host '    - Antigravity (install manually; reads C:\D\oriz\AGENTS.md)'    -ForegroundColor Green
+Write-Host '    - Codeep      (reads .codeep/agents/ + C:\D\oriz\AGENTS.md)'   -ForegroundColor Green
+Write-Host '    - Claurst     (ACP protocol; reads C:\D\oriz\AGENTS.md)'        -ForegroundColor Green
+Write-Host '    - gocode      (binary in ~/bin; reads C:\D\oriz\AGENTS.md)'    -ForegroundColor Green
+Write-Host '    - Coddy       (binary in ~/bin; reads C:\D\oriz\AGENTS.md)'    -ForegroundColor Green
+Write-Host '  Pending:' -ForegroundColor Yellow
+Write-Host '    - Crab Code   (needs Rust/Cargo)'                               -ForegroundColor Yellow
+Write-Host '    - free-code   (Linux/macOS only)'                               -ForegroundColor Yellow
 Write-Host ''
 Write-Host '  Skill junctions (user-global, not in workspace root):' -ForegroundColor DarkGray
 Write-Host '    ~/.claude/skills/, ~/.config/opencode/skills/, ~/.kilocode/skills/' -ForegroundColor DarkGray

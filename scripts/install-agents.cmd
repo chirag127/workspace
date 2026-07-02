@@ -2,14 +2,18 @@
 REM ============================================================
 REM  install-agents.cmd
 REM
-REM  Installs the 4 free coding agents wired to this workspace:
+REM  Installs the free coding agents wired to this workspace:
 REM    - Claude Code   (already installed; verifies only)
 REM    - OpenCode      (npm i -g opencode-ai)
 REM    - Kilo Code     (VS Code ext kilocode.Kilo-Code)
 REM    - ZCode         (GUI IDE; verifies install + wires skills)
 REM    - Antigravity   (manual install from https://antigravity.google.com/)
+REM    - Codeep        (npm i -g codeep@latest)
+REM    - Claurst       (npm i -g claurst)
+REM    - gocode        (binary download to ~/bin)
+REM    - Coddy         (binary download to ~/bin)
 REM
-REM  Also wires user-global skill junctions for all 6 agents.
+REM  Also wires user-global skill junctions for all agents.
 REM  Workspace root is NOT modified (workspace-root-cleanliness rule).
 REM  All rules live in C:\D\oriz\AGENTS.md (workspace source of truth)
 REM

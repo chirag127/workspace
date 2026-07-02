@@ -223,13 +223,13 @@ def main() -> int:
 
     prompt = read_prompt(args.prompt)
     if not prompt.strip():
-        return 1
+        return 0  # nothing to surface ? not an error (Claude Code logs exit?0 as hook error)
 
     root = args.root if args.root else script_dir.parent
     hits = lookup(prompt, root, cfg)
 
     if not hits:
-        return 1
+        return 0  # no matches ? not an error
 
     repo_resolved = root.resolve()
     if cfg["format"] == "paths":

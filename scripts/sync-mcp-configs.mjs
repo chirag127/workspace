@@ -3,18 +3,22 @@
  * sync-mcp-configs.mjs
  *
  * Single source of truth: .mcp.json
- * Fleet (6 agents):
+ * Fleet (10 agents):
  *   - Claude Code  → .mcp.json (canonical, no copy needed)
  *   - ZCode        → GUI only (Settings → MCP Servers) — see knowledge/runbooks/hosting/zcode-mcp-setup.md
  *   - Kilo Code    → .kilocode/mcp.json            (direct copy)
  *   - Antigravity  → .antigravity/mcp.json         (direct copy)
  *   - OpenCode     → .opencode/opencode.jsonc      (format-transformed)
  *   - MiMoCode     → .mimo/mimocode.json           (format-transformed, same as OpenCode)
+ *   - Codeep       → .codeep/mcp_servers.json      (direct copy, flat JSON)
+ *   - Claurst      → ACP protocol (not MCP) — not synced
+ *   - gocode       → ~/.gocode/skills/ (MCP via skills) — not synced
+ *   - Coddy        → ~/.coddy/config.yaml (YAML) — not synced
  *
  * Run: node scripts/sync-mcp-configs.mjs
  */
 
-import { readFileSync, writeFileSync, copyFileSync, existsSync } from 'fs';
+import { readFileSync, writeFileSync, copyFileSync, existsSync, mkdirSync } from 'fs';
 import { join, dirname } from 'path';
 import { fileURLToPath } from 'url';
 
@@ -59,6 +63,16 @@ for (const target of identicalTargets) {
   console.log(`  ✅ Synced ${count} servers → ${target.replace(ROOT, '.')}`);
 }
 
+// ── Sync Codeep (flat JSON at .codeep/mcp_servers.json) ──────────
+const codeepDir = join(ROOT, '.codeep');
+if (!existsSync(codeepDir)) {
+  console.warn(`  ⚠️  .codeep/ dir not found, creating it`);
+  mkdirSync(codeepDir, { recursive: true });
+}
+const codeepTarget = join(codeepDir, 'mcp_servers.json');
+writeJSON(codeepTarget, { mcpServers: servers });
+console.log(`  ✅ Synced ${count} servers → .codeep/mcp_servers.json`);
+
 // ── Transform: .mcp.json server entry → OpenCode/MiMoCode MCP entry ─────
 function mcpEntryForAgent(name, cfg) {
   if (cfg.type === 'http' || cfg.type === 'sse') {
@@ -94,4 +108,4 @@ syncMcpField(join(ROOT, '.opencode', 'opencode.jsonc'), '.opencode/opencode.json
 // ── Sync MiMoCode (mcp field in .mimo/mimocode.json) ────────────
 syncMcpField(join(ROOT, '.mimo', 'mimocode.json'), '.mimo/mimocode.json');
 
-console.log(`\n🎉 All ${count} MCP servers synced to the 6-agent fleet.`);
+console.log(`\n🎉 All ${count} MCP servers synced to the 10-agent fleet.`);

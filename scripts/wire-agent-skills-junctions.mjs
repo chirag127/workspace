@@ -19,7 +19,7 @@ const DRY = process.argv.includes('--dry-run')
 const FORCE = process.argv.includes('--force')
 const IS_WIN = process.platform === 'win32'
 
-// All user-global skill paths — one per agent.
+// All user-global skill paths — one per agent that supports skills.
 // Workspace-root skill dirs are intentionally excluded.
 const TARGETS = [
   { agent: 'Claude Code',  path: join(HOME, '.claude', 'skills') },
@@ -28,6 +28,7 @@ const TARGETS = [
   { agent: 'ZCode',        path: join(HOME, '.zcode', 'skills') },
   { agent: 'MiMoCode',     path: join(HOME, '.config', 'mimocode', 'skills') },
   { agent: 'Antigravity',  path: join(HOME, '.gemini', 'skills') },
+  { agent: 'gocode',       path: join(HOME, '.gocode', 'skills') },
 ]
 
 if (!existsSync(SKILLS_SOURCE)) {
