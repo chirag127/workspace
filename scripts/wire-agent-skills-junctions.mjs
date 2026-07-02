@@ -21,14 +21,10 @@ const IS_WIN = process.platform === 'win32'
 
 // All user-global skill paths — one per agent that supports skills.
 // Workspace-root skill dirs are intentionally excluded.
+// Fleet cut 2026-07-02: CC-only. Dropped-fleet junction dirs no longer created.
+// See knowledge/decisions/agent-tooling/fleet-cut-to-cc-only-2026-07-02.md
 const TARGETS = [
   { agent: 'Claude Code',  path: join(HOME, '.claude', 'skills') },
-  { agent: 'OpenCode',     path: join(HOME, '.config', 'opencode', 'skills') },
-  { agent: 'Kilo Code',    path: join(HOME, '.kilocode', 'skills') },
-  { agent: 'ZCode',        path: join(HOME, '.zcode', 'skills') },
-  { agent: 'MiMoCode',     path: join(HOME, '.config', 'mimocode', 'skills') },
-  { agent: 'Antigravity',  path: join(HOME, '.gemini', 'skills') },
-  { agent: 'gocode',       path: join(HOME, '.gocode', 'skills') },
 ]
 
 if (!existsSync(SKILLS_SOURCE)) {

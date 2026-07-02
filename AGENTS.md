@@ -73,39 +73,42 @@ Full details: `repos/own/backup/README.md` (private repo).
 
 ## Coding agents wired to this workspace
 
-Ten agents are supported (8 installed + 2 pending prerequisites). Configs live in this repo (canonical only — no generated/junction content in root per [`knowledge/rules/infrastructure/workspace-root-cleanliness.md`](./knowledge/rules/infrastructure/workspace-root-cleanliness.md)):
+**Fleet cut to Claude Code only** (2026-07-02). See [`decisions/agent-tooling/fleet-cut-to-cc-only-2026-07-02`](./knowledge/decisions/agent-tooling/fleet-cut-to-cc-only-2026-07-02.md). Every other agent evaluated over the last 6 weeks was dropped for a specific reason (see table below). AGENTS.md itself remains canonical and portable — [60k+ repos and the Linux Foundation](https://agents.md) treat `AGENTS.md` as the standard cross-agent instructions file, so any AGENTS.md-reading tool a contributor points at this repo still picks up the rules. **Fleet drop ≠ AGENTS.md drop.** It means: no per-agent config sync, not installed by `scripts/install-agents.cmd` / `scripts/install-agents.ps1`, not a target of `scripts/sync-mcp-configs.mjs` or `scripts/wire-agent-skills-junctions.mjs`.
 
 ### Fleet (installed)
 
 | Agent | Type | Machine | Install | Workspace stub | MCP config | Synced from `.mcp.json` |
 |---|---|---|---|---|---|---|
-| **Claude Code** | CLI (primary) | Corp | (already installed) | `.agents/claude/CLAUDE.md` | `.mcp.json` | ✅ Source of truth |
-| **ZCode** | GUI IDE | Both | https://zcode.z.ai/ (manual) | `.agents/zcode/ZCODE.md` | GUI (Settings → MCP Servers) | 🧑 Configuration guide |
-| **OpenCode** | CLI | Personal | `npm i -g opencode-ai` | `.agents/opencode/AGENTS.md` | `.opencode/opencode.jsonc` | 🔄 Transformed |
-| **Kilo Code** | VS Code ext | Both | `code --install-extension kilocode.Kilo-Code` | `.agents/kilocode/rules/00-pointer.md` | `.kilocode/mcp.json` | ✅ Direct copy |
-| **Antigravity** | Standalone IDE | Personal | https://antigravity.google.com/ (manual) | `.agents/antigravity/AGENTS.md` | `.antigravity/mcp.json` | ✅ Direct copy |
-| **MiMoCode (mimo)** | CLI | Personal | `curl -fsSL https://mimo.xiaomi.com/install \| bash` (Git Bash) | `.agents/mimo/AGENTS.md` | `.mimocode/mimocode.json` | 🔄 Transformed |
+| **Claude Code** | CLI (primary, sole) | Corp | (already installed) | `.agents/claude/CLAUDE.md` | `.mcp.json` | ✅ Source of truth |
 
-### Pending prerequisites
+### Dropped fleet — AGENTS.md still consumed
+
+These agents remain compatible with this repo (they read `AGENTS.md` natively or via a per-agent pointer) but are no longer part of the sync/install fleet. Configs, pointer stubs, and per-agent MCP files may still exist on disk for a grace period (90 days per the fleet-cut decision), but are not maintained.
+
+| Agent | Dropped date | Reason | Reintroduction gate |
+|---|---|---|---|
+| **ZCode** | 2026-07-02 | GUI-only MCP config forces hand-config on every laptop; no CLI parity with the sync scripts. | Ships CLI/JSON MCP config path AND daily-driver quality reaches CC parity. |
+| **OpenCode** | 2026-07-02 | Format-transformed MCP config (`.opencode/opencode.jsonc`) doubled sync-script complexity for one CLI that never became daily-driver. | Native `.mcp.json` support OR sync-transform cost drops below marginal benefit. |
+| **Kilo Code** | 2026-07-02 | VS Code extension; same MCP surface as CC via the extension host but no unique value over CC on the same machine. | VS-Code-embedded workflow becomes primary (e.g. Live Share, remote-tunnel scenarios CC can't cover). |
+| **Antigravity** | 2026-07-02 | Standalone IDE, manual install per machine, personal-only; low daily use didn't justify the parity sync target. | Ships headless CLI + agent-first workflow surface distinct from CC. |
+| **MiMoCode (mimo)** | 2026-07-02 | Format-transformed MCP config + PATH-caveat (`~/.mimocode/bin` not on PowerShell PATH) + personal-only. Never reached daily-driver share. | Xiaomi ships Windows-native installer AND format matches `.mcp.json` directly. |
+
+**Reintroduction rule:** Any proposal to reintroduce a dropped agent must (a) cite [`decisions/agent-tooling/fleet-cut-to-cc-only-2026-07-02`](./knowledge/decisions/agent-tooling/fleet-cut-to-cc-only-2026-07-02.md) and (b) rebut the specific drop reason in that agent's row — not "it got better in general," but "the reason we dropped it no longer applies because X." Add a grill-me session per [`agent-fleet-parity`](./knowledge/rules/agent/agent-fleet-parity.md) + [`no-global-config-without-grilling`](./knowledge/rules/agent/no-global-config-without-grilling.md) before wiring sync targets back in.
+
+### Pending prerequisites (never installed, kept for reference)
 
 | Agent | Blocker |
 |---|---|
 | **Crab Code** | Needs Rust/Cargo (`cargo build --release`). Reads AGENTS.md natively. MCP via TOML. |
 | **free-code** | Linux/macOS only (Bun + install.sh). No Windows support. |
 
-> **Fleet cut 2026-07-01:** Removed gocode, Codeep, Claurst, Coddy. Small ecosystems, low daily usage, and each added sync/PATH tax without differentiating value. Details + closed upstream issues: [`decisions/agent-tooling/fleet-cut-gocode-2026-07-01`](./knowledge/decisions/agent-tooling/fleet-cut-gocode-2026-07-01.md).
+> **Prior fleet cut 2026-07-01:** Removed gocode, Codeep, Claurst, Coddy. Details: [`decisions/agent-tooling/fleet-cut-gocode-2026-07-01`](./knowledge/decisions/agent-tooling/fleet-cut-gocode-2026-07-01.md). The 2026-07-02 cut-to-CC-only supersedes this by removing the remaining fleet too.
 
-> **mimo PATH caveat:** Installed to `~/.mimocode/bin/mimo.exe`. The install script adds `export PATH=$HOME/.mimocode/bin:$PATH` to `~/.bashrc` (Git Bash). Not visible in PowerShell by default. Run from Git Bash, or add to PowerShell profile: `$env:Path += ";$env:USERPROFILE\.mimocode\bin"`.
+**No failover.** Claude Code is the sole agent. If CC is unavailable (Hr chain down, corp Bedrock outage, laptop offline), the fallback is **wait or work offline** — not a different agent. This is intentional: fleet-parity tax exceeded the insurance value once daily-driver share collapsed to ~100% CC. If CC unavailability becomes a recurring problem, revisit via the reintroduction gate above.
 
-Failover order if Claude Code is unavailable: **ZCode → OpenCode → MiMoCode → Kilo Code → Antigravity**.
+Skill junctions live in **user-global dirs only** (`~/.claude/skills/`). The workspace `repos/own/infra/agent-skills` submodule is now the **sole canonical source** for user-owned skills across all machines — never in workspace root, never duplicated per-agent. Run `node scripts/wire-agent-skills-junctions.mjs` to create the CC junction on a fresh machine. Dropped-fleet junction dirs (`~/.config/opencode/skills/`, `~/.kilocode/skills/`, `~/.zcode/skills/`) are no longer created; the script skips them.
 
-Skill junctions live in user-global dirs (`~/.claude/skills/`, `~/.config/opencode/skills/`, `~/.kilocode/skills/`, `~/.zcode/skills/`) — never in workspace root. Run `node scripts/wire-agent-skills-junctions.mjs` to create them.
-
-Install the CLI/extension agents at once: `C:\D\oriz\scripts\install-agents.cmd`. Idempotent, workspace-only (no global changes). ZCode + Antigravity are standalone GUI apps — install manually.
-
-Adding a new agent to the fleet requires a grill-me session per [`agent-fleet-parity`](./knowledge/rules/agent/agent-fleet-parity.md) + [`no-global-config-without-grilling`](./knowledge/rules/agent/no-global-config-without-grilling.md).
-
-> **Note:** free-code and Crab Code are documented above but not currently installable. Crab Code needs Rust/Cargo; free-code has no Windows support.
+Install Claude Code (and nothing else): `C:\D\oriz\scripts\install-agents.cmd`. Idempotent, workspace-only (no global changes). The script no longer installs ZCode, OpenCode, Kilo Code, Antigravity, or MiMoCode — those blocks were removed on 2026-07-02.
 
 When working in this workspace, every agent picks up this file. Agent-specific overrides go in the per-agent stub, never here.
 
