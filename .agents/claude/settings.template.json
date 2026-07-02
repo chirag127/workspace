@@ -1,0 +1,151 @@
+{
+  "env": {
+    "ANTHROPIC_BASE_URL": "http://localhost:8787",
+    "ANTHROPIC_DEFAULT_HAIKU_MODEL": "claude-haiku-latest",
+    "ANTHROPIC_DEFAULT_OPUS_MODEL": "claude-opus-latest",
+    "ANTHROPIC_DEFAULT_SONNET_MODEL": "claude-sonnet-latest",
+    "ANTHROPIC_MODEL": "claude-sonnet-latest",
+    "ANTHROPIC_SMALL_FAST_MODEL": "auto/best-coding",
+    "CLAUDE_AUTOCOMPACT_PCT_OVERRIDE": "85",
+    "CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC": "1",
+    "CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS": "1",
+    "CLAUDE_CODE_USE_POWERSHELL_TOOL": "1",
+    "DISABLE_ERROR_REPORTING": "1",
+    "DISABLE_TELEMETRY": "1",
+    "ENABLE_TOOL_SEARCH": "auto"
+  },
+  "includeCoAuthoredBy": false,
+  "hooks": {
+    "PostToolUse": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node C:/Users/C5420321/AppData/Roaming/npm/node_modules/cavemem/dist/index.js hook run post-tool-use --ide claude-code"
+          }
+        ]
+      },
+      {
+        "matcher": "Bash(git push*)",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "powershell -NoProfile -NonInteractive -Command \"Write-Host '[push-hook] Pushed. GHA: https://github.com/chirag127/screenpipe/actions | workspace: https://github.com/chirag127/workspace/actions'\""
+          }
+        ]
+      },
+      {
+        "matcher": "Bash(gh workflow run*)",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "powershell -NoProfile -NonInteractive -Command \"Start-Sleep 3; $run = gh run list --repo chirag127/screenpipe --limit 1 --json url,status,name 2>&1 | ConvertFrom-Json | Select-Object -First 1; if ($run) { Write-Host \"[gha-hook] $($run.name) ($($run.status)): $($run.url)\" }\""
+          }
+        ]
+      }
+    ],
+    "PreToolUse": [
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "rtk hook claude"
+          }
+        ]
+      },
+      {
+        "matcher": "Bash(cargo *)",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "powershell -NoProfile -NonInteractive -Command \"$env:LIBCLANG_PATH='C:\\Program Files\\LLVM\\bin'; $env:AWS_LC_SYS_PREBUILT_NASM='1'; $newPath='C:\\Users\\C5420321\\.cargo\\bin;C:\\Users\\C5420321\\.bun\\bin;C:\\Users\\C5420321\\AppData\\Local\\Programs\\7-Zip'; if ($env:Path -notlike \"*$newPath*\") { $env:Path=$newPath+';'+$env:Path }; Write-Host '[cargo-hook] Rust env injected'\""
+          }
+        ]
+      },
+      {
+        "matcher": "Bash(bun run tauri*)",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "powershell -NoProfile -NonInteractive -Command \"$env:LIBCLANG_PATH='C:\\Program Files\\LLVM\\bin'; $env:AWS_LC_SYS_PREBUILT_NASM='1'; Write-Host '[tauri-hook] Env vars ready'\""
+          }
+        ]
+      }
+    ],
+    "SessionEnd": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node C:/Users/C5420321/AppData/Roaming/npm/node_modules/cavemem/dist/index.js hook run session-end --ide claude-code"
+          }
+        ]
+      }
+    ],
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node C:/Users/C5420321/AppData/Roaming/npm/node_modules/cavemem/dist/index.js hook run session-start --ide claude-code"
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node C:/Users/C5420321/AppData/Roaming/npm/node_modules/cavemem/dist/index.js hook run stop --ide claude-code"
+          }
+        ]
+      }
+    ],
+    "UserPromptSubmit": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node C:/Users/C5420321/AppData/Roaming/npm/node_modules/cavemem/dist/index.js hook run user-prompt-submit --ide claude-code"
+          },
+          {
+            "type": "command",
+            "command": "npx tsx C:/D/oriz/scripts/okf-prompt-lookup.ts --limit 3"
+          }
+        ]
+      }
+    ]
+  },
+  "statusLine": {
+    "type": "command",
+    "command": "echo \"ctx $(jq -r '.context_window.remaining_percentage // 100' < $CLAUDE_STATUS_INPUT)%\""
+  },
+  "enabledPlugins": {
+    "claude-notifications-go@claude-notifications-go": true,
+    "morph-compact@morph": true
+  },
+  "extraKnownMarketplaces": {
+    "claude-notifications-go": {
+      "source": {
+        "source": "github",
+        "repo": "777genius/claude-notifications-go"
+      }
+    },
+    "morph": {
+      "source": {
+        "source": "github",
+        "repo": "morphllm/morph-claude-code-plugin"
+      }
+    }
+  },
+  "alwaysThinkingEnabled": true,
+  "effortLevel": "low",
+  "autoMemoryEnabled": true,
+  "showThinkingSummaries": true,
+  "skipDangerousModePermissionPrompt": true,
+  "skipWorkflowUsageWarning": true,
+  "switchModelsOnFlag": true,
+  "gitAttribution": false
+}
