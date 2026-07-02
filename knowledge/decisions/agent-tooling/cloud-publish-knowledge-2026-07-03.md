@@ -28,11 +28,13 @@ Mirror `knowledge/` OKF bundle to `https://knowledge.oriz.in`. Cloudflare Pages 
 - **Ecosystem contribution** — one of first OKF-in-the-wild public bundles.
 - **Agent reach** — external agents can fetch via URL, not just local read.
 
-## Build engine — Kiso
+## Build engine — Astro custom (Kiso deferred)
 
-Kiso announced 2026-06-27 ([HN via headlinesbriefing](https://headlinesbriefing.com/dev/hacker-news/kiso-open-source-engine-transforms-knowledge-bundles-into-static-sites-a6f251ae)). Zero-config OKF → static site. Ships `llms.txt` + `sitemap.xml` per emerging convention.
+Fresh verification 2026-07-03 found Kiso is HN-post-only (no installable software). Fallback: custom Astro on `api-fleet-template` pattern. See [`okf-build-engine-astro-2026-07-03`](./okf-build-engine-astro-2026-07-03.md).
 
-Community-first per `no-rebuilding-free-software`. Custom Astro build rejected — Kiso does exactly this job.
+Astro Integration ships: OKF Zod schema, `llms.txt` auto-gen, `@astrojs/sitemap`, `@astrojs/rss`, FlexSearch client-side, `related.json` precompute.
+
+Reject: 11ty (no family precedent), Hugo/Zola (Go/Rust — heavier).
 
 ## Host — Cloudflare Pages
 
@@ -51,11 +53,12 @@ Per `one-level-subdomain-only` + subdomain-name-content-type convention. Not `do
 
 ## Sequence
 
-1. Add Kiso as submodule OR install as pnpm dep (evaluate at build time).
-2. Wire `.github/workflows/publish-knowledge.yml`: on push to `main`, build via Kiso, deploy to CF Pages.
-3. CF DNS: `knowledge.oriz.in` → CF Pages project.
-4. witscode validator step BEFORE build step.
-5. RSS/Atom generator step AFTER build (custom, small — Kiso doesn't ship this).
+1. Extend `repos/own/infra/api-fleet-template` with OKF-content-collection support (Zod schema for v0.2 frontmatter, related.json compute).
+2. New repo `chirag127/knowledge-site` (or Astro app inside workspace) consumes `knowledge/` via symlink or submodule of umbrella.
+3. Wire `.github/workflows/publish-knowledge.yml`: on push to `main`, build via Astro, deploy to CF Pages.
+4. CF DNS: `knowledge.oriz.in` → CF Pages project.
+5. witscode validator step BEFORE build step (adopt as workspace CI gate).
+6. RSS/Atom generator baked into Astro build (`@astrojs/rss`).
 
 ## Anti-patterns
 
