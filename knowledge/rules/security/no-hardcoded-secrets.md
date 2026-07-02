@@ -61,12 +61,34 @@ without a code change.
 
 ## If a secret is ever pasted into chat
 
-Treat it as compromised. The runbook:
+Treat it as compromised. Chats may be used for model training. The runbook:
 
 1. Revoke + rotate at the relevant dashboard.
 2. Re-store in envpact.
 3. Update any consumer.
 4. Full procedure at [`../runbooks/security/auth-setup.md`](../../runbooks/security/auth-setup.md).
+
+## Debug via screenshot, not paste
+
+When a bug involves an error message or state you can show instead of describe: SCREENSHOT + drop the image into chat. Do NOT paste log output that may contain tokens, session cookies, or credentials.
+
+## Pre-publish security check
+
+Before making anything public (git push to public repo, deploy, publish npm package, list extension on store):
+
+1. Run the security-review skill or manual review.
+2. ALSO ask "is there anything else I should be aware of before making this live?" — surfaces non-security issues (browser compat, mobile touch, missing edge cases).
+
+Both are cheap. Skipping is what generates the "leaked-secret" horror stories.
+
+## .env.local + .gitignore verification
+
+For any project that uses secrets at build/dev time:
+
+- Secrets live in `.env.local` (or environment-specific equivalent).
+- `.env.local` MUST appear in `.gitignore`.
+- Verify with: `git check-ignore .env.local` → should return the path (means ignored). If empty output, ignore is broken.
+- `.env.enc` (sops-encrypted) MAY be committed. Never plaintext.
 
 ## Exceptions
 
@@ -77,3 +99,4 @@ None.
 - AGENTS.md "Secrets" section
 - [`../services/business/tooling/envpact.md`](../../services/business/tooling/envpact.md)
 - [`../runbooks/security/auth-setup.md`](../../runbooks/security/auth-setup.md)
+- Source of debug-screenshot + pre-publish-check additions: Nate Herk Claude Code walkthrough 2026-07
