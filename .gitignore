@@ -84,3 +84,6 @@ logs
 # Root scratch scratchpads (delete these files if they exist)
 /foo.txt
 /test.md
+
+# Scratch tmp dir — local-only ephemeral outputs, never commit
+/tmp/
