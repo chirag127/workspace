@@ -79,7 +79,7 @@
       "command": "npx",
       "args": ["-y", "screenpipe@latest", "mcp"],
       "env": {
-        "SCREENPIPE_API_KEY": "sp-c1aa9d65"
+        "SCREENPIPE_API_KEY": "${SCREENPIPE_API_KEY}"
       }
     },
     "morph-mcp": {
