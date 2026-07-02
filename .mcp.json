@@ -74,6 +74,13 @@
         "RESEND_API_KEY": "${RESEND_API_KEY}",
         "SENDER_EMAIL_ADDRESS": "chirag@oriz.in"
       }
+    },
+    "screenpipe": {
+      "command": "npx",
+      "args": ["-y", "screenpipe@latest", "mcp"],
+      "env": {
+        "SCREENPIPE_API_KEY": "sp-c1aa9d65"
+      }
     }
   }
 }
