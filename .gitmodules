@@ -73,3 +73,6 @@
 [submodule "repos/frk/bcu"]
 	path = repos/frk/bcu
 	url = https://github.com/chirag127/Bulk-Crap-Uninstaller.git
+[submodule "repos/frk/youtube"]
+	path = repos/frk/youtube
+	url = https://github.com/chirag127/youtube.git
