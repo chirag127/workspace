@@ -1,7 +1,7 @@
 ---
 type: service
 title: "Family inventory \u2014 canonical counts of apps, packages, books, APIs, submodules"
-description: Canonical oriz-org family count totals; cite this file to avoid drift
+description: Canonical chirag127 family count totals; cite this file to avoid drift
 tags:
 - service
 - inventory
@@ -20,7 +20,7 @@ related:
 - decisions/compute/market-data-apis
 - decisions/packages/oriz-ai-providers-package
 - decisions/architecture/general/projects-owner-own-forks-layout
-- branding/oriz-org-rename-from-co
+- branding/chirag127-rename-from-co
 - architecture/ops/repo-layout
 ---
 
@@ -92,13 +92,13 @@ Cut list (15): `oriz-air-quality-india-api`, `oriz-currency-rates-api`, `oriz-fl
 All browser-extension repo slugs follow the `-bs-ext` suffix per [`repo-naming-suffixes`](../branding/repo-naming-suffixes.md) (revised 2026-06-24).
 
 - `ai-rewrite-bs-ext` — Chrome extension, AI-powered text rewriting via Gemini. **Personal fork** of `SupratimRK/Ai-rewrite` (GPL-3.0). Submodule under `repos/oriz/frk/prod/bs-ext/ai-rewrite-bs-ext/`. Repo: `chirag127/Ai-rewrite`.
-- `dearrow-plus-bs-ext` — Chrome extension replacing YouTube titles + thumbnails with crowdsourced alternatives. **Personal fork** of `ajayyy/DeArrow` (GPL-3.0), renamed for distinct CWS listing. Submodule under `repos/oriz/frk/prod/bs-ext/dearrow-plus-bs-ext/`. Repo: `oriz-org/dearrow-plus-bs-ext`. Divergence: `showOriginalAlongsideTitle` toggle.
-- `chathub-bs-ext` — Multi-LLM chat browser extension. **Personal fork** of `chathub-dev/chathub` (GPL-3.0). Submodule under `repos/oriz/frk/prod/bs-ext/chathub-bs-ext/`. Repo: `oriz-org/chathub-bs-ext`. Divergence: `ALWAYS_PREMIUM=true` (personal-use only — NOT distributed to CWS).
-- `bookmark-mind-bs-ext` — Browser extension that auto-categorizes bookmarks via Gemini / Groq / other LLMs; snapshot/undo + model-performance dashboard. **Original** (not a fork). CC BY-NC 4.0. Submodule under `repos/oriz/own/prod/bs-ext/bookmark-mind-bs-ext/`. Repo: `oriz-org/bookmark-mind-bs-ext` (transferred from `chirag127` + renamed from `BookmarkMind-AI-Bookmark-Categorizer-Browser-Extension` on 2026-06-25).
+- `dearrow-plus-bs-ext` — Chrome extension replacing YouTube titles + thumbnails with crowdsourced alternatives. **Personal fork** of `ajayyy/DeArrow` (GPL-3.0), renamed for distinct CWS listing. Submodule under `repos/oriz/frk/prod/bs-ext/dearrow-plus-bs-ext/`. Repo: `chirag127/dearrow-plus-bs-ext`. Divergence: `showOriginalAlongsideTitle` toggle.
+- `chathub-bs-ext` — Multi-LLM chat browser extension. **Personal fork** of `chathub-dev/chathub` (GPL-3.0). Submodule under `repos/oriz/frk/prod/bs-ext/chathub-bs-ext/`. Repo: `chirag127/chathub-bs-ext`. Divergence: `ALWAYS_PREMIUM=true` (personal-use only — NOT distributed to CWS).
+- `bookmark-mind-bs-ext` — Browser extension that auto-categorizes bookmarks via Gemini / Groq / other LLMs; snapshot/undo + model-performance dashboard. **Original** (not a fork). CC BY-NC 4.0. Submodule under `repos/oriz/own/prod/bs-ext/bookmark-mind-bs-ext/`. Repo: `chirag127/bookmark-mind-bs-ext` (transferred from `chirag127` + renamed from `BookmarkMind-AI-Bookmark-Categorizer-Browser-Extension` on 2026-06-25).
 
 ## VS Code / IDE extensions — 1 total
 
-- `sops-lens-vsc-ext` — VS Code extension that renders SOPS-encrypted file values in-editor (CodeLens / hover / ghost-text). Decrypts via the `sops` CLI in-memory, never writes plaintext to disk. **Original (not a fork)**, MIT. Submodule under `repos/oriz/own/prod/ide-ext/sops-lens-vsc-ext/`. Repo: `oriz-org/sops-lens-vsc-ext`.
+- `sops-lens-vsc-ext` — VS Code extension that renders SOPS-encrypted file values in-editor (CodeLens / hover / ghost-text). Decrypts via the `sops` CLI in-memory, never writes plaintext to disk. **Original (not a fork)**, MIT. Submodule under `repos/oriz/own/prod/ide-ext/sops-lens-vsc-ext/`. Repo: `chirag127/sops-lens-vsc-ext`.
 
 ## Other forks — 2 total
 
@@ -123,7 +123,7 @@ After the 2026-06-25 scope-cut, `.gitmodules` is being swept to remove the 33 ar
 - 1 CLI fork — *(none — `claude-notifications-cli` deleted 2026-06-29)*.
 - 1 MCP server — `clear-thought-mcp-server` *(kept on review)*.
 - 2 API forks — `freellmapi`, `omniroute`.
-- 1 backup repo — `backup` (restic config + RECOVERY.md per [[backup-keys-repo-oriz-org-backup]]).
+- 1 backup repo — `backup` (restic config + RECOVERY.md per [[backup-keys-repo-chirag127-backup]]).
 
 Re-verify after the `.gitmodules` sweep with: `cd /c/D/oriz && git submodule status | wc -l`.
 

@@ -33,17 +33,17 @@ Generalised procedure for migrating any fleet fork from global package install (
 
 ## Procedure
 
-### 1. Fork the upstream to `oriz-org`
+### 1. Fork the upstream to `chirag127`
 
 ```powershell
-gh repo fork <upstream-org>/<upstream-name> --org oriz-org --clone=false --default-branch-only
+gh repo fork <upstream-org>/<upstream-name> --org chirag127 --clone=false --default-branch-only
 ```
 
 If GitHub creates a `<name>-1` because `<name>` was taken by an earlier fork, delete the old one first:
 
 ```powershell
-gh api orgs/oriz-org/repos --paginate --jq '.[] | select(.name | startswith("<name>")) | "\(.name) | fork=\(.fork) | parent=\(.parent.full_name)"'
-gh repo delete oriz-org/<duplicate-name> --yes
+gh api orgs/chirag127/repos --paginate --jq '.[] | select(.name | startswith("<name>")) | "\(.name) | fork=\(.fork) | parent=\(.parent.full_name)"'
+gh repo delete chirag127/<duplicate-name> --yes
 ```
 
 Verify the canonical fork's `parent` matches the desired upstream.
@@ -51,7 +51,7 @@ Verify the canonical fork's `parent` matches the desired upstream.
 ### 2. Clone into the workspace
 
 ```powershell
-git clone https://github.com/oriz-org/<name>.git C:\D\oriz\repos\frk\<name>
+git clone https://github.com/chirag127/<name>.git C:\D\oriz\repos\frk\<name>
 cd C:\D\oriz\repos\frk\<name>
 git remote add upstream https://github.com/<upstream-org>/<upstream-name>.git
 ```

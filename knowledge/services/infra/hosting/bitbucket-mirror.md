@@ -1,6 +1,6 @@
 ---
 type: service
-title: "Bitbucket Cloud \u2014 push-mirror target for oriz-org + chirag127"
+title: "Bitbucket Cloud \u2014 push-mirror target for chirag127 + chirag127"
 description: "Git mirror host #3 — unlimited private repos, 1 GB storage, push via GH Actions"
 tags:
 - service
@@ -78,7 +78,7 @@ Our repos are < 10 MB each; 1 GB workspace is ample for 60+ repos.
 5. Permissions: **Repositories — Write** + **Projects — Read**
 6. Expiry: set 1 year from today
 7. Click **Create** — copy immediately, shown once
-8. Store as oriz-org org-level GitHub secret(s) — paste value into `.env` then `gh secret set <NAME> --org oriz-org --visibility all < <(printf %s "$VALUE")`. Full loop: [`runbooks/platform/mirror-all-hosts-setup.md`](../../runbooks/platform/mirror-all-hosts-setup.md) Step 2.
+8. Store as chirag127 org-level GitHub secret(s) — paste value into `.env` then `gh secret set <NAME> --org chirag127 --visibility all < <(printf %s "$VALUE")`. Full loop: [`runbooks/platform/mirror-all-hosts-setup.md`](../../runbooks/platform/mirror-all-hosts-setup.md) Step 2.
 
    
 

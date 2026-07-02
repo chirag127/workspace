@@ -31,7 +31,7 @@ The current exclude list (in `mirror-all.yml`):
 
 | Repo | Owner | Why excluded |
 |---|---|---|
-| `oriz-org/secrets` | oriz-org | Brand-family secrets store (env files, recovery codes, backups). Private. |
+| `chirag127/secrets` | chirag127 | Brand-family secrets store (env files, recovery codes, backups). Private. |
 | `chirag127/secrets` | chirag127 | Personal secrets store. Private. |
 | `chirag127/Recovery-codes` | chirag127 | Personal 2FA codes. Private + air-gapped from secrets. |
 | `chirag127/envpact-secrets` | chirag127 | envpact per-project vault. Private. |
@@ -65,4 +65,4 @@ The name-list catches all three. Cost of maintaining two filters: 0 (just add th
 
 - The mirror decision: [[decisions/ops/mirror-to-9-popular-alternatives-2026-06-28]]
 - The mirror workflow itself: `.github/workflows/mirror-all.yml` (umbrella root)
-- The secrets repo this rule primarily protects: [oriz-org/secrets](https://github.com/oriz-org/secrets) (private)
+- The secrets repo this rule primarily protects: [chirag127/secrets](https://github.com/chirag127/secrets) (private)

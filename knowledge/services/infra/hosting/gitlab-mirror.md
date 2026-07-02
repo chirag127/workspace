@@ -1,6 +1,6 @@
 ---
 type: service
-title: "GitLab.com \u2014 push-mirror target for oriz-org + chirag127"
+title: "GitLab.com \u2014 push-mirror target for chirag127 + chirag127"
 description: "Mirror host #1 — push-mirror via GH Actions, unlimited repos, 10 GiB/project"
 tags:
 - service
@@ -25,7 +25,7 @@ related:
 ## Role
 
 GitLab.com is **mirror host #1** in the 6-host DR strategy. Every repo in
-`oriz-org` and `chirag127` is pushed here via `git push --mirror` from
+`chirag127` and `chirag127` is pushed here via `git push --mirror` from
 the weekly Friday cron in `.github/workflows/mirror-all.yml`.
 
 ## Free Tier
@@ -61,7 +61,7 @@ Our repos are all < 100 MB; 100× headroom on the 10 GiB limit.
 5. Expiration: set to 1 year from today (GitLab now requires expiry)
 6. Scopes: tick `api` and `write_repository`
 7. Click **Create personal access token** — copy immediately, shown once
-8. Store as oriz-org org-level GitHub secret(s) — paste value into `.env` then `gh secret set <NAME> --org oriz-org --visibility all < <(printf %s "$VALUE")`. Full loop: [`runbooks/platform/mirror-all-hosts-setup.md`](../../runbooks/platform/mirror-all-hosts-setup.md) Step 2.
+8. Store as chirag127 org-level GitHub secret(s) — paste value into `.env` then `gh secret set <NAME> --org chirag127 --visibility all < <(printf %s "$VALUE")`. Full loop: [`runbooks/platform/mirror-all-hosts-setup.md`](../../runbooks/platform/mirror-all-hosts-setup.md) Step 2.
 
    ```bash
 # Create project under personal namespace

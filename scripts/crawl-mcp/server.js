@@ -14,7 +14,7 @@ const MAX_PAGES_CAP = 200;
 const DEFAULT_MAX_PAGES = 50;
 const REQUEST_TIMEOUT_MS = 15_000;
 const USER_AGENT =
-  "oriz-crawl-md/0.1 (+https://github.com/oriz-org/workspace)";
+  "oriz-crawl-md/0.1 (+https://github.com/chirag127/workspace)";
 
 const turndown = new TurndownService({
   headingStyle: "atx",

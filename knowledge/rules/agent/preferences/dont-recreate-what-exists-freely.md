@@ -33,7 +33,7 @@ User feedback, 2026-06-28 (verbatim):
 
 > "Already API exists for the Gita data and we don't need an API for Gita data. Already open data exists if already exists. If a similar project exists for something then we will not add as that product as a product if some product already exists freely free and free of cost and repository is always open source and many more criteria can be there then we will not create that."
 
-Concrete failure this session: I forked `gita/gita` twice (once to `chirag127`, then to `oriz-org`) before checking that the upstream is already free, open, actively-served at https://bhagavadgita.io, and has REST endpoints anyone can hit. We deleted both forks immediately.
+Concrete failure this session: I forked `gita/gita` twice (once to `chirag127`, then to `chirag127`) before checking that the upstream is already free, open, actively-served at https://bhagavadgita.io, and has REST endpoints anyone can hit. We deleted both forks immediately.
 
 ## Composes with existing rules
 

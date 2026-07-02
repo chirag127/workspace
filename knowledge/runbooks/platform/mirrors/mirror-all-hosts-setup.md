@@ -43,15 +43,15 @@ Complete setup for the 9-host weekly git mirror. Run once. After this, the
 Friday cron in `.github/workflows/mirror-all.yml` runs hands-free.
 
 **Where the workflow reads from.** Mirror secrets and `ENABLE_MIRROR_*`
-variables live at the **`oriz-org`** GitHub org level — that's the org
-that owns the umbrella `oriz-org/workspace` repo running the cron. Local
+variables live at the **`chirag127`** GitHub org level — that's the org
+that owns the umbrella `chirag127/workspace` repo running the cron. Local
 mirror in `c:/D/oriz/.env` (gitignored) is the authoring copy; Doppler
 may also hold it as a personal vault but the workflow path is GitHub
 org secrets only.
 
 ## Prerequisites
 
-- `gh` CLI authenticated as admin of `oriz-org` org
+- `gh` CLI authenticated as admin of `chirag127` org
 - Browser access for token generation
 - `jq` and `curl` installed
 - `rad` CLI (for Radicle keypair only): `curl -sSf https://radicle.xyz/install | sh`
@@ -149,9 +149,9 @@ Public seed node `radicle.garden` is used. No self-hosted Radicle node needed.
 
 ---
 
-## Step 2: Push all secrets to oriz-org org level
+## Step 2: Push all secrets to chirag127 org level
 
-Mirror secrets live at `oriz-org` (the org that owns the workflow repo).
+Mirror secrets live at `chirag127` (the org that owns the workflow repo).
 Doppler may also hold them; the workflow only reads org-level GH secrets.
 Reads from your local `.env`:
 
@@ -189,12 +189,12 @@ for NAME in "${SECRETS[@]}"; do
     echo "⊘ skip $NAME (empty in .env)"
     continue
   fi
-  printf '%s' "$VAL" | gh secret set "$NAME" --org oriz-org --visibility all
+  printf '%s' "$VAL" | gh secret set "$NAME" --org chirag127 --visibility all
   echo "✓ set $NAME"
 done
 
 echo ""
-gh secret list --org oriz-org | grep -E '^MIRROR_'
+gh secret list --org chirag127 | grep -E '^MIRROR_'
 ```
 
 Each empty value is skipped so partial setups (e.g. Codeberg still down)
@@ -223,14 +223,14 @@ FLAGS=(
 
 for NAME in "${FLAGS[@]}"; do
   VAL="${!NAME:-0}"
-  gh variable set "$NAME" --org oriz-org --visibility all --body "$VAL"
+  gh variable set "$NAME" --org chirag127 --visibility all --body "$VAL"
   echo "✓ var $NAME=$VAL"
 done
 
-gh variable list --org oriz-org | grep -E '^ENABLE_MIRROR_'
+gh variable list --org chirag127 | grep -E '^ENABLE_MIRROR_'
 ```
 
-To toggle a single host later: `gh variable set ENABLE_MIRROR_CODEBERG --org oriz-org --visibility all --body 1`.
+To toggle a single host later: `gh variable set ENABLE_MIRROR_CODEBERG --org chirag127 --visibility all --body 1`.
 
 ---
 
@@ -329,8 +329,8 @@ done
 ## Step 4: Dry-run the workflow
 
 ```bash
-gh workflow run mirror-all.yml --repo oriz-org/workspace
-gh run watch --repo oriz-org/workspace
+gh workflow run mirror-all.yml --repo chirag127/workspace
+gh run watch --repo chirag127/workspace
 ```
 
 Disabled hosts emit `::notice::Mirror <host> disabled` and skip. Enabled
@@ -342,7 +342,7 @@ before the next Friday cron.
 The cron runs every Friday 22:00 UTC. To force one now:
 
 ```bash
-gh workflow run mirror-all.yml --repo oriz-org/workspace
+gh workflow run mirror-all.yml --repo chirag127/workspace
 ```
 
 Spot-check each enabled host's web UI for a fresh commit history matching

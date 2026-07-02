@@ -1,7 +1,7 @@
 ---
 type: rule
 title: 'No dual-remote backup. GitHub IS the backup.'
-description: Never add second remote to forks. oriz-org fork on GitHub = backup. Stop re-asking
+description: Never add second remote to forks. chirag127 fork on GitHub = backup. Stop re-asking
 tags: [git, backup, fleet, hard-rule, never-reask]
 timestamp: 2026-06-27
 format_version: okf-v0.1
@@ -15,7 +15,7 @@ related:
 
 ## Rule
 
-Forks have ONE remote: `origin -> oriz-org/<repo>` + `upstream -> <author>/<repo>` (for upstream syncing only).
+Forks have ONE remote: `origin -> chirag127/<repo>` + `upstream -> <author>/<repo>` (for upstream syncing only).
 
 NEVER propose:
 - Adding `chirag127` as a second `origin`

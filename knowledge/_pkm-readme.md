@@ -33,7 +33,7 @@ This is `c:\D\oriz\knowledge\` opened as an Obsidian vault. Mixed-purpose:
 
 ## Privacy
 
-Per Q5 lock (2026-06-26): vault is in `oriz-org/workspace` PUBLIC repo. **Discipline-only**:
+Per Q5 lock (2026-06-26): vault is in `chirag127/workspace` PUBLIC repo. **Discipline-only**:
 - NO passwords, API keys, credentials
 - NO sensitive personal info (health, finances, relationships)
 - NO unredacted third-party PII

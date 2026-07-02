@@ -13,7 +13,7 @@ When a name collision forces a rename, prefer to rename the **local folder / cat
 **Captured:** 2026-06-25, during fleet nest-by-category. The `packages` repo (catalog app at packages.oriz.in) collided with `packages/` category dir holding 23 npm packages. Offered to rename the app's GitHub repo to `packages-catalog`; user picked rename-the-folder (`npm-packages/`) instead.
 
 **Why this matters:**
-- GitHub repo names appear in URLs (`github.com/oriz-org/<slug>`), badges, npm registries, redirect histories, package.json `repository` fields, and external references. Renaming creates legacy redirects forever.
+- GitHub repo names appear in URLs (`github.com/chirag127/<slug>`), badges, npm registries, redirect histories, package.json `repository` fields, and external references. Renaming creates legacy redirects forever.
 - Local folder paths are private to the maintainer's machine. Verbose nesting (e.g. `repos/npm-packages/`) is cheap; renaming a public-facing slug is expensive.
 - Subdomain (`packages.oriz.in`) is the brand for end users. Local folder layout is the brand for nobody.
 

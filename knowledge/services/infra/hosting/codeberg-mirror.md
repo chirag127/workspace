@@ -1,6 +1,6 @@
 ---
 type: service
-title: "Codeberg.org \u2014 push-mirror target for oriz-org + chirag127"
+title: "Codeberg.org \u2014 push-mirror target for chirag127 + chirag127"
 description: "FOSS non-profit git mirror #2 — push-mirror via GH Actions, 750 MiB soft cap"
 tags:
 - service
@@ -28,7 +28,7 @@ related:
 ## Role
 
 Codeberg.org is **mirror host #2** in the 6-host DR strategy. It is also
-the daily DR mirror for `oriz-org` via the separate
+the daily DR mirror for `chirag127` via the separate
 `codeberg-mirror.yml` workflow. Non-profit, FOSS-focused, Forgejo-based.
 No payment, no credit card, completely free.
 
@@ -64,7 +64,7 @@ Our text-heavy repos are < 100 MB total; well within limits.
 4. Token name: `oriz-mirror-bot`
 5. Scope: tick **`write:repository`**
 6. Click **Generate Token** — copy immediately, shown once
-7. Store as oriz-org org-level GitHub secret(s) — paste value into `.env` then `gh secret set <NAME> --org oriz-org --visibility all < <(printf %s "$VALUE")`. Full loop: [`runbooks/platform/mirror-all-hosts-setup.md`](../../runbooks/platform/mirror-all-hosts-setup.md) Step 2.
+7. Store as chirag127 org-level GitHub secret(s) — paste value into `.env` then `gh secret set <NAME> --org chirag127 --visibility all < <(printf %s "$VALUE")`. Full loop: [`runbooks/platform/mirror-all-hosts-setup.md`](../../runbooks/platform/mirror-all-hosts-setup.md) Step 2.
 
    
 
@@ -79,7 +79,7 @@ curl -s -X POST "https://codeberg.org/api/v1/user/repos" \
   || true  # 409 = exists — fine
 
 # For org namespace
-curl -s -X POST "https://codeberg.org/api/v1/org/oriz-org/repos" \
+curl -s -X POST "https://codeberg.org/api/v1/org/chirag127/repos" \
   -H "Authorization: token ${MIRROR_CODEBERG_TOKEN}" \
   -H "Content-Type: application/json" \
   -d "{\"name\":\"${REPO_NAME}\",\"private\":false,\"auto_init\":false}"
@@ -107,8 +107,8 @@ Solution: GitHub Actions push to Codeberg on schedule (already implemented in
 # Personal repos
 https://${MIRROR_CODEBERG_USERNAME}:${MIRROR_CODEBERG_TOKEN}@codeberg.org/${MIRROR_CODEBERG_USERNAME}/${REPO_NAME}.git
 
-# Org repos (oriz-org)
-https://oriz-org:${MIRROR_CODEBERG_TOKEN}@codeberg.org/oriz-org/${REPO_NAME}.git
+# Org repos (chirag127)
+https://chirag127:${MIRROR_CODEBERG_TOKEN}@codeberg.org/chirag127/${REPO_NAME}.git
 ```
 
 ## Failure modes
@@ -123,5 +123,5 @@ https://oriz-org:${MIRROR_CODEBERG_TOKEN}@codeberg.org/oriz-org/${REPO_NAME}.git
 ## Cross-refs
 
 - Full setup → [`../../../runbooks/mirror-all-hosts-setup.md`](../../runbooks/platform/mirror-all-hosts-setup.md)
-- Daily oriz-org Codeberg mirror → [`../../../runbooks/platform/codeberg-mirror-2026-06-23.md`](../../runbooks/platform/codeberg-mirror-2026-06-23.md)
+- Daily chirag127 Codeberg mirror → [`../../../runbooks/platform/codeberg-mirror-2026-06-23.md`](../../runbooks/platform/codeberg-mirror-2026-06-23.md)
 - 9-host decision → [`../../decisions/ops/mirror-to-9-popular-alternatives-2026-06-28.md`](../../decisions/ops/mirror-to-9-popular-alternatives-2026-06-28.md)

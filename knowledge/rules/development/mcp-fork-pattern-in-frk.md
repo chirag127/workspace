@@ -18,7 +18,7 @@ related:
 
 When the fleet uses an MCP server that requires modification or version-locking:
 
-1. **Fork** the upstream repo to `oriz-org/<name>-mcp` (preserves [`mcp-repo-naming-suffix`](../development/mcp-repo-naming-suffix.md)).
+1. **Fork** the upstream repo to `chirag127/<name>-mcp` (preserves [`mcp-repo-naming-suffix`](../development/mcp-repo-naming-suffix.md)).
 2. **Add as submodule** at `repos/frk/<name>-mcp/`.
 3. **Work on the fork** for local fixes.
 4. **PR upstream** when the fix is generally useful.
@@ -38,9 +38,9 @@ When the fleet uses an MCP server that requires modification or version-locking:
 ## Forking flow
 
 ```cmd
-gh repo fork <upstream>/<name>-mcp --org oriz-org --clone=false
+gh repo fork <upstream>/<name>-mcp --org chirag127 --clone=false
 cd C:\D\oriz
-git submodule add https://github.com/oriz-org/<name>-mcp repos/frk/<name>-mcp
+git submodule add https://github.com/chirag127/<name>-mcp repos/frk/<name>-mcp
 ```
 
 After cloning, set the upstream remote:
@@ -60,7 +60,7 @@ cd repos/frk/<name>-mcp
 git checkout -b fix/<short-slug>
 # make changes, commit
 git push origin fix/<short-slug>
-gh pr create --repo <upstream>/<name>-mcp --base main --head oriz-org:fix/<short-slug>
+gh pr create --repo <upstream>/<name>-mcp --base main --head chirag127:fix/<short-slug>
 ```
 
 This satisfies both [`no-branches-on-own-repos`](../agent/preferences/no-branches-on-own-repos.md) (forks aren't "own repos") and the upstream-contribution norm.
@@ -69,7 +69,7 @@ This satisfies both [`no-branches-on-own-repos`](../agent/preferences/no-branche
 
 When uploading to Smithery toolbox `@chirag127/toolbox`:
 
-- Upload **fork URL** (`https://github.com/oriz-org/<name>-mcp`), not upstream.
+- Upload **fork URL** (`https://github.com/chirag127/<name>-mcp`), not upstream.
 - Smithery proxies HTTP MCPs and builds stdio MCPs in its container — pointing at our fork means Smithery rebuilds when we push to fork, not when upstream pushes.
 
 ## Lazy gate

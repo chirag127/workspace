@@ -8,7 +8,7 @@
 
 ## Always-loaded rules (auto-imported every session)
 
-These 21 files inline into the agent context on every session. They govern *every* response. Everything else in `knowledge/` is on-demand — read when the topic comes up, via `knowledge/index.md`.
+These 24 files inline into the agent context on every session. They govern *every* response. Everything else in `knowledge/` is on-demand — read when the topic comes up, via `knowledge/index.md`.
 
 @knowledge/rules/agent/ponytail.md
 @knowledge/rules/agent/caveman.md
@@ -32,6 +32,9 @@ These 21 files inline into the agent context on every session. They govern *ever
 @knowledge/rules/agent/terse-issues-less-hallucination.md
 @knowledge/rules/agent/thank-maintainers.md
 @knowledge/rules/agent/preferences/proactive-creative-workarounds.md
+@knowledge/rules/agent/everything-durable-to-cloud.md
+@knowledge/rules/agent/cross-machine-parity-via-sync.md
+@knowledge/rules/agent/okf-ecosystem-first-mover.md
 
 **Lazy-loaded** — read on first knowledge access, not auto-imported:
 - [`knowledge/rules/agent/agent-minimum-context.md`](./knowledge/rules/agent/agent-minimum-context.md) — meta-protocol for navigating `knowledge/`. Read this BEFORE the first grep/read in `knowledge/` each session.
@@ -47,7 +50,7 @@ These 21 files inline into the agent context on every session. They govern *ever
 4. **No card-on-file, ever.** Hard rule. Has killed: CF R2, Vercel Pro, Auth0, Clerk Pro, Firebase Blaze, Twilio. See [`knowledge/rules/interaction/no-card-on-file.md`](./knowledge/rules/interaction/no-card-on-file.md).
 5. **Donations only.** No Pro tier, no ads, no recurring fees. Buy Me a Coffee + GitHub Sponsors + UPI. See [`knowledge/decisions/architecture/monetisation/donations-only-2026-06-25.md`](./knowledge/decisions/architecture/monetisation/donations-only-2026-06-25.md).
 6. **Search the web at least twice before any non-trivial decision.** No memory-only answers about tool availability, hosting limits, pricing, library status, "does X already exist." Two independent searches; cross-check; only then recommend. See [`knowledge/rules/agent/preferences/always-search-twice-before-deciding.md`](./knowledge/rules/agent/preferences/always-search-twice-before-deciding.md).
-7. **No feature branches on own repos.** Commit directly to `main` on `chirag127/*` and `oriz-org/*`. Branches exist only for upstream PRs. See [`knowledge/rules/agent/preferences/no-branches-on-own-repos.md`](./knowledge/rules/agent/preferences/no-branches-on-own-repos.md).
+7. **No feature branches on own repos.** Commit directly to `main` on `chirag127/*`. Branches exist only for upstream PRs. See [`knowledge/rules/agent/preferences/no-branches-on-own-repos.md`](./knowledge/rules/agent/preferences/no-branches-on-own-repos.md).
 
 ---
 
@@ -56,7 +59,7 @@ These 21 files inline into the agent context on every session. They govern *ever
 If you're setting up oriz on a fresh Windows machine:
 
 1. `gh auth login` (GitHub auth)
-2. `git clone https://github.com/oriz-org/workspace.git C:\D\oriz --recurse-submodules`
+2. `git clone https://github.com/chirag127/workspace.git C:\D\oriz --recurse-submodules`
 3. `cd C:\D\oriz\repos\own\backup`
 4. `.\bootstrap.ps1`
 
@@ -161,7 +164,7 @@ related:
 ```
 c:/D/oriz/
 ├── repos/                           # submodules — categorized 2026-06-28
-│   ├── own/                         # originals (oriz-org/<slug>)
+│   ├── own/                         # originals (chirag127/<slug>)
 │   │   ├── api/                     # static-API fleet (6): rto, constants, ragas,
 │   │   │                            #   dynasties, countries-plus, oriz-mmi-tickertape-mmi-api
 │   │   ├── sites/                   # Astro static sites (4): blog, home, journal, me
@@ -185,11 +188,11 @@ Full rationale: [`knowledge/decisions/architecture/infrastructure/workspace-flat
 
 ---
 
-## Rules (84 total) — non-negotiable
+## Rules (87 total) — non-negotiable
 
 Grouped by subdirectory of `knowledge/rules/`. The full table with descriptions lives in [`knowledge/index.md`](./knowledge/index.md#rules-78-total).
 
-### Agent behaviour (22) — `knowledge/rules/agent/`
+### Agent behaviour (25) — `knowledge/rules/agent/`
 - `agent-fleet-parity` — same rules + MCPs across all fleet agents.
 - `agent-minimum-context` — operate on this repo with minimum upfront token cost.
 - `agents-md-three-place-update` — adding a rule lands in 3 places: concept file + AGENTS.md table + count bump, same commit.
@@ -212,6 +215,9 @@ Grouped by subdirectory of `knowledge/rules/`. The full table with descriptions 
 - `agents-md-2025-discipline` — AGENTS.md short, sharp; bulk in `knowledge/`.
 - `mcp-config-single-source-of-truth` — `.mcp.json` is canonical; sync to all 5 CLI/extension agents via `node scripts/sync-mcp-configs.mjs`. ZCode uses GUI. Never edit per-agent MCP files directly.
 - `proactive-creative-workarounds` — when blocked by any constraint, lead with a creative workaround, not "I can't." Blocked = opportunity.
+- `everything-durable-to-cloud` — every durable artefact (knowledge, skills, memory, secrets, repo) has a cloud copy; local machine is a cache, not source of truth.
+- `okf-ecosystem-first-mover` — adopt fast + contribute upstream when new OKF tools/conventions emerge; the spec is <4 weeks old, first-movers shape the standard.
+- `cross-machine-parity-via-sync` — every laptop can be primary; sync auto keeps them equal; 5-min bootstrap on new machine.
 
 ### Design (5) — `knowledge/rules/design/`
 - `design-divergence-vs-dedup` — per-app variants where it matters; shared where it doesn't.
@@ -230,7 +236,7 @@ Grouped by subdirectory of `knowledge/rules/`. The full table with descriptions 
 - `auto-only-tracking`, `communication-stt-friendly`, `future-overrides-past`, `linux-ci-only`, `match-surrounding-style`, `never-delete-empty-placeholder-repos`, `never-hit-quotas` (≥10× headroom, alert at 60%), `no-card-on-file`, `openai-compat-for-all-ai-providers`, `parallel-by-default`, `parallel-fan-out-by-default`, `parse-mcq-other-for-context`, `profile-readme-cross-link`, `recruiter-strategy`, `telegram-channels-and-roles`, `user-prefers-atomic-split`, `user-prefers-deletion-over-archive`, `user-prefers-pure-tool-brand`, `user-prefers-same-name-repo-and-npm`, `user-prefers-strict-no-toggle`, `user-prefers-wider-coverage`.
 
 ### Security (4) — `knowledge/rules/security/`
-- `github-org-level-secrets` — secrets at oriz-org level, not per-repo.
+- `github-org-level-secrets` — secrets at chirag127 level, not per-repo.
 - `no-hardcoded-secrets` — all secrets via envpact + sops+age.
 - `org-level-secrets-only-no-per-repo` — don't hit the GH API thousands of times.
 - `submodule-env-files-three-file-pattern` — `.env` / `.env.development` / `.env.production` split.
@@ -270,7 +276,7 @@ Process, branding, content, design, monetisation, policy, pricing, security, too
 
 | Subdir | Count | Themes |
 |---|---|---|
-| `branding/` | 12 | naming-policy-v6, oriz-org rename, title-case-oriz, oriz-me added |
+| `branding/` | 12 | naming-policy-v6, chirag127 rename, title-case-oriz, oriz-me added |
 | `content/` | 8 | 100-year strategy, age-gating, per-extension subdomains, journal-stays-auth-gated |
 | `design/` | 12 | per-app design briefs (datasheet-dark, oriz-blog, oriz-books, oriz-cards, oriz-finance, oriz-home, oriz-image-tools, oriz-journal, oriz-me, oriz-pdf-tools) |
 | `infrastructure/` | 11 | cloudflare-pages-for-all-sites, flat-subdomain-pattern, firebase-spark-forever, spaceship-registrar |
@@ -355,7 +361,7 @@ Family vocabulary under [`knowledge/glossary/`](./knowledge/glossary/) — split
 
 - **Branch first if on `main`.** Then `git checkout -b <slug>`.
 - **Conventional commits.** `feat(scope): …`, `fix: …`, `docs(knowledge): …`, `refactor: …`, `chore: …`.
-- **Push by default after pushing on this session's authorisation.** Otherwise: never push without explicit user say-so. Standing authorisation applies to `oriz-org/workspace` and submodules — but stops at paid API calls, repo deletions/transfers, domain transfers, and ≥50 LOC mass deletions (grill-me first).
+- **Push by default after pushing on this session's authorisation.** Otherwise: never push without explicit user say-so. Standing authorisation applies to `chirag127/workspace` and submodules — but stops at paid API calls, repo deletions/transfers, domain transfers, and ≥50 LOC mass deletions (grill-me first).
 - **Use `gh` CLI**, not the web UI, for GitHub ops.
 - **One decision = one commit.** `docs(knowledge): <summary>` for every concept file write.
 
@@ -414,7 +420,7 @@ Full skills inventory: [`knowledge/decisions/architecture/general/agent-skills-m
 
 ## Standing authorisation
 
-Agents may commit + push to `main` on `oriz-org/workspace` and any submodule **without further prompting**, **except** for:
+Agents may commit + push to `main` on `chirag127/workspace` and any submodule **without further prompting**, **except** for:
 
 - Paid API calls
 - Repository deletions or transfers

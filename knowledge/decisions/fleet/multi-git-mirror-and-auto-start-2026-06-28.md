@@ -1,7 +1,7 @@
 ---
 type: decision
 title: "Public-only multi-Git mirror + auto-start services + datasets-to-build queue"
-description: Mirror oriz-org to 4-5 Git hosts. Auto-start Hr/RTK/cavemem. Ship datasets as static APIs
+description: Mirror chirag127 to 4-5 Git hosts. Auto-start Hr/RTK/cavemem. Ship datasets as static APIs
 tags: [backup, mirroring, auto-start, datasets, master-plan]
 timestamp: 2026-06-28
 format_version: okf-v0.1
@@ -16,26 +16,26 @@ related:
 
 ## 1. Multi-Git mirror
 
-**Goal**: every public `oriz-org/*` and `chirag127/*` repo gets pushed to N Git providers automatically. If one provider goes down or DMCAs us, the others stand.
+**Goal**: every public `chirag127/*` and `chirag127/*` repo gets pushed to N Git providers automatically. If one provider goes down or DMCAs us, the others stand.
 
 **Targets (locked 2026-06-28)** — every **managed** (non-self-hosted) Git host. Account creation needed on each:
 
 | # | Provider | URL pattern | Notes |
 |---|---|---|---|
-| 1 | **GitHub** (primary) | `github.com/oriz-org/<slug>` | Where the work happens |
-| 2 | **GitLab Cloud** | `gitlab.com/oriz-org/<slug>` | Free unlimited public, mature CI |
-| 3 | **Codeberg** | `codeberg.org/oriz-org/<slug>` | German non-profit, EU jurisdiction, no AI training |
-| 4 | **Bitbucket Cloud** | `bitbucket.org/oriz-org/<slug>` | Atlassian, free 5-user public |
-| 5 | **Azure DevOps** | `dev.azure.com/oriz-org/<slug>` | Microsoft enterprise host |
-| 6 | **GitFlic** | `gitflic.ru/oriz-org/<slug>` | Russia-hosted, relaxed DMCA |
-| 7 | **GitGud.io** | `gitgud.io/oriz-org/<slug>` | Sapphire.moe GitLab, fringe-friendly |
-| 8 | **NotABug.org** | `notabug.org/oriz-org/<slug>` | FOSS-only, Gogs, minimal admin |
+| 1 | **GitHub** (primary) | `github.com/chirag127/<slug>` | Where the work happens |
+| 2 | **GitLab Cloud** | `gitlab.com/chirag127/<slug>` | Free unlimited public, mature CI |
+| 3 | **Codeberg** | `codeberg.org/chirag127/<slug>` | German non-profit, EU jurisdiction, no AI training |
+| 4 | **Bitbucket Cloud** | `bitbucket.org/chirag127/<slug>` | Atlassian, free 5-user public |
+| 5 | **Azure DevOps** | `dev.azure.com/chirag127/<slug>` | Microsoft enterprise host |
+| 6 | **GitFlic** | `gitflic.ru/chirag127/<slug>` | Russia-hosted, relaxed DMCA |
+| 7 | **GitGud.io** | `gitgud.io/chirag127/<slug>` | Sapphire.moe GitLab, fringe-friendly |
+| 8 | **NotABug.org** | `notabug.org/chirag127/<slug>` | FOSS-only, Gogs, minimal admin |
 | 9 | **SourceHut** | `git.sr.ht/~chirag127/<slug>` | Hyper-minimalist, no JS/tracking. Personal account only (no orgs) |
-| 10 | **Gitea.com** (hosted) | `gitea.com/oriz-org/<slug>` | Public Gitea instance (NOT self-host) |
-| 11 | **SourceForge** | `sourceforge.net/p/oriz-org/<slug>` | Legacy but free + still active |
-| 12 | **Launchpad** | `code.launchpad.net/~oriz-org/<slug>` | Canonical/Ubuntu, free public Git+Bzr |
-| 13 | **Framagit** | `framagit.org/oriz-org/<slug>` | Framasoft GitLab instance, FOSS-only, French |
-| 14 | **Disroot Git** | `git.disroot.org/oriz-org/<slug>` | Disroot Forgejo instance, privacy-first |
+| 10 | **Gitea.com** (hosted) | `gitea.com/chirag127/<slug>` | Public Gitea instance (NOT self-host) |
+| 11 | **SourceForge** | `sourceforge.net/p/chirag127/<slug>` | Legacy but free + still active |
+| 12 | **Launchpad** | `code.launchpad.net/~chirag127/<slug>` | Canonical/Ubuntu, free public Git+Bzr |
+| 13 | **Framagit** | `framagit.org/chirag127/<slug>` | Framasoft GitLab instance, FOSS-only, French |
+| 14 | **Disroot Git** | `git.disroot.org/chirag127/<slug>` | Disroot Forgejo instance, privacy-first |
 | 15 | **Pagure** | `pagure.io/<slug>` | Fedora-run, RPC-based PR model |
 
 **Scope of mirroring**:
@@ -64,7 +64,7 @@ Goal: every API repo has a real **docs page** and the fleet has a **landing page
 - `/codes/...json` — the actual data files (existing layout)
 - Same Pages deploy serves both — `https://rto.oriz.in/` is HTML, `https://rto.oriz.in/codes/MH-12.json` is the API
 
-**Fleet-level landing** lives in `oriz-org/api-fleet-landing` ? deploys to `api.oriz.in` (or replaces the placeholder at `oriz.in` directly).
+**Fleet-level landing** lives in `chirag127/api-fleet-landing` ? deploys to `api.oriz.in` (or replaces the placeholder at `oriz.in` directly).
 
 **Stack**: Astro static (matches `framework-astro-react-tailwind-shadcn` decision), with a single shared layout component that each API repo imports via npm or git submodule. Or keep it simple: pure HTML + Tailwind CDN per repo, no shared dep, easier to maintain than a shared package.
 
@@ -100,7 +100,7 @@ Verified gaps from 2026-06-28 audit (no free OSS API exists for any of these):
 
 | # | Dataset | Subdomain | Effort estimate | Time-to-ship | Status |
 |---|---|---|---|---|---|
-| 1 | Indian RTO codes | `rto.oriz.in` | Trivial | ~2 hours | ? Shipped 2026-06-28 (`oriz-org/rto-api`, 1299 codes, 35 states) |
+| 1 | Indian RTO codes | `rto.oriz.in` | Trivial | ~2 hours | ? Shipped 2026-06-28 (`chirag127/rto-api`, 1299 codes, 35 states) |
 | 2 | Physics constants (CODATA 2022) | `constants.oriz.in` | Trivial — one-shot CODATA parse, ~150 constants | ~2 hours | Queued |
 | 3 | Indian classical music ragas | `ragas.oriz.in` | Moderate — schema exists at OpenRaga/ragajson, no hosted API; merge Hindustani+Carnatic data | ~1 day | Queued |
 | 4 | Indian dynasties timeline | `dynasties.oriz.in` | Moderate — Wikipedia scrape + reconciliation across articles | ~1 day | Queued |
@@ -109,7 +109,7 @@ Verified gaps from 2026-06-28 audit (no free OSS API exists for any of these):
 **Build order rationale**: Constants next (trivial, fastest validation of the rto-api pattern on a different dataset). Then ragas/dynasties/countries-plus in parallel if time allows.
 
 **Each ships with same pattern**:
-- One repo `oriz-org/<slug>-api`
+- One repo `chirag127/<slug>-api`
 - jsDelivr URL immediately works after first push
 - CF Pages subdomain `<slug>.oriz.in` wired after `wrangler login` (done as of 2026-06-28)
 - Auto-mirrored to GitLab/Codeberg/Bitbucket per §1
@@ -121,7 +121,7 @@ Verified gaps from 2026-06-28 audit (no free OSS API exists for any of these):
 3. **Set up mirror automation** — create org accounts on GitLab/Codeberg/Bitbucket, generate PATs, store as GH org secrets, write the reusable workflow
 4. **Ship Physics Constants API** (next dataset)
 5. **Ship the remaining 3 datasets** one by one
-6. **Backfill mirrors** — once §3 works, run a one-time backfill to push every existing oriz-org/* and chirag127/* public repo to all mirrors
+6. **Backfill mirrors** — once §3 works, run a one-time backfill to push every existing chirag127/* and chirag127/* public repo to all mirrors
 
 Step 1 can happen this session. §2-§6 likely need multiple sessions; this plan is the durable spec.
 

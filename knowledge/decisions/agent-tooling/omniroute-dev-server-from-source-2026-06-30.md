@@ -41,7 +41,7 @@ Running from source:
 
 ## Why a fork (not direct clone of upstream)
 
-Per [`fork-discipline`](../../rules/development/fork-discipline.md): all forks live under `oriz-org/<upstream-name>` with upstream wired as a remote. This gives:
+Per [`fork-discipline`](../../rules/development/fork-discipline.md): all forks live under `chirag127/<upstream-name>` with upstream wired as a remote. This gives:
 
 - Capability to send PRs back to `diegosouzapw/OmniRoute` from a clean branch
 - Audit trail for any local patches via `git diff upstream/main..origin/main`

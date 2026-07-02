@@ -24,7 +24,7 @@ This dir is workspace-scoped, committed to the oriz umbrella repo, version-contr
 
 ## Why this architecture (over previous submodule pattern)
 
-Previously: `oriz-org/agent-skills` git submodule at `repos/own/agent-skills/`. Archived 2026-06-28 (`gh repo archive`). Reasons for the move:
+Previously: `chirag127/agent-skills` git submodule at `repos/own/agent-skills/`. Archived 2026-06-28 (`gh repo archive`). Reasons for the move:
 
 1. **Submodule overhead** — every fresh clone required `--recurse-submodules` + bootstrap to set up symlinks. New project = friction.
 2. **Submodule pointer drift** — `git submodule status` showed stale SHA if skills were edited but pointer not bumped. Forgettable.
@@ -101,11 +101,11 @@ No git submodule init required. No bootstrap script. Just copy + 4 junction comm
 - **`.agents/skills/` is the only canonical copy.** Edit skills here, commit to oriz.
 - **All per-agent dirs are junctions.** If `~/.claude/skills/` becomes a real dir (someone copied content into it), the invariant breaks — `link.sh` is idempotent but won't clobber real dirs.
 - **Skills added through the canonical path appear in all 5 agents automatically.** No copy step.
-- **Removed: `oriz-org/agent-skills` submodule.** Repo archived on GitHub 2026-06-28. Don't re-add as a submodule.
+- **Removed: `chirag127/agent-skills` submodule.** Repo archived on GitHub 2026-06-28. Don't re-add as a submodule.
 
 ## What was archived
 
-The old submodule [`oriz-org/agent-skills`](https://github.com/oriz-org/agent-skills) was archived on GitHub via `gh repo archive`. Read-only from 2026-06-28 onwards. Reversible via `gh repo unarchive`. The 21 skills' git history is preserved in that archived repo if anyone needs blame data; otherwise the live source is here in oriz.
+The old submodule [`chirag127/agent-skills`](https://github.com/chirag127/agent-skills) was archived on GitHub via `gh repo archive`. Read-only from 2026-06-28 onwards. Reversible via `gh repo unarchive`. The 21 skills' git history is preserved in that archived repo if anyone needs blame data; otherwise the live source is here in oriz.
 
 ## Related
 

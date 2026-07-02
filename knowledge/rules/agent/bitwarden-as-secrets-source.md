@@ -29,7 +29,7 @@ Bitwarden CLI (`bw`) is the canonical retrieval mechanism for secrets across mac
 
 ## How to retrieve on new laptop
 
-Inside `oriz-org/backup/bootstrap.ps1`:
+Inside `chirag127/backup/bootstrap.ps1`:
 ```powershell
 .\scripts\bw-fetch-secrets.ps1
 ```
@@ -85,6 +85,6 @@ Two-of-three required to fully recover.
 
 ## Cross-refs
 
-- `setup-repo-as-bootstrap` — oriz-org/backup repo contains `bw-fetch-secrets.ps1`
+- `setup-repo-as-bootstrap` — chirag127/backup repo contains `bw-fetch-secrets.ps1`
 - `mcp-env-sync-both-layers` — MCP creds in BOTH Win env AND Smithery (NOT Bitwarden primary)
 - `mcp-no-key-in-repo-keyed-in-smithery` — never commit any key to public repo

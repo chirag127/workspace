@@ -16,7 +16,7 @@ related:
 
 ## Decision
 
-Delete the `claude-notifications-cli` submodule + GitHub fork (`oriz-org/claude-notifications-cli`). Was at v1.40.0 with local windows-fixes commits ahead of upstream `777genius/claude-notifications-go`.
+Delete the `claude-notifications-cli` submodule + GitHub fork (`chirag127/claude-notifications-cli`). Was at v1.40.0 with local windows-fixes commits ahead of upstream `777genius/claude-notifications-go`.
 
 ## Why
 
@@ -26,11 +26,11 @@ Delete the `claude-notifications-cli` submodule + GitHub fork (`oriz-org/claude-
 
 ## What was lost
 
-- 2 local commits ahead of upstream — windows fixes (b22c5bb focus-aware notifications, d01f347 package.json slug). If ever resurrected, cherry-pick from `oriz-org/workspace` git reflog before 2026-09-29 (90-day GitHub recovery window) or from local `.git/modules/` snapshot.
+- 2 local commits ahead of upstream — windows fixes (b22c5bb focus-aware notifications, d01f347 package.json slug). If ever resurrected, cherry-pick from `chirag127/workspace` git reflog before 2026-09-29 (90-day GitHub recovery window) or from local `.git/modules/` snapshot.
 
 ## Cleanup performed same turn
 
 - `git submodule deinit -f repos/frk/claude-notifications-cli`
 - `git rm -f repos/frk/claude-notifications-cli`
-- `gh repo delete oriz-org/claude-notifications-cli --yes`
+- `gh repo delete chirag127/claude-notifications-cli --yes`
 - Knowledge scrub: `family-inventory.md` (count + line), `scope-cut-2026-06-25.md` (CLI list), `fs-own-frk-split.md` (5?4 forks), `scope-cut-only-shipping-survives.md` (line).

@@ -55,7 +55,7 @@ GitHub offers a native migration API that generates a single, downloadable `.tar
    # Start migration for repository or organization
    curl -X POST -H "Authorization: token \${GH_PAT}" \
      -H "Accept: application/vnd.github+json" \
-     "https://api.github.com/orgs/oriz-org/migrations" \
+     "https://api.github.com/orgs/chirag127/migrations" \
      -d '{"repositories":["workspace"],"exclude_attachments":false}'
    ```
 2. **Poll**: The workflow sleeps/polls the status endpoint until the migration state becomes `exported`.
@@ -63,7 +63,7 @@ GitHub offers a native migration API that generates a single, downloadable `.tar
    ```bash
    curl -H "Authorization: token \${GH_PAT}" \
      -o backup.tar.gz \
-     "https://api.github.com/orgs/oriz-org/migrations/\${MIGRATION_ID}/archive"
+     "https://api.github.com/orgs/chirag127/migrations/\${MIGRATION_ID}/archive"
    ```
 4. **Push to Storage**: Stream/copy the archive to one of the free-forever storage layers below.
 
@@ -124,7 +124,7 @@ Hugging Face provides free, unlimited hosting for datasets. You can create a pri
     pip install huggingface_hub --quiet
     huggingface-cli login --token \${{ secrets.HF_TOKEN }}
     # Upload archive file directly to a private dataset repository
-    huggingface-cli upload oriz-org/backups backup.tar.gz backup-\$(date +%F).tar.gz --repo-type=dataset
+    huggingface-cli upload chirag127/backups backup.tar.gz backup-\$(date +%F).tar.gz --repo-type=dataset
 ```
 
 ---
@@ -134,7 +134,7 @@ Hugging Face provides free, unlimited hosting for datasets. You can create a pri
 For custom metadata extraction (saving issues/PRs as readable JSON rather than binary tarballs), the following CLI tools can be executed inside GitHub Actions:
 
 1. **`github-backup` (Python)**:
-   - Command: `github-backup --token \${GH_PAT} --output-directory ./backup --all --private-embed-key oriz-org`
+   - Command: `github-backup --token \${GH_PAT} --output-directory ./backup --all --private-embed-key chirag127`
    - Backs up repositories, wikis, issues, pull requests, milestones, labels, and releases.
 2. **`gitbackup` (Go)**:
    - Excellent for multi-platform clones.

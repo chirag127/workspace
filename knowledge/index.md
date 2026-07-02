@@ -61,7 +61,7 @@ status: active
 | [`astro-version-pin`](./rules/development/astro-version-pin.md) | Every package.json across the family pins Astro at the current major |
 | [`community-packages-first`](./rules/development/community-packages-first.md) | Locked 2026-06-23. Default to a well-maintained community library/package |
 | [`conventional-commits`](./rules/development/conventional-commits.md) | Every commit message uses a Conventional Commits prefix: feat, fix, |
-| [`fork-discipline`](./rules/development/fork-discipline.md) | All forks live under oriz-org/<upstream-name> on GitHub and repos/oriz/frk/<bucket>/<category>/<upstream-name>/\ |
+| [`fork-discipline`](./rules/development/fork-discipline.md) | All forks live under chirag127/<upstream-name> on GitHub and repos/oriz/frk/<bucket>/<category>/<upstream-name>/\ |
 | [`git-identity-chirag127-noreply`](./rules/development/git-identity-chirag127-noreply.md) | Every commit on this machine attributes to chirag127 via the noreply |
 | [`no-force-push-to-main`](./rules/development/no-force-push-to-main.md) | Force-push to main requires a separate, explicit user instruction \u2014\ |
 | [`no-rebuilding-free-software`](./rules/development/no-rebuilding-free-software.md) | Family-wide constraint: do NOT build a userscript / extension / tool that replicates existing free software. Only exception: the existing free version paywalls a feature we want behind a payment. Save the build budget for things that don... |
@@ -165,7 +165,7 @@ status: active
 | File | Status | Description |
 |---|---|---|
 | [`hosting-split-cf-and-gh-2026-06-25`](./infrastructure/hosting-split-cf-and-gh-2026-06-25.md) | active | Locked 2026-06-25. Apps, PWAs, and end-user websites deploy to Cloudflare Pages on custom subdomains. Software-package landing pages (npm, CLI, extension, MCP-server homes) deploy to GitHub Pages. Both targets are compatible with the don... |
-| [`umbrella-as-clone-entrypoint-2026-06-25`](./infrastructure/umbrella-as-clone-entrypoint-2026-06-25.md) | active | Locked 2026-06-25. The oriz-org/oriz umbrella holds knowledge/, apps.ts registry, and every fleet repo as a git submodule. A single git clone --recurse-submodules pulls the entire fleet. No separate workspace repo, no manifest, no subtree. |
+| [`umbrella-as-clone-entrypoint-2026-06-25`](./infrastructure/umbrella-as-clone-entrypoint-2026-06-25.md) | active | Locked 2026-06-25. The chirag127/oriz umbrella holds knowledge/, apps.ts registry, and every fleet repo as a git submodule. A single git clone --recurse-submodules pulls the entire fleet. No separate workspace repo, no manifest, no subtree. |
 | [`workspace-flat-repos-2026-06-25`](./infrastructure/workspace-flat-repos-2026-06-25.md) | active | Locked 2026-06-25. Workspace umbrella holds every submodule under a single flat repos/<slug>/ directory. Type information is encoded in the slug suffix (-api, -npm-pkg, -bs-ext, -ide-ext, -cli, -mcp-server, -app). Forks marked by a singl... |
 
 ### Fleet (1)
@@ -325,7 +325,7 @@ status: active
 
 | File | Status | Description |
 |---|---|---|
-| [`repo-naming-drop-oriz-prefix-2026-06-25`](./branding/repo-naming-drop-oriz-prefix-2026-06-25.md) | active | Locked 2026-06-25. Repo slugs use the service name only — no oriz- prefix. The GitHub org namespace (oriz-org/<slug>) provides the brand. Existing repos migrate via gh repo rename. Type suffix (-api, -npm-pkg, -bs-ext, -ide-ext, -cli, -m... |
+| [`repo-naming-drop-oriz-prefix-2026-06-25`](./branding/repo-naming-drop-oriz-prefix-2026-06-25.md) | active | Locked 2026-06-25. Repo slugs use the service name only — no oriz- prefix. The GitHub org namespace (chirag127/<slug>) provides the brand. Existing repos migrate via gh repo rename. Type suffix (-api, -npm-pkg, -bs-ext, -ide-ext, -cli, -m... |
 | [`subdomain-path-based-on-category-2026-06-25`](./branding/subdomain-path-based-on-category-2026-06-25.md) | active | Locked 2026-06-25. Per-tool function-based subdomains are abandoned. Tools live at <category>.oriz.in/<tool> (e.g. finance.oriz.in/emi, finance.oriz.in/sip). Topical SEO authority compounds on the category subdomain via internal cross-li... |
 
 ### Monetisation (1)
@@ -391,11 +391,11 @@ status: active
 | [`family-wide-privacy-page`](./branding/family-wide-privacy-page.md) | active | Locked 2026-06-20: master oriz.in publishes a single canonical /privacy that the entire family (sites + extensions + workers + CLIs) references. Per-surface addenda (extension permission lists, site-specific data flows) live as nested pa... |
 | [`github-repo-naming-best-practices`](./branding/github-repo-naming-best-practices.md) | active | Single source covering every naming rule across v5 + v6 + the web-search-derived best practices. Use this file to check a proposed repo name before gh repo create. |
 | [`i18n-weblate-when-ready`](./branding/i18n-weblate-when-ready.md) | active | The family stays English-only until a site or extension shows real non-English demand. When that day comes, Weblate Hosted Libre is the chosen translation-management platform. |
-| [`keep-oriz-org-recruiter-via-pinning`](./branding/keep-oriz-org-recruiter-via-pinning.md) | active | The 'recruiter won't see my work because it's on oriz-org' worry is solved by PINNING oriz-org repos on chirag127's profile (they appear as your work on chirag127's page, with link to oriz-org for click-through) + cross-linking chirag127... |
+| [`keep-chirag127-recruiter-via-pinning`](./branding/keep-chirag127-recruiter-via-pinning.md) | active | The 'recruiter won't see my work because it's on chirag127' worry is solved by PINNING chirag127 repos on chirag127's profile (they appear as your work on chirag127's page, with link to chirag127 for click-through) + cross-linking chirag127... |
 | [`naming-policy-v6`](./branding/naming-policy-v6.md) | active | Repos follow oriz-<product-brand>-<category>-<suffix> format. Family brand is single, family-wide (`oriz`), Google-style. Product brand inserted per product. Existing astro-*-npm-pkg packages keep current names. Workspace umbrella keeps ... |
 | [`omnipost-name`](./branding/omnipost-name.md) | active | The family's RSS-driven cross-poster is named @chirag127/oriz-omnipost — palette: omni- prefix + post; user said 'name omnipotent'. One button to broadcast every blog post to every supported platform. |
 | [`oriz-me-added-to-family`](./branding/oriz-me-added-to-family.md) | active | On 2026-06-19, oriz-me (me.oriz.in — personal digital twin / lifestream) was added as a submodule under sites/, bringing the site count to 11. |
-| [`oriz-org-rename-from-co`](./branding/oriz-org-rename-from-co.md) | active | The GitHub org created 2026-06-22 as oriz-co is renamed to oriz-org because oriz-org reads more naturally as 'oriz the organization' and is available. GitHub auto-redirects oriz-co/* URLs to oriz-org/*; all 23 tracked references (.gitmod... |
+| [`chirag127-rename-from-co`](./branding/chirag127-rename-from-co.md) | active | The GitHub org created 2026-06-22 as oriz-co is renamed to chirag127 because chirag127 reads more naturally as 'oriz the organization' and is available. GitHub auto-redirects oriz-co/* URLs to chirag127/*; all 23 tracked references (.gitmod... |
 | [`repo-naming-suffixes`](./branding/repo-naming-suffixes.md) | active | Every site repo is named <subdomain-prefix>-site (the subdomain prefix on oriz.in, suffixed with -site). Browser extensions get -bs-ext (revised 2026-06-24 from -ext to match the bs-ext/ folder convention), VS Code extensions -vsc-ext, C... |
 | [`title-case-oriz`](./branding/title-case-oriz.md) | active | User-facing brand mark is rendered Title-Case as 'Oriz'. Repo slugs, npm package names, DOM attributes, and code identifiers stay lowercase (`oriz-*`, `@chirag127/oriz-*`, `data-oriz-*`). |
 
@@ -478,7 +478,7 @@ status: active
 | [`monetisation`](./policy/monetisation.md) | active | One AdSense application for the oriz.in apex; all subdomains inherit. No ad-slot divs in markup — ads inject at runtime over organic layout. |
 | [`no-paid-tier`](./policy/no-paid-tier.md) | active | No service the family depends on may require a paid subscription or card on file. Free-tier walls fail closed gracefully. |
 | [`privacy-policy-per-extension`](./policy/privacy-policy-per-extension.md) | active | Each Chrome extension has its own /privacy page tailored to its permissions. A family boilerplate at oriz.in/privacy-base supplies common content. |
-| [`private-repos-excluded-from-mirror-cron`](./policy/private-repos-excluded-from-mirror-cron.md) | active | The .github/workflows/mirror-all.yml cron pushes every public repo from oriz-org + chirag127 to 6 mirror hosts. Private repos (oriz-org/secrets and any other isPrivate=true repo) are FILTERED OUT at discovery time via gh-list's isPrivate... |
+| [`private-repos-excluded-from-mirror-cron`](./policy/private-repos-excluded-from-mirror-cron.md) | active | The .github/workflows/mirror-all.yml cron pushes every public repo from chirag127 + chirag127 to 6 mirror hosts. Private repos (chirag127/secrets and any other isPrivate=true repo) are FILTERED OUT at discovery time via gh-list's isPrivate... |
 | [`public-private-line`](./policy/public-private-line.md) | active | Four tiers govern every piece of content across the family: public, age-gated-18, aggregates-only, private. Inner-life metrics surface only as weekly aggregates. |
 | [`secrets-handling`](./policy/secrets-handling.md) | active | Every secret comes from envpact. If a secret is ever pasted into chat, treat it as compromised: revoke, rotate, re-store, redeploy. |
 | [`tweeks-personal-use-only`](./policy/tweeks-personal-use-only.md) | active | Tweeks (chromewebstore.google.com/detail/fmkancpjcacjodknfjcpmgkccbhedkhc) is a closed-source proprietary commercial Chrome extension by NextByte (YC-backed, tweeks.io). It has NO open-source license. Personal modification + loading as a... |
@@ -570,8 +570,8 @@ status: active
 | [`lifestream-auto-sources-setup`](./runbooks/workflow/lifestream-auto-sources-setup.md) | One-shot deploy steps to take @chirag127/oriz-lifestream from scaffold |
 | [`migrate-ci-platform`](./runbooks/workflow/migrate-ci-platform.md) | Plan-B runbook for the day GitHub Actions becomes unusable (account |
 | [`migrate-okf-to-new-version`](./runbooks/workflow/migrate-okf-to-new-version.md) | Run when the OKF spec moves beyond v0.1. Read migration notes, update |
-| [`publish-userscript-to-greasyfork`](./runbooks/workflow/publish-userscript-to-greasyfork.md) | How to publish a userscript from oriz-org/userscripts to greasyfork.org. Greasy Fork has NO upload API — first version requires manual paste in the in-browser editor. After the initial paste, register a webhook so subsequent git push → a... |
-| [`publish-vscode-extension-to-marketplace`](./runbooks/workflow/publish-vscode-extension-to-marketplace.md) | How to ship an oriz-org/-vsc-ext repo to the VS Code Marketplace + Open VSX. One-time: create a Microsoft Publisher under your account, generate an Azure DevOps PAT with Marketplace scope, store it. Per-release: bump version, vsce packag... |
+| [`publish-userscript-to-greasyfork`](./runbooks/workflow/publish-userscript-to-greasyfork.md) | How to publish a userscript from chirag127/userscripts to greasyfork.org. Greasy Fork has NO upload API — first version requires manual paste in the in-browser editor. After the initial paste, register a webhook so subsequent git push → a... |
+| [`publish-vscode-extension-to-marketplace`](./runbooks/workflow/publish-vscode-extension-to-marketplace.md) | How to ship an chirag127/-vsc-ext repo to the VS Code Marketplace + Open VSX. One-time: create a Microsoft Publisher under your account, generate an Azure DevOps PAT with Marketplace scope, store it. Per-release: bump version, vsce packag... |
 | [`rename-repo`](./runbooks/workflow/rename-repo.md) | Step-by-step procedure to rename a chirag127/oriz* repo to its correct |
 | [`scaffold-a-new-site`](./runbooks/workflow/scaffold-a-new-site.md) | Step-by-step to add a new Astro site to the family in <10 minutes. Clones |
 | [`sync-env-example-to-all-repos`](./runbooks/workflow/sync-env-example-to-all-repos.md) | Step-by-step procedure for adding / removing / renaming a family-wide |
@@ -591,7 +591,7 @@ status: active
 |---|---|
 | [`auth-setup`](./runbooks/security/auth-setup.md) | Every login command and dashboard URL needed to publish the @chirag127 |
 | [`auth-signin-still-showing-2026-06-24`](./runbooks/security/auth-signin-still-showing-2026-06-24.md) | Diagnostic + fix runbook for the cross-domain auth-state-not-reflected |
-| [`backup-metadata-to-b2`](./runbooks/security/backup-metadata-to-b2.md) | Single .github/workflows/backup-metadata-b2.yml in oriz-org/workspace\ |
+| [`backup-metadata-to-b2`](./runbooks/security/backup-metadata-to-b2.md) | Single .github/workflows/backup-metadata-b2.yml in chirag127/workspace\ |
 | [`npm-publish-token-setup`](./runbooks/security/npm-publish-token-setup.md) | How to generate an npm Granular Access Token with publish + unpublish |
 | [`razorpay-end-to-end-setup`](./runbooks/security/razorpay-end-to-end-setup.md) | Step-by-step checklist for wiring Razorpay subscriptions into the oriz |
 | [`razorpay-paddle-subscriptions-setup`](./runbooks/security/razorpay-paddle-subscriptions-setup.md) | Step-by-step guide to set up Razorpay Subscriptions (India INR rail)\ |
@@ -771,7 +771,7 @@ status: active
 | [`firebase-hosting`](./services/infra/hosting/firebase-hosting.md) | REJECTED — Spark daily bandwidth cap shifted to 360 MB/day shared, too tight. |
 | [`gitflic-mirror`](./services/infra/hosting/gitflic-mirror.md) | GitFlic.ru is mirror host #4. Russian-hosted git platform with free |
 | [`github-pages`](./services/infra/hosting/github-pages.md) | Survival fallback static host — the second-account-equivalent every oriz site mirrors to. |
-| [`gitlab-mirror`](./services/infra/hosting/gitlab-mirror.md) | GitLab.com is mirror host #1. Every repo in oriz-org and chirag127 is\ |
+| [`gitlab-mirror`](./services/infra/hosting/gitlab-mirror.md) | GitLab.com is mirror host #1. Every repo in chirag127 and chirag127 is\ |
 | [`netlify`](./services/infra/hosting/netlify.md) | Fallback static host — free starter tier. |
 | [`vercel`](./services/infra/hosting/vercel.md) | Fallback static host — free hobby tier. |
 
@@ -978,7 +978,7 @@ status: active
 | [`azure-paid-tiers`](./services/azure-paid-tiers.md) | REJECTED — requires card on file. Azure for Students is documented separately. |
 | [`backblaze-b2`](./services/backblaze-b2.md) | REJECTED — excluded by user policy. |
 | [`easy-free-tier`](./services/easy-free-tier.md) | Single SSoT catalog of services every chirag127/oriz* repo uses. Filters: free for public repos, no manual OSS application required, no card-on-file at signup, commercial use allowed (family monetises). Maximum 2-3 picks per concern. Tag... |
-| [`family-inventory`](./services/family-inventory.md) | Single source of truth for the oriz-org family count totals. After 2026-06-25 scope-cut (33 repos archived) \u2014 6 apps, 0 in-house npm packages, 3 books, 0 in-house APIs, 4 browser-extension repos (3 forks + 1 original), 1 IDE extensi... |
+| [`family-inventory`](./services/family-inventory.md) | Single source of truth for the chirag127 family count totals. After 2026-06-25 scope-cut (33 repos archived) \u2014 6 apps, 0 in-house npm packages, 3 books, 0 in-house APIs, 4 browser-extension repos (3 forks + 1 original), 1 IDE extensi... |
 | [`open-knowledge-format`](./services/open-knowledge-format.md) | Vendor-neutral, open specification (v0.1, June 2026) from Google Cloud for representing knowledge as Markdown files with YAML frontmatter — the canonical format for all family knowledge bundles. |
 | [`oracle-cloud`](./services/oracle-cloud.md) | REJECTED — excluded by user policy. |
 

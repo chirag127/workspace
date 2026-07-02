@@ -17,7 +17,7 @@ related:
 
 ## Decision
 
-`oriz-org/workspace` is canonical. Global agent files are **derived caches**, written by `scripts/sync-globals.mjs`. The script grill-mes on drift or new-item detection; runs silent when workspace and globals match.
+`chirag127/workspace` is canonical. Global agent files are **derived caches**, written by `scripts/sync-globals.mjs`. The script grill-mes on drift or new-item detection; runs silent when workspace and globals match.
 
 ## Grilled flow (2026-06-29)
 

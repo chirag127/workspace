@@ -17,7 +17,7 @@ create_project() {
       \"source\": {
         \"type\": \"github\",
         \"config\": {
-          \"owner\": \"oriz-org\",
+          \"owner\": \"chirag127\",
           \"repo_name\": \"$repo\",
           \"production_branch\": \"main\",
           \"pr_comments_enabled\": false,

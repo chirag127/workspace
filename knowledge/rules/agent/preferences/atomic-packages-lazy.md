@@ -17,7 +17,7 @@ When the same logic is needed in 2 or more apps, extract it to an atomic package
   - npm: `@oriz/<concern>` (e.g. `@oriz/analytics`, `@oriz/donations`, `@oriz/india-currency`)
   - PyPI: `oriz-<concern>` (e.g. `oriz-llm-providers`, `oriz-india-data-fetchers`)
 - **Scope:** Astro/React components, vanilla TS utilities, India-data formatters, scraper helpers for APIs. NOT auth (that's a separate project per `no-auth-in-apps-or-apis`), NOT analytics WRAPPER (analytics stay inline in `BaseLayout.astro` until 2+ apps need the same custom event shape).
-- **Repo home:** Each package lives in its own repo at `oriz-org/<slug>-npm-pkg` or `oriz-org/<slug>-py-pkg`. Submodule at `repos/own/<slug>-<npm|py>-pkg/`.
+- **Repo home:** Each package lives in its own repo at `chirag127/<slug>-npm-pkg` or `chirag127/<slug>-py-pkg`. Submodule at `repos/own/<slug>-<npm|py>-pkg/`.
 
 **Does NOT reverse:**
 - The 23 archived packages stay archived. They were speculative / SDK-shaped; the new rule is the opposite.
@@ -29,7 +29,7 @@ When the same logic is needed in 2 or more apps, extract it to an atomic package
 
 **How to apply when 2nd app demands the same logic:**
 1. Verify no community package exists at the right size/shape.
-2. Create the repo: `gh repo create oriz-org/<slug>-npm-pkg --public --description "<one-liner>"`.
+2. Create the repo: `gh repo create chirag127/<slug>-npm-pkg --public --description "<one-liner>"`.
 3. Add as submodule: `git submodule add ... repos/own/<slug>-npm-pkg`.
 4. Publish to npm with provenance enabled.
 5. Document the package in `knowledge/services/<area>/<slug>.md` with OKF frontmatter.

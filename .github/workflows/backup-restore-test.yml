@@ -57,6 +57,6 @@ jobs:
           GH_TOKEN: ${{ secrets.GH_ADMIN_PAT }}
         run: |
           gh issue create \
-            -R oriz-org/workspace \
+            -R chirag127/workspace \
             -t "Backup restore test failed $(date -u +%F)" \
             -b "Run: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"

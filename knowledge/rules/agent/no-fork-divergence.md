@@ -37,8 +37,8 @@ When you spot a bug in fork source and reach for `Edit`:
 1. **STOP.** Do not edit fork's `main`.
 2. `git -C <fork> checkout -b <slug>` from `upstream/main`.
 3. Make the fix on the branch.
-4. `git push origin <slug>` (push to `oriz-org/<repo>`, our fork).
-5. `gh pr create --repo <upstream-owner>/<upstream-repo> --head "oriz-org:<slug>" --base main --title "..." --body-file <path>` — file the PR against upstream.
+4. `git push origin <slug>` (push to `chirag127/<repo>`, our fork).
+5. `gh pr create --repo <upstream-owner>/<upstream-repo> --head "chirag127:<slug>" --base main --title "..." --body-file <path>` — file the PR against upstream.
 6. Switch fork back to `main`. Fork's `main` stays clean.
 7. Fetch/pull happens against `upstream/main` only.
 

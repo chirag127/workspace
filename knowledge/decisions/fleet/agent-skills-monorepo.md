@@ -1,14 +1,14 @@
 ﻿---
 type: decision
 title: "agent-skills monorepo + symlinks"
-description: oriz-org/agent-skills single truth for skills. Symlinked into agent skill dirs
+description: chirag127/agent-skills single truth for skills. Symlinked into agent skill dirs
 tags: [agent-skills, monorepo, submodule, fleet]
 timestamp: 2026-06-25
 format_version: okf-v0.1
 status: active
 ---
 
-oriz-org/agent-skills (created 2026-06-25) holds every agent skill. It is a git submodule of oriz at `repos/oriz/own/content/skills/agent-skills/` — **the only working copy**. Do NOT clone separately.
+chirag127/agent-skills (created 2026-06-25) holds every agent skill. It is a git submodule of oriz at `repos/oriz/own/content/skills/agent-skills/` — **the only working copy**. Do NOT clone separately.
 
 **Why:** Two harnesses (the AI agent reads `~/.claude/skills/`, cross-agent shell reads `~/.agents/skills/`) used to have drifting copies of the same skills. Symlinking both into the monorepo kills the sync problem.
 

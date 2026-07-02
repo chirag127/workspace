@@ -23,14 +23,14 @@ related:
 
 - **Download the .crx via `scripts/download-cws-extension.mjs`** for personal study + reverse engineering on YOUR machine.
 - **Modify the extracted bundle locally** at `C:/D/Tweeks-Customize-Any-Website-Chrome-Web-Store/` (or anywhere on YOUR disk) and load it as an unpacked extension in YOUR browser.
-- **Store the modified bundle in a PRIVATE single-repo** under chirag127 or oriz-org IF that repo is NOT part of the umbrella's submodule tree (the umbrella mirrors to 6 public hosts every Friday, which would publish proprietary code). Set the repo to private + NOT a submodule + name it something like `chirag127/tweeks-personal-mods` (not a public-facing slug).
+- **Store the modified bundle in a PRIVATE single-repo** under chirag127 or chirag127 IF that repo is NOT part of the umbrella's submodule tree (the umbrella mirrors to 6 public hosts every Friday, which would publish proprietary code). Set the repo to private + NOT a submodule + name it something like `chirag127/tweeks-personal-mods` (not a public-facing slug).
 - **Use Tweeks unmodified** for prototyping userscript ideas (per [[decisions/apps/userscript-prototype-via-tweeks]]).
 - **Replicate functionality from scratch** — observation of behavior is fine; the API surface and ideas are not protected.
 
 ## What is NOT allowed
 
 - **Public redistribution in any form**: Chrome Web Store publish, public GitHub repo, Greasefork, Discord / DM / direct download links shared with anyone else, npm publish, file uploads to public hosting. Chrome Web Store ToS §2 + copyright law forbid this without NextByte's permission.
-- **Storing in the umbrella workspace** (`c:/D/oriz/repos/**` or any submodule under it) — the mirror cron at `.github/workflows/mirror-all.yml` pushes the entire umbrella to 6 public mirror hosts (GitLab, Codeberg, Bitbucket, GitFlic, Azure DevOps, AWS CodeCommit) every Friday. Even though oriz-org/workspace itself is public, those mirrors create additional public copies — clearly redistribution.
+- **Storing in the umbrella workspace** (`c:/D/oriz/repos/**` or any submodule under it) — the mirror cron at `.github/workflows/mirror-all.yml` pushes the entire umbrella to 6 public mirror hosts (GitLab, Codeberg, Bitbucket, GitFlic, Azure DevOps, AWS CodeCommit) every Friday. Even though chirag127/workspace itself is public, those mirrors create additional public copies — clearly redistribution.
 - **Forking Tweeks "as a starting point" for a competing open-source product.** The boundary between "inspired by" (legal) and "derivative work" (copyright infringement) is contested; safest path is clean-room reimplementation if a competing product is the goal.
 
 ## The right path if you want a customizable Tweeks-like tool

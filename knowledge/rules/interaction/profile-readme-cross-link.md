@@ -1,7 +1,7 @@
 ---
 type: rule
-title: "Profile README must cross-link chirag127 \u2194 oriz-org"
-description: "chirag127 ↔ oriz-org cross-link in profile READMEs"
+title: "Profile README must cross-link chirag127 \u2194 chirag127"
+description: "chirag127 ↔ chirag127 cross-link in profile READMEs"
 tags:
 - rule
 - branding
@@ -14,13 +14,13 @@ format_version: okf-v0.1
 status: active
 related:
 - rules/interaction/recruiter-strategy
-- branding/oriz-org-rename-from-co
+- branding/chirag127-rename-from-co
 - decisions/architecture/general/projects-owner-own-forks-layout
 ---
 
 
 
-# Profile README must cross-link chirag127 ↔ oriz-org
+# Profile README must cross-link chirag127 ↔ chirag127
 
 ## Rule
 
@@ -33,15 +33,15 @@ other in one click.
 Required line in the README header section:
 
 ```markdown
-Hi, I'm Chirag — I build [oriz.in](https://oriz.in) ([@oriz-org](https://github.com/oriz-org)).
+Hi, I'm Chirag — I build [oriz.in](https://oriz.in) ([@chirag127](https://github.com/chirag127)).
 ```
 
 The pinned-repo gallery on the personal profile may include repos
-from `oriz-org/*` (pinning org repos is allowed and they DO appear on
+from `chirag127/*` (pinning org repos is allowed and they DO appear on
 the personal profile — recruiters skim pinned repos, see
 [`recruiter-strategy`](./recruiter-strategy.md)).
 
-### On `github.com/oriz-org` (org profile README via `.github/profile/README.md` in `oriz-org/.github`)
+### On `github.com/chirag127` (org profile README via `.github/profile/README.md` in `chirag127/.github`)
 
 Required line in the README footer section:
 
@@ -57,12 +57,12 @@ surface "this is one person's work + this is a real shipping product"
 in under 10 seconds.
 
 A recruiter scrolling chirag127 sees pinned org repos and "I build
-oriz.in." A recruiter scrolling oriz-org sees real repos and
+oriz.in." A recruiter scrolling chirag127 sees real repos and
 "Founded by Chirag Singhal." Both reads land the same conclusion.
 
 ## When to update
 
-- On any org rename (e.g. when `oriz-co` became `oriz-org` on
+- On any org rename (e.g. when `oriz-co` became `chirag127` on
   2026-06-24, both READMEs needed sed-replace)
 - When the brand name itself changes (rare)
 - When new pinned repos are added/removed

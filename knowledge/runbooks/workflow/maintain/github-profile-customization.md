@@ -35,7 +35,7 @@ related:
 val="$GH_ADMIN_PAT"
 cat > /tmp/patch.json <<'EOF'
 {
-  "bio": "Software Engineering Specialist at TCS · building free public tools at @oriz-org · React Native + Astro + AI agents",
+  "bio": "Software Engineering Specialist at TCS · building free public tools at @chirag127 · React Native + Astro + AI agents",
   "location": "India"
 }
 EOF

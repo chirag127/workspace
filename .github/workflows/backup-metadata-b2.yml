@@ -18,12 +18,12 @@ jobs:
     outputs:
       repos: ${{ steps.collect.outputs.repos }}
     steps:
-      - name: Collect repos from oriz-org + chirag127
+      - name: Collect repos from chirag127
         id: collect
         env:
           GH_TOKEN: ${{ secrets.GH_ADMIN_PAT }}
         run: |
-          ORG=$(gh repo list oriz-org --limit 500 --json nameWithOwner --jq '.[].nameWithOwner')
+          ORG=$(gh repo list chirag127 --limit 500 --json nameWithOwner --jq '.[].nameWithOwner')
           USR=$(gh repo list chirag127 --limit 500 --json nameWithOwner --jq '.[].nameWithOwner')
           printf '%s\n%s\n' "$ORG" "$USR" | jq -Rn '[inputs | select(length > 0)]' > repos.json
           echo "repos=$(cat repos.json | jq -c '.')" >> "$GITHUB_OUTPUT"

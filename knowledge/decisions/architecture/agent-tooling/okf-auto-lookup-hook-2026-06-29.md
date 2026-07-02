@@ -83,4 +83,4 @@ Live confirmation: user's first prompt after install surfaced `parallel-fan-out-
 
 ## What this replaced
 
-A prior plan (rounds 1-4 of the grill) proposed 28-skill cross-agent installation, 3 submodule forks of external skill repos, `oriz-org/agent-skills` plugin marketplace, wshobson cross-harness adapter pattern. Round 5 reframe: the actual symptom was discoverability, not skill format. The auto-lookup hook fixes 90% of the symptom at 20% of the cost. The 28-skill plan is deferred indefinitely.
+A prior plan (rounds 1-4 of the grill) proposed 28-skill cross-agent installation, 3 submodule forks of external skill repos, `chirag127/agent-skills` plugin marketplace, wshobson cross-harness adapter pattern. Round 5 reframe: the actual symptom was discoverability, not skill format. The auto-lookup hook fixes 90% of the symptom at 20% of the cost. The 28-skill plan is deferred indefinitely.

@@ -23,7 +23,7 @@ related:
 
 ## Decision
 
-One repo (`finance`, on GitHub at `oriz-org/finance`, deployed to `finance.oriz.in`) serves all ten finance calculators as routes:
+One repo (`finance`, on GitHub at `chirag127/finance`, deployed to `finance.oriz.in`) serves all ten finance calculators as routes:
 
 | Route | Tool |
 |---|---|

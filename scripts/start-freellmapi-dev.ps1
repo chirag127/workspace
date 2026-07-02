@@ -11,7 +11,7 @@
 
 .NOTES
   Manual trigger only — NOT wired to Windows startup (per user instruction).
-  Source: C:\D\oriz\repos\frk\freellmapi (oriz-org fork, tracks tashfeenahmed upstream).
+  Source: C:\D\oriz\repos\frk\freellmapi (chirag127 fork, tracks tashfeenahmed upstream).
   Default ports: server :3001, client (vite) :5173.
 #>
 

@@ -43,7 +43,7 @@ Set this at:
 
 ## Windows Credential Manager hygiene
 
-The "Select an account" popup appears when Windows Credential Manager has MULTIPLE GitHub credentials stored (e.g. oriz-co, oriz-org, x-access-token, chirag127). Keep ONLY chirag127. Delete the rest with `cmdkey /delete:<target>` or via the Credential Manager GUI.
+The "Select an account" popup appears when Windows Credential Manager has MULTIPLE GitHub credentials stored (e.g. oriz-co, chirag127, x-access-token, chirag127). Keep ONLY chirag127. Delete the rest with `cmdkey /delete:<target>` or via the Credential Manager GUI.
 
 ## Past commits stay
 

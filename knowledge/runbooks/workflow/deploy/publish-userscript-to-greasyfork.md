@@ -52,7 +52,7 @@ After the script is published once, Greasy Fork can pull future versions automat
 
 1. On the script's Greasy Fork listing → click **Admin** → **Sync from external source**
 2. Pick **GitHub**, enter the raw URL of the `.user.js` file:
-   `https://github.com/oriz-org/userscripts/raw/main/<name>/<name>.user.js`
+   `https://github.com/chirag127/userscripts/raw/main/<name>/<name>.user.js`
 3. Save. Greasy Fork now receives a webhook on every push to the GitHub repo's main branch + re-fetches the raw URL with a ~5-10 min cache delay.
 4. Bump `@version` in the .user.js metadata block before every push (Greasy Fork rejects pushes that don't increment the version).
 

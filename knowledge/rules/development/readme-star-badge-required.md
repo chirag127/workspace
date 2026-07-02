@@ -40,7 +40,7 @@ It MAY be styled as a shields.io badge instead, but the literal `⭐ Star this R
 ...
 ```
 
-For forks, the badge points at the fork's own URL (oriz-org's copy), not the upstream — the family wants stars on the family's mirror.
+For forks, the badge points at the fork's own URL (chirag127's copy), not the upstream — the family wants stars on the family's mirror.
 
 ## Enforcement
 

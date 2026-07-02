@@ -30,7 +30,7 @@ Every submodule sits at `repos/<slug>/`, period. No `owner/`, no `own/` vs `frk/
 - **Path stability** — five-level paths (`repos/oriz/own/prod/apps/personal/<slug>`) broke 243 hardcoded references on every rename. Flat paths only break on slug change.
 - **Type suffix already sorts** — `ls repos/` clusters `*-api`, `*-npm-pkg`, `*-bs-ext` together for free; no folder hierarchy needed.
 - **Forks-by-path was structural overhead** — `.is-fork` is one file, greppable, doesn't move when a fork promotes to a divergent product.
-- **Drops two-owner partition** — `oriz-org/` vs `chirag127/` was useful when ownership leaked into branding; with the rename to `oriz-org` org as canonical, the owner is unambiguous from the GitHub remote URL.
+- **Drops two-owner partition** — `chirag127/` vs `chirag127/` was useful when ownership leaked into branding; with the rename to `chirag127` org as canonical, the owner is unambiguous from the GitHub remote URL.
 - **Cleaner umbrella** — `oriz` umbrella `.gitmodules` lists every submodule at `path = repos/<slug>` with no embedded structure to maintain.
 - **Easier glob in CI** — `repos/*-app/` is a one-segment glob; the old layout needed `repos/*/own/prod/apps/*/`.
 

@@ -8,4 +8,4 @@ format_version: okf-v0.1
 status: active
 ---
 
-openmodel-shim-api deleted from oriz-org + umbrella + filesystem on 2026-06-25. The 3-LLM-shim experiment narrowed to 2 (freellmapi + omniroute). Related: [`no-auth-in-apps-or-apis-2026-06-25`](../security/no-auth-in-apps-or-apis-2026-06-25.md).
+openmodel-shim-api deleted from chirag127 + umbrella + filesystem on 2026-06-25. The 3-LLM-shim experiment narrowed to 2 (freellmapi + omniroute). Related: [`no-auth-in-apps-or-apis-2026-06-25`](../security/no-auth-in-apps-or-apis-2026-06-25.md).

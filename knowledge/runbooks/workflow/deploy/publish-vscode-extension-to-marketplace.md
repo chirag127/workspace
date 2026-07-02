@@ -17,7 +17,7 @@ related:
 
 1. **Create the Microsoft Publisher**
    - https://marketplace.visualstudio.com/manage → **Create publisher**
-   - Publisher ID: `oriz-org` (already taken? pick `chirag127` instead — it's the publisher you have most leverage to use long-term)
+   - Publisher ID: `chirag127` (already taken? pick `chirag127` instead — it's the publisher you have most leverage to use long-term)
    - Display name: `Oriz` or your real name
    - This Publisher ID must match the `publisher` field in every extension's `package.json`
 
@@ -38,7 +38,7 @@ related:
 
 4. **Login once** to vsce locally
    ```bash
-   vsce login oriz-org   # paste the PAT when prompted
+   vsce login chirag127   # paste the PAT when prompted
    ```
    The PAT is cached at `~/.azure-devops/.token-store` — keep it private.
 
@@ -46,7 +46,7 @@ related:
    - https://open-vsx.org is the open-source-friendly mirror used by VSCodium, Cursor, Theia.
    - Create an Eclipse Foundation account, generate an access token at https://open-vsx.org/user-settings/tokens
    - Store in Bitwarden as `ovsx-pat`.
-   - `ovsx create-namespace oriz-org -t <token>` (one-time)
+   - `ovsx create-namespace chirag127 -t <token>` (one-time)
 
 ## Per-release workflow
 
@@ -88,7 +88,7 @@ gh release create v0.2.0 sops-lens-0.2.0.vsix --title "v0.2.0" --notes "See CHAN
 {
   "name": "sops-lens",                           // unique within the publisher
   "displayName": "SOPS Lens",                    // shown in Marketplace
-  "publisher": "oriz-org",                        // MUST match the Publisher ID
+  "publisher": "chirag127",                        // MUST match the Publisher ID
   "version": "0.2.0",                            // semver
   "description": "≤ 200 char single-line summary",
   "engines": { "vscode": "^1.85.0" },            // minimum VS Code version

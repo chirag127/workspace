@@ -45,11 +45,11 @@ Not a code backup — code is in the 9-host mirrors. Don't conflate the two.
   B2_BUCKET_NAME=oriz-backups
   B2_ENDPOINT=https://s3.<region>.backblazeb2.com   # e.g. s3.us-west-004.backblazeb2.com
   ```
-- Doppler (or the sync-env workflow) propagates these to `oriz-org` org secrets so the workflow inherits them via `secrets.B2_*`
+- Doppler (or the sync-env workflow) propagates these to `chirag127` org secrets so the workflow inherits them via `secrets.B2_*`
 
 ## Workflow file
 
-Path: `.github/workflows/backup-metadata-b2.yml` in `oriz-org/workspace`.
+Path: `.github/workflows/backup-metadata-b2.yml` in `chirag127/workspace`.
 
 ```yaml
 name: Backup metadata to B2 (weekly)
@@ -71,12 +71,12 @@ jobs:
     outputs:
       repos: ${{ steps.collect.outputs.repos }}
     steps:
-      - name: Collect repos from oriz-org + chirag127
+      - name: Collect repos from chirag127 + chirag127
         id: collect
         env:
           GH_TOKEN: ${{ secrets.GH_ADMIN_PAT }}
         run: |
-          ORG=$(gh repo list oriz-org --limit 500 --json nameWithOwner --jq '.[].nameWithOwner')
+          ORG=$(gh repo list chirag127 --limit 500 --json nameWithOwner --jq '.[].nameWithOwner')
           USR=$(gh repo list chirag127 --limit 500 --json nameWithOwner --jq '.[].nameWithOwner')
           printf '%s\n%s\n' "$ORG" "$USR" | jq -Rn '[inputs | select(length > 0)]' > repos.json
           echo "repos=$(cat repos.json | jq -c '.')" >> "$GITHUB_OUTPUT"
@@ -214,7 +214,7 @@ jobs:
         if: failure()
         env:
           GH_TOKEN: ${{ secrets.GH_ADMIN_PAT }}
-        run: gh issue create -R oriz-org/workspace -t "Backup restore test failed $(date -u +%F)" -b "See run ${{ github.run_id }}"
+        run: gh issue create -R chirag127/workspace -t "Backup restore test failed $(date -u +%F)" -b "See run ${{ github.run_id }}"
 ```
 
 ## Why not one workflow with code + metadata?

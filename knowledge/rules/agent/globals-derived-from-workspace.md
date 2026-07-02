@@ -18,7 +18,7 @@ related:
 
 ## Rule
 
-`oriz-org/workspace` files are **canonical** for agent configuration. Global config files (`~/.claude.json`, `~/.opencode/config.json`, `~/.kilocode/`, `~/.gemini/`, etc.) are **derived caches** written by `scripts/sync-globals.mjs`.
+`chirag127/workspace` files are **canonical** for agent configuration. Global config files (`~/.claude.json`, `~/.opencode/config.json`, `~/.kilocode/`, `~/.gemini/`, etc.) are **derived caches** written by `scripts/sync-globals.mjs`.
 
 You never edit a global file directly. The script reads workspace ? writes global ? diffs ? fires grill-me if drift is detected.
 

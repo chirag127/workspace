@@ -1,4 +1,4 @@
-# Weekly upstream sync for oriz-org forks (auto-PR, auto-merge on clean).
+# Weekly upstream sync for chirag127 forks (auto-PR, auto-merge on clean).
 #
 # Per knowledge/rules/agent/fork-thin-upstream-tracking.md (revised 2026-06-29):
 # - chirag127/freellmapi         main tracks tashfeenahmed/freellmapi  main
@@ -35,7 +35,7 @@ jobs:
       - name: Sync ${{ matrix.fork.name }} from ${{ matrix.fork.upstream }}
         env:
           # SYNC_TOKEN must be a PAT (classic, repo scope) stored in
-          # oriz-org/workspace > Settings > Secrets and variables > Actions.
+          # chirag127/workspace > Settings > Secrets and variables > Actions.
           # The default GITHUB_TOKEN cannot push to OTHER repos or open cross-repo PRs.
           GH_TOKEN: ${{ secrets.SYNC_TOKEN }}
           FORK: ${{ matrix.fork.name }}
@@ -49,7 +49,7 @@ jobs:
           fi
 
           # Clone the FORK (not upstream) — we need to push branches + open PRs against it.
-          git clone "https://x-access-token:${GH_TOKEN}@github.com/oriz-org/${FORK}.git" work
+          git clone "https://x-access-token:${GH_TOKEN}@github.com/chirag127/${FORK}.git" work
           cd work
           git config user.name  "oriz-sync-bot"
           git config user.email "noreply@oriz.in"
@@ -74,14 +74,14 @@ jobs:
           PR_BODY="Automated weekly sync.
 
           - Upstream: \`${UPSTREAM}@${BRANCH}\` -> \`${UPSTREAM_SHA}\`
-          - Fork:     \`oriz-org/${FORK}@${BRANCH}\` -> \`${FORK_SHA}\`
+          - Fork:     \`chirag127/${FORK}@${BRANCH}\` -> \`${FORK_SHA}\`
 
-          Per [fork-thin-upstream-tracking](https://github.com/oriz-org/workspace/blob/main/knowledge/rules/agent/fork-thin-upstream-tracking.md): oriz work never lands on fork main. This PR brings the fork's main back in step with upstream."
+          Per [fork-thin-upstream-tracking](https://github.com/chirag127/workspace/blob/main/knowledge/rules/agent/fork-thin-upstream-tracking.md): oriz work never lands on fork main. This PR brings the fork's main back in step with upstream."
 
-          EXISTING=$(gh pr list --repo "oriz-org/${FORK}" --head "${SYNC_BRANCH}" --json number --jq '.[0].number' || echo "")
+          EXISTING=$(gh pr list --repo "chirag127/${FORK}" --head "${SYNC_BRANCH}" --json number --jq '.[0].number' || echo "")
           if [ -z "${EXISTING}" ]; then
             gh pr create \
-              --repo "oriz-org/${FORK}" \
+              --repo "chirag127/${FORK}" \
               --base "${BRANCH}" \
               --head "${SYNC_BRANCH}" \
               --title "${PR_TITLE}" \
@@ -93,7 +93,7 @@ jobs:
           # Enable auto-merge (merge commit, since this is a tracking branch).
           # If the PR is already mergeable + checks pass, this merges immediately.
           # If conflicts exist, auto-merge waits for a human to resolve.
-          gh pr merge --repo "oriz-org/${FORK}" --auto --merge "${SYNC_BRANCH}" || \
+          gh pr merge --repo "chirag127/${FORK}" --auto --merge "${SYNC_BRANCH}" || \
             echo "::warning::${FORK}: auto-merge could not be enabled; PR awaiting human review"
 
           echo "::notice::${FORK}: PR open for ${UPSTREAM_SHA::7} (was ${FORK_SHA::7})"

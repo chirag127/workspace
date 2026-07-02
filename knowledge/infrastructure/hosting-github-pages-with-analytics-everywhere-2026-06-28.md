@@ -20,7 +20,7 @@ related:
 
 **All static API sites move from Cloudflare Pages to GitHub Pages.** Cloudflare DNS is retained (no change). Each API repo gets a GitHub Pages site at `<subdomain>.oriz.in` via CNAME.
 
-**Analytics + observability stack on every page** (shared via the `@oriz-org-fleet/api-fleet-template-astro-integration` package — long descriptive names per user preference 2026-06-28):
+**Analytics + observability stack on every page** (shared via the `@chirag127-fleet/api-fleet-template-astro-integration` package — long descriptive names per user preference 2026-06-28):
 
 | Service | Purpose | Tier |
 |---|---|---|
@@ -30,7 +30,7 @@ related:
 | Sentry | JS error tracking, perf | Free (5k errors/mo) |
 | Cloudflare Web Analytics | Privacy-first, cookieless | Free unlimited |
 
-All IDs/DSNs stored as **GitHub org-level secrets** on `oriz-org` (per existing `github-org-level-secrets` rule). Each repo's GitHub Actions reads them at build time and inlines `<script>` tags into the rendered HTML. No runtime fetching of analytics config.
+All IDs/DSNs stored as **GitHub org-level secrets** on `chirag127` (per existing `github-org-level-secrets` rule). Each repo's GitHub Actions reads them at build time and inlines `<script>` tags into the rendered HTML. No runtime fetching of analytics config.
 
 ## Why
 
@@ -45,8 +45,8 @@ All IDs/DSNs stored as **GitHub org-level secrets** on `oriz-org` (per existing 
 
 Long, descriptive names everywhere going forward. Examples:
 
-- npm package: `@oriz-org-fleet/api-fleet-template-astro-integration` (was `@oriz/api-fleet-template`)
-- npm package: `@oriz-org-fleet/analytics-injector-google-microsoft-posthog-sentry-cloudflare-multi-provider`
+- npm package: `@chirag127-fleet/api-fleet-template-astro-integration` (was `@oriz/api-fleet-template`)
+- npm package: `@chirag127-fleet/analytics-injector-google-microsoft-posthog-sentry-cloudflare-multi-provider`
 - repos can stay short (existing `rto-api` etc.) since the GitHub slug is the public surface
 - workflow names: `mirror-to-all-managed-git-hosts-on-push-to-main.yml`
 - secret names: `ORIZ_FLEET_GOOGLE_ANALYTICS_MEASUREMENT_ID`, `ORIZ_FLEET_MICROSOFT_CLARITY_PROJECT_ID`, etc.
@@ -58,7 +58,7 @@ Long, descriptive names everywhere going forward. Examples:
 For each of rto-api, constants-api, ragas-api, dynasties-api, countries-plus-api, api-fleet-landing:
 
 1. `wrangler pages project delete <project-name>` (removes the Pages project)
-2. CNAME records `<slug>.oriz.in` stay pointing at `<slug>-api.pages.dev` BRIEFLY (so URLs don't die during migration) — flip them to `oriz-org.github.io` once GH Pages is live for that repo.
+2. CNAME records `<slug>.oriz.in` stay pointing at `<slug>-api.pages.dev` BRIEFLY (so URLs don't die during migration) — flip them to `chirag127.github.io` once GH Pages is live for that repo.
 
 ### Phase 2 — Set up GitHub Pages for each repo
 
@@ -73,18 +73,18 @@ For each existing API repo:
    - Deploys via `actions/deploy-pages@v4`
 2. Repo Settings -> Pages -> Source: GitHub Actions
 3. Repo Settings -> Pages -> Custom domain: `<slug>.oriz.in` (writes a `CNAME` file)
-4. Update DNS: change `<slug>.oriz.in` CNAME to `oriz-org.github.io` (or `chirag127.github.io` for personal repos)
+4. Update DNS: change `<slug>.oriz.in` CNAME to `chirag127.github.io` (or `chirag127.github.io` for personal repos)
 5. Wait for cert provisioning (~10 min)
 6. Verify subdomain works
 7. Then run Phase 1 for that repo
 
 ### Phase 3 — npm package for analytics injection
 
-`@oriz-org-fleet/analytics-injector-google-microsoft-posthog-sentry-cloudflare-multi-provider` — a small package that takes config + env vars and returns the `<script>` tags to inject. Consumed by `@oriz-org-fleet/api-fleet-template-astro-integration` so every site auto-gets all 5 providers.
+`@chirag127-fleet/analytics-injector-google-microsoft-posthog-sentry-cloudflare-multi-provider` — a small package that takes config + env vars and returns the `<script>` tags to inject. Consumed by `@chirag127-fleet/api-fleet-template-astro-integration` so every site auto-gets all 5 providers.
 
 ### Phase 4 — Org-level secret seeding
 
-GitHub org `oriz-org` -> Settings -> Secrets and variables -> Actions. Add:
+GitHub org `chirag127` -> Settings -> Secrets and variables -> Actions. Add:
 
 - `ORIZ_FLEET_GOOGLE_ANALYTICS_MEASUREMENT_ID`
 - `ORIZ_FLEET_MICROSOFT_CLARITY_PROJECT_ID`
@@ -97,7 +97,7 @@ Repos opt in to using these via repo-level workflow inheritance.
 
 ### Phase 5 — Fleet landing (api.oriz.in)
 
-Rebuild `oriz-org/api-fleet-landing` for GH Pages instead of CF Pages. Same Astro static site, different deploy target.
+Rebuild `chirag127/api-fleet-landing` for GH Pages instead of CF Pages. Same Astro static site, different deploy target.
 
 ## What stays the same
 
@@ -105,7 +105,7 @@ Rebuild `oriz-org/api-fleet-landing` for GH Pages instead of CF Pages. Same Astr
 - jsDelivr URLs (those serve from GitHub raw, unaffected by hosting change)
 - All 5 API repos' data files at repo root
 - Submodule structure in umbrella
-- `@oriz-org-fleet/api-fleet-template-astro-integration` package (just gets analytics-injector dep added)
+- `@chirag127-fleet/api-fleet-template-astro-integration` package (just gets analytics-injector dep added)
 
 ## Cost
 

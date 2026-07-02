@@ -1,6 +1,6 @@
 ---
 type: service
-title: "Azure DevOps Repos \u2014 push-mirror target for oriz-org + chirag127"
+title: "Azure DevOps Repos \u2014 push-mirror target for chirag127 + chirag127"
 description: "Git mirror host #5 — unlimited private repos, 5 free users, push via GH Actions"
 tags:
 - service
@@ -73,7 +73,7 @@ org (e.g. `chirag127`), NOT "All accessible organizations".
 9. Scope: **Code → Manage** (this includes read+write+create)
 10. Click **Create** — copy immediately, shown once
 11. Note your org name and project name
-12. Store as oriz-org org-level GitHub secrets (token + org + project). Full loop: [`runbooks/platform/mirror-all-hosts-setup.md`](../../runbooks/platform/mirror-all-hosts-setup.md) Step 2.
+12. Store as chirag127 org-level GitHub secrets (token + org + project). Full loop: [`runbooks/platform/mirror-all-hosts-setup.md`](../../runbooks/platform/mirror-all-hosts-setup.md) Step 2.
 
 ## API — Create Repo (idempotent)
 

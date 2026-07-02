@@ -7,7 +7,7 @@
 [![billing Razorpay](https://img.shields.io/badge/billing-Razorpay%20INR-blue)](https://razorpay.com/)
 [![license MIT](https://img.shields.io/badge/license-MIT-green)](https://opensource.org/licenses/MIT)
 
-This is the **master umbrella repo** (`oriz-org/workspace`). It is a meta-repo whose `repos/` tree submodules every app, API, package, book, extension, and skill in the family. The user always works from here (`c:/D/oriz/`); per-submodule `pnpm install` is wrong — always `pnpm install -r` from the workspace root.
+This is the **master umbrella repo** (`chirag127/workspace`). It is a meta-repo whose `repos/` tree submodules every app, API, package, book, extension, and skill in the family. The user always works from here (`c:/D/oriz/`); per-submodule `pnpm install` is wrong — always `pnpm install -r` from the workspace root.
 
 ---
 
@@ -40,7 +40,7 @@ c:/D/oriz/
 ├── repos/                              # submodules — 74 total
 │   ├── c127/                              # chirag127 personal-account repos
 │   │   └── own/prod/apps/personal/cs-me-app/   # me.oriz.in / cs.oriz.in (puter.js auth)
-│   └── oriz/                              # oriz-org brand-org repos (the family)
+│   └── oriz/                              # chirag127 brand-org repos (the family)
 │       ├── own/
 │       │   ├── prod/                      # products: user-facing artifacts
 │       │   │   ├── apps/                  # 26 Astro apps (Cloudflare Pages)
@@ -132,7 +132,7 @@ Full layout rationale: [`knowledge/decisions/architecture/projects-owner-own-for
 ## Quick start
 
 ```bash
-git clone --recurse-submodules https://github.com/oriz-org/workspace c:/D/oriz
+git clone --recurse-submodules https://github.com/chirag127/workspace c:/D/oriz
 cd c:/D/oriz
 pnpm install -r                 # installs every submodule's deps via workspaces
 pnpm run env:decrypt            # decrypts .env.enc → .env (needs .sops-age-key.txt)
@@ -174,7 +174,7 @@ The rules in `knowledge/rules/` are not advisory — they are constraints on eve
 12. **mirror-everything-weekly** — Friday 03:30 IST cron pushes to GitLab + Codeberg + Bitbucket + GitFlic
 13. **grill-on-LOC-removal ≥ 50 lines** — surface as delta + MCQ before deleting
 14. **frontend-design skill baked-in** — every UI task approached as design lead at a small studio
-15. **org-level-secrets-only** — push to oriz-org with `--visibility all`; never per-repo
+15. **org-level-secrets-only** — push to chirag127 with `--visibility all`; never per-repo
 16. **shared-tenant-by-default** — ONE Sentry + ONE GA4 + ONE Clarity + ONE Razorpay merchant family-wide
 17. **one-level-subdomain-only on `*.oriz.in`** — free CF SSL only covers one level deep
 18. **cloudflare-pages-apps-only** — CF Pages for 27 apps; everything else on GitHub Pages
@@ -187,9 +187,9 @@ The complete authoritative list with full text is at [`knowledge/rules/`](./know
 
 ## Env vars
 
-`.env` is the **single source of truth**. There is no `.env.example`. The shape of `.env` is documented in [`knowledge/runbooks/env-management.md`](./knowledge/runbooks/operations/env-management.md). It is encrypted to `.env.enc` via sops+age and that file is committed. Local dev decrypts with `pnpm run env:decrypt`; CI receives the age key as `SOPS_AGE_KEY` secret on `oriz-org/workspace`.
+`.env` is the **single source of truth**. There is no `.env.example`. The shape of `.env` is documented in [`knowledge/runbooks/env-management.md`](./knowledge/runbooks/operations/env-management.md). It is encrypted to `.env.enc` via sops+age and that file is committed. Local dev decrypts with `pnpm run env:decrypt`; CI receives the age key as `SOPS_AGE_KEY` secret on `chirag127/workspace`.
 
-The daily sync workflow (`.github/workflows/sync-env-to-org-secrets.yml`) decrypts `.env.enc` and pushes every non-empty value to GitHub Org secrets at `oriz-org` with `visibility: all`. Every app's CI inherits.
+The daily sync workflow (`.github/workflows/sync-env-to-org-secrets.yml`) decrypts `.env.enc` and pushes every non-empty value to GitHub Org secrets at `chirag127` with `visibility: all`. Every app's CI inherits.
 
 Cards on file (post-2026-06-23 cost-controls rule):
 
@@ -228,7 +228,7 @@ When you (or an agent) lock a decision in chat, the **next message** must add a 
 
 ## Standing authorization
 
-Agents may commit + push to `main` on `oriz-org/workspace` and any submodule **without further prompting**, **except** for:
+Agents may commit + push to `main` on `chirag127/workspace` and any submodule **without further prompting**, **except** for:
 
 - Paid API calls
 - Repository deletions or transfers
@@ -241,7 +241,7 @@ For anything in that exception list, the agent stops and asks via `AskUserQuesti
 
 ## License
 
-<!-- TODO: broken link, was [MIT](./LICENSE) -->. The source-available-but-all-rights-reserved framing in earlier versions of this README is **superseded** — every repo in the oriz-org org ships under MIT (locked decision: [`knowledge/decisions/architecture/mit-license-all-repos.md`](./knowledge/decisions/architecture/general/mit-license-all-repos.md)).
+<!-- TODO: broken link, was [MIT](./LICENSE) -->. The source-available-but-all-rights-reserved framing in earlier versions of this README is **superseded** — every repo in the chirag127 org ships under MIT (locked decision: [`knowledge/decisions/architecture/mit-license-all-repos.md`](./knowledge/decisions/architecture/general/mit-license-all-repos.md)).
 
 ---
 
@@ -251,4 +251,4 @@ For anything in that exception list, the agent stops and asks via `AskUserQuesti
 - The hosted service at `oriz.in` (with Pro and Max subscriptions) is operated by Chirag Singhal as a one-person company
 - Pro/Max tiers fund maintenance; Free tier is the long-term commitment
 
-Contact: hello@oriz.in · [github.com/oriz-org](https://github.com/oriz-org) · status: https://status.oriz.in
+Contact: hello@oriz.in · [github.com/chirag127](https://github.com/chirag127) · status: https://status.oriz.in

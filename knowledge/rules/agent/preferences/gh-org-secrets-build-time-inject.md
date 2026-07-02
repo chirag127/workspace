@@ -12,7 +12,7 @@ status: active
 
 ## Mechanism
 
-1. Shared tokens (GA4 measurement ID, PostHog project key, Clarity project ID, Fathom site ID, GoatCounter site code, third-party API keys) are stored once as **GitHub organization-level Actions secrets** on `oriz-org`.
+1. Shared tokens (GA4 measurement ID, PostHog project key, Clarity project ID, Fathom site ID, GoatCounter site code, third-party API keys) are stored once as **GitHub organization-level Actions secrets** on `chirag127`.
 2. Each repo's CI workflow references them via `${{ secrets.PUBLIC_GA4_ID }}` etc., exposed into the build job's `env:`.
 3. Astro reads them at build time as `PUBLIC_*` env vars (Astro's documented prefix for browser-exposed values).
 4. The static output is baked with the values inlined. Deploy to CF Pages or GitHub Pages — no runtime secret store needed.

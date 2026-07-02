@@ -18,7 +18,7 @@ status: active
 
 ## Rationale
 
-- This repo is public (oriz-org/workspace)
+- This repo is public (chirag127/workspace)
 - `.env` is gitignored — only `.env.example` with documentation blocks is committed
 - Smithery handles authentication server-side; keys stay in Smithery's vault
 - When cloning fresh: `git clone` gets all no-key MCPs + instructions; keyed MCPs need Smithery login

@@ -71,10 +71,10 @@ The [`agent-fleet-parity`](../../../rules/agent/agent-fleet-parity.md) rule says
 
 The mirror repos serve both audiences:
 
-- [`oriz-org/claude-code-config`](https://github.com/oriz-org/claude-code-config) — **corp-only showcase**. Marked as such in README.
-- [`oriz-org/opencode-config`](https://github.com/oriz-org/opencode-config) — runs on both.
-- [`oriz-org/kilocode-config`](https://github.com/oriz-org/kilocode-config) — runs on both.
-- [`oriz-org/antigravity-config`](https://github.com/oriz-org/antigravity-config) — runs on both, **personal-laptop primary**.
+- [`chirag127/claude-code-config`](https://github.com/chirag127/claude-code-config) — **corp-only showcase**. Marked as such in README.
+- [`chirag127/opencode-config`](https://github.com/chirag127/opencode-config) — runs on both.
+- [`chirag127/kilocode-config`](https://github.com/chirag127/kilocode-config) — runs on both.
+- [`chirag127/antigravity-config`](https://github.com/chirag127/antigravity-config) — runs on both, **personal-laptop primary**.
 
 ## What does NOT apply on personal laptop
 
@@ -90,7 +90,7 @@ RTK (Rust Token Killer) **does** apply on personal laptop — it's a local Rust 
 
 ## Sync workflow per machine
 
-Both machines clone the same workspace (`oriz-org/workspace`). After clone:
+Both machines clone the same workspace (`chirag127/workspace`). After clone:
 
 ```bash
 # corp laptop

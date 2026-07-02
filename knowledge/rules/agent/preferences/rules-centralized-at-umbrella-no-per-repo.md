@@ -9,7 +9,7 @@ status: active
 supersedes: rules-centralized-at-umbrella-no-per-repo
 ---
 
-ALL rules + `.env.example` live ONLY in the umbrella (`oriz-org/workspace` at `c:\D\oriz\`).
+ALL rules + `.env.example` live ONLY in the umbrella (`chirag127/workspace` at `c:\D\oriz\`).
 
 - Submodules: NO rules, NO `.env.example`. Just code + their own `.env` (if needed, gitignored).
 - Umbrella: ONE canonical `.env.example` at root, ONE knowledge tree, ONE AGENTS.md.

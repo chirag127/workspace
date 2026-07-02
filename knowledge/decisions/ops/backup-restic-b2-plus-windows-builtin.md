@@ -8,4 +8,4 @@ format_version: okf-v0.1
 status: active
 ---
 
-File-level backup: nightly Restic snapshot to Backblaze B2 (10 GB free tier, no card on file required). Disk-image backup: monthly Windows built-in Backup-and-Restore (Win11). Macrium Reflect Free was discontinued Jan 2024 — see [`macrium-reflect-free-discontinued`](../../../services/macrium-reflect-free-discontinued.md). Recovery keys stored encrypted in [`backup-keys-repo-oriz-org-backup`](./backup-keys-repo-oriz-org-backup.md). Locked 2026-06-25.
+File-level backup: nightly Restic snapshot to Backblaze B2 (10 GB free tier, no card on file required). Disk-image backup: monthly Windows built-in Backup-and-Restore (Win11). Macrium Reflect Free was discontinued Jan 2024 — see [`macrium-reflect-free-discontinued`](../../../services/macrium-reflect-free-discontinued.md). Recovery keys stored encrypted in [`backup-keys-repo-chirag127-backup`](./backup-keys-repo-chirag127-backup.md). Locked 2026-06-25.

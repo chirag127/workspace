@@ -28,9 +28,9 @@ related:
 ## Decision
 
 One GitHub Actions workflow (`.github/workflows/mirror-all.yml`) on the
-`oriz-org/workspace` umbrella repo pushes every `repos/own/*` submodule
+`chirag127/workspace` umbrella repo pushes every `repos/own/*` submodule
 to **9 free, no-self-host GitHub-alternative hosts** on a weekly
-schedule. All state lives in the workflow + `oriz-org` org-level secrets
+schedule. All state lives in the workflow + `chirag127` org-level secrets
 and variables — zero local runner, zero card.
 
 | Workflow | Schedule | Scope | Hosts |
@@ -81,7 +81,7 @@ All free, no card, no self-hosting. Eight are managed git hosts; Radicle is a P2
 ## Architecture
 
 ```
-GitHub repo: oriz-org/workspace
+GitHub repo: chirag127/workspace
 +-- .github/workflows/mirror-all.yml  (the only state)
 
 Friday 22:00 UTC (Friday 03:30 IST)
@@ -93,8 +93,8 @@ Friday 22:00 UTC (Friday 03:30 IST)
 +-- Job: weekly-digest (Telegram 9-host summary)
 ```
 
-All credentials live as **org-level GitHub Secrets** under `oriz-org`
-(the org that owns the umbrella `oriz-org/workspace` repo running the
+All credentials live as **org-level GitHub Secrets** under `chirag127`
+(the org that owns the umbrella `chirag127/workspace` repo running the
 cron). ENABLE flags live as **org-level Variables** so each host can be
 flipped 0?1 without touching credentials.
 
@@ -108,8 +108,8 @@ store as a base64 tarball in `MIRROR_RADICLE_KEYPAIR_TAR_B64`:
 curl -sSfL -H "Accept: text/plain" https://radicle.xyz/install | sh
 rad auth                                          # creates ~/.radicle/keys
 tar czf - -C ~/.radicle keys | base64 -w0 \
-  | gh secret set MIRROR_RADICLE_KEYPAIR_TAR_B64 --org oriz-org --visibility all
-gh secret set MIRROR_RADICLE_PASSPHRASE --org oriz-org --visibility all
+  | gh secret set MIRROR_RADICLE_KEYPAIR_TAR_B64 --org chirag127 --visibility all
+gh secret set MIRROR_RADICLE_PASSPHRASE --org chirag127 --visibility all
 ```
 
 Workflow then unpacks `~/.radicle/keys`, configures `radicle.garden` as

@@ -15,7 +15,7 @@ format_version: okf-v0.1
 status: active
 related:
 - rules/interaction/profile-readme-cross-link
-- branding/oriz-org-rename-from-co
+- branding/chirag127-rename-from-co
 - branding/cs-me-app-moved-to-chirag127
 - decisions/architecture/general/projects-owner-own-forks-layout
 ---
@@ -31,7 +31,7 @@ When making layout/branding/repo-ownership decisions that affect
 this order:
 
 1. **Pinned repos** (6 max, you choose them) — biggest single signal.
-   Pinning an `oriz-org/*` repo from `chirag127` works fine; the org
+   Pinning an `chirag127/*` repo from `chirag127` works fine; the org
    doesn't hide it.
 2. **Contribution graph** — green squares from any repo where you're
    a member, public or private. Org commits count.
@@ -57,7 +57,7 @@ After those, decreasing in importance:
 
 - The owner-split layout
   ([`projects-owner-own-forks-layout`](../../decisions/architecture/projects-owner-own-forks-layout.md))
-  — keeps both surfaces populated. Brand work under `oriz-org/`,
+  — keeps both surfaces populated. Brand work under `chirag127/`,
   personal work under `chirag127/`. Each surface tells the right
   story.
 - Moving `oriz-cs-me-app` off the brand org back to chirag127

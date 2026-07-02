@@ -8,4 +8,4 @@ format_version: okf-v0.1
 status: active
 ---
 
-`c:\D\oriz` is the umbrella repo; each fleet repo is added as a git submodule. `git clone --recurse-submodules https://github.com/oriz-org/oriz` pulls the whole fleet in one command. Submodule performance is acceptable below ~50 entries (current scope fits). Locked 2026-06-25.
+`c:\D\oriz` is the umbrella repo; each fleet repo is added as a git submodule. `git clone --recurse-submodules https://github.com/chirag127/oriz` pulls the whole fleet in one command. Submodule performance is acceptable below ~50 entries (current scope fits). Locked 2026-06-25.
