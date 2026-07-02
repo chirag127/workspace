@@ -59,13 +59,14 @@ logs
 # Knowledge graph index — local-only, regenerated via mcp__codebase-memory__index_repository
 .codebase-memory/
 
-# Skills — content now lives directly in .claude/skills/ (real files, not junctions)
-# Track skills that belong to the workspace; ignore agent-local only
+# Skills — .claude/skills is now a junction to repos/own/infra/agent-skills (workspace-canonical).
+# The junction contents are tracked in the agent-skills submodule, not the umbrella.
+# Ignore junction contents at umbrella level to avoid duplicate tracking.
 .agents/skills
 .kilocode/skills
 .opencode/skills
 .gemini/skills
-# .claude/skills IS tracked — it's the canonical source now (no longer a junction)
+.claude/skills/
 
 .gemini/
 
