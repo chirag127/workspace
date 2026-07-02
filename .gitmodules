@@ -79,3 +79,6 @@
 [submodule "repos/own/infra/hermes-config"]
 	path = repos/own/infra/hermes-config
 	url = https://github.com/chirag127/hermes-config.git
+[submodule "repos/frk/screenpipe"]
+	path = repos/frk/screenpipe
+	url = https://github.com/chirag127/screenpipe.git
