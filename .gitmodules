@@ -1,75 +1,75 @@
 [submodule "repos/me"]
 	path = repos/own/sites/me
-	url = https://github.com/oriz-org/me.git
+	url = https://github.com/chirag127/me.git
 [submodule "repos/journal"]
 	path = repos/own/sites/journal
-	url = https://github.com/oriz-org/journal.git
+	url = https://github.com/chirag127/journal.git
 [submodule "repos/home"]
 	path = repos/own/sites/home
-	url = https://github.com/oriz-org/home.git
+	url = https://github.com/chirag127/home.git
 [submodule "repos/oriz-ncert-app"]
 	path = repos/own/apps-mobile/oriz-ncert-app
-	url = https://github.com/oriz-org/oriz-ncert-app.git
+	url = https://github.com/chirag127/oriz-ncert-app.git
 [submodule "repos/oriz-lore-app"]
 	path = repos/own/apps-mobile/oriz-lore-app
-	url = https://github.com/oriz-org/oriz-lore-app.git
+	url = https://github.com/chirag127/oriz-lore-app.git
 [submodule "repos/oriz-janaushdhi-app"]
 	path = repos/own/apps-mobile/oriz-janaushdhi-app
-	url = https://github.com/oriz-org/oriz-janaushdhi-app.git
+	url = https://github.com/chirag127/oriz-janaushdhi-app.git
 [submodule "repos/oriz-janaushdhi-book"]
 	path = repos/own/books/oriz-janaushdhi-book
-	url = https://github.com/oriz-org/oriz-janaushdhi-book.git
+	url = https://github.com/chirag127/oriz-janaushdhi-book.git
 [submodule "repos/oriz-me-book"]
 	path = repos/own/books/oriz-me-book
-	url = https://github.com/oriz-org/oriz-me-book.git
+	url = https://github.com/chirag127/oriz-me-book.git
 [submodule "repos/oriz-mmi-tickertape-mmi-api"]
 	path = repos/own/api/oriz-mmi-tickertape-mmi-api
-	url = https://github.com/oriz-org/oriz-mmi-tickertape-mmi-api.git
+	url = https://github.com/chirag127/oriz-mmi-tickertape-mmi-api.git
 [submodule "repos/ai-rewrite-bs-ext"]
 	path = repos/frk/ai-rewrite-bs-ext
-	url = https://github.com/oriz-org/ai-rewrite-bs-ext.git
+	url = https://github.com/chirag127/ai-rewrite-bs-ext.git
 [submodule "repos/userscripts"]
 	path = repos/own/userscripts
-	url = https://github.com/oriz-org/userscripts.git
+	url = https://github.com/chirag127/userscripts.git
 [submodule "repos/freellmapi"]
 	path = repos/frk/freellmapi
-	url = https://github.com/oriz-org/freellmapi.git
+	url = https://github.com/chirag127/freellmapi.git
 [submodule "repos/omniroute"]
 	path = repos/frk/omniroute
-	url = https://github.com/oriz-org/omniroute.git
+	url = https://github.com/chirag127/omniroute.git
 [submodule "repos/sops-lens-vsc-ext"]
 	path = repos/own/apps-vsc-ext/sops-lens-vsc-ext
-	url = https://github.com/oriz-org/sops-lens-vsc-ext.git
+	url = https://github.com/chirag127/sops-lens-vsc-ext.git
 [submodule "repos/bookmark-mind-bs-ext"]
 	path = repos/own/apps-bs-ext/bookmark-mind-bs-ext
-	url = https://github.com/oriz-org/bookmark-mind-bs-ext.git
+	url = https://github.com/chirag127/bookmark-mind-bs-ext.git
 [submodule "repos/blog"]
 	path = repos/own/sites/blog
-	url = https://github.com/oriz-org/blog.git
+	url = https://github.com/chirag127/blog.git
 [submodule "repos/own/rto-api"]
 	path = repos/own/api/rto-api
-	url = https://github.com/oriz-org/rto-api
+	url = https://github.com/chirag127/rto-api
 [submodule "repos/own/constants-api"]
 	path = repos/own/api/constants-api
-	url = https://github.com/oriz-org/constants-api
+	url = https://github.com/chirag127/constants-api
 [submodule "repos/own/ragas-api"]
 	path = repos/own/api/ragas-api
-	url = https://github.com/oriz-org/ragas-api
+	url = https://github.com/chirag127/ragas-api
 [submodule "repos/own/dynasties-api"]
 	path = repos/own/api/dynasties-api
-	url = https://github.com/oriz-org/dynasties-api
+	url = https://github.com/chirag127/dynasties-api
 [submodule "repos/own/countries-plus-api"]
 	path = repos/own/api/countries-plus-api
-	url = https://github.com/oriz-org/countries-plus-api
+	url = https://github.com/chirag127/countries-plus-api
 [submodule "repos/own/api-fleet-template"]
 	path = repos/own/infra/api-fleet-template
-	url = https://github.com/oriz-org/api-fleet-template
+	url = https://github.com/chirag127/api-fleet-template
 [submodule "repos/own/api-fleet-landing"]
 	path = repos/own/infra/api-fleet-landing
-	url = https://github.com/oriz-org/api-fleet-landing
+	url = https://github.com/chirag127/api-fleet-landing
 [submodule "repos/own/agent-skills"]
 	path = repos/own/infra/agent-skills
-	url = https://github.com/oriz-org/agent-skills
+	url = https://github.com/chirag127/agent-skills
 [submodule "repos/frk/bcu"]
 	path = repos/frk/bcu
 	url = https://github.com/chirag127/Bulk-Crap-Uninstaller.git
