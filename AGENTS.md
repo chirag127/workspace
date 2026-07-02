@@ -31,6 +31,7 @@ These 21 files inline into the agent context on every session. They govern *ever
 @knowledge/rules/agent/knowledge-everything-caveman.md
 @knowledge/rules/agent/terse-issues-less-hallucination.md
 @knowledge/rules/agent/thank-maintainers.md
+@knowledge/rules/agent/preferences/proactive-creative-workarounds.md
 
 **Lazy-loaded** — read on first knowledge access, not auto-imported:
 - [`knowledge/rules/agent/agent-minimum-context.md`](./knowledge/rules/agent/agent-minimum-context.md) — meta-protocol for navigating `knowledge/`. Read this BEFORE the first grep/read in `knowledge/` each session.
@@ -181,11 +182,11 @@ Full rationale: [`knowledge/decisions/architecture/infrastructure/workspace-flat
 
 ---
 
-## Rules (83 total) — non-negotiable
+## Rules (84 total) — non-negotiable
 
 Grouped by subdirectory of `knowledge/rules/`. The full table with descriptions lives in [`knowledge/index.md`](./knowledge/index.md#rules-78-total).
 
-### Agent behaviour (21) — `knowledge/rules/agent/`
+### Agent behaviour (22) — `knowledge/rules/agent/`
 - `agent-fleet-parity` — same rules + MCPs across all fleet agents.
 - `agent-minimum-context` — operate on this repo with minimum upfront token cost.
 - `agents-md-three-place-update` — adding a rule lands in 3 places: concept file + AGENTS.md table + count bump, same commit.
@@ -207,6 +208,7 @@ Grouped by subdirectory of `knowledge/rules/`. The full table with descriptions 
 - `self-update-rule` — every locked decision = concept file + log line + commit in the same conversation.
 - `agents-md-2025-discipline` — AGENTS.md short, sharp; bulk in `knowledge/`.
 - `mcp-config-single-source-of-truth` — `.mcp.json` is canonical; sync to all 5 CLI/extension agents via `node scripts/sync-mcp-configs.mjs`. ZCode uses GUI. Never edit per-agent MCP files directly.
+- `proactive-creative-workarounds` — when blocked by any constraint, lead with a creative workaround, not "I can't." Blocked = opportunity.
 
 ### Design (5) — `knowledge/rules/design/`
 - `design-divergence-vs-dedup` — per-app variants where it matters; shared where it doesn't.
