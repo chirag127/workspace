@@ -68,3 +68,16 @@ logs
 
 # Local scratch / staging — not source
 .staging/
+
+# Per-machine agent state — auth tokens, per-host settings
+.claude/settings.local.json
+
+# Fleet-cut agent leftovers 2026-07-01 — do not commit
+.codeep/
+.gocode/
+.zhanlu/
+.qodo/
+
+# Root scratch scratchpads (delete these files if they exist)
+/foo.txt
+/test.md
