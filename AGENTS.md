@@ -8,7 +8,7 @@
 
 ## Always-loaded rules (auto-imported every session)
 
-These 19 files inline into the agent context on every session. They govern *every* response. Everything else in `knowledge/` is on-demand — read when the topic comes up, via `knowledge/index.md`.
+These 21 files inline into the agent context on every session. They govern *every* response. Everything else in `knowledge/` is on-demand — read when the topic comes up, via `knowledge/index.md`.
 
 @knowledge/rules/agent/ponytail.md
 @knowledge/rules/agent/caveman.md
@@ -29,6 +29,8 @@ These 19 files inline into the agent context on every session. They govern *ever
 @knowledge/rules/agent/fork-thin-upstream-tracking.md
 @knowledge/rules/agent/forks-as-submodules.md
 @knowledge/rules/agent/knowledge-everything-caveman.md
+@knowledge/rules/agent/terse-issues-less-hallucination.md
+@knowledge/rules/agent/thank-maintainers.md
 
 **Lazy-loaded** — read on first knowledge access, not auto-imported:
 - [`knowledge/rules/agent/agent-minimum-context.md`](./knowledge/rules/agent/agent-minimum-context.md) — meta-protocol for navigating `knowledge/`. Read this BEFORE the first grep/read in `knowledge/` each session.
@@ -179,11 +181,11 @@ Full rationale: [`knowledge/decisions/architecture/infrastructure/workspace-flat
 
 ---
 
-## Rules (81 total) — non-negotiable
+## Rules (83 total) — non-negotiable
 
 Grouped by subdirectory of `knowledge/rules/`. The full table with descriptions lives in [`knowledge/index.md`](./knowledge/index.md#rules-78-total).
 
-### Agent behaviour (19) — `knowledge/rules/agent/`
+### Agent behaviour (21) — `knowledge/rules/agent/`
 - `agent-fleet-parity` — same rules + MCPs across all fleet agents.
 - `agent-minimum-context` — operate on this repo with minimum upfront token cost.
 - `agents-md-three-place-update` — adding a rule lands in 3 places: concept file + AGENTS.md table + count bump, same commit.
@@ -195,6 +197,8 @@ Grouped by subdirectory of `knowledge/rules/`. The full table with descriptions 
 - `junctions-on-windows` — use `mklink /J` on Windows, `ln -s` on Unix for shared-content links.
 - `keep-knowledge-fresh` — read before acting, write decisions back same session.
 - `knowledge-deletion-not-supersession` — `git rm` superseded files; git history is the audit trail.
+- `thank-maintainers` — every upstream issue/PR/comment ends with a one-line thanks to the maintainer.
+- `terse-issues-less-hallucination` — GitHub issues/comments: ≤150 words bug, ≤100 feature, ≤50 comment. No guessed facts, no speculation.
 - `knowledge-everything-caveman` — all durable facts in `knowledge/` as OKF files, written in caveman style (terse, no filler, facts first). No exceptions.
 - `knowledge-first` — durable info goes to `knowledge/`, never README/AGENTS.
 - `okf-lookup-before-acting` — every agent runs `scripts/okf-prompt-lookup.py` (CC via hook; others manually) to surface top-3 OKF files before answering. Fixes the discoverability gap.
@@ -250,7 +254,7 @@ Read [`knowledge/decisions/architecture/`](./knowledge/decisions/architecture/) 
 | `ops/` | 17 | `analytics-five-tier-stack`, `mirror-to-9-popular-alternatives-2026-06-28`, `backup-restic-to-b2`, `seo-three-pillars` |
 | `packages/` | 9 | `the-23-packages` (SUPERSEDED — see atomic-packages-lazy), `oriz-ai-providers-package`, `omni-publish-package` |
 | `security/` | 7 | `no-auth-in-apps-or-apis-2026-06-25`, `cross-site-auth-via-auth-oriz-in`, `payment-architecture-direct-links` |
-| `stack/` | 22 | `automation`, `cli-tools`, `databases`, `extensions`, `hosting`, `javascript-typescript`, `python`, `rust`, `cpp`, `csharp`, `go`, `java`, `family-stack-lock`, `stack-picks-2026-06-22`, `tools-shape-and-priority` |
+| `stack/` | 23 | `pipeline-stack-2026-07-01` (pnpm + MegaLinter + Dagger TS — locked), `automation`, `cli-tools`, `databases`, `extensions`, `hosting`, `javascript-typescript`, `python`, `rust`, `cpp`, `csharp`, `go`, `java`, `family-stack-lock`, `stack-picks-2026-06-22`, `tools-shape-and-priority` |
 | `uncategorised/` | 128 | older flat files — see [`knowledge/index.md`](./knowledge/index.md#uncategorised-architecture-128) (being progressively re-homed) |
 
 ---
