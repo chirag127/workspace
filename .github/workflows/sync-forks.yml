@@ -1,9 +1,9 @@
 # Weekly upstream sync for oriz-org forks (auto-PR, auto-merge on clean).
 #
 # Per knowledge/rules/agent/fork-thin-upstream-tracking.md (revised 2026-06-29):
-# - oriz-org/freellmapi         main tracks tashfeenahmed/freellmapi  main
-# - oriz-org/omniroute          main tracks diegosouzapw/OmniRoute    main
-# - oriz-org/ai-rewrite-bs-ext  main tracks SupratimRK/Ai-rewrite     main
+# - chirag127/freellmapi         main tracks tashfeenahmed/freellmapi  main
+# - chirag127/omniroute          main tracks diegosouzapw/OmniRoute    main
+# - chirag127/ai-rewrite-bs-ext  main tracks SupratimRK/Ai-rewrite     main
 # - Sync model: weekly cron opens a PR; auto-merge on clean fast-forward, human review on conflict.
 # - Oriz work still never touches fork main; lives on `oriz/<topic>` branches or
 #   the chirag127 personal fork per the rule. Force-push of fork main is no longer used.
