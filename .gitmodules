@@ -9,22 +9,22 @@
 	url = https://github.com/chirag127/home.git
 [submodule "repos/oriz-ncert-app"]
 	path = repos/own/apps-mobile/oriz-ncert-app
-	url = https://github.com/chirag127/oriz-ncert-app.git
+	url = https://github.com/chirag127/ncert-textbooks-app.git
 [submodule "repos/oriz-lore-app"]
 	path = repos/own/apps-mobile/oriz-lore-app
-	url = https://github.com/chirag127/oriz-lore-app.git
+	url = https://github.com/chirag127/lore-app.git
 [submodule "repos/oriz-janaushdhi-app"]
 	path = repos/own/apps-mobile/oriz-janaushdhi-app
-	url = https://github.com/chirag127/oriz-janaushdhi-app.git
+	url = https://github.com/chirag127/janaushdhi-medicine-finder-app.git
 [submodule "repos/oriz-janaushdhi-book"]
 	path = repos/own/books/oriz-janaushdhi-book
-	url = https://github.com/chirag127/oriz-janaushdhi-book.git
+	url = https://github.com/chirag127/janaushdhi-book.git
 [submodule "repos/oriz-me-book"]
 	path = repos/own/books/oriz-me-book
-	url = https://github.com/chirag127/oriz-me-book.git
+	url = https://github.com/chirag127/100-year-strategy-book.git
 [submodule "repos/oriz-mmi-tickertape-mmi-api"]
 	path = repos/own/api/oriz-mmi-tickertape-mmi-api
-	url = https://github.com/chirag127/oriz-mmi-tickertape-mmi-api.git
+	url = https://github.com/chirag127/market-mood-index-api.git
 [submodule "repos/ai-rewrite-bs-ext"]
 	path = repos/frk/ai-rewrite-bs-ext
 	url = https://github.com/chirag127/ai-rewrite-bs-ext.git
